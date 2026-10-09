@@ -27,12 +27,16 @@ if(decode.status!==0)failures.push(`Decode error ${decode.stderr.slice(0,500)}`)
 const black=exec('ffmpeg',['-hide_banner','-i',file,'-vf','blackdetect=d=0.10:pix_th=0.10:pic_th=0.98','-an','-f','null','-']);
 const blackIntervals=[...black.stderr.matchAll(/black_start:([\d.]+) black_end:([\d.]+) black_duration:([\d.]+)/g)].map(m=>({start:+m[1],end:+m[2],duration:+m[3]}));
 const duration=Number(obj.format?.duration||0);
+const expectedDurationSeconds=expectedFrames/data.fps;
+const durationDriftSeconds=Math.abs(duration-expectedDurationSeconds);
+if(!Number.isFinite(duration)||duration<=0||durationDriftSeconds>2/data.fps)
+ failures.push(`Duration ${duration}s differs from expected ${expectedDurationSeconds}s by more than 2 frames`);
 const reports=path.join(home,'reports');mkdirSync(reports,{recursive:true});
 const montage=path.join(reports,'contact-sheet.jpg');
 const fpsSampling=(9/Math.max(.5,duration)).toFixed(4);
 const contact=exec('ffmpeg',['-y','-hide_banner','-loglevel','error','-i',file,'-vf',`fps=${fpsSampling},scale=200:-2,tile=3x3`,'-frames:v','1',montage]);
 if(contact.status!==0)failures.push('Contact sheet generation failed: '+contact.stderr.slice(0,200));
-const report={engine:'remotion-required-at-render',project,mode,file:path.basename(file),sha256:await sha256(file),gitSha:process.env.GITHUB_SHA||'local',fps,width:vid.width,height:vid.height,actualFrames,expectedFrames,durationSeconds:duration,hasAudio:!!aud,decodeOkay:decode.status===0,blackIntervals,technicalStatus:failures.length?'failed':'passed',visualStatus:'PENDING_HUMAN_REVIEW',warnings:blackIntervals.length?[`${blackIntervals.length} dark intervals: inspect contact sheet and actual playback`]:[],failures,contactSheet:existsSync(montage)?'contact-sheet.jpg':null};
+const report={engine:'remotion-required-at-render',project,mode,file:path.basename(file),sha256:await sha256(file),gitSha:process.env.GITHUB_SHA||'local',fps,width:vid.width,height:vid.height,actualFrames,expectedFrames,durationSeconds:duration,expectedDurationSeconds,durationDriftSeconds,hasAudio:!!aud,decodeOkay:decode.status===0,blackIntervals,technicalStatus:failures.length?'failed':'passed',visualStatus:'PENDING_HUMAN_REVIEW',warnings:blackIntervals.length?[`${blackIntervals.length} dark intervals: inspect contact sheet and actual playback`]:[],failures,contactSheet:existsSync(montage)?'contact-sheet.jpg':null};
 writeFileSync(path.join(reports,'technical-qa.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report));
 if(failures.length)process.exitCode=1;
