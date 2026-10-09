@@ -12,7 +12,7 @@ Remotion Production/
     che-v42/{assets,masters,qa,scratch}/
 ```
 
-These folders are a **proposed structure**. Creating source folders and configuring OAuth are pending; no existing originals are moved.
+The `demo` and `che-v42` project subfolders (`assets`, `masters`, `qa`, `scratch`) were created and verified through the connected Google Drive service. OAuth for GitHub Actions remains pending; original files have not been moved.
 
 ## Authentication in GitHub Actions
 
