@@ -16,10 +16,10 @@
 - Project-specific Drive folders; heavy media excluded from Git; local SHA256 asset manifests.
 - Optional legacy V42 compatibility project, with no Che master workflow automatically triggered.
 
-## Android 5-minute workflow (once repository and its connector permissions are enabled)
+## Android workflow — repository installed on GitHub
 
-1. Create **public** `remotion-production-hub` on the new GitHub account. Do **not** put private institutional media, passwords or private data in source control. Restrict master outputs to Drive.
-2. Import these repository files (ZIP delivered by ChatGPT). Commit to `main`. **Generate `package-lock.json` once** in an online Codespace with `bash scripts/bootstrap-lock.sh`, inspect and commit it. This pins all transitive dependencies to the historical Remotion 4.0.530 lock; Actions deliberately blocks until a lock is committed.
+1. Open the existing **public** repository `davidiaz03/remotion-production-hub-`. Do **not** commit private institutional media or credentials; restrict masters to Drive.
+2. The universal engine, manual workflows and `package-lock.json` are already committed to `main`. Codespaces and Actions must still be tested on GitHub before being called operational.
 3. In GitHub repository → **Code → Codespaces** → Create codespace on `main` (2 cores). Use `npm run studio -- demo` in browser VS Code terminal, then open the private forwarded port 3000.
 4. Create a new project: `npm run new -- mi-reel` (or `npm run new -- mi-reel "Título"`). Change `projects/mi-reel/src/Video.tsx` and the composition/duration/fps in both `Root.tsx` and `project.json`.
 5. Preview in Studio, commit source, and use **Actions → 01 - Remotion quick preview → Run workflow** with project `mi-reel` and frames `0-57`. This is a real native Remotion render, not a transcode of an old MP4.
@@ -40,5 +40,7 @@ node scripts/cleanup.mjs --execute         # only scratch and outputs
 ```
 
 The `--file` argument must point inside that project's `out/`. The `--approval` for full CLI rendering is `--approve EXPORTAR-MASTER`.
+
+**Deployment status:** The GitHub source files and workflows have been verified via the connector. No GitHub Actions run, Codespace launch, or real Remotion MP4 is yet verified. Drive OAuth for workflows must be configured separately. Original Che history remains in its historical repository; copying the V42 compatibility code here did not import its Git history.
 
 **Read next:** [ARCHITECTURE](docs/ARCHITECTURE.md), [DRIVE](docs/DRIVE.md), [OPERATIONS](docs/OPERATIONS.md), [MIGRATION](docs/MIGRATION.md), [TESTS](docs/TESTS.md).
