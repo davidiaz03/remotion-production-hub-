@@ -1,0 +1,133 @@
+name: Remotion shared native render engine
+on:
+  workflow_call:
+    inputs:
+      project:
+        type: string
+        required: true
+      mode:
+        type: string
+        required: true
+      frames:
+        type: string
+        required: false
+        default: "0-57"
+      confirmation:
+        type: string
+        required: false
+        default: ""
+    secrets:
+      RCLONE_CONFIG_B64:
+        required: false
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: ${{ inputs.mode == 'full' && 45 || 14 }}
+    concurrency:
+      group: ${{ inputs.mode == 'full' && format('remotion-master-{0}', github.repository) || format('remotion-preview-{0}-{1}', github.repository, inputs.project) }}
+      cancel-in-progress: ${{ inputs.mode != 'full' }}
+    env:
+      PROJECT: ${{ inputs.project }}
+      RENDER_MODE: ${{ inputs.mode }}
+      FRAME_RANGE: ${{ inputs.frames }}
+      MASTER_CONFIRMATION: ${{ inputs.confirmation }}
+      GITHUB_REPOSITORY_PRIVATE: ${{ github.event.repository.private }}
+    steps:
+      - name: Read exact source revision
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Fail-closed eligibility and project validation (before npm)
+        env:
+          RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
+        run: |
+          node scripts/free-guard.mjs --project "$PROJECT" --mode "$RENDER_MODE" --approve "$MASTER_CONFIRMATION"
+          node scripts/validate.mjs --project "$PROJECT"
+          test -s package-lock.json || { echo 'Bootstrap and commit package-lock.json first'; exit 4; }
+          if [ "$RENDER_MODE" = "full" ] && [ -z "${RCLONE_CONFIG_B64:-}" ]; then
+            echo 'Full export requires Drive authentication BEFORE any render'; exit 5
+          fi
+      - name: Install pinned Node and cache npm downloads only
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+          cache: npm
+      - name: Install exact dependencies (never npm update)
+        run: npm ci --no-audit --no-fund
+      - name: Verify required tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg rclone unzip
+          node --version; ffprobe -version | head -1; rclone version | head -1
+          test "$(df -Pk . | awk 'NR==2 {print ($4 > 4194304)}')" = "1" || { echo 'Insufficient workspace disk'; exit 7; }
+      - name: Prepare Drive authentication from GitHub secret, if supplied
+        env:
+          RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
+        run: node scripts/rclone-env.mjs
+      - name: Restore only this project's exact approved resources
+        run: node scripts/sync-assets.mjs --project "$PROJECT"
+      - name: Validate every asset by SHA256
+        run: node scripts/verify-assets.mjs --project "$PROJECT"
+      - name: Reject duplicate Drive master BEFORE rendering
+        if: ${{ inputs.mode == 'full' }}
+        run: |
+          SHORT_SHA="${GITHUB_SHA:0:12}"
+          echo "OUTPUT_FILE=${PROJECT}-${SHORT_SHA}-master.mp4" >> "$GITHUB_ENV"
+          node scripts/guard-duplicate.mjs --project "$PROJECT" --file "${PROJECT}-${SHORT_SHA}-master.mp4"
+      - name: Native Remotion render (same TSX as Studio)
+        id: render
+        run: |
+          if [ "$RENDER_MODE" = "quick" ]; then
+            OUTPUT_FILE="${PROJECT}-preview-${GITHUB_RUN_ID}.mp4"
+            echo "OUTPUT_FILE=${OUTPUT_FILE}" >> "$GITHUB_ENV"
+            node scripts/project.mjs render "$PROJECT" --mode quick --frames "$FRAME_RANGE" --output "projects/${PROJECT}/out/${OUTPUT_FILE}"
+          else
+            node scripts/project.mjs render "$PROJECT" --mode full --approve "$MASTER_CONFIRMATION" --output "projects/${PROJECT}/out/${OUTPUT_FILE}"
+          fi
+      - name: Decode MP4 and generate QA plus visual contact sheet
+        run: |
+          if [ "$RENDER_MODE" = "quick" ]; then
+            node scripts/qa-media.mjs --project "$PROJECT" --mode quick --frames "$FRAME_RANGE" --file "projects/${PROJECT}/out/${OUTPUT_FILE}"
+          else
+            node scripts/qa-media.mjs --project "$PROJECT" --mode full --file "projects/${PROJECT}/out/${OUTPUT_FILE}"
+          fi
+      - name: Upload master to Drive and verify the copy
+        id: deliver
+        if: ${{ inputs.mode == 'full' }}
+        run: node scripts/drive-upload.mjs --project "$PROJECT" --file "projects/${PROJECT}/out/${OUTPUT_FILE}"
+      - name: One-day preview video for Android review
+        if: ${{ inputs.mode == 'quick' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-${{ inputs.project }}-${{ github.run_id }}
+          path: |
+            projects/${{ inputs.project }}/out/*.mp4
+            projects/${{ inputs.project }}/reports/*
+          retention-days: 1
+          if-no-files-found: error
+          compression-level: 0
+      - name: One-day QA manifest for verified Drive master
+        if: ${{ inputs.mode == 'full' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-report-${{ inputs.project }}-${{ github.run_id }}
+          path: projects/${{ inputs.project }}/reports/*
+          retention-days: 1
+          if-no-files-found: error
+      - name: Emergency one-day recovery ONLY if Drive delivery fails
+        if: ${{ failure() && inputs.mode == 'full' && steps.render.outcome == 'success' && steps.deliver.outcome == 'failure' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: emergency-recovery-${{ inputs.project }}-${{ github.run_id }}
+          path: projects/${{ inputs.project }}/out/*.mp4
+          retention-days: 1
+          if-no-files-found: warn
+          compression-level: 0
+      - name: Remove scratch outputs only after successful delivery
+        if: ${{ success() }}
+        run: node scripts/cleanup.mjs --execute
+      - name: Erase transient credential file
+        if: ${{ always() }}
+        run: rm -f "${RUNNER_TEMP}/remotion-rclone.conf"

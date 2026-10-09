@@ -1,0 +1,16 @@
+{
+  "name": "Remotion Production Hub (Android)",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "forwardPorts": [3000],
+  "portsAttributes": {"3000": {"label": "Remotion Studio - vista previa", "onAutoForward": "notify", "protocol": "http"}},
+  "postCreateCommand": "bash scripts/codespaces-setup.sh",
+  "postAttachCommand": "printf 'Inicio: npm run studio -- demo\\nNuevo reel: npm run new -- mi-reel\\n'",
+  "remoteUser": "node",
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "ms-vscode.vscode-typescript-next"],
+      "settings": {"terminal.integrated.defaultProfile.linux": "bash"}
+    }
+  },
+  "hostRequirements": {"cpus": 2, "memory": "4gb", "storage": "16gb"}
+}

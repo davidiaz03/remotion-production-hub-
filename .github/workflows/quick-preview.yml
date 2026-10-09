@@ -1,0 +1,25 @@
+name: 01 - Remotion quick preview (manual)
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: "Project folder slug (e.g. demo or che-v42)"
+        required: true
+        default: demo
+        type: string
+      frames:
+        description: "Inclusive 1-90 frame range e.g. 0-57"
+        required: true
+        default: "0-57"
+        type: string
+permissions:
+  contents: read
+jobs:
+  preview:
+    uses: ./.github/workflows/reusable-render.yml
+    with:
+      project: ${{ inputs.project }}
+      mode: quick
+      frames: ${{ inputs.frames }}
+      confirmation: ""
+    secrets: inherit

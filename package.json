@@ -1,0 +1,33 @@
+{
+  "name": "remotion-production-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "One Remotion engine for many independent projects",
+  "scripts": {
+    "project": "node scripts/project.mjs",
+    "new": "node scripts/project.mjs create",
+    "studio": "node scripts/project.mjs studio",
+    "preview": "node scripts/project.mjs render --mode quick",
+    "master": "node scripts/project.mjs render --mode full",
+    "validate": "node scripts/validate.mjs --all",
+    "assets:check": "node scripts/verify-assets.mjs",
+    "assets:sync": "node scripts/sync-assets.mjs",
+    "qa": "node scripts/qa-media.mjs",
+    "cleanup": "node scripts/cleanup.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.530",
+    "@remotion/transitions": "4.0.530",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.530"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "typescript": "5.6.3"
+  },
+  "engines": {"node": ">=20 <23"},
+  "packageManager": "npm@10.9.2"
+}

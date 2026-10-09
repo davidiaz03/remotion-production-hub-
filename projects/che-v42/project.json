@@ -1,0 +1,27 @@
+{
+  "id": "che-v42",
+  "title": "Che Guevara — Memorial V42 (compatibilidad; no render completo)",
+  "compositionId": "CheOctober1967V42",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationInFrames": 2418,
+  "audioRequired": true,
+  "drivePath": "Remotion Production/projects/che-v42",
+  "assets": {
+    "mode": "archives",
+    "manifest": "asset-manifest.json",
+    "archives": [
+      "V42_REMOTION_ASSETS_P01.zip",
+      "V42_REMOTION_ASSETS_P02.zip",
+      "V42_REMOTION_ASSETS_P03.zip",
+      "V42_REMOTION_ASSETS_P04.zip",
+      "V42_REMOTION_ASSETS_P05.zip",
+      "V42_REMOTION_ASSETS_P06.zip"
+    ],
+    "patchArchive": "V42_PATCH_58FRAMES_LOGO.zip",
+    "patchRequired": true,
+    "sourceDrivePath": "Remotion Projects/che-october-1967-reel-2026/renders"
+  },
+  "crf": 19
+}

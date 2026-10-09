@@ -1,0 +1,16 @@
+{
+  "id": "demo",
+  "title": "DEMO · MOTOR UNIVERSAL",
+  "compositionId": "MainReel",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationInFrames": 90,
+  "audioRequired": false,
+  "drivePath": "Remotion Production/projects/demo",
+  "assets": {
+    "mode": "manifest",
+    "manifest": "asset-manifest.json"
+  },
+  "crf": 19
+}

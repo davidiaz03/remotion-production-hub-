@@ -1,0 +1,155 @@
+{
+  "formatVersion": 1,
+  "files": [
+    {
+      "path": "FINAL_AUDIO_MASTER_V26.wav",
+      "bytes": 23212902,
+      "sha256": "d62ac042bc35058b60f53bed169580fc80915e4979df9933b3420bba68acbfb9"
+    },
+    {
+      "path": "V42_BRANDING/single_watermark_crisp.png",
+      "bytes": 398621,
+      "sha256": "e9405cda9ae5005bfd59648ef7b43c9b9e39ae4298f8897aff23dd9f27263382"
+    },
+    {
+      "path": "V42_CLIPS/age.mp4",
+      "bytes": 1204500,
+      "sha256": "513a5c0abf1a3722aedd03fae90550c17a17b3392eda191782cc9f2a2d1e227c"
+    },
+    {
+      "path": "V42_CLIPS/bolivia.mp4",
+      "bytes": 10065781,
+      "sha256": "7005fce6191895895c515b5b684fbd6768f470a0a3f8dffac148f7b17025cc36"
+    },
+    {
+      "path": "V42_CLIPS/bond.mp4",
+      "bytes": 5727959,
+      "sha256": "5b3d02b350aed7a79a21d78d7427edcf7062c6f1925bfe572234189058aa2f86"
+    },
+    {
+      "path": "V42_CLIPS/breathing.mp4",
+      "bytes": 7989,
+      "sha256": "1a285b8ab9d34904420af51cd3254a637f8367979a5c1a273eb2482d542286db"
+    },
+    {
+      "path": "V42_CLIPS/capture.mp4",
+      "bytes": 4379402,
+      "sha256": "25b747403dd85d9a9d2c518f205210276c5c70df113dea7ec4bf7520abb98fba"
+    },
+    {
+      "path": "V42_CLIPS/city.mp4",
+      "bytes": 2572035,
+      "sha256": "e3e09bd5dd3123ab9b34768f330eab60b4ad5c340ae5c369a558a915cbb3931e"
+    },
+    {
+      "path": "V42_CLIPS/congo.mp4",
+      "bytes": 422585,
+      "sha256": "68e7da7203f61535cf9ff4165807c218ea053b1c951a77b5ea36770fca869f62"
+    },
+    {
+      "path": "V42_CLIPS/execute.mp4",
+      "bytes": 1228491,
+      "sha256": "0e95c21e44cb4d96443afba4e2aaa75ac542ae30a812417e4436a40c98ccc29a"
+    },
+    {
+      "path": "V42_CLIPS/filmroll.mp4",
+      "bytes": 9253874,
+      "sha256": "ef03ab5e591da043efbd87fb10c1c497d2f561d7b56abaf4d57fe250851ba76f"
+    },
+    {
+      "path": "V42_CLIPS/forensic.mp4",
+      "bytes": 1117531,
+      "sha256": "d61e3ef1bf172378c70caafe2d69bcdfacb2955443406fb202e83ec0d0724efa"
+    },
+    {
+      "path": "V42_CLIPS/guerrilla.mp4",
+      "bytes": 1038436,
+      "sha256": "c0310b3834208550c783ac8a693b043a5956ba7452f01a6475af120befcf3ad8"
+    },
+    {
+      "path": "V42_CLIPS/hero.mp4",
+      "bytes": 8623815,
+      "sha256": "5306f6cdf70d368767e917951112dfc20834db807c86a214ce58417063058f72"
+    },
+    {
+      "path": "V42_CLIPS/hombre.mp4",
+      "bytes": 8141332,
+      "sha256": "1b840287c61fc4a424db90df68467132b6bce541b8208144f4e74861fcd8d1b8"
+    },
+    {
+      "path": "V42_CLIPS/international.mp4",
+      "bytes": 1245827,
+      "sha256": "b96e970b1a6e1499c89740b3dec7e15de4534b9c2f51723ed46465b83f165c53"
+    },
+    {
+      "path": "V42_CLIPS/korda.mp4",
+      "bytes": 6416193,
+      "sha256": "41175e72936aeb6ff82ad79ae1880e73182b16b7ec61994fd29ac0e01806130a"
+    },
+    {
+      "path": "V42_CLIPS/logo.mp4",
+      "bytes": 1339837,
+      "sha256": "7137d63651be11ee6829148bf7dbc1b2a0c588556da1b41e8109bf8305f77fe3"
+    },
+    {
+      "path": "V42_CLIPS/ministry.mp4",
+      "bytes": 484055,
+      "sha256": "3deeaee9dde3cd68f3a8c8cab032c2fd935a7c8cbd95db6a1b2f3249c5e31316"
+    },
+    {
+      "path": "V42_CLIPS/mule.mp4",
+      "bytes": 5011796,
+      "sha256": "1e95e5acef2008f51e9c50934767e8e0cf06377c4564ccb2d308e97c73f4484d"
+    },
+    {
+      "path": "V42_CLIPS/onu.mp4",
+      "bytes": 5472054,
+      "sha256": "c5c205c411639e475564233c34a62b1ac81cb016508c62ee1b695223057082b7"
+    },
+    {
+      "path": "V42_CLIPS/order.mp4",
+      "bytes": 322696,
+      "sha256": "a565b29b3f2880fa1234cf4d5f4f3337be0519cdf45c632042207bcd4ff53fe1"
+    },
+    {
+      "path": "V42_CLIPS/road.mp4",
+      "bytes": 7533071,
+      "sha256": "4cd120b469fe4bbd4025350e83058e3aa277b33c7d04b4cfdfcac4bb7172a7fa"
+    },
+    {
+      "path": "V42_CLIPS/santa.mp4",
+      "bytes": 5408516,
+      "sha256": "aea5706bd3a02c0f52aa24eabffa01e1caa935527e7a47f4048880de9bee8621"
+    },
+    {
+      "path": "V42_CLIPS/school.mp4",
+      "bytes": 4756811,
+      "sha256": "c7e8a22a0d40f9a2bd21b9e32b0195f8fda0ccb4b4fb98f44b001de59a973f7f"
+    },
+    {
+      "path": "V42_CLIPS/signature.mp4",
+      "bytes": 3761856,
+      "sha256": "517dd90a3d6c3d8ceaf466febc84509e69c39b94cac19707d4561b1eb830eec9"
+    },
+    {
+      "path": "V42_CLIPS/valle67.mp4",
+      "bytes": 11622382,
+      "sha256": "8da7337d3cb6a801b6ca29cc6387918a366cb998d205f135d0258912e1e54b05"
+    },
+    {
+      "path": "V42_CLIPS/valle97.mp4",
+      "bytes": 12310563,
+      "sha256": "c3bd753dffa457e9e640bde9fb9e2e8def5c569a8db701608cc7ad6dee92c4af"
+    },
+    {
+      "path": "V42_CLIPS/words.mp4",
+      "bytes": 8901,
+      "sha256": "53e094512b372c33e63110cfc2d4bdecb6ea977d858e9f716434203c398526ba"
+    },
+    {
+      "path": "V42_CLIPS/work.mp4",
+      "bytes": 10253328,
+      "sha256": "130ca56c9e13d7e4c51aaa7b4020d34d6e9e6a8038b554796490536aced9c690"
+    }
+  ]
+}

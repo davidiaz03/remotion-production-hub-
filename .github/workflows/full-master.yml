@@ -1,0 +1,24 @@
+name: 02 - Remotion full master (MANUAL APPROVAL)
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: "Existing project slug"
+        required: true
+        type: string
+      confirmation:
+        description: "Type EXACTLY EXPORTAR-MASTER; full export requires working Drive backup"
+        required: true
+        default: "NO"
+        type: string
+permissions:
+  contents: read
+jobs:
+  master:
+    uses: ./.github/workflows/reusable-render.yml
+    with:
+      project: ${{ inputs.project }}
+      mode: full
+      frames: ""
+      confirmation: ${{ inputs.confirmation }}
+    secrets: inherit

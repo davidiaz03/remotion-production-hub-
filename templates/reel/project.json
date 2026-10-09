@@ -1,0 +1,13 @@
+{
+  "id": "__SLUG__",
+  "title": "__TITLE__",
+  "compositionId": "MainReel",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationInFrames": 90,
+  "audioRequired": false,
+  "drivePath": "Remotion Production/projects/__SLUG__",
+  "assets": {"mode":"manifest", "manifest":"asset-manifest.json"},
+  "crf": 19
+}

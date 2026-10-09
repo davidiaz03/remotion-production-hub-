@@ -1,0 +1,1 @@
+import React from "react";import {Composition} from "remotion";import Video,{TOTAL_FRAMES} from "./Video";export const RemotionRoot=()=> <Composition id="CheOctober1967V42" component={Video} width={1080} height={1920} fps={30} durationInFrames={TOTAL_FRAMES}/>;

@@ -1,0 +1,8 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label":"Studio demo", "type":"shell", "command":"npm run studio -- demo", "isBackground":true,"problemMatcher":[]},
+    {"label":"Validate all projects", "type":"shell", "command":"npm run validate", "problemMatcher":[]},
+    {"label":"Create new reel", "type":"shell", "command":"npm run new -- mi-nuevo-reel", "problemMatcher":[]}
+  ]
+}
