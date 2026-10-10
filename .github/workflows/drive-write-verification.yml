@@ -1,0 +1,35 @@
+name: 04 - Drive write verification (NO RENDER)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tiny-write-test:
+    if: ${{ github.repository == 'davidiaz03/remotion-production-hub-' && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.16.0'
+      - name: Prepare isolated Drive credentials (never print)
+        env:
+          RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
+        run: |
+          if [ -z "$RCLONE_CONFIG_B64" ]; then
+            echo "::error::Missing RCLONE_CONFIG_B64"
+            exit 1
+          fi
+          node scripts/rclone-env.mjs
+      - name: Install rclone
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq rclone
+      - name: Write tiny immutable diagnostic and check SHA-256 readback
+        run: node scripts/drive-write-probe.mjs
+      - name: Remove temporary credentials
+        if: ${{ always() }}
+        run: rm -f "${RUNNER_TEMP}/remotion-rclone.conf"

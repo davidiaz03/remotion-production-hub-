@@ -53,3 +53,9 @@ In the workflow, the decoded config lives in `$RUNNER_TEMP`, chmod 0600, never u
 ## No silent cloud deletions
 
 No workflow deletes old Drive assets, originals, archives, approvals or masters. `rclone sync` is **not used**, because it might delete remote assets. We use `copyto` only. Optional Drive archive policies should be reviewed separately by project owners; there is no dangerous retention sweeper with access to masters.
+
+## Minimal write verification (manual, no render)
+
+Use `04 - Drive write verification (NO RENDER)` from `main` after the read-only preflight passes. The guarded script uploads ONE tiny unique text file, `Remotion Production/projects/_system-tests/scratch/write-probe-<run>-<attempt>.txt`, with `rclone copyto --immutable`, downloads it, compares SHA-256, and prints only metadata of that diagnostic. It does not overwrite existing Drive data, delete any remote file, render media, or approve any revision. It cleans its local temp files and the workflow cleans the credentials. The diagnostic stays in Drive for an audit trail.
+
+**A successful run proves only tiny-file write/readback**, NOT a full master, storage cost guarantee, Codespaces authorization, or delivery and QA of a finished video. Confirm the actual Actions run before marking write access verified.
