@@ -17,6 +17,12 @@ See [persistent state protocol](docs/PERSISTENCE.md), [Android Studio guide](doc
 
 **Verification boundary:** the previous Remotion demo 59-frame render succeeded on 2026-10-09. The newly introduced revision-aware export and real Chrome/Android Codespaces lifecycle have not yet been executed remotely; no new render is claimed.
 
+## Operación simplificada en Android (rama experimental)
+
+Los comandos nuevos y tareas de VS Code Web están documentados en [Automatización Android](docs/ANDROID_AUTOMATION.md). En Codespaces, abre **Terminal → Run Task** y selecciona **02 Guardar progreso en GitHub** después de editar. También puedes usar `npm run save -- demo --note "Progreso de hoy"`. Guarda código en Git + snapshot + estado, publica y comprueba el SHA remoto. **No exporta ni aprueba**; si falla el push, usa `npm run publish -- demo` para no duplicar revisiones.
+
+El avance real previo del proyecto `demo` está en `work/demo-android-persistence-20261010`: `demo-cut-001` conserva el título original, `demo-cut-002` la edición persistente. Ninguna tiene aprobación editorial. La rama `work/hub-android-automation-20261010` incluye esos commits y la nueva operación de guardado sin alterar `main`. Antes de integrarla en `main`, ejecutar `npm test` y probar un checkpoint remoto desde Codespaces.
+
 ## What it does
 
 `ChatGPT (code) → GitHub (versioned source) → Codespaces (same code in Studio) → Actions (native Remotion render) → FFprobe/FFmpeg QA + human review → Google Drive (approved masters)`.
