@@ -1,4 +1,4 @@
-import {readFileSync,writeFileSync} from 'node:fs';
+import {existsSync,readFileSync,writeFileSync,renameSync,unlinkSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {randomBytes} from 'node:crypto';
 import path from 'node:path';
@@ -57,37 +57,107 @@ function push(b){
  if(sha!==head())throw Error('Remote SHA does not match saved commit');
  return {branch:b,verifiedRemoteSha:sha};
 }
+// Interrupted saves leave a local Git-private journal so we can finish the
+// SAME checkpoint safely. Journals are never committed to public GitHub.
+const journalPath=()=>git('rev-parse','--path-format=absolute','--git-path','remotion-hub-save-'+id+'.json');
+const pending=()=>existsSync(journalPath())?JSON.parse(readFileSync(journalPath(),'utf8')):null;
+function writePending(j){
+ const p=journalPath();
+ writeFileSync(p+'.tmp',JSON.stringify(j,null,2)+'\n');
+ renameSync(p+'.tmp',p);
+}
+const checkpointTitle=j=>'checkpoint('+id+'): '+j.revision+' (not approved)';
+const sourceTitle=()=>'edit('+id+'): persist editable sources';
+function finishCheckpoint(j){
+ const b=branch();
+ if(j.schema!==1||j.project!==id||j.branch!==b||!j.revision||!j.baseHead)throw Error('Pending checkpoint does not match this project/branch');
+ remote(b);
+ const h=head();
+ if(!j.sourceCommit){
+  if(h===j.baseHead){
+   const dirty=changes();safeChanges(dirty,j.created);
+   if(!dirty.length)throw Error('Pending save has no source changes; inspect the journal');
+   git('add','-A','--','projects/'+id,...(j.created?['PROJECTS.json']:[]));
+   safeChanges(git('diff','--cached','--name-only').split('\n').filter(Boolean),j.created);
+   git('commit','-m',sourceTitle());
+  }else if(git('rev-parse','HEAD^')!==j.baseHead||git('log','-1','--format=%s')!==sourceTitle()){
+   throw Error('Unexpected commits since interrupted source save; reconcile manually');
+  }
+  j.sourceCommit=head();writePending(j);
+ }
+ const now=head();
+ if(now!==j.sourceCommit){
+  if(git('rev-parse','HEAD^')!==j.sourceCommit||git('log','-1','--format=%s')!==checkpointTitle(j))
+   throw Error('Unexpected commit since interrupted checkpoint; refusing push');
+ }else{
+  const snapshotFile=revision(j.revision);
+  if(!existsSync(snapshotFile)){
+   if(changes().length)throw Error('Unexpected changes after source commit; inspect before resuming');
+   node('scripts/revisions.mjs','snapshot','--project',id,'--revision',j.revision);
+  }
+  const snapshot=JSON.parse(readFileSync(snapshotFile,'utf8'));
+  if(snapshot.project!==id||snapshot.revision!==j.revision||snapshot.sourceCommit!==j.sourceCommit)throw Error('Snapshot/source mismatch');
+  // Recover if interrupted between creating the snapshot and updating state.
+  const stateFile=path.join(projectPath(id),'STATE.json'),indexFile=path.join(ROOT,'PROJECTS.json');
+  const s=JSON.parse(readFileSync(stateFile,'utf8')),idx=JSON.parse(readFileSync(indexFile,'utf8'));
+  const row=idx.projects.find(x=>x.id===id);
+  if(!row)throw Error('Project absent from index');
+  for(const v of [s.latestSnapshot,row.latestSnapshot])
+   if(v!==j.revision&&v!==j.previousSnapshot)throw Error('State changed during checkpoint; inspect before resuming');
+  if(s.latestSnapshot!==j.revision||row.latestSnapshot!==j.revision){
+   const timestamp=new Date().toISOString(),nextTask='Revisar '+j.revision+', confirmar y aprobar solo cuando corresponda';
+   Object.assign(s,{latestSnapshot:j.revision,phase:'review',nextTask,updatedAt:timestamp});
+   Object.assign(row,{latestSnapshot:j.revision,nextTask,updatedAt:timestamp});
+   writeFileSync(stateFile,JSON.stringify(s,null,2)+'\n');
+   writeFileSync(indexFile,JSON.stringify(idx,null,2)+'\n');
+  }
+  node('scripts/revisions.mjs','resume','--project',id,'--revision',j.revision);
+  const handoffFile=path.join(projectPath(id),'HANDOFF.md');
+  const old=existsSync(handoffFile)?readFileSync(handoffFile,'utf8'):'# '+s.title+'\n';
+  const marker='<!-- checkpoint:'+j.revision+' -->';
+  if(!old.includes(marker)){
+   const entry='\n'+marker+'\n## Sesión '+new Date().toISOString()+'\n'+
+    '- Revisión: '+j.revision+' (en revisión; NO aprobada)\n'+
+    '- Commit fuente: '+j.sourceCommit+'\n'+
+    '- Última aprobación: '+(s.approvedRevision||'ninguna')+'\n'+
+    '- Nota: '+(j.note||'Sin nota editorial')+'\n'+
+    '- Próximo paso: '+s.nextTask+'\n';
+   writeFileSync(handoffFile,old.trimEnd()+'\n'+entry);
+  }
+  const allow=['PROJECTS.json','projects/'+id+'/STATE.json','projects/'+id+'/HANDOFF.md','projects/'+id+'/revisions/'+j.revision+'.json'];
+  for(const file of changes())if(!allow.includes(file))throw Error('Concurrent change during checkpoint: '+file);
+  git('add','--',...allow);
+  git('commit','-m',checkpointTitle(j));
+ }
+ j.metadataCommit=head();writePending(j);
+ const result=push(b);
+ if(result.verifiedRemoteSha!==j.metadataCommit)throw Error('Published unexpected commit');
+ unlinkSync(journalPath());
+ console.log(JSON.stringify({status:'saved',project:id,revision:j.revision,sourceCommit:j.sourceCommit,metadataCommit:j.metadataCommit,approved:false,...result}));
+}
 function save(created=false){
+ const unfinished=pending();
+ if(unfinished){if(created)throw Error('Finish existing checkpoint first');return finishCheckpoint(unfinished);}
  const b=branch();remote(b);
  node('scripts/validate.mjs','--project',id);
  const note=typeof opts.note==='string'?opts.note:'';
  if(note.length>500||note.includes('\n'))throw Error('Note exceeds 500 chars or has line breaks');
  const files=changes();safeChanges(files,created);
  if(!files.length){console.log(JSON.stringify({status:'unchanged',project:id,...push(b)}));return;}
- git('add','-A','--','projects/'+id,...(created?['PROJECTS.json']:[]));
- safeChanges(git('diff','--cached','--name-only').split('\n').filter(Boolean),created);
- if(!git('diff','--cached','--name-only'))throw Error('No editable tracked files to save');
- git('commit','-m','edit('+id+'): persist editable sources');
- const source=head();
- const name=id+'-'+new Date().toISOString().replace(/[-:.]/g,'').toLowerCase()+'-'+randomBytes(3).toString('hex');
- node('scripts/revisions.mjs','snapshot','--project',id,'--revision',name);
- const s=state();
- const handoff='# '+s.title+' — siguiente sesión\n\nProyecto: '+id+'\nComposición: '+s.compositionId+
-  '\nRevisión: '+name+' (**en revisión, NO aprobada**)\nCommit fuente: '+source+
-  '\nÚltima aprobación: '+(s.approvedRevision||'ninguna')+
-  '\nNota editorial: '+(note||'No registrada')+'\nPróxima tarea: '+s.nextTask+
-  '\n\nConsultar PROJECTS.json, STATE.json y revisions/'+name+'.json antes de modificar.\n';
- writeFileSync(path.join(projectPath(id),'HANDOFF.md'),handoff);
- git('add','--','PROJECTS.json','projects/'+id+'/STATE.json','projects/'+id+'/HANDOFF.md','projects/'+id+'/revisions/'+name+'.json');
- git('commit','-m','checkpoint('+id+'): '+name+' (not approved)');
- // If push fails, BOTH local commits remain: use "publish" only.
- const result=push(b),snapshot=JSON.parse(readFileSync(revision(name),'utf8'));
- if(snapshot.sourceCommit!==source)throw Error('Snapshot/source mismatch');
- console.log(JSON.stringify({status:'saved',project:id,revision:name,sourceCommit:source,metadataCommit:head(),approved:false,declaredAssets:snapshot.assets.length,...result}));
+ const j={schema:1,project:id,branch:b,baseHead:head(),
+  revision:id+'-'+new Date().toISOString().replace(/[-:.]/g,'').toLowerCase()+'-'+randomBytes(3).toString('hex'),
+  created,note,previousSnapshot:state().latestSnapshot};
+ writePending(j);
+ finishCheckpoint(j);
+}
+function publish(){
+ const unfinished=pending();
+ if(unfinished)return finishCheckpoint(unfinished);
+ console.log(JSON.stringify(push(branch())));
 }
 if(action==='save')save();
-else if(action==='publish'){console.log(JSON.stringify(push(branch())));}
-else if(action==='status'){console.log(JSON.stringify({project:id,branch:git('branch','--show-current'),commit:head(),...state(),dirty:changes()},null,2));}
+else if(action==='publish')publish();
+else if(action==='status'){console.log(JSON.stringify({project:id,branch:git('branch','--show-current'),commit:head(),...state(),dirty:changes(),pendingCheckpoint:pending()?.revision||null},null,2));}
 else if(action==='create'){
  const b=branch();remote(b);
  if(changes().length)throw Error('Worktree must be clean before creating a project');
