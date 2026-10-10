@@ -17,3 +17,11 @@
 - **Pendiente real:** prueba de `npm run save` / `publish` nuevos sobre la PR #1, máquina nueva, aprobación y exportación a Drive. Las líneas antiguas de «pendiente probar Codespaces» anteriores a esta actualización son históricas y no reflejan el estado presente.
 
 **Próxima tarea:** revisar `START_HERE.md`, abrir rama del PR #1 y validar guardar + recuperar, sin render.
+
+<!-- checkpoint:demo-20261010t173853959z-c9084b -->
+## Sesión 2026-10-10T17:38:54.491Z
+- Revisión: demo-20261010t173853959z-c9084b (en revisión; NO aprobada)
+- Commit fuente: e8bf1f39c65fb739422fddc8dd21f80dee85ea33
+- Última aprobación: ninguna
+- Nota: Prueba de guardado desde Android
+- Próximo paso: Revisar demo-20261010t173853959z-c9084b, confirmar y aprobar solo cuando corresponda

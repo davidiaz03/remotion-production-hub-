@@ -5,7 +5,7 @@
   "objective": "Validar el motor comun y el guardado/recuperacion exacta de composiciones editables",
   "phase": "review",
   "compositionId": "MainReel",
-  "latestSnapshot": "demo-cut-002",
+  "latestSnapshot": "demo-20261010t173853959z-c9084b",
   "approvedRevision": null,
   "completed": [
     "Render nativo de 59 fotogramas en GitHub Actions: run 37991845049, commit 98a88debc39646baefcb954f707cb096383697b1",
@@ -20,6 +20,6 @@
     "Mantener revisiones demo sin aprobación editorial salvo consentimiento.",
     "Verificar máster aprobado y entrega a Drive en prueba autorizada."
   ],
-  "nextTask": "Probar en la rama work/hub-android-automation-20261010 el guardado con npm run save y reanudación publish; NO renderizar ni aprobar.",
-  "updatedAt": "2026-10-10T16:16:39.070Z"
+  "nextTask": "Revisar demo-20261010t173853959z-c9084b, confirmar y aprobar solo cuando corresponda",
+  "updatedAt": "2026-10-10T17:38:54.314Z"
 }
