@@ -14,7 +14,16 @@
     "assets:sync": "node scripts/sync-assets.mjs",
     "qa": "node scripts/qa-media.mjs",
     "cleanup": "node scripts/cleanup.mjs",
-    "test": "node --test --test-concurrency=1 tests/*.test.mjs"
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs",
+    "create": "node scripts/operate.mjs create",
+    "open": "node scripts/operate.mjs open",
+    "save": "node scripts/operate.mjs save",
+    "publish": "node scripts/operate.mjs publish",
+    "status": "node scripts/operate.mjs status",
+    "recover": "node scripts/operate.mjs recover",
+    "approve": "node scripts/operate.mjs approve",
+    "use": "node scripts/android-control.mjs select",
+    "active": "node scripts/android-control.mjs whoami"
   },
   "dependencies": {
     "@remotion/cli": "4.0.530",

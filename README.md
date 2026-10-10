@@ -1,5 +1,7 @@
 # Remotion Production Hub — universal, Android-first
 
+**COMIENZA AQUÍ: [START_HERE.md](START_HERE.md) · [AGENTS.md](AGENTS.md)**
+
 **Central engine for independent professional audiovisual projects.** The Che Memorial reel is *one compatibility case*, not the architecture's purpose.
 
 ## Persistent production state and exact source recovery
@@ -15,7 +17,13 @@ The canonical editable project is **Git source + project configuration + SHA256 
 
 See [persistent state protocol](docs/PERSISTENCE.md), [Android Studio guide](docs/ANDROID_STUDIO.md), and [reusable components](docs/COMPONENTS.md).
 
-**Verification boundary:** the previous Remotion demo 59-frame render succeeded on 2026-10-09. The newly introduced revision-aware export and real Chrome/Android Codespaces lifecycle have not yet been executed remotely; no new render is claimed.
+**Verificación (2026-10-10):** el render demo de 59 fotogramas, Codespaces real en Chrome Android, Studio y recuperación de dos revisiones fueron probados. La nueva automatización del PR #1 todavía necesita pruebas remotas de guardado; el máster aprobado y la entrega a Drive siguen pendientes.
+
+## Operación simplificada en Android (rama experimental)
+
+Los comandos nuevos y tareas de VS Code Web están documentados en [Automatización Android](docs/ANDROID_AUTOMATION.md). En Codespaces, abre **Terminal → Run Task** y selecciona **02 Guardar progreso en GitHub** después de editar. También puedes usar `npm run save -- demo --note "Progreso de hoy"`. Guarda código en Git + snapshot + estado, publica y comprueba el SHA remoto. **No exporta ni aprueba**; si falla el push, usa `npm run publish -- demo` para no duplicar revisiones.
+
+El avance real previo del proyecto `demo` está en `work/demo-android-persistence-20261010`: `demo-cut-001` conserva el título original, `demo-cut-002` la edición persistente. Ninguna tiene aprobación editorial. La rama `work/hub-android-automation-20261010` incluye esos commits y la nueva operación de guardado sin alterar `main`. Antes de integrarla en `main`, ejecutar `npm test` y probar un checkpoint remoto desde Codespaces.
 
 ## What it does
 
@@ -34,8 +42,8 @@ See [persistent state protocol](docs/PERSISTENCE.md), [Android Studio guide](doc
 ## Android workflow — repository installed on GitHub
 
 1. Open the existing **public** repository `davidiaz03/remotion-production-hub-`. Do **not** commit private institutional media or credentials; restrict masters to Drive.
-2. The universal engine, manual workflows and `package-lock.json` are already committed to `main`. Codespaces and Actions must still be tested on GitHub before being called operational.
-3. In GitHub repository → **Code → Codespaces** → Create codespace on `main` (2 cores). Use `npm run studio -- demo` in browser VS Code terminal, then open the private forwarded port 3000.
+2. The universal engine, manual workflows and `package-lock.json` are already committed to `main`. Codespaces, Studio y una prueba corta de Actions ya funcionaron; el flujo automático de guardado y máster hacia Drive aún requieren validación.
+3. Para experimentar con la automatización usa la rama `work/hub-android-automation-20261010`, no `main`. GitHub → **Code → Codespaces** (máquina pequeña). Use `npm run studio -- demo` in browser VS Code terminal, then open the private forwarded port 3000.
 4. Create a new project: `npm run new -- mi-reel` (or `npm run new -- mi-reel "Título"`). Change `projects/mi-reel/src/Video.tsx` and the composition/duration/fps in both `Root.tsx` and `project.json`.
 5. Preview in Studio, commit source, and use **Actions → 01 - Remotion quick preview → Run workflow** with project `mi-reel` and frames `0-57`. This is a real native Remotion render, not a transcode of an old MP4.
 6. Inspect the one-day MP4 plus `technical-qa.json` and `contact-sheet.jpg` from the workflow artifacts. Inspect pacing, voice, subtitling and branding on Android; machines cannot automatically approve editorial quality.
@@ -56,6 +64,6 @@ node scripts/cleanup.mjs --execute         # only scratch and outputs
 
 The `--file` argument must point inside that project's `out/`. The `--approval` for full CLI rendering is `--approve EXPORTAR-MASTER`.
 
-**Deployment status:** The GitHub source files and workflows have been verified via the connector. No GitHub Actions run, Codespace launch, or real Remotion MP4 is yet verified. Drive OAuth for workflows must be configured separately. Original Che history remains in its historical repository; copying the V42 compatibility code here did not import its Git history.
+**Estado de despliegue:** Codespaces Android, Studio, render corto de Actions y recuperación manual Git están comprobados. No confundir esto con prueba del nuevo `npm run save`, máster por revisión aprobada o entrega a Drive, que siguen pendientes. Drive OAuth requiere autorización separada. El historial original del Che continúa en su repositorio histórico; V42 de compatibilidad no importó ese historial Git.
 
 **Read next:** [ARCHITECTURE](docs/ARCHITECTURE.md), [DRIVE](docs/DRIVE.md), [OPERATIONS](docs/OPERATIONS.md), [MIGRATION](docs/MIGRATION.md), [TESTS](docs/TESTS.md).

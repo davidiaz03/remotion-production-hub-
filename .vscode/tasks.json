@@ -1,8 +1,127 @@
 {
   "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "project",
+      "type": "promptString",
+      "description": "Proyecto",
+      "default": "demo"
+    },
+    {
+      "id": "note",
+      "type": "promptString",
+      "description": "Nota editorial",
+      "default": "Progreso guardado"
+    },
+    {
+      "id": "rev",
+      "type": "promptString",
+      "description": "Revision para recuperar"
+    },
+    {
+      "id": "confirm",
+      "type": "promptString",
+      "description": "Escribe APROBAR-REVISION para autorizar"
+    }
+  ],
   "tasks": [
-    {"label":"Studio demo", "type":"shell", "command":"npm run studio -- demo", "isBackground":true,"problemMatcher":[]},
-    {"label":"Validate all projects", "type":"shell", "command":"npm run validate", "problemMatcher":[]},
-    {"label":"Create new reel", "type":"shell", "command":"npm run new -- mi-nuevo-reel", "problemMatcher":[]}
+    {
+      "label": "00 Ver proyecto activo (Android)",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/android-control.mjs",
+        "whoami"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "01 Abrir Remotion Studio",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/android-control.mjs",
+        "open"
+      ],
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "label": "02 Guardar progreso en GitHub",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/android-control.mjs",
+        "save"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "03 Consultar estado",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/android-control.mjs",
+        "status"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "04 Reintentar publicacion",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/android-control.mjs",
+        "publish"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "05 Recuperar revision (plan)",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/android-control.mjs",
+        "recover"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "06 Crear proyecto",
+      "type": "process",
+      "command": "npm",
+      "args": [
+        "run",
+        "create",
+        "--",
+        "${input:project}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "07 Aprobar (requiere consentimiento)",
+      "type": "process",
+      "command": "npm",
+      "args": [
+        "run",
+        "approve",
+        "--",
+        "${input:project}",
+        "--revision",
+        "${input:rev}",
+        "--confirm",
+        "${input:confirm}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "08 Ejecutar tests",
+      "type": "process",
+      "command": "npm",
+      "args": [
+        "test"
+      ],
+      "problemMatcher": []
+    }
   ]
 }
