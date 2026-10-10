@@ -15,6 +15,14 @@
       "latestSnapshot": null,
       "approvedRevision": null,
       "nextTask": "No exportar; mantener paquetes originales en Drive"
+    },
+    {
+      "id": "memorial-musica-2026",
+      "title": "Memorial de la Denuncia — música y finishing 10 de octubre",
+      "latestSnapshot": null,
+      "approvedRevision": null,
+      "nextTask": "Hidratar assets privados desde Drive y ejecutar preview Remotion de la revision; no aprobar ni exportar master sin QA y consentimiento.",
+      "updatedAt": "2026-10-10T18:41:00Z"
     }
   ]
 }

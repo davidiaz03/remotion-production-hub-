@@ -1,0 +1,16 @@
+{
+  "id": "memorial-musica-2026",
+  "title": "Memorial de la Denuncia — música y finishing 10 de octubre",
+  "compositionId": "MainReel",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationInFrames": 2492,
+  "audioRequired": true,
+  "drivePath": "Remotion Production/projects/memorial-musica-2026",
+  "assets": {
+    "mode": "manifest",
+    "manifest": "asset-manifest.json"
+  },
+  "crf": 18
+}

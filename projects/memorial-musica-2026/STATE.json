@@ -1,0 +1,24 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "memorial-musica-2026",
+  "title": "Memorial de la Denuncia — música y finishing 10 de octubre",
+  "objective": "Finishing musical y visual no destructivo del reel del 10 de octubre. Verificar replica en Remotion antes de aprobar master.",
+  "phase": "editing",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [
+    "Auditoria local del MP4 original y de pista musical; dos renders FFmpeg descargables, sin alteracion de los originales.",
+    "Correccion de destellos en 37.3, 50.6, 63.1, 72.1 s y entrada tipografica aprox 64 s.",
+    "QA del MP4 mejorado: video H264 1080x1920 30 FPS 2492 frames, audio AAC stereo 48 kHz, decodificacion sin errores."
+  ],
+  "pending": [
+    "Copiar memorial.mp4 y music.mp3 a la ruta Drive del manifest antes de intentar un render en Actions.",
+    "Confirmar que OffthreadVideo + Audio reproducen estas fuentes en Studio Codespaces.",
+    "Render nativo Remotion de preview y comparar fotogramas/audio con el finishing ya exportado.",
+    "Revision editorial y aprobacion humana antes de autorizar el master.",
+    "Verificar credenciales de rclone en Actions y entrega al Drive del proyecto."
+  ],
+  "nextTask": "Hidratar assets privados desde Drive y ejecutar preview Remotion de la revision; no aprobar ni exportar master sin QA y consentimiento.",
+  "updatedAt": "2026-10-10T18:41:00Z"
+}
