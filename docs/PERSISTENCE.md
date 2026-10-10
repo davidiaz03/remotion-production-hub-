@@ -13,9 +13,9 @@
 - `projects/<id>/revisions/<id>.json`: immutable snapshot descriptor. Contains source commit, Git tree, individual SHA-256 of source and configs, lockfile hash, full asset manifest, Remotion/React/Node/npm versions, composition dimensions/duration.
 - `projects/<id>/approvals/<id>.json`: separate explicit approval record, pointing to the snapshot by SHA-256 and source commit. Approval records must never be overwritten.
 
-## Vía recomendada en Android (PR #1; comprobar antes de usar en producción)
+## Vía recomendada en Android (PR #1 fusionado; guardado real probado)
 
-Usa `npm run open -- demo` para Studio y `npm run save -- demo --note "Cambio editorial"` para crear commits de código, revisión y estado en la rama de trabajo, sin render ni aprobación. Si se interrumpe, `npm run publish -- demo` debe reanudar el checkpoint antes de empezar otro. Consulta `START_HERE.md` y `docs/ANDROID_AUTOMATION.md`. **El comando nuevo aún requiere prueba real en Codespaces.** La secuencia detallada a continuación es el protocolo manual de referencia.
+Usa `npm run open -- demo` para Studio y `npm run save -- demo --note "Cambio editorial"` para crear commits de código, revisión y estado en la rama de trabajo, sin render ni aprobación. Si se interrumpe, `npm run publish -- demo` debe reanudar el checkpoint antes de empezar otro. Consulta `START_HERE.md` y `docs/ANDROID_AUTOMATION.md`. **El guardado real y la publicación verificada se probaron en Codespaces Android; consultar la matriz global `docs/PLATFORM_STATUS.md`.** La secuencia detallada a continuación es el protocolo manual de referencia.
 
 ## Editing session: no render required
 
@@ -74,7 +74,9 @@ The job first checks the approval record against its snapshot and available Git 
 
 **Limitations:** system fonts, browser/Chromium versions, codecs and non-deterministic animations can create differences between Studio playback and exported pixels. Bundle licensed fonts into the asset manifest, use deterministic frame-derived animation, pin external datasets/resources and inspect the resulting contact sheet plus full video. QA numbers alone are not creative approval.
 
-## New ChatGPT conversation: copy-paste handoff
+## Handoff exclusivo de un proyecto solicitado explícitamente
+
+**Si el usuario pide mejorar la plataforma, no usar este prompt de proyecto; leer `START_HERE.md` y `docs/PLATFORM_STATUS.md`.**
 
 > Continue Remotion Production Hub at `davidiaz03/remotion-production-hub-` by first reading `START_HERE.md` and `AGENTS.md`. Verify the active development branch and pull requests instead of assuming `main` contains latest work. First fetch the latest commit SHA, `PROJECTS.json`, `projects/<id>/STATE.json`, `HANDOFF.md`, its most recent `revisions/<id>.json` and any `approvals/<id>.json`. Verify SHA/hash and the current branch. Continue editing the actual TypeScript source; never recreate it from an MP4. Do not render until explicitly requested.
 
@@ -83,4 +85,4 @@ The job first checks the approval record against its snapshot and available Git 
 - Git protects committed versions. A local unsaved/uncommitted edit cannot be recovered after a Codespace is deleted. Save + commit + push before closing.
 - GitHub project creation does not automatically create a Drive folder: create the corresponding project-specific `assets/`, `masters/`, `qa/` and `scratch/` folders with the connected Drive account or authorized rclone configuration.
 - Private projects/media need privacy assessment: this repository is **public**, so no tokens, licensed media bytes, confidential subtitles or personal information should be committed.
-- **No cloud Codespace has been launched or browser Studio directly tested by this installation step.** The integration is source-configured; user/device launch still needs validation.
+- **Codespaces Android y Studio de demo sí fueron probados**; resta la prueba end-to-end de un máster y la autenticación de Drive en Codespaces.

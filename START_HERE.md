@@ -18,12 +18,14 @@
 6. `npm run save -- <id> --note "..."` y `npm run publish -- <id>` no aprueban, no renderizan y deben verificar publicación remota.
 7. Un master requiere aprobación editorial explícita, verificación de recursos, QA técnico y una entrega autenticada a Drive. Nunca por mero `push`.
 
+**Estado global verificado:** `docs/PLATFORM_STATUS.md`. **Siguiente protocolo de prueba audiovisual:** `docs/END_TO_END_VALIDATION.md`. Estos documentos no son el handoff de un reel.
+
 ## Evidencia existente (2026-10-10; verificar vigencia)
 
 - PR #1 fusionado en `main` (`807c4608`): historial, guardado Android y recuperación.
 - GitHub Actions run `38074798345`: 17/17 pruebas, recuperación aislada de tres revisiones reales de demo.
 - Codespaces Android: Studio y guardado remoto reales probados. Controles 00/03/04 sin diálogo probados.
-- Conector ChatGPT-Drive: carpeta `Remotion Production/projects` existente; GitHub Actions **lectura Drive verificada** el 10-10-2026 mediante run `38084894131` y secret `RCLONE_CONFIG_B64`. **Escritura/subida no verificadas**.
+- Conector ChatGPT-Drive: carpeta `Remotion Production/projects` existente; GitHub Actions **lectura Drive verificada** el 10-10-2026 mediante run `38084894131` y secret `RCLONE_CONFIG_B64`. **Escritura + readback SHA-256 verificadas para un archivo diagnóstico de 104 bytes** en run `38085770087`; aún no se ha entregado un máster.
 - Render demo de 59 fotogramas validado; master aprobado y entrega verificada a Drive pendientes.
 
 ## Para cualquier chat futuro

@@ -1,6 +1,6 @@
 # Automatización Android — progreso sin renders
 
-**Rama de desarrollo:** `work/hub-android-automation-20261010`. Se creó desde `work/demo-android-persistence-20261010` en commit `d462ef7522b7a216787db2e006de51940693fe44`, conservando `demo-cut-001` y `demo-cut-002` **sin aprobaciones**.
+**Estado:** los cambios Android ya están integrados en `main`. La antigua rama de automatización fue una prueba; para proyectos futuros crear rama `work/*` nueva. La selección de `demo` es un ejemplo, no un proyecto activo obligatorio. Leer `docs/PLATFORM_STATUS.md`.
 
 ## Uso desde Android
 
@@ -36,7 +36,7 @@ Solo una persona autorizada puede aprobar una revisión; el comando `approve` re
 
 ### Estado verificado
 
-GitHub contiene una prueba exitosa de 59 fotogramas en Actions y las dos revisiones manuales de demo. La primera batería local de seguridad del nuevo orquestador pasa 4/4. El primer checkpoint real y su SHA remoto ya fueron verificados. Siguen pendientes la prueba real de los nuevos botones sin diálogo, la recuperación desde máquina nueva, la aprobación explícita y una entrega de máster verificada a Drive. Codespaces no se detiene por este script: configura tiempo de inactividad en GitHub y usa Stop codespace en Android.
+GitHub contiene una prueba exitosa de 59 fotogramas en Actions y las dos revisiones manuales de demo. La primera batería local de seguridad del nuevo orquestador pasa 4/4. El primer checkpoint real y su SHA remoto ya fueron verificados. Tareas 00/03/04 sin diálogo verificadas en Android. Recuperación de tres revisiones demostrada en clon Git independiente (Actions `38074798345`). Drive lectura y escritura pequeña verificadas. **Faltan entrega de máster audiovisual y credenciales Drive propias del Codespace.** Codespaces no se detiene por este script: configura tiempo de inactividad en GitHub y usa Stop codespace en Android.
 
 ## Recuperación entre chats
 

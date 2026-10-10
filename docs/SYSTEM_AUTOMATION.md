@@ -10,6 +10,8 @@
 
 **Remotion + GitHub Actions:** React/TSX para composición editable. Preview y pruebas técnicas independientes; exportación de master únicamente tras aprobación, con QA y verificación de entrega.
 
+Consulta primero `docs/PLATFORM_STATUS.md` (evidencia real) y `docs/END_TO_END_VALIDATION.md` (próxima prueba). El Memorial y otros pilotos NO son tareas futuras.
+
 ## Ciclo que debe funcionar para cada trabajo nuevo
 
 1. Crear ID y rama `work/*` únicos. Jamás modificar un piloto anterior por accidente.
@@ -25,7 +27,7 @@
 
 El conector GitHub desde ChatGPT puede editar/consultar el repositorio y revisar resultados de Actions; **no maneja directamente el terminal del Codespace abierto**. Para trabajos ejecutados se necesitan workflows autorizados, herramientas de ejecución disponibles o acciones específicas del usuario.
 
-**Drive:** conector ChatGPT comprobado en la carpeta `Remotion Production/projects`. **Lectura verificada** en GitHub Actions (run `38084894131`, 2026-10-10): se instaló `RCLONE_CONFIG_B64` como secret de repositorio; el job ejecutó el remoto `media:` con salida `read_verified` y se completó sin renderizar ni subir archivos. **NO se ha probado escritura, entrega de másteres ni autenticación de Codespaces**. Las credenciales temporales del runner se borran al terminar. Para cada proyecto nuevo, validar manifest SHA-256, aprobación y destino antes de un master.
+**Drive:** conector ChatGPT comprobado en la carpeta `Remotion Production/projects`. **Lectura verificada** en GitHub Actions (run `38084894131`, 2026-10-10): se instaló `RCLONE_CONFIG_B64` como secret de repositorio; el job ejecutó el remoto `media:` con salida `read_verified` y se completó sin renderizar ni subir archivos. **Se probó la escritura y relectura con SHA-256 de un archivo de 104 bytes** en run `38085770087`. **NO se ha probado entrega de un máster audiovisual ni Drive desde Codespaces**. Las credenciales temporales del runner se borran al terminar. Para cada proyecto nuevo, validar manifest SHA-256, aprobación y destino antes de un master.
 
 ## Seguridad y trazabilidad
 
