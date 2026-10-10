@@ -4,9 +4,10 @@
     {
       "id": "demo",
       "title": "DEMO · MOTOR UNIVERSAL",
-      "latestSnapshot": null,
+      "latestSnapshot": "demo-cut-001",
       "approvedRevision": null,
-      "nextTask": "Verificar recuperacion persistente de una revision editable"
+      "nextTask": "Revisar demo-cut-001, confirmar y aprobar solo cuando corresponda",
+      "updatedAt": "2026-10-10T15:58:52.450Z"
     },
     {
       "id": "che-v42",
