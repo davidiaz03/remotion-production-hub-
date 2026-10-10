@@ -12,7 +12,7 @@ if(!/^[A-Za-z0-9_.-]+\.mp4$/.test(path.basename(local)))throw Error('Unsafe outp
 if(!process.env.RCLONE_CONFIG&&!existsSync(path.join(process.env.HOME||'','.config/rclone/rclone.conf')))throw Error('Drive credentials unavailable');
 const base=assertDrivePath(data.drivePath),file=path.basename(local);
 const remoteDir=`media:${base}/masters`,dest=`${remoteDir}/${file}`;
-const report={project,file,bytes:statSync(local).size,sha256:await sha256(local),gitSha:process.env.GITHUB_SHA||'local',runId:process.env.GITHUB_RUN_ID||'local',status:'transfer_pending'};
+const report={project,file,bytes:statSync(local).size,sha256:await sha256(local),gitSha:process.env.SOURCE_SHA||process.env.GITHUB_SHA||'local',revision:process.env.RENDER_REVISION||'unversioned',runId:process.env.GITHUB_RUN_ID||'local',status:'transfer_pending'};
 // A duplicate master with the same basename cannot be silently overwritten.
 const ls=spawnSync('rclone',['lsf',dest],{encoding:'utf8'});
 if(ls.status===0&&ls.stdout.trim())throw Error('Remote file already exists; version the filename and review the previous delivery');
