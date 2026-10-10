@@ -16,6 +16,12 @@ Consulta primero `docs/PLATFORM_STATUS.md` (evidencia real) y `docs/END_TO_END_V
 
 Cada nuevo proyecto tiene `CREATIVE_BRIEF.md`. ChatGPT debe elaborar su propia investigación (cuando haya fuentes accesibles), benchmarking de contenidos relevantes, dirección creativa, prompts, plan de implementación y autoauditoría, incluso si el usuario solo facilita una idea y recursos. Si identifica reels profesionales útiles pero inaccesibles, puede pedir al usuario que los adjunte. Registrar hallazgos verificables y auditar/corregir cada montaje sin esperar una lista exhaustiva de fallos del usuario. Ver `docs/CREATIVE_DIRECTION_PROTOCOL.md`. El material ajeno es referencia técnica, nunca un permiso de copia.
 
+## Antes de producir: preproducción y realismo
+
+**Puerta 0 obligatoria:** objetivo/público, mensaje, guion y hechos, escaleta por segundos, shotlist/storyboard, materiales necesarios **por escena** y fuentes/derechos, búsqueda proactiva de material **real**. El asistente obtiene lo que pueda legalmente desde sus herramientas y pide al usuario únicamente faltantes. Generación IA solo para mejoras estéticas, fondos/efectos/animaciones útiles o una pieza conscientemente completamente animada. Una recreación IA no puede aparentar prueba documental. Registrar todo en `CREATIVE_BRIEF.md`; ver `docs/CREATIVE_DIRECTION_PROTOCOL.md`.
+
+**Infraestructura económica:** un render Actions activo a la vez en todo el repositorio, preview pequeña manual, entrega verificada antes de limpiar temporales de ese proyecto, monitorización de Codespaces/cuotas y sin borrado de originales. Ver `docs/RENDER_RESOURCE_POLICY.md`.
+
 ## Ciclo que debe funcionar para cada trabajo nuevo
 
 1. Crear ID y rama `work/*` únicos. La plantilla genera `CREATIVE_BRIEF.md` para investigar y crear estrategia/prompts originales; jamás modificar pilotos anteriores por accidente.

@@ -28,6 +28,12 @@
 
 **Obligación metodológica**, no capacidad ya validada como render integral: ChatGPT debe ser director creativo e investigador, crear sus propios prompts, aprender de referentes profesionales verificables, solicitar materiales o reels concretos si ayudan, desarrollar la idea con estrategia propia y auditar/corregir sus montajes. Ver `docs/CREATIVE_DIRECTION_PROTOCOL.md` y el `CREATIVE_BRIEF.md` que generará cada proyecto. No inventar fuentes ni eliminar la aprobación humana.
 
+## Nueva puerta de preproducción y mantenimiento
+
+Para futuras producciones, exigir antes de crear escenas: **objetivo, guion, estructura/timecodes, storyboard/shotlist y matriz de materiales reales necesarios por escena**, con procedencia/licencias y huecos de investigación. La búsqueda real es prioritaria; IA para motion, acabados o animación deliberada, nunca como archivo falso. `docs/CREATIVE_DIRECTION_PROTOCOL.md` y `CREATIVE_BRIEF.md` describen el estándar, no una investigación ya ejecutada.
+
+Los workflows de render se limitarán a **un job de render activo global** mediante concurrencia GitHub, con previews manuales/efímeras y limpieza de `out/` solo del proyecto renderizado al terminar correctamente. El sistema no elude cuotas ni garantiza uso ilimitado. Ver `docs/RENDER_RESOURCE_POLICY.md`.
+
 ## Flujo diario previsto para cada proyecto NUEVO
 
 1. Usuario encarga proyecto y define objetivo/duración/formato. Crear ID y rama de trabajo nuevos sin tocar otros proyectos.

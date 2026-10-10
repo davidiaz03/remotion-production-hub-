@@ -6,6 +6,10 @@ Propósito: comprobar de extremo a extremo un video NUEVO y desechable, no retom
 
 Antes del render, comprobar que ChatGPT preparó `CREATIVE_BRIEF.md` con estrategia y prompts propios, estudió referencias pertinentes accesibles (o explicó por qué no pudo), tomó decisiones narrativas originales y registró al menos una auditoría con correcciones reales. La investigación no debe inventarse ni forzarse si no existen referentes útiles para un piloto mínimo.
 
+## Puerta inicial: plan de contenido y materiales
+
+Antes de A–E, confirmar objetivo, guion/voz, escaleta/tiempos, storyboard/shotlist, matriz de recursos por escena, búsqueda prioritaria de archivo real, procedencia/licencias, ausencia de recreación engañosa y decisión argumentada sobre IA/animación. No fabricar clips aleatorios para rellenar huecos. Ver `CREATIVE_BRIEF.md`.
+
 ## Preparación
 
 - Utilizar un ID y rama `work/*` nuevos; crear estructura desde plantilla.

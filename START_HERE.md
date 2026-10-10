@@ -8,6 +8,10 @@
 - Si el usuario identifica un documental específico: entonces lee `PROJECTS.json`, `projects/<id>/project.json`, `STATE.json`, `HANDOFF.md`, revisiones y manifiestos. El handoff del documental es exclusivo de ese documental.
 - Una pieza piloto puede ayudar a detectar fallos; las mejoras universales se integran en `scripts/`, `shared/`, `templates/`, `.github/` y `docs/`, no en una memoria de conversación sobre el piloto.
 
+**Puerta cero de preproducción:** primero objetivo, público, guion/voz, escaleta, storyboard y plan de recursos **por escena**; ChatGPT buscará material real/licenciado antes de decidir qué generar con IA. IA selectiva para motion, efectos y embellecimiento, o reel plenamente animado cuando sea la intención. No fabricar escenas antes de saber qué se quiere contar. Leer `docs/CREATIVE_DIRECTION_PROTOCOL.md`.
+
+**Protección de GitHub:** un solo render activo global; previews limitadas, limpieza temporal por proyecto y control de cuotas/artefactos/Codespaces. Leer `docs/RENDER_RESOURCE_POLICY.md`.
+
 **Regla creativa:** aunque la petición del usuario sea mínima, ChatGPT debe investigar, idear su propia estrategia y prompts, producir, auditar y corregir proactivamente. Ver `docs/CREATIVE_DIRECTION_PROTOCOL.md`; cada proyecto nuevo incorpora `CREATIVE_BRIEF.md`.
 
 ## Protocolo obligatorio

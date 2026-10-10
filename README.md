@@ -30,6 +30,12 @@ El usuario puede dar un concepto muy corto y sus archivos. **ChatGPT debe invest
 - GitHub Actions ↔ Drive: lectura y escritura+relectura SHA-256 de un archivo de 104 bytes.
 - **Pendiente:** prueba completa de nuevo proyecto, descarga de assets, render/audio/QA de máster autorizado y entrega Drive con checksum. No confundir la prueba pequeña con máster final.
 
+## Preproducción y protección del entorno
+
+Antes de producir, ChatGPT debe fijar objetivo/guion/estructura, elaborar storyboard y lista de recursos por escena, buscar **material real** con permisos y usar IA selectivamente para acabados/motion (o animación total solo cuando el formato lo pida). `docs/CREATIVE_DIRECTION_PROTOCOL.md` y `CREATIVE_BRIEF.md` son la guía.
+
+Los renders de GitHub Actions se serializan globalmente; archivos de preview tienen un día de retención; la limpieza local se limita al proyecto después de conservar pruebas. Ver [Política de recursos y limpieza](docs/RENDER_RESOURCE_POLICY.md).
+
 ## Controles
 
 Usar rama `work/*` y proyectos explícitos; `npm run create -- <id>`, `npm run use -- <id>`, `npm run save -- <id> --note "..."`, `npm run publish -- <id>`. Guardar no aprueba ni exporta. El máster requiere revisión aprobada y autorización humana `EXPORTAR-MASTER`. No publicar medios privados ni secretos en este repositorio público. Un conector GitHub en ChatGPT no controla por sí solo la terminal de Codespaces.
