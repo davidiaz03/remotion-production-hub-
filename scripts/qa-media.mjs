@@ -1,5 +1,6 @@
 import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {loadProject,parseArgs} from './lib.mjs';
 import {sha256} from './verify-assets.mjs';
@@ -36,7 +37,7 @@ const montage=path.join(reports,'contact-sheet.jpg');
 const fpsSampling=(9/Math.max(.5,duration)).toFixed(4);
 const contact=exec('ffmpeg',['-y','-hide_banner','-loglevel','error','-i',file,'-vf',`fps=${fpsSampling},scale=200:-2,tile=3x3`,'-frames:v','1',montage]);
 if(contact.status!==0)failures.push('Contact sheet generation failed: '+contact.stderr.slice(0,200));
-const report={engine:'remotion-required-at-render',project,mode,file:path.basename(file),sha256:await sha256(file),gitSha:process.env.GITHUB_SHA||'local',fps,width:vid.width,height:vid.height,actualFrames,expectedFrames,durationSeconds:duration,expectedDurationSeconds,durationDriftSeconds,hasAudio:!!aud,decodeOkay:decode.status===0,blackIntervals,technicalStatus:failures.length?'failed':'passed',visualStatus:'PENDING_HUMAN_REVIEW',warnings:blackIntervals.length?[`${blackIntervals.length} dark intervals: inspect contact sheet and actual playback`]:[],failures,contactSheet:existsSync(montage)?'contact-sheet.jpg':null};
+const report={engine:'remotion-required-at-render',project,mode,file:path.basename(file),sha256:await sha256(file),gitSha:process.env.SOURCE_SHA||process.env.GITHUB_SHA||'local',revision:process.env.RENDER_REVISION||'unversioned',packageLockSha256:createHash('sha256').update(readFileSync(path.resolve(home,'../../package-lock.json'))).digest('hex'),assetManifestSha256:createHash('sha256').update(readFileSync(path.join(home,data.assets.manifest))).digest('hex'),fps,width:vid.width,height:vid.height,actualFrames,expectedFrames,durationSeconds:duration,expectedDurationSeconds,durationDriftSeconds,hasAudio:!!aud,decodeOkay:decode.status===0,blackIntervals,technicalStatus:failures.length?'failed':'passed',visualStatus:'PENDING_HUMAN_REVIEW',warnings:blackIntervals.length?[`${blackIntervals.length} dark intervals: inspect contact sheet and actual playback`]:[],failures,contactSheet:existsSync(montage)?'contact-sheet.jpg':null};
 writeFileSync(path.join(reports,'technical-qa.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report));
 if(failures.length)process.exitCode=1;
