@@ -1,0 +1,13 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "demo",
+  "title": "DEMO · MOTOR UNIVERSAL",
+  "objective": "Validar el motor comun y el guardado/recuperacion exacta de composiciones editables",
+  "phase": "editing",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": ["Render nativo de 59 fotogramas en GitHub Actions: run 37991845049, commit 98a88debc39646baefcb954f707cb096383697b1"],
+  "pending": ["Probar Codespaces con Chrome Android", "Aprobar explicitamente la primera revision del proyecto"],
+  "nextTask": "Crear y guardar un snapshot, cerrar sesion y verificar que puede retomarse sin tocar el MP4 anterior"
+}

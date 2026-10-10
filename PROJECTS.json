@@ -1,0 +1,19 @@
+{
+  "schema": "remotion-hub.index/v1",
+  "projects": [
+    {
+      "id": "demo",
+      "title": "DEMO · MOTOR UNIVERSAL",
+      "latestSnapshot": null,
+      "approvedRevision": null,
+      "nextTask": "Verificar recuperacion persistente de una revision editable"
+    },
+    {
+      "id": "che-v42",
+      "title": "Memorial Che - V42 (compatibilidad)",
+      "latestSnapshot": null,
+      "approvedRevision": null,
+      "nextTask": "No exportar; mantener paquetes originales en Drive"
+    }
+  ]
+}

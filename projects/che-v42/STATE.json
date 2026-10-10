@@ -1,0 +1,13 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "che-v42",
+  "title": "Memorial Che - V42 (compatibilidad)",
+  "objective": "Conservar el material editable y los recursos del primer caso complejo sin renders innecesarios",
+  "phase": "compatibility-only",
+  "compositionId": "CheOctober1967",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": ["Codigo de compatibilidad importado sin convertir el MP4 en fuente de verdad"],
+  "pending": ["Verificar recursos aprobados y permisos antes de exportar"],
+  "nextTask": "No generar nuevas exportaciones del Che; preservar historia y originales"
+}

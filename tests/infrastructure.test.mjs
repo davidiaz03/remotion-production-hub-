@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync,readdirSync,existsSync,mkdirSync,rmSync} from 'node:fs';
+import {readFileSync,readdirSync,existsSync,mkdirSync,rmSync,writeFileSync} from 'node:fs';
 import path from 'node:path';
 import {ROOT,projectPath,resolvePublicFile,loadProject,assertDrivePath} from '../scripts/lib.mjs';
 import {validateProject} from '../scripts/validate.mjs';
@@ -17,6 +17,7 @@ test('path traversal is rejected',()=>{
 });
 test('new project scaffolding creates a neutral project and never overwrites',()=>{
  const id='test-infrastructure-temporary';const dir=projectPath(id);
+ const indexFile=path.join(ROOT,'PROJECTS.json');const originalIndex=readFileSync(indexFile,'utf8');
  rmSync(dir,{recursive:true,force:true});
  try{
   const a=run('scripts/project.mjs','create',id,'Reel de prueba');
@@ -24,7 +25,7 @@ test('new project scaffolding creates a neutral project and never overwrites',()
   assert.equal(validateProject(id).durationSeconds,3);
   assert.match(readFileSync(path.join(dir,'src/Video.tsx'),'utf8'),/Reel de prueba/);
   assert.notEqual(run('scripts/project.mjs','create',id).status,0);
- }finally{rmSync(dir,{recursive:true,force:true});}
+ }finally{rmSync(dir,{recursive:true,force:true});writeFileSync(indexFile,originalIndex);}
 });
 test('render cannot proceed without installed official CLI',()=>{
  const r=run('scripts/project.mjs','render','demo','--mode','quick','--frames','0-57');

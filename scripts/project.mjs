@@ -7,13 +7,22 @@ if(!action)throw Error('Use: create|studio|render|compositions PROJECT');
 const projectId=pos[0];
 if(action==='create'){
  const target=projectPath(projectId);if(existsSync(target))throw Error('Project already exists; refusing overwrite');
+ const indexFile=path.join(ROOT,'PROJECTS.json');
+ const index=JSON.parse(readFileSync(indexFile,'utf8'));
+ if(!Array.isArray(index.projects)||index.projects.some(x=>x.id===projectId))throw Error('Invalid index or duplicate project; refusing modification');
+ const title=pos.slice(1).join(' ')||projectId.replaceAll('-',' ').toUpperCase();
  cpSync(path.join(ROOT,'templates/reel'),target,{recursive:true});
  for(const f of ['project.json','src/Video.tsx']){
   const p=path.join(target,f);
-  writeFileSync(p,readFileSync(p,'utf8').replaceAll('__SLUG__',projectId).replaceAll('__TITLE__',pos.slice(1).join(' ')||projectId.replaceAll('-',' ').toUpperCase()));
+  writeFileSync(p,readFileSync(p,'utf8').replaceAll('__SLUG__',projectId).replaceAll('__TITLE__',title));
  }
  mkdirSync(path.join(target,'public'),{recursive:true});writeFileSync(path.join(target,'public','.gitkeep'),'');
- console.log(`Created projects/${projectId}. Edit src/Video.tsx, then npm run studio -- ${projectId}`);
+ const state={schema:'remotion-hub.state/v1',id:projectId,title,objective:title,phase:'editing',compositionId:'MainReel',latestSnapshot:null,approvedRevision:null,completed:[],pending:[],nextTask:'Editar en Studio y registrar una revision persistente',updatedAt:new Date().toISOString()};
+ writeFileSync(path.join(target,'STATE.json'),JSON.stringify(state,null,2)+'\n');
+ writeFileSync(path.join(target,'HANDOFF.md'),`# ${title}\n\nIdentificador: \`${projectId}\`\n\nObjetivo: ${title}\n\nVer STATE.json y PROJECTS.json.\nNo hay revisiones aprobadas.\n`);
+ index.projects.push({id:projectId,title,latestSnapshot:null,approvedRevision:null,nextTask:state.nextTask,updatedAt:state.updatedAt});
+ writeFileSync(indexFile,JSON.stringify(index,null,2)+'\n');
+ console.log(`Created projects/${projectId} with persistent state. Edit src/Video.tsx, then npm run studio -- ${projectId}`);
  process.exit(0);
 }
 const {home,data}=loadProject(projectId);
