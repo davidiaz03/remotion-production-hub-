@@ -12,7 +12,15 @@ Remotion Production/
     che-v42/{assets,masters,qa,scratch}/
 ```
 
-The `demo` and `che-v42` project subfolders (`assets`, `masters`, `qa`, `scratch`) were created and verified through the connected Google Drive service. OAuth for GitHub Actions remains pending; original files have not been moved.
+The `demo` and `che-v42` project subfolders (`assets`, `masters`, `qa`, `scratch`) were created and verified through the connected Google Drive service. OAuth de GitHub Actions: **lectura verificada** en la ejecución `38084894131` (2026-10-10), usando el secret `RCLONE_CONFIG_B64` y el remoto `media:` configurado en Termux. Las carpetas originales no se han movido. **Escritura y entrega de másteres aún no comprobadas**.
+
+## Estado verificado en GitHub Actions
+
+- `RCLONE_CONFIG_B64` guardado como secreto de repositorio por el propietario; nunca publicar, registrar ni copiar su valor a otro chat.
+- `03 - Drive preflight (NO RENDER)`, ejecución [38084894131](https://github.com/davidiaz03/remotion-production-hub-/actions/runs/38084894131), en `main` (`e79db9de`): **Success**. El job informó `read_verified` con `writeVerified:false` y `upload:false`, y eliminó el archivo temporal de configuración.
+- La configuración originada en Termux tiene `drive:` (Google Drive) y `media:` (alias de `drive:`); el alias funciona en el runner sin una segunda autorización.
+- **Pendiente:** test aislado de escritura con consentimiento, recuperación de assets en Codespaces y un master explícitamente aprobado con copia verificada.
+- Nota de seguridad: base64 no cifra, y un secreto OAuth suele permitir más que una carpeta concreta. No usar workflows no confiables ni imprimir el archivo `rclone.conf`. La conexión debe revisarse/restringirse conforme crezca el sistema.
 
 ## Authentication in GitHub Actions
 
