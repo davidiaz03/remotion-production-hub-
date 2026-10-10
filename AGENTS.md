@@ -1,6 +1,6 @@
 # Instrucciones para asistentes de programación
 
-Lee `START_HERE.md` y `docs/SYSTEM_AUTOMATION.md` antes de operar y verifica el repositorio y la rama reales.
+Lee `START_HERE.md`, `docs/PLATFORM_STATUS.md` y `docs/SYSTEM_AUTOMATION.md` antes de operar y verifica el repositorio y la rama reales.
 
 **CRÍTICO:** Si el usuario pide mejorar la plataforma universal, NO retomar por defecto el último reel piloto ni identificar el último proyecto como proyecto activo. Leer archivos específicos de un proyecto solo cuando lo hayan encargado inequívocamente. Las pruebas son medios para mejorar automatización, no tareas a heredar.
 
