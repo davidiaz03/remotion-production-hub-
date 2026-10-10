@@ -2,6 +2,21 @@
 
 **Central engine for independent professional audiovisual projects.** The Che Memorial reel is *one compatibility case*, not the architecture's purpose.
 
+## Persistent production state and exact source recovery
+
+The canonical editable project is **Git source + project configuration + SHA256 resource manifests**, not a previous MP4. Start a new chat by reading `PROJECTS.json`, `projects/<id>/STATE.json`, `HANDOFF.md`, and the revision/approval files before editing.
+
+- **Edit** in Remotion Studio and commit the actual TSX project. Changes do not generate MP4s.
+- **Snapshot** via `node scripts/revisions.mjs snapshot --project demo --revision demo-cut-001`; commit and push its manifest.
+- **Approve** only after human review with `node scripts/revisions.mjs approve --project demo --revision demo-cut-001 --confirm APROBAR-REVISION`; commit and push.
+- **Recover** by `node scripts/revisions.mjs resume --project demo --revision demo-cut-001 --execute`. It checks out the preserved code into an independent worktree.
+- **Export** manually: Actions → Full master → choose project, **approved revision**, and `EXPORTAR-MASTER`. The workflow verifies approval, checks out the source SHA, installs that lockfile and checks approved media hashes before native Remotion rendering. The output QA report contains source revision and dependency/asset provenance.
+- Quick previews remain manual and may render the current working branch unless an approved revision is explicitly selected.
+
+See [persistent state protocol](docs/PERSISTENCE.md), [Android Studio guide](docs/ANDROID_STUDIO.md), and [reusable components](docs/COMPONENTS.md).
+
+**Verification boundary:** the previous Remotion demo 59-frame render succeeded on 2026-10-09. The newly introduced revision-aware export and real Chrome/Android Codespaces lifecycle have not yet been executed remotely; no new render is claimed.
+
 ## What it does
 
 `ChatGPT (code) → GitHub (versioned source) → Codespaces (same code in Studio) → Actions (native Remotion render) → FFprobe/FFmpeg QA + human review → Google Drive (approved masters)`.
