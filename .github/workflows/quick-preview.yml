@@ -7,6 +7,11 @@ on:
         required: true
         default: demo
         type: string
+      revision:
+        description: "Optional approved revision; blank uses draft commit"
+        required: false
+        default: ""
+        type: string
       frames:
         description: "Inclusive 1-90 frame range e.g. 0-57"
         required: true
@@ -21,5 +26,6 @@ jobs:
       project: ${{ inputs.project }}
       mode: quick
       frames: ${{ inputs.frames }}
+      revision: ${{ inputs.revision }}
       confirmation: ""
     secrets: inherit
