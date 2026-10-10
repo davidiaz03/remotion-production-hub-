@@ -9,3 +9,5 @@ export const MainReel:React.FC=()=>{
     <Caption text="Tu nuevo proyecto, con el mismo motor de Remotion." size={43}/>
   </AbsoluteFill>;
 };
+
+// Prueba de guardado automatico desde Android.
