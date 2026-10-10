@@ -1,6 +1,8 @@
 # Instrucciones para asistentes de programación
 
-Lee `START_HERE.md` antes de operar y verifica el repositorio y la rama reales.
+Lee `START_HERE.md` y `docs/SYSTEM_AUTOMATION.md` antes de operar y verifica el repositorio y la rama reales.
+
+**CRÍTICO:** Si el usuario pide mejorar la plataforma universal, NO retomar por defecto el último reel piloto ni identificar el último proyecto como proyecto activo. Leer archivos específicos de un proyecto solo cuando lo hayan encargado inequívocamente. Las pruebas son medios para mejorar automatización, no tareas a heredar.
 
 ## Fuente de verdad y recuperación
 Lee `PROJECTS.json`, `projects/<id>/STATE.json`, `HANDOFF.md`, `project.json`, `asset-manifest.json`, `revisions/` y `approvals/`. El código `src/` y `shared/` es editable; el MP4 no lo sustituye. Confirma hashes y archivos físicos, no solo rutas. Recupera commits históricos en un worktree separado.

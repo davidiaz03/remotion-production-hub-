@@ -1,45 +1,33 @@
-# Remotion Production Hub — iniciar aqui
+# Remotion Production Hub — punto de entrada universal
 
-**Repositorio canónico:** `davidiaz03/remotion-production-hub-`. El MP4 es una salida; la fuente editable es el commit de Git, su configuración y los assets verificados.
+**Repositorio canónico:** `davidiaz03/remotion-production-hub-`. El sistema tiene una plataforma estable en `main`; los cambios nuevos se preparan en `work/*`.
 
-**A 2026-10-10:** `main` sigue en `1f14c13`. La automatización experimental está en el pull request #1, rama `work/hub-android-automation-20261010`. Verifica el HEAD remoto actual antes de operar; no presupongas que PR #1 fue fusionado.
+## Antes que nada: ¿infraestructura o proyecto?
 
-## Inicio de cualquier chat o sesión autorizada
+- Si el usuario pide mejorar automatización, Remotion, GitHub, Drive, pruebas o funcionamiento entre chats: trabaja en **la plataforma**. Lee `AGENTS.md`, `docs/SYSTEM_AUTOMATION.md`, `docs/DRIVE.md`, workflows y scripts. **NO retomes automáticamente el último reel de prueba.**
+- Si el usuario identifica un documental específico: entonces lee `PROJECTS.json`, `projects/<id>/project.json`, `STATE.json`, `HANDOFF.md`, revisiones y manifiestos. El handoff del documental es exclusivo de ese documental.
+- Una pieza piloto puede ayudar a detectar fallos; las mejoras universales se integran en `scripts/`, `shared/`, `templates/`, `.github/` y `docs/`, no en una memoria de conversación sobre el piloto.
 
-1. Comprueba usuario GitHub, repositorio, rama, HEAD, permisos y `git status`. Lee `AGENTS.md`, `PROJECTS.json`, `docs/PERSISTENCE.md` y `docs/ANDROID_AUTOMATION.md`.
-2. Para el proyecto elegido, lee `projects/<id>/project.json`, `STATE.json`, `HANDOFF.md`, `asset-manifest.json`, `revisions/` y `approvals/`.
-3. Diferencia **último avance** de **última revisión aprobada**. `approvedRevision: null` significa que no existe aprobación editorial.
-4. Comprueba disponibilidad/hash de medios externos antes de prometer reproducción o exportación. La conexión Drive de un chat no da acceso a Codespaces o Actions.
-5. Trabaja en `work/*`. Revisa cambios antes de guardarlos. En la PR experimental usa `npm run open -- <id>` para Studio y `npm run save -- <id> --note "Qué hice"` para persistir sin MP4.
-6. Si se interrumpe `save`, no repitas snapshots manualmente: usa `npm run publish -- <id>` para terminar un checkpoint pendiente; comprueba el SHA remoto.
-7. Solicita autorización antes de aprobar versiones, lanzar másteres, borrar materiales o cambiar permisos/facturación. Nunca hagas render automático por `push`.
-8. Actualiza `HANDOFF.md` conservando decisiones editoriales; informa pruebas reales, pendientes y siguiente paso. Detén Codespaces cuando acabes.
+## Protocolo obligatorio
 
-## Evidencia histórica verificada
+1. Verificar GitHub conectado, rama y SHA remotos actuales; no confiar en fechas o commits antiguos de los documentos.
+2. Confirmar si la tarea es de plataforma o de un proyecto identificado. Nunca seleccionar `demo` o un piloto por defecto.
+3. Trabajar en `work/*`, revisar diffs y comprobar pruebas antes de solicitar integración en `main`.
+4. Para medios privados, usar Drive y manifiestos SHA-256. Los MP4 no reemplazan fuentes TSX originales y no se suben al repositorio público.
+5. La conexión ChatGPT-Drive NO autoriza por sí misma a Codespaces o Actions. Ver `docs/DRIVE.md`.
+6. `npm run save -- <id> --note "..."` y `npm run publish -- <id>` no aprueban, no renderizan y deben verificar publicación remota.
+7. Un master requiere aprobación editorial explícita, verificación de recursos, QA técnico y una entrega autenticada a Drive. Nunca por mero `push`.
 
-- Render Remotion: Actions run `37991845049`, MP4 de 59 fotogramas del proyecto `demo`.
-- Android: Codespaces `improved yodel`, `npm test` (9/9 en la revisión anterior), Studio `MainReel` abierto con vista previa.
-- `demo-cut-001`: título «DEMO · MOTOR UNIVERSAL», commit fuente `1f14c13`, manifiesto publicado en `9184e12`.
-- `demo-cut-002`: título «DEMO · EDICIÓN PERSISTENTE», commit fuente `db1a451`, manifiesto publicado en `d462ef7`. **Ninguna revisión está aprobada.**
-- Tras detener y reiniciar Codespaces, se recuperaron código y revisiones; una clonación independiente en `/tmp/remotion-recovery-test` dentro del mismo Codespace recuperó los commits de origen.
-- La automatización de `operate.mjs` aún necesita una prueba real de `save`/ `publish`, tests completos en Codespaces y validación del PR.
+## Evidencia existente (2026-10-10; verificar vigencia)
 
-## Pendientes que NO deben declararse resueltos
+- PR #1 fusionado en `main` (`807c4608`): historial, guardado Android y recuperación.
+- GitHub Actions run `38074798345`: 17/17 pruebas, recuperación aislada de tres revisiones reales de demo.
+- Codespaces Android: Studio y guardado remoto reales probados. Controles 00/03/04 sin diálogo probados.
+- Conector ChatGPT-Drive: carpeta `Remotion Production/projects` existente; GitHub Actions aún NO ha demostrado credencial rclone ni subida.
+- Render demo de 59 fotogramas validado; master aprobado y entrega verificada a Drive pendientes.
 
-1. Checkpoint automático y reintento ante interrupciones reales.
-2. Tareas de VS Code, creación con plantilla y recuperación en **máquina nueva**.
-3. Integración segura de GitHub Actions con Drive y QA/subida del máster **de una revisión aprobada**, tras autorización expresa.
-4. Fusionar PR #1 solo después de pruebas satisfactorias. Evitar renders innecesarios.
+## Para cualquier chat futuro
 
-**Privacidad:** el repositorio es público. Nunca guardar credenciales, binarios institucionales sensibles ni medios privados en Git.
+«Trabaja en el SISTEMA Remotion Production Hub, repositorio `davidiaz03/remotion-production-hub-`. Lee `START_HERE.md`, `AGENTS.md`, `docs/SYSTEM_AUTOMATION.md` y `docs/DRIVE.md`. Verifica rama, CI y conexión Drive. No abras proyectos piloto ni asumas uno activo, salvo que nombre el ID explícitamente. Documenta soluciones reutilizables para nuevos proyectos».
 
-## Control Android sin cuadros de texto (PR #1)
-
-El selector de proyecto de las tareas VS Code puede bloquearse en Chrome Android. Para las tareas **00–05** existe un acceso sin ventanas. Al iniciar un Codespace nuevo:
-
-```bash
-npm run use -- demo  # una sola vez por Codespace
-npm run active       # confirmar la selección
-```
-
-Después ejecutar **Terminal → Run Task → 03 Consultar estado** o **02 Guardar progreso en GitHub**: no abrirán el cuadro «Proyecto». La selección permanece privada en Git; no requiere commit ni MP4. Cambia a otro trabajo con `npm run use -- otro-id`. Nunca se elige automáticamente un proyecto desconocido. Para operaciones especiales que soliciten revisión o consentimiento utiliza la terminal y las guías del repositorio.
+Para trabajo de un reel concreto, indicar también su `<id>` y leer sus propios STATE/HANDOFF.
