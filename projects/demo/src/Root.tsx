@@ -1,4 +1,5 @@
 import React from 'react';
 import {Composition} from 'remotion';
+import project from '../project.json';
 import {MainReel} from './Video';
-export const Root=()=> <Composition id="MainReel" component={MainReel} width={1080} height={1920} fps={30} durationInFrames={90}/>;
+export const Root=()=> <Composition id={project.compositionId} component={MainReel} width={project.width} height={project.height} fps={project.fps} durationInFrames={project.durationInFrames}/>;
