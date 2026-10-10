@@ -12,7 +12,15 @@ Remotion Production/
     che-v42/{assets,masters,qa,scratch}/
 ```
 
-The `demo` and `che-v42` project subfolders (`assets`, `masters`, `qa`, `scratch`) were created and verified through the connected Google Drive service. OAuth for GitHub Actions remains pending; original files have not been moved.
+The `demo` and `che-v42` project subfolders (`assets`, `masters`, `qa`, `scratch`) were created and verified through the connected Google Drive service. OAuth de GitHub Actions: **lectura verificada** en la ejecución `38084894131` (2026-10-10), usando el secret `RCLONE_CONFIG_B64` y el remoto `media:` configurado en Termux. Las carpetas originales no se han movido. **Escritura y entrega de másteres aún no comprobadas**.
+
+## Estado verificado en GitHub Actions
+
+- `RCLONE_CONFIG_B64` guardado como secreto de repositorio por el propietario; nunca publicar, registrar ni copiar su valor a otro chat.
+- `03 - Drive preflight (NO RENDER)`, ejecución [38084894131](https://github.com/davidiaz03/remotion-production-hub-/actions/runs/38084894131), en `main` (`e79db9de`): **Success**. El job informó `read_verified` con `writeVerified:false` y `upload:false`, y eliminó el archivo temporal de configuración.
+- La configuración originada en Termux tiene `drive:` (Google Drive) y `media:` (alias de `drive:`); el alias funciona en el runner sin una segunda autorización.
+- **Pendiente:** test aislado de escritura con consentimiento, recuperación de assets en Codespaces y un master explícitamente aprobado con copia verificada.
+- Nota de seguridad: base64 no cifra, y un secreto OAuth suele permitir más que una carpeta concreta. No usar workflows no confiables ni imprimir el archivo `rclone.conf`. La conexión debe revisarse/restringirse conforme crezca el sistema.
 
 ## Authentication in GitHub Actions
 
@@ -45,3 +53,9 @@ In the workflow, the decoded config lives in `$RUNNER_TEMP`, chmod 0600, never u
 ## No silent cloud deletions
 
 No workflow deletes old Drive assets, originals, archives, approvals or masters. `rclone sync` is **not used**, because it might delete remote assets. We use `copyto` only. Optional Drive archive policies should be reviewed separately by project owners; there is no dangerous retention sweeper with access to masters.
+
+## Minimal write verification (manual, no render)
+
+Use `04 - Drive write verification (NO RENDER)` from `main` after the read-only preflight passes. The guarded script uploads ONE tiny unique text file, `Remotion Production/projects/_system-tests/scratch/write-probe-<run>-<attempt>.txt`, with `rclone copyto --immutable`, downloads it, compares SHA-256, and prints only metadata of that diagnostic. It does not overwrite existing Drive data, delete any remote file, render media, or approve any revision. It cleans its local temp files and the workflow cleans the credentials. The diagnostic stays in Drive for an audit trail.
+
+**A successful run proves only tiny-file write/readback**, NOT a full master, storage cost guarantee, Codespaces authorization, or delivery and QA of a finished video. Confirm the actual Actions run before marking write access verified.

@@ -23,7 +23,7 @@
 - PR #1 fusionado en `main` (`807c4608`): historial, guardado Android y recuperación.
 - GitHub Actions run `38074798345`: 17/17 pruebas, recuperación aislada de tres revisiones reales de demo.
 - Codespaces Android: Studio y guardado remoto reales probados. Controles 00/03/04 sin diálogo probados.
-- Conector ChatGPT-Drive: carpeta `Remotion Production/projects` existente; GitHub Actions aún NO ha demostrado credencial rclone ni subida.
+- Conector ChatGPT-Drive: carpeta `Remotion Production/projects` existente; GitHub Actions **lectura Drive verificada** el 10-10-2026 mediante run `38084894131` y secret `RCLONE_CONFIG_B64`. **Escritura/subida no verificadas**.
 - Render demo de 59 fotogramas validado; master aprobado y entrega verificada a Drive pendientes.
 
 ## Para cualquier chat futuro

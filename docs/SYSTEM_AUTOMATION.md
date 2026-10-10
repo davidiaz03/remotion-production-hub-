@@ -25,7 +25,7 @@
 
 El conector GitHub desde ChatGPT puede editar/consultar el repositorio y revisar resultados de Actions; **no maneja directamente el terminal del Codespace abierto**. Para trabajos ejecutados se necesitan workflows autorizados, herramientas de ejecución disponibles o acciones específicas del usuario.
 
-**Drive:** conector ChatGPT comprobado en la carpeta `Remotion Production/projects`. La credencial `RCLONE_CONFIG_B64` en GitHub Actions está pendiente de autorizar y verificar. Un workflow `03 - Drive preflight (NO RENDER)` hará una comprobación de **solo lectura** si el usuario instala el secret. Su éxito no asegura permisos de escritura.
+**Drive:** conector ChatGPT comprobado en la carpeta `Remotion Production/projects`. **Lectura verificada** en GitHub Actions (run `38084894131`, 2026-10-10): se instaló `RCLONE_CONFIG_B64` como secret de repositorio; el job ejecutó el remoto `media:` con salida `read_verified` y se completó sin renderizar ni subir archivos. **NO se ha probado escritura, entrega de másteres ni autenticación de Codespaces**. Las credenciales temporales del runner se borran al terminar. Para cada proyecto nuevo, validar manifest SHA-256, aprobación y destino antes de un master.
 
 ## Seguridad y trazabilidad
 
