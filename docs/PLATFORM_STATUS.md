@@ -24,6 +24,10 @@
 | Proyecto NUEVO, música/assets y preview con QA | Falta una prueba integral reproducible | PENDIENTE |
 | Máster Remotion completo, aprobación, QA y entrega a Drive | No existe aún evidencia completa de ejecución | PENDIENTE |
 
+## Estándar creativo que rige futuros proyectos
+
+**Obligación metodológica**, no capacidad ya validada como render integral: ChatGPT debe ser director creativo e investigador, crear sus propios prompts, aprender de referentes profesionales verificables, solicitar materiales o reels concretos si ayudan, desarrollar la idea con estrategia propia y auditar/corregir sus montajes. Ver `docs/CREATIVE_DIRECTION_PROTOCOL.md` y el `CREATIVE_BRIEF.md` que generará cada proyecto. No inventar fuentes ni eliminar la aprobación humana.
+
 ## Flujo diario previsto para cada proyecto NUEVO
 
 1. Usuario encarga proyecto y define objetivo/duración/formato. Crear ID y rama de trabajo nuevos sin tocar otros proyectos.

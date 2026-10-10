@@ -2,6 +2,10 @@
 
 Propósito: comprobar de extremo a extremo un video NUEVO y desechable, no retomar proyectos de prueba anteriores. No declarar resultados adelantados.
 
+## Criterio de calidad creativa
+
+Antes del render, comprobar que ChatGPT preparó `CREATIVE_BRIEF.md` con estrategia y prompts propios, estudió referencias pertinentes accesibles (o explicó por qué no pudo), tomó decisiones narrativas originales y registró al menos una auditoría con correcciones reales. La investigación no debe inventarse ni forzarse si no existen referentes útiles para un piloto mínimo.
+
 ## Preparación
 
 - Utilizar un ID y rama `work/*` nuevos; crear estructura desde plantilla.
@@ -13,7 +17,7 @@ Propósito: comprobar de extremo a extremo un video NUEVO y desechable, no retom
 
 | Etapa | Evidencia necesaria |
 |---|---|
-| A. Crear proyecto | TSX/config/STATE/HANDOFF y PROJECTS.json coherentes; ningún otro proyecto alterado |
+| A. Crear proyecto | TSX/config/STATE/HANDOFF/CREATIVE_BRIEF y PROJECTS.json coherentes; ningún otro proyecto alterado |
 | B. Recursos Drive | Descarga por rclone del archivo exacto, tamaño y SHA-256 iguales |
 | C. Edición | Studio abre; cambios TSX guardados y SHA GitHub verificado |
 | D. Recuperación | Versión recuperada en entorno separado sin sobrescribir el origen |
