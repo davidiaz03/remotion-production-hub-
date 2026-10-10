@@ -1,0 +1,31 @@
+name: Remotion Hub code checks (NO RENDER)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/code-checks.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hub-checks-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  unit-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - name: Install pinned dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Check CLI syntax
+        run: node --check scripts/operate.mjs
+      - name: Run tests (no media, no export)
+        run: npm test

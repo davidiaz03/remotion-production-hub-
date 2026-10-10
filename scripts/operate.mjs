@@ -145,7 +145,7 @@ function save(created=false){
  const files=changes();safeChanges(files,created);
  if(!files.length){console.log(JSON.stringify({status:'unchanged',project:id,...push(b)}));return;}
  const j={schema:1,project:id,branch:b,baseHead:head(),
-  revision:id+'-'+new Date().toISOString().replace(/[-:.]/g,'').toLowerCase()+'-'+randomBytes(3).toString('hex'),
+  revision:id.slice(0,26)+'-'+new Date().toISOString().replace(/[-:.]/g,'').toLowerCase()+'-'+randomBytes(3).toString('hex'),
   created,note,previousSnapshot:state().latestSnapshot};
  writePending(j);
  finishCheckpoint(j);
