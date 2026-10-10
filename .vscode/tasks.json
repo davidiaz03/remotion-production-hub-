@@ -26,14 +26,22 @@
   ],
   "tasks": [
     {
+      "label": "00 Ver proyecto activo (Android)",
+      "type": "process",
+      "command": "node",
+      "args": [
+        "scripts/android-control.mjs",
+        "whoami"
+      ],
+      "problemMatcher": []
+    },
+    {
       "label": "01 Abrir Remotion Studio",
       "type": "process",
-      "command": "npm",
+      "command": "node",
       "args": [
-        "run",
-        "open",
-        "--",
-        "${input:project}"
+        "scripts/android-control.mjs",
+        "open"
       ],
       "problemMatcher": [],
       "isBackground": true
@@ -41,52 +49,40 @@
     {
       "label": "02 Guardar progreso en GitHub",
       "type": "process",
-      "command": "npm",
+      "command": "node",
       "args": [
-        "run",
-        "save",
-        "--",
-        "${input:project}",
-        "--note",
-        "${input:note}"
+        "scripts/android-control.mjs",
+        "save"
       ],
       "problemMatcher": []
     },
     {
       "label": "03 Consultar estado",
       "type": "process",
-      "command": "npm",
+      "command": "node",
       "args": [
-        "run",
-        "status",
-        "--",
-        "${input:project}"
+        "scripts/android-control.mjs",
+        "status"
       ],
       "problemMatcher": []
     },
     {
       "label": "04 Reintentar publicacion",
       "type": "process",
-      "command": "npm",
+      "command": "node",
       "args": [
-        "run",
-        "publish",
-        "--",
-        "${input:project}"
+        "scripts/android-control.mjs",
+        "publish"
       ],
       "problemMatcher": []
     },
     {
       "label": "05 Recuperar revision (plan)",
       "type": "process",
-      "command": "npm",
+      "command": "node",
       "args": [
-        "run",
-        "recover",
-        "--",
-        "${input:project}",
-        "--revision",
-        "${input:rev}"
+        "scripts/android-control.mjs",
+        "recover"
       ],
       "problemMatcher": []
     },

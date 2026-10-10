@@ -32,3 +32,14 @@
 4. Fusionar PR #1 solo después de pruebas satisfactorias. Evitar renders innecesarios.
 
 **Privacidad:** el repositorio es público. Nunca guardar credenciales, binarios institucionales sensibles ni medios privados en Git.
+
+## Control Android sin cuadros de texto (PR #1)
+
+El selector de proyecto de las tareas VS Code puede bloquearse en Chrome Android. Para las tareas **00–05** existe un acceso sin ventanas. Al iniciar un Codespace nuevo:
+
+```bash
+npm run use -- demo  # una sola vez por Codespace
+npm run active       # confirmar la selección
+```
+
+Después ejecutar **Terminal → Run Task → 03 Consultar estado** o **02 Guardar progreso en GitHub**: no abrirán el cuadro «Proyecto». La selección permanece privada en Git; no requiere commit ni MP4. Cambia a otro trabajo con `npm run use -- otro-id`. Nunca se elige automáticamente un proyecto desconocido. Para operaciones especiales que soliciten revisión o consentimiento utiliza la terminal y las guías del repositorio.

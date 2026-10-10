@@ -4,7 +4,9 @@
 
 ## Uso desde Android
 
-Abrir Codespaces en la rama de trabajo, VS Code → Terminal → Run Task. Las tareas numeradas llaman exactamente a los scripts del proyecto, no a un editor paralelo.
+Abrir Codespaces en la rama de trabajo. **Una vez por Codespace**, seleccionar el proyecto desde la terminal con `npm run use -- demo` (o el ID de un proyecto futuro). La selección se guarda **solo dentro de .git**, jamás se publica en GitHub. Comprobar con `npm run active`.
+
+Luego ir a VS Code → Terminal → Run Task. **Las tareas 00 a 05 no preguntan nada**, porque Chrome Android puede quedarse bloqueado en los cuadros de texto de VS Code. Usan el proyecto activo, sin editor paralelo. Para cambiar de documental, ejecutar `npm run use -- documental` una sola vez. **No se selecciona proyecto automáticamente** para evitar guardar el documental equivocado.
 
 | Acción | Comando |
 |---|---|
@@ -18,6 +20,10 @@ Abrir Codespaces en la rama de trabajo, VS Code → Terminal → Run Task. Las t
 
 Se acepta tanto `npm run studio -- demo` como `npm run studio -- --project demo`. El archivo abierto se guarda automáticamente en VS Code, **pero solo `save` genera commits y comprueba GitHub**.
 
+**Evidencia 2026-10-10:** la primera ejecución de `npm run save -- demo --note "Prueba de guardado desde Android"` devolvió `status: saved` y `verifiedRemoteSha: 51131c38f8b1a169b225caeab15d2da66e8ee693`. Los archivos editables, `STATE.json`, `HANDOFF.md`, `PROJECTS.json` y el snapshot quedaron confirmados en GitHub. Tras guardar, `git status --short` no mostró cambios y `npm run status -- demo` informó `dirty: []`, `pendingCheckpoint: null`. Las 14 pruebas locales en Codespaces pasaron.
+
+**Advertencia:** 06 Crear proyecto y 07 Aprobar siguen siendo tareas avanzadas con cuadros de texto; desde Android usar en su lugar la terminal para operaciones que requieren entrada específica. Nunca aprobar por defecto.
+
 ### Protocolo de guardado
 
 `save` valida el proyecto, rechaza cambios de otros proyectos o de revisiones históricas, comprueba que estás en una rama `work/*`, comprueba el repositorio remoto oficial y verifica que la rama remota es ancestro local. Registra primero el commit de código, luego crea un snapshot con SHA exacto y estado *en revisión*, actualiza `PROJECTS.json`, `STATE.json` y `HANDOFF.md`, registra el segundo commit y hace push normal. Confirma finalmente que el SHA remoto coincide. **No renderiza ni aprueba**. Si falla el push, los commits quedan locales: reintenta con `publish`, no crees otro checkpoint. La versión reforzada además deja un diario privado en Git para reanudar interrupciones entre las dos fases de commit. No elimina el riesgo de perder cambios que **nunca** llegaron a publicarse si se destruye el Codespace.
@@ -30,7 +36,7 @@ Solo una persona autorizada puede aprobar una revisión; el comando `approve` re
 
 ### Estado verificado
 
-GitHub contiene una prueba exitosa de 59 fotogramas en Actions y las dos revisiones manuales de demo. La primera batería local de seguridad del nuevo orquestador pasa 4/4. Todavía faltan un checkpoint real con este nuevo comando, una recuperación desde máquina nueva, una aprobación explícita y una entrega de máster verificada a Drive. Codespaces no se detiene por este script: configura tiempo de inactividad en GitHub y usa Stop codespace en Android.
+GitHub contiene una prueba exitosa de 59 fotogramas en Actions y las dos revisiones manuales de demo. La primera batería local de seguridad del nuevo orquestador pasa 4/4. El primer checkpoint real y su SHA remoto ya fueron verificados. Siguen pendientes la prueba real de los nuevos botones sin diálogo, la recuperación desde máquina nueva, la aprobación explícita y una entrega de máster verificada a Drive. Codespaces no se detiene por este script: configura tiempo de inactividad en GitHub y usa Stop codespace en Android.
 
 ## Recuperación entre chats
 
