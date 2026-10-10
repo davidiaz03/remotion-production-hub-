@@ -4,7 +4,7 @@ import {ROOT,projectPath,loadProject,requireFile,run,parseArgs} from './lib.mjs'
 const [action,...rest]=process.argv.slice(2);
 const {pos,opts}=parseArgs(rest);
 if(!action)throw Error('Use: create|studio|render|compositions PROJECT');
-const projectId=pos[0];
+const projectId=opts.project||pos[0];
 if(action==='create'){
  const target=projectPath(projectId);if(existsSync(target))throw Error('Project already exists; refusing overwrite');
  const indexFile=path.join(ROOT,'PROJECTS.json');
