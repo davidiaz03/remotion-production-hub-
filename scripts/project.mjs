@@ -12,14 +12,14 @@ if(action==='create'){
  if(!Array.isArray(index.projects)||index.projects.some(x=>x.id===projectId))throw Error('Invalid index or duplicate project; refusing modification');
  const title=pos.slice(1).join(' ')||projectId.replaceAll('-',' ').toUpperCase();
  cpSync(path.join(ROOT,'templates/reel'),target,{recursive:true});
- for(const f of ['project.json','src/Video.tsx']){
+ for(const f of ['project.json','src/Video.tsx','CREATIVE_BRIEF.md']){
   const p=path.join(target,f);
   writeFileSync(p,readFileSync(p,'utf8').replaceAll('__SLUG__',projectId).replaceAll('__TITLE__',title));
  }
  mkdirSync(path.join(target,'public'),{recursive:true});writeFileSync(path.join(target,'public','.gitkeep'),'');
- const state={schema:'remotion-hub.state/v1',id:projectId,title,objective:title,phase:'editing',compositionId:'MainReel',latestSnapshot:null,approvedRevision:null,completed:[],pending:[],nextTask:'Editar en Studio y registrar una revision persistente',updatedAt:new Date().toISOString()};
+ const state={schema:'remotion-hub.state/v1',id:projectId,title,objective:title,phase:'editing',compositionId:'MainReel',latestSnapshot:null,approvedRevision:null,completed:[],pending:[],nextTask:'Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar',updatedAt:new Date().toISOString()};
  writeFileSync(path.join(target,'STATE.json'),JSON.stringify(state,null,2)+'\n');
- writeFileSync(path.join(target,'HANDOFF.md'),`# ${title}\n\nIdentificador: \`${projectId}\`\n\nObjetivo: ${title}\n\nVer STATE.json y PROJECTS.json.\nNo hay revisiones aprobadas.\n`);
+ writeFileSync(path.join(target,'HANDOFF.md'),`# ${title}\n\nIdentificador: \`${projectId}\`\n\nObjetivo: ${title}\n\nLeer CREATIVE_BRIEF.md y docs/CREATIVE_DIRECTION_PROTOCOL.md: ChatGPT debe investigar, proponer sus prompts y estrategia, ejecutar y auditar con iniciativa propia.\nVer STATE.json y PROJECTS.json.\nNo hay revisiones aprobadas.\n`);
  index.projects.push({id:projectId,title,latestSnapshot:null,approvedRevision:null,nextTask:state.nextTask,updatedAt:state.updatedAt});
  writeFileSync(indexFile,JSON.stringify(index,null,2)+'\n');
  console.log(`Created projects/${projectId} with persistent state. Edit src/Video.tsx, then npm run studio -- ${projectId}`);

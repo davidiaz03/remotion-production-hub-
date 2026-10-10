@@ -8,15 +8,18 @@
 - Si el usuario identifica un documental específico: entonces lee `PROJECTS.json`, `projects/<id>/project.json`, `STATE.json`, `HANDOFF.md`, revisiones y manifiestos. El handoff del documental es exclusivo de ese documental.
 - Una pieza piloto puede ayudar a detectar fallos; las mejoras universales se integran en `scripts/`, `shared/`, `templates/`, `.github/` y `docs/`, no en una memoria de conversación sobre el piloto.
 
+**Regla creativa:** aunque la petición del usuario sea mínima, ChatGPT debe investigar, idear su propia estrategia y prompts, producir, auditar y corregir proactivamente. Ver `docs/CREATIVE_DIRECTION_PROTOCOL.md`; cada proyecto nuevo incorpora `CREATIVE_BRIEF.md`.
+
 ## Protocolo obligatorio
 
 1. Verificar GitHub conectado, rama y SHA remotos actuales; no confiar en fechas o commits antiguos de los documentos.
 2. Confirmar si la tarea es de plataforma o de un proyecto identificado. Nunca seleccionar `demo` o un piloto por defecto.
 3. Trabajar en `work/*`, revisar diffs y comprobar pruebas antes de solicitar integración en `main`.
-4. Para medios privados, usar Drive y manifiestos SHA-256. Los MP4 no reemplazan fuentes TSX originales y no se suben al repositorio público.
-5. La conexión ChatGPT-Drive NO autoriza por sí misma a Codespaces o Actions. Ver `docs/DRIVE.md`.
-6. `npm run save -- <id> --note "..."` y `npm run publish -- <id>` no aprueban, no renderizan y deben verificar publicación remota.
-7. Un master requiere aprobación editorial explícita, verificación de recursos, QA técnico y una entrega autenticada a Drive. Nunca por mero `push`.
+4. Con una idea escueta, redactar hipótesis, investigación, referentes y prompts propios en `CREATIVE_BRIEF.md`, buscar soluciones profesionales y solicitar referencias al usuario si aporta valor.
+5. Para medios privados, usar Drive y manifiestos SHA-256. Los MP4 no reemplazan fuentes TSX originales y no se suben al repositorio público.
+6. La conexión ChatGPT-Drive NO autoriza por sí misma a Codespaces o Actions. Ver `docs/DRIVE.md`.
+7. `npm run save -- <id> --note "..."` y `npm run publish -- <id>` no aprueban, no renderizan y deben verificar publicación remota.
+8. Un master requiere aprobación editorial explícita, verificación de recursos, QA técnico y una entrega autenticada a Drive. Nunca por mero `push`.
 
 **Estado global verificado:** `docs/PLATFORM_STATUS.md`. **Siguiente protocolo de prueba audiovisual:** `docs/END_TO_END_VALIDATION.md`. Estos documentos no son el handoff de un reel.
 
@@ -30,6 +33,6 @@
 
 ## Para cualquier chat futuro
 
-«Trabaja en el SISTEMA Remotion Production Hub, repositorio `davidiaz03/remotion-production-hub-`. Lee `START_HERE.md`, `AGENTS.md`, `docs/SYSTEM_AUTOMATION.md` y `docs/DRIVE.md`. Verifica rama, CI y conexión Drive. No abras proyectos piloto ni asumas uno activo, salvo que nombre el ID explícitamente. Documenta soluciones reutilizables para nuevos proyectos».
+«Trabaja en el SISTEMA Remotion Production Hub, repositorio `davidiaz03/remotion-production-hub-`. Lee `START_HERE.md`, `AGENTS.md`, `docs/CREATIVE_DIRECTION_PROTOCOL.md`, `docs/SYSTEM_AUTOMATION.md` y `docs/DRIVE.md`. Verifica rama, CI y conexión Drive. No abras proyectos piloto ni asumas uno activo, salvo que nombre el ID explícitamente. Documenta soluciones reutilizables para nuevos proyectos».
 
 Para trabajo de un reel concreto, indicar también su `<id>` y leer sus propios STATE/HANDOFF.

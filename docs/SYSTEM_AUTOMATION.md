@@ -12,9 +12,13 @@
 
 Consulta primero `docs/PLATFORM_STATUS.md` (evidencia real) y `docs/END_TO_END_VALIDATION.md` (próxima prueba). El Memorial y otros pilotos NO son tareas futuras.
 
+## Dirección creativa propia, no ejecución literal
+
+Cada nuevo proyecto tiene `CREATIVE_BRIEF.md`. ChatGPT debe elaborar su propia investigación (cuando haya fuentes accesibles), benchmarking de contenidos relevantes, dirección creativa, prompts, plan de implementación y autoauditoría, incluso si el usuario solo facilita una idea y recursos. Si identifica reels profesionales útiles pero inaccesibles, puede pedir al usuario que los adjunte. Registrar hallazgos verificables y auditar/corregir cada montaje sin esperar una lista exhaustiva de fallos del usuario. Ver `docs/CREATIVE_DIRECTION_PROTOCOL.md`. El material ajeno es referencia técnica, nunca un permiso de copia.
+
 ## Ciclo que debe funcionar para cada trabajo nuevo
 
-1. Crear ID y rama `work/*` únicos. Jamás modificar un piloto anterior por accidente.
+1. Crear ID y rama `work/*` únicos. La plantilla genera `CREATIVE_BRIEF.md` para investigar y crear estrategia/prompts originales; jamás modificar pilotos anteriores por accidente.
 2. Crear desde plantilla, identificar y organizar recursos en Drive, calcular hashes, previsualizar en Studio.
 3. Edición y guardados mediante commits+checkpoints con SHA remoto verificado.
 4. Probar recuperación de una revisión en Git separado y comprobar CI.
