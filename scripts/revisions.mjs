@@ -23,7 +23,7 @@ function clean(){if(git(['status','--porcelain','--untracked-files=normal']))thr
 function pathsFor(project,commit){
  const names=git(['ls-tree','-r','--name-only',commit]).split('\n').filter(Boolean);
  const prefix=`projects/${project}/`;
- return names.filter(p=>['package-lock.json','package.json','.npmrc','.devcontainer/devcontainer.json'].includes(p)||p.startsWith('shared/')||p.startsWith('scripts/')||(p.startsWith(prefix)&&!p.startsWith(prefix+'revisions/')&&!p.startsWith(prefix+'approvals/')&&!['STATE.json','HANDOFF.md'].includes(p.slice(prefix.length))));
+ return names.filter(p=>['package-lock.json','package.json','.npmrc','.devcontainer/devcontainer.json'].includes(p)||p.startsWith('shared/')||p.startsWith('scripts/')||(p.startsWith(prefix)&&!p.startsWith(prefix+'revisions/')&&!p.startsWith(prefix+'approvals/')));
 }
 function gitBytes(commit,p){return git(['show',`${commit}:${p}`],{buffer:true});}
 function sourceInventory(project,commit){
@@ -87,7 +87,11 @@ function snapshot(id,revision){clean();if(existsSync(snapshotPath(id,revision))|
 }
 async function approve(id,revision,confirmation){if(confirmation!=='APROBAR-REVISION')throw Error('Approval requires --confirm APROBAR-REVISION and human review');clean();if(existsSync(approvedPath(id,revision)))throw Error('This revision is already approved and cannot be replaced');
  const {saved,sha}=validateSnapshot(id,revision);if(saved.assets.length){
-  const {verifyAssetFiles}=await import('./verify-assets.mjs');await verifyAssetFiles(id);
+  const {verifyAssetFiles}=await import('./verify-assets.mjs');
+  const actualAssetManifest=readFileSync(path.join(projectPath(id),'asset-manifest.json'));
+  const expectedAssetManifest=saved.files.find(x=>x.path===`projects/${id}/asset-manifest.json`);
+  if(sha256(actualAssetManifest)!==expectedAssetManifest?.sha256)throw Error('Local asset manifest differs from the snapshot');
+  await verifyAssetFiles(id);
  }
  writeJSON(approvedPath(id,revision),{schema:'remotion-hub.approval/v1',project:id,revision,sourceCommit:saved.sourceCommit,snapshotSha256:sha,approvedAt:new Date().toISOString(),approvalMethod:'explicit-user-confirmation',immutable:true});
  updateState(id,s=>({...s,approvedRevision:revision,phase:'approved',nextTask:'Solicitar exportacion manual por revision aprobada cuando corresponda'}));
