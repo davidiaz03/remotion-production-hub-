@@ -1,0 +1,159 @@
+{
+  "schema": "remotion-hub.snapshot/v1",
+  "project": "demo",
+  "revision": "demo-cut-002",
+  "capturedAt": "2026-10-10T16:16:39.070Z",
+  "sourceCommit": "db1a4518cd0769c6429d7fb5d832aeedd003129f",
+  "sourceTree": "da6d9bb1f29d8960b2fb99d0df98e68198ce3508",
+  "inputFingerprint": "1c661b8ff6390b761e617b8332e6d7da4612075588b0a11e36c0c9c562061dc2",
+  "files": [
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "sha256": "cb451cbb1a91151fc005370964dbaacca74a009f6dbdc0f03eca890a88053edd"
+    },
+    {
+      "path": ".npmrc",
+      "sha256": "ec86e98c9012c1c518768d72730af92c0f12b1e1a7215e502fcea5e83c7ff9c3"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "2f5160c4ef1d3339dffb2977951d60ca02db4909c84fc3882a26fdad34bf0900"
+    },
+    {
+      "path": "package.json",
+      "sha256": "0c8e5b0d7a583cb6433cb6f5892ab9d1eff475700fb714169e69e1a2df0de776"
+    },
+    {
+      "path": "projects/demo/HANDOFF.md",
+      "sha256": "3d88ef49d7cde83902fb838ad898cf595097550d2d57c39e7905ff801f956701"
+    },
+    {
+      "path": "projects/demo/STATE.json",
+      "sha256": "2d89cb0710210f9f139374c32718d152a5a736712eef1e7da65aa2c5f87da803"
+    },
+    {
+      "path": "projects/demo/asset-manifest.json",
+      "sha256": "24f1607754d3e9a0ee17d6930c6d08fac650ca8fd014476567ee6ad0de6079fd"
+    },
+    {
+      "path": "projects/demo/project.json",
+      "sha256": "8a86a4e2c42798a04aa6f7d301d3dec275ba0e4b7a8677f20301209d61d289ac"
+    },
+    {
+      "path": "projects/demo/public/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "projects/demo/src/Root.tsx",
+      "sha256": "46c0be51564dce4f0c6c617ea73d9ce0e171a3c44e9ee587b69d47dac7f3f41e"
+    },
+    {
+      "path": "projects/demo/src/Video.tsx",
+      "sha256": "08ea9f40ac7e47c5b1e975a48532dba9a188b661c042b48444210e7a4dc68f81"
+    },
+    {
+      "path": "projects/demo/src/index.ts",
+      "sha256": "2e0e358282a1b998a65387c653b97c2bb2eb7aae94cf200fc0b8d919f7be73a6"
+    },
+    {
+      "path": "scripts/bootstrap-lock.mjs",
+      "sha256": "660a0bfe06002473ff0b462144b76dfa7acf9267575926ceaa02e2dacdac3fa6"
+    },
+    {
+      "path": "scripts/bootstrap-lock.sh",
+      "sha256": "d699bd458cfbd5fe25a3881fde8d82d73bd2216bee988301c660b535c4b93657"
+    },
+    {
+      "path": "scripts/cleanup.mjs",
+      "sha256": "5408ffc6e3a19db2b3e73161a28be2c43fb10f1546b44df95c9885f37a4dd0b0"
+    },
+    {
+      "path": "scripts/codespaces-setup.sh",
+      "sha256": "f01216821c2672f1213bdb5dc5ad8e7b53a8390fb3c6c07cedcb647dc5889153"
+    },
+    {
+      "path": "scripts/compat-v42.mjs",
+      "sha256": "a3800c925fe0cb4925c76d797765e48db6462a756e8961ecc4aa367089887be1"
+    },
+    {
+      "path": "scripts/drive-upload.mjs",
+      "sha256": "fc9526c2d7ff86c4ec6042d4dad6544263f649e6eb82a4cb3a125ec92da9b549"
+    },
+    {
+      "path": "scripts/free-guard.mjs",
+      "sha256": "33d2cb73da5c8ad278b8f61b8472ab0a3a36f4f5e35611c5e55fe2101ddef870"
+    },
+    {
+      "path": "scripts/guard-duplicate.mjs",
+      "sha256": "b3d6ce953376938399e939db1c2904662325c954b0b1335e3138407522a6ad60"
+    },
+    {
+      "path": "scripts/lib.mjs",
+      "sha256": "6311225b3cbbf9ac26cd3176a35a4ded4c8a494456f7fa8553af9b8c7add63b4"
+    },
+    {
+      "path": "scripts/project.mjs",
+      "sha256": "ed471fa2501544ffacafe303945ed79bd25019287fc50c86672b328d1d827172"
+    },
+    {
+      "path": "scripts/qa-media.mjs",
+      "sha256": "1f049c9314747148200c340f3b43f80a99be18a6d76ce74c9aad4be0cacc4bf4"
+    },
+    {
+      "path": "scripts/rclone-env.mjs",
+      "sha256": "d5204b29cc8dca49bab7b712d1768aa63c4374d8e754d4094327304e37364093"
+    },
+    {
+      "path": "scripts/revisions.mjs",
+      "sha256": "2a0d2b3842ab1ca580438b425694464f5a1f0522a23ca463cab4293cfe805ed0"
+    },
+    {
+      "path": "scripts/sync-assets.mjs",
+      "sha256": "26f8c33343e6dc512d92050170d611bdaaad214b5ac15978b64aed56c3b648f6"
+    },
+    {
+      "path": "scripts/validate.mjs",
+      "sha256": "0ce793249439607aefad51e711a44b8f1de9ec3123b295743ba924a28cfe26a2"
+    },
+    {
+      "path": "scripts/verify-assets.mjs",
+      "sha256": "c26fb0742a2e4f3cf56fed1bebf1723751c8e64ee33b9603673f123be6012de5"
+    },
+    {
+      "path": "shared/AnimatedTitle.tsx",
+      "sha256": "4f80adb6636ff3e2e3412f5556c7de21c583b0d009fdd579b055e8027d309683"
+    },
+    {
+      "path": "shared/BrandFrame.tsx",
+      "sha256": "eb7e207ba12cfd06cfca6b50700610bad831549f272d8d7819982cb10cdbf7cd"
+    },
+    {
+      "path": "shared/Caption.tsx",
+      "sha256": "830f50706f368ef1701ade62f37e80c39355fc56ebb61fa951266e8af5640e03"
+    },
+    {
+      "path": "shared/KenBurnsStill.tsx",
+      "sha256": "9d3724cc6652b111c0f529421a11f2294c5b0132940d5124cd71c425c1523f95"
+    },
+    {
+      "path": "shared/LowerThird.tsx",
+      "sha256": "7f1d8248996a5dde08cc074a23c2c7ed9f01bfc93414ed928fe69aadf71f6cea"
+    }
+  ],
+  "projectConfig": {
+    "id": "demo",
+    "compositionId": "MainReel",
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "durationInFrames": 90
+  },
+  "toolchain": {
+    "node": "22.16.0",
+    "npm": "10.9.2",
+    "remotion": "4.0.530",
+    "react": "18.3.1",
+    "lockSha256": "2f5160c4ef1d3339dffb2977951d60ca02db4909c84fc3882a26fdad34bf0900"
+  },
+  "assets": []
+}
