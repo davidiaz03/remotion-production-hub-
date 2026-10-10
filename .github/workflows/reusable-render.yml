@@ -8,6 +8,10 @@ on:
       mode:
         type: string
         required: true
+      revision:
+        type: string
+        required: false
+        default: ""
       frames:
         type: string
         required: false
@@ -32,6 +36,7 @@ jobs:
       PROJECT: ${{ inputs.project }}
       RENDER_MODE: ${{ inputs.mode }}
       FRAME_RANGE: ${{ inputs.frames }}
+      SOURCE_REVISION_REQUEST: ${{ inputs.revision }}
       MASTER_CONFIRMATION: ${{ inputs.confirmation }}
       GITHUB_REPOSITORY_PRIVATE: ${{ github.event.repository.private }}
     steps:
@@ -39,6 +44,31 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
+          fetch-depth: 0
+      - name: Resolve approved source commit (no silent newer draft)
+        run: |
+          if [ "$RENDER_MODE" = "full" ] && [ -z "$SOURCE_REVISION_REQUEST" ]; then
+            echo 'Master requires an approved revision'; exit 6
+          fi
+          if [ -n "$SOURCE_REVISION_REQUEST" ]; then
+            node scripts/revisions.mjs verify --project "$PROJECT" --revision "$SOURCE_REVISION_REQUEST" --github-env "$GITHUB_ENV"
+          else
+            echo "SOURCE_SHA=${GITHUB_SHA}" >> "$GITHUB_ENV"
+            echo "RENDER_REVISION=draft-${GITHUB_SHA:0:12}" >> "$GITHUB_ENV"
+          fi
+      - name: Checkout exact approved editable source
+        if: ${{ inputs.revision != '' }}
+        run: |
+          test -n "$SOURCE_SHA" || exit 6
+          git checkout --detach "$SOURCE_SHA"
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA" || exit 6
+      - name: Assert source pin
+        run: |
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA" || { echo 'Wrong source commit'; exit 6; }
+          test -s package-lock.json || exit 6
+          if [ "$RENDER_MODE" = "full" ]; then
+            test "$RENDER_REVISION" = "$SOURCE_REVISION_REQUEST" || exit 6
+          fi
       - name: Fail-closed eligibility and project validation (before npm)
         env:
           RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
@@ -73,9 +103,9 @@ jobs:
       - name: Reject duplicate Drive master BEFORE rendering
         if: ${{ inputs.mode == 'full' }}
         run: |
-          SHORT_SHA="${GITHUB_SHA:0:12}"
-          echo "OUTPUT_FILE=${PROJECT}-${SHORT_SHA}-master.mp4" >> "$GITHUB_ENV"
-          node scripts/guard-duplicate.mjs --project "$PROJECT" --file "${PROJECT}-${SHORT_SHA}-master.mp4"
+          SHORT_SHA="${SOURCE_SHA:0:12}"
+          echo "OUTPUT_FILE=${PROJECT}-${RENDER_REVISION}-${SHORT_SHA}-master.mp4" >> "$GITHUB_ENV"
+          node scripts/guard-duplicate.mjs --project "$PROJECT" --file "${PROJECT}-${RENDER_REVISION}-${SHORT_SHA}-master.mp4"
       - name: Native Remotion render (same TSX as Studio)
         id: render
         run: |
