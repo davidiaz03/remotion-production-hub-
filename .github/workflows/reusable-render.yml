@@ -29,9 +29,11 @@ jobs:
   render:
     runs-on: ubuntu-24.04
     timeout-minutes: ${{ inputs.mode == 'full' && 45 || 14 }}
+    # One native render at a time across ALL projects; never auto-cancel a full master.
+    # New waiting runs can replace an older pending run under GitHub concurrency rules.
     concurrency:
-      group: ${{ inputs.mode == 'full' && format('remotion-master-{0}', github.repository) || format('remotion-preview-{0}-{1}', github.repository, inputs.project) }}
-      cancel-in-progress: ${{ inputs.mode != 'full' }}
+      group: remotion-render-${{ github.repository }}
+      cancel-in-progress: false
     env:
       PROJECT: ${{ inputs.project }}
       RENDER_MODE: ${{ inputs.mode }}
@@ -41,7 +43,7 @@ jobs:
       GITHUB_REPOSITORY_PRIVATE: ${{ github.event.repository.private }}
     steps:
       - name: Read exact source revision
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           persist-credentials: false
           fetch-depth: 0
@@ -80,7 +82,7 @@ jobs:
             echo 'Full export requires Drive authentication BEFORE any render'; exit 5
           fi
       - name: Install pinned Node and cache npm downloads only
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22.16.0'
           cache: npm
@@ -155,9 +157,9 @@ jobs:
           retention-days: 1
           if-no-files-found: warn
           compression-level: 0
-      - name: Remove scratch outputs only after successful delivery
+      - name: Remove ONLY this project's scratch renders after preview artifact or verified master delivery
         if: ${{ success() }}
-        run: node scripts/cleanup.mjs --execute
+        run: node scripts/cleanup.mjs --project "$PROJECT" --execute
       - name: Erase transient credential file
         if: ${{ always() }}
         run: rm -f "${RUNNER_TEMP}/remotion-rclone.conf"

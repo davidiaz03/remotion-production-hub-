@@ -8,6 +8,14 @@ Lee `START_HERE.md`, `docs/PLATFORM_STATUS.md`, `docs/CREATIVE_DIRECTION_PROTOCO
 
 La idea o instrucción breve del usuario **NO es un guion ni una estrategia exhaustiva**. Investigar referentes audiovisuales, creadores, obras profesionales y formato/nicho con fuentes comprobables; pedir reels o videos de referencia concretos si las herramientas no permiten examinarlos; crear por iniciativa propia concepto, estructura, guion, prompts especializados, plan técnico Remotion, montaje y auditoría de cada versión. Corregir proactivamente y documentar fuentes, hipótesis, decisiones, prompts y hallazgos en `projects/<id>/CREATIVE_BRIEF.md`. No inventar investigaciones ni copiar obras ajenas. Seguir `docs/CREATIVE_DIRECTION_PROTOCOL.md`. **Autonomía creativa no elimina aprobación editorial ni permisos de costes/exportaciones.**
 
+## Planificación y materiales: realidad primero
+
+Antes de montar o generar cualquier toma, definir objetivo, guion, escaleta/timecodes, storyboard, recursos por escena, licencias y responsables. Buscar primero originales y metraje/fotos reales verificables, contrastando hechos; emplear IA para tratamiento gráfico, animaciones y efectos con propósito, o para un reel deliberadamente animado cuando esa sea la propuesta. No presentar recreaciones sintéticas como archivo real. Registrar estado de búsqueda, procedencia y plan de adquisición de assets en `CREATIVE_BRIEF.md`. Cumplir `docs/CREATIVE_DIRECTION_PROTOCOL.md`.
+
+## Seguridad de recursos, cola y limpieza
+
+Evitar renders repetitivos y paralelos; render manual único global, previews pequeñas, artefactos efímeros y limpieza de salidas **del proyecto** solo tras conservar los resultados necesarios. No limpiar outputs de otro proyecto, Drive, originales o revisiones. Vigilar cuotas y detener Codespaces sin uso; no tratar la optimización como evasión de límites. Ver `docs/RENDER_RESOURCE_POLICY.md`.
+
 ## Fuente de verdad y recuperación
 Para un proyecto expresamente seleccionado, lee `PROJECTS.json`, `projects/<id>/CREATIVE_BRIEF.md`, `projects/<id>/STATE.json`, `HANDOFF.md`, `project.json`, `asset-manifest.json`, `revisions/` y `approvals/`. El código `src/` y `shared/` es editable; el MP4 no lo sustituye. Confirma hashes y archivos físicos, no solo rutas. Recupera commits históricos en un worktree separado.
 

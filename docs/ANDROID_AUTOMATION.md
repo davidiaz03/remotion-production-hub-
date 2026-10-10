@@ -24,6 +24,10 @@ Se acepta tanto `npm run studio -- demo` como `npm run studio -- --project demo`
 
 **Advertencia:** 06 Crear proyecto y 07 Aprobar siguen siendo tareas avanzadas con cuadros de texto; desde Android usar en su lugar la terminal para operaciones que requieren entrada específica. Nunca aprobar por defecto.
 
+### Higiene de Codespaces y renders
+
+No lanzar renders por cada modificación: utilizar Studio, previews de hasta 90 fotogramas y aprobación explícita para máster. El repositorio limita a un render concurrente global. Después de guardar evidencia, limpiar solo `out/` del proyecto mediante `node scripts/cleanup.mjs --project <id> --execute` y detener Codespaces. Nunca borrar assets, fuentes, revisiones o másteres Drive. Ver `docs/RENDER_RESOURCE_POLICY.md`.
+
 ### Protocolo de guardado
 
 `save` valida el proyecto, rechaza cambios de otros proyectos o de revisiones históricas, comprueba que estás en una rama `work/*`, comprueba el repositorio remoto oficial y verifica que la rama remota es ancestro local. Registra primero el commit de código, luego crea un snapshot con SHA exacto y estado *en revisión*, actualiza `PROJECTS.json`, `STATE.json` y `HANDOFF.md`, registra el segundo commit y hace push normal. Confirma finalmente que el SHA remoto coincide. **No renderiza ni aprueba**. Si falla el push, los commits quedan locales: reintenta con `publish`, no crees otro checkpoint. La versión reforzada además deja un diario privado en Git para reanudar interrupciones entre las dos fases de commit. No elimina el riesgo de perder cambios que **nunca** llegaron a publicarse si se destruye el Codespace.

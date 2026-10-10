@@ -27,6 +27,9 @@ test('creating a reel includes a project-specific self-directed creative plan',(
   assert.match(brief,/futuro-reel/);
   assert.match(brief,/Investigaci[oó]n/);
   assert.match(brief,/Prompt maestro/);
+  assert.match(brief,/Preproducci[oó]n obligatoria/);
+  assert.match(brief,/Material REAL ideal/);
+  assert.match(brief,/Uso responsable de material real e IA/);
   assert.match(brief,/Auditor[ií]a/);
   assert.doesNotMatch(brief,/__SLUG__|__TITLE__/);
   assert.match(handoff,/CREATIVE_BRIEF.md/);
