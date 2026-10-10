@@ -1,0 +1,22 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "boca-sama-55-2026",
+  "title": "Boca de Samá · 55 años de memoria",
+  "phase": "preproduction",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [
+    "Carpeta Drive y subcarpetas",
+    "Guion v0.1, escaleta de 7 escenas",
+    "Maqueta Remotion editable, sin fotos históricas"
+  ],
+  "pending": [
+    "Cotejar grafías y testimonios primarios",
+    "Adquirir assets reales con derechos",
+    "Narración, identidad oficial y música",
+    "Preview, auditoría editorial y aprobación antes de máster"
+  ],
+  "nextTask": "Investigar fuentes primarias, cotejar nombres y adquirir fotografías reales antes del montaje",
+  "updatedAt": "2026-10-10T22:20:00Z"
+}
