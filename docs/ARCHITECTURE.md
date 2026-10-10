@@ -26,7 +26,7 @@ remotion-production-hub/
 - `drivePath`: carpeta de entrega. Para proyectos nuevos, `Remotion Production/projects/<slug>`; `assets/`, `masters/`, `qa/` y `scratch/` bajo esa carpeta.
 - `assets.mode=manifest`: recursos en Drive `drivePath/assets/<path>` y locales en `projects/<slug>/public/<path>`; `asset-manifest.json` declara cada SHA256 y tamaño.
 - `assets.mode=archives`: compatibilidad de proyectos legados con ZIPs declarados y *patch* aprobado antes de verificar hashes.
-- **Dos lugares a sincronizar manualmente al cambiar la duración/resolución:** `src/Root.tsx` y `project.json`. El render se bloquea por fallos de QA, pero la validación estática no analiza componentes arbitrarios para comparar ambos parámetros. Contrastar los dos en una revisión de código antes de aprobar el master.
+- **Fuente única de configuración para la plantilla y demo:** `src/Root.tsx` importa `project.json` y usa sus parámetros de composición; no hay que duplicar dimensiones o FPS en ese Root. **Excepción heredada:** `che-v42/src/Root.tsx` utiliza parámetros fijos/TOTAL_FRAMES y exige comprobación específica antes de exportar. La validación estática no puede detectar todos los desajustes posibles dentro de componentes personalizados.
 
 ## Source reproducibility
 

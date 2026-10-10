@@ -8,12 +8,18 @@
   "latestSnapshot": "demo-cut-002",
   "approvedRevision": null,
   "completed": [
-    "Render nativo de 59 fotogramas en GitHub Actions: run 37991845049, commit 98a88debc39646baefcb954f707cb096383697b1"
+    "Render nativo de 59 fotogramas en GitHub Actions: run 37991845049, commit 98a88debc39646baefcb954f707cb096383697b1",
+    "Chrome Android + Codespaces improved yodel: npm test 9/9 sobre rama anterior; Remotion Studio MainReel y previsualización modificada confirmados.",
+    "demo-cut-001 (9184e12) y demo-cut-002 (d462ef7): commits y snapshots publicados; recuperación tras detener/reiniciar Codespaces.",
+    "Clon nuevo en /tmp/remotion-recovery-test dentro del mismo Codespace: fuentes y ambas revisiones verificadas."
   ],
   "pending": [
-    "Probar Codespaces con Chrome Android",
-    "Aprobar explicitamente la primera revision del proyecto"
+    "Validar npm test y primer checkpoint con npm run save en Codespaces para el PR #1.",
+    "Validar reanudación de checkpoint interrumpido y acciones VS Code Android.",
+    "Verificar recuperación desde máquina completamente nueva.",
+    "Mantener revisiones demo sin aprobación editorial salvo consentimiento.",
+    "Verificar máster aprobado y entrega a Drive en prueba autorizada."
   ],
-  "nextTask": "Revisar demo-cut-002, confirmar y aprobar solo cuando corresponda",
+  "nextTask": "Probar en la rama work/hub-android-automation-20261010 el guardado con npm run save y reanudación publish; NO renderizar ni aprobar.",
   "updatedAt": "2026-10-10T16:16:39.070Z"
 }

@@ -13,6 +13,10 @@
 - `projects/<id>/revisions/<id>.json`: immutable snapshot descriptor. Contains source commit, Git tree, individual SHA-256 of source and configs, lockfile hash, full asset manifest, Remotion/React/Node/npm versions, composition dimensions/duration.
 - `projects/<id>/approvals/<id>.json`: separate explicit approval record, pointing to the snapshot by SHA-256 and source commit. Approval records must never be overwritten.
 
+## Vía recomendada en Android (PR #1; comprobar antes de usar en producción)
+
+Usa `npm run open -- demo` para Studio y `npm run save -- demo --note "Cambio editorial"` para crear commits de código, revisión y estado en la rama de trabajo, sin render ni aprobación. Si se interrumpe, `npm run publish -- demo` debe reanudar el checkpoint antes de empezar otro. Consulta `START_HERE.md` y `docs/ANDROID_AUTOMATION.md`. **El comando nuevo aún requiere prueba real en Codespaces.** La secuencia detallada a continuación es el protocolo manual de referencia.
+
 ## Editing session: no render required
 
 1. Start a 2-core Codespace, open the repository on Android, then `npm ci` (automatic on creation) and `npm run studio -- demo`.
@@ -72,7 +76,7 @@ The job first checks the approval record against its snapshot and available Git 
 
 ## New ChatGPT conversation: copy-paste handoff
 
-> Continue Remotion Production Hub at `davidiaz03/remotion-production-hub-` on `main`. First fetch the latest commit SHA, `PROJECTS.json`, `projects/<id>/STATE.json`, `HANDOFF.md`, its most recent `revisions/<id>.json` and any `approvals/<id>.json`. Verify SHA/hash and the current branch. Continue editing the actual TypeScript source; never recreate it from an MP4. Do not render until explicitly requested.
+> Continue Remotion Production Hub at `davidiaz03/remotion-production-hub-` by first reading `START_HERE.md` and `AGENTS.md`. Verify the active development branch and pull requests instead of assuming `main` contains latest work. First fetch the latest commit SHA, `PROJECTS.json`, `projects/<id>/STATE.json`, `HANDOFF.md`, its most recent `revisions/<id>.json` and any `approvals/<id>.json`. Verify SHA/hash and the current branch. Continue editing the actual TypeScript source; never recreate it from an MP4. Do not render until explicitly requested.
 
 ## Guarantees and boundaries
 
