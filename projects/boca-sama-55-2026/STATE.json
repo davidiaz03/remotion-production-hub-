@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v28_candidate_quotes_committed_CI_and_listening_pending",
+  "phase": "v28_native_nancy_preview_verified_checkpoint_saved_2026-10-11",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -92,7 +92,9 @@
     "V28: new candidate source-synced Nancy 5.3s and Carlos 8.4s WAVs generated, SHA-pinned in manifest and saved Drive; originals intact",
     "V28 audio/video/ducking updated in Video.tsx; QA_V28_TRANSCRIPT_CUTS.md records source and reel time offsets",
     "V28 voice waveforms remeasured from actual new WAVs and original interview edits synchronized; music ducking extended to end of phrases.",
-    "V28 four provisional Gemini-derived caption cues registered in TestimonyCaptionsV28.ts with verified:false, not displayed; HANDOFF updated."
+    "V28 four provisional Gemini-derived caption cues registered in TestimonyCaptionsV28.ts with verified:false, not displayed; HANDOFF updated.",
+    "V28 CI passed 38111579311 at 706bfe0c; native Nancy preview 38111670265: 70/70 1080x1920, H264/AAC decode OK, zero unexpected black frames, correct V28 WAV correlation ~0.995",
+    "V28 preview MP4, contact sheet and technical JSON backed up Drive with permanent IDs; QA_NATIVE_PREVIEW_V28_NANCY.md committed"
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -102,6 +104,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Await V28 CI success, then manual quick preview 720-789 to hear revised Nancy entry or 1020-1089 Carlos; independently compare quoted words against original and fine-tune exact subtitle timing. No master.",
+  "nextTask": "Tomorrow: read latest HANDOFF and QA_NATIVE_PREVIEW_V28_NANCY.md; verify quote words and ending of Nancy / entire Carlos excerpt; do not auto-enable Gemini subtitles; then continue narrative editing and full review. No master approval.",
   "updatedAt": "2026-10-11T03:56:00Z"
 }
