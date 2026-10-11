@@ -42,14 +42,14 @@ export const Context:React.FC<{children:React.ReactNode;size?:number}>=({childre
  style={{...type,fontWeight:450,color:'#EEEAE3',lineHeight:1.34,fontSize:size,textShadow:'0 3px 10px #000a'}}>{children}</div>;
 
 /** Source presented at proper 16:9 within portrait frame. Never stretch to 9:16. */
-export const ArchiveVideo:React.FC<{src:string;start:number;top?:number;width?:number;onWhite?:boolean}> =
- ({src,start,top=405,width=1010,onWhite=false})=>{
+export const ArchiveVideo:React.FC<{src:string;start:number;top?:number;width?:number;onWhite?:boolean;playbackRate?:number}> =
+ ({src,start,top=405,width=1010,onWhite=false,playbackRate=1})=>{
  const frame=useCurrentFrame(),ratio=width/16*9;
  const motion=curve(frame,[0,290],[1,1.022]);
  return <div style={{position:'absolute',top,left:(1080-width)/2,width,height:ratio,background:'#141617',
  overflow:'hidden',border:'1px solid rgba(255,255,255,.24)',boxShadow:'0 26px 68px rgba(0,0,0,.55)',
  transform:'scale('+motion+')'}}>
- <OffthreadVideo muted src={staticFile(src)} trimBefore={Math.round(start*FPS)}
+ <OffthreadVideo muted src={staticFile(src)} trimBefore={Math.round(start*FPS)} playbackRate={playbackRate}
  style={{width:'100%',height:'100%',objectFit:'contain',filter:onWhite?'contrast(1.02)':'contrast(1.04) saturate(.91)'}}/>
  </div>;
 };
