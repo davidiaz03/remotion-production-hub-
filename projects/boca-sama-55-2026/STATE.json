@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v33_whisper_transcription_pipeline_committed_not_run_narrator_unavailable",
+  "phase": "v33_whisper_files_committed_workflow_validation_blocked_no_asr_output",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -108,7 +108,9 @@
     "V32 audit documents voice option review: no authorized Azure credentials or WAV synthesized; paid third-party alternatives not triggered.",
     "V32 native 1195-1265 render 38142873914 passed and contact sheet inspected, revised 9-frame monument reveal improved.",
     "V33 manual Remotion Whisper.cpp source-verified Spanish transcription script/workflow committed; no ASR job actually executed yet.",
-    "V33 voice connectors checked: HeyGen generic Spanish but no es-CU, Runway both tokens revoked, vidIQ credit-based presets, Azure Cuban voice requires authorized resource."
+    "V33 voice connectors checked: HeyGen generic Spanish but no es-CU, Runway both tokens revoked, vidIQ credit-based presets, Azure Cuban voice requires authorized resource.",
+    "V32 render backed up permanently in Drive 1tjLSo44vJ7tzp6CqFpZpmTGMRcSwervu, 71 frames technically passed and contact sheet reviewed.",
+    "V33 Whisper script and manual workflow added, but GitHub rejected workflow pre-job on first commits (runs 38143276620 and 38143308042). Corrected runner.temp scope in fd1e228e; activation validation still pending."
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -118,6 +120,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Check V33 CI; test manual ASR workflow with Nancy/base only if offered via GitHub Actions and within runner budget; verify timing against Gemini, keep verified:false. Azure Cuban narrator gated pending credentials/cost, no spend. Full reel master unapproved.",
+  "nextTask": "Inspect validation error of .github/workflows/boca-sama-remotion-whisper.yml (GitHub workflow pre-job failure), do not claim transcription performed. Once valid, manually trigger Nancy/base with budget review, human compare results. Voice options: Azure requires authorized resource; HeyGen es-CU not found; Runway tokens revoked.",
   "updatedAt": "2026-10-11T13:15:00Z"
 }
