@@ -55,6 +55,16 @@
       "path": "00_MATERIALES_PARA_EDICION/Entrevista__Carlos_Escalante,_superviviente_de_ataque_terrorista_en_Boca_de_Samá(360p).mp4",
       "bytes": 18993573,
       "sha256": "0cb774f97cf910a17e388ee14124252ae9e64ddf0d241588e1a78e6b8508dfdc"
+    },
+    {
+      "path": "boca-sama-v24-voice-nancy-source-2011-review.wav",
+      "bytes": 552078,
+      "sha256": "51223f6d8da52c14bd6fc76bedc386ef3e982aaf6844d934698e0e7e030c53ff"
+    },
+    {
+      "path": "boca-sama-v24-voice-carlos-source-2011-review.wav",
+      "bytes": 552078,
+      "sha256": "ddfe930091ee77b784c4dfa3527e315d73bfe51d8c7f951482da17be20a81b05"
     }
   ]
 }
