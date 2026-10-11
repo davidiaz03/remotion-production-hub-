@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v24_real_witness_audio_internal_review_ci_pending",
+  "phase": "v24_native_nancy_voice_preview_verified_editorial_approval_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -77,7 +77,9 @@
     "V23 CI passed run 38107872812",
     "V24 genuine excerpt audio from 2011 Nancy and Carlos sources prepared and stored on Drive with measured SHA256, originals intact",
     "V24 TSX audio synchronization first 173 frames of each survivor scene, music ducking; internal review only, not publication-ready",
-    "QA_V24_AUDIO.md records provenance and need for semantic verification/transcription"
+    "QA_V24_AUDIO.md records provenance and need for semantic verification/transcription",
+    "Native V24 Nancy real-voice preview 720-789 success run 38108311401; 70 frames Full HD, no black, audio waveform source correlated >.995 after AAC delay",
+    "V24 audio MP4 and contact sheet saved Drive; QA_NATIVE_PREVIEW_V24_NANCY.md committed"
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -87,6 +89,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Wait V24 CI; manual preview 720-789 to inspect Nancy audio and image, then 1020-1089 Carlos; verify transcribed original phrases and permissions before final subtitling.",
+  "nextTask": "Manual preview Carlos 1020-1089; improve vertical negative space then check native frame; human verify exact Nancy/Carlos words and permissions before subtitle and full render.",
   "updatedAt": "2026-10-11T03:56:00Z"
 }
