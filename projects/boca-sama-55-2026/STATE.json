@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v16_transition_polish_committed_preview_v15_verified",
+  "phase": "v17_testimony_outro_fix_committed_no_native_preview",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -53,19 +53,20 @@
     "Native Remotion preview 113-175 run 38104808177 success; 63 frames 1080x1920, decode OK, 0 black intervals, visual inspected",
     "QA_NATIVE_PREVIEW_02.md recorded visual flaw: left wipe slices title; V15 corrects to typography exit plus crossfade",
     "Native V15 preview frames 110-152 successfully rendered run 38105185242; 43/43 1080x1920 decode OK, zero black intervals",
-    "V15 mp4 and contacts backed up in Drive scratch; V16 minor Holguín entrance delay correction committed"
+    "V15 mp4 and contacts backed up in Drive scratch; V16 minor Holguín entrance delay correction committed",
+    "V16 CI passed 38105413045",
+    "V17 manually reviewed historical source video frames around Nancy, Carlos, memorial and original third-party ACN end card",
+    "V17 changed memorial in point from 362.3 to 350.5 to avoid third-party end slate; QA_V17_TESTIMONIALS_AND_CLOSING.md recorded"
   ],
   "pending": [
-    "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
     "Localizar animaciones originales logo y crear frame final transparente autorizado",
     "Verificar nombres/atribución/autoría/permisos antes de máster",
     "Verificar diálogos/timecodes y autorización de citas de Nancy/Carlos",
     "Localizar tres logos originales animados (carpeta Logos consultada vacía), extraer frame final real",
-    "Sincronizar assets desde Drive al public/assets del proyecto con SHA256 y rutas probadas",
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector"
   ],
-  "nextTask": "Check V16 CI, prioritize next manual preview spanning evidence-rich interview shot changes around frame 915, rather than repeat opening. Final voice/logo/perms pending.",
+  "nextTask": "After V17 CI, MANUAL preview 861-929 for Nancy face-to-B-roll (actual cut global frame 870); do not reuse old 915 estimate. Check audio and image. Later verify outro and find original logo.",
   "updatedAt": "2026-10-11T03:15:00Z"
 }
