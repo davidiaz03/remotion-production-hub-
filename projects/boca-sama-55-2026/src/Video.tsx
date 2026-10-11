@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill,Img,OffthreadVideo,Sequence,interpolate,staticFile,useCurrentFrame} from 'remotion';
+import {AbsoluteFill,Img,OffthreadVideo,Sequence,interpolate,spring,staticFile,useCurrentFrame} from 'remotion';
 
 /**
  * Boca de Samá: edición de investigación v0.3.
@@ -25,6 +25,7 @@ function Archive({shot}:{shot:Shot}){
  const f=useCurrentFrame();
  const asset=shot.media?staticFile(shot.media):undefined;
  const move=interpolate(f,[0,shot.len],[1.015,1.07],clamp);
+ const documentaryReveal=interpolate(f,[0,23,shot.len-10,shot.len],[0,1,1,.96],clamp);
  return <AbsoluteFill style={{background:C.black,overflow:'hidden'}}>
   {asset&&shot.kind==='video'&&<OffthreadVideo src={asset} startFrom={Math.round((shot.startAt||0)*30)} muted style={{width:'100%',height:'100%',objectFit:'cover',filter:'blur(26px) brightness(.27) saturate(.65)',transform:'scale(1.6)'}}/>}
   {asset&&shot.kind==='image'&&<Img src={asset} style={{width:'100%',height:'100%',objectFit:'cover',filter:'blur(23px) brightness(.32)',transform:'scale(1.22)'}}/>}
@@ -34,7 +35,8 @@ function Archive({shot}:{shot:Shot}){
    {asset&&shot.kind==='image'&&<Img src={asset} style={{width:'100%',height:'100%',objectFit:'contain',transform:`scale(${move})`}}/>}
    {!asset&&<div style={{color:'#fff',fontSize:30,padding:35}}>ARCHIVO PENDIENTE DE SINCRONIZACIÓN</div>}
   </div>
-  <div style={{position:'absolute',top:208,left:48,width:124,height:7,background:C.red}}/>
+  <div style={{position:'absolute',top:208,left:48,width:interpolate(f,[0,35],[0,124],clamp),height:7,background:C.red}}/>
+  <div style={{position:'absolute',left:42,right:42,top:256,height:594,border:'1px solid rgba(255,255,255,.11)',pointerEvents:'none',opacity:documentaryReveal}}/>
   <div style={{position:'absolute',top:875,left:55,right:55,color:C.white}}>
    <div style={{fontFamily:'Arial,sans-serif',fontWeight:800,fontSize:shot.name.length>20?56:74,lineHeight:1.09,letterSpacing:-1.1,textShadow:'0 3px 15px #000',maxWidth:970}}>{shot.name}</div>
    <div style={{fontSize:28,fontFamily:'Arial,sans-serif',fontWeight:700,marginTop:27,letterSpacing:3,color:'#fff'}}>{shot.caption}</div>
@@ -45,14 +47,15 @@ function Archive({shot}:{shot:Shot}){
 const Scene:React.FC<{shot:Shot}>=({shot})=>{
  const f=useCurrentFrame();
  const fade=interpolate(f,[0,10,shot.len-14,shot.len],[0,1,1,0],clamp);
- return <AbsoluteFill style={{opacity:fade}}><Archive shot={shot}/></AbsoluteFill>;
+ return <AbsoluteFill style={{opacity:fade,transform:`translateY(${interpolate(f,[0,26],[22,0],clamp)}px)`}}><Archive shot={shot}/></AbsoluteFill>;
 };
 const Closure=()=>{
  const f=useCurrentFrame();
  const reveal=interpolate(f,[6,35],[0,1],clamp);
+ const sealSpring=spring({fps:30,frame:f,config:{damping:200,mass:1,stiffness:90}});
  return <AbsoluteFill style={{background:C.black,justifyContent:'center',alignItems:'center',color:C.white,fontFamily:'Arial,sans-serif'}}>
   <div style={{width:110,height:7,background:C.red,opacity:reveal,marginBottom:36}}/>
-  <div style={{opacity:reveal,fontSize:55,fontWeight:800,letterSpacing:1.5,textAlign:'center'}}>55 AÑOS DE MEMORIA</div>
+  <div style={{opacity:reveal,transform:`translateY(${(1-sealSpring)*20}px)`,fontSize:55,fontWeight:800,letterSpacing:1.5,textAlign:'center'}}>55 AÑOS DE MEMORIA</div>
   <div style={{opacity:reveal,fontSize:28,color:'#ddd',marginTop:26}}>12 OCTUBRE · 1971—2026</div>
   <div style={{position:'absolute',bottom:280,border:'2px dashed #666',padding:24,fontSize:25,color:'#c6c6c6',textAlign:'center'}}>LOGO ANIMADO OFICIAL PENDIENTE</div>
  </AbsoluteFill>;
