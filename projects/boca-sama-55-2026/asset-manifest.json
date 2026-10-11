@@ -80,6 +80,11 @@
       "path": "boca-sama-v09_monument-coverage-source.png",
       "bytes": 335495,
       "sha256": "314f6919af48bd8614017f8e317080b2b147fe4fcc1199f229000c0587e3f4d9"
+    },
+    {
+      "path": "boca-sama-v38-serena-decoded-PCM48k-PREVIEW.wav",
+      "bytes": 1482162,
+      "sha256": "732630f214d73c24d9fa8a1a53f2ca0c3e3d17e76e4d7b31fe0fc9c6888ddd21"
     }
   ]
 }
