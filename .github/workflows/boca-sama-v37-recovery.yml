@@ -1,0 +1,62 @@
+name: Boca de Sama V37 - preserve voice and ASR pilot (NO RENDER)
+# V37.1 one-shot retry: validate original encoded audio correctly; no synthesis.
+on:
+  push:
+    branches: [work/boca-sama-55-2026-research]
+    paths: ['.github/workflows/boca-sama-v37-recovery.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: boca-sama-v37-recovery
+  cancel-in-progress: false
+jobs:
+  voice-and-asr:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 28
+    env:
+      RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
+      WITNESS: nancy
+      WHISPER_MODEL: base
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.16.0'
+          cache: npm
+      - name: Install required open-source tools
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg rclone cmake build-essential curl
+          npm ci --no-audit --no-fund
+      - name: Prepare existing Drive authorization
+        run: |
+          test -n "$RCLONE_CONFIG_B64" || { echo 'Drive authorization absent, stopping'; exit 2; }
+          node scripts/rclone-env.mjs
+      - name: Preserve V34 preexisting voice without synthesis
+        id: wav
+        continue-on-error: true
+        run: node scripts/boca-sama-v37-preserve-existing-voice.mjs
+      - name: Record voice recovery outcome
+        run: echo "Existing voice preservation result = ${{ steps.wav.outcome }}; never infer success from workflow success."
+      - name: Install transcription dependency once
+        run: npm install --no-save --package-lock=false --ignore-scripts @remotion/install-whisper-cpp@4.0.530 @remotion/captions@4.0.530
+      - name: Transcribe Nancy original to unverified draft
+        env:
+          OUTPUT_DIR: ${{ runner.temp }}/boca-sama-v37-transcripts
+        run: node scripts/boca-sama-remotion-whisper.mjs
+      - name: Upload ONLY unverified JSON and contextual audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: boca-sama-v37-ASR-UNVERIFIED-${{ github.run_id }}
+          path: ${{ runner.temp }}/boca-sama-v37-transcripts/
+          retention-days: 1
+          if-no-files-found: error
+      - name: Clean transient credentials
+        if: always()
+        run: |
+          rm -f "$RUNNER_TEMP/remotion-rclone.conf"
+          rm -rf "$RUNNER_TEMP/whisper.cpp"

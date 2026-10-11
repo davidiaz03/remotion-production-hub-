@@ -1,0 +1,16 @@
+{
+  "id": "boca-sama-55-2026",
+  "title": "Boca de Samá · 55 años de memoria",
+  "compositionId": "MainReel",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationInFrames": 1650,
+  "audioRequired": false,
+  "drivePath": "Remotion Production/projects/boca-sama-55-2026",
+  "assets": {
+    "mode": "manifest",
+    "manifest": "asset-manifest.json"
+  },
+  "crf": 19
+}

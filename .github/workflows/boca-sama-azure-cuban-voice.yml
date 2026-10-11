@@ -1,0 +1,65 @@
+name: Boca de Sama - Microsoft Cuban voice audition (MANUAL)
+on:
+  workflow_dispatch:
+    inputs:
+      voice:
+        description: Azure Spanish Cuban voice
+        required: true
+        type: choice
+        options: [es-CU-BelkysNeural, es-CU-ManuelNeural]
+        default: es-CU-BelkysNeural
+permissions:
+  contents: read
+concurrency:
+  group: boca-sama-azure-tts-audition
+  cancel-in-progress: false
+jobs:
+  speech-audition:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    env:
+      AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+      AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+    steps:
+      - name: Require explicitly configured Azure Speech resource
+        run: |
+          test -n "$AZURE_SPEECH_KEY" && test -n "$AZURE_SPEECH_REGION" || {
+            echo "SKIPPED: no authorized Azure Speech key/region supplied. No synthesis performed."
+            exit 1
+          }
+      - name: Build bounded plain-language SSML
+        env:
+          VOICE_NAME: ${{ inputs.voice }}
+        run: |
+          python3 - <<'PY'
+          import html,os,pathlib
+          voice=os.environ['VOICE_NAME']
+          if voice not in ('es-CU-BelkysNeural','es-CU-ManuelNeural'):
+              raise SystemExit('Unsupported voice')
+          phrase='El doce de octubre de mil novecientos setenta y uno, un ataque armado alcanzó Boca de Samá, en Banes. Dos personas murieron y otras cuatro resultaron heridas. Las consecuencias siguen presentes.'
+          xml=("<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='es-CU'>"
+               "<voice name='"+html.escape(voice)+"'><prosody rate='-6%'>"+html.escape(phrase)+"</prosody></voice></speak>")
+          pathlib.Path('temporary-voice-ssml.xml').write_text(xml,encoding='utf-8')
+          PY
+      - name: Azure official Speech REST synthesis
+        run: |
+          curl --fail --show-error --silent --retry 1 --max-time 55 \
+            -H "Ocp-Apim-Subscription-Key: $AZURE_SPEECH_KEY" \
+            -H "Content-Type: application/ssml+xml" \
+            -H "X-Microsoft-OutputFormat: riff-24khz-16bit-mono-pcm" \
+            -H "User-Agent: Remotion-BocaSama-Internal-Audition" \
+            --data-binary @temporary-voice-ssml.xml \
+            "https://${AZURE_SPEECH_REGION}.tts.speech.microsoft.com/cognitiveservices/v1" \
+            --output boca-sama-azure-es-CU-UNVERIFIED.wav
+          test "$(wc -c < boca-sama-azure-es-CU-UNVERIFIED.wav)" -gt 20000
+          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 boca-sama-azure-es-CU-UNVERIFIED.wav
+      - name: Short retention internal review only
+        uses: actions/upload-artifact@v4
+        with:
+          name: boca-sama-azure-es-CU-internal-audition-${{ github.run_id }}
+          path: boca-sama-azure-es-CU-UNVERIFIED.wav
+          retention-days: 1
+          if-no-files-found: error
+      - name: Clean temporary speech prompt
+        if: always()
+        run: rm -f temporary-voice-ssml.xml

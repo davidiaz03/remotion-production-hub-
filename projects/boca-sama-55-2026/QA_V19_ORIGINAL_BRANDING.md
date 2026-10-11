@@ -1,0 +1,8 @@
+# V19 — Original official logo replacement
+Three original files arrived 2026-10-11 in Drive assets/00_MATERIALES_PARA_EDICION: DOC-20260928-WA0126 (red star / white text on black), DOC-20260928-WA0127 (red/black on white), DOC-20260929-WA0021 (white-on-black). All 720x1280, 24fps, 144 frames, approximately 6s. Selected WA0126, SHA256 b24afc07820c5e0b853ccfcbb259c11abd3dc8b4b9bbaea7ffe44ca038ff33e6. The earlier 360x640 extraction is now obsolete but retained in Drive, not in render manifest.
+
+Original last frame n=143 extracted, alpha masked *non-generatively*: red contour silhouette preserved including black internal design, white lettering retained with subpixel alpha. Cropped PNG 573x907, 213053 bytes SHA256 a6236f15736bc11c4741dc37f9cd2f676d3ab93a0b6705675f2d6c0bb73e1f50. Transparent asset in Drive: https://drive.google.com/file/d/10tjZeGj9tUcd8j1kCEuuYVVwJ2aFcwEC/view . QA on black, grey, off-white: https://drive.google.com/file/d/1y0DlATAVhNxBZYKKMqdUfRkP2bfj7c75/view .
+
+V19 code: full six-second original animation played throughout 49–55s and original matching transparent final frame in top right until frame 1469; it disappears immediately at frame 1470. No longer separate static hold because 6s animation already fills closure. Assets and hashes registered in manifest. Type weights/official manual still require artistic review; no AI logo.
+
+**No native render of V19 yet.** Next preview manually frames 1458–1520, check watermark removal, scale of animation within 1080x1920, matte and continuity. Check end frames separately only if needed. Voice and subtitles not yet recorded. Do not publish or call master.

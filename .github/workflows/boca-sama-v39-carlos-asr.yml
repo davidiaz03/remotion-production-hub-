@@ -1,0 +1,66 @@
+name: Boca de Sama V39 - Carlos Whisper base (NO RENDER)
+on:
+  push:
+    branches: [work/boca-sama-55-2026-research]
+    paths: ['.github/workflows/boca-sama-v39-carlos-asr.yml']
+permissions:
+  contents: read
+concurrency:
+  group: boca-sama-v39-carlos-asr
+  cancel-in-progress: false
+jobs:
+  carlos-asr:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
+      WITNESS: carlos
+      WHISPER_MODEL: base
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.16.0'
+          cache: npm
+      - name: Install pinned tools
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg rclone cmake build-essential
+          npm ci --no-audit --no-fund
+          npm install --no-save --package-lock=false --ignore-scripts @remotion/install-whisper-cpp@4.0.530 @remotion/captions@4.0.530
+      - name: Configure existing authorized Drive access
+        run: |
+          test -n "$RCLONE_CONFIG_B64" || exit 2
+          node scripts/rclone-env.mjs
+      - name: Transcribe SHA-pinned Carlos interview, never auto-publish
+        env:
+          OUTPUT_DIR: ${{ runner.temp }}/carlos-asr-v39
+        run: node scripts/boca-sama-remotion-whisper.mjs
+      - name: Back up draft captions to Drive scratch, do not overwrite
+        run: |
+          set -euo pipefail
+          source="$RUNNER_TEMP/carlos-asr-v39/carlos-UNVERIFIED-remotion-caption.json"
+          target="media:Remotion Production/projects/boca-sama-55-2026/scratch/boca-sama-v39-carlos-whisper-base-UNVERIFIED.json"
+          test -s "$source"
+          if rclone lsjson "$target" --log-level ERROR >/dev/null 2>&1; then
+            echo "ASR artifact target exists; refusing overwrite"
+            exit 5
+          fi
+          rclone copyto "$source" "$target" --retries 2 --log-level ERROR
+          local_hash="$(sha256sum "$source" | cut -d' ' -f1)"
+          remote_hash="$(rclone cat "$target" --log-level ERROR | sha256sum | cut -d' ' -f1)"
+          test "$local_hash" = "$remote_hash" || exit 6
+          echo "UNVERIFIED Carlos transcript backed up in Drive SHA256=$remote_hash"
+      - name: One-day auxiliary download
+        uses: actions/upload-artifact@v4
+        with:
+          name: boca-sama-v39-carlos-ASR-UNVERIFIED-${{ github.run_id }}
+          path: ${{ runner.temp }}/carlos-asr-v39/
+          retention-days: 1
+          if-no-files-found: error
+      - name: Remove short-lived Drive credentials
+        if: always()
+        run: rm -f "$RUNNER_TEMP/remotion-rclone.conf"

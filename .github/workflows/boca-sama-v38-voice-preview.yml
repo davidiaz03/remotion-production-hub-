@@ -1,0 +1,17 @@
+name: Boca de Sama V38 - offline voice preview (NO MASTER)
+on:
+  push:
+    branches: [work/boca-sama-55-2026-research]
+    paths: ['.github/workflows/boca-sama-v38-voice-preview.yml']
+permissions:
+  contents: read
+jobs:
+  preview:
+    uses: ./.github/workflows/reusable-render.yml
+    with:
+      project: boca-sama-55-2026
+      mode: quick
+      frames: '355-414'
+      revision: ''
+      confirmation: ''
+    secrets: inherit
