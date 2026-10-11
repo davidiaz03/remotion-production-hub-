@@ -1,0 +1,17 @@
+name: Boca de Sama V43 - memory transition QA (NO MASTER)
+on:
+  push:
+    branches: [work/boca-sama-55-2026-research]
+    paths: ['.github/workflows/boca-sama-v43-memory-transition-qa.yml']
+permissions:
+  contents: read
+jobs:
+  preview:
+    uses: ./.github/workflows/reusable-render.yml
+    with:
+      project: boca-sama-55-2026
+      mode: quick
+      frames: '1260-1349'
+      revision: ''
+      confirmation: ''
+    secrets: inherit
