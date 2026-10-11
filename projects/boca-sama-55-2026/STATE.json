@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "editorial_cut_v05_code_written_not_rendered",
+  "phase": "editorial_cut_v06_music_integrated_render_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -18,10 +18,13 @@
     "Editorial.tsx creado con componentes de media, encabezados, texto y entradas; Video.tsx v05 presenta 8 escenas 55s",
     "Asset-manifest ampliado a 5 fuentes con hashes SHA256 medidos",
     "SCRIPT_AND_AUDIO_V05.md creado: guion VO sustituyente y esquema de audio por escena",
-    "Storyboard gráfico V05 producido localmente con imágenes de fuente para inspección de dirección"
+    "Storyboard gráfico V05 producido localmente con imágenes de fuente para inspección de dirección",
+    "Dos pistas Flow conservadas en Drive y registradas con SHA256; seleccionada Weight of Memory para V06",
+    "Music bed integrada en TSX con fades y atenuacion prevista para voces",
+    "Corregidos puntos visuales Nancy (245s) y Carlos (79s) en reportaje de monumento",
+    "Test de preproduccion corregido para aceptar paso a edición sin omitir reglas de master"
   ],
   "pending": [
-    "Esperar comprobación CI de rama actual y revisar errores",
     "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
     "Localizar animaciones originales logo y crear frame final transparente autorizado",
@@ -32,6 +35,6 @@
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
     "Previsualizar y auditar render, no se ha generado master"
   ],
-  "nextTask": "Validar CI V05, terminar integración de assets y primera preview; audio final del equipo se insertará al concluir montaje",
-  "updatedAt": "2026-10-11T01:20:00Z"
+  "nextTask": "Verificar CI despues de cambios V06; ejecutar preview manual cuando exista interfaz workflow_dispatch segura; falta cierre oficial y audio de testimonios validados",
+  "updatedAt": "2026-10-11T01:35:00Z"
 }
