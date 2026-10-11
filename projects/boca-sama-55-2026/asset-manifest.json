@@ -38,17 +38,17 @@
     },
     {
       "path": "boca-sama-v09_archive-village-source.png",
-      "bytes": 222682,
+      "bytes": 222965,
       "sha256": "469ae09331acdd52fffff81d8e4873e86efac6046e48447facd8e0334c9b394b"
     },
     {
       "path": "boca-sama-v09_victim-portraits-source.png",
-      "bytes": 237493,
+      "bytes": 237198,
       "sha256": "38c056b305703c89c1b593f7620701bbe73446029fbb437e8c16604cde2fb1bc"
     },
     {
       "path": "boca-sama-v09_monument-coverage-source.png",
-      "bytes": 335385,
+      "bytes": 335495,
       "sha256": "314f6919af48bd8614017f8e317080b2b147fe4fcc1199f229000c0587e3f4d9"
     }
   ]
