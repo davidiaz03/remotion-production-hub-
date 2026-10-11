@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v26_witness_waveforms_committed_ci_pending",
+  "phase": "v27_caption_safe_waveform_committed_native_preview_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -85,7 +85,9 @@
     "QA_NATIVE_PREVIEW_V24_CARLOS.md saved; semantic transcription and publication consent remain pending",
     "V25 native Carlos run 38109486220 success, 70/70 frames 1080x1920, source voice and atmospheric image visually inspected; MP4 backed up Drive",
     "V26 real WAV RMS-derived dynamic waveform designed under witness portrait; code saved in VoiceWaveforms.ts + Video.tsx",
-    "QA_NATIVE_V25_AND_V26.md saved with precise technical and editorial limitations"
+    "QA_NATIVE_V25_AND_V26.md saved with precise technical and editorial limitations",
+    "V26 native Carlos waveform preview run 38109843775 passed 70/70; inspected and backed up MP4/contact sheet to Drive",
+    "V27 moved waveform and label above caption-safe zone and fades them at original voice endpoint; QA_NATIVE_V26_AND_V27.md saved"
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -95,6 +97,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Check V26 CI, preview 1020-1089 if material for another run, verify low-res portraits and waveform do not conflict with subtitles. Human verification of spoken quotes still necessary.",
+  "nextTask": "Verify V27 CI; prioritize semantic listening and exact witness transcript, plus authorized VO. Short preview of V27 only if needed to inspect its revised overlay; master remains unapproved.",
   "updatedAt": "2026-10-11T03:56:00Z"
 }
