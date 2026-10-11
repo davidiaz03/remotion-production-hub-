@@ -134,7 +134,7 @@ const Watermark=()=>{
  position:'absolute',top:182,right:40,width:112,height:'auto',opacity:.42,objectFit:'contain',
  filter:'drop-shadow(0 1px 4px rgba(0,0,0,.52))',pointerEvents:'none'}}/>;
 };
-const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,168,180,636,655,710,720,879,895,1010,1020,1272,1288,1540,1649],[0,.24,.24,.075,.075,.24,.24,.055,.055,.24,.24,.055,.055,.24,.24,0]);
+const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,168,180,636,655,710,720,904,922,1010,1020,1272,1288,1540,1649],[0,.24,.24,.075,.075,.24,.24,.055,.055,.24,.24,.055,.055,.24,.24,0]);
  return <Audio src={staticFile(assets.score)} volume={vol}/>;};
 
 /** Preview-only generic Spanish narration, generated once in HeyGen.
@@ -155,7 +155,7 @@ const edit=[
  {start:120,len:192,mode:'fade' as const,element:<Place/>},
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
- {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={155} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={49.833333} voiceFrames={159} voiceStart={49.833333} voiceFile={assets.voiceNancyReview} environment={assets.atmosphereNancy} waveform="nancy"/>},
+ {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={155} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={49.833333} voiceFrames={184} voiceStart={49.08} voiceFile={assets.voiceNancyComplete} environment={assets.atmosphereNancy} waveform="nancy"/>},
  {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={185} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={203.633333} voiceFrames={252} voiceStart={203.633333} voiceFile={assets.voiceCarlosReview} environment={assets.atmosphereCarlos} waveform="carlos" memorialCut/>},
  {start:1290,len:180,mode:'fade' as const,element:<Remembrance/>},
  {start:1470,len:180,mode:'cut' as const,element:<Closure/>},
