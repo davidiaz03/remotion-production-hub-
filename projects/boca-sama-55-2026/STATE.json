@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v22_editorial_audit_and_witness_titles_committed",
+  "phase": "v23_archival_witnesses_edit_committed_preview_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -70,7 +70,10 @@
     "QA_NATIVE_PREVIEW_V21.md archived with contact sheet and SHA256",
     "V22 revised witness lower-thirds to fade when B-roll begins and added source attribution for casualty count",
     "Real 12-second audio reference clips for Nancy/Carlos extracted losslessly and privately preserved in Drive scratch for verification",
-    "QA_V22_FULL_EDITORIAL_REVIEW.md saved with eight-scene audit and limitations of partial renders"
+    "QA_V22_FULL_EDITORIAL_REVIEW.md saved with eight-scene audit and limitations of partial renders",
+    "V22 CI success 38107651345",
+    "V23 two previously unused authentic independent survivor interviews inspected 428x240 25fps and integrated as short additional archival segments; manifest SHA verified",
+    "QA_V23_ARCHIVE_INTERVIEWS.md records new interview inpoints and source authenticity/missing transcription"
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -80,6 +83,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Verify V22 CI; listen and transcribe witness audio, obtain authorized narration, test subtitles and overall 55s editorial flow before any master approval.",
+  "nextTask": "Check V23 CI and manual quick preview 755-824 (Nancy 2011 interview to contemporary documentary cut), followed by factual transcription/permissions and full 55s flow audit; no master.",
   "updatedAt": "2026-10-11T03:56:00Z"
 }
