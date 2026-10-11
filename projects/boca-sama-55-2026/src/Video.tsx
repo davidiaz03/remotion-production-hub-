@@ -123,7 +123,7 @@ const Watermark=()=>{
  position:'absolute',top:182,right:40,width:112,height:'auto',opacity:.42,objectFit:'contain',
  filter:'drop-shadow(0 1px 4px rgba(0,0,0,.52))',pointerEvents:'none'}}/>;
 };
-const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,710,720,867,883,1010,1020,1259,1275,1540,1649],[0,.24,.24,.055,.055,.24,.24,.055,.055,.24,.24,0]);
+const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,710,720,879,895,1010,1020,1272,1288,1540,1649],[0,.24,.24,.055,.055,.24,.24,.055,.055,.24,.24,0]);
  return <Audio src={staticFile(assets.score)} volume={vol}/>;};
 
 // Sequence overlaps only at directed transitions; each active overlap is 12 frames. Endpoint remains exactly frame 1649.
