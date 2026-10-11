@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v46_caption_review_separate_v44_full_draft_validated",
+  "phase": "v46_caption_review_retry_running_v44_full_draft_verified",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -128,15 +128,17 @@
     "V43 frame-by-frame V42/V43 comparison saved Drive QA, normal picture luminance at frame1290 returned from 8.15 to 94.04; temporal-overlap regression check passed.",
     "V45 unverified 6 caption drafts re-timed from original-source ASR tokens, all verified:false and no visible testimony quotes in preview. Subtitle fail-closed unit test CI 38161398711 SUCCESS.",
     "V44 second full Remotion render run 38161262601 SUCCESS, MP4 backed up Drive id 1hIBPkKp9yJ8t7nT9Ek_xgqcbbKKdYmZR. Full 1650f H264/AAC; media audit at 43.0s V42 ROI 9.15 vs V44 ROI 94.87. -18.2 LUFS full, peak -3.6 dBFS.",
-    "V46 separate CaptionReviewReel composition and explicit 'UNVERIFIED' review overlays prepared; main MainReel still blocks verified:false captions; GitHub review run 38163081653 pending check."
+    "V46 separate CaptionReviewReel composition and explicit 'UNVERIFIED' review overlays prepared; main MainReel still blocks verified:false captions; GitHub review run 38163081653 pending check.",
+    "V46 initial review workflow run 38163081653 failed while syncing assets because rclone config generated via GITHUB_ENV becomes available only in the next step; corrected by exporting RCLONE_CONFIG in same step SHA ec3d646.",
+    "CI run 38163124914 failed due stale subtitle test expecting c.verified directly after CaptionTrack gained reviewOnly; updated CI to assert production default reviewOnly=false, MainReel reviewOnly=false and isolated CaptionReviewReel. Commit 9436437."
   ],
   "pending": [
-    "Check V46 review run 38163081653 and export two 3-second UNVERIFIED annotated testimonial previews for human wording check.",
+    "Review V46 retry outcome 38168093953 and CI 38168098696; no success confirmed yet.",
     "Listen carefully and verify full witness interviews Nancy and Carlos against automatic transcripts, then author exact subtitles without background; all captions remain verified:false.",
     "Verify all historical facts, numbers, spellings, chronology, source attributions, permissions, music/narrator usage rights and Memorial review before publication.",
     "Conduct full visual/frame-level and audio intelligibility QA, including professional text safe zones and final logo; full automatic QA alone is insufficient.",
     "Any institutional master approval and PR merge require explicit editorial authorization."
   ],
-  "nextTask": "Verify GitHub run 38163081653 results and preview files (Nancy frames720-809, Carlos1020-1109); keep testimony verified:false; begin literal witness audio/documentation fact-check before another full master. V44 full draft is already archived at Drive ID 1hIBPkKp9yJ8t7nT9Ek_xgqcbbKKdYmZR.",
+  "nextTask": "Check retry V46 run 38168093953 and code CI run 38168098696. If successful, retrieve and audit Nancy/Carlos three-second annotated previews; never switch verified flags automatically.",
   "updatedAt": "2026-10-11"
 }
