@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "editorial_cut_v06_music_integrated_render_pending",
+  "phase": "editorial_proof_v07_rendered_verified_non_remotion",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -22,7 +22,9 @@
     "Dos pistas Flow conservadas en Drive y registradas con SHA256; seleccionada Weight of Memory para V06",
     "Music bed integrada en TSX con fades y atenuacion prevista para voces",
     "Corregidos puntos visuales Nancy (245s) y Carlos (79s) en reportaje de monumento",
-    "Test de preproduccion corregido para aceptar paso a edición sin omitir reglas de master"
+    "Test de preproduccion corregido para aceptar paso a edición sin omitir reglas de master",
+    "Render de prueba editorial 55s 540x960 30fps H264/AAC producido en FFmpeg/Python, comprobado por ffprobe y muestreo de 14 frames, guardado en Drive scratch",
+    "QA_V07_EDITORIAL_PROOF.md guardado con problemas observados y siguientes correcciones"
   ],
   "pending": [
     "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
@@ -35,6 +37,6 @@
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
     "Previsualizar y auditar render, no se ha generado master"
   ],
-  "nextTask": "Verificar CI despues de cambios V06; ejecutar preview manual cuando exista interfaz workflow_dispatch segura; falta cierre oficial y audio de testimonios validados",
-  "updatedAt": "2026-10-11T01:35:00Z"
+  "nextTask": "V08: revisar 55s completos, seleccionar voz real Nancy/Carlos, corregir encuadres/repeticiones y verificar preview nativo Remotion; no publicar",
+  "updatedAt": "2026-10-11T01:47:00Z"
 }
