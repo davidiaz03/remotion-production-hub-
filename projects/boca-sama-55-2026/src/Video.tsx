@@ -27,7 +27,16 @@ const Place=()=> <Stage><FilmWipe direction="right" frames={19}><ArchivalStill s
  <Vignette top={980}/><InkLabel top={235}>COSTA NORTE DE CUBA</InkLabel>
  <div style={{position:'absolute',left:70,right:55,top:1290}}><Entrance delay={2}><Heading>HOLGUÍN</Heading>
  <Context>Boca de Samá · Municipio de Banes</Context></Entrance></div>
- <div style={{position:'absolute',top:1520,left:72,right:72,fontSize:22,color:'#CCC'}}>Imagen regional, no localización exacta.</div>
+ <div style={{position:'absolute',top:1475,left:72,right:72,fontSize:22,lineHeight:1.3,color:'#C5C6C6'}}>Imagen regional, no localización exacta.</div>
+ {/* Historical scale without implying a georeferenced route. Low-contrast
+     bottom treatment leaves y=1500-1645 clear for eventual verified captions. */}
+ <div style={{position:'absolute',left:72,right:72,top:1700,display:'flex',
+   alignItems:'center',justifyContent:'space-between',opacity:0.78,
+   fontFamily:'Arial,sans-serif',fontSize:25,letterSpacing:2.5,color:'#DFDEDB'}}>
+  <span>1971</span><span style={{fontSize:18,color:C.red}}>55 AÑOS DE MEMORIA</span><span>2026</span>
+ </div>
+ <div style={{position:'absolute',left:72,right:72,top:1756,height:2,
+   background:'linear-gradient(90deg,#ED1C24 0%,#ED1C2470 50%,#77787B35 100%)'}}/>
  </FilmWipe><Proof/></Stage>;
 const History=()=> <Stage><FilmWipe frames={14}><PaperDocument src={assets.village} top={350} width={960} height={650}/>
  <InkLabel top={257}>EL POBLADO</InkLabel><RedRule top={1120}/><div style={{position:'absolute',left:71,right:53,top:1180}}>
