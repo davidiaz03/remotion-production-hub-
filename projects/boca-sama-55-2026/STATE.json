@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v12_source_cuts_committed_native_transition_preview_pending",
+  "phase": "v13_rhythm_edit_committed_ci_pending_native_preview_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -44,7 +44,10 @@
     "QA_V11_TRANSITION_SYSTEM.md and updated test for declarative timeline",
     "V11 CI success 38103806258",
     "V12 visually reviewed 40+ source sample frames across interviews, opening and documentary; corrected in points and typographic safe zone",
-    "QA_V12_SOURCE_CUTS.md committed"
+    "QA_V12_SOURCE_CUTS.md committed",
+    "V13 introduces source-authentic B-roll during Nancy and Carlos sections and more varied memorial sequence",
+    "Manifest trimmed to 7 used files; originals remain unchanged in Drive",
+    "QA_V13_VISUAL_RHYTHM.md saved with in/out hypotheses and verification requirements"
   ],
   "pending": [
     "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
@@ -57,6 +60,6 @@
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector"
   ],
-  "nextTask": "Manual quick preview frames 113-175 on current branch after CI; inspect overlap and source timing; subtitles/official logo still pending",
-  "updatedAt": "2026-10-11T03:05:00Z"
+  "nextTask": "Verify CI V13 and request one 113-175 manual preview to check first true scene transition; then audit quality before further renders",
+  "updatedAt": "2026-10-11T03:20:00Z"
 }
