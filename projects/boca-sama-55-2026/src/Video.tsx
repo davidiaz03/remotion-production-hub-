@@ -3,7 +3,7 @@ import {witnessWaveforms} from './VoiceWaveforms';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition,InterviewEnvironment} from './Editorial';
-// V27 INTERNAL REVIEW — original interviews are NOT semantically approved; narration and word-accurate captions pending.
+// V28 BORRADOR · NO PUBLICAR. Gemini candidate wording requires audio-by-ear confirmation.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -46,7 +46,7 @@ const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><PaperDocum
  * Authentic testimony face for 6–6.5s, then source-native B-roll.
  * Audio remains muted until exact witness words and permission are verified.
  */
-const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySeek,voiceFile,environment,waveform}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number;earlyFile:string;earlySeek:number;voiceFile:string;environment:string;waveform:'nancy'|'carlos'})=>{
+const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySeek,voiceFile,environment,waveform,voiceFrames,voiceStart}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number;earlyFile:string;earlySeek:number;voiceFile:string;environment:string;waveform:'nancy'|'carlos';voiceFrames:number;voiceStart:number})=>{
  const frame=useCurrentFrame();
  // Identity is established on the human face and then yields to the location,
  // rather than freezing the same large name over all the B-roll.
@@ -55,12 +55,11 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySee
  return <Stage>
  <InterviewEnvironment src={environment}/>
  <InkLabel top={245}>TESTIMONIO DE ARCHIVO</InkLabel>
- <Sequence from={0} durationInFrames={173}>
+ <Sequence from={0} durationInFrames={portraitFrames}>
   <ArchiveVideo src={earlyFile} start={earlySeek} top={363}/>
-  <Audio src={staticFile(voiceFile)} volume={0.85}/>
  </Sequence>
- <Sequence from={173} durationInFrames={portraitFrames-173}>
-  <ArchiveVideo src={assets.witnesses} start={seek} top={363}/>
+ <Sequence from={0} durationInFrames={voiceFrames}>
+  <Audio src={staticFile(voiceFile)} volume={0.85}/>
  </Sequence>
  <Sequence from={portraitFrames} durationInFrames={duration-portraitFrames}>
   <ArchiveVideo src={assets.witnesses} start={bRollStart} top={363}/>
@@ -76,9 +75,9 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySee
  {/* The waveform is measured from the ORIGINAL voice. It must not persist into silent B-roll.
      Reserve y=1500–1645 for verified two-line captions without backgrounds. */}
  <div style={{position:'absolute',left:73,right:73,top:1310,height:90,display:'flex',alignItems:'center',gap:7,
- opacity:curve(frame,[0,12,157,174],[0,1,1,0]),pointerEvents:'none'}}>
+ opacity:curve(frame,[0,12,Math.max(15,voiceFrames-18),voiceFrames],[0,1,1,0]),pointerEvents:'none'}}>
  {witnessWaveforms[waveform].map((strength,i)=><div key={i} style={{flex:1,height:(10+strength*.7)+'px',borderRadius:5,
- background:i<=Math.floor(frame/173*witnessWaveforms[waveform].length)?C.red:'#d1d0cf92'}}/>)}
+ background:i<=Math.floor(frame/voiceFrames*witnessWaveforms[waveform].length)?C.red:'#d1d0cf92'}}/>)}
  </div>
  <div style={{position:'absolute',left:75,top:1425,fontSize:23,color:'#e4e2df',letterSpacing:1.8,
  fontFamily:'Arial,sans-serif',opacity:curve(frame,[0,12,157,174],[0,1,1,0]),pointerEvents:'none'}}>
@@ -124,7 +123,7 @@ const Watermark=()=>{
  position:'absolute',top:182,right:40,width:112,height:'auto',opacity:.42,objectFit:'contain',
  filter:'drop-shadow(0 1px 4px rgba(0,0,0,.52))',pointerEvents:'none'}}/>;
 };
-const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,710,720,895,910,1010,1020,1195,1210,1540,1649],[0,.24,.24,.055,.055,.24,.24,.055,.055,.24,.24,0]);
+const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,710,720,867,883,1010,1020,1259,1275,1540,1649],[0,.24,.24,.055,.055,.24,.24,.055,.055,.24,.24,0]);
  return <Audio src={staticFile(assets.score)} volume={vol}/>;};
 
 // Sequence overlaps only at directed transitions; each active overlap is 12 frames. Endpoint remains exactly frame 1649.
@@ -134,8 +133,8 @@ const edit=[
  {start:120,len:192,mode:'fade' as const,element:<Place/>},
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
- {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={205} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={60} voiceFile={assets.voiceNancyReview} environment={assets.atmosphereNancy} waveform="nancy"/>},
- {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={198} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={210} voiceFile={assets.voiceCarlosReview} environment={assets.atmosphereCarlos} waveform="carlos"/>},
+ {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={155} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={49.833333} voiceFrames={159} voiceStart={49.833333} voiceFile={assets.voiceNancyReview} environment={assets.atmosphereNancy} waveform="nancy"/>},
+ {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={185} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={203.633333} voiceFrames={252} voiceStart={203.633333} voiceFile={assets.voiceCarlosReview} environment={assets.atmosphereCarlos} waveform="carlos"/>},
  {start:1290,len:180,mode:'fade' as const,element:<Remembrance/>},
  {start:1470,len:180,mode:'cut' as const,element:<Closure/>},
 ];
