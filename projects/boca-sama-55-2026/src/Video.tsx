@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
-// V19 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+// V20 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -56,7 +56,12 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart}:{name:string;seek
  <div style={{position:'absolute',top:1315,left:73,right:73}}><Context size={26}>Sobreviviente · Entrevista de archivo.</Context></div>
  <Proof/></Stage>;
 
-const Remembrance=()=> <Stage>
+const Remembrance=()=>{
+ const f=useCurrentFrame();
+ // Fade documentary picture AND title down before the unmodified official logo.
+ // This preserves its full six-second animation without a double-exposed title.
+ const exitToBlack=curve(f,[163,179],[0,1]);
+ return <Stage>
  <InkLabel top={230}>BOCA DE SAMÁ · HOY</InkLabel>
  <Sequence from={0} durationInFrames={63}>
   <ArchiveVideo src={assets.coast} start={109.4} top={355}/>
@@ -68,7 +73,9 @@ const Remembrance=()=> <Stage>
  <div style={{position:'absolute',top:1135,left:72,right:50}}>
   <Entrance delay={8}><Heading size={88}>LA MEMORIA<br/>PERMANECE</Heading></Entrance>
  </div>
+ <AbsoluteFill style={{background:'#000',opacity:exitToBlack,pointerEvents:'none'}}/>
  <Proof/></Stage>;
+};
 
 /** V19 source is the actual original 720x1280 / 24fps six-second logo animation.
  * Show it in full without manufacturing additional frames or scaling the artwork separately.
@@ -97,8 +104,8 @@ const edit=[
  {start:510,len:222,mode:'right' as const,element:<Human/>},
  {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={150} bRollStart={324.6}/>},
  {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={180} bRollStart={354.7}/>},
- {start:1290,len:192,mode:'fade' as const,element:<Remembrance/>},
- {start:1470,len:180,mode:'fade' as const,element:<Closure/>},
+ {start:1290,len:180,mode:'fade' as const,element:<Remembrance/>},
+ {start:1470,len:180,mode:'cut' as const,element:<Closure/>},
 ];
 export const MainReel=()=> <AbsoluteFill style={{background:'#07090B'}}>
  <Music/>
