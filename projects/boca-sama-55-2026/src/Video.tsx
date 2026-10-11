@@ -5,25 +5,25 @@ import {AbsoluteFill,Img,OffthreadVideo,Sequence,interpolate,staticFile,useCurre
  * Boca de Samá: edición de investigación v0.3.
  * 55s, 30fps, 1080x1920. PROHIBIDO PUBLICAR.
  * Fuentes de vídeo de terceros: solo revisión editorial privada mientras se aclaran derechos.
- * Medios públicos de producción en public/assets/*, sincronizados tras verificar SHA256.
+ * Medios públicos de producción en public/00_MATERIALES_PARA_EDICION/*, sincronizados tras verificar SHA256.
  * El logo institucional NO se simula: espacio reservado para el archivo oficial original.
  */
 const C={black:'#08090B',red:'#ED1C24',grey:'#77787B',white:'#F7F4EF'};
 type Shot={from:number;len:number;name:string;caption:string;media?:string;startAt?:number;kind?:'video'|'image'};
 const shots:Shot[]=[
- {from:0,len:120,name:'BOCA DE SAMÁ',caption:'HOLGUÍN · CUBA',media:'boca-monumento.mp4',startAt:102,kind:'video'},
- {from:120,len:180,name:'LA COSTA NORTE',caption:'BANES · HOLGUÍN',media:'nasa-costa.jpg',kind:'image'},
- {from:300,len:180,name:'12 OCTUBRE 1971',caption:'UN ATAQUE ARMADO',media:'muerte-en-boca.mp4',startAt:86,kind:'video'},
- {from:480,len:225,name:'LA MEMORIA EN IMÁGENES',caption:'REPRODUCCIÓN DOCUMENTAL · FUENTE POR ACREDITAR',media:'muerte-en-boca.mp4',startAt:128,kind:'video'},
- {from:705,len:180,name:'DOS PERSONAS FALLECIDAS',caption:'CUATRO PERSONAS HERIDAS',media:'boca-monumento.mp4',startAt:145,kind:'video'},
- {from:885,len:210,name:'NANCY PAVÓN',caption:'SOBREVIVIENTE · TESTIMONIO ORIGINAL',media:'boca-monumento.mp4',startAt:243,kind:'video'},
- {from:1095,len:210,name:'CARLOS ESCALANTE',caption:'SOBREVIVIENTE · TESTIMONIO ORIGINAL',media:'boca-monumento.mp4',startAt:78,kind:'video'},
- {from:1305,len:165,name:'55 AÑOS DESPUÉS',caption:'RECORDAR ES DOCUMENTAR',media:'monumento-2025.jpg',kind:'image'},
+ {from:0,len:120,name:'BOCA DE SAMÁ',caption:'HOLGUÍN · CUBA',media:'00_MATERIALES_PARA_EDICION/Boca_de_Samá,_monumento_contra_el_terrorismo_en_Cuba(360p).mp4',startAt:102,kind:'video'},
+ {from:120,len:180,name:'LA COSTA NORTE',caption:'BANES · HOLGUÍN',media:'00_MATERIALES_PARA_EDICION/ISS036-E-3928_-_View_of_Cuba--Holguin_prov.-_Gibara,_Rafael_Freyre,_Guardalavaca_(Banes).jpg',kind:'image'},
+ {from:300,len:180,name:'12 OCTUBRE 1971',caption:'UN ATAQUE ARMADO',media:'00_MATERIALES_PARA_EDICION/Muerte_en_Boca(360p).mp4',startAt:86,kind:'video'},
+ {from:480,len:225,name:'LA MEMORIA EN IMÁGENES',caption:'REPRODUCCIÓN DOCUMENTAL · FUENTE POR ACREDITAR',media:'00_MATERIALES_PARA_EDICION/Muerte_en_Boca(360p).mp4',startAt:128,kind:'video'},
+ {from:705,len:180,name:'DOS PERSONAS FALLECIDAS',caption:'CUATRO PERSONAS HERIDAS',media:'00_MATERIALES_PARA_EDICION/Boca_de_Samá,_monumento_contra_el_terrorismo_en_Cuba(360p).mp4',startAt:145,kind:'video'},
+ {from:885,len:210,name:'NANCY PAVÓN',caption:'SOBREVIVIENTE · TESTIMONIO ORIGINAL',media:'00_MATERIALES_PARA_EDICION/Boca_de_Samá,_monumento_contra_el_terrorismo_en_Cuba(360p).mp4',startAt:243,kind:'video'},
+ {from:1095,len:210,name:'CARLOS ESCALANTE',caption:'SOBREVIVIENTE · TESTIMONIO ORIGINAL',media:'00_MATERIALES_PARA_EDICION/Boca_de_Samá,_monumento_contra_el_terrorismo_en_Cuba(360p).mp4',startAt:78,kind:'video'},
+ {from:1305,len:165,name:'55 AÑOS DESPUÉS',caption:'RECORDAR ES DOCUMENTAR',media:'00_MATERIALES_PARA_EDICION/Ataque_boca_de_sama_002.jpg',kind:'image'},
 ];
 const clamp={extrapolateLeft:'clamp' as const,extrapolateRight:'clamp' as const};
 function Archive({shot}:{shot:Shot}){
  const f=useCurrentFrame();
- const asset=shot.media?staticFile('assets/'+shot.media):undefined;
+ const asset=shot.media?staticFile(shot.media):undefined;
  const move=interpolate(f,[0,shot.len],[1.015,1.07],clamp);
  return <AbsoluteFill style={{background:C.black,overflow:'hidden'}}>
   {asset&&shot.kind==='video'&&<OffthreadVideo src={asset} startFrom={Math.round((shot.startAt||0)*30)} muted style={{width:'100%',height:'100%',objectFit:'cover',filter:'blur(26px) brightness(.27) saturate(.65)',transform:'scale(1.6)'}}/>}
