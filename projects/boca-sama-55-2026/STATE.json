@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v21_preclose_stabilization_committed_native_qa_pending",
+  "phase": "v21_native_closure_approved_integral_editorial_audit_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -64,7 +64,10 @@
     "Non-generative alpha extraction from exact original final frame; QA across three backgrounds; Drive stored, SHA256 manifest",
     "V19 Remotion closing now uses complete original six-second animation; matched original-frame watermark vanishes at frame1470",
     "V20 native closing render 38106770386 succeeded 51/51 1080x1920 with watermark removal and clean full original logo entry, file backed up Drive",
-    "V20 frame-by-frame QA found source cut before blackout; V21 selects stable 356s–358.8s material at 0.72x and documents rationale"
+    "V20 frame-by-frame QA found source cut before blackout; V21 selects stable 356s–358.8s material at 0.72x and documents rationale",
+    "Native V21 render 38107196836 success 51/51 frames, 1080x1920, video inspected and backed up in Drive",
+    "V21 closure approved visually: stable landscape, fade out title, watermark hidden at frame1470 and clean official red-star animation",
+    "QA_NATIVE_PREVIEW_V21.md archived with contact sheet and SHA256"
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -74,6 +77,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Check V21 CI; preview 1435-1485 on current branch only if justified, check continuity to logo. Voice, captions, publication clearances pending.",
+  "nextTask": "Prioritize full-documentary editorial QA, voice and accurate subtitles; do not repeat already approved closing short preview. Validate final six seconds and render full length only at approved milestone.",
   "updatedAt": "2026-10-11T03:56:00Z"
 }
