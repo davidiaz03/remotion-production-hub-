@@ -8,6 +8,6 @@ export const testimonyCaptionDraftV28:Caption[]=[
  {from:779,to:869,words:'Porque... nunca he tenido felicidad.',verified:false},
  {from:1025,to:1083,words:'Desde el suelo, pues,',verified:false},
  {from:1083,to:1136,words:'continué combatiendo,',verified:false},
- {from:1136,to:1198,words:'sin percatarme de que los compañeros',verified:false},
+ {from:1136,to:1198,words:'sin percatarme que los compañeros',verified:false},
  {from:1198,to:1265,words:'que andaban conmigo habían sido asesinados.',verified:false},
 ];
