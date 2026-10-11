@@ -4,7 +4,7 @@ import {testimonyCaptionDraftV28} from './TestimonyCaptionsV28';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition,InterviewEnvironment} from './Editorial';
-// V28 BORRADOR · NO PUBLICAR. Gemini candidate wording requires audio-by-ear confirmation.
+// V29 BORRADOR · NO PUBLICAR. Gemini candidate wording requires audio-by-ear confirmation; 2026 Hacemos Cuba clips are NOT 1971 archive.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -81,7 +81,7 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySee
  background:i<=Math.floor(frame/voiceFrames*witnessWaveforms[waveform].length)?C.red:'#d1d0cf92'}}/>)}
  </div>
  <div style={{position:'absolute',left:75,top:1425,fontSize:23,color:'#e4e2df',letterSpacing:1.8,
- fontFamily:'Arial,sans-serif',opacity:curve(frame,[0,12,157,174],[0,1,1,0]),pointerEvents:'none'}}>
+ fontFamily:'Arial,sans-serif',opacity:curve(frame,[0,12,Math.max(15,voiceFrames-18),voiceFrames],[0,1,1,0]),pointerEvents:'none'}}>
  VOZ ORIGINAL · ARCHIVO TESTIMONIAL
  </div>
  <Proof/>
