@@ -1,0 +1,49 @@
+name: Boca de Sama V46 - caption REVIEW ONLY (NO MASTER)
+on:
+  push:
+    branches: [work/boca-sama-55-2026-research]
+    paths: ['.github/workflows/boca-sama-v46-caption-review.yml']
+permissions:
+  contents: read
+jobs:
+  caption-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
+      PROJECT: boca-sama-55-2026
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.16.0'
+          cache: npm
+      - name: Install verified tools and retrieve SHA-pinned assets
+        run: |
+          test -n "$RCLONE_CONFIG_B64" || exit 2
+          npm ci --no-audit --no-fund
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg rclone
+          node scripts/rclone-env.mjs
+          node scripts/sync-assets.mjs --project "$PROJECT"
+          node scripts/verify-assets.mjs --project "$PROJECT"
+      - name: Render two isolated three-second caption review previews
+        run: |
+          set -euo pipefail
+          out="projects/$PROJECT/out"
+          mkdir -p "$out"
+          for frames in 720-809 1020-1109; do
+            node node_modules/@remotion/cli/remotion-cli.js render "projects/$PROJECT/src/index.ts" CaptionReviewReel "$out/caption-review-$frames-UNVERIFIED.mp4" --public-dir "projects/$PROJECT/public" --frames "$frames" --codec h264 --pixel-format yuv420p --crf 23 --concurrency 2 --log error
+            ffmpeg -v error -i "$out/caption-review-$frames-UNVERIFIED.mp4" -f null -
+          done
+      - name: One-day review clips, never master
+        uses: actions/upload-artifact@v4
+        with:
+          name: boca-sama-caption-review-UNVERIFIED-${{ github.run_id }}
+          path: projects/boca-sama-55-2026/out/caption-review-*.mp4
+          retention-days: 1
+      - name: Erase credentials
+        if: always()
+        run: rm -f "$RUNNER_TEMP/remotion-rclone.conf"
