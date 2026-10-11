@@ -57,16 +57,6 @@
       "sha256": "0cb774f97cf910a17e388ee14124252ae9e64ddf0d241588e1a78e6b8508dfdc"
     },
     {
-      "path": "boca-sama-v24-voice-nancy-source-2011-review.wav",
-      "bytes": 552078,
-      "sha256": "51223f6d8da52c14bd6fc76bedc386ef3e982aaf6844d934698e0e7e030c53ff"
-    },
-    {
-      "path": "boca-sama-v24-voice-carlos-source-2011-review.wav",
-      "bytes": 552078,
-      "sha256": "ddfe930091ee77b784c4dfa3527e315d73bfe51d8c7f951482da17be20a81b05"
-    },
-    {
       "path": "boca-sama-v25-nancy-archive-atmosphere.png",
       "bytes": 337736,
       "sha256": "e36ea55f809d474cfc2e64e07ca4a9b49ee7292b14fa6897630039148ace5b44"
@@ -75,6 +65,16 @@
       "path": "boca-sama-v25-carlos-archive-atmosphere.png",
       "bytes": 265251,
       "sha256": "8a72c5e92455f8f1acd092bbbd74391e967ccd49938beab931a817feb49b3fa5"
+    },
+    {
+      "path": "boca-sama-v28-nancy-authentic-candidate-PENDING-REVIEW.wav",
+      "bytes": 508878,
+      "sha256": "5ea148384c22f5e7d93426d25c12f4c67b7977b37189d9043a703cdca2baedc2"
+    },
+    {
+      "path": "boca-sama-v28-carlos-authentic-candidate-PENDING-REVIEW.wav",
+      "bytes": 806478,
+      "sha256": "4beec828e1a5f7a4aa384808312a8a0f3591d313accc36b6e5a8aa07e89e3645"
     }
   ]
 }
