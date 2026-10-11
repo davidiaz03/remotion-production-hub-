@@ -62,3 +62,11 @@ Tres MP4 nuevos en Drive (WA0006/0007/0008) examinados técnicamente: total ~56 
 V29 solamente corrige una animación de rótulo de voz original para que permanezca durante la declaración de Carlos; no modifica otros clips y no ha sido renderizada todavía. Se actualizó `STATE.json`. CI después del último commit por verificar. Mantener el máster bloqueado y subtítulos Gemini con `verified:false`.
 
 Próximo trabajo: confirmar CI; auditar final de Nancy t~28.4-30.2s (global 852-906 frames) y Carlos completo; transcribir/escuchar antes de utilizar audio de Hacemos Cuba. No iniciar otro render sin necesidad.
+
+## V30 actualizado — 11 octubre 2026, edición recuperable
+
+Se auditó nuevamente el metraje de apoyo para Carlos (original t353.5–359); muestra cambios de plano (estudio + costas) que perjudican el clímax de su testimonio. **V30 lo sustituye por fotografía auténtica del monumento de Boca de Samá**, derivada de fuente documental, en frame global 1205, con voz de Carlos prolongada hasta ~1272. Archivo autenticado por SHA y añadido al manifest. Código modificado en `Editorial.tsx` y `Video.tsx`. No render V30 todavía.
+
+`EDITORIAL_V30_STORY_AND_VOICEOVER.md` establece secuencia y guion provisional condensado para locutora del Memorial en 4–24 s, respetando voces de testigos sin encimarlas. Logos oficiales y watermark continúan sin alterarse. Los tres videos de `Hacemos Cuba` son material de 2026, no evidencia de imagen de 1971; la escucha completa de casi 56 minutos todavía queda pendiente.
+
+**Próxima acción**: CI del último commit; preview manual Carlos frames 1195–1265, revisar foto, audio y transición; revisar fin Nancy frames 852–906. Subtítulos Gemini continúan `verified:false`. Máster bloqueado.
