@@ -3,7 +3,7 @@ import {witnessWaveforms} from './VoiceWaveforms';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition,InterviewEnvironment} from './Editorial';
-// V26 review-only authentic spoken audio, not authorized for publication. NO PUBLICAR. NO PUBLICAR. Narration arrives later.
+// V27 INTERNAL REVIEW — original interviews are NOT semantically approved; narration and word-accurate captions pending.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -73,12 +73,15 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySee
  <div style={{position:'absolute',top:1230,left:72,right:62,opacity:place}}>
   <Context size={30}>BOCA DE SAMÁ · IMÁGENES DEL LUGAR</Context>
  </div>
- <div style={{position:'absolute',left:73,right:73,top:1400,height:117,display:'flex',alignItems:'center',gap:7,
- opacity:curve(frame,[0,12,173,187],[0,1,1,.25])}}>
- {witnessWaveforms[waveform].map((strength,i)=><div key={i} style={{flex:1,height:(12+strength*.86)+'px',borderRadius:5,
+ {/* The waveform is measured from the ORIGINAL voice. It must not persist into silent B-roll.
+     Reserve y=1500–1645 for verified two-line captions without backgrounds. */}
+ <div style={{position:'absolute',left:73,right:73,top:1310,height:90,display:'flex',alignItems:'center',gap:7,
+ opacity:curve(frame,[0,12,157,174],[0,1,1,0]),pointerEvents:'none'}}>
+ {witnessWaveforms[waveform].map((strength,i)=><div key={i} style={{flex:1,height:(10+strength*.7)+'px',borderRadius:5,
  background:i<=Math.floor(frame/173*witnessWaveforms[waveform].length)?C.red:'#d1d0cf92'}}/>)}
  </div>
- <div style={{position:'absolute',left:75,top:1540,fontSize:23,color:'#e4e2df',letterSpacing:1.8,fontFamily:'Arial,sans-serif'}}>
+ <div style={{position:'absolute',left:75,top:1425,fontSize:23,color:'#e4e2df',letterSpacing:1.8,
+ fontFamily:'Arial,sans-serif',opacity:curve(frame,[0,12,157,174],[0,1,1,0]),pointerEvents:'none'}}>
  VOZ ORIGINAL · ARCHIVO TESTIMONIAL
  </div>
  <Proof/>
