@@ -13,9 +13,11 @@ export const assets={
  portraits:'boca-sama-v09_victim-portraits-source.png',
  historicMonument:'boca-sama-v09_monument-coverage-source.png',
  score:'boca-sama-55-2026_weight-of-memory_TEMP_MUSIC.mp3',
+ openingAtmosphere:'boca-sama-v10-opening-coast-still.png',
 };
 const CL={extrapolateLeft:'clamp' as const,extrapolateRight:'clamp' as const};
 export const curve=(frame:number,input:number[],output:number[])=>interpolate(frame,input,output,CL);
+// Amplitude is the specified corporate family, but not bundled without a license.
 const font='Amplitude Condensed,Arial Narrow,Arial,Helvetica,sans-serif';
 export const type={fontFamily:font,color:C.paper} as const;
 export const Stage:React.FC<{children:React.ReactNode;light?:boolean}>=({children,light=false})=><AbsoluteFill
@@ -72,14 +74,68 @@ export const FilmWipe:React.FC<{children:React.ReactNode;direction?:'left'|'righ
 /** Unverified narration never produces fictitious subtitles. No rectangular backgrounds. */
 export type Caption={from:number;to:number;words:string;verified:boolean};
 export const CaptionTrack:React.FC<{captions:Caption[]}>=({captions})=>{
- const f=useCurrentFrame();const line=captions.find(c=>c.verified&&f>=c.from&&f<c.to);
+ const f=useCurrentFrame();
+ // An unverified line cannot become a fake quote in a public preview.
+ const line=captions.find(c=>c.verified&&f>=c.from&&f<c.to);
  if(!line)return null;
- const a=curve(f,[line.from,line.from+4],[0,1]);
- return <div style={{position:'absolute',top:1505,left:99,right:99,textAlign:'center',fontFamily:font,
- fontWeight:750,fontSize:50,lineHeight:1.15,color:C.paper,opacity:a,
- textShadow:'0 2px 4px #000, 0 4px 12px #000, -1px -1px 2px #000',
+ const a=curve(f,[line.from,line.from+5],[0,1]);
+ return <div style={{position:'absolute',top:1500,left:96,right:96,maxHeight:145,overflow:'hidden',
+ textAlign:'center',fontFamily:font,fontWeight:750,fontSize:50,lineHeight:1.15,color:C.paper,opacity:a,
+ textShadow:'0 2px 5px #000, 0 5px 12px #000, -1px -1px 2px #000',
  WebkitTextStroke:'.5px rgba(0,0,0,.6)',pointerEvents:'none'}}>
  {line.words}</div>;
 };
 export const Proof=()=> <div style={{position:'absolute',top:80,right:62,color:'#C0C0C0',fontSize:17,
  fontFamily:font,letterSpacing:2,fontWeight:700,opacity:.65}}>BORRADOR · NO PUBLICAR</div>;
+
+/**
+ * The opening atmosphere is an actual 2026 editorial frame extracted from the
+ * contemporary documentary, NOT reconstructed 1971 imagery.
+ * Fill is intentionally soft; the sharp footage stays in its 16:9 archive window.
+ */
+export const LivingBackdrop:React.FC<{opacity?:number}>=({opacity=.48})=>{
+ const frame=useCurrentFrame();
+ const z=curve(frame,[0,119],[1.05,1.17]);
+ return <AbsoluteFill style={{overflow:'hidden'}}>
+ <Img src={staticFile(assets.openingAtmosphere)}
+ style={{width:'100%',height:'100%',objectFit:'cover',filter:'blur(38px) saturate(.67) brightness(.65)',
+ opacity,transform:'scale('+z+')'}}/>
+ <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg,#07090B55 0%,#07090B26 36%,#07090BB5 72%,#07090BDF 100%)'}}/>
+ </AbsoluteFill>;
+};
+
+/** Graphic index, not an attack route or a georeferenced marker. */
+export const GeographicIndex=()=>{
+ const f=useCurrentFrame();
+ const labels=['CUBA','HOLGUÍN','BANES'];
+ const progress=curve(f,[10,84],[0,1]);
+ return <div style={{position:'absolute',top:1480,left:73,right:75}}>
+  <div style={{display:'flex',alignItems:'center',gap:16}}>
+  {labels.map((t,i)=><React.Fragment key={t}>
+   {i>0&&<div style={{width:45,height:2,background:'#D9D9D970'}}/>}
+   <div style={{color:i===2?C.paper:'#D9D9D9',fontFamily:font,fontSize:28,
+    fontWeight:800,letterSpacing:2.2,opacity:curve(progress,[i/3,Math.min(1,(i+1)/3)],[.24,1])}}>{t}</div>
+  </React.Fragment>)}
+  </div>
+  <div style={{marginTop:12,height:5,background:C.red,width:(progress*100)+'%'}}/>
+ </div>;
+};
+
+/** Editorial photograph has a physical paper edge and deliberately shallow parallax. */
+export const PaperDocument:React.FC<{src:string;top?:number;width?:number;height?:number}>=
+ ({src,top=380,width=960,height=620})=>{
+ const frame=useCurrentFrame(),p=curve(frame,[0,43],[0,1]);
+ const angle=curve(frame,[0,100],[-1.2,0.2]);
+ return <div style={{position:'absolute',top,left:(1080-width)/2,width,height,
+ padding:13,background:'#D8D4CA',boxShadow:'0 24px 90px #000C',
+ transform:'translateY('+((1-p)*45)+'px) rotate('+angle+'deg)',opacity:Math.max(.1,p)}}>
+ <div style={{width:'100%',height:'100%',overflow:'hidden',background:'#151617'}}>
+ <Img src={staticFile(src)} style={{width:'100%',height:'100%',objectFit:'contain',
+ filter:'grayscale(.82) contrast(1.08)'}}/>
+ </div></div>;
+};
+
+/** Deliberately tiny, source-accurate research label; not a subtitle. */
+export const ResearchNote:React.FC<{children:React.ReactNode;top?:number}>=({children,top=1060})=>
+ <div style={{position:'absolute',top,left:74,right:74,fontSize:22,letterSpacing:.5,
+ lineHeight:1.3,fontFamily:font,color:'#D3D0CB'}}>{children}</div>;
