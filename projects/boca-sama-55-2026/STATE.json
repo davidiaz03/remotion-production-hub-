@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "remotion_v08_source_committed_native_preview_pending",
+  "phase": "remotion_v09_pre_render_qa_committed",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -27,7 +27,11 @@
     "QA_V07_EDITORIAL_PROOF.md guardado con problemas observados y siguientes correcciones",
     "Auditoría V08: corrección de títulos duplicados, sin ruta cartográfica inventada y tratamiento de archivo horizontal en canvas vertical",
     "Remotion src/Editorial.tsx y src/Video.tsx V08 actualizados con ocho escenas y jerarquía editorial corregida",
-    "QA_V08_REMOTION_DIRECTION.md añadido con problemas observados y riesgos"
+    "QA_V08_REMOTION_DIRECTION.md añadido con problemas observados y riesgos",
+    "V09: auditoría adversarial de monotonía y jerarquía tipográfica; código TSX de 8 escenas revisado",
+    "Tres fotogramas reales de reportaje archivados en Drive y manifestados con SHA-256, sin sobrescribir originales",
+    "Componente CaptionTrack parametrizable sin fondos ni subtítulos falsos, bloqueado hasta transcripción verificada",
+    "QA_V09_PRE_RENDER.md guardado: normas de identidad, riesgos de derechos, aspectos técnicos y procedimiento de preview"
   ],
   "pending": [
     "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
@@ -38,8 +42,8 @@
     "Localizar tres logos originales animados (carpeta Logos consultada vacía), extraer frame final real",
     "Sincronizar assets desde Drive al public/assets del proyecto con SHA256 y rutas probadas",
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
-    "Previsualizar y auditar render, no se ha generado master"
+    "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector"
   ],
-  "nextTask": "Confirmar CI V08 y verificar sync SHA en runner; preview manual nativa (máximo 90 fotogramas) desde GitHub Actions; inspeccionar y corregir render",
-  "updatedAt": "2026-10-11T02:00:00Z"
+  "nextTask": "Abrir workflow manual 01 - Remotion quick preview en rama de trabajo, project boca-sama-55-2026, frames 0-89; validar acceso Drive y mp4 de artefacto antes de más complejidad.",
+  "updatedAt": "2026-10-11T02:20:00Z"
 }
