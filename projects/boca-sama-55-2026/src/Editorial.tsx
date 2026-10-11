@@ -20,6 +20,8 @@ export const assets={
  brandAlpha:'boca-sama-memorial-redwhite-finalframe-transparent.png',
  nancy2011:'00_MATERIALES_PARA_EDICION/Entrevista-_Nancy_Pavón,_superviviente_de_atentado_terrorista_en_Boca_de_Samá__Cuba_(360p).mp4',
  carlos2011:'00_MATERIALES_PARA_EDICION/Entrevista__Carlos_Escalante,_superviviente_de_ataque_terrorista_en_Boca_de_Samá(360p).mp4',
+ voiceNancyReview:'boca-sama-v24-voice-nancy-source-2011-review.wav',
+ voiceCarlosReview:'boca-sama-v24-voice-carlos-source-2011-review.wav',
 };
 const CL={extrapolateLeft:'clamp' as const,extrapolateRight:'clamp' as const};
 export const curve=(frame:number,input:number[],output:number[])=>interpolate(frame,input,output,CL);
