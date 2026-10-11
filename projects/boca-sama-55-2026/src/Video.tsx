@@ -1,24 +1,31 @@
 import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
- RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets} from './Editorial';
+ RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote} from './Editorial';
 // V09 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
-const Opening=()=> <Stage><FilmWipe frames={7}><ArchiveVideo src={assets.coast} start={4} top={335}/>
- <InkLabel top={271}>12 OCTUBRE 1971</InkLabel><RedRule top={1043}/><div style={{position:'absolute',left:71,right:40,top:1100}}>
- <Entrance delay={7}><Heading size={95}>BOCA DE SAMÁ</Heading>
- <div style={{marginTop:28}}><Context>Una comunidad. Una noche que permanece en la memoria.</Context></div></Entrance></div>
- </FilmWipe><Proof/></Stage>;
+const Opening=()=> <Stage>
+ <LivingBackdrop opacity={.62}/>
+ <FilmWipe frames={5}>
+ <InkLabel top={213}>12 OCTUBRE 1971</InkLabel>
+ <ArchiveVideo src={assets.coast} start={4} top={345} />
+ <RedRule top={1018} width={145}/>
+ <div style={{position:'absolute',left:71,right:39,top:1078}}>
+ <Entrance delay={4} distance={20}><Heading size={99}>BOCA DE SAMÁ</Heading>
+ <div style={{marginTop:25}}><Context size={32}>Un lugar. Una historia que permanece.</Context></div></Entrance></div>
+ <GeographicIndex/>
+ </FilmWipe><Proof/>
+ </Stage>;
 const Place=()=> <Stage><FilmWipe direction="right" frames={19}><ArchivalStill src={assets.satellite} top={255} w={1080} h={1090} scaleTo={1.09}/>
  <Vignette top={980}/><InkLabel top={235}>COSTA NORTE DE CUBA</InkLabel>
  <div style={{position:'absolute',left:70,right:55,top:1290}}><Entrance delay={9}><Heading>HOLGUÍN</Heading>
  <Context>Boca de Samá · Municipio de Banes</Context></Entrance></div>
  <div style={{position:'absolute',top:1520,left:72,right:72,fontSize:22,color:'#CCC'}}>Imagen regional, no localización exacta.</div>
  </FilmWipe><Proof/></Stage>;
-const History=()=> <Stage><FilmWipe frames={14}><ArchivalStill src={assets.village} top={350} w={1010} h={675} fit="contain"/>
+const History=()=> <Stage><FilmWipe frames={14}><PaperDocument src={assets.village} top={350} width={960} height={650}/>
  <InkLabel top={257}>EL POBLADO</InkLabel><RedRule top={1120}/><div style={{position:'absolute',left:71,right:53,top:1180}}>
  <Entrance delay={15}><Heading size={105}>1971</Heading><Context>El 12 de octubre, un ataque armado dejó vidas marcadas.</Context></Entrance></div>
  </FilmWipe><Proof/></Stage>;
-const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><ArchivalStill src={assets.portraits} top={280} w={1010} h={680} fit="contain" scaleTo={1.035}/>
+const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><PaperDocument src={assets.portraits} top={300} width={980} height={650}/>
  <InkLabel top={230}>CONSECUENCIAS HUMANAS</InkLabel>
  <div style={{position:'absolute',top:1100,left:72,right:70,display:'flex',gap:45}}>
  {[['02','fallecidos'],['04','heridos']].map(([num,name])=>
@@ -33,7 +40,7 @@ const Survivor=({name,seek}:{name:string;seek:number})=><Stage><FilmWipe frames=
  <div style={{position:'absolute',top:1315,left:73,right:73}}><Context size={26}>Archivo de entrevista · cita literal aún por verificar.</Context></div>
  </FilmWipe><Proof/></Stage>;
 const Remembrance=()=> <Stage><FilmWipe direction="right" frames={16}>
- <ArchivalStill src={assets.historicMonument} top={280} w={1040} h={700} fit="contain" scaleTo={1.045}/>
+ <PaperDocument src={assets.historicMonument} top={310} width={980} height={670}/>
  <InkLabel top={230}>EL LUGAR CONSERVA SU HISTORIA</InkLabel>
  <div style={{position:'absolute',top:1150,left:72,right:50}}><Entrance delay={8}><Heading size={90}>LA MEMORIA<br/>PERMANECE</Heading></Entrance></div>
  </FilmWipe><Proof/></Stage>;
