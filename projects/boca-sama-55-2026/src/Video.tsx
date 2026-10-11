@@ -138,13 +138,14 @@ const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,168,1
  return <Audio src={staticFile(assets.score)} volume={vol}/>;};
 
 /** Preview-only generic Spanish narration, generated once in HeyGen.
- * TEMPORARY REMOTE SOURCE: NOT A PERMANENT MASTER ASSET. No impersonation of witnesses.
+ * Locally backed-up, SHA-pinned WAV. Preview only. No impersonation of witnesses.
  * Strictly limited to frame 180–644 (6–21.5s), no overlap with Nancy or Carlos.
- * Switch to a SHA-pinned local Drive WAV before master export.
+ * Narration is non-Cuban generic Spanish and not approved as final voice.
  */
-const interimNarrationUrl='https://resource2.heygen.ai/text_to_speech/14b51250fd9f4a4db052769f5f4fb8e5/ed3920e7d9ce428b9ed90e0478e60100/id=0194c17b-54c3-4dd8-950b-3fa272339491.wav';
+// V38 is an audited, locally SHA-pinned PCM decode of the previously generated voice.
+// A preview source only. Final narration and rights require editorial review.
 const InterimNarrator=()=> <Sequence from={180} durationInFrames={465}>
- <Audio src={interimNarrationUrl} volume={0.92}/>
+ <Audio src={staticFile(assets.narrationSerenaPreview)} volume={0.92}/>
  </Sequence>;
 
 // Sequence overlaps only at directed transitions; each active overlap is 12 frames. Endpoint remains exactly frame 1649.
