@@ -1,5 +1,10 @@
 name: Boca de Sama - Remotion Whisper transcription (MANUAL NO RENDER)
 on:
+  # Branch-local, one-off Nancy smoke test when this workflow file changes.
+  # Normal project edits do not retrigger costly transcription.
+  push:
+    branches: [work/boca-sama-55-2026-research]
+    paths: ['.github/workflows/boca-sama-remotion-whisper.yml']
   workflow_dispatch:
     inputs:
       witness:
@@ -22,11 +27,11 @@ concurrency:
 jobs:
   draft-transcription:
     runs-on: ubuntu-24.04
-    timeout-minutes: 28
+    timeout-minutes: 22
     env:
       RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
-      WITNESS: ${{ inputs.witness }}
-      WHISPER_MODEL: ${{ inputs.model }}
+      WITNESS: ${{ inputs.witness || 'nancy' }}
+      WHISPER_MODEL: ${{ inputs.model || 'base' }}
     steps:
       - uses: actions/checkout@v4
         with:
