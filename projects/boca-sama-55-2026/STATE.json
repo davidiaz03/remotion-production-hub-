@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "editorial_proof_v07_rendered_verified_non_remotion",
+  "phase": "remotion_v08_source_committed_native_preview_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -24,7 +24,10 @@
     "Corregidos puntos visuales Nancy (245s) y Carlos (79s) en reportaje de monumento",
     "Test de preproduccion corregido para aceptar paso a edición sin omitir reglas de master",
     "Render de prueba editorial 55s 540x960 30fps H264/AAC producido en FFmpeg/Python, comprobado por ffprobe y muestreo de 14 frames, guardado en Drive scratch",
-    "QA_V07_EDITORIAL_PROOF.md guardado con problemas observados y siguientes correcciones"
+    "QA_V07_EDITORIAL_PROOF.md guardado con problemas observados y siguientes correcciones",
+    "Auditoría V08: corrección de títulos duplicados, sin ruta cartográfica inventada y tratamiento de archivo horizontal en canvas vertical",
+    "Remotion src/Editorial.tsx y src/Video.tsx V08 actualizados con ocho escenas y jerarquía editorial corregida",
+    "QA_V08_REMOTION_DIRECTION.md añadido con problemas observados y riesgos"
   ],
   "pending": [
     "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
@@ -37,6 +40,6 @@
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
     "Previsualizar y auditar render, no se ha generado master"
   ],
-  "nextTask": "V08: revisar 55s completos, seleccionar voz real Nancy/Carlos, corregir encuadres/repeticiones y verificar preview nativo Remotion; no publicar",
-  "updatedAt": "2026-10-11T01:47:00Z"
+  "nextTask": "Confirmar CI V08 y verificar sync SHA en runner; preview manual nativa (máximo 90 fotogramas) desde GitHub Actions; inspeccionar y corregir render",
+  "updatedAt": "2026-10-11T02:00:00Z"
 }
