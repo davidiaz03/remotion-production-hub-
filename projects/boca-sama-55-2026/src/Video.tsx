@@ -1,8 +1,9 @@
 import React from 'react';
+import {witnessWaveforms} from './VoiceWaveforms';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition,InterviewEnvironment} from './Editorial';
-// V25 review-only authentic spoken audio, not authorized for publication. NO PUBLICAR. NO PUBLICAR. Narration arrives later.
+// V26 review-only authentic spoken audio, not authorized for publication. NO PUBLICAR. NO PUBLICAR. Narration arrives later.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -45,7 +46,7 @@ const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><PaperDocum
  * Authentic testimony face for 6–6.5s, then source-native B-roll.
  * Audio remains muted until exact witness words and permission are verified.
  */
-const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySeek,voiceFile,environment}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number;earlyFile:string;earlySeek:number;voiceFile:string;environment:string})=>{
+const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySeek,voiceFile,environment,waveform}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number;earlyFile:string;earlySeek:number;voiceFile:string;environment:string;waveform:'nancy'|'carlos'})=>{
  const frame=useCurrentFrame();
  // Identity is established on the human face and then yields to the location,
  // rather than freezing the same large name over all the B-roll.
@@ -71,6 +72,14 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySee
  </div>
  <div style={{position:'absolute',top:1230,left:72,right:62,opacity:place}}>
   <Context size={30}>BOCA DE SAMÁ · IMÁGENES DEL LUGAR</Context>
+ </div>
+ <div style={{position:'absolute',left:73,right:73,top:1400,height:117,display:'flex',alignItems:'center',gap:7,
+ opacity:curve(frame,[0,12,173,187],[0,1,1,.25])}}>
+ {witnessWaveforms[waveform].map((strength,i)=><div key={i} style={{flex:1,height:(12+strength*.86)+'px',borderRadius:5,
+ background:i<=Math.floor(frame/173*witnessWaveforms[waveform].length)?C.red:'#d1d0cf92'}}/>)}
+ </div>
+ <div style={{position:'absolute',left:75,top:1540,fontSize:23,color:'#e4e2df',letterSpacing:1.8,fontFamily:'Arial,sans-serif'}}>
+ VOZ ORIGINAL · ARCHIVO TESTIMONIAL
  </div>
  <Proof/>
  </Stage>;
@@ -122,8 +131,8 @@ const edit=[
  {start:120,len:192,mode:'fade' as const,element:<Place/>},
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
- {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={205} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={60} voiceFile={assets.voiceNancyReview} environment={assets.atmosphereNancy}/>},
- {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={198} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={210} voiceFile={assets.voiceCarlosReview} environment={assets.atmosphereCarlos}/>},
+ {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={205} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={60} voiceFile={assets.voiceNancyReview} environment={assets.atmosphereNancy} waveform="nancy"/>},
+ {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={198} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={210} voiceFile={assets.voiceCarlosReview} environment={assets.atmosphereCarlos} waveform="carlos"/>},
  {start:1290,len:180,mode:'fade' as const,element:<Remembrance/>},
  {start:1470,len:180,mode:'cut' as const,element:<Closure/>},
 ];
