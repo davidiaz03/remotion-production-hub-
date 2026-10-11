@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Matte,Frame,ImageWindow,GlassShade,Eyebrow,Display,Small,MoveIn,ProofMark,Entrance,asset,C,lerp} from './Editorial';
-// V08 / 55s / 1080x1920 / 30fps. The narration remains replaceable.
+// V08 / 55s / 1080x1920 / 30fps. NO PUBLICAR. The narration remains replaceable.
 // No hallucinated testimonies. No artificially recreated official logo.
 const SceneOne=()=> <Matte><Entrance style="dissolve">
  <Frame file={asset.coast} seek={4} top={370} w={1010} h={568}/>
