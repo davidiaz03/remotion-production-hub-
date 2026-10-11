@@ -36,7 +36,8 @@ try {
  const probe=JSON.parse(run('ffprobe',['-v','error','-show_format','-show_streams','-of','json',wav]));
  const stream=probe.streams?.find(x=>x.codec_type==='audio');
  const seconds=Number(probe.format?.duration);
- if(!stream||!stream.codec_name.startsWith('pcm_')||!(seconds>12&&seconds<20))throw Error('Generated audio is not expected 15s WAV');
+ if(!stream||!(seconds>12&&seconds<20)||!['pcm_s16le','pcm_s24le','pcm_f32le','mp3','aac'].includes(stream.codec_name))throw Error('Generated audio codec/duration not accepted: '+String(stream?.codec_name)+' '+seconds);
+ console.log('Detected original HeyGen file codec '+stream.codec_name+' duration '+seconds.toFixed(3));
  const sha=checksum(buf);
  run('rclone',['copyto',wav,destination,'--retries','2','--transfers','1','--log-level','ERROR']);
  const remoteSha=await hashRemote(destination);
