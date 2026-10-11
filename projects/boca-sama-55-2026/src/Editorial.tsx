@@ -64,11 +64,25 @@ export const RedRule:React.FC<{top?:number;left?:number;width?:number}>=({top=11
  const f=useCurrentFrame();return <div style={{position:'absolute',top,left,width:width*curve(f,[0,20],[0,1]),height:6,
  background:C.red}}/>;
 };
-export const FilmWipe:React.FC<{children:React.ReactNode;direction?:'left'|'right'|'fade';frames?:number}>=({children,direction='fade',frames=12})=>{
+/**
+ * Legacy per-scene wrapper retained for backwards compatibility, but no longer
+ * animates against black. Actual V11 transitions occur at Sequence boundaries.
+ */
+export const FilmWipe:React.FC<{children:React.ReactNode;direction?:'left'|'right'|'fade';frames?:number}>=({children})=>
+ <AbsoluteFill>{children}</AbsoluteFill>;
+
+/**
+ * The incoming scene overlaps the previous one for 12 frames.
+ * We mask/fade the WHOLE scene (including Stage background) so the outgoing
+ * footage remains visible; unlike a reveal nested inside an opaque Stage.
+ */
+export const SceneTransition:React.FC<{children:React.ReactNode;mode?:'cut'|'fade'|'left'|'right';frames?:number}>=
+ ({children,mode='cut',frames=12})=>{
  const f=useCurrentFrame(),p=curve(f,[0,frames],[0,1]);
- return <AbsoluteFill style={{opacity:direction==='fade'?p:1,
- clipPath:direction==='left'?'inset(0 '+((1-p)*100)+'% 0 0)':
- direction==='right'?'inset(0 0 0 '+((1-p)*100)+'%)':undefined}}>{children}</AbsoluteFill>;
+ const style:React.CSSProperties=mode==='fade'?{opacity:p}:
+ mode==='left'?{clipPath:'inset(0 '+((1-p)*100)+'% 0 0)'}:
+ mode==='right'?{clipPath:'inset(0 0 0 '+((1-p)*100)+'%)'}:{};
+ return <AbsoluteFill style={style}>{children}</AbsoluteFill>;
 };
 
 /** Unverified narration never produces fictitious subtitles. No rectangular backgrounds. */
