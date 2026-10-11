@@ -65,6 +65,16 @@
       "path": "boca-sama-v24-voice-carlos-source-2011-review.wav",
       "bytes": 552078,
       "sha256": "ddfe930091ee77b784c4dfa3527e315d73bfe51d8c7f951482da17be20a81b05"
+    },
+    {
+      "path": "boca-sama-v25-nancy-archive-atmosphere.png",
+      "bytes": 337736,
+      "sha256": "e36ea55f809d474cfc2e64e07ca4a9b49ee7292b14fa6897630039148ace5b44"
+    },
+    {
+      "path": "boca-sama-v25-carlos-archive-atmosphere.png",
+      "bytes": 265251,
+      "sha256": "8a72c5e92455f8f1acd092bbbd74391e967ccd49938beab931a817feb49b3fa5"
     }
   ]
 }
