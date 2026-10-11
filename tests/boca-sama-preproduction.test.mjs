@@ -93,5 +93,11 @@ test('unverified witness subtitle drafts remain disabled and nonoverlapping',()=
  }
  assert.ok(entries[0].from>=720&&entries[1].to<=904);
  assert.ok(entries[2].from>=1020&&entries[5].to<=1272);
- assert.match(read('src/Editorial.tsx'),/c\.verified&&f>=c\.from&&f<c\.to/);
+ const editorial=read('src/Editorial.tsx');
+ const video=read('src/Video.tsx');
+ const root=read('src/Root.tsx');
+ assert.match(editorial,/reviewOnly=false/,'production captions must default to verified-only');
+ assert.match(editorial,/\(c\.verified\|\|reviewOnly\)&&f>=c\.from&&f<c\.to/);
+ assert.match(video,/CaptionTrack captions=\{testimonyCaptionDraftV28\} reviewOnly=\{false\}/);
+ assert.match(root,/id="CaptionReviewReel"/,'unverified captions belong in a separate composition');
 });
