@@ -166,6 +166,13 @@ export const MainReel=()=> <AbsoluteFill style={{background:'#07090B'}}>
  {edit.map((s,i)=><Sequence key={i} from={s.start} durationInFrames={s.len}>
   <SceneTransition mode={s.mode} frames={12}>{s.element}</SceneTransition>
  </Sequence>)}
- <CaptionTrack captions={testimonyCaptionDraftV28}/>
+ <CaptionTrack captions={testimonyCaptionDraftV28} reviewOnly={false}/>
  <Watermark/>
+ </AbsoluteFill>;
+
+/** Separate internal QA view, never release as institutional master. */
+export const CaptionReviewReel=()=> <AbsoluteFill>
+ <MainReel/>
+ <CaptionTrack captions={testimonyCaptionDraftV28} reviewOnly={true}/>
+ <div style={{position:'absolute',top:125,left:64,background:'#6A1111D9',padding:'8px 18px',fontSize:26,fontFamily:'Arial,sans-serif',fontWeight:700,color:'#fff'}}>SOLO REVISIÓN · CITAS SIN VERIFICAR</div>
  </AbsoluteFill>;
