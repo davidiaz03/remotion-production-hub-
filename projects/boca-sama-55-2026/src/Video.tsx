@@ -2,12 +2,12 @@ import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
-// V09 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+// V12 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
 const Opening=()=> <Stage>
  <LivingBackdrop opacity={.62}/>
  <FilmWipe frames={5}>
  <InkLabel top={213}>12 OCTUBRE 1971</InkLabel>
- <ArchiveVideo src={assets.coast} start={4} top={345} />
+ <ArchiveVideo src={assets.coast} start={2.8} top={345} />
  <RedRule top={1018} width={145}/>
  <div style={{position:'absolute',left:71,right:39,top:1078}}>
  <Entrance delay={4} distance={20}><Heading size={99}>BOCA DE SAMÁ</Heading>
@@ -23,7 +23,7 @@ const Place=()=> <Stage><FilmWipe direction="right" frames={19}><ArchivalStill s
  </FilmWipe><Proof/></Stage>;
 const History=()=> <Stage><FilmWipe frames={14}><PaperDocument src={assets.village} top={350} width={960} height={650}/>
  <InkLabel top={257}>EL POBLADO</InkLabel><RedRule top={1120}/><div style={{position:'absolute',left:71,right:53,top:1180}}>
- <Entrance delay={15}><Heading size={105}>1971</Heading><Context>El 12 de octubre, un ataque armado dejó vidas marcadas.</Context></Entrance></div>
+ <Entrance delay={15}><Heading size={100}>EL ATAQUE</Heading><Context>La historia del poblado quedó marcada por un ataque armado.</Context></Entrance></div>
  </FilmWipe><Proof/></Stage>;
 const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><PaperDocument src={assets.portraits} top={300} width={980} height={650}/>
  <InkLabel top={230}>CONSECUENCIAS HUMANAS</InkLabel>
@@ -52,15 +52,15 @@ const Closure=()=> <Stage><div style={{position:'absolute',top:750,left:70,right
 const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,1540,1649],[0,.24,.24,0]);
  return <Audio src={staticFile(assets.score)} volume={vol}/>;};
 
-// Sequence overlaps total 6*12=72 frames. Endpoint remains exactly frame 1649.
+// Sequence overlaps only at directed transitions; each active overlap is 12 frames. Endpoint remains exactly frame 1649.
 // Interviews deliberately start on straight cuts to honor unaltered testimony.
 const edit=[
  {start:0,len:132,mode:'cut' as const,element:<Opening/>},
  {start:120,len:192,mode:'left' as const,element:<Place/>},
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
- {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={252}/>},
- {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={82}/>},
+ {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255}/>},
+ {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89}/>},
  {start:1290,len:192,mode:'fade' as const,element:<Remembrance/>},
  {start:1470,len:180,mode:'fade' as const,element:<Closure/>},
 ];
