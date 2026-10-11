@@ -45,6 +45,16 @@
       "path": "boca-sama-memorial-redwhite-finalframe-transparent.png",
       "bytes": 213053,
       "sha256": "a6236f15736bc11c4741dc37f9cd2f676d3ab93a0b6705675f2d6c0bb73e1f50"
+    },
+    {
+      "path": "00_MATERIALES_PARA_EDICION/Entrevista-_Nancy_Pavón,_superviviente_de_atentado_terrorista_en_Boca_de_Samá__Cuba_(360p).mp4",
+      "bytes": 10881073,
+      "sha256": "7921813ba41b121f5c50482912b20166492af2c7e8b3f96d1eda0ccb7c260dc1"
+    },
+    {
+      "path": "00_MATERIALES_PARA_EDICION/Entrevista__Carlos_Escalante,_superviviente_de_ataque_terrorista_en_Boca_de_Samá(360p).mp4",
+      "bytes": 18993573,
+      "sha256": "0cb774f97cf910a17e388ee14124252ae9e64ddf0d241588e1a78e6b8508dfdc"
     }
   ]
 }
