@@ -147,9 +147,9 @@ export const GeographicIndex=()=>{
 };
 
 /** Editorial photograph has a physical paper edge and deliberately shallow parallax. */
-export const PaperDocument:React.FC<{src:string;top?:number;width?:number;height?:number}>=
- ({src,top=380,width=960,height=620})=>{
- const frame=useCurrentFrame(),p=curve(frame,[0,43],[0,1]);
+export const PaperDocument:React.FC<{src:string;top?:number;width?:number;height?:number;entranceFrames?:number}>=
+ ({src,top=380,width=960,height=620,entranceFrames=43})=>{
+ const frame=useCurrentFrame(),p=curve(frame,[0,entranceFrames],[0,1]);
  const angle=curve(frame,[0,100],[-1.2,0.2]);
  return <div style={{position:'absolute',top,left:(1080-width)/2,width,height,
  padding:13,background:'#D8D4CA',boxShadow:'0 24px 90px #000C',
