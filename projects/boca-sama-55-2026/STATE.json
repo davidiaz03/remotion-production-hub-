@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v17_testimony_outro_fix_committed_no_native_preview",
+  "phase": "v18_official_reel_derived_logo_implemented_native_preview_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -56,17 +56,20 @@
     "V15 mp4 and contacts backed up in Drive scratch; V16 minor Holguín entrance delay correction committed",
     "V16 CI passed 38105413045",
     "V17 manually reviewed historical source video frames around Nancy, Carlos, memorial and original third-party ACN end card",
-    "V17 changed memorial in point from 362.3 to 350.5 to avoid third-party end slate; QA_V17_TESTIMONIALS_AND_CLOSING.md recorded"
+    "V17 changed memorial in point from 362.3 to 350.5 to avoid third-party end slate; QA_V17_TESTIMONIALS_AND_CLOSING.md recorded",
+    "V17 native Nancy preview GitHub Actions 38105799213 success 69 frames, 1080x1920, decoded and inspected",
+    "V18 authentic white Memorial logo animation recovered from museum reel, no generated logo; RGBA last-frame watermark and end animation copied to Drive and manifest SHA256",
+    "V18 source TSX renders corner alpha watermark before frame1470 and authentic end animation 1470-1571 with static final card to frame1649"
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
-    "Localizar animaciones originales logo y crear frame final transparente autorizado",
     "Verificar nombres/atribución/autoría/permisos antes de máster",
     "Verificar diálogos/timecodes y autorización de citas de Nancy/Carlos",
-    "Localizar tres logos originales animados (carpeta Logos consultada vacía), extraer frame final real",
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
-    "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector"
+    "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
+    "Find original full-resolution logo variants; current version extracted from published reel compressed to 360x640",
+    "Audit native V18 closing preview, watermark visibility and accurate final frame"
   ],
-  "nextTask": "After V17 CI, MANUAL preview 861-929 for Nancy face-to-B-roll (actual cut global frame 870); do not reuse old 915 estimate. Check audio and image. Later verify outro and find original logo.",
-  "updatedAt": "2026-10-11T03:15:00Z"
+  "nextTask": "Wait V18 CI; next manual quick preview frames 1460-1525 to inspect transition to actual Memorial outro; source master still missing.",
+  "updatedAt": "2026-10-11T03:48:00Z"
 }
