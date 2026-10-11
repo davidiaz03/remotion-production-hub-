@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v25_interview_atmospheres_committed_pending_native_visual_qa",
+  "phase": "v26_witness_waveforms_committed_ci_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -82,7 +82,10 @@
     "V24 audio MP4 and contact sheet saved Drive; QA_NATIVE_PREVIEW_V24_NANCY.md committed",
     "Carlos V24 native preview 38109268368 success 70/70 with authentic audio and readable portrait; identified empty lower half",
     "V25 atmospheric backgrounds from Nancy and Carlos source frames uploaded to Drive, hashed in manifest, used in Remotion src; not yet rendered",
-    "QA_NATIVE_PREVIEW_V24_CARLOS.md saved; semantic transcription and publication consent remain pending"
+    "QA_NATIVE_PREVIEW_V24_CARLOS.md saved; semantic transcription and publication consent remain pending",
+    "V25 native Carlos run 38109486220 success, 70/70 frames 1080x1920, source voice and atmospheric image visually inspected; MP4 backed up Drive",
+    "V26 real WAV RMS-derived dynamic waveform designed under witness portrait; code saved in VoiceWaveforms.ts + Video.tsx",
+    "QA_NATIVE_V25_AND_V26.md saved with precise technical and editorial limitations"
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -92,6 +95,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Verify V25 CI and run one short native preview for redesigned interview layout; verify original voice quote meaning and permissions; no master.",
+  "nextTask": "Check V26 CI, preview 1020-1089 if material for another run, verify low-res portraits and waveform do not conflict with subtitles. Human verification of spoken quotes still necessary.",
   "updatedAt": "2026-10-11T03:56:00Z"
 }
