@@ -16,7 +16,7 @@ const manifest=JSON.parse(fs.readFileSync(path.join(sourceProject,'asset-manifes
 const sources={
   nancy:{
     file:'00_MATERIALES_PARA_EDICION/Entrevista-_Nancy_Pavón,_superviviente_de_atentado_terrorista_en_Boca_de_Samá__Cuba_(360p).mp4',
-    sourceIn:50, seconds:25, reelStartMs:24000, selectedStart:49.833333, selectedEnd:55.133333,
+    sourceIn:47, seconds:25, reelStartMs:24000, selectedStart:49.833333, selectedEnd:55.133333,
     speaker:'Nancy Pavón',
   },
   carlos:{
@@ -46,6 +46,9 @@ await downloadWhisperModel({model,folder:whisperPath,printOutput:false});
 for(const [key,s] of entries){
   const entry=manifest.files.find(x=>x.path===s.file);
   if(!entry)throw Error('Source missing from approved manifest: '+key);
+  if (!(s.sourceIn <= s.selectedStart && s.sourceIn+s.seconds >= s.selectedEnd)) {
+    throw Error('ASR context must contain the complete chosen witness excerpt: '+key);
+  }
   const original=path.join(work,key+'-original.mp4');
   const audio=path.join(work,key+'-clip.wav');
   // Only copy this known exact path. Do not sync every media file or expose OAuth token in logs.
@@ -61,6 +64,7 @@ for(const [key,s] of entries){
     language:'es',tokenLevelTimestamps:true,printOutput:false,
   });
   const {captions}=toCaptions({whisperCppOutput});
+  if (!Array.isArray(captions) || captions.length===0) throw Error('Whisper returned no caption tokens: '+key);
   const result={
     status:'AUTOMATIC_UNVERIFIED_NOT_FOR_PUBLICATION',speaker:s.speaker,model,
     sourceFile:s.file,sourceSha256:entry.sha256,
