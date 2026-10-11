@@ -11,6 +11,7 @@ export const assets={
  satellite:'00_MATERIALES_PARA_EDICION/ISS036-E-3928_-_View_of_Cuba--Holguin_prov.-_Gibara,_Rafael_Freyre,_Guardalavaca_(Banes).jpg',
  village:'boca-sama-v09_archive-village-source.png',
  portraits:'boca-sama-v09_victim-portraits-source.png',
+ memorialCoverage:'boca-sama-v09_monument-coverage-source.png',
  historicMonument:'boca-sama-v09_monument-coverage-source.png',
  score:'boca-sama-55-2026_weight-of-memory_TEMP_MUSIC.mp3',
  openingAtmosphere:'boca-sama-v10-opening-coast-still.png',
