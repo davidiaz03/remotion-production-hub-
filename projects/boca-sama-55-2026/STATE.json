@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v31_monument_reveal_correction_azure_cuban_tts_manual_pipeline_pending",
+  "phase": "v32_caption_mobile_layout_committed_voice_azure_gated_render_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -102,7 +102,10 @@
     "V30 editorial narration and shot timing memo saved in EDITORIAL_V30_STORY_AND_VOICEOVER.md; no institutional narrator yet recorded.",
     "V30 preview 38141945427 verified: 71/71 1080x1920 H264/AAC, original video/audio, no black; monument reveal needs shortening. Artifact backed to Drive ZIP.",
     "V31 edit 9-frame monument entrance implemented; not natively rendered.",
-    "Added optional manual Azure official es-CU-BelkysNeural/ManuelNeural audition workflow (no execution, no keys, no costs incurred) and voiceover script; awaiting authorization/configuration."
+    "Added optional manual Azure official es-CU-BelkysNeural/ManuelNeural audition workflow (no execution, no keys, no costs incurred) and voiceover script; awaiting authorization/configuration.",
+    "CI V31 passed GitHub Actions 38142369938; V31 Carlos 9-frame reveal is committed but has no native render yet.",
+    "V32 mobile-safe caption draft broken into short segments, 46px, no rectangular backgrounds; still verified:false, so not rendered.",
+    "V32 audit documents voice option review: no authorized Azure credentials or WAV synthesized; paid third-party alternatives not triggered."
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -112,6 +115,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Check latest V31 CI and render short scene 1195-1265 only if needed; Azure voiceover: check Azure Speech secret+region and explicit cost approval before triggering manual workflow, verify .wav timing/intelligibility, then register asset and integrate into 4-24s, never over witness voices. Final master blocked.",
+  "nextTask": "Check V32 CI; request a single native preview of altered Carlos transition 1195-1265; get authorized Azure key/region/budget or free valid voice to produce temporary narration; obtain true witness transcript and final narrator, then full editorial render only after gates.",
   "updatedAt": "2026-10-11T13:15:00Z"
 }
