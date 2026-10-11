@@ -50,6 +50,11 @@
       "path": "boca-sama-v09_monument-coverage-source.png",
       "bytes": 335495,
       "sha256": "314f6919af48bd8614017f8e317080b2b147fe4fcc1199f229000c0587e3f4d9"
+    },
+    {
+      "path": "boca-sama-v10-opening-coast-still.png",
+      "bytes": 358071,
+      "sha256": "ed9d6ee68bc59f6b83e2e24ddb85be97ea86a3945710b38fcdb259f258453f32"
     }
   ]
 }
