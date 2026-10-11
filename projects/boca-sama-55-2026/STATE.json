@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v30_carlos_monument_broll_implemented_preview_pending",
+  "phase": "v31_monument_reveal_correction_azure_cuban_tts_manual_pipeline_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -99,7 +99,10 @@
     "QA_HACEMOS_CUBA_2026.md and three contact sheets saved GitHub/Drive; footage excluded from 1971 visual edit pending oral transcription.",
     "V29 corrected authentic-audio label fade to track real voice duration for Carlos; no render V29 yet.",
     "V30 visual audit t353.5-359 of previous Carlos support footage found rapid unrelated shot switches; replaced Carlos second shot with authentic later monument still (sha in manifest).",
-    "V30 editorial narration and shot timing memo saved in EDITORIAL_V30_STORY_AND_VOICEOVER.md; no institutional narrator yet recorded."
+    "V30 editorial narration and shot timing memo saved in EDITORIAL_V30_STORY_AND_VOICEOVER.md; no institutional narrator yet recorded.",
+    "V30 preview 38141945427 verified: 71/71 1080x1920 H264/AAC, original video/audio, no black; monument reveal needs shortening. Artifact backed to Drive ZIP.",
+    "V31 edit 9-frame monument entrance implemented; not natively rendered.",
+    "Added optional manual Azure official es-CU-BelkysNeural/ManuelNeural audition workflow (no execution, no keys, no costs incurred) and voiceover script; awaiting authorization/configuration."
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -109,6 +112,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Verify current CI; short preview frames 1195-1265 to inspect Carlos moving image to monument and full spoken phrase. Audit Nancy end 852-906, then full reel preview only with milestone approval; check quotes and captions first. No master.",
+  "nextTask": "Check latest V31 CI and render short scene 1195-1265 only if needed; Azure voiceover: check Azure Speech secret+region and explicit cost approval before triggering manual workflow, verify .wav timing/intelligibility, then register asset and integrate into 4-24s, never over witness voices. Final master blocked.",
   "updatedAt": "2026-10-11T13:15:00Z"
 }
