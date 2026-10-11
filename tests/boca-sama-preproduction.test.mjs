@@ -57,3 +57,20 @@ test('Nancy full onset visual lip sync and measured envelope must match the V40 
  assert.equal(bins.length,62,'100ms bins must cover the restored 6.13 s Nancy voice');
  assert.ok(bins.every(x=>Number.isInteger(x)&&x>=1&&x<=100));
 });
+
+test('memory transition keeps outgoing image underneath incoming fade',()=>{
+ const v=read('src/Video.tsx');
+ const sceneRegex=/\{start:(\d+),len:(\d+),mode:'(cut|fade|left|right)' as const,element:/g;
+ const segments=[...v.matchAll(sceneRegex)].map(m=>({start:Number(m[1]),len:Number(m[2]),mode:m[3]}));
+ assert.equal(segments.length,8);
+ const overlap=12;
+ for(let i=1;i<segments.length;i++){
+  const current=segments[i],previous=segments[i-1];
+  if(current.mode!=='cut')assert.ok(previous.start+previous.len>=current.start+overlap,
+   'Transition to scene '+i+' starts over uncovered black frames');
+  else assert.ok(previous.start+previous.len>=current.start,
+   'Cut to scene '+i+' contains a temporal gap');
+ }
+ assert.equal(segments[segments.length-1].start+segments[segments.length-1].len,1650);
+ assert.equal(segments[5].len,282,'Carlos footage must remain under memory fade for 12 frames');
+});
