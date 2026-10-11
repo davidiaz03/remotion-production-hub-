@@ -54,3 +54,11 @@
 - Problemas para mañana: revisar el final de la cita Nancy y el corte hacia B-roll, auditar Carlos con nueva intervención completa, ajustar sincronía real de cada palabra, garantizar que la onda no impida subtítulos, preparar locución y luego evaluar los 55s completos. No repetir renders ya realizados por hábito.
 - El workflow Whisper opcional NO fue publicado en GitHub debido a bloqueo del conector; ZIP técnico quedó en Drive. No afecta los recursos de producción.
 - **Siguiente acción concreta:** inspeccionar nuevas transcripciones o pedir revisión humana auditiva; si necesitamos vista previa útil elegir 852–906 (final de Nancy), NO gastar de nuevo 720–789 salvo cambio de código.
+
+## Checkpoint 2026-10-11 V29 — Hacemos Cuba (nuevos videos)
+
+Tres MP4 nuevos en Drive (WA0006/0007/0008) examinados técnicamente: total ~56 min, 256×144. Se muestrearon 111 fotogramas y guardaron contactos en Drive. Las imágenes muestran a oficiales, armas, tablas de municiones, lanchas y mapas de un incidente de febrero de 2026; ninguna imagen inspeccionada demuestra el ataque de Boca de Samá de 1971. **NO incluir esas imágenes como archivo de 1971** ni afirmar que el audio no contiene referencias sin escucharlo; podría haber citas retrospectivas. Ver `QA_HACEMOS_CUBA_2026.md`.
+
+V29 solamente corrige una animación de rótulo de voz original para que permanezca durante la declaración de Carlos; no modifica otros clips y no ha sido renderizada todavía. Se actualizó `STATE.json`. CI después del último commit por verificar. Mantener el máster bloqueado y subtítulos Gemini con `verified:false`.
+
+Próximo trabajo: confirmar CI; auditar final de Nancy t~28.4-30.2s (global 852-906 frames) y Carlos completo; transcribir/escuchar antes de utilizar audio de Hacemos Cuba. No iniciar otro render sin necesidad.
