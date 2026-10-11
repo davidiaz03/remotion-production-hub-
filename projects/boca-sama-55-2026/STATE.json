@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v11_transition_and_music_code_committed_pending_ci_and_native_render",
+  "phase": "v12_source_cuts_committed_native_transition_preview_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -41,7 +41,10 @@
     "V10 code CI success 38103583964; matching SHA256 verified locally for four new stills and score",
     "V11 replaced black-reveal FilmWipes by genuine overlapping Stage-level SceneTransitions; transitions differ for map, documentation and testimony",
     "V11 repaired music volume dips while witness audio remains muted; prepared true voice ducking for later",
-    "QA_V11_TRANSITION_SYSTEM.md and updated test for declarative timeline"
+    "QA_V11_TRANSITION_SYSTEM.md and updated test for declarative timeline",
+    "V11 CI success 38103806258",
+    "V12 visually reviewed 40+ source sample frames across interviews, opening and documentary; corrected in points and typographic safe zone",
+    "QA_V12_SOURCE_CUTS.md committed"
   ],
   "pending": [
     "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
@@ -54,6 +57,6 @@
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector"
   ],
-  "nextTask": "Verify CI V11 and perform ONE manual quick preview 113-175 to examine the FIRST actual scene overlap; no master without official voice/logo or approved rights.",
-  "updatedAt": "2026-10-11T02:55:00Z"
+  "nextTask": "Manual quick preview frames 113-175 on current branch after CI; inspect overlap and source timing; subtitles/official logo still pending",
+  "updatedAt": "2026-10-11T03:05:00Z"
 }
