@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
- RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote} from './Editorial';
+ RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
 // V09 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
 const Opening=()=> <Stage>
  <LivingBackdrop opacity={.62}/>
@@ -49,17 +49,25 @@ const Closure=()=> <Stage><div style={{position:'absolute',top:750,left:70,right
  <Context size={35}>BOCA DE SAMÁ · 1971—2026</Context></Entrance></div>
  <div style={{position:'absolute',bottom:300,left:115,right:115,textAlign:'center',fontFamily:'Arial,sans-serif',
  color:'#b3b3b3',fontSize:26}}>CIERRE OFICIAL PENDIENTE · LOGO ORIGINAL NO DISPONIBLE</div><Proof/></Stage>;
-const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,660,720,1200,1280,1580,1649],[0,.21,.21,.09,.09,.18,.17,0]);
+const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,1540,1649],[0,.24,.24,0]);
  return <Audio src={staticFile(assets.score)} volume={vol}/>;};
+
+// Sequence overlaps total 6*12=72 frames. Endpoint remains exactly frame 1649.
+// Interviews deliberately start on straight cuts to honor unaltered testimony.
+const edit=[
+ {start:0,len:132,mode:'cut' as const,element:<Opening/>},
+ {start:120,len:192,mode:'left' as const,element:<Place/>},
+ {start:300,len:222,mode:'fade' as const,element:<History/>},
+ {start:510,len:222,mode:'right' as const,element:<Human/>},
+ {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={252}/>},
+ {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={82}/>},
+ {start:1290,len:192,mode:'fade' as const,element:<Remembrance/>},
+ {start:1470,len:180,mode:'fade' as const,element:<Closure/>},
+];
 export const MainReel=()=> <AbsoluteFill style={{background:'#07090B'}}>
  <Music/>
- <Sequence from={0} durationInFrames={120}><Opening/></Sequence>
- <Sequence from={120} durationInFrames={180}><Place/></Sequence>
- <Sequence from={300} durationInFrames={210}><History/></Sequence>
- <Sequence from={510} durationInFrames={210}><Human/></Sequence>
- <Sequence from={720} durationInFrames={300}><Survivor name="NANCY PAVÓN" seek={252}/></Sequence>
- <Sequence from={1020} durationInFrames={270}><Survivor name="CARLOS ESCALANTE" seek={82}/></Sequence>
- <Sequence from={1290} durationInFrames={180}><Remembrance/></Sequence>
- <Sequence from={1470} durationInFrames={180}><Closure/></Sequence>
+ {edit.map((s,i)=><Sequence key={i} from={s.start} durationInFrames={s.len}>
+  <SceneTransition mode={s.mode} frames={12}>{s.element}</SceneTransition>
+ </Sequence>)}
  <CaptionTrack captions={[]}/>
  </AbsoluteFill>;
