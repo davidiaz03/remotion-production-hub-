@@ -1,56 +1,58 @@
 import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
-import {Matte,Frame,ImageWindow,GlassShade,Eyebrow,Display,Small,MoveIn,ProofMark,Entrance,asset,C,lerp} from './Editorial';
-// V08 / 55s / 1080x1920 / 30fps. NO PUBLICAR. The narration remains replaceable.
-// No hallucinated testimonies. No artificially recreated official logo.
-const SceneOne=()=> <Matte><Entrance style="dissolve">
- <Frame file={asset.coast} seek={4} top={370} w={1010} h={568}/>
- <Eyebrow top={278}>12 OCTUBRE 1971</Eyebrow>
- <div style={{position:'absolute',top:1030,left:68,right:50}}><MoveIn>
- <Display size={97}>BOCA DE SAMÁ</Display>
- <div style={{height:17}}/><Small size={31}>Costa norte de Holguín. Un lugar que recuerda.</Small>
- </MoveIn></div></Entrance><ProofMark/></Matte>;
-const SceneTwo=()=> <Matte><Entrance style="reveal"><ImageWindow file={asset.satellite} top={320} h={980} wide/>
- <GlassShade top={950}/><Eyebrow top={280}>UN LUGAR EN LA COSTA CUBANA</Eyebrow>
- <div style={{position:'absolute',left:67,top:1280,right:55}}><MoveIn>
- <Display size={101}>BANES</Display><Small size={33}>Municipio de Holguín, al nordeste de Cuba.</Small></MoveIn></div>
- <div style={{position:'absolute',left:67,top:1447,right:72,color:'#c8c6c3',fontSize:23}}>Imagen satelital regional · No localiza el ataque.</div>
- </Entrance><ProofMark/></Matte>;
-const SceneThree=()=> <Matte><Entrance style="dissolve"><Frame file={asset.records} seek={130} top={465} w={1000} h={562}/>
- <Eyebrow top={285}>EL ATAQUE</Eyebrow>
- <div style={{position:'absolute',top:1090,left:65,right:55}}><MoveIn>
- <Display size={108}>1971</Display><div style={{height:18}}/><Small size={35}>El 12 de octubre, un ataque armado cambió la historia del poblado.</Small>
- </MoveIn></div></Entrance><ProofMark/></Matte>;
-const SceneFour=()=> <Matte><Entrance style="dissolve"><ImageWindow file={asset.monument} top={265} h={920} wide/>
- <GlassShade top={1010}/><Eyebrow top={230}>EL COSTO HUMANO</Eyebrow>
- <div style={{position:'absolute',top:1190,left:65,right:65,display:'flex',gap:32}}>
- {[['02','FALLECIDOS'],['04','HERIDOS']].map(([n,label])=><div key={n} style={{flex:1,borderTop:'5px solid '+C.red,paddingTop:24}}>
- <Display size={133}>{n}</Display><Small size={29}>{label}</Small></div>)}</div>
- </Entrance><ProofMark/></Matte>;
-const Testimony=({name,seek,description}:{name:string;seek:number;description:string})=><Matte><Entrance style="dissolve">
- <Eyebrow top={278}>UNA VOZ QUE SOBREVIVIÓ</Eyebrow>
- <Frame file={asset.interviews} seek={seek} top={420} w={1000} h={562}/>
- <div style={{position:'absolute',top:1095,left:68,right:55}}><MoveIn>
- <Display size={name.length>14?73:85}>{name}</Display>
- <div style={{height:21}}/><Small size={28}>{description}</Small>
- </MoveIn></div></Entrance><ProofMark/></Matte>;
-const SceneSeven=()=> <Matte><Entrance style="reveal"><ImageWindow file={asset.monument} top={200} h={1120} wide/>
- <GlassShade top={960}/><Eyebrow top={300}>55 AÑOS DESPUÉS</Eyebrow>
- <div style={{position:'absolute',left:68,right:55,top:1230}}><MoveIn>
- <Display size={87}>LA MEMORIA<br/>PERMANECE</Display></MoveIn></div></Entrance><ProofMark/></Matte>;
-const Last=()=> <Matte><div style={{position:'absolute',top:720,left:68,right:68,textAlign:'center'}}>
- <MoveIn><Display size={91}>55 AÑOS</Display><div style={{height:27}}/><Small size={35}>BOCA DE SAMÁ · 1971–2026</Small></MoveIn></div>
- <div style={{position:'absolute',bottom:365,left:160,right:160,textAlign:'center',fontSize:27,color:'#aaa',fontFamily:'Arial,sans-serif'}}>
- ANIMACIÓN INSTITUCIONAL ORIGINAL PENDIENTE</div><ProofMark/></Matte>;
-const Bed=()=>{const frame=useCurrentFrame();const volume=lerp(frame,[0,21,690,730,1230,1280,1580,1650],[0,.22,.22,.105,.105,.22,.22,0]);return <Audio src={staticFile('boca-sama-55-2026_weight-of-memory_TEMP_MUSIC.mp3')} volume={volume}/>;};
-export const MainReel=()=> <AbsoluteFill style={{background:C.ink}}>
- <Bed/>
- <Sequence from={0} durationInFrames={120}><SceneOne/></Sequence>
- <Sequence from={120} durationInFrames={180}><SceneTwo/></Sequence>
- <Sequence from={300} durationInFrames={210}><SceneThree/></Sequence>
- <Sequence from={510} durationInFrames={210}><SceneFour/></Sequence>
- <Sequence from={720} durationInFrames={300}><Testimony name="NANCY PAVÓN" seek={252} description="Sobreviviente · Testimonio conservado en archivo."/></Sequence>
- <Sequence from={1020} durationInFrames={270}><Testimony name="CARLOS ESCALANTE" seek={82} description="Sobreviviente · Entrevista en Boca de Samá."/></Sequence>
- <Sequence from={1290} durationInFrames={180}><SceneSeven/></Sequence>
- <Sequence from={1470} durationInFrames={180}><Last/></Sequence>
+import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
+ RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets} from './Editorial';
+// V09 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+const Opening=()=> <Stage><FilmWipe frames={7}><ArchiveVideo src={assets.coast} start={4} top={335}/>
+ <InkLabel top={271}>12 OCTUBRE 1971</InkLabel><RedRule top={1043}/><div style={{position:'absolute',left:71,right:40,top:1100}}>
+ <Entrance delay={7}><Heading size={95}>BOCA DE SAMÁ</Heading>
+ <div style={{marginTop:28}}><Context>Una comunidad. Una noche que permanece en la memoria.</Context></div></Entrance></div>
+ </FilmWipe><Proof/></Stage>;
+const Place=()=> <Stage><FilmWipe direction="right" frames={19}><ArchivalStill src={assets.satellite} top={255} w={1080} h={1090} scaleTo={1.09}/>
+ <Vignette top={980}/><InkLabel top={235}>COSTA NORTE DE CUBA</InkLabel>
+ <div style={{position:'absolute',left:70,right:55,top:1290}}><Entrance delay={9}><Heading>HOLGUÍN</Heading>
+ <Context>Boca de Samá · Municipio de Banes</Context></Entrance></div>
+ <div style={{position:'absolute',top:1520,left:72,right:72,fontSize:22,color:'#CCC'}}>Imagen regional, no localización exacta.</div>
+ </FilmWipe><Proof/></Stage>;
+const History=()=> <Stage><FilmWipe frames={14}><ArchivalStill src={assets.village} top={350} w={1010} h={675} fit="contain"/>
+ <InkLabel top={257}>EL POBLADO</InkLabel><RedRule top={1120}/><div style={{position:'absolute',left:71,right:53,top:1180}}>
+ <Entrance delay={15}><Heading size={105}>1971</Heading><Context>El 12 de octubre, un ataque armado dejó vidas marcadas.</Context></Entrance></div>
+ </FilmWipe><Proof/></Stage>;
+const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><ArchivalStill src={assets.portraits} top={280} w={1010} h={680} fit="contain" scaleTo={1.035}/>
+ <InkLabel top={230}>CONSECUENCIAS HUMANAS</InkLabel>
+ <div style={{position:'absolute',top:1100,left:72,right:70,display:'flex',gap:45}}>
+ {[['02','fallecidos'],['04','heridos']].map(([num,name])=>
+ <div key={num} style={{width:'50%',borderTop:'5px solid '+C.red,paddingTop:18}}>
+ <Heading size={126}>{num}</Heading><Context size={33}>{name}</Context></div>)}</div>
+ </FilmWipe><Proof/></Stage>;
+const Survivor=({name,seek}:{name:string;seek:number})=><Stage><FilmWipe frames={8}>
+ <InkLabel top={245}>TESTIMONIO · SOBREVIVIENTE</InkLabel>
+ <ArchiveVideo src={assets.witnesses} start={seek} top={363}/>
+ <div style={{position:'absolute',top:1115,left:72,right:62}}><RedRule top={0} left={0} width={100}/>
+ <Entrance delay={6}><Heading size={name.length>15?73:90}>{name}</Heading></Entrance></div>
+ <div style={{position:'absolute',top:1315,left:73,right:73}}><Context size={26}>Archivo de entrevista · cita literal aún por verificar.</Context></div>
+ </FilmWipe><Proof/></Stage>;
+const Remembrance=()=> <Stage><FilmWipe direction="right" frames={16}>
+ <ArchivalStill src={assets.historicMonument} top={280} w={1040} h={700} fit="contain" scaleTo={1.045}/>
+ <InkLabel top={230}>EL LUGAR CONSERVA SU HISTORIA</InkLabel>
+ <div style={{position:'absolute',top:1150,left:72,right:50}}><Entrance delay={8}><Heading size={90}>LA MEMORIA<br/>PERMANECE</Heading></Entrance></div>
+ </FilmWipe><Proof/></Stage>;
+const Closure=()=> <Stage><div style={{position:'absolute',top:750,left:70,right:70,textAlign:'center'}}>
+ <Entrance delay={7}><Heading size={91}>55 AÑOS</Heading><div style={{height:35}}/>
+ <Context size={35}>BOCA DE SAMÁ · 1971—2026</Context></Entrance></div>
+ <div style={{position:'absolute',bottom:300,left:115,right:115,textAlign:'center',fontFamily:'Arial,sans-serif',
+ color:'#b3b3b3',fontSize:26}}>CIERRE OFICIAL PENDIENTE · LOGO ORIGINAL NO DISPONIBLE</div><Proof/></Stage>;
+const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,660,720,1200,1280,1580,1649],[0,.21,.21,.09,.09,.18,.17,0]);
+ return <Audio src={staticFile(assets.score)} volume={vol}/>;};
+export const MainReel=()=> <AbsoluteFill style={{background:'#07090B'}}>
+ <Music/>
+ <Sequence from={0} durationInFrames={120}><Opening/></Sequence>
+ <Sequence from={120} durationInFrames={180}><Place/></Sequence>
+ <Sequence from={300} durationInFrames={210}><History/></Sequence>
+ <Sequence from={510} durationInFrames={210}><Human/></Sequence>
+ <Sequence from={720} durationInFrames={300}><Survivor name="NANCY PAVÓN" seek={252}/></Sequence>
+ <Sequence from={1020} durationInFrames={270}><Survivor name="CARLOS ESCALANTE" seek={82}/></Sequence>
+ <Sequence from={1290} durationInFrames={180}><Remembrance/></Sequence>
+ <Sequence from={1470} durationInFrames={180}><Closure/></Sequence>
+ <CaptionTrack captions={[]}/>
  </AbsoluteFill>;
