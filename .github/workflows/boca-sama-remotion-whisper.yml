@@ -1,0 +1,62 @@
+name: Boca de Sama - Remotion Whisper transcription (MANUAL NO RENDER)
+on:
+  workflow_dispatch:
+    inputs:
+      witness:
+        type: choice
+        description: Source interview
+        required: true
+        default: both
+        options: [nancy, carlos, both]
+      model:
+        type: choice
+        description: Multilingual Whisper CPU model (small may run long)
+        required: true
+        default: base
+        options: [base, small]
+permissions:
+  contents: read
+concurrency:
+  group: boca-sama-remotion-whisper-transcription
+  cancel-in-progress: false
+jobs:
+  draft-transcription:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 28
+    env:
+      RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
+      WITNESS: ${{ inputs.witness }}
+      WHISPER_MODEL: ${{ inputs.model }}
+      OUTPUT_DIR: ${{ runner.temp }}/boca-sama-remotion-unverified
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - name: Install pinned Remotion Whisper tools without modifying project lock
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg rclone cmake build-essential
+          npm ci --no-audit --no-fund
+          npm install --no-save --package-lock=false --ignore-scripts @remotion/install-whisper-cpp@4.0.530 @remotion/captions@4.0.530
+      - name: Require existing Drive authorization
+        run: |
+          test -n "$RCLONE_CONFIG_B64" || { echo "No Drive authorization; stop"; exit 2; }
+          node scripts/rclone-env.mjs
+      - name: Transcribe only approved SHA-pinned 25s sources
+        run: |
+          node scripts/boca-sama-remotion-whisper.mjs
+      - name: Preserve only explicitly UNVERIFIED JSON captions
+        uses: actions/upload-artifact@v4
+        with:
+          name: boca-sama-remotion-whisper-UNVERIFIED-${{ github.run_id }}
+          path: ${{ runner.temp }}/boca-sama-remotion-unverified/
+          retention-days: 1
+          if-no-files-found: error
+      - name: Cleanup credentials and originals
+        if: always()
+        run: |
+          rm -rf "$RUNNER_TEMP/boca-sama-asr-original" "$RUNNER_TEMP/whisper.cpp"
+          rm -f "$RUNNER_TEMP/remotion-rclone.conf"
