@@ -70,3 +70,11 @@ Se auditó nuevamente el metraje de apoyo para Carlos (original t353.5–359); m
 `EDITORIAL_V30_STORY_AND_VOICEOVER.md` establece secuencia y guion provisional condensado para locutora del Memorial en 4–24 s, respetando voces de testigos sin encimarlas. Logos oficiales y watermark continúan sin alterarse. Los tres videos de `Hacemos Cuba` son material de 2026, no evidencia de imagen de 1971; la escucha completa de casi 56 minutos todavía queda pendiente.
 
 **Próxima acción**: CI del último commit; preview manual Carlos frames 1195–1265, revisar foto, audio y transición; revisar fin Nancy frames 852–906. Subtítulos Gemini continúan `verified:false`. Máster bloqueado.
+
+## Checkpoint V32 — revisión integral, subtítulos y TTS
+
+- La V30 tiene preview nativa comprobada, run 38141945427, con foto monumento auténtica de época posterior y entrada demasiado lenta. V31 editó esa entrada a 9 fotogramas; CI success 38142369938. **V31/V32 todavía no tienen render visual nativo nuevo**.
+- V32 mejora tipografía móvil de captions 46px, saltos por palabra y divide frase larga de Carlos. `src/TestimonyCaptionsV28.ts` continúa TODO `verified:false`; no hay falso subtítulo publicado.
+- Microsoft `es-CU-BelkysNeural`/`es-CU-ManuelNeural`: workflow manual Azure listo en rama; **no existe WAV ni credenciales Azure confirmadas**. No activar facturación ni generar con otras apps que cobren créditos sin consentimiento. Incluso si hay workflow, puede no ser visible por GitHub UI sin rama default; NO fusionar rama para arreglarlo sin autorización.
+- Revisión editorial en `QA_V32_ALL_FRONTS.md`. Los clips de Hacemos Cuba 2026 no son archivo de 1971. Archivo original, logo Memorial y score conservados.
+- Siguiente paso útil: CI V32, único preview V32 Carlos 1195–1265, verifi car final narrativo. Después voz sintética provisional solo si autorizada, transcripciones exactas y subtítulos finalizados y vista previa total. Master NO APROBADO.
