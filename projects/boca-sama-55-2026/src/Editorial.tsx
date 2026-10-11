@@ -18,6 +18,8 @@ export const assets={
  brandOutro:'00_MATERIALES_PARA_EDICION/DOC-20260928-WA0126.mp4',
  // Exactly the final original frame, cropped and keyed to transparency; no generative redraw.
  brandAlpha:'boca-sama-memorial-redwhite-finalframe-transparent.png',
+ nancy2011:'00_MATERIALES_PARA_EDICION/Entrevista-_Nancy_Pavón,_superviviente_de_atentado_terrorista_en_Boca_de_Samá__Cuba_(360p).mp4',
+ carlos2011:'00_MATERIALES_PARA_EDICION/Entrevista__Carlos_Escalante,_superviviente_de_ataque_terrorista_en_Boca_de_Samá(360p).mp4',
 };
 const CL={extrapolateLeft:'clamp' as const,extrapolateRight:'clamp' as const};
 export const curve=(frame:number,input:number[],output:number[])=>interpolate(frame,input,output,CL);
