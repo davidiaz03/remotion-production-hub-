@@ -56,7 +56,7 @@ const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><PaperDocum
  * Authentic testimony face for 6–6.5s, then source-native B-roll.
  * Audio remains muted until exact witness words and permission are verified.
  */
-const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySeek,voiceFile,environment,waveform,voiceFrames,voiceStart,memorialCut=false}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number;earlyFile:string;earlySeek:number;voiceFile:string;environment:string;waveform:'nancy'|'carlos';voiceFrames:number;voiceStart:number;memorialCut?:boolean})=>{
+const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySeek,voiceFile,environment,waveform,voiceFrames,voiceStart,voiceVolume=0.85,memorialCut=false}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number;earlyFile:string;earlySeek:number;voiceFile:string;environment:string;waveform:'nancy'|'carlos';voiceFrames:number;voiceStart:number;voiceVolume?:number;memorialCut?:boolean})=>{
  const frame=useCurrentFrame();
  // Identity is established on the human face and then yields to the location,
  // rather than freezing the same large name over all the B-roll.
@@ -69,7 +69,7 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySee
   <ArchiveVideo src={earlyFile} start={earlySeek} top={363}/>
  </Sequence>
  <Sequence from={0} durationInFrames={voiceFrames}>
-  <Audio src={staticFile(voiceFile)} volume={0.85}/>
+  <Audio src={staticFile(voiceFile)} volume={voiceVolume}/>
  </Sequence>
  <Sequence from={portraitFrames} durationInFrames={duration-portraitFrames}>
   {memorialCut ? <PaperDocument src={assets.memorialCoverage} top={363} width={990} height={560} entranceFrames={9}/> :
@@ -155,8 +155,8 @@ const edit=[
  {start:120,len:192,mode:'fade' as const,element:<Place/>},
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
- {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={155} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={49.08} voiceFrames={184} voiceStart={49.08} voiceFile={assets.voiceNancyComplete} environment={assets.atmosphereNancy} waveform="nancy"/>},
- {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={185} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={203.633333} voiceFrames={252} voiceStart={203.633333} voiceFile={assets.voiceCarlosReview} environment={assets.atmosphereCarlos} waveform="carlos" memorialCut/>},
+ {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={155} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={49.08} voiceFrames={184} voiceStart={49.08} voiceFile={assets.voiceNancyComplete} voiceVolume={1.30} environment={assets.atmosphereNancy} waveform="nancy"/>},
+ {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={185} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={203.633333} voiceFrames={252} voiceStart={203.633333} voiceFile={assets.voiceCarlosReview} voiceVolume={1.45} environment={assets.atmosphereCarlos} waveform="carlos" memorialCut/>},
  {start:1290,len:180,mode:'fade' as const,element:<Remembrance/>},
  {start:1470,len:180,mode:'cut' as const,element:<Closure/>},
 ];
