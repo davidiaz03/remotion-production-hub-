@@ -122,8 +122,8 @@ export const LivingBackdrop:React.FC<{opacity?:number}>=({opacity=.48})=>{
 export const GeographicIndex=()=>{
  const f=useCurrentFrame();
  const labels=['CUBA','HOLGUÍN','BANES'];
- const progress=curve(f,[10,84],[0,1]);
- return <div style={{position:'absolute',top:1480,left:73,right:75}}>
+ const progress=curve(f,[10,92],[0,1]);
+ return <div style={{position:'absolute',top:1372,left:73,right:75}}>
   <div style={{display:'flex',alignItems:'center',gap:16}}>
   {labels.map((t,i)=><React.Fragment key={t}>
    {i>0&&<div style={{width:45,height:2,background:'#D9D9D970'}}/>}
