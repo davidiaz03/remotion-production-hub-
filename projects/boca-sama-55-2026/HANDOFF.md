@@ -20,3 +20,13 @@
 
 **Fuentes Drive:** https://drive.google.com/drive/folders/12TTLdHbtbvW_sooBfDcTeCjsK4NbD89H
 **PR:** https://github.com/davidiaz03/remotion-production-hub-/pull/7
+
+
+## Checkpoint 2026-10-10 — Corte V05
+- Código TSX realmente modificado: `src/Editorial.tsx` contiene componentes de video/foto/entrada, y `src/Video.tsx` contiene ocho escenas con fecha, ruta gráfica, cifras, testimonios y cierre reservado. El diseño NO se ha renderizado/QA todavía. Código no constituye máster.
+- `SCRIPT_AND_AUDIO_V05.md` contiene texto de VO provisional, segundos narrativos y mapa de sustitución posterior por voz real del equipo Memorial.
+- Nuevo reportaje `Aniversario_52...` añadido a `asset-manifest.json` con SHA256 medido `330ffb8f314e382322d3ace565bd457e774c03cf806302abd6e6a96a13e463eb`.
+- Originales permanecen en Drive; el nuevo MP4 facilitado por la directora también quedó allí, conservando copia previa.
+- Falta render nativo de este commit, cortes audibles y permisos; no lanzar máster. Las animaciones originales oficiales aún no han sido identificadas entre los 25 archivos listados. Mantener placeholder de logo solo en preview.
+- Atención QA: el mapa usa **trayecto gráfico ilustrativo**, NO una ruta comprobada; aunque rotulado, preferible reemplazar por zoom neutro y ubicación regional antes de publicar.
+- GitHub Actions code checks se activaron automáticamente por los commits. Consultar estado más reciente, no confundir tests con preview o máster.
