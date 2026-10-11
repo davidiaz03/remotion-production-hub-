@@ -4,7 +4,7 @@ import {testimonyCaptionDraftV28} from './TestimonyCaptionsV28';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition,InterviewEnvironment} from './Editorial';
-// V30 BORRADOR · NO PUBLICAR. Gemini candidate wording requires audio-by-ear confirmation; 2026 Hacemos Cuba clips are NOT 1971 archive.
+// V31 BORRADOR · NO PUBLICAR. Gemini candidate wording requires audio-by-ear confirmation; 2026 Hacemos Cuba clips are NOT 1971 archive.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -63,7 +63,7 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySee
   <Audio src={staticFile(voiceFile)} volume={0.85}/>
  </Sequence>
  <Sequence from={portraitFrames} durationInFrames={duration-portraitFrames}>
-  {memorialCut ? <PaperDocument src={assets.memorialCoverage} top={363} width={990} height={560}/> :
+  {memorialCut ? <PaperDocument src={assets.memorialCoverage} top={363} width={990} height={560} entranceFrames={9}/> :
    <ArchiveVideo src={assets.witnesses} start={bRollStart} top={363}/>}
  </Sequence>
  <div style={{position:'absolute',top:1120,left:72,right:62,opacity:identity}}>
