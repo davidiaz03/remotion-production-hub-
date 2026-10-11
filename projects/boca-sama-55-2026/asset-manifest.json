@@ -7,19 +7,9 @@
       "sha256": "027ee32747082f87c0b4df1c4c063ccc2dcb13c1b4454dcd2aea83a80b6a55ad"
     },
     {
-      "path": "00_MATERIALES_PARA_EDICION/Muerte_en_Boca(360p).mp4",
-      "bytes": 19700350,
-      "sha256": "802a06f2810bffed3b5aecebaef8bcfd4d63e7795cdf3a04490e7367bac8c6fa"
-    },
-    {
       "path": "00_MATERIALES_PARA_EDICION/ISS036-E-3928_-_View_of_Cuba--Holguin_prov.-_Gibara,_Rafael_Freyre,_Guardalavaca_(Banes).jpg",
       "bytes": 336129,
       "sha256": "20fd41a9500ff2bd9db435d64cf40544b324219852430a8b13d7db3539f5482e"
-    },
-    {
-      "path": "00_MATERIALES_PARA_EDICION/Ataque_boca_de_sama_002.jpg",
-      "bytes": 775113,
-      "sha256": "689b59c41a61699d400df1f11248254106427b38bd863b58ca9a57356eeb64b3"
     },
     {
       "path": "00_MATERIALES_PARA_EDICION/Aniversario_52_del_criminal_atentado_al_poblado_Boca_de_Samá(360p).mp4",
@@ -32,11 +22,6 @@
       "sha256": "aa8fcd95c908525cc871e3257821cf239505a1b1775b63d2c88aadd37f8a613b"
     },
     {
-      "path": "boca-sama-55-2026_paper-trail_ALTERNATE_MUSIC.mp3",
-      "bytes": 1733764,
-      "sha256": "4fea719f7604e72fe505162c707ab7c9423d8c581cfa1b0dc4f0839133739d59"
-    },
-    {
       "path": "boca-sama-v09_archive-village-source.png",
       "bytes": 222965,
       "sha256": "469ae09331acdd52fffff81d8e4873e86efac6046e48447facd8e0334c9b394b"
@@ -45,11 +30,6 @@
       "path": "boca-sama-v09_victim-portraits-source.png",
       "bytes": 237198,
       "sha256": "38c056b305703c89c1b593f7620701bbe73446029fbb437e8c16604cde2fb1bc"
-    },
-    {
-      "path": "boca-sama-v09_monument-coverage-source.png",
-      "bytes": 335495,
-      "sha256": "314f6919af48bd8614017f8e317080b2b147fe4fcc1199f229000c0587e3f4d9"
     },
     {
       "path": "boca-sama-v10-opening-coast-still.png",
