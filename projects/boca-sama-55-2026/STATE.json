@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "editing_v04_preview_pending",
+  "phase": "editorial_cut_v05_code_written_not_rendered",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -14,17 +14,24 @@
     "Video.tsx v0.3 montado como timeline de archivo real condicionado a sincronizar medios; no renderizado",
     "Auditados técnicamente 22 MP4 incluyendo copia nueva de la dirección; 12 frames muestreados por clip",
     "Nuevo video original archivado en Drive (1d4m5HuBM6DhOgBxEnBHZJSuVugIuBOE9), hash documentado",
-    "Dirección creativa V04 y motion editorial añadidos a GitHub"
+    "Dirección creativa V04 y motion editorial añadidos a GitHub",
+    "Editorial.tsx creado con componentes de media, encabezados, texto y entradas; Video.tsx v05 presenta 8 escenas 55s",
+    "Asset-manifest ampliado a 5 fuentes con hashes SHA256 medidos",
+    "SCRIPT_AND_AUDIO_V05.md creado: guion VO sustituyente y esquema de audio por escena",
+    "Storyboard gráfico V05 producido localmente con imágenes de fuente para inspección de dirección"
   ],
   "pending": [
-    "Terminar auditoría de 13 MP4 restantes",
+    "Esperar comprobación CI de rama actual y revisar errores",
+    "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
+    "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
+    "Localizar animaciones originales logo y crear frame final transparente autorizado",
+    "Verificar nombres/atribución/autoría/permisos antes de máster",
     "Verificar diálogos/timecodes y autorización de citas de Nancy/Carlos",
     "Localizar tres logos originales animados (carpeta Logos consultada vacía), extraer frame final real",
     "Sincronizar assets desde Drive al public/assets del proyecto con SHA256 y rutas probadas",
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
-    "Implementar audio original y subtítulos después de transcripción",
     "Previsualizar y auditar render, no se ha generado master"
   ],
-  "nextTask": "Verificar licencias/diálogos y localizar los 3 archivos originales del logo; después sincronizar manifest y renderizar preview técnico 1-90 frames",
-  "updatedAt": "2026-10-11T01:06:00Z"
+  "nextTask": "Validar CI V05, terminar integración de assets y primera preview; audio final del equipo se insertará al concluir montaje",
+  "updatedAt": "2026-10-11T01:20:00Z"
 }
