@@ -100,17 +100,19 @@ export const SceneTransition:React.FC<{children:React.ReactNode;mode?:'cut'|'fad
 
 /** Unverified narration never produces fictitious subtitles. No rectangular backgrounds. */
 export type Caption={from:number;to:number;words:string;verified:boolean};
-export const CaptionTrack:React.FC<{captions:Caption[]}>=({captions})=>{
+export const CaptionTrack:React.FC<{captions:Caption[];reviewOnly?:boolean}>=({captions,reviewOnly=false})=>{
  const f=useCurrentFrame();
  // An unverified line cannot become a fake quote in a public preview.
- const line=captions.find(c=>c.verified&&f>=c.from&&f<c.to);
+ const line=captions.find(c=>(c.verified||reviewOnly)&&f>=c.from&&f<c.to);
  if(!line)return null;
  const a=curve(f,[line.from,line.from+5],[0,1]);
  return <div style={{position:'absolute',top:1500,left:96,right:96,maxHeight:145,overflow:'hidden',
  textAlign:'center',fontFamily:font,fontWeight:750,fontSize:46,lineHeight:1.16,color:C.paper,opacity:a,overflowWrap:'break-word',
  textShadow:'0 2px 5px #000, 0 5px 12px #000, -1px -1px 2px #000',
  WebkitTextStroke:'.5px rgba(0,0,0,.6)',pointerEvents:'none'}}>
- {line.words}</div>;
+ {line.words}
+ {reviewOnly&&!line.verified&&<div style={{fontSize:20,fontWeight:700,color:'#FFD1D1',letterSpacing:1.4,marginTop:11}}>TRANSCRIPCIÓN SIN VERIFICAR · SOLO REVISIÓN</div>}
+ </div>;
 };
 export const Proof=()=> <div style={{position:'absolute',top:80,right:62,color:'#C0C0C0',fontSize:17,
  fontFamily:font,letterSpacing:2,fontWeight:700,opacity:.65}}>BORRADOR · NO PUBLICAR</div>;
