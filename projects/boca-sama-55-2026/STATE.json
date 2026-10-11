@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v28_native_nancy_preview_verified_checkpoint_saved_2026-10-11",
+  "phase": "v29_hacemos_cuba_sources_screened_no_unrelated_2026_footage",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -94,7 +94,10 @@
     "V28 voice waveforms remeasured from actual new WAVs and original interview edits synchronized; music ducking extended to end of phrases.",
     "V28 four provisional Gemini-derived caption cues registered in TestimonyCaptionsV28.ts with verified:false, not displayed; HANDOFF updated.",
     "V28 CI passed 38111579311 at 706bfe0c; native Nancy preview 38111670265: 70/70 1080x1920, H264/AAC decode OK, zero unexpected black frames, correct V28 WAV correlation ~0.995",
-    "V28 preview MP4, contact sheet and technical JSON backed up Drive with permanent IDs; QA_NATIVE_PREVIEW_V28_NANCY.md committed"
+    "V28 preview MP4, contact sheet and technical JSON backed up Drive with permanent IDs; QA_NATIVE_PREVIEW_V28_NANCY.md committed",
+    "Three new Hacemos Cuba 2026 clips probed and hashed (~56 minutes, 256x144) and 111 timecoded frames visually audited; no confirmed 1971 archival content found.",
+    "QA_HACEMOS_CUBA_2026.md and three contact sheets saved GitHub/Drive; footage excluded from 1971 visual edit pending oral transcription.",
+    "V29 corrected authentic-audio label fade to track real voice duration for Carlos; no render V29 yet."
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -104,6 +107,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Tomorrow: read latest HANDOFF and QA_NATIVE_PREVIEW_V28_NANCY.md; verify quote words and ending of Nancy / entire Carlos excerpt; do not auto-enable Gemini subtitles; then continue narrative editing and full review. No master approval.",
+  "nextTask": "Check V29 CI. Listen/transcribe three Hacemos Cuba audios only if needed to locate direct Boca de Samá mentions; do NOT portray 2026 operation as 1971. Prioritize check Nancy quote ending frames 852-906, Carlos 8.4s, verify captions, authorized VO and full reel.",
   "updatedAt": "2026-10-11T03:56:00Z"
 }
