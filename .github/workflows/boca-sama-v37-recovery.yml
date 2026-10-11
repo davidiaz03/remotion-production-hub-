@@ -1,4 +1,5 @@
 name: Boca de Sama V37 - preserve voice and ASR pilot (NO RENDER)
+# V37.1 one-shot retry: validate original encoded audio correctly; no synthesis.
 on:
   push:
     branches: [work/boca-sama-55-2026-research]
