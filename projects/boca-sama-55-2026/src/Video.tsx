@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
-// V21 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+// V22 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -37,24 +37,39 @@ const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><PaperDocum
  {[['02','fallecidos'],['04','heridos']].map(([num,name])=>
  <div key={num} style={{width:'50%',borderTop:'5px solid '+C.red,paddingTop:18}}>
  <Heading size={126}>{num}</Heading><Context size={33}>{name}</Context></div>)}</div>
+ <div style={{position:'absolute',left:72,right:65,top:1425,fontSize:23,lineHeight:1.2,color:'#d5d5d5',fontFamily:'Arial,sans-serif'}}>
+ Fuente: nota oficial de 1971 reproducida en Mar y Pesca (1978).
+ </div>
  </FilmWipe><Proof/></Stage>;
 /**
  * Authentic testimony face for 6–6.5s, then source-native B-roll.
  * Audio remains muted until exact witness words and permission are verified.
  */
-const Survivor=({name,seek,duration,portraitFrames,bRollStart}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number})=>
- <Stage>
- <InkLabel top={245}>TESTIMONIO · SOBREVIVIENTE</InkLabel>
+const Survivor=({name,seek,duration,portraitFrames,bRollStart}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number})=>{
+ const frame=useCurrentFrame();
+ // Identity is established on the human face and then yields to the location,
+ // rather than freezing the same large name over all the B-roll.
+ const identity=curve(frame,[0,12,portraitFrames-22,portraitFrames+2],[0,1,1,0]);
+ const place=curve(frame,[portraitFrames,portraitFrames+15],[0,1]);
+ return <Stage>
+ <InkLabel top={245}>TESTIMONIO DE ARCHIVO</InkLabel>
  <Sequence from={0} durationInFrames={portraitFrames}>
   <ArchiveVideo src={assets.witnesses} start={seek} top={363}/>
  </Sequence>
  <Sequence from={portraitFrames} durationInFrames={duration-portraitFrames}>
   <ArchiveVideo src={assets.witnesses} start={bRollStart} top={363}/>
  </Sequence>
- <div style={{position:'absolute',top:1115,left:72,right:62}}><RedRule top={0} left={0} width={100}/>
- <Entrance delay={6}><Heading size={name.length>15?73:90}>{name}</Heading></Entrance></div>
- <div style={{position:'absolute',top:1315,left:73,right:73}}><Context size={26}>Sobreviviente · Entrevista de archivo.</Context></div>
- <Proof/></Stage>;
+ <div style={{position:'absolute',top:1120,left:72,right:62,opacity:identity}}>
+  <RedRule top={-28} left={0} width={94}/>
+  <Heading size={name.length>15?73:82}>{name}</Heading>
+  <div style={{marginTop:22}}><Context size={29}>Sobreviviente del ataque de 1971</Context></div>
+ </div>
+ <div style={{position:'absolute',top:1230,left:72,right:62,opacity:place}}>
+  <Context size={30}>BOCA DE SAMÁ · IMÁGENES DEL LUGAR</Context>
+ </div>
+ <Proof/>
+ </Stage>;
+};
 
 const Remembrance=()=>{
  const f=useCurrentFrame();
