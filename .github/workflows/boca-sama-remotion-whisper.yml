@@ -27,7 +27,6 @@ jobs:
       RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
       WITNESS: ${{ inputs.witness }}
       WHISPER_MODEL: ${{ inputs.model }}
-      OUTPUT_DIR: ${{ runner.temp }}/boca-sama-remotion-unverified
     steps:
       - uses: actions/checkout@v4
         with:
@@ -46,6 +45,8 @@ jobs:
           test -n "$RCLONE_CONFIG_B64" || { echo "No Drive authorization; stop"; exit 2; }
           node scripts/rclone-env.mjs
       - name: Transcribe only approved SHA-pinned 25s sources
+        env:
+          OUTPUT_DIR: ${{ runner.temp }}/boca-sama-remotion-unverified
         run: |
           node scripts/boca-sama-remotion-whisper.mjs
       - name: Preserve only explicitly UNVERIFIED JSON captions
