@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
-// V18 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+// V19 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -70,26 +70,20 @@ const Remembrance=()=> <Stage>
  </div>
  <Proof/></Stage>;
 
-/** Institutional logo: authentic animated end card, final static frame with alpha.
- * Closing footage has black background, watermark disappears at frame 1470.
- * The extracted source is 360x640; no AI or reconstruction used.
+/** V19 source is the actual original 720x1280 / 24fps six-second logo animation.
+ * Show it in full without manufacturing additional frames or scaling the artwork separately.
+ * The watermark uses a transparent crop of the EXACT same animation's last frame.
  */
 const Closure=()=> <Stage>
- <Sequence from={0} durationInFrames={102}>
-  <OffthreadVideo src={staticFile(assets.brandOutro)} muted style={{width:'100%',height:'100%',objectFit:'cover'}}/>
- </Sequence>
- <Sequence from={102} durationInFrames={78}>
-  <div style={{position:'absolute',inset:0,background:'#000'}}/>
-  <Img src={staticFile(assets.brandAlpha)} style={{position:'absolute',width:620,height:'auto',left:230,top:480,objectFit:'contain'}}/>
- </Sequence>
+ <OffthreadVideo src={staticFile(assets.brandOutro)} muted style={{width:'100%',height:'100%',objectFit:'cover'}}/>
  <Proof/>
  </Stage>;
 const Watermark=()=>{
  const frame=useCurrentFrame();
  if(frame>=1470)return null;
  return <Img src={staticFile(assets.brandAlpha)} style={{
- position:'absolute',top:190,right:40,width:125,height:'auto',opacity:.36,objectFit:'contain',
- filter:'drop-shadow(0 1px 5px rgba(0,0,0,.45))',pointerEvents:'none'}}/>;
+ position:'absolute',top:182,right:40,width:112,height:'auto',opacity:.42,objectFit:'contain',
+ filter:'drop-shadow(0 1px 4px rgba(0,0,0,.52))',pointerEvents:'none'}}/>;
 };
 const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,1540,1649],[0,.24,.24,0]);
  return <Audio src={staticFile(assets.score)} volume={vol}/>;};
