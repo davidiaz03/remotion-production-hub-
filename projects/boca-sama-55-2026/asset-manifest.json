@@ -35,6 +35,16 @@
       "path": "boca-sama-v10-opening-coast-still.png",
       "bytes": 358071,
       "sha256": "ed9d6ee68bc59f6b83e2e24ddb85be97ea86a3945710b38fcdb259f258453f32"
+    },
+    {
+      "path": "memorial-official-white-outro-from-institutional-reel-v1.mp4",
+      "bytes": 51114,
+      "sha256": "dd046dbf24fb735454cf84f790d78191542c323790b740b02f395a486cb33153"
+    },
+    {
+      "path": "memorial-official-white-finalframe-alpha-v1.png",
+      "bytes": 68213,
+      "sha256": "73fae8c03c04dce04fffad4535525ecd73af7c09acd7f1e064b821eee73a2e2f"
     }
   ]
 }
