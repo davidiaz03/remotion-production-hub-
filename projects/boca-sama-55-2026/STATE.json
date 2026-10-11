@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v24_native_nancy_voice_preview_verified_editorial_approval_pending",
+  "phase": "v25_interview_atmospheres_committed_pending_native_visual_qa",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -79,7 +79,10 @@
     "V24 TSX audio synchronization first 173 frames of each survivor scene, music ducking; internal review only, not publication-ready",
     "QA_V24_AUDIO.md records provenance and need for semantic verification/transcription",
     "Native V24 Nancy real-voice preview 720-789 success run 38108311401; 70 frames Full HD, no black, audio waveform source correlated >.995 after AAC delay",
-    "V24 audio MP4 and contact sheet saved Drive; QA_NATIVE_PREVIEW_V24_NANCY.md committed"
+    "V24 audio MP4 and contact sheet saved Drive; QA_NATIVE_PREVIEW_V24_NANCY.md committed",
+    "Carlos V24 native preview 38109268368 success 70/70 with authentic audio and readable portrait; identified empty lower half",
+    "V25 atmospheric backgrounds from Nancy and Carlos source frames uploaded to Drive, hashed in manifest, used in Remotion src; not yet rendered",
+    "QA_NATIVE_PREVIEW_V24_CARLOS.md saved; semantic transcription and publication consent remain pending"
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -89,6 +92,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Manual preview Carlos 1020-1089; improve vertical negative space then check native frame; human verify exact Nancy/Carlos words and permissions before subtitle and full render.",
+  "nextTask": "Verify V25 CI and run one short native preview for redesigned interview layout; verify original voice quote meaning and permissions; no master.",
   "updatedAt": "2026-10-11T03:56:00Z"
 }
