@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v32_caption_mobile_layout_committed_voice_azure_gated_render_pending",
+  "phase": "v33_whisper_transcription_pipeline_committed_not_run_narrator_unavailable",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -105,7 +105,10 @@
     "Added optional manual Azure official es-CU-BelkysNeural/ManuelNeural audition workflow (no execution, no keys, no costs incurred) and voiceover script; awaiting authorization/configuration.",
     "CI V31 passed GitHub Actions 38142369938; V31 Carlos 9-frame reveal is committed but has no native render yet.",
     "V32 mobile-safe caption draft broken into short segments, 46px, no rectangular backgrounds; still verified:false, so not rendered.",
-    "V32 audit documents voice option review: no authorized Azure credentials or WAV synthesized; paid third-party alternatives not triggered."
+    "V32 audit documents voice option review: no authorized Azure credentials or WAV synthesized; paid third-party alternatives not triggered.",
+    "V32 native 1195-1265 render 38142873914 passed and contact sheet inspected, revised 9-frame monument reveal improved.",
+    "V33 manual Remotion Whisper.cpp source-verified Spanish transcription script/workflow committed; no ASR job actually executed yet.",
+    "V33 voice connectors checked: HeyGen generic Spanish but no es-CU, Runway both tokens revoked, vidIQ credit-based presets, Azure Cuban voice requires authorized resource."
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -115,6 +118,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Check V32 CI; request a single native preview of altered Carlos transition 1195-1265; get authorized Azure key/region/budget or free valid voice to produce temporary narration; obtain true witness transcript and final narrator, then full editorial render only after gates.",
+  "nextTask": "Check V33 CI; test manual ASR workflow with Nancy/base only if offered via GitHub Actions and within runner budget; verify timing against Gemini, keep verified:false. Azure Cuban narrator gated pending credentials/cost, no spend. Full reel master unapproved.",
   "updatedAt": "2026-10-11T13:15:00Z"
 }
