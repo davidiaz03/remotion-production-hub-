@@ -105,7 +105,7 @@ export const CaptionTrack:React.FC<{captions:Caption[]}>=({captions})=>{
  if(!line)return null;
  const a=curve(f,[line.from,line.from+5],[0,1]);
  return <div style={{position:'absolute',top:1500,left:96,right:96,maxHeight:145,overflow:'hidden',
- textAlign:'center',fontFamily:font,fontWeight:750,fontSize:50,lineHeight:1.15,color:C.paper,opacity:a,
+ textAlign:'center',fontFamily:font,fontWeight:750,fontSize:46,lineHeight:1.16,color:C.paper,opacity:a,overflowWrap:'break-word',
  textShadow:'0 2px 5px #000, 0 5px 12px #000, -1px -1px 2px #000',
  WebkitTextStroke:'.5px rgba(0,0,0,.6)',pointerEvents:'none'}}>
  {line.words}</div>;
