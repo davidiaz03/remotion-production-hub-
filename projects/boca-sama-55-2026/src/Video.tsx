@@ -48,7 +48,7 @@ const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><PaperDocum
  {[['02','fallecidos'],['04','heridos']].map(([num,name])=>
  <div key={num} style={{width:'50%',borderTop:'5px solid '+C.red,paddingTop:18}}>
  <Heading size={126}>{num}</Heading><Context size={33}>{name}</Context></div>)}</div>
- <div style={{position:'absolute',left:72,right:65,top:1425,fontSize:23,lineHeight:1.2,color:'#d5d5d5',fontFamily:'Arial,sans-serif'}}>
+ <div style={{position:'absolute',left:72,right:65,top:1398,fontSize:30,lineHeight:1.25,color:'#d5d5d5',fontFamily:'Arial,sans-serif'}}>
  Fuente: nota oficial de 1971 reproducida en Mar y Pesca (1978).
  </div>
  </FilmWipe><Proof/></Stage>;
@@ -155,7 +155,7 @@ const edit=[
  {start:120,len:192,mode:'fade' as const,element:<Place/>},
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
- {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={155} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={49.833333} voiceFrames={184} voiceStart={49.08} voiceFile={assets.voiceNancyComplete} environment={assets.atmosphereNancy} waveform="nancy"/>},
+ {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={155} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={49.08} voiceFrames={184} voiceStart={49.08} voiceFile={assets.voiceNancyComplete} environment={assets.atmosphereNancy} waveform="nancy"/>},
  {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={185} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={203.633333} voiceFrames={252} voiceStart={203.633333} voiceFile={assets.voiceCarlosReview} environment={assets.atmosphereCarlos} waveform="carlos" memorialCut/>},
  {start:1290,len:180,mode:'fade' as const,element:<Remembrance/>},
  {start:1470,len:180,mode:'cut' as const,element:<Closure/>},
