@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v14_music_beats_and_broll_committed_native_render_pending",
+  "phase": "v15_transition_fix_committed_native_qa02_verified",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -49,7 +49,9 @@
     "Manifest trimmed to 7 used files; originals remain unchanged in Drive",
     "QA_V13_VISUAL_RHYTHM.md saved with in/out hypotheses and verification requirements",
     "V13 CI approved 38104349109; V14 changes visual cadence within Nancy and memorial scenes, backed by source frames",
-    "Music transients measured for beat-aware editorial timing; fact-check publication gate documented in QA_V14_EDITORIAL_AND_FACTCHECK.md"
+    "Music transients measured for beat-aware editorial timing; fact-check publication gate documented in QA_V14_EDITORIAL_AND_FACTCHECK.md",
+    "Native Remotion preview 113-175 run 38104808177 success; 63 frames 1080x1920, decode OK, 0 black intervals, visual inspected",
+    "QA_NATIVE_PREVIEW_02.md recorded visual flaw: left wipe slices title; V15 corrects to typography exit plus crossfade"
   ],
   "pending": [
     "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
@@ -62,6 +64,6 @@
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector"
   ],
-  "nextTask": "Check V14 CI; manual quick preview 113-175 to validate first native transition, then inspect for black flashes and subtitle area",
-  "updatedAt": "2026-10-11T03:35:00Z"
+  "nextTask": "Verify V15 CI, then render preview 110-152 manually if needed; inspect fix, no master until voice and official logo",
+  "updatedAt": "2026-10-11T03:00:00Z"
 }
