@@ -22,6 +22,8 @@ export const assets={
  carlos2011:'00_MATERIALES_PARA_EDICION/Entrevista__Carlos_Escalante,_superviviente_de_ataque_terrorista_en_Boca_de_Samá(360p).mp4',
  voiceNancyReview:'boca-sama-v24-voice-nancy-source-2011-review.wav',
  voiceCarlosReview:'boca-sama-v24-voice-carlos-source-2011-review.wav',
+ atmosphereNancy:'boca-sama-v25-nancy-archive-atmosphere.png',
+ atmosphereCarlos:'boca-sama-v25-carlos-archive-atmosphere.png',
 };
 const CL={extrapolateLeft:'clamp' as const,extrapolateRight:'clamp' as const};
 export const curve=(frame:number,input:number[],output:number[])=>interpolate(frame,input,output,CL);
@@ -161,3 +163,13 @@ export const PaperDocument:React.FC<{src:string;top?:number;width?:number;height
 export const ResearchNote:React.FC<{children:React.ReactNode;top?:number}>=({children,top=1060})=>
  <div style={{position:'absolute',top,left:74,right:74,fontSize:22,letterSpacing:.5,
  lineHeight:1.3,fontFamily:font,color:'#D3D0CB'}}>{children}</div>;
+
+/** Ambient treatment of authentic low-resolution source, not fake archival footage. */
+export const InterviewEnvironment:React.FC<{src:string}>=({src})=>{
+ const frame=useCurrentFrame();
+ const zoom=curve(frame,[0,300],[1.02,1.09]);
+ return <AbsoluteFill>
+  <Img src={staticFile(src)} style={{width:'100%',height:'100%',objectFit:'cover',transform:'scale('+zoom+')',opacity:.79}}/>
+  <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg,#08090bd9 0%,#08090b19 25%,#08090b5b 54%,#08090bef 100%)'}}/>
+ </AbsoluteFill>;
+};
