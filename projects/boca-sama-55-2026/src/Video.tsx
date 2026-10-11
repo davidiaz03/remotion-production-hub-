@@ -1,30 +1,64 @@
 import React from 'react';
-import {AbsoluteFill, Sequence, interpolate, useCurrentFrame} from 'remotion';
-type Shot={start:number;duration:number;label:string;title:string;body:string;asset:string};
+import {AbsoluteFill,Img,OffthreadVideo,Sequence,interpolate,staticFile,useCurrentFrame} from 'remotion';
+
+/**
+ * Boca de Samá: edición de investigación v0.3.
+ * 55s, 30fps, 1080x1920. PROHIBIDO PUBLICAR.
+ * Fuentes de vídeo de terceros: solo revisión editorial privada mientras se aclaran derechos.
+ * Medios públicos de producción en public/assets/*, sincronizados tras verificar SHA256.
+ * El logo institucional NO se simula: espacio reservado para el archivo oficial original.
+ */
+const C={black:'#08090B',red:'#ED1C24',grey:'#77787B',white:'#F7F4EF'};
+type Shot={from:number;len:number;name:string;caption:string;media?:string;startAt?:number;kind?:'video'|'image'};
 const shots:Shot[]=[
-{start:0,duration:180,label:'12 OCTUBRE · 1971–2026',title:'Boca de Samá',body:'Una comunidad. Una noche. Una memoria.',asset:'Fotografía actual auténtica del poblado'},
-{start:180,duration:240,label:'BANES · HOLGUÍN',title:'El lugar',body:'La costa norte de Cuba.',asset:'Mapa geográfico verificado y fotografía real'},
-{start:420,duration:300,label:'12 OCTUBRE 1971',title:'La noche del ataque',body:'Un grupo armado atacó esta comunidad.',asset:'Fotografías históricas y documentos acreditados'},
-{start:720,duration:270,label:'DOS PERSONAS FALLECIDAS',title:'Recordar sus nombres',body:'Lidio Rivaflecha Galán\nRamón Siam Portelles',asset:'Retratos auténticos y grafías oficiales pendientes'},
-{start:990,duration:240,label:'CUATRO PERSONAS HERIDAS',title:'Vidas marcadas',body:'Entre ellas, dos hermanas adolescentes.',asset:'Documentos/testimonios genuinos, con permisos'},
-{start:1230,duration:240,label:'EL TESTIMONIO',title:'Nancy Pavón',body:'Las consecuencias fueron mucho más allá de las cifras.',asset:'Testimonio original autenticado; NO voz recreada'},
-{start:1470,duration:180,label:'55 AÑOS DESPUÉS',title:'Recordar es documentar',body:'Boca de Samá · 12 de octubre de 2026',asset:'Monumento real + identidad institucional autorizada'}];
-const Scene:React.FC<{shot:Shot}> = ({shot})=>{
+ {from:0,len:120,name:'BOCA DE SAMÁ',caption:'HOLGUÍN · CUBA',media:'boca-monumento.mp4',startAt:102,kind:'video'},
+ {from:120,len:180,name:'LA COSTA NORTE',caption:'BANES · HOLGUÍN',media:'nasa-costa.jpg',kind:'image'},
+ {from:300,len:180,name:'12 OCTUBRE 1971',caption:'UN ATAQUE ARMADO',media:'muerte-en-boca.mp4',startAt:86,kind:'video'},
+ {from:480,len:225,name:'LA MEMORIA EN IMÁGENES',caption:'REPRODUCCIÓN DOCUMENTAL · FUENTE POR ACREDITAR',media:'muerte-en-boca.mp4',startAt:128,kind:'video'},
+ {from:705,len:180,name:'DOS PERSONAS FALLECIDAS',caption:'CUATRO PERSONAS HERIDAS',media:'boca-monumento.mp4',startAt:145,kind:'video'},
+ {from:885,len:210,name:'NANCY PAVÓN',caption:'SOBREVIVIENTE · TESTIMONIO ORIGINAL',media:'boca-monumento.mp4',startAt:243,kind:'video'},
+ {from:1095,len:210,name:'CARLOS ESCALANTE',caption:'SOBREVIVIENTE · TESTIMONIO ORIGINAL',media:'boca-monumento.mp4',startAt:78,kind:'video'},
+ {from:1305,len:165,name:'55 AÑOS DESPUÉS',caption:'RECORDAR ES DOCUMENTAR',media:'monumento-2025.jpg',kind:'image'},
+];
+const clamp={extrapolateLeft:'clamp' as const,extrapolateRight:'clamp' as const};
+function Archive({shot}:{shot:Shot}){
  const f=useCurrentFrame();
- const a=interpolate(f,[0,18,shot.duration-19,shot.duration-1],[0,1,1,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const y=interpolate(f,[0,40],[40,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- return <AbsoluteFill style={{backgroundColor:'#0B1720',color:'#F1EBE2',padding:90,fontFamily:'Arial, sans-serif',boxSizing:'border-box'}}>
-  <AbsoluteFill style={{background:'radial-gradient(circle at 80% 20%, #324C55 0%, transparent 55%)'}}/>
-  <div style={{position:'relative',opacity:a,transform:`translateY(${y}px)`,marginTop:200}}>
-   <div style={{width:110,height:5,background:'#C8AC82',marginBottom:44}}/>
-   <div style={{fontSize:32,color:'#C8AC82',letterSpacing:4,fontWeight:700}}>{shot.label}</div>
-   <h1 style={{fontSize:shot.title.length>20?69:91,lineHeight:1.07,margin:'45px 0'}}>{shot.title}</h1>
-   <p style={{fontSize:45,lineHeight:1.4,whiteSpace:'pre-line'}}>{shot.body}</p>
-   <div style={{border:'3px dashed #8395A0',borderRadius:20,marginTop:85,padding:35,fontSize:31,lineHeight:1.35,color:'#BFC8CC',textAlign:'center'}}>
-    <strong>ARCHIVO REAL PENDIENTE</strong><p>{shot.asset}</p>
-   </div>
+ const asset=shot.media?staticFile('assets/'+shot.media):undefined;
+ const move=interpolate(f,[0,shot.len],[1.015,1.07],clamp);
+ return <AbsoluteFill style={{background:C.black,overflow:'hidden'}}>
+  {asset&&shot.kind==='video'&&<OffthreadVideo src={asset} startFrom={Math.round((shot.startAt||0)*30)} muted style={{width:'100%',height:'100%',objectFit:'cover',filter:'blur(26px) brightness(.27) saturate(.65)',transform:'scale(1.6)'}}/>}
+  {asset&&shot.kind==='image'&&<Img src={asset} style={{width:'100%',height:'100%',objectFit:'cover',filter:'blur(23px) brightness(.32)',transform:'scale(1.22)'}}/>}
+  <AbsoluteFill style={{background:'linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.14) 42%,rgba(0,0,0,.86))'}}/>
+  <div style={{position:'absolute',top:252,left:48,right:48,height:590,overflow:'hidden',border:'1px solid #5e6063',background:'#1b1d1f',boxShadow:'0 18px 80px #000a'}}>
+   {asset&&shot.kind==='video'&&<OffthreadVideo src={asset} startFrom={Math.round((shot.startAt||0)*30)} muted style={{width:'100%',height:'100%',objectFit:'contain',transform:'scale(1)'}}/>}
+   {asset&&shot.kind==='image'&&<Img src={asset} style={{width:'100%',height:'100%',objectFit:'contain',transform:`scale(${move})`}}/>}
+   {!asset&&<div style={{color:'#fff',fontSize:30,padding:35}}>ARCHIVO PENDIENTE DE SINCRONIZACIÓN</div>}
   </div>
-  <div style={{position:'absolute',bottom:80,left:45,right:45,fontSize:23,textAlign:'center',letterSpacing:2,color:'#E9BC9F',fontWeight:700}}>MAQUETA DE INVESTIGACIÓN · NO PUBLICAR</div>
+  <div style={{position:'absolute',top:208,left:48,width:124,height:7,background:C.red}}/>
+  <div style={{position:'absolute',top:875,left:55,right:55,color:C.white}}>
+   <div style={{fontFamily:'Arial,sans-serif',fontWeight:800,fontSize:shot.name.length>20?56:74,lineHeight:1.09,letterSpacing:-1.1,textShadow:'0 3px 15px #000',maxWidth:970}}>{shot.name}</div>
+   <div style={{fontSize:28,fontFamily:'Arial,sans-serif',fontWeight:700,marginTop:27,letterSpacing:3,color:'#fff'}}>{shot.caption}</div>
+  </div>
+  <div style={{position:'absolute',left:50,bottom:172,color:'#bcbcbc',fontSize:23,letterSpacing:1.8}}>ARCHIVO · FECHA / AUTORÍA A COTEJAR</div>
+ </AbsoluteFill>;
+}
+const Scene:React.FC<{shot:Shot}>=({shot})=>{
+ const f=useCurrentFrame();
+ const fade=interpolate(f,[0,10,shot.len-14,shot.len],[0,1,1,0],clamp);
+ return <AbsoluteFill style={{opacity:fade}}><Archive shot={shot}/></AbsoluteFill>;
+};
+const Closure=()=>{
+ const f=useCurrentFrame();
+ const reveal=interpolate(f,[6,35],[0,1],clamp);
+ return <AbsoluteFill style={{background:C.black,justifyContent:'center',alignItems:'center',color:C.white,fontFamily:'Arial,sans-serif'}}>
+  <div style={{width:110,height:7,background:C.red,opacity:reveal,marginBottom:36}}/>
+  <div style={{opacity:reveal,fontSize:55,fontWeight:800,letterSpacing:1.5,textAlign:'center'}}>55 AÑOS DE MEMORIA</div>
+  <div style={{opacity:reveal,fontSize:28,color:'#ddd',marginTop:26}}>12 OCTUBRE · 1971—2026</div>
+  <div style={{position:'absolute',bottom:280,border:'2px dashed #666',padding:24,fontSize:25,color:'#c6c6c6',textAlign:'center'}}>LOGO ANIMADO OFICIAL PENDIENTE</div>
  </AbsoluteFill>;
 };
-export const MainReel:React.FC=()=> <AbsoluteFill style={{background:'#0B1720'}}>{shots.map((shot,i)=><Sequence key={i} from={shot.start} durationInFrames={shot.duration}><Scene shot={shot}/></Sequence>)}</AbsoluteFill>;
+export const MainReel:React.FC=()=> <AbsoluteFill style={{background:C.black}}>
+ {shots.map((s,i)=><Sequence key={i} from={s.from} durationInFrames={s.len}><Scene shot={s}/></Sequence>)}
+ <Sequence from={1470} durationInFrames={180}><Closure/></Sequence>
+ <div style={{position:'absolute',bottom:55,left:40,right:40,textAlign:'center',background:'#ac0d17',color:'#fff',fontSize:25,fontFamily:'Arial,sans-serif',fontWeight:800,letterSpacing:2,padding:12}}>PREVIEW DE INVESTIGACIÓN · NO PUBLICAR</div>
+ </AbsoluteFill>;
