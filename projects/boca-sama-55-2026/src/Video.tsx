@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
-// V13 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+// V14 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
 const Opening=()=> <Stage>
  <LivingBackdrop opacity={.62}/>
  <FilmWipe frames={5}>
@@ -52,11 +52,11 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart}:{name:string;seek
 
 const Remembrance=()=> <Stage>
  <InkLabel top={230}>BOCA DE SAMÁ · HOY</InkLabel>
- <Sequence from={0} durationInFrames={78}>
-  <ArchiveVideo src={assets.witnesses} start={324.6} top={355}/>
- </Sequence>
- <Sequence from={78} durationInFrames={102}>
+ <Sequence from={0} durationInFrames={63}>
   <ArchiveVideo src={assets.coast} start={109.4} top={355}/>
+ </Sequence>
+ <Sequence from={63} durationInFrames={117}>
+  <ArchiveVideo src={assets.witnesses} start={362.3} top={355}/>
  </Sequence>
  <div style={{position:'absolute',top:1135,left:72,right:50}}>
   <Entrance delay={8}><Heading size={88}>LA MEMORIA<br/>PERMANECE</Heading></Entrance>
@@ -78,7 +78,7 @@ const edit=[
  {start:120,len:192,mode:'left' as const,element:<Place/>},
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
- {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={195} bRollStart={324.6}/>},
+ {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={150} bRollStart={324.6}/>},
  {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={180} bRollStart={354.7}/>},
  {start:1290,len:192,mode:'fade' as const,element:<Remembrance/>},
  {start:1470,len:180,mode:'fade' as const,element:<Closure/>},
