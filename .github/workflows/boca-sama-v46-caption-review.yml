@@ -27,6 +27,10 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg rclone
           node scripts/rclone-env.mjs
+          # GITHUB_ENV is only injected into subsequent steps. sync-assets runs
+          # in THIS step, so explicitly point rclone at the generated config.
+          export RCLONE_CONFIG="$RUNNER_TEMP/remotion-rclone.conf"
+          test -s "$RCLONE_CONFIG" || { echo 'rclone config not written'; exit 2; }
           node scripts/sync-assets.mjs --project "$PROJECT"
           node scripts/verify-assets.mjs --project "$PROJECT"
       - name: Render two isolated three-second caption review previews
