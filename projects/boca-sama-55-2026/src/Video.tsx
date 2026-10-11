@@ -4,7 +4,7 @@ import {testimonyCaptionDraftV28} from './TestimonyCaptionsV28';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition,InterviewEnvironment} from './Editorial';
-// V29 BORRADOR · NO PUBLICAR. Gemini candidate wording requires audio-by-ear confirmation; 2026 Hacemos Cuba clips are NOT 1971 archive.
+// V30 BORRADOR · NO PUBLICAR. Gemini candidate wording requires audio-by-ear confirmation; 2026 Hacemos Cuba clips are NOT 1971 archive.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -47,7 +47,7 @@ const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><PaperDocum
  * Authentic testimony face for 6–6.5s, then source-native B-roll.
  * Audio remains muted until exact witness words and permission are verified.
  */
-const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySeek,voiceFile,environment,waveform,voiceFrames,voiceStart}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number;earlyFile:string;earlySeek:number;voiceFile:string;environment:string;waveform:'nancy'|'carlos';voiceFrames:number;voiceStart:number})=>{
+const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySeek,voiceFile,environment,waveform,voiceFrames,voiceStart,memorialCut=false}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number;earlyFile:string;earlySeek:number;voiceFile:string;environment:string;waveform:'nancy'|'carlos';voiceFrames:number;voiceStart:number;memorialCut?:boolean})=>{
  const frame=useCurrentFrame();
  // Identity is established on the human face and then yields to the location,
  // rather than freezing the same large name over all the B-roll.
@@ -63,7 +63,8 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySee
   <Audio src={staticFile(voiceFile)} volume={0.85}/>
  </Sequence>
  <Sequence from={portraitFrames} durationInFrames={duration-portraitFrames}>
-  <ArchiveVideo src={assets.witnesses} start={bRollStart} top={363}/>
+  {memorialCut ? <PaperDocument src={assets.memorialCoverage} top={363} width={990} height={560}/> :
+   <ArchiveVideo src={assets.witnesses} start={bRollStart} top={363}/>}
  </Sequence>
  <div style={{position:'absolute',top:1120,left:72,right:62,opacity:identity}}>
   <RedRule top={-28} left={0} width={94}/>
@@ -135,7 +136,7 @@ const edit=[
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
  {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={155} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={49.833333} voiceFrames={159} voiceStart={49.833333} voiceFile={assets.voiceNancyReview} environment={assets.atmosphereNancy} waveform="nancy"/>},
- {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={185} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={203.633333} voiceFrames={252} voiceStart={203.633333} voiceFile={assets.voiceCarlosReview} environment={assets.atmosphereCarlos} waveform="carlos"/>},
+ {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={185} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={203.633333} voiceFrames={252} voiceStart={203.633333} voiceFile={assets.voiceCarlosReview} environment={assets.atmosphereCarlos} waveform="carlos" memorialCut/>},
  {start:1290,len:180,mode:'fade' as const,element:<Remembrance/>},
  {start:1470,len:180,mode:'cut' as const,element:<Closure/>},
 ];
