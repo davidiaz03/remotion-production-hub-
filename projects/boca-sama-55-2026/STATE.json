@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v27_caption_safe_waveform_committed_native_preview_pending",
+  "phase": "v28_candidate_quotes_committed_CI_and_listening_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -87,7 +87,10 @@
     "V26 real WAV RMS-derived dynamic waveform designed under witness portrait; code saved in VoiceWaveforms.ts + Video.tsx",
     "QA_NATIVE_V25_AND_V26.md saved with precise technical and editorial limitations",
     "V26 native Carlos waveform preview run 38109843775 passed 70/70; inspected and backed up MP4/contact sheet to Drive",
-    "V27 moved waveform and label above caption-safe zone and fades them at original voice endpoint; QA_NATIVE_V26_AND_V27.md saved"
+    "V27 moved waveform and label above caption-safe zone and fades them at original voice endpoint; QA_NATIVE_V26_AND_V27.md saved",
+    "V28: user-provided Gemini transcription analyzed; V24 selected quotes were cut mid-thought",
+    "V28: new candidate source-synced Nancy 5.3s and Carlos 8.4s WAVs generated, SHA-pinned in manifest and saved Drive; originals intact",
+    "V28 audio/video/ducking updated in Video.tsx; QA_V28_TRANSCRIPT_CUTS.md records source and reel time offsets"
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -97,6 +100,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Verify V27 CI; prioritize semantic listening and exact witness transcript, plus authorized VO. Short preview of V27 only if needed to inspect its revised overlay; master remains unapproved.",
+  "nextTask": "Verify V28 CI and render brief native witness audio preview after independent listening; replace old waveform envelope with V28 source-specific signal bins; add verified SRT only after quote validation. Narration/logo fully remains gated for master.",
   "updatedAt": "2026-10-11T03:56:00Z"
 }
