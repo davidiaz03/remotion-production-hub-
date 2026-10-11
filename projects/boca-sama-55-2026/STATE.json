@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v23_archival_witnesses_edit_committed_preview_pending",
+  "phase": "v24_real_witness_audio_internal_review_ci_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -73,7 +73,11 @@
     "QA_V22_FULL_EDITORIAL_REVIEW.md saved with eight-scene audit and limitations of partial renders",
     "V22 CI success 38107651345",
     "V23 two previously unused authentic independent survivor interviews inspected 428x240 25fps and integrated as short additional archival segments; manifest SHA verified",
-    "QA_V23_ARCHIVE_INTERVIEWS.md records new interview inpoints and source authenticity/missing transcription"
+    "QA_V23_ARCHIVE_INTERVIEWS.md records new interview inpoints and source authenticity/missing transcription",
+    "V23 CI passed run 38107872812",
+    "V24 genuine excerpt audio from 2011 Nancy and Carlos sources prepared and stored on Drive with measured SHA256, originals intact",
+    "V24 TSX audio synchronization first 173 frames of each survivor scene, music ducking; internal review only, not publication-ready",
+    "QA_V24_AUDIO.md records provenance and need for semantic verification/transcription"
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -83,6 +87,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Check V23 CI and manual quick preview 755-824 (Nancy 2011 interview to contemporary documentary cut), followed by factual transcription/permissions and full 55s flow audit; no master.",
+  "nextTask": "Wait V24 CI; manual preview 720-789 to inspect Nancy audio and image, then 1020-1089 Carlos; verify transcribed original phrases and permissions before final subtitling.",
   "updatedAt": "2026-10-11T03:56:00Z"
 }
