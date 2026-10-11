@@ -42,7 +42,7 @@ const sha256=p=>{
 const entries=selected==='both'?Object.entries(sources):[[selected,sources[selected]]];
 const whisperPath=path.join(work,'whisper.cpp');
 await installWhisperCpp({to:whisperPath,version:'1.5.5'});
-await downloadWhisperModel({model,folder:whisperPath});
+await downloadWhisperModel({model,folder:whisperPath,printOutput:false});
 for(const [key,s] of entries){
   const entry=manifest.files.find(x=>x.path===s.file);
   if(!entry)throw Error('Source missing from approved manifest: '+key);
