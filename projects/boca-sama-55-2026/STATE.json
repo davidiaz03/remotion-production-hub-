@@ -2,21 +2,26 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "preproduction",
+  "phase": "editing_prototype_assets_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
   "completed": [
-    "Carpeta Drive y subcarpetas",
-    "Guion v0.1, escaleta de 7 escenas",
-    "Maqueta Remotion editable, sin fotos históricas"
+    "Repositorio/PR y carpeta Drive verificados; 24 archivos fuente contabilizados",
+    "Ocho videos descargados e inspeccionados por ffprobe y hojas de contacto",
+    "Manual institucional localizado: rojo #ED1C24, negro, gris; tipografía Amplitude Condensed",
+    "Auditoría V01 y shotlist V03 guardados en GitHub",
+    "Video.tsx v0.3 montado como timeline de archivo real condicionado a sincronizar medios; no renderizado"
   ],
   "pending": [
-    "Cotejar grafías y testimonios primarios",
-    "Adquirir assets reales con derechos",
-    "Narración, identidad oficial y música",
-    "Preview, auditoría editorial y aprobación antes de máster"
+    "Terminar auditoría de 13 MP4 restantes",
+    "Verificar diálogos/timecodes y autorización de citas de Nancy/Carlos",
+    "Localizar tres logos originales animados (carpeta Logos consultada vacía), extraer frame final real",
+    "Sincronizar assets desde Drive al public/assets del proyecto con SHA256 y rutas probadas",
+    "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
+    "Implementar audio original y subtítulos después de transcripción",
+    "Previsualizar y auditar render, no se ha generado master"
   ],
-  "nextTask": "Investigar fuentes primarias, cotejar nombres y adquirir fotografías reales antes del montaje",
-  "updatedAt": "2026-10-10T22:20:00Z"
+  "nextTask": "Materializar media en runtime Remotion mediante manifest verificable y sincronización segura; escuchar testimonios, completar logos y auditar preview corto",
+  "updatedAt": "2026-10-11T00:48:00Z"
 }
