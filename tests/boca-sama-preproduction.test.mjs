@@ -32,7 +32,7 @@ test('music is replaceable and separate from survivor interviews',()=>{
  const s=read('src/Video.tsx');
  assert.match(s,/weight-of-memory_TEMP_MUSIC/);
  assert.match(s,/<Audio /);
- assert.match(s,/muted/);
+ assert.match(read('src/Editorial.tsx'),/muted/);
  assert.match(s,/NANCY PAVÓN/);
  assert.match(s,/CARLOS ESCALANTE/);
 });
