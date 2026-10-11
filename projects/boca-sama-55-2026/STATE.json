@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v34_native_voice_start_verified_v35_asset_ingest_pending",
+  "phase": "v44_full_editorial_draft_render_pending_review",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -114,16 +114,24 @@
     "V34 HeyGen Serena Narrador generic Spanish synthetic 15.438s generated once, word timestamps available; remote WAV URL included temporarily, local download/Drive asset unavailable.",
     "V34 voice scheduled 6-21.5s in Remotion, music reduced during narration; no overlap with original survivors. QA_V34_TEMP_VOICE_AND_NEXT_RENDER.md written.",
     "V34 native narration preview run 38144572527 success 70/70 frames, 1080x1920, AAC present, -15.0 LUFS 2.33s sample, no black; preserved MP4 and contact sheet in Drive.",
-    "QA_NATIVE_V34_SYNTHETIC_NARRATION.md in GitHub notes remote resource works in rendering, but missing persistent original voice WAV and full voice intelligibility QA."
+    "QA_NATIVE_V34_SYNTHETIC_NARRATION.md in GitHub notes remote resource works in rendering, but missing persistent original voice WAV and full voice intelligibility QA.",
+    "V37.1 HeyGen original preexisting 15.438s MP3-in-WAV recovered (494027 bytes) to Drive, hash verified 40c77725d883ce014b9713e63c37d1e6009e01c3a4eb7bfa72fb71e5166a28a9; no regeneration.",
+    "V38 48kHz PCM narration copy stored and checksum-pinned in manifest; Remotion switched to local narration; native voice preview run 38153522567 success.",
+    "V39 complete native Remotion EDITORIAL DRAFT 1650 frames rendered and stored Drive scratch id 1JVe0Lx3-0ieUxS66xnq8mxXhS1dMWEOT; QA passed, NOT institutional master.",
+    "Whisper Nancy (runs 38145606270/38153029757) and Carlos (run 38153858514) ASR artifacts produced; not verified word-by-word. Carlos JSON backed up Drive scratch.",
+    "V40 restored original Nancy first word from interview source t49.08 (6.133s PCM) to Drive and asset manifest; V41 corrected 0.753333s interview audio/picture skew and recomputed 62-bin RMS waveform; V41 quick preview run 38156895451 passed.",
+    "V42 complete 55-second native audio-balanced DRAFT at Drive id 1hSkYABEUhfTRw-uUvRuOmm-J5qvpy5ow, QA passed run 38157847584. Nancy integrated -19.1 LUFS, Carlos -18.7 LUFS, no clipping.",
+    "V43 corrected memory scene fade at frame 1290 by extending Carlos B-roll 12 frames; native 90-frame preview run 38158814162 passed. Frame 1290 central picture ROI mean luminance rose from V42 8.15 to V43 94.04 (same ROI). QA comparison JPEG+metrics+MP4 saved to Drive.",
+    "Regression test covering all 8 scene boundaries with 12-frame transition coverage passed CI run 38160999899.",
+    "V44 full draft render requested in GitHub Actions run 38161084428; status queued at last check, not yet verified or approved."
   ],
   "pending": [
-    "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
-    "Verificar nombres/atribución/autoría/permisos antes de máster",
-    "Verificar diálogos/timecodes y autorización de citas de Nancy/Carlos",
-    "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
-    "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
-    "V19 preview QA original brand animation and watermark: frames 1458-1520"
+    "V44 complete 55-second draft: await render, inspect full MP4 and technical report including image around t43s before accepting improvement.",
+    "Listen carefully and verify full witness interviews Nancy and Carlos against automatic transcripts, then author exact subtitles without background; all captions remain verified:false.",
+    "Verify all historical facts, numbers, spellings, chronology, source attributions, permissions, music/narrator usage rights and Memorial review before publication.",
+    "Conduct full visual/frame-level and audio intelligibility QA, including professional text safe zones and final logo; full automatic QA alone is insufficient.",
+    "Any institutional master approval and PR merge require explicit editorial authorization."
   ],
-  "nextTask": "Secure original already-generated HeyGen WAV into Drive and SHA manifest without regenerating, then full-voice editorial QA. Whisper workflow still blocked. Avoid full master until reviewed.",
-  "updatedAt": "2026-10-11T13:15:00Z"
+  "nextTask": "Read V44 run 38161084428 and verify Drive scratch output. Compare frames 1288-1304 with V42 and audit 55s sound + subtitles. Do not call render a master. Do not regenerate narration.",
+  "updatedAt": "2026-10-11"
 }
