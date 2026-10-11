@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v29_hacemos_cuba_sources_screened_no_unrelated_2026_footage",
+  "phase": "v30_carlos_monument_broll_implemented_preview_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -97,7 +97,9 @@
     "V28 preview MP4, contact sheet and technical JSON backed up Drive with permanent IDs; QA_NATIVE_PREVIEW_V28_NANCY.md committed",
     "Three new Hacemos Cuba 2026 clips probed and hashed (~56 minutes, 256x144) and 111 timecoded frames visually audited; no confirmed 1971 archival content found.",
     "QA_HACEMOS_CUBA_2026.md and three contact sheets saved GitHub/Drive; footage excluded from 1971 visual edit pending oral transcription.",
-    "V29 corrected authentic-audio label fade to track real voice duration for Carlos; no render V29 yet."
+    "V29 corrected authentic-audio label fade to track real voice duration for Carlos; no render V29 yet.",
+    "V30 visual audit t353.5-359 of previous Carlos support footage found rapid unrelated shot switches; replaced Carlos second shot with authentic later monument still (sha in manifest).",
+    "V30 editorial narration and shot timing memo saved in EDITORIAL_V30_STORY_AND_VOICEOVER.md; no institutional narrator yet recorded."
   ],
   "pending": [
     "Transcribir y verificar audio real Nancy/Carlos, añadir subtítulos y música válida",
@@ -107,6 +109,6 @@
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector",
     "V19 preview QA original brand animation and watermark: frames 1458-1520"
   ],
-  "nextTask": "Check V29 CI. Listen/transcribe three Hacemos Cuba audios only if needed to locate direct Boca de Samá mentions; do NOT portray 2026 operation as 1971. Prioritize check Nancy quote ending frames 852-906, Carlos 8.4s, verify captions, authorized VO and full reel.",
-  "updatedAt": "2026-10-11T03:56:00Z"
+  "nextTask": "Verify current CI; short preview frames 1195-1265 to inspect Carlos moving image to monument and full spoken phrase. Audit Nancy end 852-906, then full reel preview only with milestone approval; check quotes and captions first. No master.",
+  "updatedAt": "2026-10-11T13:15:00Z"
 }
