@@ -2,19 +2,25 @@ import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
-// V14 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
-const Opening=()=> <Stage>
+// V15 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+const Opening=()=>{
+ const frame=useCurrentFrame();
+ // Fade out editorial typography before the satellite takes over.
+ // The authentic coastal landscape persists until the transition ends.
+ const letteringOpacity=curve(frame,[103,122],[1,0]);
+ return <Stage>
  <LivingBackdrop opacity={.62}/>
- <FilmWipe frames={5}>
+ <ArchiveVideo src={assets.coast} start={2.8} top={345}/>
+ <div style={{position:'absolute',inset:0,opacity:letteringOpacity,pointerEvents:'none'}}>
  <InkLabel top={213}>12 OCTUBRE 1971</InkLabel>
- <ArchiveVideo src={assets.coast} start={2.8} top={345} />
  <RedRule top={1018} width={145}/>
  <div style={{position:'absolute',left:71,right:39,top:1078}}>
  <Entrance delay={4} distance={20}><Heading size={99}>BOCA DE SAMÁ</Heading>
  <div style={{marginTop:25}}><Context size={32}>Un lugar. Una historia que permanece.</Context></div></Entrance></div>
  <GeographicIndex/>
- </FilmWipe><Proof/>
+ </div><Proof/>
  </Stage>;
+};
 const Place=()=> <Stage><FilmWipe direction="right" frames={19}><ArchivalStill src={assets.satellite} top={255} w={1080} h={1090} scaleTo={1.09}/>
  <Vignette top={980}/><InkLabel top={235}>COSTA NORTE DE CUBA</InkLabel>
  <div style={{position:'absolute',left:70,right:55,top:1290}}><Entrance delay={9}><Heading>HOLGUÍN</Heading>
@@ -75,7 +81,7 @@ const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,1540,
 // Interviews deliberately start on straight cuts to honor unaltered testimony.
 const edit=[
  {start:0,len:132,mode:'cut' as const,element:<Opening/>},
- {start:120,len:192,mode:'left' as const,element:<Place/>},
+ {start:120,len:192,mode:'fade' as const,element:<Place/>},
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
  {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={150} bRollStart={324.6}/>},
