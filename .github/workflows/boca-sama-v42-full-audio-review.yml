@@ -1,0 +1,72 @@
+name: Boca de Sama V42 - full audio-balanced DRAFT QA (NOT MASTER)
+on:
+  push:
+    branches: [work/boca-sama-55-2026-research]
+    paths: ['.github/workflows/boca-sama-v42-full-audio-review.yml']
+permissions:
+  contents: read
+concurrency:
+  group: boca-sama-v39-full-review
+  cancel-in-progress: false
+jobs:
+  full-draft:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 42
+    env:
+      RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
+      PROJECT: boca-sama-55-2026
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22.16.0'
+          cache: npm
+      - name: Verify environment, tools and Drive credentials
+        run: |
+          test -n "$RCLONE_CONFIG_B64" || exit 2
+          npm ci --no-audit --no-fund
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg rclone
+          node scripts/rclone-env.mjs
+      - name: Restore exact SHA-verified production assets
+        run: |
+          node scripts/sync-assets.mjs --project "$PROJECT"
+          node scripts/verify-assets.mjs --project "$PROJECT"
+      - name: Render ALL 1650 frames via Remotion in DRAFT quality (not master pipeline)
+        run: |
+          mkdir -p "projects/$PROJECT/out"
+          node scripts/project.mjs render "$PROJECT" --mode quick --frames 0-0 --output "projects/$PROJECT/out/smoke.mp4"
+          rm "projects/$PROJECT/out/smoke.mp4"
+          node node_modules/@remotion/cli/remotion-cli.js render "projects/$PROJECT/src/index.ts" MainReel "projects/$PROJECT/out/boca-sama-v42-FULL-EDITORIAL-DRAFT-NO-PUBLICAR.mp4" --public-dir "projects/$PROJECT/public" --codec h264 --pixel-format yuv420p --crf 22 --concurrency 2 --log info
+      - name: Full MP4 technical QA, decode, frames, contact sheet and sound
+        run: |
+          node scripts/qa-media.mjs --project "$PROJECT" --mode full --file "projects/$PROJECT/out/boca-sama-v42-FULL-EDITORIAL-DRAFT-NO-PUBLICAR.mp4"
+          ffmpeg -hide_banner -i "projects/$PROJECT/out/boca-sama-v42-FULL-EDITORIAL-DRAFT-NO-PUBLICAR.mp4" -filter_complex ebur128=peak=true -f null - 2> "projects/$PROJECT/reports/v42-loudness.txt"
+      - name: Preserve full draft on Drive scratch and verify SHA256
+        run: |
+          set -euo pipefail
+          src="projects/$PROJECT/out/boca-sama-v42-FULL-EDITORIAL-DRAFT-NO-PUBLICAR.mp4"
+          dst="media:Remotion Production/projects/$PROJECT/scratch/boca-sama-v42-FULL-EDITORIAL-DRAFT-NO-PUBLICAR.mp4"
+          if rclone lsjson "$dst" --log-level ERROR >/dev/null 2>&1; then
+            echo 'Target exists; refuse overwriting review video'; exit 4
+          fi
+          rclone copyto "$src" "$dst" --retries 2 --log-level ERROR
+          a="$(sha256sum "$src" | cut -d' ' -f1)"
+          b="$(rclone cat "$dst" --log-level ERROR | sha256sum | cut -d' ' -f1)"
+          test "$a" = "$b" || exit 6
+          echo "Full editorial DRAFT backed up and SHA-verified: $a"
+      - name: Transient report artifact, no public master
+        uses: actions/upload-artifact@v4
+        with:
+          name: boca-sama-v42-draft-QA-${{ github.run_id }}
+          path: |
+            projects/boca-sama-55-2026/reports/technical-qa.json
+            projects/boca-sama-55-2026/reports/contact-sheet.jpg
+            projects/boca-sama-55-2026/reports/v42-loudness.txt
+          retention-days: 1
+          if-no-files-found: error
+      - name: Remove transient credential
+        if: always()
+        run: rm -f "$RUNNER_TEMP/remotion-rclone.conf"
