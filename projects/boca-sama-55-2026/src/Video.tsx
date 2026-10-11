@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
-// V15 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+// V16 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -23,7 +23,7 @@ const Opening=()=>{
 };
 const Place=()=> <Stage><FilmWipe direction="right" frames={19}><ArchivalStill src={assets.satellite} top={255} w={1080} h={1090} scaleTo={1.09}/>
  <Vignette top={980}/><InkLabel top={235}>COSTA NORTE DE CUBA</InkLabel>
- <div style={{position:'absolute',left:70,right:55,top:1290}}><Entrance delay={9}><Heading>HOLGUÍN</Heading>
+ <div style={{position:'absolute',left:70,right:55,top:1290}}><Entrance delay={2}><Heading>HOLGUÍN</Heading>
  <Context>Boca de Samá · Municipio de Banes</Context></Entrance></div>
  <div style={{position:'absolute',top:1520,left:72,right:72,fontSize:22,color:'#CCC'}}>Imagen regional, no localización exacta.</div>
  </FilmWipe><Proof/></Stage>;
