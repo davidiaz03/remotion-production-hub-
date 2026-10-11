@@ -14,6 +14,7 @@ export const assets={
  memorialCoverage:'boca-sama-v09_monument-coverage-source.png',
  historicMonument:'boca-sama-v09_monument-coverage-source.png',
  score:'boca-sama-55-2026_weight-of-memory_TEMP_MUSIC.mp3',
+ narrationSerenaPreview:'boca-sama-v38-serena-decoded-PCM48k-PREVIEW.wav',
  openingAtmosphere:'boca-sama-v10-opening-coast-still.png',
  // Original 6-second variant supplied by the Memorial, NOT the compressed Instagram extract.
  brandOutro:'00_MATERIALES_PARA_EDICION/DOC-20260928-WA0126.mp4',
