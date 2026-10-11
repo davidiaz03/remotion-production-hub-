@@ -30,7 +30,7 @@ test('Boca de Sama vertical independent documentary preserves master approval ga
 });
 test('music is replaceable and separate from survivor interviews',()=>{
  const s=read('src/Video.tsx');
- assert.match(s,/weight-of-memory_TEMP_MUSIC/);
+ assert.match(read('src/Editorial.tsx'),/weight-of-memory_TEMP_MUSIC/);
  assert.match(s,/<Audio /);
  assert.match(read('src/Editorial.tsx'),/muted/);
  assert.match(s,/NANCY PAVÓN/);
