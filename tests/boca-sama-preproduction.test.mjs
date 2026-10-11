@@ -19,7 +19,9 @@ test('Boca de Sama vertical independent documentary preserves master approval ga
  for(const n of ['src/Video.tsx','src/Editorial.tsx','src/index.ts','src/Root.tsx','HANDOFF.md','CREATIVE_BRIEF.md'])assert.ok(existsSync(path.join(home,n)),n);
  assert.match(read('src/Video.tsx'),/NO PUBLICAR|CORTE NO PUBLICABLE/);
  const shots=read('src/Video.tsx');
- assert.equal((shots.match(/<Sequence from=/g)||[]).length,8);
+ assert.match(shots,/edit\.map\(/);
+ assert.match(shots,/start:1470,len:180/);
+ assert.match(shots,/SceneTransition/);
  const manifest=JSON.parse(read('asset-manifest.json'));
  assert.ok(manifest.files.length>=5);
  for(const entry of manifest.files){
