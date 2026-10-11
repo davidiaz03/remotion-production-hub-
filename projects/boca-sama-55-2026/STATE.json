@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "remotion_v10_cinematic_opening_committed_preview_pending",
+  "phase": "v11_transition_and_music_code_committed_pending_ci_and_native_render",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -37,7 +37,11 @@
     "Legacy music unit test adjusted to shared Editorial.tsx asset registry",
     "V10: coast opening background derived from authentic footage; updated Animated TSX and diverse paper document layout",
     "Real extracted V10 coastal image backed up in Drive with matching measured SHA256, manifest updated",
-    "V10 detailed aesthetic QA & narration/subtitle gates saved in QA_V10_OPENING_AND_STORY.md"
+    "V10 detailed aesthetic QA & narration/subtitle gates saved in QA_V10_OPENING_AND_STORY.md",
+    "V10 code CI success 38103583964; matching SHA256 verified locally for four new stills and score",
+    "V11 replaced black-reveal FilmWipes by genuine overlapping Stage-level SceneTransitions; transitions differ for map, documentation and testimony",
+    "V11 repaired music volume dips while witness audio remains muted; prepared true voice ducking for later",
+    "QA_V11_TRANSITION_SYSTEM.md and updated test for declarative timeline"
   ],
   "pending": [
     "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
@@ -50,6 +54,6 @@
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector"
   ],
-  "nextTask": "Check V10 CI and run one MANUAL quick preview 0-89 frames; inspect actual render and revise opening before wider reel render",
-  "updatedAt": "2026-10-11T02:50:00Z"
+  "nextTask": "Verify CI V11 and perform ONE manual quick preview 113-175 to examine the FIRST actual scene overlap; no master without official voice/logo or approved rights.",
+  "updatedAt": "2026-10-11T02:55:00Z"
 }
