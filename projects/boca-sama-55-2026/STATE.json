@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "v44_full_draft_retry_rendering_v45_unverified_caption_timing",
+  "phase": "v46_caption_review_separate_v44_full_draft_validated",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -126,15 +126,17 @@
     "V44 full draft render requested in GitHub Actions run 38161084428; status queued at last check, not yet verified or approved.",
     "V44 initial GitHub run 38161084428 failed before encoding due ONLY to invalid yuv440p pixel-format caused by careless replacement of v42 in yuv420p; corrected workflow format to yuv420p in SHA 4885ca2, no corrupted video delivered.",
     "V43 frame-by-frame V42/V43 comparison saved Drive QA, normal picture luminance at frame1290 returned from 8.15 to 94.04; temporal-overlap regression check passed.",
-    "V45 unverified 6 caption drafts re-timed from original-source ASR tokens, all verified:false and no visible testimony quotes in preview. Subtitle fail-closed unit test CI 38161398711 SUCCESS."
+    "V45 unverified 6 caption drafts re-timed from original-source ASR tokens, all verified:false and no visible testimony quotes in preview. Subtitle fail-closed unit test CI 38161398711 SUCCESS.",
+    "V44 second full Remotion render run 38161262601 SUCCESS, MP4 backed up Drive id 1hIBPkKp9yJ8t7nT9Ek_xgqcbbKKdYmZR. Full 1650f H264/AAC; media audit at 43.0s V42 ROI 9.15 vs V44 ROI 94.87. -18.2 LUFS full, peak -3.6 dBFS.",
+    "V46 separate CaptionReviewReel composition and explicit 'UNVERIFIED' review overlays prepared; main MainReel still blocks verified:false captions; GitHub review run 38163081653 pending check."
   ],
   "pending": [
-    "Verify completion and media hash of V44 retry run 38161262601; no success yet at last check.",
+    "Check V46 review run 38163081653 and export two 3-second UNVERIFIED annotated testimonial previews for human wording check.",
     "Listen carefully and verify full witness interviews Nancy and Carlos against automatic transcripts, then author exact subtitles without background; all captions remain verified:false.",
     "Verify all historical facts, numbers, spellings, chronology, source attributions, permissions, music/narrator usage rights and Memorial review before publication.",
     "Conduct full visual/frame-level and audio intelligibility QA, including professional text safe zones and final logo; full automatic QA alone is insufficient.",
     "Any institutional master approval and PR merge require explicit editorial authorization."
   ],
-  "nextTask": "FIRST verify V44 RETRY run 38161262601 outcome (initial run 38161084428 failed and produced no MP4). If successful inspect Drive scratch boca-sama-v44-FULL-EDITORIAL-DRAFT-NO-PUBLICAR.mp4 and source pinned at SHA 4885ca2. Validate 1650 frames/audio/black transitions, then compare frame1290 luminance against V42 and preserve QA. Never approve master or enable transcripts automatically.",
+  "nextTask": "Verify GitHub run 38163081653 results and preview files (Nancy frames720-809, Carlos1020-1109); keep testimony verified:false; begin literal witness audio/documentation fact-check before another full master. V44 full draft is already archived at Drive ID 1hIBPkKp9yJ8t7nT9Ek_xgqcbbKKdYmZR.",
   "updatedAt": "2026-10-11"
 }
