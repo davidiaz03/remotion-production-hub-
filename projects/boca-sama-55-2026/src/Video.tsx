@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill,Sequence,useCurrentFrame,interpolate,staticFile,Img} from 'remotion';
+import {AbsoluteFill,Audio,Sequence,useCurrentFrame,interpolate,staticFile,Img} from 'remotion';
 import {Base,Edge,Enter,Film,Photo,Head,media,P,body,letter,fade} from './Editorial';
 const Sky=()=> <Base><Film file={media.aerial} seek={1} top={250} height={770}/><div style={{position:'absolute',top:980,left:62,right:60}}><Head big="BOCA DE SAMÁ" sub="UNA HISTORIA QUE PERMANECE"/></div><Edge section="12 OCTUBRE · 1971–2026"/></Base>;
 const Map=()=>{const f=useCurrentFrame();const trace=interpolate(f,[5,110],[530,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});return <Base><Photo file={media.nasa} top={200} height={960}/>
@@ -12,12 +12,13 @@ const Witness=({name,file,seek,detail}:{name:string;file:string;seek:number;deta
 const Remember=()=> <Base><Photo file={media.monument} top={240} height={940}/><div style={{position:'absolute',top:1040,left:0,right:0,height:360,background:'linear-gradient(transparent,#080a0c 65%)'}}/><div style={{position:'absolute',top:1275,left:60,right:60}}><Head big="LA MEMORIA" sub="NO TERMINA EN UNA FECHA"/></div><Edge section="55 AÑOS DESPUÉS"/></Base>;
 const Hold=()=> <Base><div style={{position:'absolute',top:700,left:80,right:80,textAlign:'center'}}><Head big="55 AÑOS" sub="BOCA DE SAMÁ · 1971–2026"/></div><div style={{position:'absolute',bottom:295,left:140,right:140,border:'2px dashed #777',padding:25,fontSize:25,textAlign:'center',...body}}>ANIMACIÓN OFICIAL PENDIENTE · CORTE NO PUBLICABLE</div><Edge/></Base>;
 export const MainReel=()=> <AbsoluteFill style={{background:P.ink}}>
+ <Audio src={staticFile('boca-sama-55-2026_weight-of-memory_TEMP_MUSIC.mp3')} volume={(frame)=>{const fadeIn=Math.min(1,frame/24);const tail=Math.max(0,Math.min(1,(1650-frame)/70));const voiceBed=(frame>=690&&frame<1290)?0.11:0.24;return voiceBed*fadeIn*tail;}}/>
  <Sequence from={0} durationInFrames={120}><Sky/></Sequence>
  <Sequence from={120} durationInFrames={180}><Map/></Sequence>
  <Sequence from={300} durationInFrames={210}><Date/></Sequence>
  <Sequence from={510} durationInFrames={210}><Victims/></Sequence>
- <Sequence from={720} durationInFrames={300}><Witness name="NANCY PAVÓN" file={media.aerial} seek={82} detail="Testimonio: frase exacta y permisos pendientes de revisión."/></Sequence>
- <Sequence from={1020} durationInFrames={270}><Witness name="CARLOS ESCALANTE" file={media.coast} seek={106} detail="Un superviviente recuerda el lugar de los acontecimientos."/></Sequence>
+ <Sequence from={720} durationInFrames={300}><Witness name="NANCY PAVÓN" file={media.coast} seek={245} detail="Testimonio: frase exacta y permisos pendientes de revisión."/></Sequence>
+ <Sequence from={1020} durationInFrames={270}><Witness name="CARLOS ESCALANTE" file={media.coast} seek={79} detail="Un superviviente recuerda el lugar de los acontecimientos."/></Sequence>
  <Sequence from={1290} durationInFrames={180}><Remember/></Sequence>
  <Sequence from={1470} durationInFrames={180}><Hold/></Sequence>
  </AbsoluteFill>;
