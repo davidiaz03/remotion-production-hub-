@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
-// V16 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+// V17 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -62,7 +62,8 @@ const Remembrance=()=> <Stage>
   <ArchiveVideo src={assets.coast} start={109.4} top={355}/>
  </Sequence>
  <Sequence from={63} durationInFrames={117}>
-  <ArchiveVideo src={assets.witnesses} start={362.3} top={355}/>
+  {/* Avoid original documentary ACN outro appearing after ~365s. */}
+  <ArchiveVideo src={assets.witnesses} start={350.5} top={355}/>
  </Sequence>
  <div style={{position:'absolute',top:1135,left:72,right:50}}>
   <Entrance delay={8}><Heading size={88}>LA MEMORIA<br/>PERMANECE</Heading></Entrance>
