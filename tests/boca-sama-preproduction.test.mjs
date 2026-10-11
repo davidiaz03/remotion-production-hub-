@@ -80,3 +80,18 @@ test('full draft render workflows use a supported H264 pixel format',()=>{
  assert.match(workflow,/--codec h264 --pixel-format yuv420p/);
  assert.doesNotMatch(workflow,/--pixel-format yuv440p/);
 });
+
+test('unverified witness subtitle drafts remain disabled and nonoverlapping',()=>{
+ const c=read('src/TestimonyCaptionsV28.ts');
+ const entries=[...c.matchAll(/\{from:(\d+),to:(\d+),words:'[^']+',verified:(true|false)\}/g)]
+   .map(x=>({from:Number(x[1]),to:Number(x[2]),verified:x[3]==='true'}));
+ assert.equal(entries.length,6,'Require six provisional subtitle groups');
+ assert.ok(entries.every(e=>!e.verified),'Unverified testimony may never be published by tests');
+ for(let i=0;i<entries.length;i++){
+  assert.ok(entries[i].to>entries[i].from);
+  if(i>0)assert.ok(entries[i].from>=entries[i-1].to);
+ }
+ assert.ok(entries[0].from>=720&&entries[1].to<=904);
+ assert.ok(entries[2].from>=1020&&entries[5].to<=1272);
+ assert.match(read('src/Editorial.tsx'),/c\.verified&&f>=c\.from&&f<c\.to/);
+});
