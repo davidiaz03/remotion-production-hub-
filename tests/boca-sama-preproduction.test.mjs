@@ -74,3 +74,9 @@ test('memory transition keeps outgoing image underneath incoming fade',()=>{
  assert.equal(segments[segments.length-1].start+segments[segments.length-1].len,1650);
  assert.equal(segments[5].len,282,'Carlos footage must remain under memory fade for 12 frames');
 });
+
+test('full draft render workflows use a supported H264 pixel format',()=>{
+ const workflow=readFileSync(path.join(root,'.github/workflows/boca-sama-v44-full-transition-review.yml'),'utf8');
+ assert.match(workflow,/--codec h264 --pixel-format yuv420p/);
+ assert.doesNotMatch(workflow,/--pixel-format yuv440p/);
+});
