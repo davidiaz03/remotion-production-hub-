@@ -1,5 +1,6 @@
 import React from 'react';
 import {witnessWaveforms} from './VoiceWaveforms';
+import {testimonyCaptionDraftV28} from './TestimonyCaptionsV28';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition,InterviewEnvironment} from './Editorial';
@@ -143,6 +144,6 @@ export const MainReel=()=> <AbsoluteFill style={{background:'#07090B'}}>
  {edit.map((s,i)=><Sequence key={i} from={s.start} durationInFrames={s.len}>
   <SceneTransition mode={s.mode} frames={12}>{s.element}</SceneTransition>
  </Sequence>)}
- <CaptionTrack captions={[]}/>
+ <CaptionTrack captions={testimonyCaptionDraftV28}/>
  <Watermark/>
  </AbsoluteFill>;
