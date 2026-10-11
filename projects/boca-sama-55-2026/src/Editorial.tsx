@@ -23,6 +23,7 @@ export const assets={
  nancy2011:'00_MATERIALES_PARA_EDICION/Entrevista-_Nancy_Pavón,_superviviente_de_atentado_terrorista_en_Boca_de_Samá__Cuba_(360p).mp4',
  carlos2011:'00_MATERIALES_PARA_EDICION/Entrevista__Carlos_Escalante,_superviviente_de_ataque_terrorista_en_Boca_de_Samá(360p).mp4',
  voiceNancyReview:'boca-sama-v28-nancy-authentic-candidate-PENDING-REVIEW.wav',
+ voiceNancyComplete:'boca-sama-v40-nancy-full-sufro-ORIGINAL-REVIEW.wav',
  voiceCarlosReview:'boca-sama-v28-carlos-authentic-candidate-PENDING-REVIEW.wav',
  atmosphereNancy:'boca-sama-v25-nancy-archive-atmosphere.png',
  atmosphereCarlos:'boca-sama-v25-carlos-archive-atmosphere.png',
