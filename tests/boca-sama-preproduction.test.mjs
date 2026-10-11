@@ -38,3 +38,22 @@ test('music is replaceable and separate from survivor interviews',()=>{
  assert.match(s,/NANCY PAVÓN/);
  assert.match(s,/CARLOS ESCALANTE/);
 });
+
+test('Nancy full onset visual lip sync and measured envelope must match the V40 audio source',()=>{
+ const v=read('src/Video.tsx');
+ const wave=read('src/VoiceWaveforms.ts');
+ const reg=read('src/Editorial.tsx');
+ const manifest=JSON.parse(read('asset-manifest.json'));
+ assert.match(v,/earlySeek=\{49\.08\} voiceFrames=\{184\} voiceStart=\{49\.08\} voiceFile=\{assets\.voiceNancyComplete\}/);
+ assert.match(v,/720,904,922,1010/);
+ assert.match(reg,/voiceNancyComplete:'boca-sama-v40-nancy-full-sufro-ORIGINAL-REVIEW.wav'/);
+ const meta=manifest.files.find(x=>x.path==='boca-sama-v40-nancy-full-sufro-ORIGINAL-REVIEW.wav');
+ assert.ok(meta,'restored word must use a SHA-verified original');
+ assert.equal(meta.bytes,588878);
+ assert.equal(meta.sha256,'20b5a45e85f6489ac82f0bb012b25f428ae686027e1bc23eadf962164a350f18');
+ const arr=wave.match(/nancy:\[([^\]]+)\]/);
+ assert.ok(arr);
+ const bins=arr[1].split(',').map(Number);
+ assert.equal(bins.length,62,'100ms bins must cover the restored 6.13 s Nancy voice');
+ assert.ok(bins.every(x=>Number.isInteger(x)&&x>=1&&x<=100));
+});
