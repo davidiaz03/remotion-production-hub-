@@ -85,6 +85,11 @@
       "path": "boca-sama-v38-serena-decoded-PCM48k-PREVIEW.wav",
       "bytes": 1482162,
       "sha256": "732630f214d73c24d9fa8a1a53f2ca0c3e3d17e76e4d7b31fe0fc9c6888ddd21"
+    },
+    {
+      "path": "boca-sama-v40-nancy-full-sufro-ORIGINAL-REVIEW.wav",
+      "bytes": 588878,
+      "sha256": "20b5a45e85f6489ac82f0bb012b25f428ae686027e1bc23eadf962164a350f18"
     }
   ]
 }
