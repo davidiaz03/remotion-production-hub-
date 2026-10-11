@@ -25,6 +25,16 @@
       "path": "00_MATERIALES_PARA_EDICION/Aniversario_52_del_criminal_atentado_al_poblado_Boca_de_Samá(360p).mp4",
       "bytes": 9058477,
       "sha256": "330ffb8f314e382322d3ace565bd457e774c03cf806302abd6e6a96a13e463eb"
+    },
+    {
+      "path": "boca-sama-55-2026_weight-of-memory_TEMP_MUSIC.mp3",
+      "bytes": 1816032,
+      "sha256": "aa8fcd95c908525cc871e3257821cf239505a1b1775b63d2c88aadd37f8a613b"
+    },
+    {
+      "path": "boca-sama-55-2026_paper-trail_ALTERNATE_MUSIC.mp3",
+      "bytes": 1733764,
+      "sha256": "4fea719f7604e72fe505162c707ab7c9423d8c581cfa1b0dc4f0839133739d59"
     }
   ]
 }
