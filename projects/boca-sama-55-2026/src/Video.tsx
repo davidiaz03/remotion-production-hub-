@@ -1,8 +1,8 @@
 import React from 'react';
-import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
+import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
-// V17 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+// V18 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -70,11 +70,27 @@ const Remembrance=()=> <Stage>
  </div>
  <Proof/></Stage>;
 
-const Closure=()=> <Stage><div style={{position:'absolute',top:750,left:70,right:70,textAlign:'center'}}>
- <Entrance delay={7}><Heading size={91}>55 AÑOS</Heading><div style={{height:35}}/>
- <Context size={35}>BOCA DE SAMÁ · 1971—2026</Context></Entrance></div>
- <div style={{position:'absolute',bottom:300,left:115,right:115,textAlign:'center',fontFamily:'Arial,sans-serif',
- color:'#b3b3b3',fontSize:26}}>CIERRE OFICIAL PENDIENTE · LOGO ORIGINAL NO DISPONIBLE</div><Proof/></Stage>;
+/** Institutional logo: authentic animated end card, final static frame with alpha.
+ * Closing footage has black background, watermark disappears at frame 1470.
+ * The extracted source is 360x640; no AI or reconstruction used.
+ */
+const Closure=()=> <Stage>
+ <Sequence from={0} durationInFrames={102}>
+  <OffthreadVideo src={staticFile(assets.brandOutro)} muted style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+ </Sequence>
+ <Sequence from={102} durationInFrames={78}>
+  <div style={{position:'absolute',inset:0,background:'#000'}}/>
+  <Img src={staticFile(assets.brandAlpha)} style={{position:'absolute',width:620,height:'auto',left:230,top:480,objectFit:'contain'}}/>
+ </Sequence>
+ <Proof/>
+ </Stage>;
+const Watermark=()=>{
+ const frame=useCurrentFrame();
+ if(frame>=1470)return null;
+ return <Img src={staticFile(assets.brandAlpha)} style={{
+ position:'absolute',top:190,right:40,width:125,height:'auto',opacity:.36,objectFit:'contain',
+ filter:'drop-shadow(0 1px 5px rgba(0,0,0,.45))',pointerEvents:'none'}}/>;
+};
 const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,1540,1649],[0,.24,.24,0]);
  return <Audio src={staticFile(assets.score)} volume={vol}/>;};
 
@@ -96,4 +112,5 @@ export const MainReel=()=> <AbsoluteFill style={{background:'#07090B'}}>
   <SceneTransition mode={s.mode} frames={12}>{s.element}</SceneTransition>
  </Sequence>)}
  <CaptionTrack captions={[]}/>
+ <Watermark/>
  </AbsoluteFill>;
