@@ -1,1 +1,25 @@
-{"formatVersion":1,"files":[]}
+{
+  "formatVersion": 1,
+  "files": [
+    {
+      "path": "00_MATERIALES_PARA_EDICION/Boca_de_Samá,_monumento_contra_el_terrorismo_en_Cuba(360p).mp4",
+      "bytes": 22577528,
+      "sha256": "027ee32747082f87c0b4df1c4c063ccc2dcb13c1b4454dcd2aea83a80b6a55ad"
+    },
+    {
+      "path": "00_MATERIALES_PARA_EDICION/Muerte_en_Boca(360p).mp4",
+      "bytes": 19700350,
+      "sha256": "802a06f2810bffed3b5aecebaef8bcfd4d63e7795cdf3a04490e7367bac8c6fa"
+    },
+    {
+      "path": "00_MATERIALES_PARA_EDICION/ISS036-E-3928_-_View_of_Cuba--Holguin_prov.-_Gibara,_Rafael_Freyre,_Guardalavaca_(Banes).jpg",
+      "bytes": 336129,
+      "sha256": "20fd41a9500ff2bd9db435d64cf40544b324219852430a8b13d7db3539f5482e"
+    },
+    {
+      "path": "00_MATERIALES_PARA_EDICION/Ataque_boca_de_sama_002.jpg",
+      "bytes": 775113,
+      "sha256": "689b59c41a61699d400df1f11248254106427b38bd863b58ca9a57356eeb64b3"
+    }
+  ]
+}
