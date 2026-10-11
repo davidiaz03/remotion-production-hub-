@@ -75,6 +75,11 @@
       "path": "boca-sama-v28-carlos-authentic-candidate-PENDING-REVIEW.wav",
       "bytes": 806478,
       "sha256": "4beec828e1a5f7a4aa384808312a8a0f3591d313accc36b6e5a8aa07e89e3645"
+    },
+    {
+      "path": "boca-sama-v09_monument-coverage-source.png",
+      "bytes": 335495,
+      "sha256": "314f6919af48bd8614017f8e317080b2b147fe4fcc1199f229000c0587e3f4d9"
     }
   ]
 }
