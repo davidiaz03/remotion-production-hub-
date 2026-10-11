@@ -4,7 +4,7 @@ import {testimonyCaptionDraftV28} from './TestimonyCaptionsV28';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition,InterviewEnvironment} from './Editorial';
-// V31 BORRADOR · NO PUBLICAR. Gemini candidate wording requires audio-by-ear confirmation; 2026 Hacemos Cuba clips are NOT 1971 archive.
+// V34 BORRADOR · NO PUBLICAR. Gemini candidate wording requires audio-by-ear confirmation; 2026 Hacemos Cuba clips are NOT 1971 archive.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -125,8 +125,18 @@ const Watermark=()=>{
  position:'absolute',top:182,right:40,width:112,height:'auto',opacity:.42,objectFit:'contain',
  filter:'drop-shadow(0 1px 4px rgba(0,0,0,.52))',pointerEvents:'none'}}/>;
 };
-const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,710,720,879,895,1010,1020,1272,1288,1540,1649],[0,.24,.24,.055,.055,.24,.24,.055,.055,.24,.24,0]);
+const Music=()=>{const frame=useCurrentFrame();const vol=curve(frame,[0,20,168,180,636,655,710,720,879,895,1010,1020,1272,1288,1540,1649],[0,.24,.24,.075,.075,.24,.24,.055,.055,.24,.24,.055,.055,.24,.24,0]);
  return <Audio src={staticFile(assets.score)} volume={vol}/>;};
+
+/** Preview-only generic Spanish narration, generated once in HeyGen.
+ * TEMPORARY REMOTE SOURCE: NOT A PERMANENT MASTER ASSET. No impersonation of witnesses.
+ * Strictly limited to frame 180–644 (6–21.5s), no overlap with Nancy or Carlos.
+ * Switch to a SHA-pinned local Drive WAV before master export.
+ */
+const interimNarrationUrl='https://resource2.heygen.ai/text_to_speech/14b51250fd9f4a4db052769f5f4fb8e5/ed3920e7d9ce428b9ed90e0478e60100/id=0194c17b-54c3-4dd8-950b-3fa272339491.wav';
+const InterimNarrator=()=> <Sequence from={180} durationInFrames={465}>
+ <Audio src={interimNarrationUrl} volume={0.92}/>
+ </Sequence>;
 
 // Sequence overlaps only at directed transitions; each active overlap is 12 frames. Endpoint remains exactly frame 1649.
 // Interviews deliberately start on straight cuts to honor unaltered testimony.
@@ -142,6 +152,7 @@ const edit=[
 ];
 export const MainReel=()=> <AbsoluteFill style={{background:'#07090B'}}>
  <Music/>
+ <InterimNarrator/>
  {edit.map((s,i)=><Sequence key={i} from={s.start} durationInFrames={s.len}>
   <SceneTransition mode={s.mode} frames={12}>{s.element}</SceneTransition>
  </Sequence>)}
