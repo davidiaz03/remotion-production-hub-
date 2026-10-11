@@ -39,7 +39,7 @@ jobs:
           mkdir -p "projects/$PROJECT/out"
           node scripts/project.mjs render "$PROJECT" --mode quick --frames 0-0 --output "projects/$PROJECT/out/smoke.mp4"
           rm "projects/$PROJECT/out/smoke.mp4"
-          node node_modules/@remotion/cli/remotion-cli.js render "projects/$PROJECT/src/index.ts" MainReel "projects/$PROJECT/out/boca-sama-v44-FULL-EDITORIAL-DRAFT-NO-PUBLICAR.mp4" --public-dir "projects/$PROJECT/public" --codec h264 --pixel-format yuv440p --crf 22 --concurrency 2 --log info
+          node node_modules/@remotion/cli/remotion-cli.js render "projects/$PROJECT/src/index.ts" MainReel "projects/$PROJECT/out/boca-sama-v44-FULL-EDITORIAL-DRAFT-NO-PUBLICAR.mp4" --public-dir "projects/$PROJECT/public" --codec h264 --pixel-format yuv420p --crf 22 --concurrency 2 --log info
       - name: Full MP4 technical QA, decode, frames, contact sheet and sound
         run: |
           node scripts/qa-media.mjs --project "$PROJECT" --mode full --file "projects/$PROJECT/out/boca-sama-v44-FULL-EDITORIAL-DRAFT-NO-PUBLICAR.mp4"
