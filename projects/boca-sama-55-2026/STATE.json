@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "editing_prototype_assets_pending",
+  "phase": "editing_v04_preview_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -11,7 +11,10 @@
     "Ocho videos descargados e inspeccionados por ffprobe y hojas de contacto",
     "Manual institucional localizado: rojo #ED1C24, negro, gris; tipografía Amplitude Condensed",
     "Auditoría V01 y shotlist V03 guardados en GitHub",
-    "Video.tsx v0.3 montado como timeline de archivo real condicionado a sincronizar medios; no renderizado"
+    "Video.tsx v0.3 montado como timeline de archivo real condicionado a sincronizar medios; no renderizado",
+    "Auditados técnicamente 22 MP4 incluyendo copia nueva de la dirección; 12 frames muestreados por clip",
+    "Nuevo video original archivado en Drive (1d4m5HuBM6DhOgBxEnBHZJSuVugIuBOE9), hash documentado",
+    "Dirección creativa V04 y motion editorial añadidos a GitHub"
   ],
   "pending": [
     "Terminar auditoría de 13 MP4 restantes",
@@ -22,6 +25,6 @@
     "Implementar audio original y subtítulos después de transcripción",
     "Previsualizar y auditar render, no se ha generado master"
   ],
-  "nextTask": "Materializar media en runtime Remotion mediante manifest verificable y sincronización segura; escuchar testimonios, completar logos y auditar preview corto",
-  "updatedAt": "2026-10-11T00:48:00Z"
+  "nextTask": "Verificar licencias/diálogos y localizar los 3 archivos originales del logo; después sincronizar manifest y renderizar preview técnico 1-90 frames",
+  "updatedAt": "2026-10-11T01:06:00Z"
 }
