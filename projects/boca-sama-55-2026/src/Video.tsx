@@ -148,7 +148,7 @@ const InterimNarrator=()=> <Sequence from={180} durationInFrames={465}>
  <Audio src={staticFile(assets.narrationSerenaPreview)} volume={0.92}/>
  </Sequence>;
 
-// Sequence overlaps only at directed transitions; each active overlap is 12 frames. Endpoint remains exactly frame 1649.
+// A 12-frame outgoing-scene handle is required under EVERY incoming fade/slide.\n// Carlos extends visually to frame 1301; original voice ends by frame 1271.\n// Remembrance fades in from frame 1290 over monument B-roll, not over black.\n// The final composition still ends at frame 1649.
 // Interviews deliberately start on straight cuts to honor unaltered testimony.
 const edit=[
  {start:0,len:132,mode:'cut' as const,element:<Opening/>},
@@ -156,7 +156,7 @@ const edit=[
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
  {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={155} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={49.08} voiceFrames={184} voiceStart={49.08} voiceFile={assets.voiceNancyComplete} voiceVolume={1.30} environment={assets.atmosphereNancy} waveform="nancy"/>},
- {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={185} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={203.633333} voiceFrames={252} voiceStart={203.633333} voiceFile={assets.voiceCarlosReview} voiceVolume={1.45} environment={assets.atmosphereCarlos} waveform="carlos" memorialCut/>},
+ {start:1020,len:282,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={282} portraitFrames={185} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={203.633333} voiceFrames={252} voiceStart={203.633333} voiceFile={assets.voiceCarlosReview} voiceVolume={1.45} environment={assets.atmosphereCarlos} waveform="carlos" memorialCut/>},
  {start:1290,len:180,mode:'fade' as const,element:<Remembrance/>},
  {start:1470,len:180,mode:'cut' as const,element:<Closure/>},
 ];
