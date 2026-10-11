@@ -42,3 +42,15 @@
 - La última CI anterior a V28 falló porque el comentario `NO PUBLICAR` desapareció en V27. V28 lo ha restituido; **comprobar la CI actual antes de cualquier preview**. Conector GitHub no dispone de consola Codespaces ni workflow_dispatch nativo.
 - El intento de nuevo workflow de Whisper quedó bloqueado por el conector. Existe solo paquete ZIP de respaldo en Drive; no sostener que fue instalado.
 - Próximo paso: escucha humana con originales y cotejo textual, una preview manual de la nueva toma al superar CI, revisión de subtítulos/música y locución institucional. No renderizar máster completo sin permiso explícito.
+
+## CHECKPOINT PARA MAÑANA — V28 render auditado (11 oct 2026 UTC)
+
+**Fuente de verdad actual:** rama `work/boca-sama-55-2026-research`, PR #7 draft, 55 s/1650 frames/1080×1920. Nunca considerar el texto V05 del inicio como estado vigente. Leer `QA_NATIVE_PREVIEW_V28_NANCY.md`, `QA_V28_TRANSCRIPT_CUTS.md` y `STATE.json`. No fusionar, exportar master ni publicar.
+
+- CI V28 **SUCCESS** run `38111579311` commit `706bfe0cfd43eea8c448ae76a786adfff51a1d5e`.
+- **PREVIEW NATIVA TERMINADA** run `38111670265`, fotogramas 720–789, 70/70, 1080×1920, video y audio decodificados, 0 intervalos negros inesperados, voz Nancy correcta correlación ~0.995 con nuevo WAV, media -24.2 dBFS, pico -9.4 dBFS. La revisión visual de la hoja de contactos confirma cara, marca de agua y ondas legibles. **Solo están comprobados 2,33 s de los 5,3 s propuestos para Nancy**.
+- Respaldo permanente Drive: [video](https://drive.google.com/file/d/19WFrMqJGWwzGIGp2pI9E5rlrjTXo91mX/view), [contactos](https://drive.google.com/file/d/1Blu_-KF8dQrW4kb3-6pzKUjdePXi_e5r/view), [QA JSON](https://drive.google.com/file/d/1BhW-jGP16VMQg3nHhVxdZudS9Ivb7899/view). Artefacto Actions temporal: `11691672427`, caduca en 1 día.
+- WAV V28 Nancy y Carlos están hasheados y en Drive. La transcripción de Gemini **NO está ratificada mediante escucha precisa**. `TestimonyCaptionsV28.ts` conserva `verified:false`; por ello NO hay subtítulos activos. La voz de Carlos V28 NO tiene render verificado aún; la voz/narración institucional tampoco existe. Quedan consentimiento/derechos y cotejo histórico.
+- Problemas para mañana: revisar el final de la cita Nancy y el corte hacia B-roll, auditar Carlos con nueva intervención completa, ajustar sincronía real de cada palabra, garantizar que la onda no impida subtítulos, preparar locución y luego evaluar los 55s completos. No repetir renders ya realizados por hábito.
+- El workflow Whisper opcional NO fue publicado en GitHub debido a bloqueo del conector; ZIP técnico quedó en Drive. No afecta los recursos de producción.
+- **Siguiente acción concreta:** inspeccionar nuevas transcripciones o pedir revisión humana auditiva; si necesitamos vista previa útil elegir 852–906 (final de Nancy), NO gastar de nuevo 720–789 salvo cambio de código.
