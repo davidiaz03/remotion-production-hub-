@@ -2,7 +2,7 @@
   "schema": "remotion-hub.state/v1",
   "id": "boca-sama-55-2026",
   "title": "Boca de Samá · 55 años de memoria",
-  "phase": "native_remotion_preview_01_verified_visual_qa_open",
+  "phase": "remotion_v10_cinematic_opening_committed_preview_pending",
   "compositionId": "MainReel",
   "latestSnapshot": null,
   "approvedRevision": null,
@@ -34,7 +34,10 @@
     "QA_V09_PRE_RENDER.md guardado: normas de identidad, riesgos de derechos, aspectos técnicos y procedimiento de preview",
     "First native Remotion rendering 0-89 frames successful run 38103024742; extracted MP4/QA/contact sheet inspected",
     "Preview 3s saved Drive scratch 1InydzCgZlq41cb0wwhrlQR9V_noeTpTh; QA_NATIVE_PREVIEW_01.md recorded",
-    "Legacy music unit test adjusted to shared Editorial.tsx asset registry"
+    "Legacy music unit test adjusted to shared Editorial.tsx asset registry",
+    "V10: coast opening background derived from authentic footage; updated Animated TSX and diverse paper document layout",
+    "Real extracted V10 coastal image backed up in Drive with matching measured SHA256, manifest updated",
+    "V10 detailed aesthetic QA & narration/subtitle gates saved in QA_V10_OPENING_AND_STORY.md"
   ],
   "pending": [
     "Sincronizar assets en runner y ejecutar preview nativo manual 1-90 frames",
@@ -47,6 +50,6 @@
     "Conseguir fuente Amplitude autorizada o sustituto temporal en pruebas",
     "Ejecutar quick preview Remotion desde interfaz GitHub Actions (manual) y verificar artifacts; no disponible workflow_dispatch desde este conector"
   ],
-  "nextTask": "Improve opening 0-4 visual occupancy/pace and reduce black space; check latest CI; then rerender 0-89 manually only after change review",
-  "updatedAt": "2026-10-11T02:00:00Z"
+  "nextTask": "Check V10 CI and run one MANUAL quick preview 0-89 frames; inspect actual render and revise opening before wider reel render",
+  "updatedAt": "2026-10-11T02:50:00Z"
 }
