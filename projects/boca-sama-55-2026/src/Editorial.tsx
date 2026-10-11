@@ -14,9 +14,10 @@ export const assets={
  historicMonument:'boca-sama-v09_monument-coverage-source.png',
  score:'boca-sama-55-2026_weight-of-memory_TEMP_MUSIC.mp3',
  openingAtmosphere:'boca-sama-v10-opening-coast-still.png',
- // Original visual identity extracted without generative reconstruction from Memorial institutional reel.
- brandOutro:'memorial-official-white-outro-from-institutional-reel-v1.mp4',
- brandAlpha:'memorial-official-white-finalframe-alpha-v1.png',
+ // Original 6-second variant supplied by the Memorial, NOT the compressed Instagram extract.
+ brandOutro:'00_MATERIALES_PARA_EDICION/DOC-20260928-WA0126.mp4',
+ // Exactly the final original frame, cropped and keyed to transparency; no generative redraw.
+ brandAlpha:'boca-sama-memorial-redwhite-finalframe-transparent.png',
 };
 const CL={extrapolateLeft:'clamp' as const,extrapolateRight:'clamp' as const};
 export const curve=(frame:number,input:number[],output:number[])=>interpolate(frame,input,output,CL);
