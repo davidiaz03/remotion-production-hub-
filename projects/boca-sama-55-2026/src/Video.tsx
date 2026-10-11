@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill,Audio,Img,OffthreadVideo,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {Stage,InkLabel,Heading,Context,Entrance,ArchiveVideo,ArchivalStill,Vignette,
  RedRule,FilmWipe,CaptionTrack,Proof,C,curve,assets,LivingBackdrop,GeographicIndex,PaperDocument,ResearchNote,SceneTransition} from './Editorial';
-// V22 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
+// V23 55-second vertical research cut. NO PUBLICAR. Narration arrives later.
 const Opening=()=>{
  const frame=useCurrentFrame();
  // Fade out editorial typography before the satellite takes over.
@@ -45,7 +45,7 @@ const Human=()=> <Stage light><FilmWipe direction="left" frames={17}><PaperDocum
  * Authentic testimony face for 6–6.5s, then source-native B-roll.
  * Audio remains muted until exact witness words and permission are verified.
  */
-const Survivor=({name,seek,duration,portraitFrames,bRollStart}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number})=>{
+const Survivor=({name,seek,duration,portraitFrames,bRollStart,earlyFile,earlySeek}:{name:string;seek:number;duration:number;portraitFrames:number;bRollStart:number;earlyFile:string;earlySeek:number})=>{
  const frame=useCurrentFrame();
  // Identity is established on the human face and then yields to the location,
  // rather than freezing the same large name over all the B-roll.
@@ -53,7 +53,10 @@ const Survivor=({name,seek,duration,portraitFrames,bRollStart}:{name:string;seek
  const place=curve(frame,[portraitFrames,portraitFrames+15],[0,1]);
  return <Stage>
  <InkLabel top={245}>TESTIMONIO DE ARCHIVO</InkLabel>
- <Sequence from={0} durationInFrames={portraitFrames}>
+ <Sequence from={0} durationInFrames={76}>
+  <ArchiveVideo src={earlyFile} start={earlySeek} top={363}/>
+ </Sequence>
+ <Sequence from={76} durationInFrames={portraitFrames-76}>
   <ArchiveVideo src={assets.witnesses} start={seek} top={363}/>
  </Sequence>
  <Sequence from={portraitFrames} durationInFrames={duration-portraitFrames}>
@@ -117,8 +120,8 @@ const edit=[
  {start:120,len:192,mode:'fade' as const,element:<Place/>},
  {start:300,len:222,mode:'fade' as const,element:<History/>},
  {start:510,len:222,mode:'right' as const,element:<Human/>},
- {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={150} bRollStart={324.6}/>},
- {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={180} bRollStart={354.7}/>},
+ {start:720,len:300,mode:'cut' as const,element:<Survivor name="NANCY PAVÓN" seek={255} duration={300} portraitFrames={150} bRollStart={324.6} earlyFile={assets.nancy2011} earlySeek={60}/>},
+ {start:1020,len:270,mode:'cut' as const,element:<Survivor name="CARLOS ESCALANTE" seek={89} duration={270} portraitFrames={180} bRollStart={354.7} earlyFile={assets.carlos2011} earlySeek={210}/>},
  {start:1290,len:180,mode:'fade' as const,element:<Remembrance/>},
  {start:1470,len:180,mode:'cut' as const,element:<Closure/>},
 ];
