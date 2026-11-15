@@ -209,6 +209,8 @@ Cierre animado oficial «la del disparo» a pantalla completa (escalado 720×128
 
 **Mezcla:** crossfades de 1,5 s en los dos giros dramáticos (11,77 s = el giro «Pero a pesar de ello…»; 32,35 s = Ernesto); fade-out de 1 s hacia el sting. Mezcla final a **−16 LUFS** (2 dB por debajo de la VO). Las 3 secciones crudas quedan en `public/audio/music-sections/` por si hay que remezclar.
 
+**Resultado de la generación (15-nov-2026, ~15 min en CPU):** A 13,94 s (RMS 0,134), B 22,94 s (RMS 0,150), C 9,94 s (RMS 0,214) — pico 0,890 en las tres, sin silencios ni clipping; el arco de energía se cumple (la C es la más densa). Mezcla medida −17,70 LUFS → +1,70 dB → **−16,00 LUFS, 41,5 s exactos, 48 kHz mono, 4,0 MB** (la música queda en mono: el script guarda un solo canal; en un reel con la VO por encima es indistinguible y no justifica regenerar). Primer intento aceptado — no hizo falta el segundo ni el fallback Flow.
+
 **Ducking:** la música baja a 0,25 (≈ −12 dB) mientras habla la VO (ataque 0,12 s antes de cada línea, liberación 0,2 s después; las ventanas que se solapan se fusionan, así que la música solo respira a pleno volumen en las dos pausas dramáticas y en la cola de 0,6 s antes del sting). La VO va siempre por encima, normalizada a −14 LUFS como en V30.
 
 **Enfoque:** la música no es fondo: es el pulso. El cambio de acto coincide con el cambio de sección musical, y el cambio de sección coincide con el giro narrativo.
