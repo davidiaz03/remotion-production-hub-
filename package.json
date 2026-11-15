@@ -26,7 +26,9 @@
     "active": "node scripts/android-control.mjs whoami"
   },
   "dependencies": {
+    "@paper-design/shaders-react": "0.0.82",
     "@remotion/cli": "4.0.530",
+    "@remotion/noise": "4.0.530",
     "@remotion/transitions": "4.0.530",
     "react": "18.3.1",
     "react-dom": "18.3.1",
