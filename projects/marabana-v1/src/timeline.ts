@@ -1,4 +1,4 @@
-// Timeline data for REEL MARABANA V1.2 — 30 fps, 1080x1920.
+// Timeline data for REEL MARABANA V1.3 — 30 fps, 1080x1920.
 // Total 1439 frames = 47.97 s (44.97 s contenido + 3 s sting oficial a 2x).
 // RE-TIMING 15-nov-2026: la voz en off manda el ritmo. Los beats siguen
 // las líneas de la VO (vo-lines.json, voz Piper ald-medium, 44.51 s).
@@ -12,6 +12,11 @@
 // y todos los beats desde la salida se desplazan +92 f. El corte
 // salida→número cae en «casi» según la transcripción V1.2 (17.80 s =
 // frame 534; el count-up arranca con «tres», 18.18 s).
+// V1.3: correcciones de arranque (sin cambios de guion, beats ni VO):
+// LOGO_FROM = 0 (la marca blanca transparente entra desde el fotograma 0;
+// en la V1.2 entraba en f30), el ducking de la primera ventana baja a 0.25
+// a los 0.52 s en vez de desde el fotograma 0 (ver Video.tsx), y la música
+// se alarga a 47.97 s con una cola baja bajo el sting.
 // Estrategia completa en STRATEGY.md §6 (tabla maestra).
 export const FPS = 30;
 export const TOTAL_FRAMES = 1439;
@@ -73,6 +78,7 @@ export const VO_LINES: Array<{start: number; end: number}> = [
   {start: 41.098, end: 44.511},
 ];
 
-// Marca de agua: aparece tras el gancho (frame 30) y se retira antes del sting.
-export const LOGO_FROM = 30;
+// Marca de agua: desde el fotograma 0 (V1.3; en la V1.2 entraba en f30
+// y el usuario notó el principio «medio tarde») y se retira antes del sting.
+export const LOGO_FROM = 0;
 export const LOGO_TO = CONTENT_END;

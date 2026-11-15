@@ -3,7 +3,7 @@ import {
   AbsoluteFill, Audio, Easing, Img, OffthreadVideo, Sequence, interpolate,
   spring, staticFile, useCurrentFrame, useVideoConfig,
 } from 'remotion';
-import {BASTON_FRAME, BEATS, COLORS, CONTENT_END, FPS, LOGO_FROM, LOGO_TO, STAMP_FRAME, STING_DUR, VO_LINES} from './timeline';
+import {BASTON_FRAME, BEATS, COLORS, CONTENT_END, FPS, LOGO_FROM, LOGO_TO, STAMP_FRAME, STING_DUR, TOTAL_FRAMES, VO_LINES} from './timeline';
 import {CAPTIONS} from './captions';
 
 // REEL MARABANA V1.1 — «La carrera que el bloqueo no pudo parar»
@@ -261,32 +261,37 @@ const Karaoke: React.FC = () => (
   </Sequence>
 );
 
-// ---------- marca de agua (identificador NEGRO oficial) ----------
-// Regla de identidad del Memorial (V1.2, 15-nov-2026, petición del
-// usuario): el identificador va en su VERSIÓN NEGRA — estrella BLANCA
-// sobre placa NEGRA sólida — según el Manual de Identidad, págs. 11 y
-// 13: sobre imágenes, el identificador SIEMPRE se mantiene sobre un área
-// de color sólida (rojo corporativo, o negro en versión monocromática),
-// nunca flotando transparente. Lockup 745×1079 (placa con margen de
-// seguridad del 15% por lado); a 150 px de ancho las letras se leen y no
-// tapa contenido. Sin sombra: la placa es opaca y plana, como en el
-// manual. La marca sigue siendo el LOGOTIPO COMPLETO, nunca solo la
-// estrella (regla general del 15-nov).
+// ---------- marca de agua (identificador BLANCO TRANSPARENTE) ----------
+// Regla de identidad del Memorial (V1.3, 15-nov-2026, corrección del
+// usuario tras ver la V1.2): la marca de agua es el identificador en
+// BLANCO y TRANSPARENTE — estrella BLANCA + letras blancas flotando sobre
+// el video, SIN placa de fondo («no va a ser que salga con fondo»). La
+// placa negra de la V1.2 se retiró; el sting del final SÍ conserva su
+// fondo negro (versión negra del manual, pág. 11). Lockup 573×907
+// (transparencia real); a 115 px de ancho el lockup tiene el mismo tamaño
+// en pantalla que en la V1.2 (150 px con placa) y las letras se leen.
+// Sombra suave para que el blanco se lea sobre fotos claras (no es un
+// fondo, es la práctica estándar de marcas transparentes). La marca sigue
+// siendo el LOGOTIPO COMPLETO, nunca solo la estrella (regla general del
+// 15-nov). Entra desde el fotograma 0 (V1.3: LOGO_FROM = 0; en la V1.2
+// entraba en f30 y el usuario notó el principio «medio tarde»).
 
 const LogoInner: React.FC<{dur: number}> = ({dur}) => {
   const frame = useCurrentFrame();
-  const fadeIn = interpolate(frame, [0, 10], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  // Sin fade de ENTRADA (V1.3): opacidad 1 desde el fotograma 0. Solo
+  // hereda el fade de salida antes del sting.
   const fadeOut = interpolate(frame, [dur - 10, dur], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill>
       <Img
-        src={staticFile('img/logo-black.png')}
+        src={staticFile('img/logo-white.png')}
         style={{
           position: 'absolute',
           top: 54,
           right: 40,
-          width: 150,
-          opacity: Math.min(fadeIn, fadeOut),
+          width: 115,
+          opacity: fadeOut,
+          filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.6))',
         }}
       />
     </AbsoluteFill>
@@ -316,9 +321,19 @@ const DUCK_KEYS: Array<[number, number]> = (() => {
     else windows.push([s, e]);
   }
   push(0, 1);
-  for (const [s, e] of windows) {
-    push(s, 1);
-    push(s + 0.12, DUCK);
+  for (let i = 0; i < windows.length; i++) {
+    const [s, e] = windows[i];
+    // V1.3: la primera línea de VO empieza en 0.0 s, así que la ventana
+    // de ducking empezaba en −0.12 s → el push() con clamp a 0
+    // sobrescribía la clave inicial (0, 1) con (0, 0.25) y la música
+    // arrancaba duckada desde el primer fotograma: el máster V1.2 medía
+    // −36 dBFS RMS en los primeros 100 ms («el principio parece medio
+    // tarde»). La primera ventana baja a 0.25 a los 0.52 s: la música
+    // llena el primer medio segundo a pleno nivel y luego se retira
+    // bajo la voz, como en el resto de las líneas.
+    const ds = i === 0 ? 0.4 : s;
+    push(ds, 1);
+    push(ds + 0.12, DUCK);
     push(e - 0.2, DUCK);
     push(e, 1);
   }
@@ -1055,7 +1070,7 @@ export const MainReel: React.FC = () => {
       {/* karaoke: subtítulos de la VO durante todo el contenido */}
       <Karaoke />
 
-      {/* marca de agua: del fotograma 30 al final del contenido */}
+      {/* marca de agua: desde el fotograma 0 hasta el final del contenido */}
       <Sequence from={LOGO_FROM} durationInFrames={LOGO_TO - LOGO_FROM} name="logo">
         <LogoInner dur={LOGO_TO - LOGO_FROM} />
       </Sequence>
@@ -1064,7 +1079,10 @@ export const MainReel: React.FC = () => {
       <Sequence from={0} durationInFrames={CONTENT_END} name="voiceover">
         <VoiceOverInner />
       </Sequence>
-      <Sequence from={0} durationInFrames={CONTENT_END} name="music">
+      {/* V1.3: la música cubre TODO el reel (TOTAL_FRAMES), no solo el
+      contenido: la cola baja bajo el sting (44.07–47.47 s) se cortaba
+      en CONTENT_END y el sting quedaba en silencio. */}
+      <Sequence from={0} durationInFrames={TOTAL_FRAMES} name="music">
         <MusicInner />
       </Sequence>
       <Sequence from={0} durationInFrames={CONTENT_END} name="sfx">

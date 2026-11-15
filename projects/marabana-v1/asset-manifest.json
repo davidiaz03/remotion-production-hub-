@@ -8,8 +8,8 @@
     },
     {
       "path": "audio/music-ai.wav",
-      "bytes": 4278798,
-      "sha256": "26651e712ab8a305680165062ca058cd156a7ad7833de7614060ceb15c7a712d"
+      "bytes": 4605198,
+      "sha256": "c323346e07413849dd9eb072b9e7ccc060d47d953018b79b4d8b506e8a32c306"
     },
     {
       "path": "audio/music-sections/A-tensa.wav",
@@ -85,6 +85,11 @@
       "path": "img/logo-star.png",
       "bytes": 110691,
       "sha256": "574693c6560fde268babdcf091e6a7630d56e37facda463bb4110e5db8a27327"
+    },
+    {
+      "path": "img/logo-white.png",
+      "bytes": 175981,
+      "sha256": "2f5be87176436d8bd8e3b2e8ccb3a8747dcbde069ecf11901559d4e7fbcc464f"
     },
     {
       "path": "img/photo-1.jpg",

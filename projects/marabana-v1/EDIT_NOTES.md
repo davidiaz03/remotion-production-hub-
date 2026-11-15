@@ -1,8 +1,100 @@
-# EDIT_NOTES.md — Reel Marabana V1.2
+# EDIT_NOTES.md — Reel Marabana V1.3
 
 Notas de edición para quien retome este proyecto (el usuario graba su voz,
 o se hace una V2). Todo lo reproducible está en `scripts/`; este documento
 dice QUÉ hacer y en QUÉ orden.
+
+## V1.3 — correcciones de arranque (15-nov-2026, ~18:00)
+
+Máster cerrado para la directora Suleris (sustituye a la V1.2; CON voz de
+IA, la definitiva se graba tras su visto bueno). Duración: 47,97 s =
+1.439 fotogramas (sin cambios de guion, beats, copy ni VO). Tres frentes,
+todos medidos sobre el máster V1.2 (no conjeturas):
+
+1. **Marca de agua BLANCA TRANSPARENTE desde el fotograma 0.**
+   CORRECCIÓN del usuario tras ver la V1.2: la marca NO lleva placa
+   negra — «el logo tiene que ser transparentado, no va a ser que salga
+   con fondo». La placa negra de la V1.2 se retira (el manual pedía área
+   sólida, pero la orden del usuario manda). Construcción:
+   `scripts/make-logo-white.py` desde
+   `MARCA_AGUA_OFICIAL_MEMORIAL.png` (573×907): estrella roja→blanca por
+   rojez con umbral suave (smoothstep 25–90) + puerta de luminancia
+   (60–140; la salpicadura negra queda intacta) + neutralización del
+   residuo rojizo a gris (misma técnica que el sting v3); el canal alfa
+   NO se toca (transparencia original: 74,2% de píxeles transparentes;
+   0 píxeles rojos restantes). Resultado `public/img/logo-white.png`
+   (573×907). En `Video.tsx`: 115 px de ancho en la esquina superior
+   derecha (top 54, right 40) — mismo tamaño de lockup en pantalla que
+   la V1.2 (150 px con placa) —, opacidad 1 desde el fotograma 0 (sin
+   fade de entrada; se conserva el fade de salida antes del sting) y
+   sombra suave (`drop-shadow(0 2px 5px rgba(0,0,0,0.6))`) para que el
+   blanco se lea sobre fotos claras (no es un fondo). `LOGO_FROM = 0`
+   en `timeline.ts` (en la V1.2 entraba en f30 y el usuario notó el
+   principio «medio tarde»). El sting NO se toca: conserva la estrella
+   blanca sobre fondo negro + disparo de la V1.2.
+2. **Arranque de audio a pleno nivel.** Causa localizada: el ducking
+   bajaba la música a 0.25 desde el fotograma 0 — la primera línea de VO
+   empieza en 0.0 s, así que la ventana de ducking empezaba en −0.12 s
+   y el `push()` con clamp a 0 sobrescribía la clave inicial (0, 1) con
+   (0, 0.25); sumado al ataque suave de la VO (primeros 50 ms a
+   −36,8 dBFS: 31 ms casi en silencio + la «s» de «¿Sabías»), el máster
+   V1.2 medía −36 dBFS RMS en los primeros 100 ms. La música sola está
+   a pleno nivel desde t=0 (−19,8 dBFS en los primeros 100 ms). Fix en
+   `Video.tsx` (DUCK_KEYS): la primera ventana baja a 0.25 a los 0.52 s
+   (claves 0,4 s → 1 y 0,52 s → 0.25); la música llena el primer medio
+   segundo a pleno nivel y luego se retira bajo la voz. La VO NO se
+   toca (ni archivo ni tiempos).
+3. **Cola musical bajo el sting.** La música V1.2 terminaba en 44.57 s
+   y los últimos ~2 s del sting quedaban en casi silencio (−37,8 /
+   −58,8 / −73,1 dBFS por segundo). `scripts/remix-music-v13.py`:
+   mezcla 0–44.57 s IDÉNTICA a la V1.2 (mismo código, mismo cuerpo a
+   −14,4 dBFS RMS) + cola 44.07–47.47 s: bucle de los últimos 2 s sin
+   fundido de la sección C (mezcla 41.57–43.57 s = crudo C 6.154–
+   8.154 s) a −8 dB (ganancia 0.4), con crossfade de 0.5 s en la unión
+   del bucle (45.57–46.07 s; salto máximo medido 0.0293, sin clic) y
+   fade-out de 1.5 s hasta 47.47 s; entra en crossfade con el fade-out
+   de C (44.07–44.57 s), sin punto de silencio. El disparo sigue siendo
+   el protagonista. OJO: la normalización NO es por loudnorm integrado
+   (la cola silenciosa falsea la medida: −18.25 LUFS → +2.25 dB, que
+   dejaría el cuerpo 0.57 dB más alto que el aprobado): se iguala el
+   RMS del cuerpo 0–44.57 s al de la mezcla V1.2 (copia de seguridad en
+   `public/audio/music-ai-v12.wav`). Sonoridad integrada del archivo:
+   −16.56 LUFS (la cola baja el integrado; el cuerpo está a nivel V1.2).
+   En `Video.tsx` no hace falta cambiar nada: `musicVolume` se queda en
+   1 durante el sting (última clave) y la cola lleva su nivel baked.
+
+**Render V1.3:** `render-chunks.sh` con los mismos rangos (6 tramos de
+~240 f) — borrar `out/chunks/` antes de re-renderizar (la marca cambia
+en todos los fotogramas). Mismo limiter 0.79 en la concatenación.
+Salida: `REEL_MARABANA_V1.3_ALBERTO_20261115_MASTER.mp4` + `…_LIGERO.mp4`.
+
+**QA V1.3 (verificado en el máster final, fotogramas exactos con
+`select`):** f0 y f1 marca blanca visible desde el primer fotograma
+(verificado también en el smoke render de 10 f antes del render
+completo); f40 marca blanca transparente sobre foto clara (estrella y
+letras legibles gracias a la sombra suave) y f600 sobre fondo oscuro
+(nítida); sting f1420 (logotipo blanco resuelto sobre negro, sin
+cambios respecto a V1.2). Audio: arranque primeros 100 ms **−19,0
+dBFS RMS** (V1.2: −36,4; objetivo ≥ −20 ✓; primer sample sobre
+−30 dBFS a los 9 ms; pleno nivel desde los ~120 ms, sin salto audible
+después — las ventanas de 100 ms a partir de 0,1 s son idénticas con y
+sin el realce); cola del sting audible y en desvanecimiento (RMS por
+0,5 s: −26,9 / −22,1 / −22,5 / −25,1 / −26,2 / −32,3 / −50,8 dBFS;
+por segundo: 45 s −22,3, 46 s −25,6, 47 s −35,3; V1.2: −37,8 / −58,8 /
+−73,1); disparo en sting +0,60 s (objetivo +0,68 s; 2,4 f antes por el
+recorte de 40 ms — dentro de tolerancia); golpe del sello en 4,431 s
+(objetivo 4,42 s). Sonoridad −14,28 LUFS, true peak −1,99 dBTP (techo
+−1,5 ✓). Decodificación completa sin errores (máster y ligera).
+Duración de contenedor 48,194 s = 47,97 s de video + 0,27 s de padding
+AAC − 0,04 s del recorte de audio.
+**Lección:** la Sequence de música terminaba en CONTENT_END y cortaba
+la cola bajo el sting — el primer render V1.3 salió con el sting en
+silencio y hubo que re-renderizar el tramo 6 (los tramos 1–5 se
+reutilizaron). Y el `render-chunks.sh` enmascara fallos de render: el
+`grep | tail` del pipe hace que `set -e` no detenga el script si un
+tramo falla (un `TOTAL_FRAMES` sin importar produjo un máster truncado
+de 1200 f que hubo que descartar) — verificar siempre `nb_frames` en
+el ffprobe final.
 
 ## V1.2 — identidad negra + auditoría final (15-nov-2026, ~17:30)
 
