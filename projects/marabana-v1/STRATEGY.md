@@ -129,7 +129,7 @@ Fuente: Drive `1eWYHgyf8c6LQVXgrUAWCL87HIh8BLSPG` (PDF oficial, 11,4 MB).
 - **Franja negra** como elemento de apoyo y símbolo de luto (manual) — se usa como banda inferior en las tarjetas de texto.
 - **Tipografía corporativa: Amplitude** (neo-humanista, 35 estilos; comercial, NO disponible). Sustitutos de trabajo ya establecidos en Pilar V30: **Archivo Black** (display/titulares) + **Roboto Condensed** (apoyo/etiquetas).
 - **Fondo de trabajo:** tinta oscura #0A0E11 (negro azulado) con viñeta radial sutil — las fotos de 580 px no aguantan pantalla completa, así que el diseño es de **tarjetas de evidencia** sobre fondo oscuro (ver §7).
-- **Marca de agua:** estrella recortada del PNG oficial (fondo transparente; el lockup completo es demasiado alto para la esquina). Esquina superior derecha, ~110 px, opacidad ~0,9, durante todo el contenido; se retira antes del sting.
+- **Marca de agua — REGLA GENERAL DEL MEMORIAL (corrección del usuario, 15-nov-2026):** la marca es el **LOGOTIPO COMPLETO** (estrella roja + «MEMORIAL DE LA DENUNCIA»), nunca solo la estrella. Lockup vertical `logo-full.png` (573×907, transparencia real), esquina superior derecha, 130 px de ancho (~206 px de alto, letras legibles), opacidad 0,95, sombra suave para legibilidad sobre fotos claras; durante todo el contenido (f30–1245); se retira con fade antes del sting.
 - **Cierre:** animación oficial «la del disparo» (6 s, 720×1280, 24 fps) a pantalla completa al final. La marca de agua y el sting usan el MISMO logo oficial.
 
 ---
@@ -219,7 +219,7 @@ Cierre animado oficial «la del disparo» a pantalla completa (escalado 720×128
 
 ## 9. MARCA DE AGUA Y STING
 
-- **Marca de agua:** estrella recortada del PNG oficial (transparente), esquina superior derecha, ~110 px, opacidad ~0,9, fotogramas 30–1245 (todo el contenido, aparece tras el gancho). Se retira con fade de 0,3 s antes del sting.
+- **Marca de agua — REGLA GENERAL DEL MEMORIAL:** el logotipo COMPLETO (estrella roja + «MEMORIAL DE LA DENUNCIA»), nunca solo la estrella (corrección del usuario 15-nov-2026, tras ver el clip de previsualización). `img/logo-full.png`, esquina superior derecha, 130 px de ancho, opacidad 0,95, sombra suave (`drop-shadow(0 2px 6px rgba(0,0,0,0.55))`) para legibilidad sobre fotos claras, fotogramas 30–1245 (todo el contenido, aparece tras el gancho). Se retira con fade de 0,3 s antes del sting. Verificado en stills v4 (f70 sobre foto clara + f1200 sobre fondo oscuro): letras legibles, sin caja ni borde, sin tapar contenido.
 - **Sting:** `CIERRE_ANIMADO_OFICIAL_MEMORIAL.mp4` (6,0 s, 720×1280, 24 fps, H.264+AAC), fotogramas 1245–1424, escalado a 1080×1920. Su audio propio suena (es el disparo); la música ya se retiró.
 - Ambas piezas usan el **mismo logo oficial** (estrella roja con impacto de bala + «MEMORIAL DE LA DENUNCIA»).
 
@@ -294,12 +294,12 @@ Foto 6 verificada contra la descripción del post de El Necio (Facebook): gorro 
 - **Voz en off:** Piper TTS local (voz es_MX-ald-medium, length_scale 0,75), sintetizada línea por línea con silencios exactos en los puntos dramáticos (`scripts/gen-vo-piper.py`); normalizada a −14 LUFS, 48 kHz (`scripts/prep-vo.sh`); transcrita con faster-whisper word_timestamps y alineada al guion (`scripts/transcribe-vo.py` → `src/captions.ts`, 28 chunks, 119 palabras). edge-tts era la primera opción pero su WebSocket no responde de forma utilizable desde este entorno (ver `VO_SCRIPT.md`).
 - **Música:** MusicGen-small vía transformers, 3 secciones + crossfades + −16 LUFS (`scripts/gen-music.py`).
 - **Pre-procesado de assets (Python/ffmpeg):**
-  - Estrella recortada de la marca de agua (bounding box de píxeles opacos en la mitad superior del PNG).
+  - Estrella recortada de la marca de agua (bounding box de píxeles opacos en la mitad superior del PNG) — `logo-star.png` quedó SIN USO como marca de agua tras la corrección del usuario (la marca es el logotipo completo, `logo-full.png`, que se usa directo); se conserva en `public/img/` por si hace falta el imagotipo en otro contexto.
   - Recorte vertical del héroe CN360 (474×844, x 520–994; centroide del rojo medido en x=758).
   - Estela motion blur para la foto 4 (OpenCV: kernel 31 px, mezcla 55% nítido / 45% desenfocado).
   - Recorte del video de salida (43,5–48 s del Canal Caribe, 640×360, 4,5 s).
   - Edición musical Flow (intro 0–12 s + sección potente 30–58 s, crossfade 1 s, fade final) — solo como fallback.
-- **QA:** ffprobe (1080×1920, 30 fps, 1.425 fotogramas, H.264+AAC); decodificación completa sin errores; inspección visual de cada beat (17 stills v3 verificados); marca de agua discreta; sting completo al final; sin fotogramas negros ni flashes; sincronía A/V (karaoke = audio real de la VO).
+- **QA:** ffprobe (1080×1920, 30 fps, 1.425 fotogramas, H.264+AAC); decodificación completa sin errores; inspección visual de cada beat (17 stills v3 verificados + 2 stills v4 verificando el logotipo completo como marca de agua sobre foto clara y fondo oscuro); sting completo al final; sin fotogramas negros ni flashes; sincronía A/V (karaoke = audio real de la VO).
 
 ---
 
@@ -336,3 +336,4 @@ Foto 6 verificada contra la descripción del post de El Necio (Facebook): gorro 
 | ~15:45 | El reel SÍ lleva voz en off (anula «sin voz en off») | La narración con voz natural vende mejor la historia que el texto solo | Guion en `VO_SCRIPT.md`; VO TTS Piper como previsualización; karaoke desde el audio real (`src/captions.ts`); re-timing completo de beats (§6); titulares que repetían la narración eliminados; ducking de la música |
 | ~15:46 | Música original generada con IA, no Flow (anula §8 original) | Evitar cualquier problema de derechos de autor | MusicGen-small en 3 secciones (§8); Flow queda como fallback |
 | ~16:00 | Entrega en DOS versiones (máster + ligera) | El máster para archivo/publicación; la ligera para descargar rápido y previsualizar sin gastar datos | `render-chunks.sh` genera `…_MASTER.mp4` (CRF 19, 1080×1920) y `…_LIGERO.mp4` (720p, un paso desde el máster); ambas en la carpeta de Drive |
+| ~16:27 | Marca de agua = LOGOTIPO COMPLETO (anula la estrella sola) | El usuario lo vio en el clip de previsualización y lo pidió explícitamente; es regla general del Memorial | `Video.tsx` usa `logo-full.png` (130 px, esquina superior derecha, sombra suave); verificado en 2 stills v4 (f70 foto clara + f1200 fondo oscuro); `logo-star.png` queda sin uso |

@@ -258,7 +258,12 @@ const Karaoke: React.FC = () => (
   </Sequence>
 );
 
-// ---------- marca de agua (estrella oficial) ----------
+// ---------- marca de agua (logotipo completo oficial) ----------
+// Regla general del Memorial (15-nov-2026, corrección del usuario): la
+// marca es el LOGOTIPO COMPLETO (estrella roja + «MEMORIAL DE LA
+// DENUNCIA»), nunca solo la estrella. Lockup vertical 573×907; a 130 px
+// de ancho las letras se leen y no tapa contenido. La sombra suave es
+// solo legibilidad sobre fotos claras (no es caja ni borde).
 
 const LogoInner: React.FC<{dur: number}> = ({dur}) => {
   const frame = useCurrentFrame();
@@ -267,13 +272,14 @@ const LogoInner: React.FC<{dur: number}> = ({dur}) => {
   return (
     <AbsoluteFill>
       <Img
-        src={staticFile('img/logo-star.png')}
+        src={staticFile('img/logo-full.png')}
         style={{
           position: 'absolute',
           top: 54,
           right: 40,
-          width: 118,
+          width: 130,
           opacity: Math.min(fadeIn, fadeOut) * 0.95,
+          filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.55))',
         }}
       />
     </AbsoluteFill>
