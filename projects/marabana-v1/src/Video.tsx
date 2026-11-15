@@ -3,11 +3,17 @@ import {
   AbsoluteFill, Audio, Easing, Img, OffthreadVideo, Sequence, interpolate,
   spring, staticFile, useCurrentFrame, useVideoConfig,
 } from 'remotion';
-import {BEATS, COLORS, CONTENT_END, LOGO_FROM, LOGO_TO} from './timeline';
+import {BASTON_FRAME, BEATS, COLORS, CONTENT_END, FPS, LOGO_FROM, LOGO_TO, STAMP_FRAME, VO_LINES} from './timeline';
+import {CAPTIONS} from './captions';
 
 // REEL MARABANA V1 — «La carrera que el bloqueo no pudo parar»
-// Explainer visual sin presentadora: foto + texto cinético + motion graphics.
-// Estrategia: STRATEGY.md. 1080x1920, 30 fps, 1380 fotogramas (46 s).
+// Voz en off (Piper, previsualización) + karaoke palabra a palabra +
+// música original IA (MusicGen) con ducking bajo la voz.
+// Estrategia: STRATEGY.md. 1080x1920, 30 fps, 1425 fotogramas (47.5 s).
+// La narración manda el ritmo: los beats siguen las líneas de la VO
+// (vo-lines.json). Los titulares que repetían la narración palabra por
+// palabra se eliminaron — quedan solo los rótulos con información nueva
+// (números, nombres, citas, datos) y el karaoke lleva el guion.
 
 // ---------- helpers ----------
 
@@ -144,67 +150,10 @@ const Pill: React.FC<{text: string; bg?: string; color?: string; size?: number}>
   </span>
 );
 
-// ---------- texto cinético palabra por palabra (con pop) ----------
-
-type Word = {t: string; red?: boolean};
-
-const KineticWords: React.FC<{
-  words: Word[];
-  startFrame: number;
-  interval: number;
-  size?: number;
-  top: number;
-  lineHeight?: number;
-}> = ({words, startFrame, interval, size = 64, top, lineHeight = 1.18}) => {
-  const frame = useCurrentFrame();
-  return (
-    <AbsoluteFill style={{alignItems: 'center'}}>
-      <div
-        style={{
-          position: 'absolute',
-          top,
-          marginLeft: 56,
-          marginRight: 56,
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          fontFamily: ARCHIVO,
-          fontSize: size,
-          lineHeight,
-        }}
-      >
-        {words.map((w, i) => {
-          const at = startFrame + i * interval;
-          const revealed = frame >= at;
-          const pop = revealed
-            ? interpolate(frame - at, [0, 3], [1.25, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})
-            : 1;
-          return (
-            <span
-              key={i}
-              style={{
-                visibility: revealed ? 'visible' : 'hidden',
-                color: w.red ? COLORS.red : '#FFFFFF',
-                display: 'inline-block',
-                transform: `scale(${pop})`,
-                transformOrigin: '0% 50%',
-                margin: '0 11px',
-                textShadow: outline(3),
-              }}
-            >
-              {w.t}
-            </span>
-          );
-        })}
-      </div>
-    </AbsoluteFill>
-  );
-};
-
 // ---------- línea de titular con entrada por spring ----------
 
 const Headline: React.FC<{
-  lines: Word[][];
+  lines: Array<Array<{t: string; red?: boolean}>>;
   top: number;
   size?: number;
   delay?: number;
@@ -244,6 +193,71 @@ const Headline: React.FC<{
   );
 };
 
+// ---------- karaoke (patrón Pilar V30): subtítulos = la voz en off ----------
+
+const ALL_CHUNKS = CAPTIONS.flatMap((s) => s.chunks);
+
+const KaraokeInner: React.FC = () => {
+  const frame = useCurrentFrame();
+  const t = frame / FPS;
+  let active = null as (typeof ALL_CHUNKS)[number] | null;
+  for (const c of ALL_CHUNKS) {
+    if (c.start <= t) active = c; else break;
+  }
+  if (!active) return null;
+  const text = active.words.map((w) => w.t).join(' ');
+  const size = text.length > 28 ? 52 : 60;
+  return (
+    <AbsoluteFill style={{justifyContent: 'flex-end', alignItems: 'center'}}>
+      <div
+        style={{
+          marginBottom: 235,
+          marginLeft: 40,
+          marginRight: 40,
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          fontFamily: ARCHIVO,
+          fontSize: size,
+          lineHeight: 1.18,
+        }}
+      >
+        {active.words.map((w, i) => {
+          const revealed = w.s <= t;
+          const isCurrent = revealed && (i === active.words.length - 1 || active.words[i + 1].s > t);
+          // Pop crece desde el borde IZQUIERDO de la palabra para no comerse
+          // el hueco con la anterior (la siguiente aún está oculta al hacer pop).
+          const pop = isCurrent
+            ? interpolate(t - w.s, [0, 0.1], [1.2, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})
+            : 1;
+          return (
+            <span
+              key={i}
+              style={{
+                visibility: revealed ? 'visible' : 'hidden',
+                color: w.kw ? COLORS.red : '#FFFFFF',
+                display: 'inline-block',
+                transform: `scale(${pop})`,
+                transformOrigin: '0% 50%',
+                margin: '0 12px',
+                textShadow: outline(3),
+              }}
+            >
+              {w.t}
+            </span>
+          );
+        })}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+const Karaoke: React.FC = () => (
+  <Sequence from={0} durationInFrames={CONTENT_END} name="karaoke">
+    <KaraokeInner />
+  </Sequence>
+);
+
 // ---------- marca de agua (estrella oficial) ----------
 
 const LogoInner: React.FC<{dur: number}> = ({dur}) => {
@@ -266,34 +280,73 @@ const LogoInner: React.FC<{dur: number}> = ({dur}) => {
   );
 };
 
-// ---------- música ----------
+// ---------- audio: VO + música con ducking + sting ----------
 
-const MusicInner: React.FC = () => <Audio src={staticFile('audio/music.wav')} volume={1} />;
+// Ducking: la música baja a 0.25 mientras habla la VO (ataque 0.12 s antes
+// de cada línea, liberación 0.2 s después). Las ventanas que se solapan
+// (pausas de 0.2 s entre líneas) se fusionan: la música solo respira en
+// las dos pausas dramáticas y en la cola antes del sting.
+const DUCK = 0.25;
+const DUCK_KEYS: Array<[number, number]> = (() => {
+  const keys: Array<[number, number]> = [];
+  const push = (t: number, v: number) => {
+    const tt = Math.max(0, t);
+    if (keys.length && keys[keys.length - 1][0] === tt) keys[keys.length - 1][1] = v;
+    else keys.push([tt, v]);
+  };
+  const windows: Array<[number, number]> = [];
+  for (const l of VO_LINES) {
+    const s = l.start - 0.12;
+    const e = l.end + 0.2;
+    const last = windows[windows.length - 1];
+    if (last && s <= last[1]) last[1] = Math.max(last[1], e);
+    else windows.push([s, e]);
+  }
+  push(0, 1);
+  for (const [s, e] of windows) {
+    push(s, 1);
+    push(s + 0.12, DUCK);
+    push(e - 0.2, DUCK);
+    push(e, 1);
+  }
+  push(CONTENT_END / FPS, 1);
+  return keys;
+})();
+
+const musicVolume = (frame: number): number =>
+  interpolate(
+    frame / FPS,
+    DUCK_KEYS.map((k) => k[0]),
+    DUCK_KEYS.map((k) => k[1]),
+    {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
+  );
+
+const VoiceOverInner: React.FC = () => (
+  <Audio src={staticFile('audio/vo-preview.wav')} volume={1} />
+);
+
+const MusicInner: React.FC = () => {
+  const frame = useCurrentFrame();
+  return <Audio src={staticFile('audio/music-ai.wav')} volume={musicVolume(frame)} />;
+};
+
 const StingAudioInner: React.FC = () => <Audio src={staticFile('audio/sting.wav')} volume={1} />;
 
 // ================================================================
-// BEAT 1 — GANCHO (0-3.5 s): foto héroe a pantalla completa + pregunta
+// BEAT 1 — GANCHO (0-2.90 s): foto héroe a pantalla completa.
+// La pregunta la hacen la VO y el karaoke; aquí solo la foto y el
+// contexto (fecha y lugar) en píldora.
 // ================================================================
 
 const HookInner: React.FC = () => {
   const frame = useCurrentFrame();
   const opacity = useBeatFade(BEATS.hook.dur);
-  const pillIn = interpolate(frame, [70, 80], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const pillIn = interpolate(frame, [55, 65], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{opacity}}>
       <KenBurnsImg src="img/hero-vertical.jpg" dur={BEATS.hook.dur} fromScale={1} toScale={1.09} origin="50% 62%" />
-      {/* scrims: arriba para el texto, abajo para la píldora */}
+      {/* scrims: arriba para la marca de agua, abajo para la píldora */}
       <AbsoluteFill style={{background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.12) 30%, transparent 45%, transparent 82%, rgba(0,0,0,0.45) 100%)'}} />
-      <KineticWords
-        top={150}
-        size={62}
-        startFrame={6}
-        interval={11}
-        words={[
-          {t: '¿SABÍAS'}, {t: 'QUE'}, {t: 'EL'}, {t: 'BLOQUEO', red: true},
-          {t: 'LLEGÓ'}, {t: 'HASTA'}, {t: 'EL'}, {t: 'MARATÓN?', red: true},
-        ]}
-      />
       <AbsoluteFill style={{alignItems: 'center', opacity: pillIn}}>
         <div style={{position: 'absolute', top: 1700}}>
           <Pill text="40ª MARABANA · LA HABANA · 15 NOV 2026" bg="rgba(10,14,17,0.85)" size={28} />
@@ -304,26 +357,32 @@ const HookInner: React.FC = () => {
 };
 
 // ================================================================
-// BEATS 2-3 — EL DATO 2012 + SELLO CANCELADO (3.5-9.5 s)
-// Fondo continuo; el sello golpea en el fotograma local 105 (abs 210).
+// BEAT 2 — EL DATO 2012 (2.90-8.43 s): 2012 gigante + gráfico vectorial
+// + nota OFAC. El sello CANCELADO golpea DENTRO del beat, en la palabra
+// "canceló" (abs 133 = local 46), y queda sobre la tarjeta.
 // ================================================================
 
 const Dato2012Inner: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const opacity = useBeatFade(BEATS.dato2012.dur);
-  // Sacudida del contenido cuando golpea el sello (local 105-117)
-  const shakeAmp = interpolate(frame, [105, 117], [9, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const shakeX = frame >= 105 && frame <= 117 ? Math.sin((frame - 105) * 1.9) * shakeAmp : 0;
+  const STAMP_LOCAL = STAMP_FRAME - BEATS.dato2012.from; // 46
+  // Sacudida del contenido cuando golpea el sello (local 46-58)
+  const shakeAmp = interpolate(frame, [STAMP_LOCAL, STAMP_LOCAL + 12], [9, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const shakeX = frame >= STAMP_LOCAL && frame <= STAMP_LOCAL + 12 ? Math.sin((frame - STAMP_LOCAL) * 1.9) * shakeAmp : 0;
   const year = spring({frame, fps, config: {damping: 200, stiffness: 240, mass: 0.7}});
   const smallIn = interpolate(frame, [75, 85], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  // Sello: spring con sobreimpulso; escala 2.4->1 (rebote a ~0.86).
+  const slam = spring({frame: frame - STAMP_LOCAL, fps, config: {damping: 11, stiffness: 280, mass: 0.9}});
+  const flash = interpolate(frame, [STAMP_LOCAL, STAMP_LOCAL + 2, STAMP_LOCAL + 14], [0, 0.55, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const slamScale = interpolate(slam, [0, 1], [2.4, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'extend'});
   return (
     <AbsoluteFill style={{opacity, transform: `translateX(${shakeX}px)`}}>
       <AbsoluteFill style={{alignItems: 'center'}}>
         <div
           style={{
             position: 'absolute',
-            top: 170,
+            top: 150,
             opacity: Math.min(1, Math.max(0, year)),
             transform: `scale(${interpolate(Math.min(1, Math.max(0, year)), [0, 1], [0.7, 1])})`,
             fontFamily: ARCHIVO,
@@ -338,7 +397,7 @@ const Dato2012Inner: React.FC = () => {
         <div
           style={{
             position: 'absolute',
-            top: 382,
+            top: 362,
             width: 340,
             height: 10,
             background: COLORS.red,
@@ -347,25 +406,14 @@ const Dato2012Inner: React.FC = () => {
           }}
         />
       </AbsoluteFill>
-      <EvidenceCard top={440} width={880} height={587} delay={12}>
+      <EvidenceCard top={430} width={920} height={613} delay={12}>
         <KenBurnsImg src="img/vector-2012.png" dur={BEATS.dato2012.dur} fromScale={1} toScale={1.04} />
       </EvidenceCard>
-      <Headline
-        top={1140}
-        size={56}
-        delay={25}
-        step={15}
-        lines={[
-          [{t: 'LA OFAC'}, {t: 'CANCELÓ', red: true}],
-          [{t: 'EL PROGRAMA DE'}],
-          [{t: 'INSIGHTCUBA'}],
-        ]}
-      />
       <AbsoluteFill style={{alignItems: 'center', opacity: smallIn}}>
         <div
           style={{
             position: 'absolute',
-            top: 1470,
+            top: 1330,
             marginLeft: 70,
             marginRight: 70,
             textAlign: 'center',
@@ -380,31 +428,19 @@ const Dato2012Inner: React.FC = () => {
           LA CARRERA «NO CALIFICABA» COMO PROGRAMA PUEBLO A PUEBLO
         </div>
       </AbsoluteFill>
-    </AbsoluteFill>
-  );
-};
-
-const StampInner: React.FC = () => {
-  const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
-  const opacity = useBeatFade(BEATS.stamp.dur);
-  const slam = spring({frame, fps, config: {damping: 11, stiffness: 280, mass: 0.9}});
-  const flash = interpolate(frame, [0, 2, 14], [0, 0.55, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  // slam 0->1 (con sobreimpulso ~1.1) mapea a escala 2.4->1 (rebote a ~0.86).
-  const slamScale = interpolate(slam, [0, 1], [2.4, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'extend'});
-  return (
-    <AbsoluteFill style={{opacity}}>
+      {/* destello rojo al golpear el sello */}
       <AbsoluteFill
         style={{
           opacity: flash,
           background: 'radial-gradient(ellipse at center, rgba(237,28,36,0.5) 0%, rgba(237,28,36,0.18) 55%, transparent 75%)',
         }}
       />
+      {/* sello CANCELADO sobre la tarjeta */}
       <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
         <div
           style={{
             transform: `rotate(-12deg) scale(${slamScale})`,
-            opacity: frame < 1 ? 0 : 1,
+            opacity: frame < STAMP_LOCAL ? 0 : 1,
             border: `9px solid ${COLORS.red}`,
             borderRadius: 14,
             padding: '16px 36px',
@@ -425,7 +461,8 @@ const StampInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 4 — CONTRASTE (9.5-12 s): línea de tiempo 2011 -> 2012
+// BEAT 3 — CONTRASTE (8.43-11.77 s): «21» gigante + línea de tiempo.
+// La VO dice la frase; en pantalla solo el número y el arco 2011→2012.
 // ================================================================
 
 const ContrasteInner: React.FC = () => {
@@ -450,9 +487,9 @@ const ContrasteInner: React.FC = () => {
         <div
           style={{
             position: 'absolute',
-            top: 490,
+            top: 500,
             fontFamily: ARCHIVO,
-            fontSize: 260,
+            fontSize: 280,
             color: COLORS.red,
             textShadow: outline(3),
             lineHeight: 1,
@@ -463,38 +500,27 @@ const ContrasteInner: React.FC = () => {
           21
         </div>
       </AbsoluteFill>
-      <Headline
-        top={800}
-        size={66}
-        delay={18}
-        step={10}
-        lines={[
-          [{t: 'ESTADOUNIDENSES'}],
-          [{t: 'HABÍAN CORRIDO'}],
-          [{t: 'EN LA HABANA'}],
-        ]}
-      />
       {/* línea de tiempo */}
       <AbsoluteFill style={{alignItems: 'center'}}>
-        <div style={{position: 'absolute', top: 1180, width: 800, height: 6, background: 'rgba(255,255,255,0.25)', borderRadius: 3}}>
+        <div style={{position: 'absolute', top: 1080, width: 800, height: 6, background: 'rgba(255,255,255,0.25)', borderRadius: 3}}>
           <div style={{width: `${lineDraw * 100}%`, height: 6, background: '#fff', borderRadius: 3}} />
         </div>
         {/* nodo 2011 */}
         <div
           style={{
-            position: 'absolute', top: 1152, left: 190,
+            position: 'absolute', top: 1052, left: 190,
             width: 62, height: 62, borderRadius: 31, background: '#fff',
             transform: `scale(${Math.min(1, Math.max(0, node2011))})`,
             boxShadow: '0 0 0 8px rgba(255,255,255,0.18)',
           }}
         />
-        <div style={{position: 'absolute', top: 1240, left: 140, fontFamily: CONDENSED, fontWeight: 700, fontSize: 30, color: '#fff', opacity: Math.min(1, Math.max(0, node2011))}}>
+        <div style={{position: 'absolute', top: 1140, left: 140, fontFamily: CONDENSED, fontWeight: 700, fontSize: 30, color: '#fff', opacity: Math.min(1, Math.max(0, node2011))}}>
           2011 · CORRIERON
         </div>
         {/* nodo 2012 */}
         <div
           style={{
-            position: 'absolute', top: 1152, left: 828,
+            position: 'absolute', top: 1052, left: 828,
             width: 62, height: 62, borderRadius: 31, background: COLORS.red,
             transform: `scale(${Math.min(1, Math.max(0, node2012))})`,
             boxShadow: '0 0 0 8px rgba(237,28,36,0.25)',
@@ -504,7 +530,7 @@ const ContrasteInner: React.FC = () => {
         >
           ✕
         </div>
-        <div style={{position: 'absolute', top: 1240, left: 770, fontFamily: CONDENSED, fontWeight: 700, fontSize: 30, color: COLORS.red, opacity: Math.min(1, Math.max(0, node2012))}}>
+        <div style={{position: 'absolute', top: 1140, left: 770, fontFamily: CONDENSED, fontWeight: 700, fontSize: 30, color: COLORS.red, opacity: Math.min(1, Math.max(0, node2012))}}>
           2012 · CANCELADO
         </div>
       </AbsoluteFill>
@@ -513,7 +539,8 @@ const ContrasteInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 5 — EL GIRO (12-15 s): whip + multitud + PERO A PESAR DE ELLO
+// BEAT 4 — EL GIRO (11.77-13.22 s): whip + multitud + PERO A PESAR DE ELLO.
+// Beat corto de transición (44 f): todo entra rápido.
 // ================================================================
 
 const GiroInner: React.FC = () => {
@@ -523,49 +550,35 @@ const GiroInner: React.FC = () => {
     extrapolateLeft: 'clamp', extrapolateRight: 'clamp',
     easing: Easing.out(Easing.cubic),
   });
-  const subIn = interpolate(frame, [35, 45], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{opacity, transform: `scale(${whip})`}}>
       <Headline
         top={280}
         size={74}
-        delay={8}
-        step={10}
+        delay={2}
+        step={6}
         lines={[
           [{t: 'PERO A PESAR'}],
           [{t: 'DE ELLO…', red: true}],
         ]}
       />
-      <EvidenceCard top={520} width={920} height={778} rotate={-1.5} label="FOTO: INDER / CUBADEBATE" delay={4}>
+      <EvidenceCard top={520} width={920} height={778} rotate={-1.5} label="FOTO: INDER / CUBADEBATE" delay={2}>
         <KenBurnsImg src="img/photo-1.jpg" dur={BEATS.giro.dur} fromScale={1} toScale={1.08} origin="50% 40%" />
       </EvidenceCard>
-      <AbsoluteFill style={{alignItems: 'center', opacity: subIn}}>
-        <div
-          style={{
-            position: 'absolute',
-            top: 1470,
-            fontFamily: CONDENSED,
-            fontWeight: 600,
-            fontSize: 33,
-            color: COLORS.ivory,
-            letterSpacing: 0.5,
-          }}
-        >
-          HOY, 14 AÑOS DESPUÉS, LA HABANA VOLVIÓ A CORRER
-        </div>
-      </AbsoluteFill>
     </AbsoluteFill>
   );
 };
 
 // ================================================================
-// BEAT 6 — LA SALIDA (15-18.5 s): ventana de video real
+// BEAT 5 — LA SALIDA (13.22-15.08 s): ventana de video real.
+// 55 fotogramas de arrancada; el corte cae en «tres» (VO L5).
 // ================================================================
 
 const SalidaInner: React.FC = () => {
   const frame = useCurrentFrame();
   const opacity = useBeatFade(BEATS.salida.dur);
-  const creditIn = interpolate(frame, [30, 40], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const creditIn = interpolate(frame, [20, 28], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const pillsIn = interpolate(frame, [15, 23], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{opacity}}>
       <Headline top={270} size={72} delay={0} lines={[[{t: '40ª MARABANA'}]]} />
@@ -585,7 +598,7 @@ const SalidaInner: React.FC = () => {
           15 DE NOVIEMBRE DE 2026
         </div>
       </AbsoluteFill>
-      <EvidenceCard top={480} width={920} height={518} label="ARRANCADA · SALA POLIVALENTE RAMÓN FONST" delay={6}>
+      <EvidenceCard top={480} width={920} height={518} label="ARRANCADA · SALA POLIVALENTE RAMÓN FONST" delay={3}>
         <OffthreadVideo
           src={staticFile('video/start.mp4')}
           style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(1.18) contrast(1.05)'}}
@@ -605,7 +618,7 @@ const SalidaInner: React.FC = () => {
           VIDEO: CANAL CARIBE · 15 NOV 2026
         </div>
       </AbsoluteFill>
-      <AbsoluteFill style={{alignItems: 'center', opacity: creditIn}}>
+      <AbsoluteFill style={{alignItems: 'center', opacity: pillsIn}}>
         <div style={{position: 'absolute', top: 1300, display: 'flex', gap: 18}}>
           <Pill text="42K" bg="#1C242B" size={30} />
           <Pill text="21K" bg="#1C242B" size={30} />
@@ -618,7 +631,9 @@ const SalidaInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 7 — EL NÚMERO (18.5-21.5 s): count-up 3.000 + foto con estela
+// BEAT 6 — EL NÚMERO (15.08-19.33 s): count-up 3.000 + foto con estela.
+// El count-up arranca con la palabra «tres» y resuelve mientras la VO
+// dice «tres mil corredores tomaron las calles».
 // ================================================================
 
 const NumeroInner: React.FC = () => {
@@ -658,7 +673,7 @@ const NumeroInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 8 — LA 5K (21.5-24.5 s)
+// BEAT 7 — LA 5K (19.33-23.23 s): nombre oficial como rótulo.
 // ================================================================
 
 const CincoKInner: React.FC = () => {
@@ -666,7 +681,6 @@ const CincoKInner: React.FC = () => {
   const {fps} = useVideoConfig();
   const opacity = useBeatFade(BEATS.cincoK.dur);
   const fiveK = spring({frame, fps, config: {damping: 200, stiffness: 280, mass: 0.6}});
-  const subIn = interpolate(frame, [40, 50], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{opacity}}>
       <AbsoluteFill style={{alignItems: 'center'}}>
@@ -699,17 +713,13 @@ const CincoKInner: React.FC = () => {
       <EvidenceCard top={640} width={920} height={541} rotate={-1} label="FOTO: INDER / CUBADEBATE" delay={8}>
         <KenBurnsImg src="img/photo-2.jpg" dur={BEATS.cincoK.dur} fromScale={1} toScale={1.1} origin="50% 30%" />
       </EvidenceCard>
-      <AbsoluteFill style={{alignItems: 'center', opacity: subIn}}>
-        <div style={{position: 'absolute', top: 1350, fontFamily: CONDENSED, fontSize: 30, color: COLORS.gray, letterSpacing: 0.5}}>
-          ASÍ SE LLAMÓ OFICIALMENTE LA CARRERA DE 5 KM
-        </div>
-      </AbsoluteFill>
     </AbsoluteFill>
   );
 };
 
 // ================================================================
-// BEAT 9 — LA VOZ (24.5-27.5 s): cita de Yuraldi Cava (AP)
+// BEAT 8 — LA VOZ (23.23-27.42 s): cita de Yuraldi Cava (AP).
+// La cita en pantalla es el overlay de evidencia; la VO la introduce.
 // ================================================================
 
 const VozInner: React.FC = () => {
@@ -742,7 +752,9 @@ const VozInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 10 — LOS GANADORES (27.5-30.5 s)
+// BEAT 9 — LOS GANADORES (27.42-32.35 s): tarjeta de datos.
+// La VO solo dice apellidos; la tarjeta aporta los tiempos (dato nuevo).
+// Las filas de 21K entran con la segunda mitad de la frase (local ~78).
 // ================================================================
 
 const GanadoresInner: React.FC = () => {
@@ -750,9 +762,12 @@ const GanadoresInner: React.FC = () => {
   const {fps} = useVideoConfig();
   const opacity = useBeatFade(BEATS.ganadores.dur);
   const cardIn = spring({frame: frame - 6, fps, config: {damping: 200, stiffness: 260, mass: 0.7}});
-  const row2 = interpolate(frame, [28, 36], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const tagIn = interpolate(frame, [44, 52], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const noteIn = interpolate(frame, [58, 66], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const row2 = interpolate(frame, [78, 86], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  // La sección 21K CRECE desde altura 0 (no solo aparece): así la tarjeta
+  // no queda medio vacía durante los primeros 2,6 s del beat.
+  const row2H = interpolate(frame, [78, 92], [0, 275], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const tagIn = interpolate(frame, [105, 113], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const noteIn = interpolate(frame, [118, 126], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{opacity}}>
       <Headline top={210} size={56} delay={0} lines={[[{t: 'LOS GANADORES'}]]} />
@@ -779,8 +794,8 @@ const GanadoresInner: React.FC = () => {
           <div style={{fontFamily: ARCHIVO, fontSize: 46, color: COLORS.ink, lineHeight: 1.15}}>
             BACALLAO 2:45:41
           </div>
-          <div style={{height: 2, background: 'rgba(0,0,0,0.12)', margin: '22px 0'}} />
-          <div style={{opacity: row2}}>
+          <div style={{height: row2H, overflow: 'hidden', opacity: row2}}>
+            <div style={{height: 2, background: 'rgba(0,0,0,0.12)', margin: '22px 0'}} />
             <div style={{fontFamily: CONDENSED, fontWeight: 700, fontSize: 30, color: COLORS.red, letterSpacing: 2}}>
               21K · MEDIA MARATÓN
             </div>
@@ -790,13 +805,13 @@ const GanadoresInner: React.FC = () => {
             <div style={{fontFamily: ARCHIVO, fontSize: 46, color: COLORS.ink, lineHeight: 1.15}}>
               LÓPEZ GUISAO 1:17:24
             </div>
-          </div>
-          <div style={{marginTop: 22, opacity: tagIn}}>
-            <Pill text="DOBLETE TUNERO EN 21K" size={28} />
+            <div style={{marginTop: 22, opacity: tagIn}}>
+              <Pill text="DOBLETE TUNERO EN 21K" size={28} />
+            </div>
           </div>
         </div>
       </AbsoluteFill>
-      <EvidenceCard top={960} width={680} height={383} label="TAMERÓN Y LÓPEZ · LAS TUNAS · FOTO: TIEMPO21" delay={44}>
+      <EvidenceCard top={960} width={680} height={383} label="TAMERÓN Y LÓPEZ · LAS TUNAS · FOTO: TIEMPO21" delay={78}>
         <KenBurnsImg src="img/tunas.jpg" dur={BEATS.ganadores.dur} fromScale={1} toScale={1.07} origin="50% 30%" />
       </EvidenceCard>
       <AbsoluteFill style={{alignItems: 'center', opacity: noteIn}}>
@@ -809,13 +824,16 @@ const GanadoresInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 11 — ERNESTO (30.5-36 s): el pico emocional, 5.5 s
+// BEAT 10 — ERNESTO (32.35-37.47 s): el pico emocional.
+// «COMPLETÓ LOS 10K» entra con la palabra «completó» (local ~47);
+// «CON UN BASTÓN» cae con la pausa dramática (abs 1077 = local 106).
 // ================================================================
 
 const ErnestoInner: React.FC = () => {
   const frame = useCurrentFrame();
   const opacity = useBeatFade(BEATS.ernesto.dur);
-  const pillIn = interpolate(frame, [100, 110], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const BASTON_LOCAL = BASTON_FRAME - BEATS.ernesto.from; // 106
+  const pillIn = interpolate(frame, [120, 128], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{opacity}}>
       <Headline
@@ -834,8 +852,8 @@ const ErnestoInner: React.FC = () => {
       <Headline
         top={1180}
         size={54}
-        delay={35}
-        step={35}
+        delay={47}
+        step={BASTON_LOCAL - 47}
         lines={[
           [{t: 'COMPLETÓ LOS'}, {t: '10K', red: true}],
           [{t: 'CON UN'}, {t: 'BASTÓN', red: true}],
@@ -851,7 +869,9 @@ const ErnestoInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 12 — EL CIERRE (36-40 s)
+// BEAT 11 — EL CIERRE (37.47-41.50 s): «HOY LA HABANA CORRIÓ.» en grande
+// + foto de la meta. La segunda frase («Y cada paso fue una denuncia»)
+// la lleva el karaoke: no se duplica en titular.
 // ================================================================
 
 const CierreInner: React.FC = () => {
@@ -868,17 +888,7 @@ const CierreInner: React.FC = () => {
           [{t: 'CORRIÓ.'}],
         ]}
       />
-      <Headline
-        top={440}
-        size={60}
-        delay={55}
-        step={10}
-        lines={[
-          [{t: 'Y CADA PASO FUE'}],
-          [{t: 'UNA'}, {t: 'DENUNCIA.', red: true}],
-        ]}
-      />
-      <EvidenceCard top={700} width={840} height={791} rotate={-1} label="FOTO: INDER / CUBADEBATE" delay={8}>
+      <EvidenceCard top={560} width={840} height={791} rotate={-1} label="FOTO: INDER / CUBADEBATE" delay={8}>
         <KenBurnsImg src="img/photo-5.jpg" dur={BEATS.cierre.dur} fromScale={1} toScale={1.08} origin="50% 30%" />
       </EvidenceCard>
     </AbsoluteFill>
@@ -886,7 +896,7 @@ const CierreInner: React.FC = () => {
 };
 
 // ================================================================
-// STING (40-46 s): cierre animado oficial «la del disparo»
+// STING (41.50-47.50 s): cierre animado oficial «la del disparo»
 // ================================================================
 
 const StingInner: React.FC = () => {
@@ -917,43 +927,46 @@ export const MainReel: React.FC = () => {
       <Sequence from={BEATS.dato2012.from} durationInFrames={BEATS.dato2012.dur + 8} name="beat02-2012">
         <Dato2012Inner />
       </Sequence>
-      <Sequence from={BEATS.stamp.from} durationInFrames={BEATS.stamp.dur + 8} name="beat03-stamp">
-        <StampInner />
-      </Sequence>
-      <Sequence from={BEATS.contraste.from} durationInFrames={BEATS.contraste.dur + 8} name="beat04-contraste">
+      <Sequence from={BEATS.contraste.from} durationInFrames={BEATS.contraste.dur + 8} name="beat03-contraste">
         <ContrasteInner />
       </Sequence>
-      <Sequence from={BEATS.giro.from} durationInFrames={BEATS.giro.dur + 8} name="beat05-giro">
+      <Sequence from={BEATS.giro.from} durationInFrames={BEATS.giro.dur + 8} name="beat04-giro">
         <GiroInner />
       </Sequence>
-      <Sequence from={BEATS.salida.from} durationInFrames={BEATS.salida.dur + 8} premountFor={30} name="beat06-salida">
+      <Sequence from={BEATS.salida.from} durationInFrames={BEATS.salida.dur + 8} premountFor={30} name="beat05-salida">
         <SalidaInner />
       </Sequence>
-      <Sequence from={BEATS.numero.from} durationInFrames={BEATS.numero.dur + 8} name="beat07-numero">
+      <Sequence from={BEATS.numero.from} durationInFrames={BEATS.numero.dur + 8} name="beat06-numero">
         <NumeroInner />
       </Sequence>
-      <Sequence from={BEATS.cincoK.from} durationInFrames={BEATS.cincoK.dur + 8} name="beat08-5k">
+      <Sequence from={BEATS.cincoK.from} durationInFrames={BEATS.cincoK.dur + 8} name="beat07-5k">
         <CincoKInner />
       </Sequence>
-      <Sequence from={BEATS.voz.from} durationInFrames={BEATS.voz.dur + 8} name="beat09-voz">
+      <Sequence from={BEATS.voz.from} durationInFrames={BEATS.voz.dur + 8} name="beat08-voz">
         <VozInner />
       </Sequence>
-      <Sequence from={BEATS.ganadores.from} durationInFrames={BEATS.ganadores.dur + 8} name="beat10-ganadores">
+      <Sequence from={BEATS.ganadores.from} durationInFrames={BEATS.ganadores.dur + 8} name="beat09-ganadores">
         <GanadoresInner />
       </Sequence>
-      <Sequence from={BEATS.ernesto.from} durationInFrames={BEATS.ernesto.dur + 8} name="beat11-ernesto">
+      <Sequence from={BEATS.ernesto.from} durationInFrames={BEATS.ernesto.dur + 8} name="beat10-ernesto">
         <ErnestoInner />
       </Sequence>
-      <Sequence from={BEATS.cierre.from} durationInFrames={BEATS.cierre.dur + 8} name="beat12-cierre">
+      <Sequence from={BEATS.cierre.from} durationInFrames={BEATS.cierre.dur + 8} name="beat11-cierre">
         <CierreInner />
       </Sequence>
+
+      {/* karaoke: subtítulos de la VO durante todo el contenido */}
+      <Karaoke />
 
       {/* marca de agua: del fotograma 30 al final del contenido */}
       <Sequence from={LOGO_FROM} durationInFrames={LOGO_TO - LOGO_FROM} name="logo">
         <LogoInner dur={LOGO_TO - LOGO_FROM} />
       </Sequence>
 
-      {/* música (0-40 s) + audio del sting (40-46 s) */}
+      {/* voz en off (0-41.5 s) + música con ducking + audio del sting */}
+      <Sequence from={0} durationInFrames={CONTENT_END} name="voiceover">
+        <VoiceOverInner />
+      </Sequence>
       <Sequence from={0} durationInFrames={CONTENT_END} name="music">
         <MusicInner />
       </Sequence>
