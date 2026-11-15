@@ -1,13 +1,16 @@
 {
   "id": "marabana-v1",
-  "title": "Reel Marabana V1 — La carrera que el bloqueo no pudo parar",
+  "title": "Reel Marabana V1 \u2014 La carrera que el bloqueo no pudo parar",
   "compositionId": "MainReel",
   "fps": 30,
   "width": 1080,
   "height": 1920,
-  "durationInFrames": 90,
+  "durationInFrames": 1380,
   "audioRequired": false,
   "drivePath": "Remotion Production/projects/marabana-v1",
-  "assets": {"mode":"manifest", "manifest":"asset-manifest.json"},
+  "assets": {
+    "mode": "manifest",
+    "manifest": "asset-manifest.json"
+  },
   "crf": 19
 }

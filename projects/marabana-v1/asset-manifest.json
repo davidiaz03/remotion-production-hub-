@@ -1,1 +1,90 @@
-{"formatVersion":1,"files":[]}
+{
+  "formatVersion": 1,
+  "files": [
+    {
+      "path": "audio/music.wav",
+      "bytes": 7680164,
+      "sha256": "96c599aaed03627f895139d498a3d2b4f6c38629c1efeeb084b805bcde82ea2f"
+    },
+    {
+      "path": "audio/sting.wav",
+      "bytes": 1151054,
+      "sha256": "ef0f089a0168b7a553c75939351f08e55e0bc6129bfd3651b4452c4a42dc1785"
+    },
+    {
+      "path": "img/hero-vertical.jpg",
+      "bytes": 91759,
+      "sha256": "5bde619b411bfddf0bbab139f712bd607264fc2fc109ac7ca95480cbe24ef4b8"
+    },
+    {
+      "path": "img/hero.jpg",
+      "bytes": 270908,
+      "sha256": "723f68068e108be9c9812f35abf1feecf0aa852b3e4b4ab9f08a3d54e5f90dda"
+    },
+    {
+      "path": "img/logo-full.png",
+      "bytes": 213053,
+      "sha256": "a6236f15736bc11c4741dc37f9cd2f676d3ab93a0b6705675f2d6c0bb73e1f50"
+    },
+    {
+      "path": "img/logo-star.png",
+      "bytes": 110691,
+      "sha256": "574693c6560fde268babdcf091e6a7630d56e37facda463bb4110e5db8a27327"
+    },
+    {
+      "path": "img/photo-1.jpg",
+      "bytes": 95948,
+      "sha256": "3c3a08eb8aea9df71aff45d94e68b91154963bc0194ebce046b132f408296f71"
+    },
+    {
+      "path": "img/photo-2.jpg",
+      "bytes": 70616,
+      "sha256": "abc0d29758226eecad7f0fe95c101c239fe3dd3eb93b6ab8806a38fd2b2f1d63"
+    },
+    {
+      "path": "img/photo-3.jpg",
+      "bytes": 138240,
+      "sha256": "b2c00fd8a91dc168e4bc5788265178218b7f678b5a12d23e16bb7c5c12676cf8"
+    },
+    {
+      "path": "img/photo-4-trail.jpg",
+      "bytes": 57414,
+      "sha256": "57620829484b2a1a14347384f42b503eb497f1caa0a0f572e4252805294a8c77"
+    },
+    {
+      "path": "img/photo-4.jpg",
+      "bytes": 81953,
+      "sha256": "ff3b9df3c5cf8911bfad0a6b2fc1dd910258fccc5bab4be9573b771b9d441674"
+    },
+    {
+      "path": "img/photo-5.jpg",
+      "bytes": 114857,
+      "sha256": "385cc8062d777f29c0cc10041b616fc1ee7ca6afc6352197910c9daf5f13ce34"
+    },
+    {
+      "path": "img/photo-6.jpg",
+      "bytes": 72652,
+      "sha256": "4da52dc3bd324b600cf9713e935ccc91523bc837d9a79420ed7877c33939541b"
+    },
+    {
+      "path": "img/tunas.jpg",
+      "bytes": 31117,
+      "sha256": "0155d3c6bf848bb3bc2cde21103a0c452694e676bf3e5ede55124fad4763daa1"
+    },
+    {
+      "path": "img/vector-2012.png",
+      "bytes": 313102,
+      "sha256": "ac8ae4fbdc1bf207d6102a0bb008e2dd68ee056351b33ef89d0f45f55e76c081"
+    },
+    {
+      "path": "video/start.mp4",
+      "bytes": 896926,
+      "sha256": "b5af0bd64f7dc79456b75cfa0eb7fd4dce2690f65584a04dc7eed2b94e7c32e0"
+    },
+    {
+      "path": "video/sting.mp4",
+      "bytes": 454712,
+      "sha256": "b24afc07820c5e0b853ccfcbb259c11abd3dc8b4b9bbaea7ffe44ca038ff33e6"
+    }
+  ]
+}

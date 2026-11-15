@@ -162,7 +162,7 @@ El pico emocional. El beat más largo del reel, deliberadamente.
 
 | Beat | Tiempo | Visual | Texto en pantalla |
 |---|---|---|---|
-| 11. ERNESTO | 30,5–36 s | Foto Cubadebate 6 (Ernesto con bastón en el Malecón, recorte vertical centrado en él) en tarjeta grande, push-in lento hacia su rostro | «ERNESTO JAVIER CONSUEGRA» + «COMPLETÓ LOS **10K** CON UN **BASTÓN**» |
+| 11. ERNESTO | 30,5–36 s | Foto Cubadebate 6 (Ernesto con bastón en el Malecón) en **tarjeta grande horizontal** (un recorte vertical de 217 px sería 5× de escalado: inaceptable), push-in lento hacia su rostro | «ERNESTO JAVIER CONSUEGRA» + «COMPLETÓ LOS **10K** CON UN **BASTÓN**» |
 | 12. EL CIERRE | 36–40 s | Foto Cubadebate 5 (meta con arco, dos hombres celebrando) | «HOY LA HABANA CORRIÓ.» → «Y CADA PASO FUE UNA **DENUNCIA**.» |
 
 ### STING (40–46 s)
