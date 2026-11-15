@@ -261,12 +261,17 @@ const Karaoke: React.FC = () => (
   </Sequence>
 );
 
-// ---------- marca de agua (logotipo completo oficial) ----------
-// Regla general del Memorial (15-nov-2026, corrección del usuario): la
-// marca es el LOGOTIPO COMPLETO (estrella roja + «MEMORIAL DE LA
-// DENUNCIA»), nunca solo la estrella. Lockup vertical 573×907; a 130 px
-// de ancho las letras se leen y no tapa contenido. La sombra suave es
-// solo legibilidad sobre fotos claras (no es caja ni borde).
+// ---------- marca de agua (identificador NEGRO oficial) ----------
+// Regla de identidad del Memorial (V1.2, 15-nov-2026, petición del
+// usuario): el identificador va en su VERSIÓN NEGRA — estrella BLANCA
+// sobre placa NEGRA sólida — según el Manual de Identidad, págs. 11 y
+// 13: sobre imágenes, el identificador SIEMPRE se mantiene sobre un área
+// de color sólida (rojo corporativo, o negro en versión monocromática),
+// nunca flotando transparente. Lockup 745×1079 (placa con margen de
+// seguridad del 15% por lado); a 150 px de ancho las letras se leen y no
+// tapa contenido. Sin sombra: la placa es opaca y plana, como en el
+// manual. La marca sigue siendo el LOGOTIPO COMPLETO, nunca solo la
+// estrella (regla general del 15-nov).
 
 const LogoInner: React.FC<{dur: number}> = ({dur}) => {
   const frame = useCurrentFrame();
@@ -275,14 +280,13 @@ const LogoInner: React.FC<{dur: number}> = ({dur}) => {
   return (
     <AbsoluteFill>
       <Img
-        src={staticFile('img/logo-full.png')}
+        src={staticFile('img/logo-black.png')}
         style={{
           position: 'absolute',
           top: 54,
           right: 40,
-          width: 130,
-          opacity: Math.min(fadeIn, fadeOut) * 0.95,
-          filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.55))',
+          width: 150,
+          opacity: Math.min(fadeIn, fadeOut),
         }}
       />
     </AbsoluteFill>
@@ -341,6 +345,11 @@ const MusicInner: React.FC = () => {
 
 const StingAudioInner: React.FC = () => <Audio src={staticFile('audio/sting-2x.wav')} volume={1} />;
 
+// SFX (V1.2): golpe del sello (4.42 s), whoosh del whip (11.77 s) y riser
+// antes de Ernesto (34.17-35.97 s). Una sola pista sintetizada con numpy
+// (scripts/make-sfx-v12.py); niveles discretos bajo la VO.
+const SfxInner: React.FC = () => <Audio src={staticFile('audio/sfx.wav')} volume={1} />;
+
 // ================================================================
 // BEAT 1 — GANCHO (0-2.90 s): foto héroe a pantalla completa + el dato
 // OFAC como rótulo grande desde el FOTOGRAMA 1 (V1.1, auditoría: el
@@ -351,6 +360,8 @@ const StingAudioInner: React.FC = () => <Audio src={staticFile('audio/sting-2x.w
 // con la pregunta «¿Sabías que...?» como eco retórico. El rótulo va en
 // el tercio superior (cielo del amanecer), sin tapar al corredor ni
 // chocar con el karaoke inferior ni con la marca de agua (entra en f30).
+// V1.2: el titular sube de top 300 a top 190 para que no cruce el pelo
+// de la corredora en el fotograma 1 (auditoría final).
 // ================================================================
 
 const HookInner: React.FC = () => {
@@ -379,7 +390,7 @@ const HookInner: React.FC = () => {
       </AbsoluteFill>
       {/* titular del gancho: visible desde el frame 0, solo fade de salida */}
       <AbsoluteFill style={{alignItems: 'center', opacity: fadeOut}}>
-        <div style={{position: 'absolute', top: 300, marginLeft: 56, marginRight: 56, textAlign: 'center'}}>
+        <div style={{position: 'absolute', top: 190, marginLeft: 56, marginRight: 56, textAlign: 'center'}}>
           {hookLines.map((line, li) => (
             <div key={li} style={{fontFamily: ARCHIVO, fontSize: 62, lineHeight: 1.18, whiteSpace: 'nowrap'}}>
               {line.map((w, wi) => (
@@ -578,10 +589,12 @@ const ContrasteInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 4 — EL GIRO (11.77-13.22 s): whip + multitud. Beat corto de
-// transición (44 f): todo entra rápido. V1.1: sin el titular «PERO A
-// PESAR DE ELLO…» — el karaoke ya dice exactamente eso; la foto sube y
-// crece para llenar el cuadro (el whip + la foto + el karaoke bastan).
+// BEAT 4 — EL GIRO (11.77-16.30 s): whip + multitud + BUCLE ABIERTO.
+// V1.2: el beat se alarga de 44 a 136 fotogramas para cubrir la línea
+// nueva de VO («Quédate hasta el final. Hay una historia que lo resume
+// todo.»), que promete el remate sin revelar a Ernesto. Sin titular: el
+// karaoke ya dice el texto; la foto sube y crece para llenar el cuadro
+// (el whip + la foto + el karaoke bastan).
 // ================================================================
 
 const GiroInner: React.FC = () => {
@@ -601,8 +614,8 @@ const GiroInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 5 — LA SALIDA (13.22-14.97 s): ventana de video real.
-// 55 fotogramas de arrancada; el corte cae en «tres» (VO L5).
+// BEAT 5 — LA SALIDA (16.30-17.80 s): ventana de video real.
+// 45 fotogramas de arrancada; el corte cae en «casi» (VO L6).
 // ================================================================
 
 const SalidaInner: React.FC = () => {
@@ -662,7 +675,7 @@ const SalidaInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 6 — EL NÚMERO (14.97-19.90 s): count-up 3.000 + foto con estela.
+// BEAT 6 — EL NÚMERO (17.80-22.97 s): count-up 3.000 + foto con estela.
 // El count-up arranca con la palabra «tres» y resuelve mientras la VO
 // dice «tres mil corredores tomaron las calles».
 // ================================================================
@@ -704,14 +717,37 @@ const NumeroInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 7 — LA 5K (19.90-23.80 s): nombre oficial como rótulo.
+// BEAT 7 — LA 5K (22.97-26.87 s): nombre oficial como rótulo.
+// V1.2 — SEGUNDA VENTANA DE VIDEO: la tarjeta se divide — foto nocturna
+// (local 0-38 f) y, con un fundido de 8 f, video real de Canal Caribe
+// (escena 6, 51.0-53.8 s: corredores bajo el arco de salida; local
+// 38-117 f = 2.63 s). La etiqueta de la tarjeta cambia con el fundido
+// (FOTO → VIDEO). El video va en una Sequence anidada para que su
+// reproducción arranque en el local 38 y no se agote el clip (2.77 s).
 // ================================================================
+
+// Ventana de video de la 5K: entra con el fundido de 8 fotogramas.
+const FiveKVideoInner: React.FC = () => {
+  const frame = useCurrentFrame();
+  const opacity = interpolate(frame, [0, 8], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  return (
+    <div style={{position: 'absolute', inset: 0, opacity}}>
+      <OffthreadVideo
+        src={staticFile('video/runners-5k.mp4')}
+        style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(1.18) contrast(1.05)'}}
+      />
+    </div>
+  );
+};
 
 const CincoKInner: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const opacity = useBeatFade(BEATS.cincoK.dur);
   const fiveK = spring({frame, fps, config: {damping: 200, stiffness: 280, mass: 0.6}});
+  // Fundido foto → video en los locales 38-46; la etiqueta cambia a mitad.
+  const photoOpacity = interpolate(frame, [38, 46], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const cardLabel = frame < 42 ? 'FOTO: INDER / CUBADEBATE' : 'VIDEO: CANAL CARIBE';
   return (
     <AbsoluteFill style={{opacity}}>
       <AbsoluteFill style={{alignItems: 'center'}}>
@@ -741,15 +777,22 @@ const CincoKInner: React.FC = () => {
           [{t: 'BLOQUEO', red: true}, {t: 'Y POR LA PAZ'}],
         ]}
       />
-      <EvidenceCard top={640} width={920} height={541} rotate={-1} label="FOTO: INDER / CUBADEBATE" delay={8}>
-        <KenBurnsImg src="img/photo-2.jpg" dur={BEATS.cincoK.dur} fromScale={1} toScale={1.1} origin="50% 30%" />
+      <EvidenceCard top={640} width={920} height={541} rotate={-1} label={cardLabel} delay={8}>
+        <div style={{position: 'relative', width: '100%', height: '100%'}}>
+          <div style={{position: 'absolute', inset: 0, opacity: photoOpacity}}>
+            <KenBurnsImg src="img/photo-2.jpg" dur={BEATS.cincoK.dur} fromScale={1} toScale={1.1} origin="50% 30%" />
+          </div>
+          <Sequence from={38} durationInFrames={BEATS.cincoK.dur - 38} layout="none" name="5k-video">
+            <FiveKVideoInner />
+          </Sequence>
+        </div>
       </EvidenceCard>
     </AbsoluteFill>
   );
 };
 
 // ================================================================
-// BEAT 8 — LA VOZ (23.80-27.97 s): cita de Yuraldi Cava (AP).
+// BEAT 8 — LA VOZ (26.87-31.03 s): cita de Yuraldi Cava (AP).
 // La cita en pantalla es el overlay de evidencia; la VO la introduce.
 // ================================================================
 
@@ -783,7 +826,7 @@ const VozInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 9 — LOS GANADORES (27.97-32.90 s): tarjeta de datos.
+// BEAT 9 — LOS GANADORES (31.03-35.97 s): tarjeta de datos.
 // La VO solo dice apellidos; la tarjeta aporta los tiempos (dato nuevo).
 // V1.1 (auditoría): las filas de 21K y la foto entran a los ~0,5 s del
 // beat (antes a los 2,6 s, dejando el cuadro medio vacío del 27,4 al
@@ -857,7 +900,7 @@ const GanadoresInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 10 — ERNESTO (32.90-38.03 s): el pico emocional.
+// BEAT 10 — ERNESTO (35.97-41.10 s): el pico emocional.
 // V1.1: sin el titular «COMPLETÓ LOS 10K» — el karaoke ya dice
 // «completó los diez kilómetros»; quedan el nombre, la foto, el remate
 // «CON UN BASTÓN» (con la pausa dramática, abs 1094 = local 107) y el
@@ -903,13 +946,18 @@ const ErnestoInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 11 — EL CIERRE (38.03-41.90 s): «HOY LA HABANA CORRIÓ.» en grande
+// BEAT 11 — EL CIERRE (41.10-44.97 s): «HOY LA HABANA CORRIÓ.» en grande
 // + foto de la meta. La segunda frase («Y cada paso fue una denuncia»)
-// la lleva el karaoke: no se duplica en titular.
+// la lleva el karaoke: no se duplica en titular. V1.2: CTA en texto en
+// los últimos ~2 s («COMPARTE SI CREES QUE EL DEPORTE NO TIENE BLOQUEO»,
+// una línea bajo la tarjeta, sin tocar la VO).
 // ================================================================
 
 const CierreInner: React.FC = () => {
+  const frame = useCurrentFrame();
   const opacity = useBeatFade(BEATS.cierre.dur);
+  // CTA: entra en los últimos 60 fotogramas (2 s), fundido de 8 f.
+  const ctaIn = interpolate(frame, [BEATS.cierre.dur - 60, BEATS.cierre.dur - 52], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{opacity}}>
       <Headline
@@ -925,18 +973,27 @@ const CierreInner: React.FC = () => {
       <EvidenceCard top={560} width={840} height={791} rotate={-1} label="FOTO: INDER / CUBADEBATE" delay={8}>
         <KenBurnsImg src="img/photo-5.jpg" dur={BEATS.cierre.dur} fromScale={1} toScale={1.08} origin="50% 30%" />
       </EvidenceCard>
+      <AbsoluteFill style={{alignItems: 'center', opacity: ctaIn}}>
+        <div style={{position: 'absolute', top: 1440, fontFamily: CONDENSED, fontWeight: 700, fontSize: 40, letterSpacing: 1, whiteSpace: 'nowrap', textShadow: outline(2)}}>
+          <span style={{color: COLORS.red}}>COMPARTE</span>
+          <span style={{color: '#fff'}}> SI CREES QUE EL DEPORTE NO TIENE BLOQUEO</span>
+        </div>
+      </AbsoluteFill>
     </AbsoluteFill>
   );
 };
 
 // ================================================================
-// STING (41.90-44.90 s): cierre animado oficial «la del disparo» A 2x
+// STING (44.97-47.97 s): cierre animado oficial «la del disparo» A 2x
 // (V1.1, auditoría: el sting de 6 s lastraba la finalización y mataba
 // el loop). Decisión de director: acelerar 2x en vez de congelar el
 // fotograma final — se conserva la animación oficial, el disparo
 // (~0,65 s) y el logotipo completo, que resuelve a ~1,75 s y aguanta
 // ~1,25 s en pantalla. Activos pre-procesados: video/sting-2x.mp4 +
 // audio/sting-2x.wav (ffmpeg setpts/atempo, ver EDIT_NOTES.md).
+// V1.2: el sting es la VERSIÓN NEGRA (video/sting-black-2x.mp4): la
+// estrella, recoloreada de rojo a blanco fotograma a fotograma
+// (scripts/make-sting-black.py); el audio del disparo no se toca.
 // ================================================================
 
 const StingInner: React.FC = () => {
@@ -944,7 +1001,7 @@ const StingInner: React.FC = () => {
   const fadeIn = interpolate(frame, [0, 4], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{background: '#000', opacity: fadeIn}}>
-      <OffthreadVideo src={staticFile('video/sting-2x.mp4')} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+      <OffthreadVideo src={staticFile('video/sting-black-2x.mp4')} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
     </AbsoluteFill>
   );
 };
@@ -979,7 +1036,7 @@ export const MainReel: React.FC = () => {
       <Sequence from={BEATS.numero.from} durationInFrames={BEATS.numero.dur + 8} name="beat06-numero">
         <NumeroInner />
       </Sequence>
-      <Sequence from={BEATS.cincoK.from} durationInFrames={BEATS.cincoK.dur + 8} name="beat07-5k">
+      <Sequence from={BEATS.cincoK.from} durationInFrames={BEATS.cincoK.dur + 8} premountFor={30} name="beat07-5k">
         <CincoKInner />
       </Sequence>
       <Sequence from={BEATS.voz.from} durationInFrames={BEATS.voz.dur + 8} name="beat08-voz">
@@ -1003,12 +1060,15 @@ export const MainReel: React.FC = () => {
         <LogoInner dur={LOGO_TO - LOGO_FROM} />
       </Sequence>
 
-      {/* voz en off (0-41.5 s) + música con ducking + audio del sting */}
+      {/* voz en off (0-44.5 s) + música con ducking + SFX + audio del sting */}
       <Sequence from={0} durationInFrames={CONTENT_END} name="voiceover">
         <VoiceOverInner />
       </Sequence>
       <Sequence from={0} durationInFrames={CONTENT_END} name="music">
         <MusicInner />
+      </Sequence>
+      <Sequence from={0} durationInFrames={CONTENT_END} name="sfx">
+        <SfxInner />
       </Sequence>
       {/* sting-audio: adelanto de 9 fotogramas (0,30 s) para compensar
           la deriva de audio del pipeline por tramos (medida en el máster

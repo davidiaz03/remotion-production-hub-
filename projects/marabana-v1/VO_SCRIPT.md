@@ -1,4 +1,4 @@
-# VO_SCRIPT.md — Guion de voz en off · Reel Marabana V1
+# VO_SCRIPT.md — Guion de voz en off · Reel Marabana V1.2
 
 **Decisión del usuario (15-nov-2026):** el reel SÍ lleva voz en off. Anula la decisión
 anterior de «sin voz en off» (STRATEGY.md §2 y §11.6). La voz de IA de este proyecto
@@ -11,9 +11,13 @@ es SOLO una previsualización: el usuario grabará la definitiva con su propia v
   «ecosistema» (dicción formal y escrita) y aquí se evita a propósito.
 - Ritmo de reel: rápido pero claro. Pausas dramáticas solo en dos puntos marcados
   con `…` (el giro «Pero a pesar de ello…» y el remate de Ernesto «…con un bastón»).
-- 114 palabras. Duración objetivo: ~40–44 s leído a ritmo natural.
+- 114 palabras en V1/V1.1; **125 palabras en V1.2** (línea nueva de bucle abierto).
+  Duración objetivo: ~40–44 s leído a ritmo natural; VO V1.2: 44,51 s.
+- **V1.2 — línea 5, BUCLE ABIERTO** (auditoría final): «Quédate hasta el final. Hay una
+  historia que lo resume todo.» Promete el remate sin revelar a Ernesto; se empalmó
+  tras la pausa del giro (scripts/splice-open-loop.py).
 
-## Guion (10 líneas)
+## Guion (11 líneas)
 
 | # | Línea | Beat |
 |---|---|---|
@@ -21,12 +25,13 @@ es SOLO una previsualización: el usuario grabará la definitiva con su propia v
 | 2 | En 2012, la OFAC canceló el programa que traía corredores de Estados Unidos a Marabana. | 2 Dato 2012 |
 | 3 | Un año antes, veintiuno habían corrido en La Habana. | 4 Contraste (el sello cae al final de la línea 2) |
 | 4 | Pero a pesar de ello… | 5 Giro |
-| 5 | Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuadragésima edición de Marabana. | 6 Salida + 7 Número (el corte 6→7 cae en «casi») |
-| 6 | Y los cinco kilómetros se llamaron Carrera contra el Bloqueo y por la Paz. | 8 La 5K |
-| 7 | Como dijo el corredor Yuraldi Cava: «El bloqueo asfixia al pueblo cubano». | 9 La voz |
-| 8 | En el maratón ganaron Estévez y Bacallao. Y en la media, doblete de Las Tunas. | 10 Ganadores |
-| 9 | Y Ernesto Javier Consuegra completó los diez kilómetros… con un bastón. | 11 Ernesto |
-| 10 | Hoy La Habana corrió. Y cada paso fue una denuncia. | 12 Cierre |
+| 5 | Quédate hasta el final. Hay una historia que lo resume todo. | 5 Giro (alargado; bucle abierto, V1.2) |
+| 6 | Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuadragésima edición de Marabana. | 6 Salida + 7 Número (el corte 6→7 cae en «casi») |
+| 7 | Y los cinco kilómetros se llamaron Carrera contra el Bloqueo y por la Paz. | 8 La 5K |
+| 8 | Como dijo el corredor Yuraldi Cava: «El bloqueo asfixia al pueblo cubano». | 9 La voz |
+| 9 | En el maratón ganaron Estévez y Bacallao. Y en la media, doblete de Las Tunas. | 10 Ganadores |
+| 10 | Y Ernesto Javier Consuegra completó los diez kilómetros… con un bastón. | 11 Ernesto |
+| 11 | Hoy La Habana corrió. Y cada paso fue una denuncia. | 12 Cierre |
 
 ## Texto corrido (para grabar / sintetizar)
 
@@ -34,6 +39,7 @@ es SOLO una previsualización: el usuario grabará la definitiva con su propia v
 > En 2012, la OFAC canceló el programa que traía corredores de Estados Unidos a Marabana.
 > Un año antes, veintiuno habían corrido en La Habana.
 > Pero a pesar de ello…
+> Quédate hasta el final. Hay una historia que lo resume todo.
 > Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuadragésima edición de Marabana.
 > Y los cinco kilómetros se llamaron Carrera contra el Bloqueo y por la Paz.
 > Como dijo el corredor Yuraldi Cava: «El bloqueo asfixia al pueblo cubano».

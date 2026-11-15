@@ -1,9 +1,11 @@
-# STRATEGY.md — Reel Marabana V1.1
+# STRATEGY.md — Reel Marabana V1.2
 ## «La carrera que el bloqueo no pudo parar»
 **Memorial de la Denuncia · 40ª Marabana · 15 de noviembre de 2026**
-**Fecha de estrategia: 15-nov-2026 · Autor: Alberto · Estado: V1.1 ENTREGADA (correcciones de auditoría aplicadas y en Drive)**
+**Fecha de estrategia: 15-nov-2026 · Autor: Alberto · Estado: V1.2 EN PRODUCCIÓN (máster cerrado para la directora Suleris)**
 
 **V1.1 — correcciones de auditoría (15-nov-2026, ~17:00, el usuario dijo «Aplica»):** gancho con el dato OFAC en el fotograma 1; sting a 3 s (2x); ganadores sin vacío; sin rótulos duplicados (giro y Ernesto); «cuadragésima» en la VO (línea 5 regenerada y empalmada, resto de la VO intacto); techo de true peak −1,5 dBTP en el máster. Duración total: 44,9 s (dentro del punto dulce 15–45 s). Detalle en §16 y EDIT_NOTES.md.
+
+**V1.2 — identidad negra + auditoría final (15-nov-2026, ~17:30):** el usuario pidió «el negro» (versión negra del identificador: estrella blanca sobre placa negra, manual págs. 11 y 13) para marca de agua Y logo animado, e incorporar en el mismo máster cerrado las 4 recomendaciones de la auditoría final: **bucle abierto** en VO («Quédate hasta el final. Hay una historia que lo resume todo.»), **SFX** (golpe del sello, whoosh del whip, riser antes de Ernesto), **CTA en texto** («COMPARTE SI CREES QUE EL DEPORTE NO TIENE BLOQUEO») y **segunda ventana de video real** de Canal Caribe en el beat 5K; más 2 menores (gancho subido, copy con el dato OFAC en primera línea). Duración total: 47,97 s (1.439 fotogramas). **Flujo de aprobación: esta V1.2 va a la directora Suleris para su visto bueno CON la voz de IA; solo tras su aprobación el usuario graba la voz en off definitiva y se compone la versión final.** Detalle en §6, §9, §12, §16 y EDIT_NOTES.md.
 
 **Cambios de dirección del usuario (15-nov-2026, incorporados):**
 1. **El reel SÍ lleva voz en off** (anula §2 y §11.6): guion natural y conversacional, VO de IA solo como previsualización (el usuario grabará la definitiva). La narración manda el ritmo: tabla maestra re-temporizada (§6) y subtítulos karaoke desde el audio real. Ver `VO_SCRIPT.md`.
@@ -131,48 +133,49 @@ Fuente: Drive `1eWYHgyf8c6LQVXgrUAWCL87HIh8BLSPG` (PDF oficial, 11,4 MB).
 - **Franja negra** como elemento de apoyo y símbolo de luto (manual) — se usa como banda inferior en las tarjetas de texto.
 - **Tipografía corporativa: Amplitude** (neo-humanista, 35 estilos; comercial, NO disponible). Sustitutos de trabajo ya establecidos en Pilar V30: **Archivo Black** (display/titulares) + **Roboto Condensed** (apoyo/etiquetas).
 - **Fondo de trabajo:** tinta oscura #0A0E11 (negro azulado) con viñeta radial sutil — las fotos de 580 px no aguantan pantalla completa, así que el diseño es de **tarjetas de evidencia** sobre fondo oscuro (ver §7).
-- **Marca de agua — REGLA GENERAL DEL MEMORIAL (corrección del usuario, 15-nov-2026):** la marca es el **LOGOTIPO COMPLETO** (estrella roja + «MEMORIAL DE LA DENUNCIA»), nunca solo la estrella. Lockup vertical `logo-full.png` (573×907, transparencia real), esquina superior derecha, 130 px de ancho (~206 px de alto, letras legibles), opacidad 0,95, sombra suave para legibilidad sobre fotos claras; durante todo el contenido (f30–1245); se retira con fade antes del sting.
-- **Cierre:** animación oficial «la del disparo» (V1.1: 3 s a 2x, ver §9) a pantalla completa al final. La marca de agua y el sting usan el MISMO logo oficial.
+- **Marca de agua — REGLA GENERAL DEL MEMORIAL (V1.2, 15-nov-2026; anula la versión roja transparente de V1/V1.1):** el identificador va en su **VERSIÓN NEGRA** — **estrella BLANCA sobre placa NEGRA sólida** — según el Manual de Identidad, págs. 11 y 13: sobre imágenes, el identificador SIEMPRE se mantiene sobre un área de color sólida (rojo corporativo, o negro en versión monocromática), nunca flotando transparente. La marca sigue siendo el **LOGOTIPO COMPLETO** («MEMORIAL DE LA DENUNCIA»), nunca solo la estrella. Lockup `logo-black.png` (745×1079: lockup 573×907 + placa negra con margen de seguridad del 15% por lado), esquina superior derecha, 150 px de ancho (~217 px de alto, letras legibles), opacidad 1, sin sombra; durante todo el contenido (f30–1349); se retira con fade antes del sting.
+- **Cierre:** animación oficial «la del disparo» (V1.1: 3 s a 2x; **V1.2: versión negra**, estrella recoloreada a blanco fotograma a fotograma, ver §9) a pantalla completa al final. La marca de agua y el sting usan el MISMO identificador en versión negra.
 
 ---
 
 ## 6. ESTRUCTURA NARRATIVA — LA TABLA MAESTRA
 
-**Duración total V1.1: 44,9 s = 1.347 fotogramas a 30 fps** (41,90 s de contenido + 3 s de sting a 2x).
-**Re-timing 15-nov-2026: la voz en off manda el ritmo.** Los beats siguen las líneas de la VO (VO de previsualización: 41,44 s; `vo-lines.json`). El sello CANCELADO ya no es un beat propio: golpea DENTRO del beat 2012, en la palabra «canceló» (4,42 s). El corte salida → número cae en la palabra «casi» (14,98 s), para que el count-up arranque con el número que dice la voz.
+**Duración total V1.2: 47,97 s = 1.439 fotogramas a 30 fps** (44,97 s de contenido + 3 s de sting a 2x).
+**Re-timing 15-nov-2026: la voz en off manda el ritmo.** Los beats siguen las líneas de la VO (VO de previsualización: 44,51 s; `vo-lines.json`). El sello CANCELADO ya no es un beat propio: golpea DENTRO del beat 2012, en la palabra «canceló» (4,42 s). El corte salida → número cae en la palabra «casi» (17,80 s), para que el count-up arranque con el número que dice la voz.
 **V1.1:** la línea 5 cambió «cuarenta» → «cuadragésima» (+0,557 s): todos los beats desde la 5K en adelante se desplazan +17 fotogramas respecto a V1. El gancho lleva el dato OFAC como rótulo grande desde el fotograma 1 (auditoría).
+**V1.2:** línea nueva de BUCLE ABIERTO tras el giro (+3,067 s = +92 f): el beat del giro se alarga (44→136 f) y todos los beats desde la salida se desplazan +92 f. Segunda ventana de video real en la 5K; CTA en texto en el cierre; SFX en sello / whip / antes de Ernesto.
 
 ### ACTO I — LA INDIGNACIÓN (0–11,77 s)
 El espectador aprende algo escandaloso en los primeros 5 segundos.
 
 | Beat | Tiempo | Visual | Rótulo (lo que NO dice la VO) | VO |
 |---|---|---|---|---|
-| 1. GANCHO | 0–2,90 s | Foto CN360 (corredora con la bandera CUBA en el Malecón al amanecer) a **pantalla completa**, push-in lento | **V1.1: «EE.UU. PROHIBIÓ QUE SUS CORREDORES VINIERAN A MARABANA»** (PROHIBIÓ en rojo) desde el fotograma 1, sin animación de entrada + píldora «40ª MARABANA · LA HABANA · 15 NOV 2026» | L1 «¿Sabías que el bloqueo llegó hasta el maratón?» (eco retórico) |
+| 1. GANCHO | 0–2,90 s | Foto CN360 (corredora con la bandera CUBA en el Malecón al amanecer) a **pantalla completa**, push-in lento | **V1.1: «EE.UU. PROHIBIÓ QUE SUS CORREDORES VINIERAN A MARABANA»** (PROHIBIÓ en rojo) desde el fotograma 1, sin animación de entrada + píldora «40ª MARABANA · LA HABANA · 15 NOV 2026» — **V1.2: el titular sube a top 190** (no cruza el pelo de la corredora en el fotograma 1) | L1 «¿Sabías que el bloqueo llegó hasta el maratón?» (eco retórico) |
 | 2. EL DATO | 2,90–8,43 s | «2012» gigante + gráfico vectorial (silueta de corredor + símbolo de prohibición) en tarjeta; **sello CANCELADO** golpea en «canceló» (4,42 s) y queda sobre la tarjeta | Nota OFAC (qué significa la sigla; la VO no la explica) | L2 «En 2012, la OFAC canceló el programa…» |
 | 3. EL CONTRASTE | 8,43–11,77 s | «21» gigante en rojo + línea de tiempo gráfica 2011 → 2012 (el nodo 2012 tachado) | «EN 2011,» + «21» + línea de tiempo | L3 «Un año antes, veintiuno habían corrido en La Habana.» |
 
-### ACTO II — LA RESPUESTA (11,77–32,35 s)
+### ACTO II — LA RESPUESTA (11,77–35,42 s)
 La música cambia (entra la sección enérgica). Hoy, 14 años después, la carrera se corrió igual.
 
 | Beat | Tiempo | Visual | Rótulo | VO |
 |---|---|---|---|---|
-| 4. EL GIRO | 11,77–13,22 s | Whip transition → foto Cubadebate 1 (multitud + bandera cubana) en tarjeta grande | — (V1.1: sin titular; el karaoke ya dice «Pero a pesar de ello…») | L4 «Pero a pesar de ello…» |
-| 5. LA SALIDA | 13,22–14,97 s | **Ventana de VIDEO REAL** (Canal Caribe, salida masiva bajo el arco rojo «Marabana CUBA») en marco estilo pegatina + píldoras 42K/21K/10K/5K | «40ª MARABANA» + fecha + etiqueta de la arrancada | L5 (inicio) «Hoy, catorce años después…» |
-| 6. EL NÚMERO | 14,97–19,90 s | Foto Cubadebate 4 (corredores en carrera, dorsal 870) con **estela motion blur** | «CASI **3.000** CORREDORES» — count-up 0→3.000 | L5 «…casi tres mil corredores tomaron las calles…» |
-| 7. LA 5K | 19,90–23,80 s | Foto Cubadebate 2 (grupo nocturno, camisetas «CUBA NO ESTÁ SOLA») | «5K · CARRERA CONTRA EL **BLOQUEO** Y POR LA PAZ» | L6 «Y los cinco kilómetros se llamaron…» |
-| 8. LA VOZ | 23,80–27,97 s | Foto Cubadebate 3 (grupo MINREX con carteles) | «“EL BLOQUEO ASFIXIA AL PUEBLO CUBANO”» + «— Yuraldi Cava, corredor · AP» | L7 «Como dijo el corredor Yuraldi Cava…» |
-| 9. LOS GANADORES | 27,97–32,90 s | Tarjeta de datos (42K + 21K desde ~0,5 s del beat, V1.1) + foto Tiempo21 (Tamerón y López con medallas) | Tiempos (la VO solo dice apellidos): «ESTÉVEZ 2:25:31 · BACALLAO 2:45:41 · TAMERÓN 1:06:53 · LÓPEZ GUISAO 1:17:24» + «DOBLETE TUNERO EN 21K» | L8 «En el maratón ganaron Estévez y Bacallao. Y en la media, doblete de Las Tunas.» |
+| 4. EL GIRO | 11,77–16,30 s | Whip transition → foto Cubadebate 1 (multitud + bandera cubana) en tarjeta grande | — (sin titular; el karaoke lleva el texto) | L4 «Pero a pesar de ello…» + **L5 BUCLE ABIERTO (V1.2): «Quédate hasta el final. Hay una historia que lo resume todo.»** (promete el remate sin revelar a Ernesto) |
+| 5. LA SALIDA | 16,30–17,80 s | **Ventana de VIDEO REAL** (Canal Caribe, salida masiva bajo el arco rojo «Marabana CUBA») en marco estilo pegatina + píldoras 42K/21K/10K/5K | «40ª MARABANA» + fecha + etiqueta de la arrancada | L6 (inicio) «Hoy, catorce años después…» |
+| 6. EL NÚMERO | 17,80–22,97 s | Foto Cubadebate 4 (corredores en carrera, dorsal 870) con **estela motion blur** | «CASI **3.000** CORREDORES» — count-up 0→3.000 | L6 «…casi tres mil corredores tomaron las calles…» |
+| 7. LA 5K | 22,97–26,87 s | Foto Cubadebate 2 (grupo nocturno, camisetas «CUBA NO ESTÁ SOLA») + **SEGUNDA VENTANA DE VIDEO (V1.2)**: fundido a video real de Canal Caribe (escena 6, 51,0–53,8 s: corredores bajo el arco de salida, 2,63 s); la etiqueta cambia FOTO → VIDEO | «5K · CARRERA CONTRA EL **BLOQUEO** Y POR LA PAZ» | L7 «Y los cinco kilómetros se llamaron…» |
+| 8. LA VOZ | 26,87–31,03 s | Foto Cubadebate 3 (grupo MINREX con carteles) | «“EL BLOQUEO ASFIXIA AL PUEBLO CUBANO”» + «— Yuraldi Cava, corredor · AP» | L8 «Como dijo el corredor Yuraldi Cava…» |
+| 9. LOS GANADORES | 31,03–35,97 s | Tarjeta de datos (42K + 21K desde ~0,5 s del beat, V1.1) + foto Tiempo21 (Tamerón y López con medallas) | Tiempos (la VO solo dice apellidos): «ESTÉVEZ 2:25:31 · BACALLAO 2:45:41 · TAMERÓN 1:06:53 · LÓPEZ GUISAO 1:17:24» + «DOBLETE TUNERO EN 21K» | L9 «En el maratón ganaron Estévez y Bacallao. Y en la media, doblete de Las Tunas.» |
 
-### ACTO III — EL CORAZÓN (32,35–41,5 s)
+### ACTO III — EL CORAZÓN (35,42–44,57 s)
 El pico emocional.
 
 | Beat | Tiempo | Visual | Rótulo | VO |
 |---|---|---|---|---|
-| 10. ERNESTO | 32,90–38,03 s | Foto Cubadebate 6 (Ernesto con bastón en el Malecón) en **tarjeta grande horizontal**, push-in lento hacia su rostro | «ERNESTO JAVIER CONSUEGRA» + «CON UN **BASTÓN**» (con la pausa dramática, 36,46 s) + «DORSAL 5766» (V1.1: sin «COMPLETÓ LOS 10K», el karaoke ya lo dice) | L9 «Y Ernesto Javier Consuegra completó los diez kilómetros… con un bastón.» |
-| 11. EL CIERRE | 38,03–41,90 s | Foto Cubadebate 5 (meta con arco, celebrando en familia) | «HOY LA HABANA CORRIÓ.» (la segunda frase la lleva el karaoke, sin duplicar) | L10 «Hoy La Habana corrió. Y cada paso fue una denuncia.» |
+| 10. ERNESTO | 35,97–41,10 s | Foto Cubadebate 6 (Ernesto con bastón en el Malecón) en **tarjeta grande horizontal**, push-in lento hacia su rostro | «ERNESTO JAVIER CONSUEGRA» + «CON UN **BASTÓN**» (con la pausa dramática, 39,53 s) + «DORSAL 5766» (V1.1: sin «COMPLETÓ LOS 10K», el karaoke ya lo dice) | L10 «Y Ernesto Javier Consuegra completó los diez kilómetros… con un bastón.» |
+| 11. EL CIERRE | 41,10–44,97 s | Foto Cubadebate 5 (meta con arco, celebrando en familia) | «HOY LA HABANA CORRIÓ.» (la segunda frase la lleva el karaoke, sin duplicar) + **CTA EN TEXTO (V1.2, últimos ~2 s): «COMPARTE SI CREES QUE EL DEPORTE NO TIENE BLOQUEO»** (COMPARTE en rojo) | L11 «Hoy La Habana corrió. Y cada paso fue una denuncia.» |
 
-### STING (41,90–44,90 s)
-Cierre animado oficial «la del disparo» **a 2x** (V1.1: 3 s en vez de 6; el sting completo lastraba la finalización y mataba el loop). Disparo a ~0,65 s del sting, logotipo completo resuelto a ~1,75 s, ~1,25 s de aguante. La música se retira con fade de 1 s y suena el audio del sting.
+### STING (44,97–47,97 s)
+Cierre animado oficial «la del disparo» **a 2x** (V1.1: 3 s en vez de 6; el sting completo lastraba la finalización y mataba el loop). **V1.2: versión NEGRA** (estrella blanca, ver §9). Disparo a ~0,65 s del sting, logotipo completo resuelto a ~1,75 s, ~1,25 s de aguante. La música se retira con fade de 1 s y suena el audio del sting.
 
 ### Decisiones de orden (por qué así)
 - **Los ganadores van ANTES de Ernesto, no después:** el dato va en el medio (Acto II, energía), la emoción cierra (Acto III). Poner cifras después de Ernesto desinflaría el final.
@@ -224,9 +227,9 @@ Cierre animado oficial «la del disparo» **a 2x** (V1.1: 3 s en vez de 6; el st
 
 ## 9. MARCA DE AGUA Y STING
 
-- **Marca de agua — REGLA GENERAL DEL MEMORIAL:** el logotipo COMPLETO (estrella roja + «MEMORIAL DE LA DENUNCIA»), nunca solo la estrella (corrección del usuario 15-nov-2026, tras ver el clip de previsualización). `img/logo-full.png`, esquina superior derecha, 130 px de ancho, opacidad 0,95, sombra suave (`drop-shadow(0 2px 6px rgba(0,0,0,0.55))`) para legibilidad sobre fotos claras, fotogramas 30–1257 (todo el contenido, aparece tras el gancho). Se retira con fade de 0,3 s antes del sting. Verificado en stills v4 (f70 sobre foto clara + f1200 sobre fondo oscuro): letras legibles, sin caja ni borde, sin tapar contenido.
-- **Sting (V1.1: 3 s a 2x):** `video/sting-2x.mp4` (3,08 s, 720×1280, 24 fps) + `audio/sting-2x.wav` (3,0 s), pre-procesados desde los originales de 6 s con ffmpeg (`setpts=0.5*PTS` / `atempo=2.0`). Fotogramas 1257–1346, escalado a 1080×1920. Disparo a ~0,65 s del sting; logotipo completo resuelto a ~1,75 s. Decisión de director (ver EDIT_NOTES.md): acelerar 2x en vez de congelar el fotograma final — se conserva la animación oficial y el disparo. Los originales de 6 s (`sting.mp4` / `sting.wav`) se conservan en `public/`.
-- Ambas piezas usan el **mismo logo oficial** (estrella roja con impacto de bala + «MEMORIAL DE LA DENUNCIA»).
+- **Marca de agua — REGLA GENERAL DEL MEMORIAL (V1.2, anula la versión roja transparente de V1/V1.1):** el identificador en su **VERSIÓN NEGRA** — estrella **BLANCA** sobre **placa NEGRA sólida** — según el Manual de Identidad, págs. 11 y 13 (sobre imágenes, el identificador SIEMPRE se mantiene sobre un área de color sólida, nunca flotando transparente). El logotipo sigue siendo COMPLETO, nunca solo la estrella. `img/logo-black.png` (745×1079: lockup 573×907 + placa con margen de seguridad del 15%), esquina superior derecha, 150 px de ancho, opacidad 1, sin sombra, fotogramas 30–1349 (todo el contenido, aparece tras el gancho). Se retira con fade de 0,3 s antes del sting. Construcción: `scripts/make-logo-black.py` (estrella roja→blanca por rojez con umbral suave; la salpicadura negra queda intacta). Verificado en QA V1.2 (marca negra sobre foto clara y sobre fondo oscuro, sin tapar titulares ni karaoke).
+- **Sting (V1.1: 3 s a 2x; V1.2: VERSIÓN NEGRA):** `video/sting-black-2x.mp4` (3,08 s, 720×1280, 24 fps) + `audio/sting-2x.wav` (3,0 s, sin tocar). El video se recoloreó fotograma a fotograma desde el sting oficial de 6 s (`scripts/make-sting-black.py`: píxeles rojos → blanco con transición suave por rojez + neutralización del residuo rojizo a gris; fondo negro, texto blanco y salpicadura intactos), luego 2x con ffmpeg (`setpts=0.5*PTS`). Fotogramas 1349–1438, escalado a 1080×1920. Disparo a ~0,65 s del sting; logotipo completo resuelto a ~1,75 s. Decisión de director (ver EDIT_NOTES.md): acelerar 2x en vez de congelar el fotograma final — se conserva la animación oficial y el disparo. QA: 0 píxeles rojos en 8 fotogramas muestreados; bordes limpios en zoom. Los originales (`sting.mp4` / `sting.wav` / `sting-2x.mp4`) se conservan en `public/`.
+- Ambas piezas usan el **mismo identificador oficial en versión negra** (estrella blanca con impacto de bala + «MEMORIAL DE LA DENUNCIA» sobre negro).
 
 ---
 
@@ -276,7 +279,7 @@ Foto 6 verificada contra la descripción del post de El Necio (Facebook): gorro 
 
 **Texto del post (Facebook / Instagram):**
 
-> ¿Sabías que el bloqueo llegó hasta el maratón? 🏃‍♂️
+> EE. UU. prohibió que sus corredores vinieran a Marabana. 🏃‍♂️
 >
 > En 2012, la OFAC de EE. UU. canceló el programa de InsightCuba que llevaba corredores estadounidenses a Marabana. La carrera «no calificaba» como programa pueblo a pueblo. En 2011, 21 estadounidenses habían corrido en La Habana.
 >
@@ -345,3 +348,4 @@ Foto 6 verificada contra la descripción del post de El Necio (Facebook): gorro 
 | ~16:27 | Marca de agua = LOGOTIPO COMPLETO (anula la estrella sola) | El usuario lo vio en el clip de previsualización y lo pidió explícitamente; es regla general del Memorial | `Video.tsx` usa `logo-full.png` (130 px, esquina superior derecha, sombra suave); verificado en 2 stills v4 (f70 foto clara + f1200 fondo oscuro); `logo-star.png` queda sin uso |
 | ~17:00 | **V1.1 — correcciones de auditoría** (el usuario dijo «Aplica») | Auditoría contra reels modernos: el gancho tardaba 2,7 s en leerse y no había cara en los primeros 3 s; el sting de 6 s lastraba la finalización; la tarjeta de ganadores quedaba medio vacía 2,6 s; dos rótulos duplicaban el karaoke; «cuarenta» por «cuadragésima»; true peak +1,31 dBTP | Gancho con «EE.UU. PROHIBIÓ…» desde el frame 1 (sin fade de entrada en el beat); sting a 3 s (2x, decisión documentada en EDIT_NOTES.md); ganadores con 21K + foto a ~0,5 s; sin titulares en giro ni «COMPLETÓ LOS 10K» en Ernesto; línea 5 de la VO regenerada y empalmada (+0,557 s, re-timing desde la 5K); limiter −1,5 dBFS en la concatenación; duración total 44,9 s |
 | ~17:15 | **V1.1 — sincronía del disparo (QA del render final)** | El pipeline por tramos deriva el audio +0,31 s al final del vídeo (V1 tenía la misma deriva, +0,33 s): el disparo caía en sting +0,99 s en vez de +0,68 s | Audio del sting adelantado 9 fotogramas (0,30 s) en `Video.tsx` (la Sequence `sting-audio` arranca en `CONTENT_END − 9`); re-render solo del tramo 6 + re-concatenación. Disparo verificado en el máster final: sting +0,69 s. La VO deriva igual (karaoke adelanta hasta ~0,3 s al final) — tolerable, V1 se entregó así |
+| ~17:30 | **V1.2 — identidad NEGRA + auditoría final (máster cerrado para la directora)** | El usuario pidió «el negro»: la marca roja transparente flotando sobre el video es uso incorrecto según el manual (págs. 11 y 13: el identificador SIEMPRE va sobre área de color sólida). Y las 4 recomendaciones de la auditoría final en el mismo máster: bucle abierto, SFX, CTA y segunda ventana de video | Marca de agua `logo-black.png` (estrella blanca sobre placa negra, 150 px) + sting recoloreado a blanco (`sting-black-2x.mp4`, audio sin tocar); línea VO nueva empalmada (+3,067 s, giro alargado a 136 f, re-timing +92 f desde la salida); música B estirada con atempo (misma melodía aprobada); SFX sintetizados (`sfx.wav`: golpe 4,42 s, whoosh 11,77 s, riser 34,17–35,97 s); CTA en texto en los últimos 2 s del cierre; 2ª ventana Canal Caribe (escena 6, 51,0–53,8 s) en la 5K; gancho subido a top 190; copy con el dato OFAC en primera línea (§12). Duración total 47,97 s (1.439 f). VO de IA hasta el visto bueno de Suleris; después el usuario graba la definitiva |

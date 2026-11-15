@@ -46,6 +46,10 @@ FRAGMENTS = [
     # L4 giro
     dict(words="Pero a pesar de ello…".split(),
          chunks=[(0, 5, {4})]),
+    # L5 bucle abierto (V1.2: insertada tras el giro, antes del mecanismo;
+    # promete una historia al final sin revelar a Ernesto)
+    dict(words="Quédate hasta el final. Hay una historia que lo resume todo.".split(),
+         chunks=[(0, 4, {0, 3}), (4, 11, {6})]),
     # L5 3.000 (V1.1: "cuadragésima", no "cuarenta" — corrección de auditoría)
     dict(words="Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuadragésima edición de Marabana.".split(),
          chunks=[(0, 4, {0}), (4, 8, {5, 6}), (8, 14, {10}), (14, 20, {19})]),

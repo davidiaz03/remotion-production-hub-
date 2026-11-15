@@ -65,6 +65,11 @@ FRAGMENTS = [
     ("En 2012, la O.F.A.C. canceló el programa que traía corredores de Estados Unidos a Marabana.", 0.20),
     ("Un año antes, veintiuno habían corrido en La Habana.", 0.20),
     ("Pero a pesar de ello…", 0.45),
+    # V1.2 — línea nueva de BUCLE ABIERTO (scripts/splice-open-loop.py):
+    # se sintetizó SOLO este fragmento y se empalmó; Piper no es
+    # determinista entre ejecuciones, así que NO se regenera la VO
+    # completa (este FRAGMENTS es documentación del guion final).
+    ("Quédate hasta el final. Hay una historia que lo resume todo.", 0.20),
     ("Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuadragésima edición de Marabana.", 0.20),
     ("Y los cinco kilómetros se llamaron Carrera contra el Bloqueo y por la Paz.", 0.20),
     ("Como dijo el corredor Yuraldi Cava: El bloqueo asfixia al pueblo cubano.", 0.20),

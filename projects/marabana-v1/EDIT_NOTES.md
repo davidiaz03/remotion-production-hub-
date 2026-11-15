@@ -1,8 +1,117 @@
-# EDIT_NOTES.md — Reel Marabana V1.1
+# EDIT_NOTES.md — Reel Marabana V1.2
 
 Notas de edición para quien retome este proyecto (el usuario graba su voz,
 o se hace una V2). Todo lo reproducible está en `scripts/`; este documento
 dice QUÉ hacer y en QUÉ orden.
+
+## V1.2 — identidad negra + auditoría final (15-nov-2026, ~17:30)
+
+Máster cerrado para la directora Suleris (CON voz de IA; la definitiva se
+graba tras su visto bueno). Duración: 47,97 s = 1.439 fotogramas.
+Seis frentes, en orden de trabajo:
+
+1. **Marca de agua NEGRA (manual págs. 11 y 13).** La marca roja
+   transparente flotando sobre el video era uso incorrecto: el manual
+   exige el identificador SIEMPRE sobre un área de color sólida (rojo
+   corporativo, o negro en versión monocromática). Construcción:
+   `scripts/make-logo-black.py` desde
+   `MARCA_AGUA_OFICIAL_MEMORIAL.png` (573×907): estrella roja→blanca por
+   rojez con umbral suave (smoothstep 25–90) + puerta de luminancia
+   (60–140; la salpicadura negra queda intacta), sobre placa negra sólida
+   con margen de seguridad del 15% por lado (86 px), esquinas rectas.
+   Resultado `public/img/logo-black.png` (745×1079). En `Video.tsx`:
+   150 px de ancho en la esquina superior derecha (top 54, right 40),
+   opacidad 1, sin sombra, f30–1349. Quedan 32 px de rojo oscuro junto a
+   la salpicadura, invisibles a tamaño de pantalla.
+2. **Sting NEGRO.** `scripts/make-sting-black.py`: extrae los 144
+   fotogramas del sting oficial (720×1280, 24 fps, 6 s), recolorea la
+   estrella roja a blanca (v3: rojez smoothstep(15,70) × puerta de
+   luminancia smoothstep(40,120) + neutralización del residuo rojizo a
+   gris por luminancia — la v1 dejaba un halo rojo oscuro en los bordes)
+   y re-codifica `public/video/sting-black.mp4` (audio del disparo
+   copiado sin tocar) + `sting-black-2x.mp4` (3 s, `setpts=0.5*PTS`).
+   QA: 0 píxeles rojos en 8 fotogramas muestreados; bordes limpios en
+   zoom; salpicadura negra intacta. Se usa en la composición manteniendo
+   la velocidad 2x de V1.1.
+3. **Bucle abierto (línea nueva de VO).** «Quédate hasta el final. Hay
+   una historia que lo resume todo.» (2,867 s, Piper ald-medium,
+   length_scale 0,75), empalmada en 13,224 s tras la pausa del giro, con
+   0,2 s de respiración después (`scripts/splice-open-loop.py`): solo se
+   sintetizó el fragmento nuevo y se igualó su RMS al de las líneas
+   vecinas (−3,08 dB); **Piper NO es determinista: nunca regenerar la VO
+   completa**. D = +3,067 s (+92 f). La VO pasa de 41,443 a 44,511 s.
+   Re-transcripción con `scripts/transcribe-vo.py` (12 fragmentos, 30
+   chunks, 132 palabras); la línea nueva es el índice 4 (chunks
+   (0,4,{0,3}) y (4,11,{6}); palabras clave QUÉDATE / FINAL. / HISTORIA).
+   Re-timing en `src/timeline.ts`: el beat del giro se alarga 44→136 f
+   (decisión de director: no había foto libre para un beat nuevo — los
+   `cn360-1..10.jpg` son placeholders); todos los beats desde la salida
+   se desplazan +92 f; el corte salida→número cae en «casi» según la
+   transcripción V1.2 (17,80 s = f534, salida de 45 f, número de 155 f);
+   BASTON_FRAME = 1186; TOTAL_FRAMES = 1439; CONTENT_END = 1349.
+   `project.json` durationInFrames = 1439. Copia de seguridad de la VO
+   V1.1 en `public/audio/vo-preview-v11.wav`.
+4. **Música remezclada (NO regenerada).** `scripts/remix-music-v12.py`:
+   A igual (0–13,27); B estirada con atempo 0,9122 (22,94→25,13 s,
+   ~9% más lenta, misma melodía aprobada) para cubrir 11,77–36,916;
+   C recortada a 9,15 s (35,416–44,57, crossfade centrado en Ernesto
+   como en V1.1); crossfades de 1,5 s; fade-out de 1 s; mezcla a
+   −16 LUFS exactos. Copia de seguridad en
+   `public/audio/music-ai-v11.wav`. El ducking se calcula desde
+   VO_LINES (actualizar `timeline.ts` basta).
+5. **SFX sintetizados.** `scripts/make-sfx-v12.py` (numpy, sin fuentes
+   externas): golpe seco/grave en el sello (4,42 s, seno 70→45 Hz +
+   click, −18 dBFS), whoosh en el whip (11,77 s, ruido con barrido de
+   banda 400→2500 Hz, 0,5 s, −20 dBFS) y riser antes de Ernesto
+   (34,17–35,97 s, seno 180→880 Hz + ruido, crescendo a −22 dBFS).
+   Pista única `public/audio/sfx.wav` (48 kHz estéreo, 44,97 s) como
+   Audio independiente en `Video.tsx`. La deriva del pipeline por
+   tramos (~+0,3 s al final) los desplaza igual que a la VO: el golpe
+   y el whoosh caen en los primeros 12 s (deriva < 0,1 s) y el riser
+   es gradual — no se pre-compensa. El disparo del sting no se toca.
+6. **Segunda ventana de video + CTA + 2 menores.**
+   - 5K: la tarjeta se divide — foto nocturna (local 0–38 f) y fundido
+     de 8 f a video real de Canal Caribe (`public/video/runners-5k.mp4`,
+     escena 6, 51,0–53,8 s: corredores bajo el arco de salida, 2,63 s,
+     solo video, sin audio). El video va en una Sequence anidada
+     (`layout="none"`) para que arranque en el local 38 y no se agote
+     el clip (2,77 s). La etiqueta cambia FOTO → VIDEO a mitad del
+     fundido. Sondeo de escenas: se revisaron 14 escenas del noticiero;
+     las demás eran presentador/reporter/entrevistas con rótulos, o
+     estudio/otros deportes. El recuadro de lengua de señas y el bug
+     «N» son parte de la emisión y ya estaban en la primera ventana
+     (V1); teleSUR sigue EXCLUIDO.
+   - CTA: «COMPARTE SI CREES QUE EL DEPORTE NO TIENE BLOQUEO» en texto
+     (Condensed 700, 40 px, COMPARTE en rojo), una línea en top 1440,
+     últimos 60 f del cierre, sin tocar la VO ni alargar la duración.
+   - Gancho: titular subido de top 300 a top 190 (no cruza el pelo de
+     la corredora en el fotograma 1).
+   - Copy: primera línea de STRATEGY.md §12 con el dato OFAC («EE. UU.
+     prohibió que sus corredores vinieran a Marabana.»).
+
+**Render V1.2:** `render-chunks.sh` con rangos nuevos (6 tramos de ~240 f:
+0-239, 240-479, 480-719, 720-959, 960-1199, 1200-1438) — borrar
+`out/chunks/` antes de re-renderizar. Mismo limiter −1,5 dBFS en la
+concatenación. Salida: `REEL_MARABANA_V1.2_ALBERTO_20261115_MASTER.mp4`
++ `…_LIGERO.mp4`.
+
+**QA V1.2 (verificado en el máster final, fotogramas exactos con
+`select`):** gancho f1 (titular subido, sin cruzar el pelo de la
+corredora); marca negra f40 sobre foto clara y f600 sobre fondo oscuro
+(legible en ambos; sobre fondo oscuro la placa se funde con la tinta
+pero la estrella y el texto blancos se leen perfectos); sello f133
+(golpe del SFX medido por correlación cruzada en 4,48 s, +0,05 s del
+objetivo 4,43 s); 5K f760 (segunda ventana de Canal Caribe en la
+tarjeta, etiqueta «VIDEO: CANAL CARIBE»); bastón f1210 («CON UN
+BASTÓN» resuelto + dorsal 5766); cierre f1300 (CTA en una línea, sin
+chocar con la tarjeta ni el karaoke); sting f1420 (logotipo blanco
+resuelto, sin halos ni rojo). Audio: −14,02 LUFS, true peak −1,76 dBTP
+(con el limiter a 0,79; con 0,84 medía −1,27 dBTP); disparo del sting
+en +0,63 s (objetivo +0,68 s, desviación de 1,5 f); whoosh medido en
+11,86 s (+0,09 s); riser en 34,39 s (+0,22 s, la deriva lineal del
+pipeline — imperceptible al ser gradual). Decodificación completa sin
+errores (máster y ligera). Duración de contenedor 48,234 s = 47,97 s
+de video + 0,27 s de padding AAC (mismo patrón que V1.1).
 
 ## V1.1 — correcciones de auditoría (15-nov-2026, ~17:00)
 

@@ -2,14 +2,64 @@
   "formatVersion": 1,
   "files": [
     {
+      "path": ".gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audio/music-ai.wav",
+      "bytes": 4278798,
+      "sha256": "26651e712ab8a305680165062ca058cd156a7ad7833de7614060ceb15c7a712d"
+    },
+    {
+      "path": "audio/music-sections/A-tensa.wav",
+      "bytes": 892204,
+      "sha256": "0786eb710a91c3c963bc39a1fb31be9e515535134b7420085c75c78178ce07c9"
+    },
+    {
+      "path": "audio/music-sections/B-energica.wav",
+      "bytes": 1468204,
+      "sha256": "a2e6d7b855458f5fe84d49dc8f2ff92589991484d474cc9744925404636bce97"
+    },
+    {
+      "path": "audio/music-sections/C-emotiva.wav",
+      "bytes": 636204,
+      "sha256": "e7bca1168a00d68a1885a30397f65e81ecec901e36441e92e7bca4c30fb39c34"
+    },
+    {
       "path": "audio/music.wav",
       "bytes": 7680164,
       "sha256": "96c599aaed03627f895139d498a3d2b4f6c38629c1efeeb084b805bcde82ea2f"
     },
     {
+      "path": "audio/sfx.wav",
+      "bytes": 8634284,
+      "sha256": "93a17bb69dae3b3ae0e004a3ae547882deda3655af7823d27e6b7afca3aa9c5d"
+    },
+    {
+      "path": "audio/sting-2x.wav",
+      "bytes": 575934,
+      "sha256": "c098345dc07b7a9c3fac0f15d9c119fd441931a488cdfff9e31bd7be32dd679d"
+    },
+    {
       "path": "audio/sting.wav",
       "bytes": 1151054,
       "sha256": "ef0f089a0168b7a553c75939351f08e55e0bc6129bfd3651b4452c4a42dc1785"
+    },
+    {
+      "path": "audio/vo-lines.json",
+      "bytes": 2228,
+      "sha256": "bb2b76fca5727fe217b523281f5313ed83879f92013962e77db296c71e9b8294"
+    },
+    {
+      "path": "audio/vo-preview.mp3",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audio/vo-preview.wav",
+      "bytes": 8546084,
+      "sha256": "7dbb9e16d25557a5176bc780b69abdbe49d6ba631aa538bbc1d82474238165e7"
     },
     {
       "path": "img/hero-vertical.jpg",
@@ -20,6 +70,11 @@
       "path": "img/hero.jpg",
       "bytes": 270908,
       "sha256": "723f68068e108be9c9812f35abf1feecf0aa852b3e4b4ab9f08a3d54e5f90dda"
+    },
+    {
+      "path": "img/logo-black.png",
+      "bytes": 131868,
+      "sha256": "a8f97b066f72b18d04202dbcb43bde0a6d9c413b58e9def8b1add43a76dfd697"
     },
     {
       "path": "img/logo-full.png",
@@ -77,9 +132,29 @@
       "sha256": "ac8ae4fbdc1bf207d6102a0bb008e2dd68ee056351b33ef89d0f45f55e76c081"
     },
     {
+      "path": "video/runners-5k.mp4",
+      "bytes": 689190,
+      "sha256": "5938a1df62d1de3230370a116f07deef83ac3eefc42168c1ea4f2df3d85b0cd5"
+    },
+    {
       "path": "video/start.mp4",
       "bytes": 896926,
       "sha256": "b5af0bd64f7dc79456b75cfa0eb7fd4dce2690f65584a04dc7eed2b94e7c32e0"
+    },
+    {
+      "path": "video/sting-2x.mp4",
+      "bytes": 95020,
+      "sha256": "d8a5bcd34193630e133f794198f841b4b375f8fa7705997c6c32acbd9e971a22"
+    },
+    {
+      "path": "video/sting-black-2x.mp4",
+      "bytes": 143650,
+      "sha256": "8e92c760c30dee7d15d2f640b31e78bdefb2e0fbf58e997020b68b54c465bed9"
+    },
+    {
+      "path": "video/sting-black.mp4",
+      "bytes": 313235,
+      "sha256": "b01d8d267c95447d58b13620d098475365d66af647e7d4274a0a05d924eed2dc"
     },
     {
       "path": "video/sting.mp4",
