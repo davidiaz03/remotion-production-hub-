@@ -137,3 +137,21 @@ borde blanco fino y sombra; etiquetas ILUSTRATIVA donde corresponda.
   incompleto respecto al guion escrito (incidencia conocida, sin regrabar).
 - Render largo en VM pequeña (1,5 CPU): si falla por memoria, bajar a
   --concurrency 1 o renderizar por tramos y unir con ffmpeg.
+
+## Lección de render (15-nov, verificada)
+El render completo en un solo pase MUERE por memoria de Chromium: con
+--concurrency 2 falla en el fotograma ~148 («Failed to fetch» del proxy de
+video); con --concurrency 1 llega al ~339 («Chrome ran out of memory»).
+Es crecimiento acumulativo de memoria, no un fotograma concreto (seg02.mp4
+decodifica limpio; el mismo rango 140–229 renderiza bien en un pase corto).
+**Solución que funcionó:** 9 tramos de ~251 fotogramas (concurrency 1,
+`render-chunks.sh`), cada uno con Chromium fresco, y concatenación con
+ffmpeg. OJO: cada tramo MP4 trae el audio 0,06 s más largo que el video
+(padding AAC), y el demuxer concat desplaza el siguiente tramo por la
+duración del contenedor → huecos de 0,06 s en los PTS de video y deriva A/V.
+Corrección: recortar el audio de cada tramo a su duración exacta de video
+(`atrim=end=N/30`) ANTES de concatenar; verificado: 2261 fotogramas, cadencia
+PTS perfecta (sin huecos), audio y video en sinc (perfil de energía
+verificado: el silencio 24,33–24,77 s entre bloques cae exactamente donde
+debe). El máster CRF 19 (105 MB) se re-codifica a CRF 23 para entrega
+(<60 MB, objetivo móvil).
