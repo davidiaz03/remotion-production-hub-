@@ -1,0 +1,125 @@
+{
+  "formatVersion": 1,
+  "files": [
+    {
+      "path": "audio/music.wav",
+      "bytes": 16320502,
+      "sha256": "0712f1c25a7f4ea7adaf16ac46b56e05d8d71c0cfdd59201404db3b0507899f7"
+    },
+    {
+      "path": "captions.json",
+      "bytes": 24007,
+      "sha256": "fe03daf7460f97a4273815c0c6366f9d29264fd07fcc79e0660a5d6adee2bf37"
+    },
+    {
+      "path": "img/bosch-retrato.jpg",
+      "bytes": 22072,
+      "sha256": "2c56a86aba93bf7b6ef8dd854c91cd80de260c23abcba100f38d4ec9c6bf419c"
+    },
+    {
+      "path": "img/carta-bomba.jpg",
+      "bytes": 51242,
+      "sha256": "b22dc4bf7a7baf66be65dd35c09443d0ce12f140b9919b35f0f7a1a6df3dc5d5"
+    },
+    {
+      "path": "img/embajada-lima.jpg",
+      "bytes": 241643,
+      "sha256": "9f0fa3eb1bb7bd2248321829d6f32bfaf58011150f6e2bac9c55e314a5049a46"
+    },
+    {
+      "path": "img/logo-star.png",
+      "bytes": 110691,
+      "sha256": "574693c6560fde268babdcf091e6a7630d56e37facda463bb4110e5db8a27327"
+    },
+    {
+      "path": "img/logo.png",
+      "bytes": 213053,
+      "sha256": "a6236f15736bc11c4741dc37f9cd2f676d3ab93a0b6705675f2d6c0bb73e1f50"
+    },
+    {
+      "path": "img/mapa-peru.png",
+      "bytes": 15472,
+      "sha256": "67667e3ffd08710aad901b41743d26fb71fb14ef37a866e9e57981e4ab54dd22"
+    },
+    {
+      "path": "img/pilar-cuadrado.jpg",
+      "bytes": 128275,
+      "sha256": "d870ea53e10d1053010232cf049b43af5180c8e80ecaaf09eb7c476e69287dd4"
+    },
+    {
+      "path": "img/pilar-gesto.jpg",
+      "bytes": 159902,
+      "sha256": "1b559ac4675267bb256ba94d76116221eaf42e16f9fee5d55e820925c1f4532f"
+    },
+    {
+      "path": "video/bosch_broll.mp4",
+      "bytes": 217997,
+      "sha256": "b3efcf0241bfbe4843e03d3cc681edef796921247505b3e49f3690380ef0ccdf"
+    },
+    {
+      "path": "video/sala_broll.mp4",
+      "bytes": 530294,
+      "sha256": "959245aad43f4cf6faeabe2818d32e40e8941bea864492ecee3fe73db312531f"
+    },
+    {
+      "path": "video/seg01.mp4",
+      "bytes": 4286489,
+      "sha256": "5af04408abde6238ae2506ef242a7b8562f9752748d8c24ca476d590affc81a1"
+    },
+    {
+      "path": "video/seg02.mp4",
+      "bytes": 7439076,
+      "sha256": "699d3addfb5503ddaede52dd4506059c554913c12a8a6cc07104b503c4875fe5"
+    },
+    {
+      "path": "video/seg03.mp4",
+      "bytes": 12640812,
+      "sha256": "07de4eeea871d2084f35fa35574c69d8cc895261579783a2bea903c3ce7c04bf"
+    },
+    {
+      "path": "video/seg04.mp4",
+      "bytes": 4131226,
+      "sha256": "12495b6062ea2570b5f29295f99173d2049338c21e32bcc2d2fac6802ddc3bb6"
+    },
+    {
+      "path": "video/seg05.mp4",
+      "bytes": 14226107,
+      "sha256": "6a761c974a6dad663abbc843847b851d87cabbeca3950a1320fc56fb5b7b37bd"
+    },
+    {
+      "path": "video/seg06.mp4",
+      "bytes": 4690027,
+      "sha256": "1f83e562bfde221bdf0ac7d94b63a4707c0b20f86e2068e46abb2626ef087ce0"
+    },
+    {
+      "path": "video/seg07.mp4",
+      "bytes": 6777059,
+      "sha256": "ebf0ff3d886c2deb5f24081266ac384a3decc293381e9dbe31eba54ef61dbcf7"
+    },
+    {
+      "path": "video/seg08.mp4",
+      "bytes": 7579640,
+      "sha256": "9b9cab0587e960511d8add46df83942a1cc41f57e2e848e01314521cb32085fa"
+    },
+    {
+      "path": "video/seg09.mp4",
+      "bytes": 9473506,
+      "sha256": "85020469e919588954f5529c3adcc900fc56926ac78a4885188fc775bcc81668"
+    },
+    {
+      "path": "video/seg10.mp4",
+      "bytes": 5362544,
+      "sha256": "d313d5fd383090632b7db0e29ea3bb75a076a71b6d21cfcfc9614a11fca3613d"
+    },
+    {
+      "path": "video/seg11.mp4",
+      "bytes": 7447393,
+      "sha256": "6d34addbfbebdf67f7f5706bb3da06a694164bbcae5e55819860842fb3b048e4"
+    },
+    {
+      "path": "video/seg12.mp4",
+      "bytes": 5086024,
+      "sha256": "53fdbd97e04763ca751684047b2c32e32297ad7a1267197aa35cab686706504e"
+    }
+  ]
+}

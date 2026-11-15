@@ -1,0 +1,14 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "pilar-v30",
+  "title": "Reel Pilar V30 — Libro bomba (Alberto)",
+  "objective": "Reel Pilar V30 — Libro bomba (Alberto)",
+  "phase": "rendering",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": ["Estrategia y CREATIVE_BRIEF.md", "12 segmentos conformados 1080x1920 CFR30", "Transcripción Whisper + captions.json (56 chunks, 197 palabras)", "Audio limpio DeepFilterNet + loudnorm -14 LUFS", "Composición Remotion (karaoke, punch-in, 12 beats visuales, B-roll, end card)", "Previews verificadas por frames (hook, seg03, testimonio, Bosch, end card)", "Corrección espaciado karaoke (pop con origen izquierdo)", "Carpeta Drive REEL_PILAR_V30_ALBERTO_20261115 creada (1jRoGxZ0fvIEa6I515VZeKvFvQWaqxcaG)", "Asset manifest verificado (24 archivos)"],
+  "pending": ["Render máster full 2261f (en curso)", "QA del máster (ffprobe, decodificación, frames, audio)", "Subida máster + EDIT_NOTES.md a Drive", "Subida máster a Muse storage", "Commit rama work/pilar-v30"],
+  "nextTask": "QA del máster y entrega (Drive + Muse storage)",
+  "updatedAt": "2026-11-15T17:12:23.375Z"
+}

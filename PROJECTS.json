@@ -15,6 +15,14 @@
       "latestSnapshot": null,
       "approvedRevision": null,
       "nextTask": "No exportar; mantener paquetes originales en Drive"
+    },
+    {
+      "id": "pilar-v30",
+      "title": "Reel Pilar V30 — Libro bomba (Alberto)",
+      "latestSnapshot": null,
+      "approvedRevision": null,
+      "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
+      "updatedAt": "2026-11-15T17:12:23.375Z"
     }
   ]
 }

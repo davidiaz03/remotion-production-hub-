@@ -1,0 +1,13 @@
+{
+  "id": "pilar-v30",
+  "title": "Reel Pilar V30 — Libro bomba (Alberto)",
+  "compositionId": "MainReel",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationInFrames": 2261,
+  "audioRequired": false,
+  "drivePath": "Remotion Production/projects/pilar-v30",
+  "assets": {"mode":"manifest", "manifest":"asset-manifest.json"},
+  "crf": 19
+}
