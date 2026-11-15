@@ -1,0 +1,14 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "marabana-v1",
+  "title": "Reel Marabana V1 — La carrera que el bloqueo no pudo parar",
+  "objective": "Reel Marabana V1 — La carrera que el bloqueo no pudo parar",
+  "phase": "editing",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [],
+  "pending": [],
+  "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
+  "updatedAt": "2026-11-15T19:33:27.319Z"
+}
