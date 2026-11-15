@@ -3,17 +3,20 @@ import {
   AbsoluteFill, Audio, Easing, Img, OffthreadVideo, Sequence, interpolate,
   spring, staticFile, useCurrentFrame, useVideoConfig,
 } from 'remotion';
-import {BASTON_FRAME, BEATS, COLORS, CONTENT_END, FPS, LOGO_FROM, LOGO_TO, STAMP_FRAME, VO_LINES} from './timeline';
+import {BASTON_FRAME, BEATS, COLORS, CONTENT_END, FPS, LOGO_FROM, LOGO_TO, STAMP_FRAME, STING_DUR, VO_LINES} from './timeline';
 import {CAPTIONS} from './captions';
 
-// REEL MARABANA V1 — «La carrera que el bloqueo no pudo parar»
+// REEL MARABANA V1.1 — «La carrera que el bloqueo no pudo parar»
 // Voz en off (Piper, previsualización) + karaoke palabra a palabra +
 // música original IA (MusicGen) con ducking bajo la voz.
-// Estrategia: STRATEGY.md. 1080x1920, 30 fps, 1425 fotogramas (47.5 s).
+// Estrategia: STRATEGY.md. 1080x1920, 30 fps, 1347 fotogramas (44.9 s).
 // La narración manda el ritmo: los beats siguen las líneas de la VO
 // (vo-lines.json). Los titulares que repetían la narración palabra por
 // palabra se eliminaron — quedan solo los rótulos con información nueva
 // (números, nombres, citas, datos) y el karaoke lleva el guion.
+// V1.1 (auditoría 15-nov-2026): gancho con el dato OFAC en el fotograma 1,
+// sting a 3 s (2x), ganadores sin vacío, sin rótulos duplicados,
+// «cuadragésima» en la VO.
 
 // ---------- helpers ----------
 
@@ -336,29 +339,59 @@ const MusicInner: React.FC = () => {
   return <Audio src={staticFile('audio/music-ai.wav')} volume={musicVolume(frame)} />;
 };
 
-const StingAudioInner: React.FC = () => <Audio src={staticFile('audio/sting.wav')} volume={1} />;
+const StingAudioInner: React.FC = () => <Audio src={staticFile('audio/sting-2x.wav')} volume={1} />;
 
 // ================================================================
-// BEAT 1 — GANCHO (0-2.90 s): foto héroe a pantalla completa.
-// La pregunta la hacen la VO y el karaoke; aquí solo la foto y el
-// contexto (fecha y lugar) en píldora.
+// BEAT 1 — GANCHO (0-2.90 s): foto héroe a pantalla completa + el dato
+// OFAC como rótulo grande desde el FOTOGRAMA 1 (V1.1, auditoría: el
+// gancho de V1 era solo la pregunta del karaoke, que tardaba 2,7 s en
+// leerse y no había cara en los primeros 3 s). El titular va FUERA del
+// fade de entrada del beat (opacidad 1 desde el frame 0; solo hereda el
+// fade de salida), para que se lea en el primer fotograma. La VO sigue
+// con la pregunta «¿Sabías que...?» como eco retórico. El rótulo va en
+// el tercio superior (cielo del amanecer), sin tapar al corredor ni
+// chocar con el karaoke inferior ni con la marca de agua (entra en f30).
 // ================================================================
 
 const HookInner: React.FC = () => {
   const frame = useCurrentFrame();
-  const opacity = useBeatFade(BEATS.hook.dur);
+  // Sin fade de ENTRADA: el gancho es el primer fotograma del reel (no hay
+  // nada desde lo que fundir) y la foto debe verse en el frame 0 junto al
+  // titular. Solo hereda el fade de salida hacia el beat 2.
+  const fadeOut = interpolate(frame, [BEATS.hook.dur, BEATS.hook.dur + 8], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   const pillIn = interpolate(frame, [55, 65], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const hookLines: Array<Array<{t: string; red?: boolean}>> = [
+    [{t: 'EE.UU.'}, {t: 'PROHIBIÓ', red: true}],
+    [{t: 'QUE SUS CORREDORES'}],
+    [{t: 'VINIERAN A MARABANA'}],
+  ];
   return (
-    <AbsoluteFill style={{opacity}}>
-      <KenBurnsImg src="img/hero-vertical.jpg" dur={BEATS.hook.dur} fromScale={1} toScale={1.09} origin="50% 62%" />
-      {/* scrims: arriba para la marca de agua, abajo para la píldora */}
-      <AbsoluteFill style={{background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.12) 30%, transparent 45%, transparent 82%, rgba(0,0,0,0.45) 100%)'}} />
-      <AbsoluteFill style={{alignItems: 'center', opacity: pillIn}}>
-        <div style={{position: 'absolute', top: 1700}}>
-          <Pill text="40ª MARABANA · LA HABANA · 15 NOV 2026" bg="rgba(10,14,17,0.85)" size={28} />
+    <>
+      <AbsoluteFill style={{opacity: fadeOut}}>
+        <KenBurnsImg src="img/hero-vertical.jpg" dur={BEATS.hook.dur} fromScale={1} toScale={1.09} origin="50% 62%" />
+        {/* scrims: arriba para el rótulo y la marca de agua, abajo para la píldora */}
+        <AbsoluteFill style={{background: 'linear-gradient(to bottom, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.35) 26%, rgba(0,0,0,0.08) 38%, transparent 48%, transparent 82%, rgba(0,0,0,0.45) 100%)'}} />
+        <AbsoluteFill style={{alignItems: 'center', opacity: pillIn}}>
+          <div style={{position: 'absolute', top: 1700}}>
+            <Pill text="40ª MARABANA · LA HABANA · 15 NOV 2026" bg="rgba(10,14,17,0.85)" size={28} />
+          </div>
+        </AbsoluteFill>
+      </AbsoluteFill>
+      {/* titular del gancho: visible desde el frame 0, solo fade de salida */}
+      <AbsoluteFill style={{alignItems: 'center', opacity: fadeOut}}>
+        <div style={{position: 'absolute', top: 300, marginLeft: 56, marginRight: 56, textAlign: 'center'}}>
+          {hookLines.map((line, li) => (
+            <div key={li} style={{fontFamily: ARCHIVO, fontSize: 62, lineHeight: 1.18, whiteSpace: 'nowrap'}}>
+              {line.map((w, wi) => (
+                <span key={wi} style={{color: w.red ? COLORS.red : '#fff', textShadow: outline(3)}}>
+                  {w.t}{wi < line.length - 1 ? ' ' : ''}
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </AbsoluteFill>
-    </AbsoluteFill>
+    </>
   );
 };
 
@@ -545,8 +578,10 @@ const ContrasteInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 4 — EL GIRO (11.77-13.22 s): whip + multitud + PERO A PESAR DE ELLO.
-// Beat corto de transición (44 f): todo entra rápido.
+// BEAT 4 — EL GIRO (11.77-13.22 s): whip + multitud. Beat corto de
+// transición (44 f): todo entra rápido. V1.1: sin el titular «PERO A
+// PESAR DE ELLO…» — el karaoke ya dice exactamente eso; la foto sube y
+// crece para llenar el cuadro (el whip + la foto + el karaoke bastan).
 // ================================================================
 
 const GiroInner: React.FC = () => {
@@ -558,17 +593,7 @@ const GiroInner: React.FC = () => {
   });
   return (
     <AbsoluteFill style={{opacity, transform: `scale(${whip})`}}>
-      <Headline
-        top={280}
-        size={74}
-        delay={2}
-        step={6}
-        lines={[
-          [{t: 'PERO A PESAR'}],
-          [{t: 'DE ELLO…', red: true}],
-        ]}
-      />
-      <EvidenceCard top={520} width={920} height={778} rotate={-1.5} label="FOTO: INDER / CUBADEBATE" delay={2}>
+      <EvidenceCard top={300} width={920} height={980} rotate={-1.5} label="FOTO: INDER / CUBADEBATE" delay={2}>
         <KenBurnsImg src="img/photo-1.jpg" dur={BEATS.giro.dur} fromScale={1} toScale={1.08} origin="50% 40%" />
       </EvidenceCard>
     </AbsoluteFill>
@@ -576,7 +601,7 @@ const GiroInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 5 — LA SALIDA (13.22-15.08 s): ventana de video real.
+// BEAT 5 — LA SALIDA (13.22-14.97 s): ventana de video real.
 // 55 fotogramas de arrancada; el corte cae en «tres» (VO L5).
 // ================================================================
 
@@ -637,7 +662,7 @@ const SalidaInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 6 — EL NÚMERO (15.08-19.33 s): count-up 3.000 + foto con estela.
+// BEAT 6 — EL NÚMERO (14.97-19.90 s): count-up 3.000 + foto con estela.
 // El count-up arranca con la palabra «tres» y resuelve mientras la VO
 // dice «tres mil corredores tomaron las calles».
 // ================================================================
@@ -679,7 +704,7 @@ const NumeroInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 7 — LA 5K (19.33-23.23 s): nombre oficial como rótulo.
+// BEAT 7 — LA 5K (19.90-23.80 s): nombre oficial como rótulo.
 // ================================================================
 
 const CincoKInner: React.FC = () => {
@@ -724,7 +749,7 @@ const CincoKInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 8 — LA VOZ (23.23-27.42 s): cita de Yuraldi Cava (AP).
+// BEAT 8 — LA VOZ (23.80-27.97 s): cita de Yuraldi Cava (AP).
 // La cita en pantalla es el overlay de evidencia; la VO la introduce.
 // ================================================================
 
@@ -758,9 +783,12 @@ const VozInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 9 — LOS GANADORES (27.42-32.35 s): tarjeta de datos.
+// BEAT 9 — LOS GANADORES (27.97-32.90 s): tarjeta de datos.
 // La VO solo dice apellidos; la tarjeta aporta los tiempos (dato nuevo).
-// Las filas de 21K entran con la segunda mitad de la frase (local ~78).
+// V1.1 (auditoría): las filas de 21K y la foto entran a los ~0,5 s del
+// beat (antes a los 2,6 s, dejando el cuadro medio vacío del 27,4 al
+// 30 s). Se pierde un poco la sincronía con la frase «Y en la media…»,
+// pero la tarjeta se ve sustancial desde el primer medio segundo.
 // ================================================================
 
 const GanadoresInner: React.FC = () => {
@@ -768,12 +796,11 @@ const GanadoresInner: React.FC = () => {
   const {fps} = useVideoConfig();
   const opacity = useBeatFade(BEATS.ganadores.dur);
   const cardIn = spring({frame: frame - 6, fps, config: {damping: 200, stiffness: 260, mass: 0.7}});
-  const row2 = interpolate(frame, [78, 86], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  // La sección 21K CRECE desde altura 0 (no solo aparece): así la tarjeta
-  // no queda medio vacía durante los primeros 2,6 s del beat.
-  const row2H = interpolate(frame, [78, 92], [0, 275], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const tagIn = interpolate(frame, [105, 113], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const noteIn = interpolate(frame, [118, 126], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const row2 = interpolate(frame, [15, 23], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  // La sección 21K CRECE desde altura 0 (no solo aparece).
+  const row2H = interpolate(frame, [15, 29], [0, 275], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const tagIn = interpolate(frame, [30, 38], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const noteIn = interpolate(frame, [40, 48], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{opacity}}>
       <Headline top={210} size={56} delay={0} lines={[[{t: 'LOS GANADORES'}]]} />
@@ -817,7 +844,7 @@ const GanadoresInner: React.FC = () => {
           </div>
         </div>
       </AbsoluteFill>
-      <EvidenceCard top={960} width={680} height={383} label="TAMERÓN Y LÓPEZ · LAS TUNAS · FOTO: TIEMPO21" delay={78}>
+      <EvidenceCard top={960} width={680} height={383} label="TAMERÓN Y LÓPEZ · LAS TUNAS · FOTO: TIEMPO21" delay={15}>
         <KenBurnsImg src="img/tunas.jpg" dur={BEATS.ganadores.dur} fromScale={1} toScale={1.07} origin="50% 30%" />
       </EvidenceCard>
       <AbsoluteFill style={{alignItems: 'center', opacity: noteIn}}>
@@ -830,15 +857,17 @@ const GanadoresInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 10 — ERNESTO (32.35-37.47 s): el pico emocional.
-// «COMPLETÓ LOS 10K» entra con la palabra «completó» (local ~47);
-// «CON UN BASTÓN» cae con la pausa dramática (abs 1077 = local 106).
+// BEAT 10 — ERNESTO (32.90-38.03 s): el pico emocional.
+// V1.1: sin el titular «COMPLETÓ LOS 10K» — el karaoke ya dice
+// «completó los diez kilómetros»; quedan el nombre, la foto, el remate
+// «CON UN BASTÓN» (con la pausa dramática, abs 1094 = local 107) y el
+// dorsal 5766.
 // ================================================================
 
 const ErnestoInner: React.FC = () => {
   const frame = useCurrentFrame();
   const opacity = useBeatFade(BEATS.ernesto.dur);
-  const BASTON_LOCAL = BASTON_FRAME - BEATS.ernesto.from; // 106
+  const BASTON_LOCAL = BASTON_FRAME - BEATS.ernesto.from; // 107
   const pillIn = interpolate(frame, [120, 128], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{opacity}}>
@@ -858,10 +887,9 @@ const ErnestoInner: React.FC = () => {
       <Headline
         top={1180}
         size={54}
-        delay={47}
-        step={BASTON_LOCAL - 47}
+        delay={BASTON_LOCAL}
+        step={1}
         lines={[
-          [{t: 'COMPLETÓ LOS'}, {t: '10K', red: true}],
           [{t: 'CON UN'}, {t: 'BASTÓN', red: true}],
         ]}
       />
@@ -875,7 +903,7 @@ const ErnestoInner: React.FC = () => {
 };
 
 // ================================================================
-// BEAT 11 — EL CIERRE (37.47-41.50 s): «HOY LA HABANA CORRIÓ.» en grande
+// BEAT 11 — EL CIERRE (38.03-41.90 s): «HOY LA HABANA CORRIÓ.» en grande
 // + foto de la meta. La segunda frase («Y cada paso fue una denuncia»)
 // la lleva el karaoke: no se duplica en titular.
 // ================================================================
@@ -902,7 +930,13 @@ const CierreInner: React.FC = () => {
 };
 
 // ================================================================
-// STING (41.50-47.50 s): cierre animado oficial «la del disparo»
+// STING (41.90-44.90 s): cierre animado oficial «la del disparo» A 2x
+// (V1.1, auditoría: el sting de 6 s lastraba la finalización y mataba
+// el loop). Decisión de director: acelerar 2x en vez de congelar el
+// fotograma final — se conserva la animación oficial, el disparo
+// (~0,65 s) y el logotipo completo, que resuelve a ~1,75 s y aguanta
+// ~1,25 s en pantalla. Activos pre-procesados: video/sting-2x.mp4 +
+// audio/sting-2x.wav (ffmpeg setpts/atempo, ver EDIT_NOTES.md).
 // ================================================================
 
 const StingInner: React.FC = () => {
@@ -910,7 +944,7 @@ const StingInner: React.FC = () => {
   const fadeIn = interpolate(frame, [0, 4], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill style={{background: '#000', opacity: fadeIn}}>
-      <OffthreadVideo src={staticFile('video/sting.mp4')} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+      <OffthreadVideo src={staticFile('video/sting-2x.mp4')} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
     </AbsoluteFill>
   );
 };
@@ -976,7 +1010,13 @@ export const MainReel: React.FC = () => {
       <Sequence from={0} durationInFrames={CONTENT_END} name="music">
         <MusicInner />
       </Sequence>
-      <Sequence from={CONTENT_END} durationInFrames={180} name="sting-audio">
+      {/* sting-audio: adelanto de 9 fotogramas (0,30 s) para compensar
+          la deriva de audio del pipeline por tramos (medida en el máster
+          V1.1: el disparo caía en sting +0,99 s en vez de +0,68 s; V1
+          tenía la misma deriva, +0,33 s). El audio del sting empieza con
+          ~0,65 s de silencio, así que el adelanto no mete sonido audible
+          en la cola del contenido. */}
+      <Sequence from={CONTENT_END - 9} durationInFrames={STING_DUR + 9} name="sting-audio">
         <StingAudioInner />
       </Sequence>
 

@@ -46,8 +46,8 @@ FRAGMENTS = [
     # L4 giro
     dict(words="Pero a pesar de ello…".split(),
          chunks=[(0, 5, {4})]),
-    # L5 3.000
-    dict(words="Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuarenta edición de Marabana.".split(),
+    # L5 3.000 (V1.1: "cuadragésima", no "cuarenta" — corrección de auditoría)
+    dict(words="Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuadragésima edición de Marabana.".split(),
          chunks=[(0, 4, {0}), (4, 8, {5, 6}), (8, 14, {10}), (14, 20, {19})]),
     # L6 5K
     dict(words="Y los cinco kilómetros se llamaron Carrera contra el Bloqueo y por la Paz.".split(),
@@ -72,7 +72,8 @@ FRAGMENTS = [
 # Whisper normaliza números a dígitos; el guion los tiene en palabras.
 NUM_MAP = {
     "21": "veintiuno", "14": "catorce", "3": "tres", "3000": "tres",
-    "3.000": "tres", "5": "cinco", "10": "diez", "40": "cuarenta",
+    "3.000": "tres", "5": "cinco", "10": "diez", "40": "cuadragesima",
+    "40a": "cuadragesima",  # "40ª" normaliza a "40a" (NFKD de ª es "a")
     "2012": "2012",
 }
 

@@ -1,7 +1,9 @@
-# STRATEGY.md — Reel Marabana V1
+# STRATEGY.md — Reel Marabana V1.1
 ## «La carrera que el bloqueo no pudo parar»
 **Memorial de la Denuncia · 40ª Marabana · 15 de noviembre de 2026**
-**Fecha de estrategia: 15-nov-2026 · Autor: Alberto · Estado: ESTRATEGIA CERRADA, producción a partir de aquí**
+**Fecha de estrategia: 15-nov-2026 · Autor: Alberto · Estado: V1.1 ENTREGADA (correcciones de auditoría aplicadas y en Drive)**
+
+**V1.1 — correcciones de auditoría (15-nov-2026, ~17:00, el usuario dijo «Aplica»):** gancho con el dato OFAC en el fotograma 1; sting a 3 s (2x); ganadores sin vacío; sin rótulos duplicados (giro y Ernesto); «cuadragésima» en la VO (línea 5 regenerada y empalmada, resto de la VO intacto); techo de true peak −1,5 dBTP en el máster. Duración total: 44,9 s (dentro del punto dulce 15–45 s). Detalle en §16 y EDIT_NOTES.md.
 
 **Cambios de dirección del usuario (15-nov-2026, incorporados):**
 1. **El reel SÍ lleva voz en off** (anula §2 y §11.6): guion natural y conversacional, VO de IA solo como previsualización (el usuario grabará la definitiva). La narración manda el ritmo: tabla maestra re-temporizada (§6) y subtítulos karaoke desde el audio real. Ver `VO_SCRIPT.md`.
@@ -46,7 +48,7 @@ Los datos propios del Memorial (handoff de referencias virales, Drive `1pa6IIqq6
 | Voz en off documental | **SÍ hay voz en off — pero natural y conversacional, no de documental** (cambio de dirección del usuario, 15-nov-2026). Guion coloquial en español (~40 s, 114 palabras), voz masculina. La VO de V1 es una previsualización con TTS (Piper, voz es_MX-ald-medium); el usuario grabará la definitiva con su propia voz y la pista es intercambiable (ver `VO_SCRIPT.md` y `EDIT_NOTES.md`). |
 | Subtítulos pequeños | **Karaoke palabra a palabra sincronizado con el audio real de la VO** (faster-whisper word_timestamps, como en Pilar V30): tipografía grande (Archivo Black, 52–60 px), palabra clave en **rojo #ED1C24**. Los titulares que repetían la narración palabra por palabra se eliminaron — quedan solo rótulos con información nueva (números, nombres, citas, datos). |
 | Nada estático >4 s | **Ningún beat dura más de 5,5 s** (el beat 2012, con el sello en medio, 5,53 s; Ernesto, el pico emocional, 5,12 s). Todo se mueve: Ken Burns en cada foto, count-up numérico, sello CANCELADO, ventana de video real, transiciones whip entre actos. |
-| Sin gancho de actualidad | Gancho en el segundo 0: una pregunta indignante + la carrera de HOY como respuesta. Noticia caliente, no historia fría. |
+| Sin gancho de actualidad | Gancho en el segundo 0: **el dato OFAC como rótulo grande desde el fotograma 1** («EE.UU. PROHIBIÓ QUE SUS CORREDORES VINIERAN A MARABANA», V1.1) + la pregunta de la VO como eco retórico + la carrera de HOY como respuesta. Noticia caliente, no historia fría. |
 
 **Principio rector:** este reel no intenta imitar a los virales con presentadora (imposible sin ella). Cambia de género: pasa de «presentadora que explica» a **«narración + karaoke + evidencia»**: una voz natural cuenta la historia, el karaoke la escribe en pantalla palabra por palabra (el lenguaje visual de los virales), las fotos la prueban y la música marca el pulso.
 
@@ -130,21 +132,22 @@ Fuente: Drive `1eWYHgyf8c6LQVXgrUAWCL87HIh8BLSPG` (PDF oficial, 11,4 MB).
 - **Tipografía corporativa: Amplitude** (neo-humanista, 35 estilos; comercial, NO disponible). Sustitutos de trabajo ya establecidos en Pilar V30: **Archivo Black** (display/titulares) + **Roboto Condensed** (apoyo/etiquetas).
 - **Fondo de trabajo:** tinta oscura #0A0E11 (negro azulado) con viñeta radial sutil — las fotos de 580 px no aguantan pantalla completa, así que el diseño es de **tarjetas de evidencia** sobre fondo oscuro (ver §7).
 - **Marca de agua — REGLA GENERAL DEL MEMORIAL (corrección del usuario, 15-nov-2026):** la marca es el **LOGOTIPO COMPLETO** (estrella roja + «MEMORIAL DE LA DENUNCIA»), nunca solo la estrella. Lockup vertical `logo-full.png` (573×907, transparencia real), esquina superior derecha, 130 px de ancho (~206 px de alto, letras legibles), opacidad 0,95, sombra suave para legibilidad sobre fotos claras; durante todo el contenido (f30–1245); se retira con fade antes del sting.
-- **Cierre:** animación oficial «la del disparo» (6 s, 720×1280, 24 fps) a pantalla completa al final. La marca de agua y el sting usan el MISMO logo oficial.
+- **Cierre:** animación oficial «la del disparo» (V1.1: 3 s a 2x, ver §9) a pantalla completa al final. La marca de agua y el sting usan el MISMO logo oficial.
 
 ---
 
 ## 6. ESTRUCTURA NARRATIVA — LA TABLA MAESTRA
 
-**Duración total: 47,5 s = 1.425 fotogramas a 30 fps** (41,5 s de contenido + 6 s de sting).
-**Re-timing 15-nov-2026: la voz en off manda el ritmo.** Los beats siguen las líneas de la VO (VO de previsualización: 40,89 s; `vo-lines.json`). El sello CANCELADO ya no es un beat propio: golpea DENTRO del beat 2012, en la palabra «canceló» (4,42 s). El corte salida → número cae en la palabra «tres» (15,08 s), para que el count-up arranque con el número que dice la voz.
+**Duración total V1.1: 44,9 s = 1.347 fotogramas a 30 fps** (41,90 s de contenido + 3 s de sting a 2x).
+**Re-timing 15-nov-2026: la voz en off manda el ritmo.** Los beats siguen las líneas de la VO (VO de previsualización: 41,44 s; `vo-lines.json`). El sello CANCELADO ya no es un beat propio: golpea DENTRO del beat 2012, en la palabra «canceló» (4,42 s). El corte salida → número cae en la palabra «casi» (14,98 s), para que el count-up arranque con el número que dice la voz.
+**V1.1:** la línea 5 cambió «cuarenta» → «cuadragésima» (+0,557 s): todos los beats desde la 5K en adelante se desplazan +17 fotogramas respecto a V1. El gancho lleva el dato OFAC como rótulo grande desde el fotograma 1 (auditoría).
 
 ### ACTO I — LA INDIGNACIÓN (0–11,77 s)
 El espectador aprende algo escandaloso en los primeros 5 segundos.
 
 | Beat | Tiempo | Visual | Rótulo (lo que NO dice la VO) | VO |
 |---|---|---|---|---|
-| 1. GANCHO | 0–2,90 s | Foto CN360 (corredora con la bandera CUBA en el Malecón al amanecer) a **pantalla completa**, push-in lento | Píldora «40ª MARABANA · LA HABANA · 15 NOV 2026» | L1 «¿Sabías que el bloqueo llegó hasta el maratón?» |
+| 1. GANCHO | 0–2,90 s | Foto CN360 (corredora con la bandera CUBA en el Malecón al amanecer) a **pantalla completa**, push-in lento | **V1.1: «EE.UU. PROHIBIÓ QUE SUS CORREDORES VINIERAN A MARABANA»** (PROHIBIÓ en rojo) desde el fotograma 1, sin animación de entrada + píldora «40ª MARABANA · LA HABANA · 15 NOV 2026» | L1 «¿Sabías que el bloqueo llegó hasta el maratón?» (eco retórico) |
 | 2. EL DATO | 2,90–8,43 s | «2012» gigante + gráfico vectorial (silueta de corredor + símbolo de prohibición) en tarjeta; **sello CANCELADO** golpea en «canceló» (4,42 s) y queda sobre la tarjeta | Nota OFAC (qué significa la sigla; la VO no la explica) | L2 «En 2012, la OFAC canceló el programa…» |
 | 3. EL CONTRASTE | 8,43–11,77 s | «21» gigante en rojo + línea de tiempo gráfica 2011 → 2012 (el nodo 2012 tachado) | «EN 2011,» + «21» + línea de tiempo | L3 «Un año antes, veintiuno habían corrido en La Habana.» |
 
@@ -153,23 +156,23 @@ La música cambia (entra la sección enérgica). Hoy, 14 años después, la carr
 
 | Beat | Tiempo | Visual | Rótulo | VO |
 |---|---|---|---|---|
-| 4. EL GIRO | 11,77–13,22 s | Whip transition → foto Cubadebate 1 (multitud + bandera cubana) en tarjeta grande | «PERO A PESAR DE ELLO…» | L4 «Pero a pesar de ello…» |
-| 5. LA SALIDA | 13,22–15,08 s | **Ventana de VIDEO REAL** (Canal Caribe, salida masiva bajo el arco rojo «Marabana CUBA») en marco estilo pegatina + píldoras 42K/21K/10K/5K | «40ª MARABANA» + fecha + etiqueta de la arrancada | L5 (inicio) «Hoy, catorce años después…» |
-| 6. EL NÚMERO | 15,08–19,33 s | Foto Cubadebate 4 (corredores en carrera, dorsal 870) con **estela motion blur** | «CASI **3.000** CORREDORES» — count-up 0→3.000 | L5 «…casi tres mil corredores tomaron las calles…» |
-| 7. LA 5K | 19,33–23,23 s | Foto Cubadebate 2 (grupo nocturno, camisetas «CUBA NO ESTÁ SOLA») | «5K · CARRERA CONTRA EL **BLOQUEO** Y POR LA PAZ» | L6 «Y los cinco kilómetros se llamaron…» |
-| 8. LA VOZ | 23,23–27,42 s | Foto Cubadebate 3 (grupo MINREX con carteles) | «“EL BLOQUEO ASFIXIA AL PUEBLO CUBANO”» + «— Yuraldi Cava, corredor · AP» | L7 «Como dijo el corredor Yuraldi Cava…» |
-| 9. LOS GANADORES | 27,42–32,35 s | Tarjeta de datos (crece: primero 42K, luego 21K con la frase) + foto Tiempo21 (Tamerón y López con medallas) | Tiempos (la VO solo dice apellidos): «ESTÉVEZ 2:25:31 · BACALLAO 2:45:41 · TAMERÓN 1:06:53 · LÓPEZ GUISAO 1:17:24» + «DOBLETE TUNERO EN 21K» | L8 «En el maratón ganaron Estévez y Bacallao. Y en la media, doblete de Las Tunas.» |
+| 4. EL GIRO | 11,77–13,22 s | Whip transition → foto Cubadebate 1 (multitud + bandera cubana) en tarjeta grande | — (V1.1: sin titular; el karaoke ya dice «Pero a pesar de ello…») | L4 «Pero a pesar de ello…» |
+| 5. LA SALIDA | 13,22–14,97 s | **Ventana de VIDEO REAL** (Canal Caribe, salida masiva bajo el arco rojo «Marabana CUBA») en marco estilo pegatina + píldoras 42K/21K/10K/5K | «40ª MARABANA» + fecha + etiqueta de la arrancada | L5 (inicio) «Hoy, catorce años después…» |
+| 6. EL NÚMERO | 14,97–19,90 s | Foto Cubadebate 4 (corredores en carrera, dorsal 870) con **estela motion blur** | «CASI **3.000** CORREDORES» — count-up 0→3.000 | L5 «…casi tres mil corredores tomaron las calles…» |
+| 7. LA 5K | 19,90–23,80 s | Foto Cubadebate 2 (grupo nocturno, camisetas «CUBA NO ESTÁ SOLA») | «5K · CARRERA CONTRA EL **BLOQUEO** Y POR LA PAZ» | L6 «Y los cinco kilómetros se llamaron…» |
+| 8. LA VOZ | 23,80–27,97 s | Foto Cubadebate 3 (grupo MINREX con carteles) | «“EL BLOQUEO ASFIXIA AL PUEBLO CUBANO”» + «— Yuraldi Cava, corredor · AP» | L7 «Como dijo el corredor Yuraldi Cava…» |
+| 9. LOS GANADORES | 27,97–32,90 s | Tarjeta de datos (42K + 21K desde ~0,5 s del beat, V1.1) + foto Tiempo21 (Tamerón y López con medallas) | Tiempos (la VO solo dice apellidos): «ESTÉVEZ 2:25:31 · BACALLAO 2:45:41 · TAMERÓN 1:06:53 · LÓPEZ GUISAO 1:17:24» + «DOBLETE TUNERO EN 21K» | L8 «En el maratón ganaron Estévez y Bacallao. Y en la media, doblete de Las Tunas.» |
 
 ### ACTO III — EL CORAZÓN (32,35–41,5 s)
 El pico emocional.
 
 | Beat | Tiempo | Visual | Rótulo | VO |
 |---|---|---|---|---|
-| 10. ERNESTO | 32,35–37,47 s | Foto Cubadebate 6 (Ernesto con bastón en el Malecón) en **tarjeta grande horizontal**, push-in lento hacia su rostro | «ERNESTO JAVIER CONSUEGRA» + «COMPLETÓ LOS **10K**» (con «completó», 33,9 s) + «CON UN **BASTÓN**» (con la pausa dramática, 35,90 s) + «DORSAL 5766» | L9 «Y Ernesto Javier Consuegra completó los diez kilómetros… con un bastón.» |
-| 11. EL CIERRE | 37,47–41,5 s | Foto Cubadebate 5 (meta con arco, celebrando en familia) | «HOY LA HABANA CORRIÓ.» (la segunda frase la lleva el karaoke, sin duplicar) | L10 «Hoy La Habana corrió. Y cada paso fue una denuncia.» |
+| 10. ERNESTO | 32,90–38,03 s | Foto Cubadebate 6 (Ernesto con bastón en el Malecón) en **tarjeta grande horizontal**, push-in lento hacia su rostro | «ERNESTO JAVIER CONSUEGRA» + «CON UN **BASTÓN**» (con la pausa dramática, 36,46 s) + «DORSAL 5766» (V1.1: sin «COMPLETÓ LOS 10K», el karaoke ya lo dice) | L9 «Y Ernesto Javier Consuegra completó los diez kilómetros… con un bastón.» |
+| 11. EL CIERRE | 38,03–41,90 s | Foto Cubadebate 5 (meta con arco, celebrando en familia) | «HOY LA HABANA CORRIÓ.» (la segunda frase la lleva el karaoke, sin duplicar) | L10 «Hoy La Habana corrió. Y cada paso fue una denuncia.» |
 
-### STING (41,5–47,5 s)
-Cierre animado oficial «la del disparo» a pantalla completa (escalado 720×1280 → 1080×1920). La música se retira con fade de 1 s y suena el audio del sting (disparo a ~1–2 s del sting).
+### STING (41,90–44,90 s)
+Cierre animado oficial «la del disparo» **a 2x** (V1.1: 3 s en vez de 6; el sting completo lastraba la finalización y mataba el loop). Disparo a ~0,65 s del sting, logotipo completo resuelto a ~1,75 s, ~1,25 s de aguante. La música se retira con fade de 1 s y suena el audio del sting.
 
 ### Decisiones de orden (por qué así)
 - **Los ganadores van ANTES de Ernesto, no después:** el dato va en el medio (Acto II, energía), la emoción cierra (Acto III). Poner cifras después de Ernesto desinflaría el final.
@@ -221,8 +224,8 @@ Cierre animado oficial «la del disparo» a pantalla completa (escalado 720×128
 
 ## 9. MARCA DE AGUA Y STING
 
-- **Marca de agua — REGLA GENERAL DEL MEMORIAL:** el logotipo COMPLETO (estrella roja + «MEMORIAL DE LA DENUNCIA»), nunca solo la estrella (corrección del usuario 15-nov-2026, tras ver el clip de previsualización). `img/logo-full.png`, esquina superior derecha, 130 px de ancho, opacidad 0,95, sombra suave (`drop-shadow(0 2px 6px rgba(0,0,0,0.55))`) para legibilidad sobre fotos claras, fotogramas 30–1245 (todo el contenido, aparece tras el gancho). Se retira con fade de 0,3 s antes del sting. Verificado en stills v4 (f70 sobre foto clara + f1200 sobre fondo oscuro): letras legibles, sin caja ni borde, sin tapar contenido.
-- **Sting:** `CIERRE_ANIMADO_OFICIAL_MEMORIAL.mp4` (6,0 s, 720×1280, 24 fps, H.264+AAC), fotogramas 1245–1424, escalado a 1080×1920. Su audio propio suena (es el disparo); la música ya se retiró.
+- **Marca de agua — REGLA GENERAL DEL MEMORIAL:** el logotipo COMPLETO (estrella roja + «MEMORIAL DE LA DENUNCIA»), nunca solo la estrella (corrección del usuario 15-nov-2026, tras ver el clip de previsualización). `img/logo-full.png`, esquina superior derecha, 130 px de ancho, opacidad 0,95, sombra suave (`drop-shadow(0 2px 6px rgba(0,0,0,0.55))`) para legibilidad sobre fotos claras, fotogramas 30–1257 (todo el contenido, aparece tras el gancho). Se retira con fade de 0,3 s antes del sting. Verificado en stills v4 (f70 sobre foto clara + f1200 sobre fondo oscuro): letras legibles, sin caja ni borde, sin tapar contenido.
+- **Sting (V1.1: 3 s a 2x):** `video/sting-2x.mp4` (3,08 s, 720×1280, 24 fps) + `audio/sting-2x.wav` (3,0 s), pre-procesados desde los originales de 6 s con ffmpeg (`setpts=0.5*PTS` / `atempo=2.0`). Fotogramas 1257–1346, escalado a 1080×1920. Disparo a ~0,65 s del sting; logotipo completo resuelto a ~1,75 s. Decisión de director (ver EDIT_NOTES.md): acelerar 2x en vez de congelar el fotograma final — se conserva la animación oficial y el disparo. Los originales de 6 s (`sting.mp4` / `sting.wav`) se conservan en `public/`.
 - Ambas piezas usan el **mismo logo oficial** (estrella roja con impacto de bala + «MEMORIAL DE LA DENUNCIA»).
 
 ---
@@ -291,9 +294,9 @@ Foto 6 verificada contra la descripción del post de El Necio (Facebook): gorro 
 
 ## 13. PRODUCCIÓN — NOTAS TÉCNICAS
 
-- **Proyecto:** `projects/marabana-v1/` (rama `work/marabana-v1`), composición MainReel, 1080×1920, 30 fps, 1.425 fotogramas, CRF 19.
-- **Render por tramos** (lección de V30: el render en un solo pase muere por OOM de Chromium): 6 tramos de ~238 fotogramas, concatenación con ffmpeg recodificando el audio (evita huecos por padding AAC). Patrón: `projects/pilar-v30/render-chunks.sh`. Salida: máster `REEL_MARABANA_V1_ALBERTO_20261115_MASTER.mp4` + versión ligera `REEL_MARABANA_V1_ALBERTO_20261115_LIGERO.mp4` (720p, un solo paso de ffmpeg desde el máster).
-- **Voz en off:** Piper TTS local (voz es_MX-ald-medium, length_scale 0,75), sintetizada línea por línea con silencios exactos en los puntos dramáticos (`scripts/gen-vo-piper.py`); normalizada a −14 LUFS, 48 kHz (`scripts/prep-vo.sh`); transcrita con faster-whisper word_timestamps y alineada al guion (`scripts/transcribe-vo.py` → `src/captions.ts`, 28 chunks, 119 palabras). edge-tts era la primera opción pero su WebSocket no responde de forma utilizable desde este entorno (ver `VO_SCRIPT.md`).
+- **Proyecto:** `projects/marabana-v1/` (rama `work/marabana-v1`), composición MainReel, 1080×1920, 30 fps, **1.347 fotogramas (V1.1; V1: 1.425)**, CRF 19.
+- **Render por tramos** (lección de V30: el render en un solo pase muere por OOM de Chromium): 6 tramos de ~225 fotogramas, concatenación con ffmpeg recodificando el audio (evita huecos por padding AAC) **+ limiter `alimiter=limit=0.84` (techo ≈ −1,5 dBFS, V1.1: el máster V1 medía +1,31 dBTP)**. Patrón: `projects/pilar-v30/render-chunks.sh`. Salida: máster `REEL_MARABANA_V1.1_ALBERTO_20261115_MASTER.mp4` + versión ligera `REEL_MARABANA_V1.1_ALBERTO_20261115_LIGERO.mp4` (720p, un solo paso de ffmpeg desde el máster). Los archivos V1 se conservan en `out/` y en Drive (no se borran).
+- **Voz en off:** Piper TTS local (voz es_MX-ald-medium, length_scale 0,75), sintetizada línea por línea con silencios exactos en los puntos dramáticos (`scripts/gen-vo-piper.py`); normalizada a −14 LUFS, 48 kHz (`scripts/prep-vo.sh`); transcrita con faster-whisper word_timestamps y alineada al guion (`scripts/transcribe-vo.py` → `src/captions.ts`, 28 chunks, 119 palabras). edge-tts era la primera opción pero su WebSocket no responde de forma utilizable desde este entorno (ver `VO_SCRIPT.md`). **V1.1: solo se regeneró la línea 5** («cuadragésima»); Piper NO es determinista entre ejecuciones (las demás líneas variaban ±0,2 s al regenerar), así que la línea nueva se empalmó en el WAV de V1 con ganancia igualada por RMS (−1,69 dB) y el resto de la VO quedó intacto (ver EDIT_NOTES.md).
 - **Música:** MusicGen-small vía transformers, 3 secciones + crossfades + −16 LUFS (`scripts/gen-music.py`).
 - **Pre-procesado de assets (Python/ffmpeg):**
   - Estrella recortada de la marca de agua (bounding box de píxeles opacos en la mitad superior del PNG) — `logo-star.png` quedó SIN USO como marca de agua tras la corrección del usuario (la marca es el logotipo completo, `logo-full.png`, que se usa directo); se conserva en `public/img/` por si hace falta el imagotipo en otro contexto.
@@ -308,12 +311,13 @@ Foto 6 verificada contra la descripción del post de El Necio (Facebook): gorro 
 ## 14. QUÉ NECESITA EL OJO DEL USUARIO (antes de publicar)
 
 1. **La voz de previsualización (Piper):** ¿el ritmo y el tono venden la narración? Es un placeholder: la grabación del usuario la sustituye (ver EDIT_NOTES.md). ¿Alguna frase suena forzada en el guion?
-2. **La música generada con IA:** ¿las tres secciones suenan coherentes? ¿El cambio en el giro (11,77 s) y en Ernesto (32,35 s) se siente natural? ¿La mezcla (música a 0,25 bajo la voz) deja oír bien la narración?
+2. **La música generada con IA:** ¿las tres secciones suenan coherentes? ¿El cambio en el giro (11,77 s) y en Ernesto (32,90 s) se siente natural? ¿La mezcla (música a 0,25 bajo la voz) deja oír bien la narración?
 3. **El sello CANCELADO** golpeando en la palabra «canceló» (4,42 s): ¿funciona como interrupción o distrae?
 4. **La cita de Yuraldi Cava:** ¿entra bien como «voz» del reel o sobra texto?
 5. **La tarjeta de ganadores:** ¿aporta como producto informativo completo o diluye el mensaje de denuncia?
 6. **El gráfico vectorial del beat 2 (IA):** ¿se lee claramente como gráfico o parece foto falsa?
 7. **Ernesto:** ¿el push-in hacia su rostro es respetuoso y emocionante, o demasiado invasivo? ¿El remate «CON UN BASTÓN» con la pausa dramática funciona?
+8. **V1.1 — el gancho nuevo:** ¿el rótulo «EE.UU. PROHIBIÓ…» desde el fotograma 1 vende mejor que la pregunta sola? ¿El sting a 3 s se siente apresurado o ágil?
 
 ---
 
@@ -339,3 +343,5 @@ Foto 6 verificada contra la descripción del post de El Necio (Facebook): gorro 
 | ~15:46 | Música original generada con IA, no Flow (anula §8 original) | Evitar cualquier problema de derechos de autor | MusicGen-small en 3 secciones (§8); Flow queda como fallback |
 | ~16:00 | Entrega en DOS versiones (máster + ligera) | El máster para archivo/publicación; la ligera para descargar rápido y previsualizar sin gastar datos | `render-chunks.sh` genera `…_MASTER.mp4` (CRF 19, 1080×1920) y `…_LIGERO.mp4` (720p, un paso desde el máster); ambas en la carpeta de Drive |
 | ~16:27 | Marca de agua = LOGOTIPO COMPLETO (anula la estrella sola) | El usuario lo vio en el clip de previsualización y lo pidió explícitamente; es regla general del Memorial | `Video.tsx` usa `logo-full.png` (130 px, esquina superior derecha, sombra suave); verificado en 2 stills v4 (f70 foto clara + f1200 fondo oscuro); `logo-star.png` queda sin uso |
+| ~17:00 | **V1.1 — correcciones de auditoría** (el usuario dijo «Aplica») | Auditoría contra reels modernos: el gancho tardaba 2,7 s en leerse y no había cara en los primeros 3 s; el sting de 6 s lastraba la finalización; la tarjeta de ganadores quedaba medio vacía 2,6 s; dos rótulos duplicaban el karaoke; «cuarenta» por «cuadragésima»; true peak +1,31 dBTP | Gancho con «EE.UU. PROHIBIÓ…» desde el frame 1 (sin fade de entrada en el beat); sting a 3 s (2x, decisión documentada en EDIT_NOTES.md); ganadores con 21K + foto a ~0,5 s; sin titulares en giro ni «COMPLETÓ LOS 10K» en Ernesto; línea 5 de la VO regenerada y empalmada (+0,557 s, re-timing desde la 5K); limiter −1,5 dBFS en la concatenación; duración total 44,9 s |
+| ~17:15 | **V1.1 — sincronía del disparo (QA del render final)** | El pipeline por tramos deriva el audio +0,31 s al final del vídeo (V1 tenía la misma deriva, +0,33 s): el disparo caía en sting +0,99 s en vez de +0,68 s | Audio del sting adelantado 9 fotogramas (0,30 s) en `Video.tsx` (la Sequence `sting-audio` arranca en `CONTENT_END − 9`); re-render solo del tramo 6 + re-concatenación. Disparo verificado en el máster final: sting +0,69 s. La VO deriva igual (karaoke adelanta hasta ~0,3 s al final) — tolerable, V1 se entregó así |

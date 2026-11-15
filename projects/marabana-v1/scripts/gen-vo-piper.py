@@ -65,7 +65,7 @@ FRAGMENTS = [
     ("En 2012, la O.F.A.C. canceló el programa que traía corredores de Estados Unidos a Marabana.", 0.20),
     ("Un año antes, veintiuno habían corrido en La Habana.", 0.20),
     ("Pero a pesar de ello…", 0.45),
-    ("Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuarenta edición de Marabana.", 0.20),
+    ("Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuadragésima edición de Marabana.", 0.20),
     ("Y los cinco kilómetros se llamaron Carrera contra el Bloqueo y por la Paz.", 0.20),
     ("Como dijo el corredor Yuraldi Cava: El bloqueo asfixia al pueblo cubano.", 0.20),
     ("En el maratón ganaron Estévez y Bacallao. Y en la media, doblete de Las Tunas.", 0.20),

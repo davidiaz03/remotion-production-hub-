@@ -21,7 +21,7 @@ es SOLO una previsualización: el usuario grabará la definitiva con su propia v
 | 2 | En 2012, la OFAC canceló el programa que traía corredores de Estados Unidos a Marabana. | 2 Dato 2012 |
 | 3 | Un año antes, veintiuno habían corrido en La Habana. | 4 Contraste (el sello cae al final de la línea 2) |
 | 4 | Pero a pesar de ello… | 5 Giro |
-| 5 | Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuarenta edición de Marabana. | 6 Salida + 7 Número (el corte 6→7 cae en «casi») |
+| 5 | Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuadragésima edición de Marabana. | 6 Salida + 7 Número (el corte 6→7 cae en «casi») |
 | 6 | Y los cinco kilómetros se llamaron Carrera contra el Bloqueo y por la Paz. | 8 La 5K |
 | 7 | Como dijo el corredor Yuraldi Cava: «El bloqueo asfixia al pueblo cubano». | 9 La voz |
 | 8 | En el maratón ganaron Estévez y Bacallao. Y en la media, doblete de Las Tunas. | 10 Ganadores |
@@ -34,7 +34,7 @@ es SOLO una previsualización: el usuario grabará la definitiva con su propia v
 > En 2012, la OFAC canceló el programa que traía corredores de Estados Unidos a Marabana.
 > Un año antes, veintiuno habían corrido en La Habana.
 > Pero a pesar de ello…
-> Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuarenta edición de Marabana.
+> Hoy, catorce años después, casi tres mil corredores tomaron las calles de La Habana en la cuadragésima edición de Marabana.
 > Y los cinco kilómetros se llamaron Carrera contra el Bloqueo y por la Paz.
 > Como dijo el corredor Yuraldi Cava: «El bloqueo asfixia al pueblo cubano».
 > En el maratón ganaron Estévez y Bacallao. Y en la media, doblete de Las Tunas.
