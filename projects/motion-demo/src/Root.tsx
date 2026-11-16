@@ -5,6 +5,7 @@ import {MainReel} from './Video';
 import {TransitionsTest} from './TransitionsTest';
 import {TransitionsShowcase} from './TransitionsShowcase';
 import {ComponentsTest} from './ComponentsTest';
+import {ExtrasTest} from './ExtrasTest';
 export const Root = () => (
   <>
     <Composition
@@ -38,6 +39,14 @@ export const Root = () => (
       height={1920}
       fps={30}
       durationInFrames={75}
+    />
+    <Composition
+      id="ExtrasTest"
+      component={ExtrasTest}
+      width={540}
+      height={960}
+      fps={30}
+      durationInFrames={90}
     />
   </>
 );
