@@ -15,6 +15,16 @@
  * `milestones`: [{at, phase, event, artifacts[]}] — registro
  * cronológico de cada hito.
  *
+ * Campos de nivel superior `phase` / `nextTask`: LEGADO (esquema v1).
+ * Pertenecen al flujo editorial de aprobación (operate.mjs /
+ * revisions.mjs: editing → review → approved) y SOLO ese flujo los
+ * mantiene. En proyectos con pipeline NO se sincronizan con
+ * `pipeline.phases` (serían dos escritores con dos ejes distintos) y
+ * un agente en frío debe IGNORARLOS: la fuente de verdad es el
+ * pipeline. `resume.mjs` y `state.mjs show` ya no los muestran en
+ * proyectos con pipeline; solo en STATE.json v1 puro (sin pipeline),
+ * donde son la única señal que existe.
+ *
  * Uso desde Node:
  *   import {recordMilestone, updateRender, setPhase} from './state.mjs';
  *   recordMilestone(ROOT, 'mi-reel', 'vo', 'VO de previsualización generada',
@@ -113,6 +123,21 @@ export function loadState(root, slug) {
 	const state = JSON.parse(readFileSync(p, 'utf8'));
 	ensurePipeline(state);
 	return state;
+}
+
+/** True si el STATE.json en disco ya trae pipeline (sin migrar en memoria). */
+export function hasPipeline(root, slug) {
+	try {
+		const raw = JSON.parse(readFileSync(statePath(root, slug), 'utf8'));
+		return Boolean(raw.pipeline && raw.pipeline.phases);
+	} catch {
+		return false;
+	}
+}
+
+/** Fase actual del pipeline: primera no terminada, o null si todas están en done. */
+export function currentPhase(state) {
+	return PHASES.find((p) => state.pipeline.phases[p].status !== 'done') ?? null;
 }
 
 export function saveState(root, slug, state) {
@@ -288,7 +313,19 @@ if (isMain) {
 			console.log(JSON.stringify(state, null, 2));
 		} else {
 			console.log(`${state.id} — ${state.title}`);
-			console.log(`fase editorial: ${state.phase} · actualizado: ${state.updatedAt}`);
+			// phase/nextTask de nivel superior son legado editorial:
+			// en proyectos con pipeline se muestra la fase actual
+			// del pipeline, no el valor obsoleto.
+			if (hasPipeline(root, slug)) {
+				const cur = currentPhase(state);
+				console.log(
+					`fase actual (pipeline): ${cur ? PHASE_LABELS[cur] : 'completo'} · actualizado: ${state.updatedAt}`,
+				);
+			} else {
+				console.log(
+					`fase editorial (legado, sin pipeline): ${state.phase} · actualizado: ${state.updatedAt}`,
+				);
+			}
 			for (const p of PHASES) {
 				const s = state.pipeline.phases[p];
 				const extra =

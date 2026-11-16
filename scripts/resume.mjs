@@ -15,12 +15,15 @@
  *
  * STATE.json sin pipeline (proyectos viejos, esquema v1 puro): cae
  * al modo legado y muestra fase editorial, pendientes y nextTask.
+ * En proyectos CON pipeline, los campos de nivel superior
+ * `phase`/`nextTask` son legado editorial (ver state.mjs) y NO se
+ * muestran: la fase actual se deriva del pipeline.
  */
 import {existsSync, readFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {ROOT, parseArgs} from './lib.mjs';
-import {PHASES, PHASE_LABELS, loadState, projectHome, statePath} from './state.mjs';
+import {PHASES, PHASE_LABELS, currentPhase, hasPipeline, loadState, projectHome} from './state.mjs';
 
 const VENV_PY = '~/workspace/remotion-hub/.venv/bin/python';
 const STT_PY = '~/workspace/.stt-env/bin/python';
@@ -138,15 +141,6 @@ export function nextStep(root, slug, state) {
 	}
 }
 
-function hasPipeline(root, slug) {
-	try {
-		const raw = JSON.parse(readFileSync(statePath(root, slug), 'utf8'));
-		return Boolean(raw.pipeline && raw.pipeline.phases);
-	} catch {
-		return false;
-	}
-}
-
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
 	const {pos, opts} = parseArgs(process.argv.slice(2));
@@ -170,7 +164,9 @@ if (isMain) {
 				{
 					project: slug,
 					title: state.title,
-					phase: state.phase,
+					// En modo pipeline, `phase` es la fase actual del
+					// pipeline (no el campo editorial legado, obsoleto).
+					phase: legacy ? state.phase : step.phase,
 					updatedAt: state.updatedAt,
 					legacy,
 					phases: legacy ? null : state.pipeline.phases,
@@ -188,7 +184,14 @@ if (isMain) {
 	}
 
 	console.log(`RESUME ${slug} — ${state.title}`);
-	console.log(`fase editorial: ${state.phase} · actualizado: ${state.updatedAt}`);
+	if (legacy) {
+		console.log(`fase editorial: ${state.phase} · actualizado: ${state.updatedAt}`);
+	} else {
+		const cur = currentPhase(state);
+		console.log(
+			`fase actual (pipeline): ${cur ? PHASE_LABELS[cur] : 'completo'} · actualizado: ${state.updatedAt}`,
+		);
+	}
 	if (legacy) {
 		console.log('⚠ STATE.json sin pipeline (v1 puro). Estado editorial:');
 		console.log(`  próxima tarea: ${state.nextTask || '(sin registrar)'}`);

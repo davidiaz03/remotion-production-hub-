@@ -362,6 +362,28 @@ test('checkpoint: commitea con el mensaje esperado y sin cambios no commitea', (
 	}
 });
 
+test('resume: en modo pipeline no muestra la fase editorial obsoleta (phase/nextTask son legado)', () => {
+	const root = fixtureRoot();
+	try {
+		// El fixture trae phase:'editing' obsoleto con el pipeline ya
+		// en render: un agente en frío no debe ver 'editing'.
+		setPhase(root, ID, 'render', 'in_progress');
+		const r = runNode(root, 'resume.mjs', [ID, '--root', root]);
+		assert.equal(r.status, 0, r.stderr);
+		assert.doesNotMatch(r.stdout, /fase editorial/);
+		assert.match(r.stdout, /fase actual \(pipeline\): Render por tramos/);
+		const j = JSON.parse(runNode(root, 'resume.mjs', [ID, '--json', '--root', root]).stdout);
+		assert.equal(j.phase, 'render');
+		// state.mjs show: igual, fase del pipeline, no la editorial.
+		const s = runNode(root, 'state.mjs', [ID, 'show', '--root', root]);
+		assert.equal(s.status, 0, s.stderr);
+		assert.match(s.stdout, /fase actual \(pipeline\): Render por tramos/);
+		assert.doesNotMatch(s.stdout, /fase editorial/);
+	} finally {
+		rmSync(root, {recursive: true, force: true});
+	}
+});
+
 test('resume: proyecto completo no pide ningún comando', () => {
 	const root = fixtureRoot();
 	try {
