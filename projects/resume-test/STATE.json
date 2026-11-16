@@ -1,0 +1,134 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "resume-test",
+  "title": "Prueba de reanudacion en frio",
+  "objective": "Prueba de reanudacion en frio",
+  "phase": "editing",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [],
+  "pending": [],
+  "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
+  "updatedAt": "2026-11-16T10:52:14.252Z",
+  "pipeline": {
+    "phases": {
+      "assets": {
+        "status": "done",
+        "startedAt": "2026-11-16T10:52:08.922Z",
+        "updatedAt": "2026-11-16T10:52:08.922Z",
+        "artifacts": [],
+        "note": "Simulacro de reanudacion: motion-reel sin fotos ni video"
+      },
+      "vo": {
+        "status": "done",
+        "startedAt": "2026-11-16T10:52:09.148Z",
+        "updatedAt": "2026-11-16T10:52:09.148Z",
+        "artifacts": [],
+        "note": "Simulacro: sin voz en off"
+      },
+      "captions": {
+        "status": "done",
+        "startedAt": "2026-11-16T10:52:09.535Z",
+        "updatedAt": "2026-11-16T10:52:09.535Z",
+        "artifacts": [],
+        "note": "Simulacro: sin subtitulos"
+      },
+      "mix": {
+        "status": "done",
+        "startedAt": "2026-11-16T10:52:09.820Z",
+        "updatedAt": "2026-11-16T10:52:09.820Z",
+        "artifacts": [],
+        "note": "Simulacro: sin audio"
+      },
+      "render": {
+        "status": "in_progress",
+        "startedAt": "2026-11-16T10:46:45.350Z",
+        "updatedAt": "2026-11-16T10:52:14.252Z",
+        "artifacts": [],
+        "note": "Simulacro parte 1: render interrumpido a mitad (2/5 tramos, 40%). NO reanudar: lo hace el agente de simulacro en frio.",
+        "chunks": {
+          "total": 5,
+          "done": 2,
+          "completed": [
+            "out/chunks/chunk_01.mp4",
+            "out/chunks/chunk_02.mp4"
+          ],
+          "framesDone": 120,
+          "framesTotal": 300,
+          "percent": 40,
+          "chunkSize": 60,
+          "resumeCommand": "node scripts/render-chunks.mjs resume-test --frames 0-299 --chunk 60 --resume"
+        }
+      },
+      "qa": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-16T10:43:03.751Z",
+        "phase": "assets",
+        "event": "Proyecto de prueba: sin assets externos (motion puro)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-16T10:43:04.146Z",
+        "phase": "vo",
+        "event": "Sin VO en este proyecto de prueba",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-16T10:43:04.620Z",
+        "phase": "captions",
+        "event": "Sin karaoke en este proyecto de prueba",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-16T10:43:05.027Z",
+        "phase": "mix",
+        "event": "Sin mezcla en este proyecto de prueba",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-16T10:46:45.350Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-299 en 5 tramos de 60",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-16T10:50:10.922Z",
+        "phase": "render",
+        "event": "Tramo 1/5 verificado (chunk_01.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_01.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-16T10:51:37.892Z",
+        "phase": "render",
+        "event": "Tramo 2/5 verificado (chunk_02.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_02.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-16T10:52:14.252Z",
+        "phase": "render",
+        "event": "checkpoint render 2026-11-16T10:52:14.235Z",
+        "artifacts": []
+      }
+    ]
+  }
+}
