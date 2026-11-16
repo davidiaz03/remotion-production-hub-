@@ -1,0 +1,266 @@
+#!/usr/bin/env python3
+"""Mezcla compartida del hub: VO + música (con ducking) + SFX opcionales
+-> WAV 48 kHz con sonoridad controlada, medido sobre el resultado.
+
+Adapta modules/mix_audio.py del Studio (ducking sidechain + loudnorm) con
+tres cambios:
+
+1) CALIBRACIÓN REAL: el objetivo final por defecto es I=-14.5 LUFS
+   (no el -16 teórico del Studio). Los másteres reales miden: Marabana
+   V1.3 -14,28 LUFS, V1.2 -14,02 LUFS, referente Maxi Rubio -14,33 LUFS.
+   Un objetivo de -16 dejaría los reels ~1,5 LUFS por debajo de nuestros
+   mejores másteres. El gate de QA (scripts/qa-media.mjs) acepta
+   [-16,5, -12,0] LUFS.
+2) Música por secciones: --section ARCHIVO@INICIO@FIN (repetible) con
+   crossfades, o un único --music ya mezclado (p. ej. la salida de
+   gen-music.py o una pista de Flow Music).
+3) SFX opcionales: --sfx ARCHIVO@SEGUNDO (repetible); los SFX NO se
+   duckean (son acentos) y entran a pleno nivel en su punto de sincronía.
+
+Cadena (ffmpeg, dos pases: mezcla en filter_complex + normalización de
+duración en cadena de una sola entrada — ver nota en el código):
+  VO:    aresample 48k -> highpass 70 Hz -> loudnorm I=-18 TP=-2 LRA=9
+         -> asplit (mezcla + sidechain)
+  música: aresample 48k -> volume 0.32 -> [sidechaincompress bajo la VO:
+         threshold 0.018, ratio 7, attack 20 ms, release 420 ms]
+  mezcla: amix (VO + música duckeada + SFX) -> alimiter 0.89
+         -> loudnorm I=-14.5 TP=-1.5 LRA=8 -> WAV 48 kHz s16le
+
+Salida: WAV + informe JSON (LUFS/TP medidos con ebur128, SHA256 de
+entradas y salida, comando ffmpeg). Por defecto se niega a sobrescribir
+(como el Studio); --force lo permite.
+
+Uso:
+  .venv/bin/python scripts/audio/mix.py --voice public/audio/vo.wav \\
+      --music public/audio/music-ai.wav --seconds 47.97 \\
+      --out public/audio/mix.wav
+  .venv/bin/python scripts/audio/mix.py --voice vo.wav \\
+      --section A.wav@0@13.27 --section B.wav@11.77@36.9 \\
+      --sfx sting.wav@44.9 --seconds 48 --out mix.wav --report mix.json
+"""
+import argparse
+import hashlib
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+
+# Objetivos calibrados con los másteres reales (ver cabecera).
+DEFAULT_TARGET_LUFS = -14.5
+DEFAULT_TARGET_TP = -1.5
+DEFAULT_TARGET_LRA = 8
+DEFAULT_VOICE_LUFS = -18.0
+DEFAULT_MUSIC_VOLUME = 0.32
+DEFAULT_XFADE = 1.5  # s, crossfade entre secciones de música
+DEFAULT_LIMITER = 0.89
+
+
+def sha256(path: str) -> str:
+    return hashlib.sha256(open(path, "rb").read()).hexdigest()
+
+
+def parse_section(spec: str) -> tuple[str, float, float]:
+    """ARCHIVO@INICIO@FIN (segundos)."""
+    try:
+        path, start, end = spec.rsplit("@", 2)
+        return path, float(start), float(end)
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            f"sección inválida {spec!r}: formato ARCHIVO@INICIO@FIN"
+        )
+
+
+def parse_sfx(spec: str) -> tuple[str, float]:
+    """ARCHIVO@SEGUNDO."""
+    try:
+        path, at = spec.rsplit("@", 1)
+        return path, float(at)
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            f"SFX inválido {spec!r}: formato ARCHIVO@SEGUNDO"
+        )
+
+
+def ebur128(path: str) -> tuple[float, float]:
+    """(LUFS integrados, true peak dBTP) medidos con ebur128."""
+    out = subprocess.run(
+        ["ffmpeg", "-hide_banner", "-nostats", "-i", path,
+         "-af", "ebur128=peak=true", "-f", "null", "-"],
+        capture_output=True, text=True, check=True, timeout=120,
+    ).stderr
+    summary = out[out.rfind("Summary:"):]
+    def val(key: str) -> float:
+        m = re.search(key + r"\s*:\s*([-+]?[\d.]+)", summary)
+        if not m:
+            raise RuntimeError(f"ebur128: no se encontró {key} en {path}")
+        return float(m.group(1))
+    return val("I"), val("Peak")
+
+
+def main() -> int:
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--voice", required=True, help="VO (WAV)")
+    p.add_argument("--music", help="Música ya mezclada (un solo archivo)")
+    p.add_argument("--section", action="append", default=[],
+                   type=parse_section,
+                   help="Sección de música ARCHIVO@INICIO@FIN (repetible)")
+    p.add_argument("--sfx", action="append", default=[], type=parse_sfx,
+                   help="SFX ARCHIVO@SEGUNDO (repetible, sin ducking)")
+    p.add_argument("--seconds", type=float, required=True,
+                   help="Duración de la mezcla en segundos")
+    p.add_argument("--out", required=True, help="WAV de salida (48 kHz)")
+    p.add_argument("--report", help="Informe JSON (por defecto <out>.json)")
+    p.add_argument("--target-lufs", type=float, default=DEFAULT_TARGET_LUFS)
+    p.add_argument("--target-tp", type=float, default=DEFAULT_TARGET_TP)
+    p.add_argument("--target-lra", type=float, default=DEFAULT_TARGET_LRA)
+    p.add_argument("--voice-lufs", type=float, default=DEFAULT_VOICE_LUFS)
+    p.add_argument("--music-volume", type=float, default=DEFAULT_MUSIC_VOLUME)
+    p.add_argument("--xfade", type=float, default=DEFAULT_XFADE,
+                   help="Crossfade entre secciones (s)")
+    p.add_argument("--end-fade", type=float, default=0.0,
+                   help="Fade-out al final de la última sección (s, 0 = ninguno)")
+    p.add_argument("--limiter", type=float, default=DEFAULT_LIMITER)
+    p.add_argument("--force", action="store_true",
+                   help="Sobrescribir salida e informe si existen")
+    a = p.parse_args()
+
+    if a.music and a.section:
+        p.error("--music y --section son excluyentes")
+    if not a.music and not a.section:
+        p.error("falta la música: --music o al menos un --section")
+    if a.seconds < 2 or a.seconds > 1800:
+        p.error("seconds fuera de rango (2-1800)")
+    for f in [a.voice, a.music] + [s[0] for s in a.section] + [s[0] for s in a.sfx]:
+        if f and not os.path.isfile(f):
+            p.error(f"falta el archivo {f}")
+    report = a.report or (a.out + ".json")
+    if not a.force and (os.path.exists(a.out) or os.path.exists(report)):
+        p.error("la salida ya existe; usa --force para sobrescribir")
+
+    t0 = time.perf_counter()
+    inputs = ["-i", a.voice]
+    filt = []
+    # NOTA: apad lleva whole_dur={seconds} (no apad solo): sin whole_dur,
+    # apad deja de rellenar ~89 ms antes del final (propagación de EOF del
+    # grafo tras loudnorm; verificado 15-nov-2026). El atrim posterior
+    # recorta las entradas más largas que --seconds.
+    # VO (entrada 0): limpieza + nivel + split para el sidechain.
+    filt.append(
+        f"[0:a]aresample=48000,highpass=f=70,"
+        f"loudnorm=I={a.voice_lufs}:TP=-2:LRA=9,"
+        f"apad=whole_dur={a.seconds},atrim=0:{a.seconds},asplit=2[v][side]"
+    )
+    # Música: índice 1..N según secciones o archivo único.
+    idx = 1
+    music_labels = []
+    if a.music:
+        inputs += ["-i", a.music]
+        filt.append(
+            f"[{idx}:a]aresample=48000,volume={a.music_volume},"
+            f"apad=whole_dur={a.seconds},atrim=0:{a.seconds}[m]"
+        )
+        music_labels.append("m")
+        idx += 1
+    else:
+        for j, (path, start, end) in enumerate(a.section):
+            inputs += ["-i", path]
+            label = f"sec{j}"
+            # adelay al inicio + fades en los bordes (crossfade de xfade s
+            # con la sección vecina). La primera sección no tiene fade-in
+            # y la última no tiene fade-out.
+            chain = f"[{idx}:a]aresample=48000,adelay={int(start * 1000)}"
+            if start > 0:
+                chain += f",afade=t=in:st={start}:d={a.xfade}"
+            if j < len(a.section) - 1:
+                chain += f",afade=t=out:st={end - a.xfade}:d={a.xfade}"
+            elif a.end_fade > 0:
+                chain += f",afade=t=out:st={end - a.end_fade}:d={a.end_fade}"
+            chain += f",apad=whole_dur={a.seconds},atrim=0:{a.seconds}[{label}]"
+            filt.append(chain)
+            music_labels.append(label)
+            idx += 1
+        if len(music_labels) > 1:
+            joined = "".join(f"[{lb}]" for lb in music_labels)
+            filt.append(
+                f"{joined}amix=inputs={len(music_labels)}:duration=first:normalize=0,"
+                f"volume={a.music_volume}[m]"
+            )
+        else:
+            filt.append(f"[{music_labels[0]}]volume={a.music_volume}[m]")
+    # Ducking de la música bajo la VO (Studio: threshold 0.018, ratio 7).
+    filt.append(
+        "[m][side]sidechaincompress=threshold=0.018:ratio=7:"
+        "attack=20:release=420[duck]"
+    )
+    # SFX: adelay a su punto de sincronía, sin ducking.
+    sfx_labels = []
+    for j, (path, at) in enumerate(a.sfx):
+        inputs += ["-i", path]
+        label = f"sfx{j}"
+        filt.append(
+            f"[{idx}:a]aresample=48000,adelay={int(at * 1000)},"
+            f"apad=whole_dur={a.seconds},atrim=0:{a.seconds}[{label}]"
+        )
+        sfx_labels.append(label)
+        idx += 1
+    # Mezcla final: VO + música duckeada + SFX -> limiter -> loudnorm.
+    mix_inputs = "[v][duck]" + "".join(f"[{lb}]" for lb in sfx_labels)
+    n_mix = 2 + len(sfx_labels)
+    filt.append(
+        f"{mix_inputs}amix=inputs={n_mix}:duration=first:normalize=0,"
+        f"alimiter=limit={a.limiter},atrim=0:{a.seconds},"
+        f"loudnorm=I={a.target_lufs}:TP={a.target_tp}:LRA={a.target_lra},"
+        f"apad=whole_dur={a.seconds},atrim=0:{a.seconds}[mix]"
+    )
+    filt_str = ";".join(filt)
+    os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
+    tmp_out = a.out + ".tmp.wav"
+    cmd = ["ffmpeg", "-y", "-hide_banner", "-v", "error", "-nostdin", *inputs,
+           "-filter_complex", filt_str, "-map", "[mix]",
+           "-c:a", "pcm_s16le", tmp_out]
+    subprocess.run(cmd, check=True, timeout=600)
+    # Segundo pase — normalización de duración (cadena de UNA sola
+    # entrada): dentro del filter_complex multi-entrada, apad=whole_dur
+    # no alcanza la duración exacta (~89 ms corto: el grafo termina al
+    # agotarse las entradas y la cola de silencio de apad no se consume
+    # entera). En una cadena de una sola entrada es exacto (verificado
+    # 15-nov-2026). PCM->PCM: sin pérdida, solo añade silencio al final.
+    subprocess.run(["ffmpeg", "-y", "-hide_banner", "-v", "error", "-nostdin",
+                    "-i", tmp_out, "-af",
+                    f"apad=whole_dur={a.seconds},atrim=0:{a.seconds}",
+                    "-c:a", "pcm_s16le", a.out],
+                   check=True, timeout=600)
+    os.remove(tmp_out)
+
+    lufs, tp = ebur128(a.out)
+    dur = float(json.loads(subprocess.check_output(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "json", a.out]))["format"]["duration"])
+    res = {
+        "status": "PASS_REAL",
+        "mix_seconds": a.seconds,
+        "duration_observed": dur,
+        "integrated_lufs": lufs,
+        "true_peak_dbtp": tp,
+        "target_lufs": a.target_lufs,
+        "target_tp": a.target_tp,
+        "voice_sha256": sha256(a.voice),
+        "music_sha256": [sha256(s[0]) for s in a.section] if a.section
+                        else sha256(a.music),
+        "sfx_sha256": [sha256(s[0]) for s in a.sfx],
+        "output_sha256": sha256(a.out),
+        "elapsed_seconds": round(time.perf_counter() - t0, 3),
+        "command": cmd,
+        "editorial_listening": "PENDING",
+    }
+    os.makedirs(os.path.dirname(os.path.abspath(report)), exist_ok=True)
+    with open(report, "w", encoding="utf-8") as f:
+        json.dump(res, f, indent=2, ensure_ascii=False)
+    print(json.dumps({k: v for k, v in res.items() if k != "command"}, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
