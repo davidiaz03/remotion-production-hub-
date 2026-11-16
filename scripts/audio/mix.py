@@ -30,6 +30,12 @@ Salida: WAV + informe JSON (LUFS/TP medidos con ebur128, SHA256 de
 entradas y salida, comando ffmpeg). Por defecto se niega a sobrescribir
 (como el Studio); --force lo permite.
 
+Si la mezcla sale en silencio digital (VO y música silenciosas), NO se
+aborta: se escribe el WAV y el informe con ``silent: true``,
+``status: PASS_SILENT`` e ``integrated_lufs``/``true_peak_dbtp`` en
+null, y un aviso por stderr. (Antes, ebur128() lanzaba RuntimeError al
+no encontrar el pico "-inf" y el informe no se escribía.)
+
 Uso:
   .venv/bin/python scripts/audio/mix.py --voice public/audio/vo.wav \\
       --music public/audio/music-ai.wav --seconds 47.97 \\
@@ -84,7 +90,13 @@ def parse_sfx(spec: str) -> tuple[str, float]:
 
 
 def ebur128(path: str) -> tuple[float, float]:
-    """(LUFS integrados, true peak dBTP) medidos con ebur128."""
+    """(LUFS integrados, true peak dBTP) medidos con ebur128.
+
+    En silencio digital, ffmpeg imprime ``Peak: -inf dBFS`` (y la I
+    queda en el suelo de medida, -70,0 LUFS): se devuelve
+    ``float('-inf')`` para el pico en vez de lanzar RuntimeError; el
+    llamador decide cómo registrarlo (ver ``main``).
+    """
     out = subprocess.run(
         ["ffmpeg", "-hide_banner", "-nostats", "-i", path,
          "-af", "ebur128=peak=true", "-f", "null", "-"],
@@ -92,7 +104,7 @@ def ebur128(path: str) -> tuple[float, float]:
     ).stderr
     summary = out[out.rfind("Summary:"):]
     def val(key: str) -> float:
-        m = re.search(key + r"\s*:\s*([-+]?[\d.]+)", summary)
+        m = re.search(key + r"\s*:\s*(-inf|[-+]?[\d.]+)", summary)
         if not m:
             raise RuntimeError(f"ebur128: no se encontró {key} en {path}")
         return float(m.group(1))
@@ -235,15 +247,27 @@ def main() -> int:
     os.remove(tmp_out)
 
     lufs, tp = ebur128(a.out)
+    # Silencio digital: ebur128 devuelve Peak=-inf y la I queda en el
+    # suelo de medida (-70,0 LUFS), que no es una medida real. La mezcla
+    # es un WAV válido (p. ej. un tramo sin VO ni música todavía), así
+    # que NO se aborta: se escribe el informe con LUFS/TP en null y el
+    # aviso explícito, y se sale con código 0. Antes de este fix,
+    # ebur128() lanzaba RuntimeError y no se escribía el informe.
+    silent = tp == float("-inf")
+    if silent:
+        print("AVISO: la mezcla es silencio digital (VO y música en "
+              "silencio); LUFS/TP sin medida. Se escribe el WAV y el "
+              "informe con silent=true.", file=sys.stderr)
     dur = float(json.loads(subprocess.check_output(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
          "-of", "json", a.out]))["format"]["duration"])
     res = {
-        "status": "PASS_REAL",
+        "status": "PASS_SILENT" if silent else "PASS_REAL",
+        "silent": silent,
         "mix_seconds": a.seconds,
         "duration_observed": dur,
-        "integrated_lufs": lufs,
-        "true_peak_dbtp": tp,
+        "integrated_lufs": None if silent else lufs,
+        "true_peak_dbtp": None if silent else tp,
         "target_lufs": a.target_lufs,
         "target_tp": a.target_tp,
         "voice_sha256": sha256(a.voice),

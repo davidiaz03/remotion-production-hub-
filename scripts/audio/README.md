@@ -37,6 +37,14 @@ sobre el ritmo, antes de fijar la escaleta.
 | `beats.py` | **Detección de beats/onsets (Fase B, R16):** aubio 0.4.9 → JSON con BPM, beats y onsets en segundos y en fotogramas (`--fps 30`). Coloca cortes y transiciones sobre el ritmo de la música. Ojo: recorta los beats fantasma de los WAV de Flow (la carátula mjpeg confunde a aubio, +5 s). |
 | `transcribe-vo.py` | Alinea faster-whisper word_timestamps con el guion → `captions.ts` (formato CapSegment) y, con `--out-json`, HubCaption[] para `shared/captions`. |
 
+## Casos límite
+
+- **Mezcla en silencio** (`mix.py`): si VO y música son silencio
+  digital, la mezcla sale en silencio y ebur128 no puede medir pico
+  (`Peak: -inf`). No se aborta: se escribe el WAV y el informe con
+  `silent: true`, `status: PASS_SILENT` y LUFS/TP en `null`, más un
+  aviso por stderr. Cubierto por `tests/audio-mix.test.mjs`.
+
 ## Calibración (datos reales, no teoría)
 
 - **Objetivo de mezcla**: −14,5 LUFS / TP −1,5 dBTP. Los másteres reales
