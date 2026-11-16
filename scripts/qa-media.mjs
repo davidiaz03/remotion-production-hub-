@@ -38,8 +38,14 @@ const blackIntervals=[...black.stderr.matchAll(/black_start:([\d.]+) black_end:(
 const duration=Number(obj.format?.duration||0);
 const expectedDurationSeconds=expectedFrames/data.fps;
 const durationDriftSeconds=Math.abs(duration-expectedDurationSeconds);
-if(!Number.isFinite(duration)||duration<=0||durationDriftSeconds>2/data.fps)
- failures.push(`Duration ${duration}s differs from expected ${expectedDurationSeconds}s by more than 2 frames`);
+// Tolerancia 0,5 s (no 2 fotogramas): la duración del contenedor deriva
+// en másteres reales — V1.3: +0,227 s, descompuesto en estiramiento de
+// timestamps del video por concatenación por tramos (+0,213 s: último pts
+// 48,147 en vez de 47,933) + priming AAC (~0,014 s: el audio se extiende
+// 48,194 frente a 48,18 del video). El recuento exacto de fotogramas ya
+// detecta renders truncados; esta comprobación es solo cordura.
+if(!Number.isFinite(duration)||duration<=0||durationDriftSeconds>0.5)
+ failures.push(`Duration ${duration}s differs from expected ${expectedDurationSeconds}s by more than 0.5s`);
 // Gate de sonoridad (solo modo full: en un rango de fotogramas la sonoridad
 // no significa nada). Calibrado con másteres REALES, no con el -16 teórico:
 // V1.3 -14,28 LUFS / -1,99 dBTP; V1.2 -14,02 / -1,76; referente Maxi Rubio
