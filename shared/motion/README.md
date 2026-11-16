@@ -100,7 +100,9 @@ Las ilustraciones las genera una IA con un **style prompt BLOQUEADO** que se
 repite palabra por palabra en cada imagen (sin bloqueo, cada imagen sale de
 un estilo distinto). Una ilustración por línea de guion, literal a la VO;
 fondo transparente o recortable para el look flotante (si la herramienta no
-da alfa, recorta con `@imgly/background-removal-node`, ONNX local). El
+da alfa, recorta con `tools/bg-remove.py` — rembg, MIT, ONNX local; NO usar
+`@imgly/background-removal-node`: AGPL-3.0, prohibido por la política del
+hub). El
 código las anima: flotar, parallax (`ParallaxStill`), escala con spring,
 brillo. Plantilla y reglas completas en la skill `motion_graphics_reels`.
 
