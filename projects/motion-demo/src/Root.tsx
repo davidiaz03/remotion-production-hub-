@@ -46,7 +46,7 @@ export const Root = () => (
       width={540}
       height={960}
       fps={30}
-      durationInFrames={120}
+      durationInFrames={150}
     />
   </>
 );

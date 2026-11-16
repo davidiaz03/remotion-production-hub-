@@ -1,9 +1,10 @@
 import React from 'react';
-import {AbsoluteFill, Sequence, interpolate, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Sequence, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {CameraMotionBlur} from '@remotion/motion-blur';
+import {Flag, Heart, MapPin, Shield, Trophy} from 'lucide-react';
 import {GlowStage, LottieSticker, MOTION_COLORS} from '../../../shared/motion';
 
-// PRUEBA de los extras de la Fase B — 120 fotogramas (4 s), 540×960.
+// PRUEBA de los extras de la Fase B — 150 fotogramas (5 s), 540×960.
 // Escena 1 (f0–89): iconos Lottie curados sobre GlowStage tinta:
 //   - checkmark (f0, una pasada, 45 f): check que se dibuja, blanco.
 //   - notification-v4 (f30, bucle 60 f): campana que suena, blanca.
@@ -12,8 +13,10 @@ import {GlowStage, LottieSticker, MOTION_COLORS} from '../../../shared/motion';
 //   pantalla en 30 f a la misma velocidad: la superior con
 //   <CameraMotionBlur samples={4}>, la inferior sin blur. En el still
 //   de f105 la superior debe verse como estela y la inferior nítida.
-// Stills de QA: f20, f50, f80 (lottie), f105 (blur A/B).
-// Verificado 15-nov-2026 (Fase B, R7 + R9).
+// Escena 3 (f120–149): iconos Lucide (Trophy, MapPin, Shield, Flag,
+//   Heart) con pop en cascada por spring. Still de QA: f140.
+// Stills de QA: f20, f50, f80 (lottie), f105 (blur A/B), f140 (lucide).
+// Verificado 15-nov-2026 (Fase B, R7 + R9 + R10).
 
 const WhipBar: React.FC<{color: string; top: number}> = ({color, top}) => {
 	const frame = useCurrentFrame();
@@ -33,6 +36,51 @@ const WhipBar: React.FC<{color: string; top: number}> = ({color, top}) => {
 				borderRadius: 12,
 			}}
 		/>
+	);
+};
+
+const LUCIDE_ICONS = [
+	{Icon: Trophy, label: 'Trophy'},
+	{Icon: MapPin, label: 'MapPin'},
+	{Icon: Shield, label: 'Shield'},
+	{Icon: Flag, label: 'Flag'},
+	{Icon: Heart, label: 'Heart'},
+];
+
+const LucideRow: React.FC = () => {
+	const frame = useCurrentFrame();
+	const {fps} = useVideoConfig();
+	return (
+		<div
+			style={{
+				position: 'absolute',
+				top: 400,
+				left: 0,
+				right: 0,
+				display: 'flex',
+				justifyContent: 'center',
+				gap: 28,
+			}}
+		>
+			{LUCIDE_ICONS.map(({Icon, label}, i) => {
+				const scale = spring({
+					frame: frame - i * 3,
+					fps,
+					config: {damping: 12, stiffness: 200},
+				});
+				return (
+					<div
+						key={label}
+						style={{
+							transform: `scale(${scale})`,
+							color: i === 2 ? MOTION_COLORS.green : '#FFFFFF',
+						}}
+					>
+						<Icon size={72} strokeWidth={2} />
+					</div>
+				);
+			})}
+		</div>
 	);
 };
 
@@ -65,6 +113,9 @@ export const ExtrasTest: React.FC = () => {
 					<WhipBar color={MOTION_COLORS.red} top={380} />
 				</CameraMotionBlur>
 				<WhipBar color="#FFFFFF" top={520} />
+			</Sequence>
+			<Sequence from={120} durationInFrames={30} name="lucide">
+				<LucideRow />
 			</Sequence>
 		</AbsoluteFill>
 	);
