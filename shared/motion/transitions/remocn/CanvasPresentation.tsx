@@ -7,6 +7,14 @@
  * `@/` (reescritos a importaciones relativas); el resto del código es
  * el del artefacto original. Instalado manualmente desde la caché local
  * `_sources/remocn/` (equivalente a `npx shadcn@latest add @remocn/canvas-presentation`).
+ *
+ * CORRECCIÓN LOCAL (15-nov-2026, auditoría R1): Chromium 158 (Remotion
+ * 4.0.543) exige que el canvas de layout tenga el atributo
+ * `content="drawable"` y que el hijo a capturar tenga el atributo
+ * `drawable`; sin eso, `captureElementImage` lanza InvalidStateError y
+ * toda la secuencia entrante falla (verificado: fotogramas 305-449 de
+ * motion-demo). Mismo patrón que `@remotion/transitions`
+ * (html-in-canvas-presentation.js).
  */
 import type {
   TransitionPresentation,
@@ -447,6 +455,29 @@ function makeCanvasComponent<Props extends Record<string, unknown>>(
       if (!layout) {
         return;
       }
+      // Chromium 158+: captureElementImage exige content="drawable" en el
+      // canvas y drawable en el hijo (ver cabecera del archivo). Sin
+      // deps: corre en cada render para cubrir hijos nuevos.
+      if (layout.getAttribute("content") !== "drawable") {
+        layout.setAttribute("content", "drawable");
+      }
+      if (layout.layoutSubtree !== true) {
+        layout.layoutSubtree = true;
+      }
+      const firstChild = layout.firstElementChild;
+      if (firstChild && !firstChild.hasAttribute("drawable")) {
+        firstChild.setAttribute("drawable", "");
+      }
+    });
+
+    React.useLayoutEffect(() => {
+      if (passThrough) {
+        return;
+      }
+      const layout = layoutRef.current;
+      if (!layout) {
+        return;
+      }
       layout.layoutSubtree = true;
       const handlePaint = () => {
         const scene = layout.firstElementChild;
@@ -576,6 +607,26 @@ function makeFilterComponent<Props extends Record<string, unknown>>(
         outputSurfaceRef.current = null;
       };
     }, [shader]);
+
+    // Chromium 158+: captureElementImage exige content="drawable" en el
+    // canvas y drawable en el hijo (ver cabecera del archivo). Sin deps:
+    // corre en cada render para cubrir hijos nuevos.
+    React.useLayoutEffect(() => {
+      const layout = layoutRef.current;
+      if (!layout) {
+        return;
+      }
+      if (layout.getAttribute("content") !== "drawable") {
+        layout.setAttribute("content", "drawable");
+      }
+      if (layout.layoutSubtree !== true) {
+        layout.layoutSubtree = true;
+      }
+      const firstChild = layout.firstElementChild;
+      if (firstChild && !firstChild.hasAttribute("drawable")) {
+        firstChild.setAttribute("drawable", "");
+      }
+    });
 
     React.useLayoutEffect(() => {
       const layout = layoutRef.current;

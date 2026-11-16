@@ -59,6 +59,22 @@ Reglas de `<TransitionSeries>` (verificadas por stills, 15-nov-2026):
 - Duración recomendada: 10–15 fotogramas. Una transición por corte.
 - `@remotion/light-leaks` se evaluó y se DESCARTÓ (deprecado en 4.0.530,
   no es una presentación de TransitionSeries). No instalarlo.
+- **Las transiciones por canvas (WebGL) solo muestran su efecto si la
+  escena saliente fue capturada** — es decir, si su transición de ENTRADA
+  también es por canvas (o es la primera secuencia). El mecanismo:
+  `TransitionSeries` hace pasar de largo (`passThrough`) la presentación
+  saliente cuando la secuencia también tiene transición entrante, y la
+  captura de la escena saliente la hace su presentación entrante; si esa
+  es DOM (`fade`, `slide`, `waveWipe`…), la escena saliente nunca se
+  captura y el shader degrada a mostrar la escena entrante limpia — un
+  corte duro, sin error. Verificado 15-nov-2026 en `TransitionsShowcase`
+  (Remotion 4.0.543): `emberBurn` y `filmBurn` tras transición DOM =
+  corte limpio; `zoomBlur` tras `filmBurn` (canvas) = efecto visible;
+  `drawIfSynced` idéntico entre 4.0.530 y 4.0.543 (no es regresión de la
+  actualización). Regla práctica: **encadena canvas tras canvas**
+  (`filmBurn` → `zoomBlur`) o usa una transición DOM si el corte anterior
+  es DOM. Afecta a: `dissolve`, `crosswarp`, `filmBurn`, `ripple`,
+  `zoomBlur`, `emberBurn`.
 
 ## SFX (`sfx/`)
 
