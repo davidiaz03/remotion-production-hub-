@@ -23,10 +23,6 @@
     // Ejemplos vendados de skills (.agents/skills/remotion-best-practices):
     // material de referencia con dependencias no instaladas (cesium, etc.),
     // no código del hub.
-    ".agents",
-    // WIP de otro agente en esta misma rama (16-nov-2026, sin commitear):
-    // se excluye para no romper la comprobación con código ajeno en
-    // curso; quitar la exclusión cuando three-test se commitee y pase tsc.
-    "projects/three-test"
+    ".agents"
   ]
 }

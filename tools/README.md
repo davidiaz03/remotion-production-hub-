@@ -11,7 +11,12 @@ Scripts Python que se ejecutan con el venv del hub:
 Recorte por lotes con rembg (MIT) → PNG con canal alfa. Para
 ilustraciones y fotos que flotan sobre el escenario (GlowStage,
 PhoneFrame...). Modelo `u2net` por defecto (~176 MB, cacheado en
-`~/.u2net/`); `--alpha-matting` para bordes finos (pelo).
+`<hub>/.u2net/` — el script fija `U2NET_HOME` ahí para que la caché
+sobreviva a un reemplazo de VM, en vez del `~/.u2net/` por defecto
+de rembg); `--alpha-matting` para bordes finos (pelo) y, sobre
+todo, para fotos con gente de fondo: elimina el fantasma tenue
+que u2net deja en multitudes (verificado 16-nov-2026: 15,1% →
+0,0% de píxeles fantasma). Usarlo SIEMPRE en fotos de grupo.
 
 ```bash
 ~/workspace/remotion-hub/.venv/bin/python tools/bg-remove.py \
