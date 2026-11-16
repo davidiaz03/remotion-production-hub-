@@ -38,6 +38,7 @@ transiciones → SFX → música → render → QA): skill
 | `ParallaxStill` / `cameraMove` | Foto fija con movimiento de cámara y parallax 2.5D (adaptado de free-remotion-pipeline) | `bg`, `fg`, `move`: push-in \| snap-zoom \| lateral-pan \| low-angle-hero \| dolly-zoom \| extreme-closeup, `durationInFrames`, `sourceWidth`, `seed` |
 | `SweepTransition` | Panel de color que barre la pantalla (cambia la escena en el punto medio; uso puntual) | `color`, `durationInFrames`, `delay`, `direction` |
 | `Sfx` | Efecto de sonido colocado por su punto de sincronía (ver § SFX) | `id`, `atFrame`, `volume`, `underVO` |
+| `LottieSticker` | Micro-animación vectorial de icono (Fase B, R7; ver § Lottie) | `id`, `size`, `atFrame`, `loop`, `durationInFrames`, `playbackRate`, `direction`, `color`, `top`, `left` |
 
 ## Transiciones (`transitions/`)
 
@@ -75,6 +76,51 @@ Reglas de `<TransitionSeries>` (verificadas por stills, 15-nov-2026):
   (`filmBurn` → `zoomBlur`) o usa una transición DOM si el corte anterior
   es DOM. Afecta a: `dissolve`, `crosswarp`, `filmBurn`, `ripple`,
   `zoomBlur`, `emberBurn`.
+
+## Lottie (`lottie/`, Fase B R7)
+
+17 iconos animados curados de useAnimations (MIT, sin cuenta) en
+`shared/motion/lottie/` + registro `LOTTIE_ICONS` (id, fotogramas de una
+pasada, uso previsto). Todos son shape layers puros, 30 fps, y ninguno
+necesita el reproductor completo. LottieFiles quedó descartado como
+fuente: sus JSON devuelven 403 por curl y su licencia es menos limpia.
+
+```tsx
+// Una pasada y se queda en el último fotograma:
+<LottieSticker id="checkmark" size={120} atFrame={30} top={600} left={480} />
+// Bucle durante 90 fotogramas (campana que suena):
+<LottieSticker id="notification-v4" size={96} atFrame={0} loop durationInFrames={90} />
+// Candado que se CIERRA (los toggle terminan en su estado alternativo):
+<LottieSticker id="lock" size={120} atFrame={45} direction="backward" />
+// Color del trazo (defecto blanco; los JSON originales son negros):
+<LottieSticker id="award" size={120} color="#ED1C24" />
+```
+
+Iconos: activity, alert-triangle, arrow-right, award, check-circle,
+checkmark, clock, flag, heart, lock, map-pin, notification-v4, share,
+shield, shield-off, star, trending-up. Costo de render despreciable
+(SVG, 1–3 capas). Una pasada por evento basta; no bucles infinitos que
+compitan con el karaoke.
+
+## Motion blur y Lucide (Fase B R9/R10)
+
+```tsx
+import {CameraMotionBlur} from '@remotion/motion-blur';
+import {Trophy, MapPin, Shield} from 'lucide-react';
+
+// Blur cinematográfico SOLO en movimientos rápidos (whip pans,
+// deslizamientos): multiplica el costo del subárbol por nº de muestras.
+<CameraMotionBlur samples={4} shutterAngle={180}>
+  <MiElementoRapido />
+</CameraMotionBlur>
+
+// Iconos de trazo consistente (ISC, tree-shaken): se animan con
+// spring/interpolate como cualquier elemento Remotion.
+<Trophy size={72} color="#FFFFFF" strokeWidth={2} />
+```
+
+Verificación conjunta en `projects/motion-demo/src/ExtrasTest.tsx`
+(150 f, 540×960): escena Lottie, A/B con/sin blur y fila Lucide.
 
 ## SFX (`sfx/`)
 
