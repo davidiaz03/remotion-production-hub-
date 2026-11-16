@@ -3,7 +3,7 @@
     "manifest": "asset-manifest.json",
     "mode": "manifest"
   },
-  "audioRequired": true,
+  "audioRequired": false,
   "compositionId": "MainReel",
   "crf": 19,
   "drivePath": "Remotion Production/projects/resume-test",
