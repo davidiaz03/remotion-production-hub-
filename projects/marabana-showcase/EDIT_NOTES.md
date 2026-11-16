@@ -105,6 +105,31 @@ v2-f1130, v2-f1290 (verificar antes del render completo).
    duración cambia (los cortes están en `src/timeline.ts`).
 4. Re-mezclar (`mix.py`, mismos `--section`) y re-renderizar.
 
+## Entrega (16-nov-2026)
+
+- **Render:** 12 tramos de 150 f, 1.677/1.677 fotogramas, ~50 min
+  (`render-chunks.mjs --concurrency 2 --timeout 120000 --resume`).
+- **Máster:** `REEL_MARABANA_SHOWCASE_ALBERTO_20261116.mp4`, 17.460.166 B,
+  1080×1920, 56,09 s, **−15,40 LUFS / TP −2,00 dBTP**, sha256
+  `1a012c5432c39a565759cedde622b71a1138ffe69ca68fcecb3c33805c0df67f`.
+- **Ligera:** `…_LIGERO.mp4`, 4.487.223 B, 720×1280, 56,10 s,
+  **−15,50 LUFS / TP −2,10 dBTP**.
+- **QA (`qa-media.mjs --mode full`):** technicalStatus passed, sin
+  fallos; silencios inicial/final 0 s; deriva de duración 0,185 s
+  (tolerancia 0,5 s). Revisión visual del máster: 6 fotogramas
+  (f170, f640, f1130, f1400, f1560, f1650) — todos correctos;
+  el karaoke final y el logo del sting resuelto verificados.
+- **Drive** (carpeta Marabana `1L374oa6XKnlENwy3Xb_54TQ-04t2OnEy`,
+  V1–V1.3 intactos): máster `1lL-0YKodvooeCWnPYFDzSqIm6FJyEAkF`,
+  ligera `1H-6qZ2lPtqvsNJC2yNnHR6vK9TtiYSOS`,
+  `STRATEGY_SHOWCASE.md` `1jIA0CmHpmq32ctLo-CFlno9TLlr7UKxP`,
+  `EDIT_NOTES_SHOWCASE.md` `1SK-5P9pJlfvykf1yI6Q2ag27g3JkXHD4`,
+  `VO_SCRIPT_SHOWCASE.md` `1bypaOnb1xLwSJQOVwln-rmmuGsQ5V--Z`,
+  SRT `1xbqCKOJm2NIAkOashNoFZhMZKrcRgV4r`. Los docs llevan sufijo
+  `_SHOWCASE` porque `STRATEGY.md`/`EDIT_NOTES.md` ya existían
+  (son los de la V1.3).
+- **Commit:** `6c82bff` en `work/marabana-showcase` (+ este registro).
+
 ## Pendientes
 
 - **Derechos Flow Music:** leer los términos de Google y registrar
