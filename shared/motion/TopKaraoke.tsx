@@ -1,23 +1,28 @@
 import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {
+  resolveKaraokeLines,
+  type CaptionsToLinesOptions,
+  type HubCaption,
+  type KaraokeLine,
+  type KaraokeWord,
+} from '../captions';
 import {MOTION_COLORS, POPPINS} from './theme';
 
-export type KaraokeWord = {
-  /** Texto de la palabra (con su puntuación). */
-  t: string;
-  /** Inicio en segundos (word_timestamps de faster-whisper). */
-  s: number;
-  /** Fin en segundos. */
-  e: number;
-  /** Palabra clave: al decirse se encierra en el recuadro azul. */
-  kw?: boolean;
-};
-
-export type KaraokeLine = {words: KaraokeWord[]};
+// Re-exportados desde shared/captions (tipos canónicos del hub) para que
+// los imports existentes desde './TopKaraoke' sigan funcionando.
+export type {KaraokeLine, KaraokeWord} from '../captions';
 
 export type TopKaraokeProps = {
   /** Líneas preagrupadas (como los chunks de captions.ts). */
-  lines: KaraokeLine[];
+  lines?: KaraokeLine[];
+  /**
+   * Alternativa a `lines`: captions de palabra (HubCaption[]) que se
+   * agrupan en líneas con `captionsToLines`. Si vienen ambos, manda `lines`.
+   */
+  captions?: HubCaption[];
+  /** Opciones de agrupación (solo si se pasa `captions`). */
+  captionsOptions?: CaptionsToLinesOptions;
   /** Distancia desde arriba (1080×1920). */
   top?: number;
   /** Tamaño de fuente. */
@@ -42,10 +47,14 @@ export type TopKaraokeProps = {
  * (como en la referencia); las demás, centradas.
  *
  * Los tiempos vienen de faster-whisper (word_timestamps=True), igual que
- * el karaoke inferior del Memorial (captions.ts).
+ * el karaoke inferior del Memorial (captions.ts). Acepta `lines`
+ * preagrupadas o `captions` (HubCaption[]) que se agrupan con
+ * `captionsToLines` (shared/captions).
  */
 export const TopKaraoke: React.FC<TopKaraokeProps> = ({
-  lines,
+  lines: linesProp,
+  captions,
+  captionsOptions,
   top = 340,
   size = 72,
   fontFamily = POPPINS,
@@ -57,6 +66,12 @@ export const TopKaraoke: React.FC<TopKaraokeProps> = ({
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const now = frame / fps;
+
+  const lines = React.useMemo(
+    () => resolveKaraokeLines(linesProp, captions, captionsOptions),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [linesProp, captions],
+  );
 
   // Línea activa: desde que empieza su primera palabra hasta 0,2 s después
   // de la última. Entre líneas no se muestra nada (corte limpio).
