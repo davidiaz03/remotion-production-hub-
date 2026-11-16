@@ -11,7 +11,10 @@ if(action==='create'){
  const index=JSON.parse(readFileSync(indexFile,'utf8'));
  if(!Array.isArray(index.projects)||index.projects.some(x=>x.id===projectId))throw Error('Invalid index or duplicate project; refusing modification');
  const title=pos.slice(1).join(' ')||projectId.replaceAll('-',' ').toUpperCase();
- cpSync(path.join(ROOT,'templates/reel'),target,{recursive:true});
+ const template=String(opts.template||'reel');
+ const templateDir=path.join(ROOT,'templates',template);
+ if(!existsSync(templateDir))throw Error(`Unknown template: ${template} (available: ${readdirSync(path.join(ROOT,'templates')).filter((d)=>existsSync(path.join(ROOT,'templates',d,'project.json'))).join(', ')})`);
+ cpSync(templateDir,target,{recursive:true});
  for(const f of ['project.json','src/Video.tsx','CREATIVE_BRIEF.md']){
   const p=path.join(target,f);
   writeFileSync(p,readFileSync(p,'utf8').replaceAll('__SLUG__',projectId).replaceAll('__TITLE__',title));
@@ -48,7 +51,8 @@ if(action==='studio'){
  if(!out.startsWith(outDir+path.sep))throw Error('Output must be inside the project out/ directory');
  const args=[...common,'render',entry,data.compositionId,out,'--public-dir',publicDir,
   '--codec','h264','--pixel-format','yuv420p','--crf',String(data.crf??19),
-  '--concurrency','2','--log','info'];
+  '--concurrency',String(opts.concurrency??'2'),'--log','info'];
+ if(opts.timeout)args.push('--timeout',String(opts.timeout));
  if(mode==='quick')args.push('--frames',range);
  console.log(JSON.stringify({engine:'remotion',project:projectId,mode,composition:data.compositionId,frames:mode==='quick'?range:`0-${data.durationInFrames-1}`,output:out}));
  run(process.execPath,args);
