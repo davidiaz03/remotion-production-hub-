@@ -235,3 +235,24 @@ transiciones), `ComponentsTest` (ParallaxStill + QuoteCard).
   `@paper-design/shaders-react` 0.0.82 Apache-2.0 (shaders de Remocn).
 - Skills oficiales de Remotion (13) instaladas en `repo/.agents/` con
   enlaces en `repo/.claude/skills/` y `skills-lock.json` (15-nov-2026).
+
+## 3D (`@remotion/three`, 16-nov-2026)
+
+El hub ya puede renderizar escenas 3D reales dentro de Remotion:
+`@remotion/three` 4.0.543 + `@react-three/fiber` 8.17.14 +
+`@react-three/drei` 9.122.0 + `three` 0.169.0 (fiber 9 / drei 10 exigen
+React 19: no subir sin migrar el hub). Verificación:
+`projects/three-test/` — cubo + anillo girando, 3 s a 540×960 en
+55,8 s (~0,6 s/fotograma, SwiftShader/CPU, concurrency 1).
+
+**Cuándo usar 3D:** logo u objeto flotante en un momento corto (intro,
+cierre, un giro de producto), texto 3D o una escena que de verdad
+necesite volumen e iluminación. **Cuándo NO:** un reel entero en 3D
+(lento en CPU), o un objeto que solo rota en un eje — ahí un PNG con
+`CameraMove`/parallax 2.5D rinde casi lo mismo a una fracción del
+coste.
+
+Reglas: animación siempre desde `useCurrentFrame` (nunca `useFrame`
+de fiber); geometría procedural o GLTF locales en `public/`; nada que
+descargue en render. Detalle y tiempos en
+`projects/three-test/README.md`.
