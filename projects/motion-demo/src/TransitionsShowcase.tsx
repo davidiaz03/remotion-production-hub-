@@ -92,11 +92,11 @@ export const TransitionsShowcase: React.FC = () => {
         <TransitionSeries.Sequence durationInFrames={30}>
           <Scene bg="#BE185D" title="SLIDE" via="slide · oficial" />
         </TransitionSeries.Sequence>
-        <TransitionSeries.Transition presentation={filmBurn()} timing={T} />
+        <TransitionSeries.Transition presentation={filmBurn({})} timing={T} />
         <TransitionSeries.Sequence durationInFrames={30}>
           <Scene bg="#CA8A04" title="BURN" via="filmBurn · oficial WebGL" />
         </TransitionSeries.Sequence>
-        <TransitionSeries.Transition presentation={zoomBlur()} timing={T} />
+        <TransitionSeries.Transition presentation={zoomBlur({})} timing={T} />
         <TransitionSeries.Sequence durationInFrames={30}>
           <Scene bg="#57534E" title="ZOOM" via="zoomBlur · oficial WebGL" />
         </TransitionSeries.Sequence>
