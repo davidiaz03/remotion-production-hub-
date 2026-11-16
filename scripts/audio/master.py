@@ -29,6 +29,11 @@ Uso:
 
 Verifica al final: fotogramas del máster (ffprobe) y sonoridad/true peak
 (ebur128) de ambas salidas; escribe un informe JSON junto al máster.
+
+Proyectos MUDOS (sin audio, deliberado): si la entrada no tiene pista
+de audio, el máster y la ligera se escriben solo con video (sin cadena
+de audio) y el informe declara `"audio": "absent"` con
+`integrated_lufs`/`true_peak_dbtp` en null — sin crash en ebur128.
 """
 import argparse
 import glob
@@ -72,6 +77,12 @@ def ebur128(path: str) -> tuple[float, float]:
             raise RuntimeError(f"ebur128: no se encontró {key} en {path}")
         return float(m.group(1))
     return val("I"), val("Peak")
+
+
+def has_audio(path: str) -> bool:
+    """True si el archivo tiene al menos una pista de audio."""
+    pr = probe(path)
+    return any(s.get("codec_type") == "audio" for s in pr.get("streams", []))
 
 
 def main() -> int:
@@ -122,12 +133,17 @@ def main() -> int:
                 f.write(f"file '{os.path.abspath(c)}'\n")
         src_args = ["-f", "concat", "-safe", "0", "-i", concat_list]
         print(f"{len(chunks)} chunks -> máster")
+        input_has_audio = has_audio(chunks[0])
     else:
         if not os.path.isfile(a.input):
             p.error(f"falta el archivo {a.input}")
         src_args = ["-i", a.input]
+        input_has_audio = has_audio(a.input)
+    if not input_has_audio:
+        print("Entrada SIN audio: máster y ligera mudos (sin cadena de "
+              "audio; el informe lo declarará)")
 
-    # Cadena de audio del máster (receta V1.3).
+    # Cadena de audio del máster (receta V1.3). Solo si hay audio.
     af = []
     if a.trim_start > 0:
         af.append(f"atrim=start={a.trim_start},asetpts=PTS-STARTPTS")
@@ -139,40 +155,55 @@ def main() -> int:
     af.append(f"alimiter=limit={a.limiter}:attack=5:release=50:level=false")
     af_str = ",".join(af)
 
-    run(["ffmpeg", "-y", "-v", "error", *src_args,
-         "-c:v", "copy", "-af", af_str,
-         "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
-         "-movflags", "+faststart", a.out_master])
+    master_cmd = ["ffmpeg", "-y", "-v", "error", *src_args, "-c:v", "copy"]
+    if input_has_audio:
+        master_cmd += ["-af", af_str, "-c:a", "aac", "-b:a", "192k",
+                       "-ar", "48000"]
+    master_cmd += ["-movflags", "+faststart", a.out_master]
+    run(master_cmd)
     print(f"MÁSTER: {a.out_master} ({os.path.getsize(a.out_master)} bytes)")
 
     light_h = a.light_width * 16 // 9  # 720 -> 1280 (vertical 9:16)
-    run(["ffmpeg", "-y", "-v", "error", "-i", a.out_master,
-         "-vf", f"scale={a.light_width}:{light_h}",
-         "-c:v", "libx264", "-crf", str(a.light_crf), "-preset", "medium",
-         "-pix_fmt", "yuv420p",
-         "-c:a", "aac", "-b:a", "128k", "-ar", "48000",
-         "-movflags", "+faststart", a.out_light])
+    light_cmd = ["ffmpeg", "-y", "-v", "error", "-i", a.out_master,
+                 "-vf", f"scale={a.light_width}:{light_h}",
+                 "-c:v", "libx264", "-crf", str(a.light_crf),
+                 "-preset", "medium", "-pix_fmt", "yuv420p"]
+    if input_has_audio:
+        light_cmd += ["-c:a", "aac", "-b:a", "128k", "-ar", "48000"]
+    light_cmd += ["-movflags", "+faststart", a.out_light]
+    run(light_cmd)
     print(f"LIGERA: {a.out_light} ({os.path.getsize(a.out_light)} bytes)")
 
     res: dict = {"master": a.out_master, "light": a.out_light,
                  "limiter": a.limiter, "trim_start": a.trim_start,
-                 "boost_db": a.boost_db}
+                 "boost_db": a.boost_db,
+                 "audio": "present" if input_has_audio else "absent"}
     for key, path in (("master", a.out_master), ("light", a.out_light)):
         pr = probe(path)
         vid = next(s for s in pr["streams"] if s["codec_type"] == "video")
-        lufs, tp = ebur128(path)
-        res[key] = {
+        out_has_audio = any(s.get("codec_type") == "audio"
+                            for s in pr["streams"])
+        entry = {
             "path": path,
             "bytes": int(pr["format"]["size"]),
             "duration": float(pr["format"]["duration"]),
             "width": vid["width"],
             "height": vid["height"],
             "frames": int(vid["nb_read_frames"]),
-            "integrated_lufs": lufs,
-            "true_peak_dbtp": tp,
+            "has_audio": out_has_audio,
+            "integrated_lufs": None,
+            "true_peak_dbtp": None,
         }
-        print(f"  {key}: {res[key]['frames']} f, {lufs:.2f} LUFS, "
-              f"TP {tp:.2f} dBTP")
+        if out_has_audio:
+            lufs, tp = ebur128(path)
+            entry["integrated_lufs"] = lufs
+            entry["true_peak_dbtp"] = tp
+            print(f"  {key}: {entry['frames']} f, {lufs:.2f} LUFS, "
+                  f"TP {tp:.2f} dBTP")
+        else:
+            print(f"  {key}: {entry['frames']} f, sin audio "
+                  f"(proyecto mudo)")
+        res[key] = entry
     with open(report, "w", encoding="utf-8") as f:
         json.dump(res, f, indent=2, ensure_ascii=False)
     print(f"Informe: {report}")
