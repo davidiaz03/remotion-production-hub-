@@ -137,7 +137,10 @@ function checkStatus(status) {
 function touchPhase(phaseState, now, status) {
 	if (status) {
 		checkStatus(status);
-		if (status === 'in_progress' && !phaseState.startedAt) phaseState.startedAt = now;
+		// Una fase que deja de estar pendiente empezó en algún
+		// momento: si se marca done/failed directamente (sin pasar
+		// por in_progress), el inicio es este hito.
+		if (status !== 'pending' && !phaseState.startedAt) phaseState.startedAt = now;
 		phaseState.status = status;
 	}
 	phaseState.updatedAt = now;
