@@ -45,6 +45,34 @@ sobre el ritmo, antes de fijar la escaleta.
   `silent: true`, `status: PASS_SILENT` y LUFS/TP en `null`, más un
   aviso por stderr. Cubierto por `tests/audio-mix.test.mjs`.
 
+## Registro en STATE.json (guardado en tiempo real)
+
+Los scripts de audio NO registran solos: tras cada paso, el agente
+que los llama anota el hito con `node scripts/state.mjs <id> ...`
+(desde la raíz del repo). El render por tramos sí lo hace solo
+(`render-chunks.mjs` registra cada tramo verificado).
+
+```bash
+# Tras gen-vo-kokoro.py / gen-vo-piper.py
+node scripts/state.mjs <id> milestone vo "VO de previsualización generada" \
+  --artifact public/vo.wav,vo-lines.json --status done
+# Tras transcribe-vo.py
+node scripts/state.mjs <id> milestone captions "Karaoke generado desde la VO" \
+  --artifact src/captions.ts,captions.json --status done
+# Tras mix.py
+node scripts/state.mjs <id> milestone mix "Mezcla VO+música+SFX" \
+  --artifact public/mix.wav --status done
+# Tras master.py (SIN --status done: el gate de QA marca la fase)
+node scripts/state.mjs <id> milestone qa "Máster y ligera compuestos" \
+  --artifact out/<id>-master.mp4,out/<id>-light.mp4
+# Si un paso falla
+node scripts/state.mjs <id> milestone <fase> "<qué falló>" \
+  --status failed --note "<detalle del error>"
+```
+
+Tras cada fase, checkpoint en Git: `node scripts/checkpoint.mjs <id>
+--phase <fase>`. Para retomar en frío: `node scripts/resume.mjs <id>`.
+
 ## Calibración (datos reales, no teoría)
 
 - **Objetivo de mezcla**: −14,5 LUFS / TP −1,5 dBTP. Los másteres reales
