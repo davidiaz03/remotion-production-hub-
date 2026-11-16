@@ -36,6 +36,42 @@ sobre el ritmo, antes de fijar la escaleta.
 | `gen-vo-kokoro.py` | **VO de previsualización recomendada (Fase B, R6):** Kokoro-82M (Apache-2.0), voces ES `em_alex` (defecto), `em_santa`, `ef_dora`. Misma interfaz que Piper (JSON de guion → WAV 24 kHz + `vo-lines.json`). Determinista (empalmar es seguro). ~0,3x tiempo real en esta VM (~3 min para 48 s de VO). Modelo en `../.hf-cache`; requiere espeak-ng (apt, .deb en `../debs/`). |
 | `beats.py` | **Detección de beats/onsets (Fase B, R16):** aubio 0.4.9 → JSON con BPM, beats y onsets en segundos y en fotogramas (`--fps 30`). Coloca cortes y transiciones sobre el ritmo de la música. Ojo: recorta los beats fantasma de los WAV de Flow (la carátula mjpeg confunde a aubio, +5 s). |
 | `transcribe-vo.py` | Alinea faster-whisper word_timestamps con el guion → `captions.ts` (formato CapSegment) y, con `--out-json`, HubCaption[] para `shared/captions`. |
+| `diarize.py` | **Separar voces (16-nov-2026):** quién habla cuándo, con sherpa-onnx 2.0.1 (segmentación pyannote-3.0 + embedding 3D-Speaker ERes2Net, ONNX, 100 % local, sin cuenta ni token). `--speakers 2` para el diálogo de las dos presentadoras del Memorial. Modelos en `<hub>/.sherpa-models/` (46 MB). Salida JSON con segmentos {start, end, speaker}. |
+
+## Diarización (`diarize.py`)
+
+```
+.venv/bin/python scripts/audio/diarize.py dialogo.wav --speakers 2 --out d.json
+.venv/bin/python scripts/audio/diarize.py reel.mp4 --out d.json   # acepta video
+```
+
+- **Por qué sherpa-onnx y no pyannote directo:** pyannote exige cuenta
+  de Hugging Face + token (modelo gated) y torch; sherpa-onnx usa los
+  mismos modelos exportados a ONNX, descargados como archivos públicos
+  de GitHub Releases, sin cuenta ni token, y corre solo con
+  onnxruntime. Licencias: sherpa-onnx Apache-2.0, segmentación
+  pyannote-3.0 MIT, embedding 3D-Speaker Apache-2.0.
+- **Verificado 16-nov-2026.** Audio de control con dos voces conocidas
+  (VO Marabana em_alex 0–15 s + testimonio de Pilar 16–31 s): 2
+  hablantes, frontera detectada en 15,07/15,94 s (real: 15/16 s).
+  Audio real del reel Pilar V30 (75 s): con `--speakers 2`, separa el
+  testimonio de Pilar (25,4–38,4 s; real 24,8–38,2 s) de las
+  presentadoras, con fronteras a <0,3 s del EDL. Con `--speakers 3`
+  y con autodetección `--threshold 0.7` da el MISMO resultado
+  (3 hablantes: testimonio + dos presentadoras, fronteras idénticas
+  al milisegundo) — dos vías independientes que convergen. Con el
+  umbral por defecto (0,5), la autodetección sobresegmenta
+  (5 hablantes): para este material, usar 0,7 o fijar --speakers.
+- **Límite honesto:** las dos presentadoras SÍ se separan (ver
+  arriba), pero no existe guion con hablante por línea para certificar
+  cada turno de presentadora al 100 %; contrastar siempre con el
+  guion (los turnos ya se conocen del guion; la diarización confirma
+  fronteras, no sustituye al guion). Voces muy parecidas grabadas
+  en el mismo equipo son el caso más difícil para el clustering.
+- **Coste:** ~1–2,5× tiempo real en esta VM según la carga (75 s de
+  audio → 79–181 s; 31 s → 62 s). Paso por lotes, no interactivo.
+- **IDs relativos:** SPEAKER_00 en un audio no es la misma persona
+  que SPEAKER_00 en otro audio.
 
 ## Casos límite
 
