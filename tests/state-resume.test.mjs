@@ -207,6 +207,56 @@ test('state CLI: milestone, render y show funcionan desde shell', () => {
 	}
 });
 
+test('state CLI: --artifact repetido acumula todos los artefactos (no solo el último)', () => {
+	const root = fixtureRoot({legacy: true});
+	try {
+		const m = runNode(root, 'state.mjs', [
+			ID,
+			'milestone',
+			'assets',
+			'Assets recopilados',
+			'--artifact',
+			'public/foto1.jpg',
+			'--artifact',
+			'public/foto2.jpg',
+			'--artifact=public/foto3.jpg,public/foto4.jpg',
+			'--status',
+			'done',
+			'--root',
+			root,
+		]);
+		assert.equal(m.status, 0, m.stderr);
+		assert.deepEqual(readState(root).pipeline.phases.assets.artifacts, [
+			'public/foto1.jpg',
+			'public/foto2.jpg',
+			'public/foto3.jpg',
+			'public/foto4.jpg',
+		]);
+		// phase con --artifact repetido también acumula (y no duplica).
+		const p = runNode(root, 'state.mjs', [
+			ID,
+			'phase',
+			'vo',
+			'done',
+			'--artifact',
+			'public/vo.wav',
+			'--artifact',
+			'public/vo.wav',
+			'--artifact',
+			'vo-lines.json',
+			'--root',
+			root,
+		]);
+		assert.equal(p.status, 0, p.stderr);
+		assert.deepEqual(readState(root).pipeline.phases.vo.artifacts, [
+			'public/vo.wav',
+			'vo-lines.json',
+		]);
+	} finally {
+		rmSync(root, {recursive: true, force: true});
+	}
+});
+
 test('resume: ante un render interrumpido muestra el estado y el comando exacto', () => {
 	const resumeCommand = `node scripts/render-chunks.mjs ${ID} --frames 0-749 --chunk 150 --resume`;
 	const root = fixtureRoot({

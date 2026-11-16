@@ -23,6 +23,8 @@
  * Uso desde shell (los scripts de audio en Python lo llaman así):
  *   node scripts/state.mjs <proyecto> milestone vo "VO generada" \
  *     --artifact public/vo.wav --status done
+ *   --artifact se puede repetir (--artifact a.wav --artifact b.wav)
+ *   o separar por comas (--artifact a.wav,b.wav); se acumulan todos.
  *   node scripts/state.mjs <proyecto> phase mix in_progress
  *   node scripts/state.mjs <proyecto> render --chunk 2 --total 5 \
  *     --frames-done 300 --frames-total 750 --chunk-file out/chunks/chunk_02.mp4
@@ -242,14 +244,32 @@ function resolveRoot(opts) {
 	return opts.root ? path.resolve(String(opts.root)) : process.env.REMOTION_HUB_ROOT || ROOT;
 }
 
-function collectArtifacts(opts) {
-	// parseArgs no acumula flags repetidas: varios artefactos van
-	// separados por coma (--artifact a.wav,b.wav).
-	const raw = opts.artifact ?? opts.artifacts ?? '';
-	return String(raw)
-		.split(',')
-		.map((s) => s.trim())
-		.filter(Boolean);
+function collectArtifacts(argv) {
+	// parseArgs NO acumula flags repetidas (la última sobrescribe a
+	// las anteriores), así que se escanea argv crudo para acumular
+	// TODOS los --artifact. Se aceptan --artifact a.wav --artifact
+	// b.wav, --artifact=a.wav y la forma antigua separada por comas
+	// (--artifact a.wav,b.wav); se deduplica manteniendo el orden.
+	const out = [];
+	for (let i = 0; i < argv.length; i++) {
+		const t = argv[i];
+		let value;
+		if (t === '--artifact' || t === '--artifacts') {
+			value = argv[++i];
+		} else if (t.startsWith('--artifact=')) {
+			value = t.slice('--artifact='.length);
+		} else if (t.startsWith('--artifacts=')) {
+			value = t.slice('--artifacts='.length);
+		} else {
+			continue;
+		}
+		if (typeof value !== 'string') continue;
+		for (const part of value.split(',')) {
+			const a = part.trim();
+			if (a && !out.includes(a)) out.push(a);
+		}
+	}
+	return out;
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
@@ -284,7 +304,7 @@ if (isMain) {
 		const [phase, ...eventParts] = rest;
 		const event = eventParts.join(' ');
 		const state = recordMilestone(root, slug, phase, event, {
-			artifacts: collectArtifacts(opts),
+			artifacts: collectArtifacts(process.argv.slice(2)),
 			note: opts.note ? String(opts.note) : undefined,
 			status: opts.status ? String(opts.status) : undefined,
 		});
@@ -294,7 +314,7 @@ if (isMain) {
 	} else if (action === 'phase') {
 		const [phase, status] = rest;
 		const state = setPhase(root, slug, phase, status, {
-			artifacts: collectArtifacts(opts),
+			artifacts: collectArtifacts(process.argv.slice(2)),
 			note: opts.note ? String(opts.note) : undefined,
 		});
 		console.log(`STATE_OK ${slug} fase ${phase} → ${status}`);
