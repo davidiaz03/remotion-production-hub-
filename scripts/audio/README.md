@@ -8,10 +8,10 @@ generación (Marabana, Pilar) y el máster se hacía a mano en
 ## Flujo
 
 ```
-VO (Piper, previsualización) ─┐
-                              ├─► mix.py ─► mix.wav (48 kHz, -14,5 LUFS)
-Música (MusicGen / Flow) ─────┤      (ducking sidechain + loudnorm)
-SFX del kit ──────────────────┘
+VO (Kokoro, previsualización; Piper de respaldo) ─┐
+                                                  ├─► mix.py ─► mix.wav (48 kHz, -14,5 LUFS)
+Música (MusicGen / Flow) ─────────────────────────┤      (ducking sidechain + loudnorm)
+SFX del kit ──────────────────────────────────────┘
                                         │
 Remotion render (tramos) ───────────────┤
                                         ▼
@@ -29,7 +29,8 @@ Remotion render (tramos) ───────────────┤
 | `mix.py` | VO + música (archivo único o secciones con crossfades) + SFX opcionales → WAV 48 kHz con ducking sidechain y loudnorm. Informe JSON con LUFS/TP medidos. |
 | `master.py` | Máster + ligera desde el render (chunks o archivo único). Copia el video (ya a CRF 19); recodifica el audio con la cadena V1.3 (recorte 40 ms, realce de arranque +6 dB/100 ms, alimiter 0.79). |
 | `gen-music.py` | Música original por secciones con MusicGen-small (CPU). Las secciones vienen de un JSON. Stem a −16 LUFS (no confundir con el objetivo del reel). |
-| `gen-vo-piper.py` | VO de previsualización con Piper, línea por línea, desde un JSON de guion. Escribe `vo-lines.json` con los tiempos. |
+| `gen-vo-piper.py` | VO de previsualización con Piper, línea por línea, desde un JSON de guion. Escribe `vo-lines.json` con los tiempos. Respaldo desde la Fase B (ver Kokoro). |
+| `gen-vo-kokoro.py` | **VO de previsualización recomendada (Fase B, R6):** Kokoro-82M (Apache-2.0), voces ES `em_alex` (defecto), `em_santa`, `ef_dora`. Misma interfaz que Piper (JSON de guion → WAV 24 kHz + `vo-lines.json`). Determinista (empalmar es seguro). ~0,3x tiempo real en esta VM (~3 min para 48 s de VO). Modelo en `../.hf-cache`; requiere espeak-ng (apt, .deb en `../debs/`). |
 | `transcribe-vo.py` | Alinea faster-whisper word_timestamps con el guion → `captions.ts` (formato CapSegment) y, con `--out-json`, HubCaption[] para `shared/captions`. |
 
 ## Calibración (datos reales, no teoría)
