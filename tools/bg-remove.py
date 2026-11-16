@@ -6,8 +6,30 @@ flotar sobre el escenario (look del estilo de referencia): la imagen
 recortada se compone en Remotion con GlowStage / PhoneFrame / etc.
 
 Modelo por defecto: u2net (~176 MB, se descarga solo en el primer uso
-a ~/.u2net/ y queda cacheado). Para bordes finos (pelo) se puede usar
+y queda cacheado en <hub>/.u2net/, durable). Para bordes finos (pelo) se puede usar
 --alpha-matting (más lento) o el modelo isnet-general-use.
+
+--alpha-matting en multitudes (verificado 16-nov-2026 con la foto de
+corredores de la verificación R3, cubadebate-marabana-1.jpg, 580×490):
+ELIMINA el fantasma tenue que u2net deja en fotos de grupo. Sin
+matting, el corredor de la izquierda queda como fantasma
+semitransparente (15,1 % de píxeles fantasma en el tercio izquierdo);
+con matting desaparece por completo (0,0 %) y el borde
+semitransparente total baja del 9,2 % al 4,8 %, sin tocar a los dos
+corredores principales. Coste: ~2,5× más lento (5,3 s → 13,5 s de
+inferencia en esta foto; en lotes grandes se nota). Recomendación:
+usar --alpha-matting SIEMPRE en fotos con gente de fondo (multitudes,
+calles, estadios) y en recortes finales donde un fantasma se vería
+sobre el escenario; dejarlo apagado solo para ilustraciones planas y
+sujetos únicos sin fondo con gente, donde no aporta nada. Requiere
+pymatting (instalado en el venv del hub, 1.1.16).
+
+Caché del modelo: por defecto rembg guarda los modelos en ~/.u2net/,
+que NO sobrevive a un reemplazo de VM. Este script fija U2NET_HOME a
+<carpeta-del-hub>/.u2net (durable, junto al repo) salvo que ya esté
+definida en el entorno, para no volver a descargar ~176 MB tras cada
+reemplazo. (16-nov-2026: la caché de ~/.u2net de la verificación R3 ya
+no existía; el modelo se volvió a descargar.)
 
 Uso:
   ~/workspace/remotion-hub/.venv/bin/python tools/bg-remove.py \
@@ -49,11 +71,20 @@ def main() -> int:
     p.add_argument("--model", default="u2net",
                    help="Modelo rembg (u2net por defecto)")
     p.add_argument("--alpha-matting", action="store_true",
-                   help="Matting de bordes (mejor pelo, más lento)")
+                   help="Matting de bordes (mejor pelo; ELIMINA fantasmas "
+                        "en multitudes; ~2,5x más lento)")
     p.add_argument("--force", action="store_true",
                    help="Reprocesar aunque la salida ya exista")
     args = p.parse_args()
 
+    # Caché durable del modelo: <hub>/.u2net (junto al repo), no
+    # ~/.u2net (se pierde al reemplazar la VM). Respetar un
+    # U2NET_HOME ya definido en el entorno.
+    if "U2NET_HOME" not in os.environ:
+        repo_root = os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__)))
+        os.environ["U2NET_HOME"] = os.path.join(
+            os.path.dirname(repo_root), ".u2net")
     # Import tardío: rembg/onnxruntime tardan varios segundos en cargar.
     from rembg import new_session, remove
 
