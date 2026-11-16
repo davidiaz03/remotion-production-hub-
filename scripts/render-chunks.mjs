@@ -37,6 +37,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {ROOT, loadProject, parseArgs, requireFile} from './lib.mjs';
+import {recordMilestone, setPhase, updateRender} from './state.mjs';
 
 const {pos, opts} = parseArgs(process.argv.slice(2));
 const projectId = pos[0];
@@ -70,6 +71,49 @@ const resume = opts.resume === true || opts.resume === 'true';
 const doConcat = opts['no-concat'] !== true && opts['no-concat'] !== 'true';
 mkdirSync(outDir, {recursive: true});
 mkdirSync(path.dirname(concatOut), {recursive: true});
+
+// Guardado en tiempo real (STATE.json): cada tramo verificado queda
+// registrado para que otro agente pueda reanudar con --resume sin
+// contexto. El guardado nunca debe tumbar el render: cualquier fallo
+// de estado se avisa y se sigue.
+let renderStarted = false;
+function safeState(fn, label) {
+	try {
+		fn();
+	} catch (e) {
+		console.warn(`[state] no se pudo registrar (${label}): ${e.message}`);
+	}
+}
+process.on('uncaughtException', (err) => {
+	if (renderStarted) {
+		safeState(
+			() =>
+				setPhase(ROOT, projectId, 'render', 'failed', {
+					note: `Render interrumpido: ${err.message}`,
+				}),
+			'marcar render fallido',
+		);
+	}
+	console.error(err);
+	process.exit(1);
+});
+
+// Comando exacto para reanudar este mismo render (queda guardado en
+// STATE.json tras cada tramo, para resume.mjs y para un agente en frío).
+const resumeParts = [
+	`node scripts/render-chunks.mjs ${projectId}`,
+	`--frames ${start}-${end}`,
+	`--chunk ${chunkSize}`,
+	'--resume',
+];
+if (opts.composition) resumeParts.push(`--composition ${compositionId}`);
+if (concurrency !== '2') resumeParts.push(`--concurrency ${concurrency}`);
+if (timeout !== '120000') resumeParts.push(`--timeout ${timeout}`);
+if (opts.out) resumeParts.push(`--out ${opts.out}`);
+if (opts['concat-out']) resumeParts.push(`--concat-out ${opts['concat-out']}`);
+const resumeCommand = resumeParts.join(' ');
+const totalChunks = Math.ceil((end - start + 1) / chunkSize);
+const totalFramesPlanned = end - start + 1;
 
 const entry = requireFile(path.join(home, 'src/index.ts'));
 const publicDir = path.join(home, 'public');
@@ -110,6 +154,32 @@ function sha256(file) {
 	return createHash('sha256').update(readFileSync(file)).digest('hex');
 }
 
+safeState(
+	() =>
+		recordMilestone(ROOT, projectId, 'render', `Render iniciado: fotogramas ${start}-${end} en ${totalChunks} tramos de ${chunkSize}`, {
+			status: 'in_progress',
+			note: resumeCommand,
+		}),
+	'inicio del render',
+);
+renderStarted = true;
+
+function recordChunkProgress(idx, name, framesSoFar) {
+	safeState(
+		() =>
+			updateRender(ROOT, projectId, {
+				totalChunks,
+				chunkSize,
+				framesTotal: totalFramesPlanned,
+				framesDone: framesSoFar,
+				chunkFile: `out/chunks/${name}`,
+				resumeCommand,
+				event: `Tramo ${idx}/${totalChunks} verificado (${name})`,
+			}),
+		`tramo ${idx}`,
+	);
+}
+
 const chunks = [];
 for (let from = start; from <= end; from += chunkSize) {
 	const to = Math.min(from + chunkSize - 1, end);
@@ -122,6 +192,7 @@ for (let from = start; from <= end; from += chunkSize) {
 		if (have === expected) {
 			console.log(`[tramo ${idx}] ${name} ya verificado (${have} f) — salto`);
 			chunks.push({file: name, from, to, frames: have, sha256: sha256(file)});
+			recordChunkProgress(idx, name, chunks.reduce((s, c) => s + c.frames, 0));
 			continue;
 		}
 		console.log(
@@ -164,6 +235,7 @@ for (let from = start; from <= end; from += chunkSize) {
 	}
 	console.log(`[tramo ${idx}] verificado: ${have}/${expected} fotogramas`);
 	chunks.push({file: name, from, to, frames: have, sha256: sha256(file)});
+	recordChunkProgress(idx, name, chunks.reduce((s, c) => s + c.frames, 0));
 }
 
 const totalFrames = chunks.reduce((s, c) => s + c.frames, 0);
@@ -207,6 +279,23 @@ if (doConcat) {
 		`[concat] ${concat.file}: ${have}/${totalFrames} fotogramas ✓`,
 	);
 }
+
+safeState(
+	() =>
+		updateRender(ROOT, projectId, {
+			totalChunks,
+			chunkSize,
+			framesTotal: totalFrames,
+			framesDone: totalFrames,
+			resumeCommand,
+			done: true,
+			event: concat
+				? `Render completo: ${totalChunks} tramos concatenados (${concat.file})`
+				: `Render completo: ${totalChunks} tramos (sin concatenar)`,
+			note: concat ? concat.file : 'tramos en out/chunks/ sin concatenar',
+		}),
+	'fin del render',
+);
 
 const manifest = {
 	project: projectId,
