@@ -11,13 +11,24 @@ El prompt final es "<style-prompt>, <prompt>". La seed fija hace la
 imagen reproducible: misma seed + mismo prompt = misma imagen.
 
 LICENCIA Y MARCA DE AGUA (importante):
-- El tier ANÓNIMO (sin token) funciona pero estampa la marca de agua
-  "pollinations.ai" abajo a la derecha (verificado 15-nov-2026): esas
-  imágenes NO son publicables. Sirven para componer y probar el look.
-- El tier Seed (registro gratuito en pollinations.ai) quita la marca de
-  agua. Pasa el token con --token o la variable POLLINATIONS_TOKEN
-  (nunca lo escribas en el repo ni en un commit).
-- Sin token, el script avisa en stderr y sigue (imagen con marca).
+- La API actual es el gateway `gen.pollinations.ai` (la antigua
+  `image.pollinations.ai/prompt/...` está deprecada y YA NO respeta
+  ni el token ni `nologo`: verificado 16-nov-2026, tres generaciones
+  con token salieron con marca en el host viejo).
+- El gateway exige autenticación: token Seed (registro gratuito en
+  pollinations.ai, clave `sk_`) en el header `Authorization: Bearer`.
+  Pásalo con --token o la variable POLLINATIONS_TOKEN — `activate.sh`
+  la carga automáticamente desde `~/workspace/remotion-hub/.env`
+  (fuera del repo, cubierto por .gitignore). Nunca escribas el token
+  en el repo, en un commit ni en una URL (va en el header, no en la
+  query, para que no quede en logs).
+- Con token, el script pide `nologo=true` (sin la marca
+  "pollinations.ai") y `private=true` (fuera del feed público):
+  imágenes publicables, verificado 16-nov-2026.
+- Sin token el gateway responde 401: el script falla con un error
+  claro en vez de devolver una imagen con marca.
+
+Calidad: Flux es bueno para ilustración plana; la consistencia de estilo
 
 Calidad: Flux es bueno para ilustración plana; la consistencia de estilo
 entre imágenes es menor que con un modelo local + LoRA — por eso el
@@ -33,18 +44,21 @@ import time
 import urllib.parse
 import urllib.request
 
-API = "https://image.pollinations.ai/prompt/{prompt}"
+API = "https://gen.pollinations.ai/image/{prompt}"
 
 
-def build_url(prompt, model, seed, width, height, token):
+def build_url(prompt, model, seed, width, height, nologo=True):
     params = {
         "model": model,
         "seed": str(seed),
         "width": str(width),
         "height": str(height),
     }
-    if token:
-        params["token"] = token
+    if nologo:
+        # Sin nologo=true el gateway estampa la marca "pollinations.ai"
+        # aunque el token esté presente (verificado 16-nov-2026).
+        params["nologo"] = "true"
+        params["private"] = "true"
     return API.format(prompt=urllib.parse.quote(prompt)) + "?" + urllib.parse.urlencode(params)
 
 
@@ -65,15 +79,19 @@ def main():
 
     full = f"{args.style_prompt}, {args.prompt}" if args.style_prompt else args.prompt
     if not args.token:
-        print("AVISO: sin token Seed — la imagen llevará la marca de agua "
-              "'pollinations.ai' y NO es publicable (ver cabecera).",
-              file=sys.stderr)
-    url = build_url(full, args.model, args.seed, args.width, args.height,
-                    args.token or None)
+        print("ERROR: el gateway gen.pollinations.ai exige autenticación. "
+              "Configura POLLINATIONS_TOKEN (token Seed gratuito en "
+              "pollinations.ai) en ~/workspace/remotion-hub/.env y "
+              "reactiva con `source activate.sh`; sin token no hay "
+              "generación.", file=sys.stderr)
+        return 1
+    url = build_url(full, args.model, args.seed, args.width, args.height)
+    headers = {"User-Agent": "remotion-hub/1.0",
+               "Authorization": "Bearer " + args.token}
     last = None
     for attempt in range(1, args.retries + 1):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "remotion-hub/1.0"})
+            req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=180) as r:
                 data = r.read()
             break
@@ -93,7 +111,7 @@ def main():
     with open(args.out, "wb") as fh:
         fh.write(data)
     print(f"OK {args.out} ({len(data)} bytes, seed={args.seed}, "
-          f"model={args.model}, watermark={'sí' if not args.token else 'no'})")
+          f"model={args.model}, watermark=no)")
     return 0
 
 
