@@ -2,7 +2,8 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
-import {loadProject,parseArgs} from './lib.mjs';
+import {ROOT,loadProject,parseArgs} from './lib.mjs';
+import {recordMilestone,statePath} from './state.mjs';
 import {sha256} from './verify-assets.mjs';
 const {opts,pos}=parseArgs(process.argv.slice(2));const project=opts.project||pos[0];const {home,data}=loadProject(project);
 const file=path.resolve(opts.file||'');if(!file.startsWith(path.join(home,'out')+path.sep)||!existsSync(file))throw Error('QA requires an MP4 inside project out/');
@@ -80,7 +81,28 @@ if(contact.status!==0)failures.push('Contact sheet generation failed: '+contact.
 const manifestPath=path.join(home,data.assets?.manifest||'asset-manifest.json');
 const assetManifestSha256=existsSync(manifestPath)?createHash('sha256').update(readFileSync(manifestPath)).digest('hex'):null;
 const warnings=[...(blackIntervals.length?[`${blackIntervals.length} dark intervals: inspect contact sheet and actual playback`]:[]),...(!assetManifestSha256?[`Asset manifest missing: ${data.assets?.manifest||'asset-manifest.json'} (provenance hash unavailable)`]:[])];
-const report={engine:'remotion-required-at-render',project,mode,file:path.basename(file),sha256:await sha256(file),gitSha:process.env.SOURCE_SHA||process.env.GITHUB_SHA||'local',revision:process.env.RENDER_REVISION||'unversioned',packageLockSha256:createHash('sha256').update(readFileSync(path.resolve(home,'../../package-lock.json'))).digest('hex'),assetManifestSha256,fps,width:vid.width,height:vid.height,actualFrames,expectedFrames,durationSeconds:duration,expectedDurationSeconds,durationDriftSeconds,hasAudio:!!aud,integratedLufs,truePeakDbtp,leadingSilenceSeconds,trailingSilenceSeconds,silenceIntervals,decodeOkay:decode.status===0,blackIntervals,technicalStatus:failures.length?'failed':'passed',visualStatus:'PENDING_HUMAN_REVIEW',warnings,failures,contactSheet:existsSync(montage)?'contact-sheet.jpg':null};
+// Registro en STATE.json (solo modo full: un QA quick sobre un rango
+// de fotogramas no marca la fase qa). Si no hay STATE.json (proyectos
+// viejos/demo), el informe lo declara y se imprime el comando manual
+// en stderr; stdout sigue siendo solo el JSON del informe.
+const qaStatus=failures.length?'failed':'passed';
+let stateRecorded={recorded:false,reason:''};
+if(mode!=='full'){
+ stateRecorded={recorded:false,reason:'modo quick: solo full marca la fase qa'};
+}else if(!existsSync(statePath(ROOT,project))){
+ stateRecorded={recorded:false,reason:'sin STATE.json en el proyecto'};
+ console.error(`STATE: sin STATE.json — marca manual: node scripts/state.mjs ${project} phase qa ${qaStatus==='passed'?'done':'failed'} --artifact reports/technical-qa.json --artifact out/${path.basename(file)}`);
+}else{
+ try{
+  const note=integratedLufs!==null?`${integratedLufs} LUFS, TP ${truePeakDbtp} dBTP`:(aud?'con audio (sin medición)':'sin audio (proyecto mudo)');
+  recordMilestone(ROOT,project,'qa',`QA técnico ${qaStatus} — ${path.basename(file)}`,{artifacts:['reports/technical-qa.json',`out/${path.basename(file)}`],status:qaStatus==='passed'?'done':'failed',note});
+  stateRecorded={recorded:true,status:qaStatus==='passed'?'done':'failed'};
+ }catch(e){
+  stateRecorded={recorded:false,reason:`no se pudo registrar: ${e.message}`};
+  console.error(`STATE: registro fallido (${e.message}) — marca manual: node scripts/state.mjs ${project} phase qa ${qaStatus==='passed'?'done':'failed'} --artifact reports/technical-qa.json --artifact out/${path.basename(file)}`);
+ }
+}
+const report={engine:'remotion-required-at-render',project,mode,file:path.basename(file),sha256:await sha256(file),gitSha:process.env.SOURCE_SHA||process.env.GITHUB_SHA||'local',revision:process.env.RENDER_REVISION||'unversioned',packageLockSha256:createHash('sha256').update(readFileSync(path.resolve(home,'../../package-lock.json'))).digest('hex'),assetManifestSha256,fps,width:vid.width,height:vid.height,actualFrames,expectedFrames,durationSeconds:duration,expectedDurationSeconds,durationDriftSeconds,hasAudio:!!aud,integratedLufs,truePeakDbtp,leadingSilenceSeconds,trailingSilenceSeconds,silenceIntervals,decodeOkay:decode.status===0,blackIntervals,technicalStatus:failures.length?'failed':'passed',visualStatus:'PENDING_HUMAN_REVIEW',warnings,failures,contactSheet:existsSync(montage)?'contact-sheet.jpg':null,stateRecorded};
 writeFileSync(path.join(reports,'technical-qa.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report));
 if(failures.length)process.exitCode=1;
