@@ -1,0 +1,14 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "marabana-showcase",
+  "title": "Marabana 40 — Reel escaparate",
+  "objective": "Marabana 40 — Reel escaparate",
+  "phase": "editing",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [],
+  "pending": [],
+  "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
+  "updatedAt": "2026-11-16T01:52:01.360Z"
+}
