@@ -13,6 +13,7 @@ test('creating a reel includes a project-specific self-directed creative plan',(
   mkdirSync(path.join(tmp,'templates'));
   mkdirSync(path.join(tmp,'projects'));
   cpSync(path.join(ROOT,'scripts','lib.mjs'),path.join(tmp,'scripts','lib.mjs'));
+  cpSync(path.join(ROOT,'scripts','state.mjs'),path.join(tmp,'scripts','state.mjs'));
   cpSync(path.join(ROOT,'scripts','project.mjs'),path.join(tmp,'scripts','project.mjs'));
   cpSync(path.join(ROOT,'templates','reel'),path.join(tmp,'templates','reel'),{recursive:true});
   writeFileSync(path.join(tmp,'PROJECTS.json'),JSON.stringify({projects:[]}));
@@ -35,5 +36,10 @@ test('creating a reel includes a project-specific self-directed creative plan',(
   assert.match(handoff,/CREATIVE_BRIEF.md/);
   assert.match(state.nextTask,/Investigar referentes/);
   assert.equal(index.projects[0].id,'futuro-reel');
+  // El proyecto nuevo nace con el esqueleto del pipeline (guardado
+  // en tiempo real): las 7 fases pendientes y sin hitos.
+  assert.deepEqual(Object.keys(state.pipeline.phases),['assets','vo','captions','mix','render','qa','delivery']);
+  assert.equal(state.pipeline.phases.render.status,'pending');
+  assert.deepEqual(state.pipeline.milestones,[]);
  }finally{rmSync(tmp,{recursive:true,force:true});}
 });
