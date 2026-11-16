@@ -49,7 +49,7 @@ function masterExists(root, slug, qaArtifacts) {
 
 /** Decide el siguiente paso a partir del pipeline. Devuelve {phase, description, command}. */
 export function nextStep(root, slug, state) {
-	const {seconds} = readProjectMeta(root, slug);
+	const {data: meta, seconds} = readProjectMeta(root, slug);
 	const p = state.pipeline.phases;
 	const firstOpen = PHASES.find((ph) => p[ph].status !== 'done');
 	if (!firstOpen) {
@@ -120,7 +120,9 @@ export function nextStep(root, slug, state) {
 			return {
 				phase: 'qa',
 				description:
-					'Gate de sonoridad + video sobre el máster (falla fuera de [−16,5, −12,0] LUFS, TP > −1 dBTP o silencios fuera de rango).',
+					meta?.audioRequired === false
+						? 'Proyecto mudo (audioRequired=false): el gate de QA comprueba video y descarta la sonoridad.'
+						: 'Gate de sonoridad + video sobre el máster (falla fuera de [−16,5, −12,0] LUFS, TP > −1 dBTP o silencios fuera de rango).',
 				command: `node scripts/qa-media.mjs --project ${slug} --file ${dir}/out/${slug}-master.mp4 --mode full`,
 			};
 		}

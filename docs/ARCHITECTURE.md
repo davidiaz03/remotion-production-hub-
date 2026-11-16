@@ -23,6 +23,12 @@ remotion-production-hub/
 
 - `id`, `title`, `compositionId`, `durationInFrames`, `fps`, `width`, `height`, `crf`.
 - `audioRequired`: el máster debe contener audio cuando sea `true`.
+  La plantilla `motion-reel` lo trae en `true` (reels con VO/música);
+  la plantilla `reel` en `false`. Para un proyecto deliberadamente
+  mudo, crea con `node scripts/project.mjs create <id> "Título"
+  --template motion-reel --mute` (deja `audioRequired: false`) o
+  edita el campo a mano antes del QA: con `true` y un máster sin
+  audio, el gate de QA falla explicando el mismatch.
 - `drivePath`: carpeta de entrega. Para proyectos nuevos, `Remotion Production/projects/<slug>`; `assets/`, `masters/`, `qa/` y `scratch/` bajo esa carpeta.
 - `assets.mode=manifest`: recursos en Drive `drivePath/assets/<path>` y locales en `projects/<slug>/public/<path>`; `asset-manifest.json` declara cada SHA256 y tamaño.
 - `assets.mode=archives`: compatibilidad de proyectos legados con ZIPs declarados y *patch* aprobado antes de verificar hashes.

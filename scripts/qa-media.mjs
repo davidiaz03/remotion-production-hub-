@@ -30,7 +30,7 @@ const failures=[];
 if(vid.width!==expectedWidth||vid.height!==expectedHeight)failures.push(`Resolution ${vid.width}x${vid.height} != ${expectedWidth}x${expectedHeight}`);
 if(!Number.isFinite(fps)||Math.abs(fps-data.fps)>.5)failures.push(`fps ${fps} != ${data.fps} (nb_frames/duración del stream de video)`);
 if(actualFrames!==expectedFrames)failures.push(`Decoded frames ${actualFrames} != ${expectedFrames}`);
-if(mode==='full'&&data.audioRequired&&!aud)failures.push('Expected audio is missing');
+if(mode==='full'&&data.audioRequired&&!aud)failures.push('Expected audio is missing: project.json says audioRequired=true but the file has no audio stream. If the project is deliberately mute, set "audioRequired": false in project.json (or create with --mute) and re-run QA; otherwise the render lost its audio');
 const decode=exec('ffmpeg',['-hide_banner','-v','error','-xerror','-i',file,'-f','null','-']);
 if(decode.status!==0)failures.push(`Decode error ${decode.stderr.slice(0,500)}`);
 const black=exec('ffmpeg',['-hide_banner','-i',file,'-vf','blackdetect=d=0.10:pix_th=0.10:pic_th=0.98','-an','-f','null','-']);
