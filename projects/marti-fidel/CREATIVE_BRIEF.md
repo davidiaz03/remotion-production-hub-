@@ -73,19 +73,120 @@ aplicables confirmadas (scrim+logo legible a 31/33 s, título bajo la
 línea de tiempo a 27/28 s, 130 estático a 41 s, título del mapa a
 14/15 s, mapa sin Galápagos a 17/18.5 s).
 
+## V1.2 (17-nov-2026) — auditoría densa V1.1 + fondos reales de la ONU
+
+Auditoría densa en `AUDIT-V1.1-DENSA.md` (51 fotogramas, 1/s): el
+usuario tenía razón — había superposiciones reales que la auditoría de
+17 fotogramas no vio. Las 10 correcciones aplicadas:
+
+1. **S8 Fidel — frente limpia:** «2005» + «FIDEL ADVIRTIÓ:» en UNA
+   línea centrada sobre la cita (top:1035, sobre la chaqueta oscura),
+   fuera de la cara. Chip más pequeño (34 px, borde rojo) + rótulo
+   (36 px); tiempos originales (chip f12, rótulo f44).
+2. **Transición S7→S8 — sin fantasma:** el texto de la cita de Martí
+   sale con fade-out en local f95–108, ANTES de que empiece el fundido
+   de foto S7→S8 (S8 entra en global f1010 = local f108). La foto sí
+   puede fundirse con la siguiente; el texto, nunca.
+3. **Mapa:** (a) la etiqueta «ART. 19» sale del mapa — va sobre el
+   Pacífico vacío (left:320) con una línea guía fina hasta el anillo
+   de Venezuela; antes tapaba el rojo de Colombia y la zona de
+   Venezuela. (b) Puntos del Caribe dispersos (`MAP_DOT_OFFSETS` en
+   `src/mapDots.ts`, en px de pantalla): todos los centros quedan a
+   ≥39 px, cada uno con línea guía fina hasta su centroide real y un
+   ancla de 8 px en el centroide; anillo pulsante reducido 2,8×→2,0×.
+   El racimo gris ya no tapa el punto rojo de Trinidad.
+4. **Tarjeta Browne:** achicada (cita 44→38 px, paddings y atribución
+   reducidos) y bajada (top 1010→1240): la cabeza del micrófono queda
+   íntegra y visible; la tarjeta solo cubre el pie del micrófono. El
+   karaoke que duplicaba la cita se apaga con línea vacía (ver abajo).
+5. **Interrupt:** suprimido el chunk de karaoke «1891, MARTÍ DIJO…»
+   (27,44 s) + línea vacía: «1891» ya no aparece tres veces a la vez.
+   Nada se pierde: el numeral gigante entra a las 27,43 s y el título
+   «MARTÍ DIJO…» a las 29,03 s, ambos sincronizados con la voz.
+6. **Barras:** números con su valor FINAL desde el primer fotograma de
+   cada fila (sin count-up: a medio contar se leían datos falsos,
+   «2026: 127»); la fila no existe antes de su `at` (antes mostraba
+   «0»); solo la barra crece. Pop en el número al aparecer.
+7. **Contadores:** números ESTÁTICOS con pop, sincronizados con el
+   golpe de voz (at: 0/30/70 = «ciento treinta» / «diecisiete» /
+   «veinticinco»); el count-up marcaba 55 y 7 mientras la voz ya decía
+   el número final.
+8. **Gancho:** ELIMINADO «35 VOTOS MENOS QUE EN 2025» de S1 (y su
+   divisor rojo): la voz no lo dice hasta S2 (4,56 s) y no hay forma de
+   escalonarlo dentro de S1 (la escena termina a las 3,23 s). El
+   mensaje lo dan las barras + el badge «−35 EN UN AÑO» en su golpe
+   de voz. (La auditoría pedía escalonarlo; la eliminación es la
+   forma correcta de cumplirlo.)
+9. **Callback (opcional, aplicada):** suprimido el chunk de karaoke
+   «EXIGEN EL FIN DEL» (41,66 s) + línea vacía: el título ya muestra
+   esas palabras.
+10. **Fondos reales de la ONU** (ver `REAL-UN-ASSETS.md`): S1 →
+    `un-hall-wide-vert.jpg` (tablero con el escrutinio EN CURSO);
+    S3 → `un-bruno-podium-vert.jpg` (Bruno presentando la resolución);
+    S9 → `un-voteboard-result-vert.jpg` (RESULTADO FINAL 130-17-25
+    en el tablero) + fundido a `un-delegates-after-vert.jpg` al
+    entrar el CTA (local f150–165). Los fotogramas reales son CLAROS
+    (pared dorada), así que cada escena lleva scrim oscuro graduado
+    (ligero arriba para que el tablero se vea, fuerte abajo para el
+    texto) y el «130» gigante va BAJO el tablero en S1 (top:950) y
+    S9 (top:850), sin taparlo nunca. Crédito obligatorio por licencia
+    en S1: «Imágenes: UN Web TV / Naciones Unidas» (abajo derecha,
+    fade f10–18). **No usados:** `un-voteboard-fullscreen.jpg` (sin
+    hueco limpio: S1/S9 ya muestran el tablero; una tarjeta horizontal
+    taparía información) y `un-podium-president-vert.jpg` (Bruno es
+    editorialmente más fuerte: presentó la resolución).
+    **Layout S3 partido (nuevo):** la foto ocupa el tercio superior
+    (860 px, cara íntegra, fundido a NAVY en el borde inferior) y las
+    tres tarjetas van abajo sobre fondo NAVY (altura 190, número
+    120 px); la foto a pantalla completa con tarjetas encima cortaba
+    la cara de Bruno. **Scrim del logo extendido** a S1 (f0–97) y S9
+    (f1221–1416): la pared dorada lava el blanco; S3 no lo necesita
+    (mármol verde oscuro detrás del logo).
+
+**Mecanismo karaoke de V1.2 (reutilizable):** BottomKaraoke es «sticky»
+— la línea activa es la última cuyo primer word-start ya pasó y queda
+visible hasta que empieza la siguiente, sin corte al final de la línea.
+Suprimir un chunk sin más dejaría la línea anterior visible y obsoleta.
+Por eso cada supresión va acompañada de una línea VACÍA (una palabra
+con `t: ''`) en el instante del chunk suprimido: `CLEAR_BROWNE`
+(22,98 s), `CLEAR_1891` (27,44 s) y la de callback (41,66 s, local
+0,974 s). Ver el bloque comentado en `src/Video.tsx` (LINES_A/LINES_B).
+
+**Nota — count-up del «19» en S5:** se mantiene (la auditoría densa no
+lo marcó y el SFX de la mezcla está sincronizado con él; cambiar el
+visual sin tocar el audio crearía un desajuste nuevo). Mismo patrón
+que los fixes 6–7, pero fuera del alcance de la auditoría.
+
+**Re-render V1.2:** tramos 01–10 re-renderizados con
+`render-chunks.mjs --resume` (concat 1507/1507 f ✓); tramo 11
+(f1500–1506, sting) reutilizado de V1.1 sin cambios. Máster + ligera
+regenerados con `master.py` (receta V1.3). Máster V1.2: 9.595.094
+bytes, SHA-256 `8adfaf28…cb4b5`; ligera: 2.724.782 bytes, SHA-256
+`df0facd0…29f`. QA `qa-media.mjs --mode full`: **passed** (1507/1507 f,
+1080×1920, −15,9 LUFS, TP −2,1 dBTP, sin silencio inicial/final; las
+2 advertencias de intervalos oscuros son las mismas aceptadas en V1).
+Verificación visual en 12 fotogramas del máster nuevo
+(`audit-frames/v12/`, 2/5/6/8/9/19/25/28/34/36/41/42 s): las 10
+correcciones confirmadas (tablero legible y 130 debajo en 2/41 s,
+crédito ONU en 2 s, barras sin ceros ni «127» en 5/6 s, contadores
+finales con la voz en 8/9 s, ART. 19 sobre el Pacífico y puntos
+dispersos en 19 s, micrófono íntegro y karaoke apagado en 25 s, «1891»
+sin triplicar en 28 s, transición sin fantasma en 34 s, frente de
+Fidel limpia en 36 s, karaoke «EXIGEN» apagado en 42 s).
+
 ## Escenas (tiempos = VO real Kokoro, ver public/audio/vo-lines.json)
 
 | Escena | Fotogramas | Segundos | Contenido |
 |---|---|---|---|
-| S1 Gancho | 0–97 | 0,00–3,23 | Salón ONU (fondo Pollinations, oscurecido) + «130» gigante con count-up + «35 VOTOS MENOS QUE EN 2025» + «28 OCT 2026 · ONU» |
-| S2 Ganamos + barras | 97–237 | 3,23–7,89 | Sello «GANAMOS.» + barras horizontales 191 (2015/17) → 187 (2024) → 165 (2025) → 130 (2026, rojo) + badge «−35» |
-| S3 Contadores | 237–365 | 7,89–12,16 | Tres tarjetas: 130 A FAVOR / 17 EN CONTRA / 25 ABSTENCIONES, al ritmo de la voz |
-| S4 Mapa | 365–576 | 12,16–19,18 | Mapa Natural Earth: base pizarra + overlays rojo/amarillo/gris al decirse cada grupo + puntos luminosos en islas + lista en 3 columnas + nota Venezuela art. 19 |
-| S5 Evidencia | 576–768 | 19,18–25,60 | «19 GOBIERNOS» + micrófono vintage (Pollinations) + tarjeta de cita de Gaston Browne (radio, 9-nov-2026, CMC) |
-| S6 Interrupt 1891 | 768–910 | 25,60–30,32 | Corte duro a paleta sepia + línea de tiempo 1891→2026 + «1891» + retrato cuerpo entero de Martí (Temple Hall) |
-| S7 Cita Martí | 902–1018 | 30,32–33,93 | Retrato busto Martí (Jamaica 1892) + cita estática «Trincheras de ideas…» (sin karaoke) |
-| S8 Cita Fidel | 1010–1221 | 33,93–40,69 | Retrato Fidel MATS 1959 + «2005» + cita estática «No es lo mismo estar desinformado…» (sin karaoke) |
-| S9 Callback + CTA | 1221–1416 | 40,69–47,20 | Vuelve «130» + «PAÍSES EXIGEN EL FIN DEL BLOQUEO» + «MARTÍ-FIDEL: LEER, PENSAR» + «GUARDA ESTE DATO» |
+| S1 Gancho | 0–97 | 0,00–3,23 | Salón ONU REAL (UN Web TV, tablero con el escrutinio EN CURSO) + «130» gigante con count-up BAJO el tablero + «28 OCT 2026 · ONU» + crédito «Imágenes: UN Web TV / Naciones Unidas» (V1.2: sin «35 VOTOS MENOS», va en S2) |
+| S2 Ganamos + barras | 97–237 | 3,23–7,89 | Sello «GANAMOS.» + barras horizontales 191 (2015/17) → 187 (2024) → 165 (2025) → 130 (2026, rojo) + badge «−35» (V1.2: números finales desde el primer fotograma, sin «0» ni valores intermedios) |
+| S3 Contadores | 237–365 | 7,89–12,16 | Layout partido V1.2: Bruno en el podio (UN Web TV, tercio superior, cara íntegra) + tres tarjetas abajo sobre NAVY: 130 A FAVOR / 17 EN CONTRA / 25 ABSTENCIONES, estáticos con pop al ritmo de la voz |
+| S4 Mapa | 365–576 | 12,16–19,18 | Mapa Natural Earth: base pizarra + overlays rojo/amarillo/gris al decirse cada grupo + puntos luminosos en islas (V1.2: dispersos con líneas guía) + lista en 3 columnas + nota Venezuela art. 19 (V1.2: etiqueta «ART. 19» sobre el Pacífico, fuera del mapa) |
+| S5 Evidencia | 576–768 | 19,18–25,60 | «19 GOBIERNOS» + micrófono vintage (Pollinations) + tarjeta de cita de Gaston Browne (radio, 9-nov-2026, CMC) (V1.2: tarjeta achicada y bajada, cabeza del micrófono visible; karaoke apagado mientras la tarjeta está en pantalla) |
+| S6 Interrupt 1891 | 768–910 | 25,60–30,32 | Corte duro a paleta sepia + línea de tiempo 1891→2026 + «1891» + retrato cuerpo entero de Martí (Temple Hall) (V1.2: chunk de karaoke «1891, MARTÍ DIJO…» suprimido) |
+| S7 Cita Martí | 902–1018 | 30,32–33,93 | Retrato busto Martí (Jamaica 1892) + cita estática «Trincheras de ideas…» (sin karaoke) (V1.2: el texto sale con fade-out antes del fundido a S8) |
+| S8 Cita Fidel | 1010–1221 | 33,93–40,69 | Retrato Fidel MATS 1959 + «2005 · FIDEL ADVIRTIÓ:» en una línea sobre la cita (V1.2: fuera de la cara) + cita estática «No es lo mismo estar desinformado…» (sin karaoke) |
+| S9 Callback + CTA | 1221–1416 | 40,69–47,20 | Tablero REAL con el RESULTADO FINAL 130-17-25 (UN Web TV) + «130» bajo el tablero + «PAÍSES EXIGEN EL FIN DEL BLOQUEO» + «MARTÍ-FIDEL: LEER, PENSAR» + «GUARDA ESTE DATO» (V1.2: fundido a delegados al entrar el CTA; karaoke «EXIGEN» suprimido) |
 | S10 Sting | 1416–1507 | 47,20–50,23 | Cierre animado oficial a 2x (sting-black-2x.mp4, decisión de auditoría Marabana: el sting de 6 s lastraba la finalización) |
 
 **Karaoke:** BottomKaraoke (patrón Pilar V30 / Marabana V1.3), híbrido
@@ -104,7 +205,9 @@ el logo animado oficial con fondo negro.
 | fidel-mats-1959-cropped.jpg (1720×2400) | Biblioteca del Congreso (LoC), foto Warren K. Leffler, MATS Terminal Washington, 15-abr-1959 — dominio público. Descargado el TIFF máster (3909×4000) y recortado a retrato. |
 | fidel-camilo-barbudos-1959.jpg | Wikimedia Commons (Luis Korda, 1959) — dominio público/CC0. Secundario, no usado en el corte final. |
 | map-base/red/yellow/gray.png + map-dots.json | Natural Earth 50m admin_0_countries (dominio público), render propio con `research/map-build.py` (proyección equirectangular, lon −125..−28, lat −58..33). **V1.1:** Galápagos fuera del overlay rojo (ver §V1.1). |
-| bg-un-hall.png, bg-radio-mic.png | Pollinations Flux (token Seed, sin marca de agua), style prompt bloqueado abajo. Fondos decorativos, NO presentados como archivo real. |
+| bg-radio-mic.png | Pollinations Flux (token Seed, sin marca de agua), style prompt bloqueado abajo. Fondo decorativo, NO presentado como archivo real. (V1.2: único fondo generado que queda en el corte.) |
+| bg-un-hall.png | Pollinations Flux (seed 42). **V1.2: SIN USO** — S1/S3/S9 usan fotogramas reales de UN Web TV. Se conserva en `public/img/` por si hace falta. |
+| img/real-un/un-hall-wide-vert.jpg (S1) · un-bruno-podium-vert.jpg (S3) · un-voteboard-result-vert.jpg + un-delegates-after-vert.jpg (S9) | UN Web TV, 28ª plenaria AGNU 28-oct-2026 (Kaltura VOD 1_8dylozhm), © Naciones Unidas — uso editorial no comercial; crédito en pantalla obligatorio (S1). Verticales 1080×1920 recortadas con Lanczos. Ver `REAL-UN-ASSETS.md`. `un-voteboard-fullscreen.jpg` y `un-podium-president-vert.jpg` extraídos pero NO usados (ver §V1.2). |
 | logo-white.png | Marca oficial del Memorial (copia de marabana-v1). |
 | sting-black-2x.mp4 + sting-2x.wav | Cierre animado oficial, versión negra a 2x (copia de marabana-v1). |
 
@@ -115,6 +218,9 @@ para Fidel; libro de iconografía del CEM para Martí). El salón de la ONU
 de Patrick Gruban (CC BY-SA 2.0) no pudo descargarse; se sustituyó por
 fondo generado (Pollinations). **V1.1:** un tercer intento (17-nov,
 ~22:15 UTC) devolvió de nuevo 429; se mantiene el fondo generado.
+**V1.2 — FRENTE CERRADO:** el salón real ya está en el corte, extraído
+de UN Web TV (ver `REAL-UN-ASSETS.md`); no hace falta reintentar
+Wikimedia.
 
 ## Style prompt bloqueado (Pollinations, no tocar)
 
@@ -165,15 +271,21 @@ fondo generado (Pollinations). **V1.1:** un tercer intento (17-nov,
 4. **Fondo del gancho generado** (Pollinations) en vez de la foto real
    del salón de la ONU (Wikimedia 429, ver arriba). Es fondo decorativo
    oscurecido tras el «130», no se presenta como foto del acto.
+   **V1.2 — DESVIACIÓN CERRADA:** el gancho, los contadores y el
+   callback usan fotogramas reales de UN Web TV (ver §V1.2).
 5. **Sin fotograma del tablero de votación de UN Web TV** (opción de
    ASSETS.md): la tarjeta de evidencia de Browne + los contadores cubren
    la función de evidencia; se evitó una extracción Kaltura adicional.
+   **V1.2 — DESVIACIÓN CERRADA:** el tablero real aparece en S1
+   (escrutinio en curso) y S9 (resultado final 130-17-25).
 6. **Venezuela:** sin relleno; anillo blanco + nota al pie (art. 19),
    como indica la estrategia.
 7. **Etiqueta de contenido IA de Meta al publicar:** SÍ aplica — hay
    fondos generados (Pollinations) y voz de IA en esta previsualización.
-   Con la voz real del usuario, la etiqueta seguiría aplicando por los
-   dos fondos generados.
+   **V1.2:** sigue aplicando — voz de IA (previsualización) + el fondo
+   del micrófono (Pollinations, S5). Los fondos de la ONU ya son reales
+   y no cuentan; con la voz definitiva grabada, la etiqueta seguiría
+   aplicando solo por el micrófono generado.
 
 ## QA visual (17-nov-2026, máster V1)
 

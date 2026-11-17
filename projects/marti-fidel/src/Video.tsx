@@ -18,7 +18,7 @@ import {
 	type KaraokeLine,
 } from '../../../shared/captions';
 import {CAPTIONS} from './captions';
-import {MAP_DOTS} from './mapDots';
+import {MAP_DOTS, MAP_DOT_OFFSETS} from './mapDots';
 
 // ================================================================
 // «Martí-Fidel: leer, pensar» — reel vertical 1080×1920, 30 fps.
@@ -41,17 +41,66 @@ const SEPIA_GOLD = '#C9A86A';
 // Ventana A: fragmentos 1–7 (0–29,87 s). Ventana B: fragmento 10
 // (40,69–45,69 s), con tiempos desplazados a su Sequence. Las dos citas
 // (fragmentos 8–9) van como texto estático, sin karaoke.
-const LINES_A: KaraokeLine[] = capSegmentsToLines(CAPTIONS.slice(0, 7));
+//
+// V1.2 (auditoría densa): BottomKaraoke es «pegajoso» — la última línea
+// cuyo inicio pasó queda visible hasta que empieza la siguiente, sin
+// corte por fin de línea. Por eso, suprimir un chunk NO basta: hay que
+// insertar una línea VACÍA (palabra '') en su lugar para que el karaoke
+// se apague mientras el texto estático lleva esas palabras. Sin la
+// línea vacía, el chunk anterior quedaría visible y rancio.
+//   - Seg 6: se suprimen «WASHINGTON LO LLAMÓ PARA» y «QUE CAMBIARA SU
+//     VOTO.» (la tarjeta de Browne muestra la cita completa desde f113);
+//     línea vacía en 22,98 s.
+//   - Seg 7: se suprime «1891, MARTÍ DIJO…» (el «1891» gigante + el
+//     título estático «MARTÍ DIJO…» ya lo dicen); línea vacía en 27,44 s.
+//   - Seg 10: se suprime «EXIGEN EL FIN DEL» (el título «PAÍSES EXIGEN
+//     EL FIN DEL BLOQUEO» lo muestra); línea vacía en 41,66 s.
+const CAPTIONS_A = CAPTIONS.slice(0, 7).map((seg) => {
+	if (seg.id === 6) return {...seg, chunks: seg.chunks.slice(0, 3)};
+	if (seg.id === 7) return {...seg, chunks: seg.chunks.slice(0, 2)};
+	return seg;
+});
+const CLEAR_BROWNE: KaraokeLine = {words: [{t: '', s: 22.98, e: 25.54}]};
+const CLEAR_1891: KaraokeLine = {words: [{t: '', s: 27.44, e: 29.87}]};
+const LINES_A: KaraokeLine[] = (() => {
+	const lines = capSegmentsToLines(CAPTIONS_A);
+	// Insertar en orden temporal (BottomKaraoke asume líneas ordenadas).
+	const out: KaraokeLine[] = [];
+	for (const line of lines) {
+		const s = line.words[0]?.s ?? 0;
+		if (s >= 22.98 && !out.includes(CLEAR_BROWNE)) out.push(CLEAR_BROWNE);
+		if (s >= 27.44 && !out.includes(CLEAR_1891)) out.push(CLEAR_1891);
+		out.push(line);
+	}
+	if (!out.includes(CLEAR_1891)) out.push(CLEAR_1891);
+	return out;
+})();
 const L9_START = 40.686;
-const LINES_B: KaraokeLine[] = capSegmentsToLines(CAPTIONS.slice(9, 10)).map(
-	(line) => ({
+const CAPTIONS_B = CAPTIONS.slice(9, 10).map((seg) => ({
+	...seg,
+	chunks: seg.chunks.filter((_, i) => i !== 1),
+}));
+const LINES_B: KaraokeLine[] = (() => {
+	const lines = capSegmentsToLines(CAPTIONS_B).map((line) => ({
 		words: line.words.map((w) => ({
 			...w,
 			s: w.s - L9_START,
 			e: w.e - L9_START,
 		})),
-	}),
-);
+	}));
+	// Línea vacía en 41,66 s (local 0,974 s): apaga el karaoke mientras
+	// el título muestra «PAÍSES EXIGEN EL FIN DEL BLOQUEO».
+	const clear: KaraokeLine = {
+		words: [{t: '', s: 41.66 - L9_START, e: 42.78 - L9_START}],
+	};
+	const out: KaraokeLine[] = [];
+	for (const line of lines) {
+		const s = line.words[0]?.s ?? 0;
+		if (s >= clear.words[0].s && !out.includes(clear)) out.push(clear);
+		out.push(line);
+	}
+	return out;
+})();
 
 // ---------- helpers ----------
 const clamp01 = (f: number, a: number, b: number) =>
@@ -85,16 +134,24 @@ const countUp = (f: number, a: number, b: number, target: number) =>
 // sepia (S6/S7, f768–1018): el blanco se lava sobre el sepia claro de
 // Martí (auditoría V1, f_31s/f_33s). NO es una placa: degradado radial
 // sin bordes, a transparente antes del centro del fotograma.
+// V1.2: mismo scrim en S1 (f0–97) y S9 (f1221–1416): los fotogramas
+// reales de la ONU son CLAROS (pared dorada) y el logo blanco se lava
+// en la esquina superior derecha. S3 no lo necesita (mármol verde
+// oscuro detrás del logo).
+/** Ventana de opacidad 0→1→0 con fades de 8 f en los bordes. */
+const winOp = (f: number, a: number, b: number) =>
+	clamp01(f, a, a + 8) * (1 - clamp01(f, b - 8, b));
 const LogoInner: React.FC = () => {
 	const frame = useCurrentFrame();
 	const fadeOut = interpolate(frame, [1406, 1416], [1, 0], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	const scrimOp = interpolate(frame, [768, 778, 1008, 1018], [0, 1, 1, 0], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
+	const scrimOp = Math.max(
+		winOp(frame, 0, 97),
+		winOp(frame, 768, 1018),
+		winOp(frame, 1221, 1416),
+	);
 	return (
 		<AbsoluteFill style={{pointerEvents: 'none'}}>
 			<div
@@ -126,42 +183,48 @@ const LogoInner: React.FC = () => {
 
 // ================================================================
 // S1 — GANCHO (0–97 f · 0,00–3,23 s)
-// Salón ONU + «130» gigante con count-up + «35 VOTOS MENOS QUE EN 2025»
+// V1.2: fotograma REAL de UN Web TV (28ª plenaria, 28-oct-2026):
+// plano general con el tablero del escrutinio EN CURSO (Item 37 ·
+// A/81/L.5). El «130» va BAJO el tablero (top:950) para no taparlo;
+// el tablero ocupa y≈100–800 y debe quedar visible y legible.
+// V1.2, fix 8: sin «35 VOTOS MENOS QUE EN 2025» aquí — la voz no lo
+// dice hasta S2 (4,56 s); el mensaje lo dan las barras + el badge
+// «−35» en su golpe de voz. Crédito ONU obligatorio por licencia.
 // ================================================================
 const HookScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const n = countUp(f, 2, 38, 130);
-	const push = interpolate(f, [0, 97], [1, 1.08], {
+	const push = interpolate(f, [0, 97], [1, 1.05], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	const subIn = clamp01(f, 40, 48);
-	const subScale = popIn(f, 40);
+	const creditIn = clamp01(f, 10, 18);
 	return (
 		<AbsoluteFill style={{background: NAVY}}>
 			<Img
-				src={staticFile('img/bg-un-hall.png')}
+				src={staticFile('img/real-un/un-hall-wide-vert.jpg')}
 				style={{
 					width: '100%',
 					height: '100%',
 					objectFit: 'cover',
 					transform: `scale(${push})`,
-					opacity: 0.55,
 				}}
 			/>
+			{/* Scrim: ligero arriba (el tablero debe verse), fuerte
+			    abajo (el 130 va sobre los delegados). */}
 			<div
 				style={{
 					position: 'absolute',
 					inset: 0,
 					background:
-						'linear-gradient(180deg, rgba(10,20,32,0.55) 0%, rgba(10,20,32,0.15) 40%, rgba(10,20,32,0.88) 100%)',
+						'linear-gradient(180deg, rgba(10,20,32,0.30) 0%, rgba(10,20,32,0.10) 35%, rgba(10,20,32,0.55) 55%, rgba(10,20,32,0.88) 100%)',
 				}}
 			/>
-			{/* Fecha + foro */}
+			{/* Fecha + foro (sobre el borde superior, encima del tablero) */}
 			<div
 				style={{
 					position: 'absolute',
-					top: 120,
+					top: 56,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -170,15 +233,16 @@ const HookScene: React.FC = () => {
 					fontWeight: 700,
 					letterSpacing: 6,
 					color: '#BFD4E6',
+					textShadow: textOutline(2),
 				}}
 			>
 				28 OCT 2026 · ONU
 			</div>
-			{/* 130 gigante */}
+			{/* 130 gigante (bajo el tablero, que termina en y≈800) */}
 			<div
 				style={{
 					position: 'absolute',
-					top: 330,
+					top: 950,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -194,7 +258,7 @@ const HookScene: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 730,
+					top: 1360,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -207,37 +271,23 @@ const HookScene: React.FC = () => {
 			>
 				PAÍSES A FAVOR
 			</div>
-			{/* Subtítulo con el contraste (5 palabras) */}
+			{/* Crédito obligatorio (licencia UN Web TV) */}
 			<div
 				style={{
 					position: 'absolute',
-					top: 880,
-					left: 0,
-					right: 0,
-					textAlign: 'center',
-					fontFamily: ARCHIVO,
-					fontSize: 52,
-					lineHeight: 1.25,
-					opacity: subIn,
-					transform: `scale(${subScale})`,
-					textShadow: textOutline(3),
+					top: 1855,
+					right: 24,
+					fontFamily: COND,
+					fontSize: 20,
+					fontWeight: 600,
+					letterSpacing: 1,
+					color: 'rgba(255,255,255,0.75)',
+					textShadow: '0 1px 4px rgba(0,0,0,0.8)',
+					opacity: creditIn,
 				}}
 			>
-				<span style={{color: MEMORIAL_RED}}>35 VOTOS MENOS</span>
-				<br />
-				<span style={{color: '#FFFFFF'}}>QUE EN 2025</span>
+				Imágenes: UN Web TV / Naciones Unidas
 			</div>
-			<div
-				style={{
-					position: 'absolute',
-					top: 1080,
-					left: 440,
-					width: 200,
-					height: 8,
-					background: MEMORIAL_RED,
-					opacity: subIn,
-				}}
-			/>
 		</AbsoluteFill>
 	);
 };
@@ -333,17 +383,32 @@ const BarsScene: React.FC = () => {
 					RESOLUCIÓN CONTRA EL BLOQUEO
 				</div>
 			</div>
-			{/* Barras horizontales */}
+			{/* Barras horizontales.
+			    V1.2, fix 6: la fila NO existe antes de su `at` (antes
+			    mostraba «0»); el número aparece con su valor FINAL
+			    desde el primer fotograma (sin count-up: a medio contar
+			    se leían datos falsos, p. ej. «2026: 127»). Solo la
+			    barra crece. */}
 			{BARS.map((b, i) => {
 				const grow = interpolate(f, [b.at, b.at + 14], [0, 1], {
 					easing: Easing.out(Easing.cubic),
 					extrapolateLeft: 'clamp',
 					extrapolateRight: 'clamp',
 				});
-				const val = countUp(f, b.at, b.at + 14, b.value);
+				const rowOp = clamp01(f, b.at, b.at + 6);
+				const numScale = popIn(f, b.at, 10);
 				const top = 520 + i * 150;
 				return (
-					<div key={b.year} style={{position: 'absolute', top, left: 90, right: 90}}>
+					<div
+						key={b.year}
+						style={{
+							position: 'absolute',
+							top,
+							left: 90,
+							right: 90,
+							opacity: rowOp,
+						}}
+					>
 						<div
 							style={{
 								display: 'flex',
@@ -367,9 +432,11 @@ const BarsScene: React.FC = () => {
 									fontFamily: ARCHIVO,
 									fontSize: 56,
 									color: b.color === MEMORIAL_RED ? MEMORIAL_RED : '#FFFFFF',
+									display: 'inline-block',
+									transform: `scale(${numScale})`,
 								}}
 							>
-								{val}
+								{b.value}
 							</span>
 						</div>
 						<div
@@ -432,7 +499,14 @@ const BarsScene: React.FC = () => {
 
 // ================================================================
 // S3 — CONTADORES (237–365 f · 7,89–12,16 s, local 0–128)
-// 130 A FAVOR / 17 EN CONTRA / 25 ABSTENCIONES, al ritmo de la voz
+// V1.2: fotograma REAL de UN Web TV — Bruno Rodríguez Parrilla en el
+// podio presentando la resolución (00:40:10 del VOD). Layout partido:
+// la foto ocupa el tercio superior (la cara queda íntegra, sin
+// tarjetas encima) y las tres tarjetas van abajo sobre fondo NAVY.
+// V1.2, fix 7: números ESTÁTICOS con pop, sincronizados con el golpe
+// de voz (at: 0/30/70 = «ciento treinta» / «diecisiete» /
+// «veinticinco»); el count-up marcaba 55 y 7 mientras la voz ya decía
+// el número final.
 // ================================================================
 const COUNTERS = [
 	{value: 130, label: 'A FAVOR', at: 0, color: '#FFFFFF', sub: 'PAÍSES'},
@@ -443,21 +517,49 @@ const COUNTERS = [
 const CountersScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const titleIn = clamp01(f, 0, 8);
+	const photoPush = interpolate(f, [0, 128], [1, 1.04], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
 	return (
 		<AbsoluteFill style={{background: NAVY}}>
-			<Img
-				src={staticFile('img/bg-un-hall.png')}
-				style={{
-					width: '100%',
-					height: '100%',
-					objectFit: 'cover',
-					opacity: 0.14,
-				}}
-			/>
+			{/* Bruno en el podio, tercio superior (cara íntegra) */}
 			<div
 				style={{
 					position: 'absolute',
-					top: 150,
+					top: 0,
+					left: 0,
+					right: 0,
+					height: 860,
+					overflow: 'hidden',
+				}}
+			>
+				<Img
+					src={staticFile('img/real-un/un-bruno-podium-vert.jpg')}
+					style={{
+						width: '100%',
+						height: '100%',
+						objectFit: 'cover',
+						objectPosition: '50% 12%',
+						transform: `scale(${photoPush})`,
+					}}
+				/>
+				<div
+					style={{
+						position: 'absolute',
+						left: 0,
+						right: 0,
+						bottom: 0,
+						height: 120,
+						background:
+							'linear-gradient(180deg, rgba(10,20,32,0) 0%, rgba(10,20,32,1) 100%)',
+					}}
+				/>
+			</div>
+			<div
+				style={{
+					position: 'absolute',
+					top: 885,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -478,8 +580,8 @@ const CountersScene: React.FC = () => {
 					extrapolateRight: 'clamp',
 				});
 				const op = clamp01(f, c.at, c.at + 8);
-				const val = countUp(f, c.at, c.at + 12, c.value);
-				const top = 330 + i * 300;
+				const numScale = popIn(f, c.at, 12);
+				const top = 950 + i * 205;
 				return (
 					<div
 						key={c.label}
@@ -488,7 +590,7 @@ const CountersScene: React.FC = () => {
 							top,
 							left: 80,
 							right: 80,
-							height: 240,
+							height: 190,
 							background: 'rgba(255,255,255,0.06)',
 							borderLeft: `10px solid ${c.color}`,
 							borderRadius: 12,
@@ -502,13 +604,15 @@ const CountersScene: React.FC = () => {
 						<span
 							style={{
 								fontFamily: ARCHIVO,
-								fontSize: 150,
+								fontSize: 120,
 								color: c.color,
-								minWidth: 370,
+								minWidth: 300,
 								flexShrink: 0,
+								display: 'inline-block',
+								transform: `scale(${numScale})`,
 							}}
 						>
-							{val}
+							{c.value}
 						</span>
 						<span
 							style={{
@@ -541,12 +645,12 @@ const CountersScene: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 1290,
+					top: 1575,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
 					fontFamily: COND,
-					fontSize: 30,
+					fontSize: 26,
 					letterSpacing: 3,
 					color: '#8FA9BE',
 					opacity: clamp01(f, 100, 110),
@@ -594,27 +698,67 @@ const MAP_GROUPS = [
 	},
 ] as const;
 
-/** Punto luminoso con anillo pulsante (ciclo determinista de 45 f). */
+/** Punto luminoso con anillo pulsante (ciclo determinista de 45 f).
+    V1.2: si el punto lleva desplazamiento (dx, dy), se dibuja en la
+    posición desplazada con una línea guía fina hasta su centroide real
+    y un ancla pequeña en el centroide. Anillo reducido (2,0× en vez
+    de 2,8×) para que los anillos vecinos no se solapen. */
 const MapDot: React.FC<{
 	x: number;
 	y: number;
 	color: string;
 	appearAt: number;
 	frame: number;
-}> = ({x, y, color, appearAt, frame}) => {
+	dx?: number;
+	dy?: number;
+}> = ({x, y, color, appearAt, frame, dx = 0, dy = 0}) => {
 	if (frame < appearAt) return null;
 	const age = frame - appearAt;
 	const cycle = age % 45;
-	const ringScale = interpolate(cycle, [0, 45], [1, 2.8]);
+	const ringScale = interpolate(cycle, [0, 45], [1, 2.0]);
 	const ringOp = interpolate(cycle, [0, 45], [0.9, 0]);
 	const inScale = popIn(frame, appearAt, 8);
+	const px = x + dx;
+	const py = y + dy;
+	const hasLeader = dx !== 0 || dy !== 0;
+	const leaderLen = Math.sqrt(dx * dx + dy * dy);
+	const leaderAngle = (Math.atan2(dy, dx) * 180) / Math.PI;
 	return (
 		<>
+			{hasLeader && (
+				<>
+					<div
+						style={{
+							position: 'absolute',
+							left: x,
+							top: y,
+							width: leaderLen,
+							height: 2,
+							background: color,
+							opacity: 0.55,
+							transform: `rotate(${leaderAngle}deg)`,
+							transformOrigin: '0 50%',
+						}}
+					/>
+					<div
+						style={{
+							position: 'absolute',
+							left: x - 4,
+							top: y - 4,
+							width: 8,
+							height: 8,
+							borderRadius: '50%',
+							background: color,
+							border: '1px solid #FFFFFF',
+						}}
+					/>
+				</>
+			)}
 			<div
 				style={{
 					position: 'absolute',
-					left: x - 11,
-					top: y - 11,
+					left: px - 11,
+					top: py - 11,
 					width: 22,
 					height: 22,
 					borderRadius: '50%',
@@ -626,8 +770,8 @@ const MapDot: React.FC<{
 			<div
 				style={{
 					position: 'absolute',
-					left: x - 9,
-					top: y - 9,
+					left: px - 9,
+					top: py - 9,
 					width: 18,
 					height: 18,
 					borderRadius: '50%',
@@ -718,10 +862,11 @@ const MapScene: React.FC = () => {
 					/>
 				))}
 			</div>
-			{/* Puntos luminosos en las islas */}
+			{/* Puntos luminosos en las islas (V1.2: dispersos con guías) */}
 			{MAP_GROUPS.map((g) =>
 				g.dots.map((name) => {
 					const d = MAP_DOTS[name as keyof typeof MAP_DOTS];
+					const off = MAP_DOT_OFFSETS[name] ?? {dx: 0, dy: 0};
 					return (
 						<MapDot
 							key={name}
@@ -730,6 +875,8 @@ const MapScene: React.FC = () => {
 							color={g.color}
 							appearAt={g.at}
 							frame={f}
+							dx={off.dx}
+							dy={off.dy}
 						/>
 					);
 				}),
@@ -749,23 +896,40 @@ const MapScene: React.FC = () => {
 					}}
 				/>
 			)}
+			{/* V1.2, fix 3: la etiqueta «ART. 19» sale del mapa — va sobre
+			    el Pacífico vacío (oeste de Colombia), con una línea guía
+			    hasta el anillo. Antes tapaba el rojo de Colombia y la
+			    zona de Venezuela. */}
 			{f >= 155 && (
-				<div
-					style={{
-						position: 'absolute',
-						left: venX + 34,
-						top: venY - 16,
-						fontFamily: ARCHIVO,
-						fontSize: 26,
-						color: '#FFFFFF',
-						background: 'rgba(10,20,32,0.85)',
-						padding: '6px 12px',
-						borderRadius: 6,
-						opacity: venIn,
-					}}
-				>
-					ART. 19
-				</div>
+				<>
+					<div
+						style={{
+							position: 'absolute',
+							left: 320,
+							top: venY - 20,
+							fontFamily: ARCHIVO,
+							fontSize: 26,
+							color: '#FFFFFF',
+							background: 'rgba(10,20,32,0.85)',
+							padding: '6px 12px',
+							borderRadius: 6,
+							opacity: venIn,
+						}}
+					>
+						ART. 19
+					</div>
+					<div
+						style={{
+							position: 'absolute',
+							left: 438,
+							top: venY + 1,
+							width: venX - 26 - 438,
+							height: 2,
+							background: 'rgba(255,255,255,0.6)',
+							opacity: venIn,
+						}}
+					/>
+				</>
 			)}
 			{/* Lista en 3 columnas */}
 			{MAP_GROUPS.map((g, gi) => {
@@ -904,17 +1068,24 @@ const EvidenceScene: React.FC = () => {
 					GOBIERNOS
 				</div>
 			</div>
-			{/* Tarjeta de evidencia */}
+			{/* Tarjeta de evidencia.
+			    V1.2, fix 4: achicada (cita 44→38 px, paddings y
+			    atribución reducidos) y bajada (top 1010→1240): la
+			    cabeza del micrófono (y≈700–1050) queda íntegra y
+			    visible; la tarjeta solo cubre el pie del micrófono.
+			    El karaoke que duplicaba la cita se apaga con la línea
+			    vacía CLEAR_BROWNE (22,98 s) mientras la tarjeta está
+			    en pantalla. */}
 			<div
 				style={{
 					position: 'absolute',
-					top: 1010,
+					top: 1240,
 					left: 70,
 					right: 70,
 					background: 'rgba(8,15,24,0.88)',
 					borderLeft: `10px solid ${MEMORIAL_RED}`,
 					borderRadius: 12,
-					padding: '36px 40px',
+					padding: '26px 32px',
 					opacity: cardOp,
 					transform: `translateY(${cardSlide}px)`,
 				}}
@@ -922,10 +1093,10 @@ const EvidenceScene: React.FC = () => {
 				<div
 					style={{
 						fontFamily: ARCHIVO,
-						fontSize: 26,
+						fontSize: 24,
 						letterSpacing: 4,
 						color: MEMORIAL_RED,
-						marginBottom: 16,
+						marginBottom: 14,
 					}}
 				>
 					LO CONTÓ EN LA RADIO
@@ -933,7 +1104,7 @@ const EvidenceScene: React.FC = () => {
 				<div
 					style={{
 						fontFamily: ARCHIVO,
-						fontSize: 44,
+						fontSize: 38,
 						lineHeight: 1.3,
 						color: '#FFFFFF',
 					}}
@@ -943,10 +1114,10 @@ const EvidenceScene: React.FC = () => {
 				<div
 					style={{
 						fontFamily: COND,
-						fontSize: 28,
+						fontSize: 25,
 						lineHeight: 1.35,
 						color: '#BFD4E6',
-						marginTop: 18,
+						marginTop: 14,
 					}}
 				>
 					GASTON BROWNE · PRIMER MINISTRO DE ANTIGUA Y BARBUDA
@@ -1173,6 +1344,12 @@ const MartiQuoteScene: React.FC = () => {
 	const l2 = clamp01(f, 20, 28);
 	const l3 = clamp01(f, 32, 40);
 	const attr = clamp01(f, 45, 53);
+	// V1.2, fix 2: el TEXTO de la cita sale (fade-out local f95–108)
+	// ANTES de que empiece el fundido de la foto S7→S8 (S8 entra en
+	// global f1010 = local f108). En V1.1 la cita de Martí se leía
+	// semitransparente sobre la cara de Fidel (~34 s). La foto sí
+	// puede fundirse con la siguiente; el texto, nunca.
+	const textOut = 1 - clamp01(f, 95, 108);
 	return (
 		<AbsoluteFill style={{background: SEPIA_BG, opacity: fadeIn}}>
 			<Img
@@ -1205,6 +1382,7 @@ const MartiQuoteScene: React.FC = () => {
 					lineHeight: 1.28,
 					color: '#FFFFFF',
 					textShadow: textOutline(3),
+					opacity: textOut,
 				}}
 			>
 				<div style={{opacity: l1}}>
@@ -1226,7 +1404,7 @@ const MartiQuoteScene: React.FC = () => {
 					fontWeight: 700,
 					letterSpacing: 3,
 					color: SEPIA_GOLD,
-					opacity: attr,
+					opacity: attr * textOut,
 				}}
 			>
 				— JOSÉ MARTÍ · NUESTRA AMÉRICA, 1891
@@ -1273,38 +1451,48 @@ const FidelQuoteScene: React.FC = () => {
 						'linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.10) 40%, rgba(0,0,0,0.88) 72%, rgba(0,0,0,0.96) 100%)',
 				}}
 			/>
-			{/* Chip 2005 */}
+			{/* V1.2, fix 1: «2005» + «FIDEL ADVIRTIÓ:» en UNA línea
+			    centrada sobre la cita (top:1035, sobre la chaqueta
+			    oscura), fuera de la cara. En V1.1 caían sobre la
+			    frente y el pelo de Fidel (auditoría densa s_36/s_38).
+			    Tiempos originales: chip con «2005» (f12), rótulo con
+			    «ADVIRTIÓ:» (f44). */}
 			<div
 				style={{
 					position: 'absolute',
-					top: 150,
-					left: 80,
-					fontFamily: ARCHIVO,
-					fontSize: 64,
-					color: '#FFFFFF',
-					background: 'rgba(0,0,0,0.55)',
-					border: `3px solid ${MEMORIAL_RED}`,
-					padding: '12px 28px',
-					borderRadius: 12,
-					opacity: chipIn,
+					top: 1035,
+					left: 0,
+					right: 0,
+					textAlign: 'center',
 				}}
 			>
-				2005
-			</div>
-			<div
-				style={{
-					position: 'absolute',
-					top: 270,
-					left: 80,
-					fontFamily: ARCHIVO,
-					fontSize: 36,
-					letterSpacing: 3,
-					color: '#FFFFFF',
-					textShadow: textOutline(3),
-					opacity: advIn,
-				}}
-			>
-				FIDEL ADVIRTIÓ:
+				<span
+					style={{
+						fontFamily: ARCHIVO,
+						fontSize: 34,
+						color: '#FFFFFF',
+						background: 'rgba(0,0,0,0.55)',
+						border: `3px solid ${MEMORIAL_RED}`,
+						padding: '8px 20px',
+						borderRadius: 10,
+						opacity: chipIn,
+						marginRight: 18,
+					}}
+				>
+					2005
+				</span>
+				<span
+					style={{
+						fontFamily: ARCHIVO,
+						fontSize: 36,
+						letterSpacing: 3,
+						color: '#FFFFFF',
+						textShadow: textOutline(3),
+						opacity: advIn,
+					}}
+				>
+					FIDEL ADVIRTIÓ:
+				</span>
 			</div>
 			<div
 				style={{
@@ -1350,7 +1538,13 @@ const FidelQuoteScene: React.FC = () => {
 
 // ================================================================
 // S9 — CALLBACK + CTA (1221–1416 f · 40,69–47,20 s, local 0–195)
-// Vuelve «130» + título + «GUARDA ESTE DATO»
+// V1.2: fotograma REAL de UN Web TV con el RESULTADO FINAL en el
+// tablero (IN FAVOUR 130 / AGAINST 17 / ABSTENTION 25). El «130»
+// gigante va BAJO el tablero (top:850; el tablero ocupa y≈110–800 y
+// debe quedar visible y legible). En local f150 (45,69 s, al entrar
+// el CTA) el fondo funde a los delegados tras la aprobación
+// (variedad en el cierre). El karaoke «EXIGEN EL FIN DEL» se apaga
+// con línea vacía (fix 9): el título ya muestra esas palabras.
 // ================================================================
 const CallbackScene: React.FC = () => {
 	const f = useCurrentFrame();
@@ -1366,21 +1560,44 @@ const CallbackScene: React.FC = () => {
 	const pensarIn = clamp01(f, 135, 141);
 	const ctaIn = clamp01(f, 150, 158);
 	const ctaScale = popIn(f, 150, 12);
+	// V1.2: fundido tablero → delegados al entrar el CTA (f150–165).
+	const delIn = clamp01(f, 150, 165);
 	return (
 		<AbsoluteFill style={{background: NAVY}}>
 			<Img
-				src={staticFile('img/bg-un-hall.png')}
+				src={staticFile('img/real-un/un-voteboard-result-vert.jpg')}
 				style={{
 					width: '100%',
 					height: '100%',
 					objectFit: 'cover',
-					opacity: 0.2,
+					opacity: 1 - delIn,
+				}}
+			/>
+			<Img
+				src={staticFile('img/real-un/un-delegates-after-vert.jpg')}
+				style={{
+					position: 'absolute',
+					inset: 0,
+					width: '100%',
+					height: '100%',
+					objectFit: 'cover',
+					opacity: delIn,
+				}}
+			/>
+			{/* Scrim: ligero arriba (el tablero debe verse), fuerte
+			    abajo (el texto va sobre los delegados). */}
+			<div
+				style={{
+					position: 'absolute',
+					inset: 0,
+					background:
+						'linear-gradient(180deg, rgba(10,20,32,0.15) 0%, rgba(10,20,32,0.10) 35%, rgba(10,20,32,0.60) 50%, rgba(10,20,32,0.88) 100%)',
 				}}
 			/>
 			<div
 				style={{
 					position: 'absolute',
-					top: 260,
+					top: 850,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -1397,7 +1614,7 @@ const CallbackScene: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 590,
+					top: 1170,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -1416,7 +1633,7 @@ const CallbackScene: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 830,
+					top: 1340,
 					left: 390,
 					width: 300,
 					height: 6,
@@ -1427,7 +1644,7 @@ const CallbackScene: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 900,
+					top: 1400,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -1444,7 +1661,7 @@ const CallbackScene: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 990,
+					top: 1490,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -1469,7 +1686,7 @@ const CallbackScene: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 1180,
+					top: 1640,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
