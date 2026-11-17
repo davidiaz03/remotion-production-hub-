@@ -23,6 +23,56 @@ Diseñado para guardado (datos del mapa) y envío (confesión + contraste
 documental oscuro + acento rojo + retratos de archivo. Sin presentador
 (no hay material): los gráficos y el dato hacen el trabajo de atención.
 
+## V1.1 (17-nov-2026) — correcciones de la auditoría V1
+
+Auditoría independiente en `AUDIT-V1.md` (17 fotogramas + transcripción
+completa): veredicto «a la altura del estándar de redes 2026», 6 pulidos.
+Aplicados los 6 (5 en código/assets, 1 no aplicable):
+
+1. **Logo sobre sepia (S6/S7):** scrim radial oscuro suave detrás del
+   logo, solo f768–1018, con fade de entrada/salida (8 f). Degradado
+   radial a transparente, sin bordes: NO es una placa (regla de marca
+   intacta). Verificado en stills: «MEMORIAL DE LA DENUNCIA» legible.
+2. **Título del interrupt:** «PERO ESTO YA ESTABA ESCRITO» bajado BAJO
+   la línea de tiempo (top:1530). Por encima de la cabeza no cabe: la
+   cabeza de Martí roza el borde superior del fotograma. Entrada
+   retrasada a f60 local: ya no coincide con el chunk de karaoke
+   «ESTABA ESCRITO.» (local f16–55) y coincide con el fin del trazado
+   de la línea de tiempo. (La auditoría decía «~1 s»; el chunk real
+   termina en f55, así que el retraso efectivo es de 2 s.)
+3. **Callback:** 130 ESTÁTICO con pop desde el fotograma 0 de la escena.
+   La voz dice «ciento» en f0; el count-up marcaba 91 y contradecía a
+   la voz. Sin count-up en el callback (el del gancho se mantiene: ahí
+   la voz aún no dice el número).
+4. **Título del mapa:** «EL MAPA CAMBIÓ» (línea roja) entra en f60
+   local, tras el chunk de karaoke idéntico «EL MAPA CAMBIÓ:» (local
+   f33–56). «NUESTRA AMÉRICA» sigue entrando al inicio de la escena.
+5. **Fondo del salón ONU — NO APLICADO:** tercer intento de descarga de
+   la foto real de Patrick Gruban (Wikimedia Commons, CC BY-SA 2.0)
+   devolvió de nuevo HTTP 429 (17-nov, ~22:15 UTC). Por regla de parada
+   no se reintentó: se mantiene el fondo Pollinations. La etiqueta de
+   contenido IA de Meta sigue aplicando al publicar (fondos generados).
+6. **Galápagos:** fuera del overlay rojo (borrado en `map-red.png`,
+   ambas copias, 196 px incl. halo antialiasing; Costa Rica intacto).
+   El Ecuador continental sigue en rojo. Regla documentada en
+   `research/map-build.py` (saltar anillos de Ecuador con centroide
+   lon < −85 en overlays) para que un futuro re-run reproduzca la V1.1.
+   (Nota: `/tmp/ne50.geojson` ya no existe; el re-run exigiría volver a
+   descargar Natural Earth 50m.)
+
+**Re-render V1.1:** solo los tramos afectados (chunk_03, 04, 06, 07, 09,
+10 de 150 f) con `render-chunks.mjs --resume`; tramos 01, 02, 05, 08 y
+11 reutilizados de V1 (sin cambios en esas escenas). Máster + ligera
+regenerados con `master.py` (receta V1.3). QA `qa-media.mjs --mode full`:
+**passed** (1507/1507 f, 1080×1920, −15,8 LUFS, TP −2,2 dBTP, sin
+silencio inicial/final; las 2 advertencias de intervalos oscuros son las
+mismas aceptadas en V1). Máster V1.1: 7.995.119 bytes, SHA-256
+`f07d203d…91f03`; ligera: 2.384.031 bytes. Verificación visual en 10
+stills del máster nuevo (`audit-frames/v11/`): las 5 correcciones
+aplicables confirmadas (scrim+logo legible a 31/33 s, título bajo la
+línea de tiempo a 27/28 s, 130 estático a 41 s, título del mapa a
+14/15 s, mapa sin Galápagos a 17/18.5 s).
+
 ## Escenas (tiempos = VO real Kokoro, ver public/audio/vo-lines.json)
 
 | Escena | Fotogramas | Segundos | Contenido |
@@ -53,7 +103,7 @@ el logo animado oficial con fondo negro.
 | marti-temple-hall-1892.jpg (cuerpo entero, 712×1110) | Misma fuente (imagen embebida standalone del PDF). |
 | fidel-mats-1959-cropped.jpg (1720×2400) | Biblioteca del Congreso (LoC), foto Warren K. Leffler, MATS Terminal Washington, 15-abr-1959 — dominio público. Descargado el TIFF máster (3909×4000) y recortado a retrato. |
 | fidel-camilo-barbudos-1959.jpg | Wikimedia Commons (Luis Korda, 1959) — dominio público/CC0. Secundario, no usado en el corte final. |
-| map-base/red/yellow/gray.png + map-dots.json | Natural Earth 50m admin_0_countries (dominio público), render propio con `research/map-build.py` (proyección equirectangular, lon −125..−28, lat −58..33). |
+| map-base/red/yellow/gray.png + map-dots.json | Natural Earth 50m admin_0_countries (dominio público), render propio con `research/map-build.py` (proyección equirectangular, lon −125..−28, lat −58..33). **V1.1:** Galápagos fuera del overlay rojo (ver §V1.1). |
 | bg-un-hall.png, bg-radio-mic.png | Pollinations Flux (token Seed, sin marca de agua), style prompt bloqueado abajo. Fondos decorativos, NO presentados como archivo real. |
 | logo-white.png | Marca oficial del Memorial (copia de marabana-v1). |
 | sting-black-2x.mp4 + sting-2x.wav | Cierre animado oficial, versión negra a 2x (copia de marabana-v1). |
@@ -63,7 +113,8 @@ devolvió HTTP 429 dos veces (17-nov); por regla de parada se detuvo ese
 frente y se recuperaron los retratos por vías primarias alternativas (LoC
 para Fidel; libro de iconografía del CEM para Martí). El salón de la ONU
 de Patrick Gruban (CC BY-SA 2.0) no pudo descargarse; se sustituyó por
-fondo generado (Pollinations).
+fondo generado (Pollinations). **V1.1:** un tercer intento (17-nov,
+~22:15 UTC) devolvió de nuevo 429; se mantiene el fondo generado.
 
 ## Style prompt bloqueado (Pollinations, no tocar)
 

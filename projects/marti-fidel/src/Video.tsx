@@ -81,14 +81,34 @@ const countUp = (f: number, a: number, b: number, target: number) =>
 // ---------- marca de agua (logotipo COMPLETO, blanco/transparente) ----------
 // Patrón Marabana V1.3: 115 px, arriba derecha, desde el fotograma 0,
 // solo fade de salida antes del sting. Nunca solo la estrella.
+// V1.1: scrim radial oscuro SUAVE detrás del logo solo en las escenas
+// sepia (S6/S7, f768–1018): el blanco se lava sobre el sepia claro de
+// Martí (auditoría V1, f_31s/f_33s). NO es una placa: degradado radial
+// sin bordes, a transparente antes del centro del fotograma.
 const LogoInner: React.FC = () => {
 	const frame = useCurrentFrame();
 	const fadeOut = interpolate(frame, [1406, 1416], [1, 0], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	const scrimOp = interpolate(frame, [768, 778, 1008, 1018], [0, 1, 1, 0], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
 	return (
 		<AbsoluteFill style={{pointerEvents: 'none'}}>
+			<div
+				style={{
+					position: 'absolute',
+					top: 0,
+					right: 0,
+					width: 260,
+					height: 340,
+					background:
+						'radial-gradient(ellipse 50% 50% at 50% 44%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0) 85%)',
+					opacity: scrimOp,
+				}}
+			/>
 			<Img
 				src={staticFile('img/logo-white.png')}
 				style={{
@@ -625,6 +645,9 @@ const MapScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const baseIn = clamp01(f, 0, 12);
 	const titleIn = clamp01(f, 0, 8);
+	// V1.1: «EL MAPA CAMBIÓ» entra en f60, tras el chunk de karaoke
+	// idéntico «EL MAPA CAMBIÓ:» (local f33–56; auditoría V1, f_14s).
+	const subTitleIn = clamp01(f, 60, 68);
 	const venIn = clamp01(f, 155, 165);
 	const footIn = clamp01(f, 155, 165);
 	const ven = MAP_DOTS.Venezuela;
@@ -660,6 +683,7 @@ const MapScene: React.FC = () => {
 						letterSpacing: 3,
 						color: MEMORIAL_RED,
 						marginTop: 8,
+						opacity: subTitleIn,
 					}}
 				>
 					EL MAPA CAMBIÓ
@@ -975,10 +999,16 @@ const InterruptScene: React.FC = () => {
 						'linear-gradient(180deg, rgba(23,18,8,0.62) 0%, rgba(23,18,8,0.35) 45%, rgba(23,18,8,0.88) 100%)',
 				}}
 			/>
+			{/* V1.1: título BAJO la línea de tiempo (antes cruzaba la cara de
+			    Martí en top:200, auditoría V1 f_27s). Por encima de la
+			    cabeza no cabe: la cabeza roza el borde superior del
+			    fotograma. Entra en f60 (tras el chunk de karaoke
+			    «ESTABA ESCRITO.», local f16–55) y coincide con el fin
+			    del trazado de la línea de tiempo. */}
 			<div
 				style={{
 					position: 'absolute',
-					top: 200,
+					top: 1530,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -987,7 +1017,7 @@ const InterruptScene: React.FC = () => {
 					fontWeight: 700,
 					letterSpacing: 8,
 					color: SEPIA_GOLD,
-					opacity: clamp01(f, 0, 8),
+					opacity: clamp01(f, 60, 68),
 				}}
 			>
 				PERO ESTO YA ESTABA ESCRITO
@@ -1324,7 +1354,10 @@ const FidelQuoteScene: React.FC = () => {
 // ================================================================
 const CallbackScene: React.FC = () => {
 	const f = useCurrentFrame();
-	const n = countUp(f, 0, 15, 130);
+	// V1.1: 130 ESTÁTICO con pop desde el fotograma 0. La voz dice
+	// «ciento» en f0 (L10, 40,686 s); el count-up marcaba 91 en ese
+	// momento y contradecía a la voz (auditoría V1, f_41s).
+	const numScale = popIn(f, 0, 12);
 	const subIn = clamp01(f, 18, 26);
 	const divIn = clamp01(f, 60, 68);
 	const titleIn = clamp01(f, 93, 101);
@@ -1356,9 +1389,10 @@ const CallbackScene: React.FC = () => {
 					lineHeight: 1,
 					color: '#FFFFFF',
 					textShadow: textOutline(4),
+					transform: `scale(${numScale})`,
 				}}
 			>
-				{n}
+				130
 			</div>
 			<div
 				style={{
