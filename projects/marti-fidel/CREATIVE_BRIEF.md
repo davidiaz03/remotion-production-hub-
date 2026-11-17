@@ -19,9 +19,11 @@ Diseñado para guardado (datos del mapa) y envío (confesión + contraste
 1891→2026).
 
 **Formato:** vertical 1080×1920, 30 fps, **1507 fotogramas = 50,23 s**
-(VO real 45,69 s + hold 1,5 s + sting 2x 3,04 s). Motion graphics
-documental oscuro + acento rojo + retratos de archivo. Sin presentador
-(no hay material): los gráficos y el dato hacen el trabajo de atención.
+(VO definitiva editada 0,03–45,70 s + hold + sting 2x 3,04 s; el
+montaje es el de V1.2, sin re-temporizar — V1.3 edita el audio, no el
+video). Motion graphics documental oscuro + acento rojo + retratos de
+archivo. Sin presentador (no hay material): los gráficos y el dato
+hacen el trabajo de atención.
 
 ## V1.1 (17-nov-2026) — correcciones de la auditoría V1
 
@@ -174,13 +176,173 @@ dispersos en 19 s, micrófono íntegro y karaoke apagado en 25 s, «1891»
 sin triplicar en 28 s, transición sin fantasma en 34 s, frente de
 Fidel limpia en 36 s, karaoke «EXIGEN» apagado en 42 s).
 
-## Escenas (tiempos = VO real Kokoro, ver public/audio/vo-lines.json)
+## V1.3 (17-nov-2026) — voz en off DEFINITIVA (audio editado) + fix S3
+
+La locutora grabó la voz definitiva (`reel_Mart__y_Fidel_1_sp3v.aac`,
+52,8 s, AAC 48 kHz estéreo) siguiendo el guion de
+`GUION-VOZ-EN-OFF.md` y respetando las pausas dramáticas (pausa tras
+«Ganamos», silencio tras «Martí dijo…», «Leer. Pensar.» como dos
+golpes separados). Habla de 1,02 s a 52,48 s: **6,8 s más larga que
+la previsualización Kokoro (45,69 s)**.
+
+**Redirección del usuario (19:16): NO re-temporizar el montaje.** El
+primer enfoque (alargar el video a 56,30 s con todas las escenas
+desplazadas) se descartó antes de entregar: el video SE QUEDA en
+**1507 fotogramas = 50,23 s** con los límites de escena, la música y
+los SFX de la V1.2. Lo que se adapta es EL AUDIO: la VO definitiva
+se edita línea por línea para encajar en los huecos de la
+previsualización (esos tiempos MANDAN; `git diff b2845fa` en
+`Video.tsx` confirma que solo cambiaron el karaoke y el fix S3).
+
+**Edición de la VO** (`research/edit-vo-definitiva.py` →
+`public/audio/vo-definitiva-editada.wav`, 48 kHz estéreo, 50,23 s):
+primero se recortan silencios (las pausas entre sub-frases, de
+0,3–0,57 s naturales, quedan en 0,10–0,52 s según la línea) y después
+se comprime el tempo con ffmpeg atempo (pitch preservado), solo lo
+necesario y sin pasar de 1,12x en ninguna línea. 6 de las 10 líneas
+van a 1,00x (sin tocar el tempo): el ahorro viene casi todo de los
+silencios. Pausas dramáticas PRESERVADAS: tras «Ganamos» (0,44 s),
+tras «Martí dijo…» (0,54 s) y «Leer. Pensar.» como dos golpes
+separados (0,14 s entre ambas; la previsualización tenía 0,16 s).
+Cada sub-frase se corta con 0,03 s de guarda de silencio a cada lado
+y fades de 5 ms. Verificación de onda: huecos a silencio digital, sin
+clics en las uniones (los mayores saltos entre muestras están dentro
+del habla, no en los cortes). Fondo limpio: **sin DeepFilterNet**. El
+usuario CONFIRMÓ que todo está bien dicho: la palabra es
+«abstenciones» (Whisper la oyó mal como «extensiones»).
+
+| Línea | Original | Editada | atempo | En el video |
+|---|---|---|---|---|
+| L1 «El 28 de octubre…» | 3,38 s | 3,25 s | 1,00 | 0,03–3,28 |
+| L2 «Ganamos.» | 0,60 s | 0,60 s | 1,00 | 3,55–4,15 |
+| L3 «Pero con 35 votos…» | 2,42 s | 2,42 s | 1,00 | 4,59–7,01 |
+| L4 «130 a favor…» | 4,34 s | 3,57 s | 1,08 / 1,05 / 1,00 | 7,91–11,49 |
+| L5 «Y en nuestra América…» | 7,46 s | 6,63 s | 1,08 / 1,08 / 1,00 / 1,00 | 12,17–18,80 |
+| L6 «19 gobiernos…» | 6,40 s | 6,06 s | 1,00 | 19,21–25,27 |
+| L7 «Pero esto ya estaba…» | 4,18 s | 4,16 s | 1,00 | 25,57–29,73 |
+| L8 «Trincheras de ideas…» | 3,12 s | 3,12 s | 1,00 | 30,27–33,39 |
+| L9 «Y en 2005, Fidel…» | 6,86 s | 6,43 s | 1,00 / 1,00 / 1,05 | 33,89–40,32 |
+| L10 «130 países exigen…» | 7,02 s | 4,99 s | 1,12 (toda la línea) | 40,71–45,70 |
+
+(«Original» = habla de la línea en el archivo; «editada» = habla en
+el video; los tiempos «En el video» son la predicción analítica del
+editor — la transcripción Whisper de la VO editada los confirma con
+desviación media 0,026 s.)
+
+**Sincronía palabra–visual:** las palabras clave caen sobre sus
+acentos fijos con ≤0,12 s de desviación («GANAMOS»/sello,
+«35»/badge, contadores 130/17/25, grupos del mapa 6/7/6,
+«WASHINGTON»/tarjeta Browne, «1891»/nodo, «FIDEL»/«NO»/líneas de la
+cita, «LEER.»/«PENSAR.»). Única excepción aceptada: en L10 el título
+«LA TRINCHERA ES ÉSTA» aparece 0,46 s después de que la voz empiece
+la frase (la locutora dice «La trinchera es ésta» mucho más despacio
+que Kokoro: 1,50 s vs 1,02 s); alinear el título habría roto los
+golpes finales «LEER.»/«PENSAR.», que son el clímax y quedan exactos
+(±0,06 s). La línea más ajustada es L10 (1,12x, al tope admitido);
+encaja sin forzar: sus pausas internas (1,90 s) se comprimen a 0,42 s
+y el tempo aporta el resto.
+
+**Karaoke regenerado** desde la VO editada: transcripción
+faster-whisper small (`research/transcribe-vo-editada.py` →
+`vo-editada-transcripcion.json`, 117 palabras) +
+`research/align-vo-editada.py` (120 palabras, 37 chunks, mismos
+cortes y keywords que V1.2; «130» partido por la mitad; «a» astilla
+de 0,04 s; erratas corregidas al texto del guion). Corrección de
+bordes: Whisper desplaza 18 límites >0,08 s (peor: «Fidel» 0,53 s;
+el «130» de L4 empieza en silencio digital, imposible); esos bordes
+se toman de la predicción analítica del editor
+(`research/vo-editada-prediccion.json`), exacta por construcción
+(cortes a nivel de muestra + factores atempo conocidos). Líneas
+vacías recalculadas: CLEAR_BROWNE 23,03 s, CLEAR_1891 27,36 s,
+callback 41,84 s (local 1,154 s) y clearLeer 44,82 s (local 4,134 s,
+nueva en V1.3 — ver fix LEER/PENSAR abajo). Los umbrales del bucle de inserción
+ahora referencian las constantes en vez de números fijos.
+
+**Fix S3 (reporte del usuario con captura):** el karaoke a 2 líneas
+(«VEINTICINCO / ABSTENCIONES.», 10,28–11,46 s; borde superior y≈1543:
+bottom 235 + 2 líneas de 60 px × 1,18) tapaba la nota «193 ESTADOS
+MIEMBROS · 21 NO VOTARON» (top:1575) y rozaba la tarjeta «25». Se
+compacta el bloque: foto 860→800 px, título a 825, tarjetas top 890 +
+i·195 con altura 180 (la 3ª termina en 1460) y la nota a top:1480
+(termina ≈1511, 32 px libres hasta el karaoke). La cara de Bruno no
+cambia: el recorte de la foto solo quita 60 px de la zona del
+fundido inferior (objectPosition 50% 12% intacto).
+
+**Mapa: NO TOCADO.** Verificado país por país contra los overlays
+fuente y el compuesto (los 19 correctos; Venezuela oscura + anillo
+ART. 19). Los 1–2 píxeles rojos sueltos en Galápagos son invisibles
+a escala de render; se dejan.
+
+**Música y SFX: SIN CAMBIOS de timing** (el video dura lo mismo):
+Shadows 0–27 s + Weight 25,5–50,23 s, crossfade 1,5 s; los 21 SFX
+en sus tiempos V1.2 (recalculados desde los mismos anclas visuales
+y offsets de `sounds.json`; los sincronizados a palabras usan los
+tiempos reales de la VO editada — difieren ≤0,08 s de la
+previsualización). El sting suena a 47,20 s; el disparo cae dentro
+de la ventana de rotura de la estrella (f1436–1442), como en V1.2.
+
+**Mezcla V1.3** (`mix.py`, misma receta): PASS_REAL, 50,23 s,
+**−15,1 LUFS / TP −1,5 dBTP**, 21 SFX. (El objetivo es −14,5; la
+medida −15,1 está dentro del gate de QA [−16,5, −12,0]; la V1 medía
+−15,9 con el mismo objetivo.)
+
+**Re-render V1.3:** COMPLETO (los 11 tramos de 150 f — el karaoke y
+el fix S3 tocan casi todas las escenas; tramos del intento
+re-temporizado borrados antes de renderizar). Máster + ligera
+regenerados con `master.py` (receta V1.3). Máster V1.3: 9.549.578
+bytes, SHA-256 `0124b101…dfbb6` (1507 f, −15,2 LUFS, TP −1,5 dBTP);
+ligera: 2.787.655 bytes, SHA-256 `e9fa6f1b…b0c7f` (1507 f, −15,2
+LUFS, TP −0,5 dBTP — la re-codificación AAC de la ligera sube el TP;
+sin clipping, TP < 0). QA `qa-media.mjs --mode full`: **passed**
+(1507/1507 f, 1080×1920, −15,2 LUFS, TP −1,5 dBTP, silencio inicial
+y final 0 s, sin fallos; los 2 intervalos oscuros son los conocidos
+de V1/V1.2: fundido del mapa 12,23–12,33 s y corte sepia
+25,71–26,21 s).
+Verificación visual en 19 fotogramas del máster nuevo
+(`audit-frames/v13/`): gancho 1,5 s (tablero real, sin remate
+adelantado); barras 6,3 s (valores finales, badge «−35»);
+**S3 10,8 / 11,35 / 12,0 s — nota visible bajo la tarjeta «25» y
+sobre el karaoke a 2 líneas, separación limpia en los tres**; mapa
+17,5 s (los 3 grupos + ART. 19, sin solapes); Browne 24,0 s
+(tarjeta sin partir el micrófono, karaoke apagado); interrupt 28,0 s
+(«1891» gigante, karaoke apagado); Martí 31,5 s (cita limpia);
+transición S7→S8 34,0 s (sin fantasma de Martí); Fidel 37,0 s
+(frente limpia); callback 41,0 s (tablero final legible + «130»);
+**45,0 / 45,4 s — ver fix LEER/PENSAR abajo**; CTA 46,5 s
+(delegados + «GUARDA ESTE DATO»); sting 48,5 s (logo animado).
+
+**Fix LEER/PENSAR (hallado en la verificación visual de V1.3,
+defecto de diseño preexistente de V1.2, misma clase que la
+duplicación de «EXIGEN»):** en 44,87–45,48 s el karaoke
+«LEER. PENSAR.» se mostraba a la vez que las palabras del título
+(que aparecen con los golpes de voz en 44,87/45,20 s), apiladas 34 px
+más abajo. La auditoría densa de V1.1 no lo vio: muestrea cada
+segundo y a las 44 s aún no había aparecido nada y a las 46 s el
+karaoke ya había terminado. Fix: se suprime el chunk 4 del seg 10
+(`CAPTIONS_B` filtra `i !== 1 && i !== 4`) + línea vacía clearLeer
+en 44,82 s (local 4,134 s) hasta el fin de karaoke-B (45,70 s).
+Re-render SOLO de los tramos 9–10 (f1200–1499), re-concat manual
+verificado 1507/1507, máster + ligera regenerados y QA repetido
+(passed). Fotogramas de verificación del fix: `s_45.0_fix.jpg` y
+`s_45.4_fix.jpg` (solo las palabras del título, sin karaoke);
+`s_41.0_fix.jpg` es byte-idéntico al original (sin regresión).
+
+**Etiqueta de contenido IA de Meta al publicar:** con la voz real,
+aplica SOLO por el fondo del micrófono generado (Pollinations, S5).
+Los fondos de la ONU son reales y la voz es humana grabada.
+
+**Archivos del intento descartado:** `vo-definitiva-trim.wav`
+(52,08 s, recorte −0,72 s) y `research/align-vo-definitiva.py`
+pertenecen al enfoque re-temporizado (56,30 s) y NO se usan en V1.3;
+se conservan como referencia.
+
+## Escenas (tiempos V1.2 = montaje vigente, ver public/audio/vo-lines.json)
 
 | Escena | Fotogramas | Segundos | Contenido |
 |---|---|---|---|
 | S1 Gancho | 0–97 | 0,00–3,23 | Salón ONU REAL (UN Web TV, tablero con el escrutinio EN CURSO) + «130» gigante con count-up BAJO el tablero + «28 OCT 2026 · ONU» + crédito «Imágenes: UN Web TV / Naciones Unidas» (V1.2: sin «35 VOTOS MENOS», va en S2) |
 | S2 Ganamos + barras | 97–237 | 3,23–7,89 | Sello «GANAMOS.» + barras horizontales 191 (2015/17) → 187 (2024) → 165 (2025) → 130 (2026, rojo) + badge «−35» (V1.2: números finales desde el primer fotograma, sin «0» ni valores intermedios) |
-| S3 Contadores | 237–365 | 7,89–12,16 | Layout partido V1.2: Bruno en el podio (UN Web TV, tercio superior, cara íntegra) + tres tarjetas abajo sobre NAVY: 130 A FAVOR / 17 EN CONTRA / 25 ABSTENCIONES, estáticos con pop al ritmo de la voz |
+| S3 Contadores | 237–365 | 7,89–12,16 | Layout partido V1.2: Bruno en el podio (UN Web TV, tercio superior, cara íntegra) + tres tarjetas abajo sobre NAVY: 130 A FAVOR / 17 EN CONTRA / 25 ABSTENCIONES, estáticos con pop al ritmo de la voz (V1.3: bloque compactado — nota «193 ESTADOS MIEMBROS · 21 NO VOTARON» fuera de la zona del karaoke) |
 | S4 Mapa | 365–576 | 12,16–19,18 | Mapa Natural Earth: base pizarra + overlays rojo/amarillo/gris al decirse cada grupo + puntos luminosos en islas (V1.2: dispersos con líneas guía) + lista en 3 columnas + nota Venezuela art. 19 (V1.2: etiqueta «ART. 19» sobre el Pacífico, fuera del mapa) |
 | S5 Evidencia | 576–768 | 19,18–25,60 | «19 GOBIERNOS» + micrófono vintage (Pollinations) + tarjeta de cita de Gaston Browne (radio, 9-nov-2026, CMC) (V1.2: tarjeta achicada y bajada, cabeza del micrófono visible; karaoke apagado mientras la tarjeta está en pantalla) |
 | S6 Interrupt 1891 | 768–910 | 25,60–30,32 | Corte duro a paleta sepia + línea de tiempo 1891→2026 + «1891» + retrato cuerpo entero de Martí (Temple Hall) (V1.2: chunk de karaoke «1891, MARTÍ DIJO…» suprimido) |
@@ -238,19 +400,28 @@ Wikimedia.
 
 ## Audio
 
-- **VO:** previsualización Kokoro `em_alex` (45,69 s, 10 fragmentos,
-  guion exacto de STRATEGY.md §4; L2 partida en «Ganamos.» + resto para
-  la pausa dramática). La voz definitiva la graba el usuario tras la
-  aprobación de la directora; entonces se re-sincroniza el karaoke.
+- **VO:** **V1.3 — DEFINITIVA grabada por locutora, EDITADA para el
+  montaje V1.2** (`vo-definitiva-editada.wav`, 50,23 s, 48 kHz
+  estéreo; guion exacto de STRATEGY.md §4; edición en
+  `research/edit-vo-definitiva.py`; transcripción Whisper de la VO
+  editada en `vo-editada-transcripcion.json`; alineación al guion en
+  `research/align-vo-editada.py`). La grabación original
+  (`vo-definitiva.aac`, 52,8 s) y su transcripción
+  (`vo-definitiva-transcripcion.json`) se conservan. La
+  previsualización Kokoro `em_alex` (45,69 s, 10 fragmentos) queda
+  archivada en `vo-preview.wav` (V1–V1.2).
 - **Música:** biblioteca local Flow Music (stems a −16 LUFS):
   «Shadows & Evidence» (tensión, 93 BPM) 0–27 s para los actos 1–2;
   «Weight of Memory» (emotivo, 124,8 BPM) 25,5–50,23 s para 1891–cierre;
-  crossfade 1,5 s. Sin pista nueva de Flow: no hizo falta.
+  crossfade 1,5 s. Sin pista nueva de Flow: no hizo falta. (V1.3: sin
+  cambios de timing respecto a V1.2.)
 - **Mezcla:** `scripts/audio/mix.py` (VO + 2 secciones + 21 SFX CC0 del
   kit + sting), objetivo −14,5 LUFS / TP −1,5 dBTP. SFX por sync point
-  (tiempo de evento menos `sync` del kit): count-up, number-land ×6,
-  bar-grow, boom-hit-soft ×3, pop-medium-in ×3, whoosh-medium-soft ×2,
-  whoosh-slow-soft (interrupt 1891), data-tick (1891).
+  (tiempo de evento menos `sync` del kit): count-up, number-land ×7,
+  bar-grow, boom-hit-soft ×4, pop-medium-in ×3, whoosh-medium-soft ×2,
+  whoosh-slow-soft (interrupt 1891), data-tick (1891). V1.3: −15,1 LUFS
+  / TP −1,5 dBTP. (Conteo corregido en V1.3: la V1.2 decía ×6/×3;
+  el `mix.json` muestra 7 number-land y 4 boom.)
 - **Derechos Flow:** pendiente general del ecosistema — leer los términos
   de Google sobre derechos comerciales antes de publicar.
 
@@ -286,6 +457,8 @@ Wikimedia.
    del micrófono (Pollinations, S5). Los fondos de la ONU ya son reales
    y no cuentan; con la voz definitiva grabada, la etiqueta seguiría
    aplicando solo por el micrófono generado.
+   **V1.3 — CONFIRMADO:** la voz ya es real (grabada); la etiqueta
+   aplica SOLO por el fondo del micrófono generado (S5).
 
 ## QA visual (17-nov-2026, máster V1)
 

@@ -22,9 +22,8 @@ import {MAP_DOTS, MAP_DOT_OFFSETS} from './mapDots';
 
 // ================================================================
 // «Martí-Fidel: leer, pensar» — reel vertical 1080×1920, 30 fps.
-// 1689 fotogramas = 56,30 s. Tiempos anclados a la VO DEFINITIVA
-// grabada (52,08 s tras recortar el silencio inicial a 0,30 s):
-// ver public/audio/vo-lines.json y CREATIVE_BRIEF.md (V1.3).
+// 1507 fotogramas = 50,23 s. Tiempos anclados a la VO real (Kokoro
+// em_alex, 45,69 s): ver public/audio/vo-lines.json y CREATIVE_BRIEF.md.
 // Estructura: cifra → caída → cita («Ya estaba escrito en 1891»).
 // ================================================================
 
@@ -39,8 +38,8 @@ const SEPIA_BG = '#171208';
 const SEPIA_GOLD = '#C9A86A';
 
 // ---------- karaoke (BottomKaraoke, patrón Pilar V30 / Marabana V1.3) ----------
-// Ventana A: fragmentos 1–7 (0–32,88 s). Ventana B: fragmento 10
-// (44,74–51,76 s), con tiempos desplazados a su Sequence. Las dos citas
+// Ventana A: fragmentos 1–7 (0–29,87 s). Ventana B: fragmento 10
+// (40,69–45,69 s), con tiempos desplazados a su Sequence. Las dos citas
 // (fragmentos 8–9) van como texto estático, sin karaoke.
 //
 // V1.2 (auditoría densa): BottomKaraoke es «pegajoso» — la última línea
@@ -50,37 +49,48 @@ const SEPIA_GOLD = '#C9A86A';
 // se apague mientras el texto estático lleva esas palabras. Sin la
 // línea vacía, el chunk anterior quedaría visible y rancio.
 //   - Seg 6: se suprimen «WASHINGTON LO LLAMÓ PARA» y «QUE CAMBIARA SU
-//     VOTO.» (la tarjeta de Browne muestra la cita completa desde f125);
-//     línea vacía en 25,82 s.
+//     VOTO.» (la tarjeta de Browne muestra la cita completa desde f113);
+//     línea vacía en 23,03 s (V1.3: inicio de «WASHINGTON» en la VO
+//     editada; V1.2 era 22,98 s).
 //   - Seg 7: se suprime «1891, MARTÍ DIJO…» (el «1891» gigante + el
-//     título estático «MARTÍ DIJO…» ya lo dicen); línea vacía en 30,50 s.
+//     título estático «MARTÍ DIJO…» ya lo dicen); línea vacía en 27,36 s
+//     (V1.3; V1.2 era 27,44 s).
 //   - Seg 10: se suprime «EXIGEN EL FIN DEL» (el título «PAÍSES EXIGEN
-//     EL FIN DEL BLOQUEO» lo muestra); línea vacía en 46,00 s.
-// V1.3: tiempos re-anclados a la VO definitiva (ver vo-lines.json).
+//     EL FIN DEL BLOQUEO» lo muestra); línea vacía en 41,84 s (V1.3;
+//     V1.2 era 41,66 s).
+//   - Seg 10: se suprime también «LEER. PENSAR.» (las palabras del
+//     título aparecen con los golpes de voz en 44,87/45,20 s; el karaoke
+//     las duplicaba apiladas 34 px más abajo — mismo defecto que el de
+//     «EXIGEN», detectado en la verificación visual de V1.3); línea
+//     vacía en 44,82 s hasta el fin de karaoke-B (45,70 s).
 const CAPTIONS_A = CAPTIONS.slice(0, 7).map((seg) => {
 	if (seg.id === 6) return {...seg, chunks: seg.chunks.slice(0, 3)};
 	if (seg.id === 7) return {...seg, chunks: seg.chunks.slice(0, 2)};
 	return seg;
 });
-const CLEAR_BROWNE: KaraokeLine = {words: [{t: '', s: 25.82, e: 28.7}]};
-const CLEAR_1891: KaraokeLine = {words: [{t: '', s: 30.5, e: 32.88}]};
+const CLEAR_BROWNE: KaraokeLine = {words: [{t: '', s: 23.032, e: 25.54}]};
+const CLEAR_1891: KaraokeLine = {words: [{t: '', s: 27.36, e: 29.87}]};
 const LINES_A: KaraokeLine[] = (() => {
 	const lines = capSegmentsToLines(CAPTIONS_A);
 	// Insertar en orden temporal (BottomKaraoke asume líneas ordenadas).
 	const out: KaraokeLine[] = [];
 	for (const line of lines) {
 		const s = line.words[0]?.s ?? 0;
-		if (s >= 25.82 && !out.includes(CLEAR_BROWNE)) out.push(CLEAR_BROWNE);
-		if (s >= 30.5 && !out.includes(CLEAR_1891)) out.push(CLEAR_1891);
+		if (s >= CLEAR_BROWNE.words[0].s && !out.includes(CLEAR_BROWNE))
+			out.push(CLEAR_BROWNE);
+		if (s >= CLEAR_1891.words[0].s && !out.includes(CLEAR_1891))
+			out.push(CLEAR_1891);
 		out.push(line);
 	}
 	if (!out.includes(CLEAR_1891)) out.push(CLEAR_1891);
 	return out;
 })();
-const L9_START = 44.74;
+const L9_START = 40.686;
 const CAPTIONS_B = CAPTIONS.slice(9, 10).map((seg) => ({
 	...seg,
-	chunks: seg.chunks.filter((_, i) => i !== 1),
+	// i=1 «EXIGEN EL FIN DEL» (duplica el título); i=4 «LEER. PENSAR.»
+	// (duplica las palabras del título en 44,87/45,20 s; V1.3).
+	chunks: seg.chunks.filter((_, i) => i !== 1 && i !== 4),
 }));
 const LINES_B: KaraokeLine[] = (() => {
 	const lines = capSegmentsToLines(CAPTIONS_B).map((line) => ({
@@ -90,17 +100,28 @@ const LINES_B: KaraokeLine[] = (() => {
 			e: w.e - L9_START,
 		})),
 	}));
-	// Línea vacía en 46,00 s (local 1,26 s): apaga el karaoke mientras
+	// Línea vacía en 41,84 s (local 1,154 s): apaga el karaoke mientras
 	// el título muestra «PAÍSES EXIGEN EL FIN DEL BLOQUEO».
+	// (V1.3: inicio de «EXIGEN» en la VO editada; V1.2 era 41,66 s.)
 	const clear: KaraokeLine = {
-		words: [{t: '', s: 46.0 - L9_START, e: 47.02 - L9_START}],
+		words: [{t: '', s: 41.84 - L9_START, e: 42.78 - L9_START}],
+	};
+	// Línea vacía en 44,82 s (local 4,134 s): apaga el karaoke mientras
+	// el título muestra «LEER. PENSAR.» con los golpes de voz (V1.3).
+	const clearLeer: KaraokeLine = {
+		words: [{t: '', s: 44.82 - L9_START, e: 45.7 - L9_START}],
 	};
 	const out: KaraokeLine[] = [];
 	for (const line of lines) {
 		const s = line.words[0]?.s ?? 0;
 		if (s >= clear.words[0].s && !out.includes(clear)) out.push(clear);
+		if (s >= clearLeer.words[0].s && !out.includes(clearLeer))
+			out.push(clearLeer);
 		out.push(line);
 	}
+	// Ninguna línea sigue a «LEER.» (era el último chunk): el clear
+	// debe añadirse al final, o «ES ESTA:» quedaría fijo hasta 45,70 s.
+	if (!out.includes(clearLeer)) out.push(clearLeer);
 	return out;
 })();
 
@@ -133,27 +154,26 @@ const countUp = (f: number, a: number, b: number, target: number) =>
 // Patrón Marabana V1.3: 115 px, arriba derecha, desde el fotograma 0,
 // solo fade de salida antes del sting. Nunca solo la estrella.
 // V1.1: scrim radial oscuro SUAVE detrás del logo solo en las escenas
-// sepia (S6/S7, f861–1112): el blanco se lava sobre el sepia claro de
+// sepia (S6/S7, f768–1018): el blanco se lava sobre el sepia claro de
 // Martí (auditoría V1, f_31s/f_33s). NO es una placa: degradado radial
 // sin bordes, a transparente antes del centro del fotograma.
-// V1.2: mismo scrim en S1 (f0–111) y S9 (f1342–1598): los fotogramas
+// V1.2: mismo scrim en S1 (f0–97) y S9 (f1221–1416): los fotogramas
 // reales de la ONU son CLAROS (pared dorada) y el logo blanco se lava
 // en la esquina superior derecha. S3 no lo necesita (mármol verde
 // oscuro detrás del logo).
-// V1.3: ventanas actualizadas a los nuevos límites de escena.
 /** Ventana de opacidad 0→1→0 con fades de 8 f en los bordes. */
 const winOp = (f: number, a: number, b: number) =>
 	clamp01(f, a, a + 8) * (1 - clamp01(f, b - 8, b));
 const LogoInner: React.FC = () => {
 	const frame = useCurrentFrame();
-	const fadeOut = interpolate(frame, [1588, 1598], [1, 0], {
+	const fadeOut = interpolate(frame, [1406, 1416], [1, 0], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
 	const scrimOp = Math.max(
-		winOp(frame, 0, 111),
-		winOp(frame, 861, 1112),
-		winOp(frame, 1342, 1598),
+		winOp(frame, 0, 97),
+		winOp(frame, 768, 1018),
+		winOp(frame, 1221, 1416),
 	);
 	return (
 		<AbsoluteFill style={{pointerEvents: 'none'}}>
@@ -185,19 +205,19 @@ const LogoInner: React.FC = () => {
 };
 
 // ================================================================
-// S1 — GANCHO (0–111 f · 0,00–3,70 s)
+// S1 — GANCHO (0–97 f · 0,00–3,23 s)
 // V1.2: fotograma REAL de UN Web TV (28ª plenaria, 28-oct-2026):
 // plano general con el tablero del escrutinio EN CURSO (Item 37 ·
 // A/81/L.5). El «130» va BAJO el tablero (top:950) para no taparlo;
 // el tablero ocupa y≈100–800 y debe quedar visible y legible.
 // V1.2, fix 8: sin «35 VOTOS MENOS QUE EN 2025» aquí — la voz no lo
-// dice hasta S2 (5,16 s); el mensaje lo dan las barras + el badge
+// dice hasta S2 (4,56 s); el mensaje lo dan las barras + el badge
 // «−35» en su golpe de voz. Crédito ONU obligatorio por licencia.
 // ================================================================
 const HookScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const n = countUp(f, 2, 38, 130);
-	const push = interpolate(f, [0, 111], [1, 1.05], {
+	const push = interpolate(f, [0, 97], [1, 1.05], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
@@ -296,28 +316,28 @@ const HookScene: React.FC = () => {
 };
 
 // ================================================================
-// S2 — GANAMOS + BARRAS (111–250 f · 3,70–8,33 s, local 0–139)
+// S2 — GANAMOS + BARRAS (97–237 f · 3,23–7,89 s, local 0–140)
 // Sello «GANAMOS.» + barras 191 → 187 → 165 → 130 + badge «−35»
 // ================================================================
 const BARS = [
-	{year: '2015 / 17', value: 191, at: 44, color: '#5A738C'},
-	{year: '2024', value: 187, at: 56, color: '#5A738C'},
-	{year: '2025', value: 165, at: 66, color: '#5A738C'},
-	{year: '2026', value: 130, at: 76, color: MEMORIAL_RED},
+	{year: '2015 / 17', value: 191, at: 41, color: '#5A738C'},
+	{year: '2024', value: 187, at: 52, color: '#5A738C'},
+	{year: '2025', value: 165, at: 62, color: '#5A738C'},
+	{year: '2026', value: 130, at: 72, color: MEMORIAL_RED},
 ];
 
 const BarsScene: React.FC = () => {
 	const f = useCurrentFrame();
-	// Sello GANAMOS: entra en f125 global (local 14), sale antes de F2.
-	const stampIn = f >= 14 && f < 43;
-	const stampScale = popIn(f, 14, 10);
-	const stampOp = interpolate(f, [39, 46], [1, 0], {
+	// Sello GANAMOS: entra en f106 global (local 9), sale antes de F2.
+	const stampIn = f >= 9 && f < 38;
+	const stampScale = popIn(f, 9, 10);
+	const stampOp = interpolate(f, [34, 41], [1, 0], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	const titleIn = clamp01(f, 44, 52);
-	const badgeIn = clamp01(f, 85, 93);
-	const badgeScale = popIn(f, 85, 10);
+	const titleIn = clamp01(f, 41, 49);
+	const badgeIn = clamp01(f, 88, 96);
+	const badgeScale = popIn(f, 88, 10);
 	return (
 		<AbsoluteFill style={{background: NAVY2}}>
 			<div
@@ -501,38 +521,37 @@ const BarsScene: React.FC = () => {
 };
 
 // ================================================================
-// S3 — CONTADORES (250–405 f · 8,33–13,50 s, local 0–155)
+// S3 — CONTADORES (237–365 f · 7,89–12,16 s, local 0–128)
 // V1.2: fotograma REAL de UN Web TV — Bruno Rodríguez Parrilla en el
 // podio presentando la resolución (00:40:10 del VOD). Layout partido:
 // la foto ocupa el tercio superior (la cara queda íntegra, sin
 // tarjetas encima) y las tres tarjetas van abajo sobre fondo NAVY.
 // V1.2, fix 7: números ESTÁTICOS con pop, sincronizados con el golpe
-// de voz (at: 0/46/93 = «ciento treinta» / «diecisiete» /
+// de voz (at: 0/30/70 = «ciento treinta» / «diecisiete» /
 // «veinticinco»); el count-up marcaba 55 y 7 mientras la voz ya decía
 // el número final.
-// V1.3, fix S3 (reporte del usuario con captura): el karaoke a 2
-// líneas («VEINTICINCO / ABSTENCIONES.») sube hasta y≈1543 y tapaba
-// la nota «193 ESTADOS MIEMBROS · 21 NO VOTARON» (top:1575) y rozaba
-// la tarjeta «25». Se compacta el bloque: foto 860→800, título a 825,
-// tarjetas top 890 + i·195 con altura 180 (la 3ª termina en 1460) y
-// la nota a top:1480 (termina ≈1511, 32 px libres hasta el karaoke).
 // ================================================================
 const COUNTERS = [
 	{value: 130, label: 'A FAVOR', at: 0, color: '#FFFFFF', sub: 'PAÍSES'},
-	{value: 17, label: 'EN CONTRA', at: 46, color: MEMORIAL_RED, sub: 'PAÍSES'},
-	{value: 25, label: 'ABSTENCIONES', at: 93, color: AMBER, sub: ''},
+	{value: 17, label: 'EN CONTRA', at: 30, color: MEMORIAL_RED, sub: 'PAÍSES'},
+	{value: 25, label: 'ABSTENCIONES', at: 70, color: AMBER, sub: ''},
 ];
 
 const CountersScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const titleIn = clamp01(f, 0, 8);
-	const photoPush = interpolate(f, [0, 155], [1, 1.04], {
+	const photoPush = interpolate(f, [0, 128], [1, 1.04], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
 	return (
 		<AbsoluteFill style={{background: NAVY}}>
 			{/* Bruno en el podio, tercio superior (cara íntegra) */}
+			{/* V1.3 (fix S3): la foto baja de 860 a 800 px para que título,
+			    tarjetas y nota suban 60 px y el karaoke de 2 líneas
+			    (borde superior ≈ y1543) no toque ni la 3ª tarjeta ni la
+			    nota. El recorte quita solo zona de fundido inferior; la
+			    cara de Bruno queda intacta (objectPosition 50% 12%). */}
 			<div
 				style={{
 					position: 'absolute',
@@ -590,6 +609,9 @@ const CountersScene: React.FC = () => {
 				});
 				const op = clamp01(f, c.at, c.at + 8);
 				const numScale = popIn(f, c.at, 12);
+				// V1.3 (fix S3): tarjetas 890 + i·195, alto 180 (antes
+				// 950 + i·205, alto 190). La 3ª termina en y1460: 83 px
+				// libres hasta el borde superior del karaoke (≈1543).
 				const top = 890 + i * 195;
 				return (
 					<div
@@ -651,9 +673,10 @@ const CountersScene: React.FC = () => {
 					</div>
 				);
 			})}
-			{/* V1.3: nota justo bajo las tarjetas (terminan en 1460),
-			    fuera de la zona del karaoke (borde superior ≈1543
-			    con 2 líneas). Antes, en top:1575, el karaoke la tapaba. */}
+			{/* V1.3 (fix S3): la nota sube a top 1480 (termina ≈1511), 20 px
+			    bajo la 3ª tarjeta y 32 px libres hasta el karaoke. Antes
+			    estaba en 1575, DENTRO de la zona del karaoke, y el chunk
+			    «VEINTICINCO / ABSTENCIONES.» (10,28–11,46 s) la tapaba. */}
 			<div
 				style={{
 					position: 'absolute',
@@ -665,7 +688,7 @@ const CountersScene: React.FC = () => {
 					fontSize: 26,
 					letterSpacing: 3,
 					color: '#8FA9BE',
-					opacity: clamp01(f, 110, 120),
+					opacity: clamp01(f, 100, 110),
 				}}
 			>
 				193 ESTADOS MIEMBROS · 21 NO VOTARON
@@ -675,7 +698,7 @@ const CountersScene: React.FC = () => {
 };
 
 // ================================================================
-// S4 — MAPA (405–650 f · 13,50–21,67 s, local 0–245)
+// S4 — MAPA (365–576 f · 12,16–19,18 s, local 0–211)
 // Base Natural Earth + overlays por grupo + puntos + lista + art. 19
 // ================================================================
 const MAP_LEFT = 60;
@@ -688,7 +711,7 @@ const MAP_GROUPS = [
 		key: 'red',
 		title: 'EN CONTRA · 6',
 		color: MEMORIAL_RED,
-		at: 83,
+		at: 56,
 		names: ['Argentina', 'Colombia', 'Costa Rica', 'Ecuador', 'Paraguay', 'Trinidad y Tobago'],
 		dots: ['Trinidad and Tobago'],
 	},
@@ -696,7 +719,7 @@ const MAP_GROUPS = [
 		key: 'yellow',
 		title: 'SE ABSTUVIERON · 7',
 		color: AMBER,
-		at: 129,
+		at: 102,
 		names: ['Chile', 'Rep. Dominicana', 'Guyana', 'Haití', 'Honduras', 'Jamaica', 'Perú'],
 		dots: ['Jamaica', 'Haiti', 'Dominican Rep.'],
 	},
@@ -704,7 +727,7 @@ const MAP_GROUPS = [
 		key: 'gray',
 		title: 'AUSENTES · 6',
 		color: GRAY,
-		at: 163,
+		at: 144,
 		names: ['Antigua y Barbuda', 'Bolivia', 'Dominica', 'El Salvador', 'Guatemala', 'Santa Lucía'],
 		dots: ['Antigua and Barb.', 'Dominica', 'Saint Lucia'],
 	},
@@ -801,11 +824,11 @@ const MapScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const baseIn = clamp01(f, 0, 12);
 	const titleIn = clamp01(f, 0, 8);
-	// V1.1: «EL MAPA CAMBIÓ» entra en f74, tras el chunk de karaoke
-	// idéntico «EL MAPA CAMBIÓ:» (local f46–68; auditoría V1, f_14s).
-	const subTitleIn = clamp01(f, 74, 82);
-	const venIn = clamp01(f, 180, 190);
-	const footIn = clamp01(f, 180, 190);
+	// V1.1: «EL MAPA CAMBIÓ» entra en f60, tras el chunk de karaoke
+	// idéntico «EL MAPA CAMBIÓ:» (local f33–56; auditoría V1, f_14s).
+	const subTitleIn = clamp01(f, 60, 68);
+	const venIn = clamp01(f, 155, 165);
+	const footIn = clamp01(f, 155, 165);
 	const ven = MAP_DOTS.Venezuela;
 	const venX = MAP_LEFT + (ven.x / 1400) * MAP_SIZE;
 	const venY = MAP_TOP + (ven.y / 1400) * MAP_SIZE;
@@ -894,7 +917,7 @@ const MapScene: React.FC = () => {
 				}),
 			)}
 			{/* Anillo de Venezuela (art. 19) */}
-			{f >= 180 && (
+			{f >= 155 && (
 				<div
 					style={{
 						position: 'absolute',
@@ -912,7 +935,7 @@ const MapScene: React.FC = () => {
 			    el Pacífico vacío (oeste de Colombia), con una línea guía
 			    hasta el anillo. Antes tapaba el rojo de Colombia y la
 			    zona de Venezuela. */}
-			{f >= 180 && (
+			{f >= 155 && (
 				<>
 					<div
 						style={{
@@ -1011,22 +1034,22 @@ const MapScene: React.FC = () => {
 };
 
 // ================================================================
-// S5 — EVIDENCIA (650–861 f · 21,67–28,70 s, local 0–211)
+// S5 — EVIDENCIA (576–768 f · 19,18–25,60 s, local 0–192)
 // «19 GOBIERNOS» + micrófono + tarjeta de la confesión de Browne
 // ================================================================
 const EvidenceScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const n = countUp(f, 0, 24, 19);
-	const push = interpolate(f, [0, 211], [1, 1.06], {
+	const push = interpolate(f, [0, 192], [1, 1.06], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	const cardSlide = interpolate(f, [125, 137], [60, 0], {
+	const cardSlide = interpolate(f, [113, 125], [60, 0], {
 		easing: Easing.out(Easing.cubic),
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	const cardOp = clamp01(f, 125, 133);
+	const cardOp = clamp01(f, 113, 121);
 	return (
 		<AbsoluteFill style={{background: NAVY}}>
 			<Img
@@ -1086,7 +1109,7 @@ const EvidenceScene: React.FC = () => {
 			    cabeza del micrófono (y≈700–1050) queda íntegra y
 			    visible; la tarjeta solo cubre el pie del micrófono.
 			    El karaoke que duplicaba la cita se apaga con la línea
-			    vacía CLEAR_BROWNE (25,82 s) mientras la tarjeta está
+			    vacía CLEAR_BROWNE (22,98 s) mientras la tarjeta está
 			    en pantalla. */}
 			<div
 				style={{
@@ -1142,26 +1165,26 @@ const EvidenceScene: React.FC = () => {
 };
 
 // ================================================================
-// S6 — INTERRUPT 1891 (861–1001 f · 28,70–33,37 s, local 0–140)
+// S6 — INTERRUPT 1891 (768–910 f · 25,60–30,32 s, local 0–142)
 // Corte duro a sepia + línea de tiempo + «1891» + retrato cuerpo entero
 // ================================================================
 const InterruptScene: React.FC = () => {
 	const f = useCurrentFrame();
-	const push = interpolate(f, [0, 140], [1, 1.07], {
+	const push = interpolate(f, [0, 142], [1, 1.07], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
 	const photoIn = clamp01(f, 10, 40);
-	const lineW = interpolate(f, [0, 58], [0, 840], {
+	const lineW = interpolate(f, [0, 60], [0, 840], {
 		easing: Easing.out(Easing.cubic),
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	const node1891 = clamp01(f, 54, 60);
+	const node1891 = clamp01(f, 55, 61);
 	const node2026 = clamp01(f, 100, 106);
-	const yearScale = popIn(f, 54, 12);
-	const subIn = clamp01(f, 66, 74);
-	const dijoIn = clamp01(f, 106, 114);
+	const yearScale = popIn(f, 55, 12);
+	const subIn = clamp01(f, 70, 78);
+	const dijoIn = clamp01(f, 103, 111);
 	return (
 		<AbsoluteFill style={{background: SEPIA_BG}}>
 			<Img
@@ -1185,8 +1208,8 @@ const InterruptScene: React.FC = () => {
 			{/* V1.1: título BAJO la línea de tiempo (antes cruzaba la cara de
 			    Martí en top:200, auditoría V1 f_27s). Por encima de la
 			    cabeza no cabe: la cabeza roza el borde superior del
-			    fotograma. Entra en f58 (tras el chunk de karaoke
-			    «ESTABA ESCRITO. EN», local f16–54) y coincide con el fin
+			    fotograma. Entra en f60 (tras el chunk de karaoke
+			    «ESTABA ESCRITO.», local f16–55) y coincide con el fin
 			    del trazado de la línea de tiempo. */}
 			<div
 				style={{
@@ -1200,7 +1223,7 @@ const InterruptScene: React.FC = () => {
 					fontWeight: 700,
 					letterSpacing: 8,
 					color: SEPIA_GOLD,
-					opacity: clamp01(f, 58, 66),
+					opacity: clamp01(f, 60, 68),
 				}}
 			>
 				PERO ESTO YA ESTABA ESCRITO
@@ -1342,26 +1365,26 @@ const InterruptScene: React.FC = () => {
 };
 
 // ================================================================
-// S7 — CITA MARTÍ (993–1112 f · 33,10–37,07 s, local 0–119)
+// S7 — CITA MARTÍ (902–1018 f · 30,32–33,93 s, local 0–116)
 // Retrato busto + cita estática (sin karaoke)
 // ================================================================
 const MartiQuoteScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const fadeIn = clamp01(f, 0, 8);
-	const push = interpolate(f, [0, 119], [1, 1.05], {
+	const push = interpolate(f, [0, 116], [1, 1.05], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
 	const l1 = clamp01(f, 8, 16);
-	const l2 = clamp01(f, 32, 40);
-	const l3 = clamp01(f, 56, 64);
-	const attr = clamp01(f, 74, 82);
-	// V1.2, fix 2: el TEXTO de la cita sale (fade-out local f98–110)
+	const l2 = clamp01(f, 20, 28);
+	const l3 = clamp01(f, 32, 40);
+	const attr = clamp01(f, 45, 53);
+	// V1.2, fix 2: el TEXTO de la cita sale (fade-out local f95–108)
 	// ANTES de que empiece el fundido de la foto S7→S8 (S8 entra en
-	// global f1104 = local f111). En V1.1 la cita de Martí se leía
+	// global f1010 = local f108). En V1.1 la cita de Martí se leía
 	// semitransparente sobre la cara de Fidel (~34 s). La foto sí
 	// puede fundirse con la siguiente; el texto, nunca.
-	const textOut = 1 - clamp01(f, 98, 110);
+	const textOut = 1 - clamp01(f, 95, 108);
 	return (
 		<AbsoluteFill style={{background: SEPIA_BG, opacity: fadeIn}}>
 			<Img
@@ -1426,23 +1449,23 @@ const MartiQuoteScene: React.FC = () => {
 };
 
 // ================================================================
-// S8 — CITA FIDEL (1104–1342 f · 36,80–44,73 s, local 0–238)
+// S8 — CITA FIDEL (1010–1221 f · 33,93–40,69 s, local 0–211)
 // Retrato MATS 1959 + «2005» + cita estática (sin karaoke)
 // ================================================================
 const FidelQuoteScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const fadeIn = clamp01(f, 0, 8);
-	const push = interpolate(f, [0, 238], [1, 1.05], {
+	const push = interpolate(f, [0, 211], [1, 1.05], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
 	const chipIn = clamp01(f, 12, 20);
-	const advIn = clamp01(f, 46, 54);
-	const l1 = clamp01(f, 92, 100);
-	const l2 = clamp01(f, 110, 118);
-	const l3 = clamp01(f, 145, 153);
-	const l4 = clamp01(f, 179, 187);
-	const attr = clamp01(f, 200, 208);
+	const advIn = clamp01(f, 44, 52);
+	const l1 = clamp01(f, 82, 90);
+	const l2 = clamp01(f, 92, 100);
+	const l3 = clamp01(f, 102, 110);
+	const l4 = clamp01(f, 112, 120);
+	const attr = clamp01(f, 140, 148);
 	return (
 		<AbsoluteFill style={{background: '#0B0B0B', opacity: fadeIn}}>
 			<Img
@@ -1467,8 +1490,8 @@ const FidelQuoteScene: React.FC = () => {
 			    centrada sobre la cita (top:1035, sobre la chaqueta
 			    oscura), fuera de la cara. En V1.1 caían sobre la
 			    frente y el pelo de Fidel (auditoría densa s_36/s_38).
-			    Tiempos V1.3: chip con «2005» (f12), rótulo con
-			    «ADVIRTIÓ:» (f46). */}
+			    Tiempos originales: chip con «2005» (f12), rótulo con
+			    «ADVIRTIÓ:» (f44). */}
 			<div
 				style={{
 					position: 'absolute',
@@ -1549,11 +1572,11 @@ const FidelQuoteScene: React.FC = () => {
 };
 
 // ================================================================
-// S9 — CALLBACK + CTA (1342–1598 f · 44,73–53,27 s, local 0–256)
+// S9 — CALLBACK + CTA (1221–1416 f · 40,69–47,20 s, local 0–195)
 // V1.2: fotograma REAL de UN Web TV con el RESULTADO FINAL en el
 // tablero (IN FAVOUR 130 / AGAINST 17 / ABSTENTION 25). El «130»
 // gigante va BAJO el tablero (top:850; el tablero ocupa y≈110–800 y
-// debe quedar visible y legible). En local f218 (51,99 s, al entrar
+// debe quedar visible y legible). En local f150 (45,69 s, al entrar
 // el CTA) el fondo funde a los delegados tras la aprobación
 // (variedad en el cierre). El karaoke «EXIGEN EL FIN DEL» se apaga
 // con línea vacía (fix 9): el título ya muestra esas palabras.
@@ -1561,19 +1584,19 @@ const FidelQuoteScene: React.FC = () => {
 const CallbackScene: React.FC = () => {
 	const f = useCurrentFrame();
 	// V1.1: 130 ESTÁTICO con pop desde el fotograma 0. La voz dice
-	// «ciento» en f0 (L10, 44,74 s); el count-up marcaba 91 en ese
+	// «ciento» en f0 (L10, 40,686 s); el count-up marcaba 91 en ese
 	// momento y contradecía a la voz (auditoría V1, f_41s).
 	const numScale = popIn(f, 0, 12);
-	const subIn = clamp01(f, 24, 32);
-	const divIn = clamp01(f, 82, 90);
-	const titleIn = clamp01(f, 102, 110);
-	const leerIn = clamp01(f, 168, 174);
-	const pensarScale = popIn(f, 196, 10);
-	const pensarIn = clamp01(f, 196, 202);
-	const ctaIn = clamp01(f, 218, 226);
-	const ctaScale = popIn(f, 218, 12);
-	// V1.2: fundido tablero → delegados al entrar el CTA (f218–233).
-	const delIn = clamp01(f, 218, 233);
+	const subIn = clamp01(f, 18, 26);
+	const divIn = clamp01(f, 60, 68);
+	const titleIn = clamp01(f, 93, 101);
+	const leerIn = clamp01(f, 125, 131);
+	const pensarScale = popIn(f, 135, 10);
+	const pensarIn = clamp01(f, 135, 141);
+	const ctaIn = clamp01(f, 150, 158);
+	const ctaScale = popIn(f, 150, 12);
+	// V1.2: fundido tablero → delegados al entrar el CTA (f150–165).
+	const delIn = clamp01(f, 150, 165);
 	return (
 		<AbsoluteFill style={{background: NAVY}}>
 			<Img
@@ -1726,7 +1749,7 @@ const CallbackScene: React.FC = () => {
 };
 
 // ================================================================
-// S10 — STING (1598–1689 f · 53,27–56,30 s)
+// S10 — STING (1416–1507 f · 47,20–50,23 s)
 // Cierre animado oficial, versión negra a 2x (fondo negro propio)
 // ================================================================
 const StingScene: React.FC = () => {
@@ -1746,50 +1769,50 @@ const StingScene: React.FC = () => {
 };
 
 // ================================================================
-// COMPOSICIÓN PRINCIPAL — 1689 f (56,30 s)
+// COMPOSICIÓN PRINCIPAL — 1507 f (50,23 s)
 // ================================================================
 export const MainReel: React.FC = () => {
 	return (
 		<AbsoluteFill style={{background: '#000'}}>
-			<Sequence from={0} durationInFrames={111} name="hook">
+			<Sequence from={0} durationInFrames={97} name="hook">
 				<HookScene />
 			</Sequence>
-			<Sequence from={111} durationInFrames={139} name="bars">
+			<Sequence from={97} durationInFrames={140} name="bars">
 				<BarsScene />
 			</Sequence>
-			<Sequence from={250} durationInFrames={155} name="counters">
+			<Sequence from={237} durationInFrames={128} name="counters">
 				<CountersScene />
 			</Sequence>
-			<Sequence from={405} durationInFrames={245} name="map">
+			<Sequence from={365} durationInFrames={211} name="map">
 				<MapScene />
 			</Sequence>
-			<Sequence from={650} durationInFrames={211} name="evidence">
+			<Sequence from={576} durationInFrames={192} name="evidence">
 				<EvidenceScene />
 			</Sequence>
-			<Sequence from={861} durationInFrames={140} name="interrupt">
+			<Sequence from={768} durationInFrames={142} name="interrupt">
 				<InterruptScene />
 			</Sequence>
-			<Sequence from={993} durationInFrames={119} name="marti">
+			<Sequence from={902} durationInFrames={116} name="marti">
 				<MartiQuoteScene />
 			</Sequence>
-			<Sequence from={1104} durationInFrames={238} name="fidel">
+			<Sequence from={1010} durationInFrames={211} name="fidel">
 				<FidelQuoteScene />
 			</Sequence>
-			<Sequence from={1342} durationInFrames={256} name="callback">
+			<Sequence from={1221} durationInFrames={195} name="callback">
 				<CallbackScene />
 			</Sequence>
-			<Sequence from={1598} durationInFrames={91} name="sting">
+			<Sequence from={1416} durationInFrames={91} name="sting">
 				<StingScene />
 			</Sequence>
 
 			{/* Marca de agua: logotipo completo desde el fotograma 0 */}
 			<LogoInner />
 
-			{/* Karaoke: 0–32,88 s y 44,74–51,76 s (citas sin karaoke) */}
-			<Sequence from={0} durationInFrames={987} name="karaoke-a">
+			{/* Karaoke: 0–29,87 s y 40,69–45,69 s (citas sin karaoke) */}
+			<Sequence from={0} durationInFrames={896} name="karaoke-a">
 				<BottomKaraoke lines={LINES_A} />
 			</Sequence>
-			<Sequence from={1342} durationInFrames={211} name="karaoke-b">
+			<Sequence from={1221} durationInFrames={150} name="karaoke-b">
 				<BottomKaraoke lines={LINES_B} />
 			</Sequence>
 

@@ -10,7 +10,7 @@
   "completed": [],
   "pending": [],
   "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
-  "updatedAt": "2026-11-17T23:09:06.836Z",
+  "updatedAt": "2026-11-17T23:43:03.812Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -25,18 +25,17 @@
       "vo": {
         "status": "done",
         "startedAt": "2026-11-17T21:39:08.344Z",
-        "updatedAt": "2026-11-17T23:09:06.346Z",
+        "updatedAt": "2026-11-17T23:27:51.624Z",
         "artifacts": [
           "public/audio/vo-preview.wav",
-          "public/audio/vo-lines.json",
-          "public/audio/vo-definitiva-trim.wav"
+          "public/audio/vo-lines.json"
         ],
         "note": ""
       },
       "captions": {
         "status": "done",
         "startedAt": "2026-11-17T21:39:08.414Z",
-        "updatedAt": "2026-11-17T23:09:06.506Z",
+        "updatedAt": "2026-11-17T23:27:54.067Z",
         "artifacts": [
           "src/captions.ts",
           "public/audio/captions.json"
@@ -46,7 +45,7 @@
       "mix": {
         "status": "done",
         "startedAt": "2026-11-17T21:46:57.473Z",
-        "updatedAt": "2026-11-17T23:09:06.835Z",
+        "updatedAt": "2026-11-17T23:27:54.157Z",
         "artifacts": [
           "public/audio/mix.wav",
           "public/audio/mix.json"
@@ -56,13 +55,13 @@
       "render": {
         "status": "done",
         "startedAt": "2026-11-17T21:49:34.377Z",
-        "updatedAt": "2026-11-17T22:50:20.051Z",
+        "updatedAt": "2026-11-17T23:40:25.792Z",
         "artifacts": [
           "out/marti-fidel-chunks.mp4"
         ],
-        "note": "out/marti-fidel-chunks.mp4",
+        "note": "tramos en out/chunks/ sin concatenar",
         "chunks": {
-          "total": 11,
+          "total": 2,
           "done": 11,
           "completed": [
             "out/chunks/chunk_01.mp4",
@@ -77,23 +76,23 @@
             "out/chunks/chunk_10.mp4",
             "out/chunks/chunk_11.mp4"
           ],
-          "framesDone": 1507,
-          "framesTotal": 1507,
+          "framesDone": 300,
+          "framesTotal": 300,
           "percent": 100,
           "chunkSize": 150,
-          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 0-1506 --chunk 150 --resume"
+          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 1200-1499 --chunk 150 --resume --out out/chunks-fix"
         }
       },
       "qa": {
         "status": "done",
         "startedAt": "2026-11-17T21:58:07.817Z",
-        "updatedAt": "2026-11-17T22:53:11.550Z",
+        "updatedAt": "2026-11-17T23:43:03.812Z",
         "artifacts": [
           "reports/technical-qa.json",
           "out/marti-fidel_MASTER.mp4",
           "out/marti-fidel_LIGERO.mp4"
         ],
-        "note": "V1.2: 10 correcciones auditoría densa + fondos reales UN Web TV (S1/S3/S9), QA passed"
+        "note": "Master SHA-256 0124b101bcb8fb6ccf23d9c493fdc419de5b80bb1301641afda101bf023dfbb6 (9.549.578 B); ligera e9fa6f1bc1fed8a171aad6f4ae25d3c1749996ed6b2c2987bc38988d6ffb0c7f (2.787.655 B). VO definitiva editada a 50.23 s; musica y SFX V1.2 sin cambios."
       },
       "delivery": {
         "status": "pending",
@@ -651,36 +650,182 @@
         "artifacts": []
       },
       {
-        "at": "2026-11-17T23:09:06.346Z",
+        "at": "2026-11-17T23:27:51.624Z",
         "phase": "vo",
-        "event": "VO definitiva grabada integrada (locutora, 52.08 s tras recorte -0,72 s del silencio inicial; fondo limpio -60 dB, sin DeepFilterNet)",
-        "artifacts": [
-          "public/audio/vo-definitiva-trim.wav",
-          "public/audio/vo-lines.json"
-        ]
+        "event": "VO definitiva EDITADA para el montaje V1.2 (50,23 s): 10 líneas, atempo máx 1,12x (solo L10), silencios recortados",
+        "artifacts": []
       },
       {
-        "at": "2026-11-17T23:09:06.506Z",
+        "at": "2026-11-17T23:27:54.067Z",
         "phase": "captions",
-        "event": "Karaoke re-alineado a la VO definitiva (120 palabras, 37 chunks; dígitos 130/17/25/6/7/19 partidos a palabras, erratas Whisper corregidas al guion)",
+        "event": "Karaoke regenerado desde la VO editada (Whisper small + 18 bordes corregidos con la predicción analítica; 37 chunks, 120 palabras; supresiones Browne 23,03 / 1891 27,36 / callback 41,84)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T23:27:54.157Z",
+        "phase": "mix",
+        "event": "Mezcla V1.3: VO editada + Flow shadows 0-27 / weight 25,5-50,23 + 21 SFX (timing V1.2); PASS_REAL 50,23 s, -15,1 LUFS, TP -1,5 dBTP",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T23:27:57.132Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-1506 en 11 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T23:28:35.123Z",
+        "phase": "render",
+        "event": "Tramo 1/11 verificado (chunk_01.mp4)",
         "artifacts": [
-          "src/captions.ts",
-          "public/audio/captions.json"
+          "out/chunks/chunk_01.mp4"
         ]
       },
       {
-        "at": "2026-11-17T23:09:06.629Z",
-        "phase": "mix",
-        "event": "Mezcla V1.3: VO definitiva + Flow (crossfade en el interrupt 28.70 s, Weight of Memory extendido sin loop) + 21 SFX re-sincronizados: -15.1 LUFS / TP -1.5",
+        "at": "2026-11-17T23:29:01.831Z",
+        "phase": "render",
+        "event": "Tramo 2/11 verificado (chunk_02.mp4)",
         "artifacts": [
-          "public/audio/mix.wav",
-          "public/audio/mix.json"
+          "out/chunks/chunk_02.mp4"
         ]
       },
       {
-        "at": "2026-11-17T23:09:06.835Z",
-        "phase": "mix",
-        "event": "checkpoint mix 2026-11-17T23:09:06.834Z",
+        "at": "2026-11-17T23:29:27.474Z",
+        "phase": "render",
+        "event": "Tramo 3/11 verificado (chunk_03.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_03.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:29:52.803Z",
+        "phase": "render",
+        "event": "Tramo 4/11 verificado (chunk_04.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_04.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:30:26.566Z",
+        "phase": "render",
+        "event": "Tramo 5/11 verificado (chunk_05.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_05.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:31:03.641Z",
+        "phase": "render",
+        "event": "Tramo 6/11 verificado (chunk_06.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_06.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:31:41.326Z",
+        "phase": "render",
+        "event": "Tramo 7/11 verificado (chunk_07.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_07.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:32:10.553Z",
+        "phase": "render",
+        "event": "Tramo 8/11 verificado (chunk_08.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_08.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:32:36.560Z",
+        "phase": "render",
+        "event": "Tramo 9/11 verificado (chunk_09.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_09.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:33:14.745Z",
+        "phase": "render",
+        "event": "Tramo 10/11 verificado (chunk_10.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_10.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:33:26.450Z",
+        "phase": "render",
+        "event": "Tramo 11/11 verificado (chunk_11.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_11.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:33:33.378Z",
+        "phase": "render",
+        "event": "Render completo: 11 tramos concatenados (out/marti-fidel-chunks.mp4)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T23:35:28.829Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel_MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:39:20.058Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 1200-1499 en 2 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T23:39:49.589Z",
+        "phase": "render",
+        "event": "Tramo 1/2 verificado (chunk_01.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_01.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:40:25.780Z",
+        "phase": "render",
+        "event": "Tramo 2/2 verificado (chunk_02.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_02.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:40:25.792Z",
+        "phase": "render",
+        "event": "Render completo: 2 tramos (sin concatenar)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T23:42:20.068Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel_MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:43:02.147Z",
+        "phase": "qa",
+        "event": "V1.3 final: QA full passed (1507/1507 f, -15.2 LUFS, TP -1.5 dBTP); verificacion visual 19 fotogramas, fix S3 y fix LEER/PENSAR confirmados",
+        "artifacts": [
+          "out/marti-fidel_MASTER.mp4",
+          "out/marti-fidel_LIGERO.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:43:03.812Z",
+        "phase": "qa",
+        "event": "checkpoint qa 2026-11-17T23:43:03.810Z",
         "artifacts": []
       }
     ]
