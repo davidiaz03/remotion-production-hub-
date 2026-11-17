@@ -123,3 +123,31 @@ fondo generado (Pollinations).
    fondos generados (Pollinations) y voz de IA en esta previsualización.
    Con la voz real del usuario, la etiqueta seguiría aplicando por los
    dos fondos generados.
+
+## QA visual (17-nov-2026, máster V1)
+
+QA técnico `qa-media.mjs --mode full`: **passed** (1507/1507 f, 1080×1920,
+−15,8 LUFS, TP −2,2 dBTP, sin silencio inicial/final). 2 advertencias de
+intervalos oscuros, inspeccionadas y aceptadas: 12,23–12,33 s (fade-in del
+mapa, 3 f) y 25,71–26,17 s (corte intencional a sepia; el texto «PERO ESTO
+YA ESTABA ESCRITO» y la línea de tiempo están visibles desde el primer
+fotograma del corte).
+
+Revisión por escenas en 20 stills del máster:
+- Gancho, barras, mapa (los 19 países correctos, 3 grupos + anillo
+  Venezuela/art. 19), evidencia, interrupt 1891, citas Martí/Fidel,
+  callback y sting: correctos. Karaoke sincronizado en todos los puntos
+  muestreados; logo completo legible desde el fotograma 0 (en la cita de
+  Martí el fondo sepia claro baja el contraste, pero las letras se leen).
+- **Defecto encontrado y corregido:** en las tarjetas de contadores, el
+  número «130» (150 px Archivo Black, ~324 px de ancho) chocaba con la
+  etiqueta «A FAVOR» (minWidth 300). Corregido a minWidth 370 +
+  flexShrink: 0 en `src/Video.tsx`; re-renderizados solo los tramos 2–3
+  (f150–449) y regenerados máster/ligera.
+- **Sincronía del sting verificada por medición:** el disparo del audio
+  cae a 0,68 s dentro de `sting-2x.wav` (47,88 s en la mezcla); la deriva
+  de audio del render por tramos en este proyecto es de ≈+0,12 s al final
+  (menor que los +0,31 s documentados en Marabana), así que el disparo
+  suena a ~48,00 s en el máster, dentro de la ventana en que la estrella
+  se quiebra en el video (f1436 intacta → f1442 quebrada). Sincronía
+  dentro de ±0,1 s: aceptada.

@@ -484,7 +484,8 @@ const CountersScene: React.FC = () => {
 								fontFamily: ARCHIVO,
 								fontSize: 150,
 								color: c.color,
-								minWidth: 300,
+								minWidth: 370,
+								flexShrink: 0,
 							}}
 						>
 							{val}

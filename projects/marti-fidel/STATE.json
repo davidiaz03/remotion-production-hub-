@@ -10,7 +10,7 @@
   "completed": [],
   "pending": [],
   "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
-  "updatedAt": "2026-11-17T21:51:20.513Z",
+  "updatedAt": "2026-11-17T22:04:22.072Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -53,30 +53,46 @@
         "note": ""
       },
       "render": {
-        "status": "in_progress",
+        "status": "done",
         "startedAt": "2026-11-17T21:49:34.377Z",
-        "updatedAt": "2026-11-17T21:51:20.512Z",
-        "artifacts": [],
-        "note": "node scripts/render-chunks.mjs marti-fidel --frames 0-1506 --chunk 150 --resume",
+        "updatedAt": "2026-11-17T22:02:34.843Z",
+        "artifacts": [
+          "out/marti-fidel-chunks.mp4"
+        ],
+        "note": "out/marti-fidel-chunks.mp4",
         "chunks": {
-          "total": 1,
-          "done": 1,
+          "total": 11,
+          "done": 11,
           "completed": [
-            "out/chunks/chunk_01.mp4"
+            "out/chunks/chunk_01.mp4",
+            "out/chunks/chunk_02.mp4",
+            "out/chunks/chunk_03.mp4",
+            "out/chunks/chunk_04.mp4",
+            "out/chunks/chunk_05.mp4",
+            "out/chunks/chunk_06.mp4",
+            "out/chunks/chunk_07.mp4",
+            "out/chunks/chunk_08.mp4",
+            "out/chunks/chunk_09.mp4",
+            "out/chunks/chunk_10.mp4",
+            "out/chunks/chunk_11.mp4"
           ],
-          "framesDone": 90,
-          "framesTotal": 90,
+          "framesDone": 1507,
+          "framesTotal": 1507,
           "percent": 100,
-          "chunkSize": 90,
-          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 0-89 --chunk 90 --resume"
+          "chunkSize": 150,
+          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 0-1506 --chunk 150 --resume"
         }
       },
       "qa": {
-        "status": "pending",
-        "startedAt": null,
-        "updatedAt": null,
-        "artifacts": [],
-        "note": ""
+        "status": "done",
+        "startedAt": "2026-11-17T21:58:07.817Z",
+        "updatedAt": "2026-11-17T22:04:22.072Z",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel_MASTER.mp4",
+          "out/marti-fidel_LIGERO.mp4"
+        ],
+        "note": "-15.8 LUFS, TP -2.2 dBTP"
       },
       "delivery": {
         "status": "pending",
@@ -158,6 +174,241 @@
         "at": "2026-11-17T21:51:20.512Z",
         "phase": "render",
         "event": "checkpoint render 2026-11-17T21:51:20.485Z",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T21:51:50.319Z",
+        "phase": "render",
+        "event": "Tramo 1/11 verificado (chunk_01.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_01.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:52:19.584Z",
+        "phase": "render",
+        "event": "Tramo 2/11 verificado (chunk_02.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_02.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:52:43.374Z",
+        "phase": "render",
+        "event": "Tramo 3/11 verificado (chunk_03.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_03.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:53:06.930Z",
+        "phase": "render",
+        "event": "Tramo 4/11 verificado (chunk_04.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_04.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:53:37.269Z",
+        "phase": "render",
+        "event": "Tramo 5/11 verificado (chunk_05.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_05.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:54:15.004Z",
+        "phase": "render",
+        "event": "Tramo 6/11 verificado (chunk_06.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_06.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:54:52.185Z",
+        "phase": "render",
+        "event": "Tramo 7/11 verificado (chunk_07.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_07.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:55:21.591Z",
+        "phase": "render",
+        "event": "Tramo 8/11 verificado (chunk_08.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_08.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:55:44.767Z",
+        "phase": "render",
+        "event": "Tramo 9/11 verificado (chunk_09.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_09.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:56:15.256Z",
+        "phase": "render",
+        "event": "Tramo 10/11 verificado (chunk_10.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_10.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:56:26.439Z",
+        "phase": "render",
+        "event": "Tramo 11/11 verificado (chunk_11.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_11.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:56:32.770Z",
+        "phase": "render",
+        "event": "Render completo: 11 tramos concatenados (out/marti-fidel-chunks.mp4)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T21:56:36.092Z",
+        "phase": "render",
+        "event": "Render completo por tramos: 1507/1507 fotogramas en 11 chunks (CRF 19)",
+        "artifacts": [
+          "out/marti-fidel-chunks.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:58:07.817Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel_MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:01:35.237Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-1506 en 11 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T22:01:36.011Z",
+        "phase": "render",
+        "event": "Tramo 1/11 verificado (chunk_01.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_01.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:04.221Z",
+        "phase": "render",
+        "event": "Tramo 2/11 verificado (chunk_02.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_02.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:23.515Z",
+        "phase": "render",
+        "event": "Tramo 3/11 verificado (chunk_03.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_03.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:24.063Z",
+        "phase": "render",
+        "event": "Tramo 4/11 verificado (chunk_04.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_04.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:24.799Z",
+        "phase": "render",
+        "event": "Tramo 5/11 verificado (chunk_05.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_05.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:25.966Z",
+        "phase": "render",
+        "event": "Tramo 6/11 verificado (chunk_06.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_06.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:27.128Z",
+        "phase": "render",
+        "event": "Tramo 7/11 verificado (chunk_07.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_07.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:27.754Z",
+        "phase": "render",
+        "event": "Tramo 8/11 verificado (chunk_08.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_08.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:28.268Z",
+        "phase": "render",
+        "event": "Tramo 9/11 verificado (chunk_09.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_09.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:28.781Z",
+        "phase": "render",
+        "event": "Tramo 10/11 verificado (chunk_10.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_10.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:28.892Z",
+        "phase": "render",
+        "event": "Tramo 11/11 verificado (chunk_11.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_11.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:02:34.843Z",
+        "phase": "render",
+        "event": "Render completo: 11 tramos concatenados (out/marti-fidel-chunks.mp4)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T22:04:08.730Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel_MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:04:21.883Z",
+        "phase": "qa",
+        "event": "QA full passed (2ª pasada tras corrección): 1507/1507 f, -15.8 LUFS, TP -2.2 dBTP, sin fallos; revisión visual de 22 stills; corregido choque 130/A FAVOR; sting sincronizado ±0,1 s; 2 intervalos oscuros inspeccionados y aceptados",
+        "artifacts": [
+          "out/marti-fidel_MASTER.mp4",
+          "out/marti-fidel_LIGERO.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T22:04:22.072Z",
+        "phase": "qa",
+        "event": "checkpoint qa 2026-11-17T22:04:22.071Z",
         "artifacts": []
       }
     ]
