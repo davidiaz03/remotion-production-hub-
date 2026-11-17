@@ -10,7 +10,7 @@
   "completed": [],
   "pending": [],
   "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
-  "updatedAt": "2026-11-17T21:46:57.676Z",
+  "updatedAt": "2026-11-17T21:51:20.513Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -53,20 +53,22 @@
         "note": ""
       },
       "render": {
-        "status": "pending",
-        "startedAt": null,
-        "updatedAt": null,
+        "status": "in_progress",
+        "startedAt": "2026-11-17T21:49:34.377Z",
+        "updatedAt": "2026-11-17T21:51:20.512Z",
         "artifacts": [],
-        "note": "",
+        "note": "node scripts/render-chunks.mjs marti-fidel --frames 0-1506 --chunk 150 --resume",
         "chunks": {
-          "total": 0,
-          "done": 0,
-          "completed": [],
-          "framesDone": 0,
-          "framesTotal": 0,
-          "percent": 0,
-          "chunkSize": 150,
-          "resumeCommand": ""
+          "total": 1,
+          "done": 1,
+          "completed": [
+            "out/chunks/chunk_01.mp4"
+          ],
+          "framesDone": 90,
+          "framesTotal": 90,
+          "percent": 100,
+          "chunkSize": 90,
+          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 0-89 --chunk 90 --resume"
         }
       },
       "qa": {
@@ -124,6 +126,38 @@
         "at": "2026-11-17T21:46:57.676Z",
         "phase": "mix",
         "event": "checkpoint mix 2026-11-17T21:46:57.675Z",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T21:49:34.377Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-89 en 1 tramos de 90",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T21:50:29.260Z",
+        "phase": "render",
+        "event": "Tramo 1/1 verificado (chunk_01.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_01.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:50:30.145Z",
+        "phase": "render",
+        "event": "Render completo: 1 tramos concatenados (out/marti-fidel-chunks.mp4)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T21:51:09.248Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-1506 en 11 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T21:51:20.512Z",
+        "phase": "render",
+        "event": "checkpoint render 2026-11-17T21:51:20.485Z",
         "artifacts": []
       }
     ]

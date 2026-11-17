@@ -89,7 +89,7 @@ fondo generado (Pollinations).
   «Shadows & Evidence» (tensión, 93 BPM) 0–27 s para los actos 1–2;
   «Weight of Memory» (emotivo, 124,8 BPM) 25,5–50,23 s para 1891–cierre;
   crossfade 1,5 s. Sin pista nueva de Flow: no hizo falta.
-- **Mezcla:** `scripts/audio/mix.py` (VO + 2 secciones + 15 SFX CC0 del
+- **Mezcla:** `scripts/audio/mix.py` (VO + 2 secciones + 21 SFX CC0 del
   kit + sting), objetivo −14,5 LUFS / TP −1,5 dBTP. SFX por sync point
   (tiempo de evento menos `sync` del kit): count-up, number-land ×6,
   bar-grow, boom-hit-soft ×3, pop-medium-in ×3, whoosh-medium-soft ×2,
