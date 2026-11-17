@@ -1,0 +1,131 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "marti-fidel",
+  "title": "Martí-Fidel: leer, pensar",
+  "objective": "Martí-Fidel: leer, pensar",
+  "phase": "editing",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [],
+  "pending": [],
+  "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
+  "updatedAt": "2026-11-17T21:46:57.676Z",
+  "pipeline": {
+    "phases": {
+      "assets": {
+        "status": "done",
+        "startedAt": "2026-11-17T21:39:08.464Z",
+        "updatedAt": "2026-11-17T21:39:08.464Z",
+        "artifacts": [
+          "../../projects/marti-fidel/research/assets"
+        ],
+        "note": ""
+      },
+      "vo": {
+        "status": "done",
+        "startedAt": "2026-11-17T21:39:08.344Z",
+        "updatedAt": "2026-11-17T21:39:08.344Z",
+        "artifacts": [
+          "public/audio/vo-preview.wav",
+          "public/audio/vo-lines.json"
+        ],
+        "note": ""
+      },
+      "captions": {
+        "status": "done",
+        "startedAt": "2026-11-17T21:39:08.414Z",
+        "updatedAt": "2026-11-17T21:39:08.414Z",
+        "artifacts": [
+          "src/captions.ts",
+          "public/audio/captions.json"
+        ],
+        "note": ""
+      },
+      "mix": {
+        "status": "done",
+        "startedAt": "2026-11-17T21:46:57.473Z",
+        "updatedAt": "2026-11-17T21:46:57.676Z",
+        "artifacts": [
+          "public/audio/mix.wav",
+          "public/audio/mix.json"
+        ],
+        "note": ""
+      },
+      "render": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": "",
+        "chunks": {
+          "total": 0,
+          "done": 0,
+          "completed": [],
+          "framesDone": 0,
+          "framesTotal": 0,
+          "percent": 0,
+          "chunkSize": 150,
+          "resumeCommand": ""
+        }
+      },
+      "qa": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-17T21:39:08.344Z",
+        "phase": "vo",
+        "event": "VO de previsualización generada (Kokoro em_alex, 45.69 s, 10 fragmentos)",
+        "artifacts": [
+          "public/audio/vo-preview.wav",
+          "public/audio/vo-lines.json"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:39:08.414Z",
+        "phase": "captions",
+        "event": "Karaoke alineado desde la VO (120 palabras, 37 chunks, 31 keywords)",
+        "artifacts": [
+          "src/captions.ts",
+          "public/audio/captions.json"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:39:08.464Z",
+        "phase": "assets",
+        "event": "Retratos reales: Fidel MATS 1959 vía LoC (TIFF máster); Martí Jamaica 1892 vía Iconografía Martiana (PDF CEM). Wikimedia 429 (parada). Mapa latam-blank OK. Falta: salón ONU (se genera fondo Pollinations).",
+        "artifacts": [
+          "../../projects/marti-fidel/research/assets"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:46:57.473Z",
+        "phase": "mix",
+        "event": "Mezcla VO+música Flow (2 secciones)+21 SFX+sting: -15.9 LUFS / TP -1.5 (PASS_REAL, en puerta QA [-16.5,-12.0])",
+        "artifacts": [
+          "public/audio/mix.wav",
+          "public/audio/mix.json"
+        ]
+      },
+      {
+        "at": "2026-11-17T21:46:57.676Z",
+        "phase": "mix",
+        "event": "checkpoint mix 2026-11-17T21:46:57.675Z",
+        "artifacts": []
+      }
+    ]
+  }
+}
