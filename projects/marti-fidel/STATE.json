@@ -10,7 +10,7 @@
   "completed": [],
   "pending": [],
   "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
-  "updatedAt": "2026-11-17T22:53:11.550Z",
+  "updatedAt": "2026-11-17T23:09:06.836Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -25,17 +25,18 @@
       "vo": {
         "status": "done",
         "startedAt": "2026-11-17T21:39:08.344Z",
-        "updatedAt": "2026-11-17T21:39:08.344Z",
+        "updatedAt": "2026-11-17T23:09:06.346Z",
         "artifacts": [
           "public/audio/vo-preview.wav",
-          "public/audio/vo-lines.json"
+          "public/audio/vo-lines.json",
+          "public/audio/vo-definitiva-trim.wav"
         ],
         "note": ""
       },
       "captions": {
         "status": "done",
         "startedAt": "2026-11-17T21:39:08.414Z",
-        "updatedAt": "2026-11-17T21:39:08.414Z",
+        "updatedAt": "2026-11-17T23:09:06.506Z",
         "artifacts": [
           "src/captions.ts",
           "public/audio/captions.json"
@@ -45,7 +46,7 @@
       "mix": {
         "status": "done",
         "startedAt": "2026-11-17T21:46:57.473Z",
-        "updatedAt": "2026-11-17T21:46:57.676Z",
+        "updatedAt": "2026-11-17T23:09:06.835Z",
         "artifacts": [
           "public/audio/mix.wav",
           "public/audio/mix.json"
@@ -647,6 +648,39 @@
         "at": "2026-11-17T22:53:11.550Z",
         "phase": "qa",
         "event": "checkpoint qa 2026-11-17T22:53:11.548Z",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-17T23:09:06.346Z",
+        "phase": "vo",
+        "event": "VO definitiva grabada integrada (locutora, 52.08 s tras recorte -0,72 s del silencio inicial; fondo limpio -60 dB, sin DeepFilterNet)",
+        "artifacts": [
+          "public/audio/vo-definitiva-trim.wav",
+          "public/audio/vo-lines.json"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:09:06.506Z",
+        "phase": "captions",
+        "event": "Karaoke re-alineado a la VO definitiva (120 palabras, 37 chunks; dígitos 130/17/25/6/7/19 partidos a palabras, erratas Whisper corregidas al guion)",
+        "artifacts": [
+          "src/captions.ts",
+          "public/audio/captions.json"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:09:06.629Z",
+        "phase": "mix",
+        "event": "Mezcla V1.3: VO definitiva + Flow (crossfade en el interrupt 28.70 s, Weight of Memory extendido sin loop) + 21 SFX re-sincronizados: -15.1 LUFS / TP -1.5",
+        "artifacts": [
+          "public/audio/mix.wav",
+          "public/audio/mix.json"
+        ]
+      },
+      {
+        "at": "2026-11-17T23:09:06.835Z",
+        "phase": "mix",
+        "event": "checkpoint mix 2026-11-17T23:09:06.834Z",
         "artifacts": []
       }
     ]
