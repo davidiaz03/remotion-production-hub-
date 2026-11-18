@@ -9,8 +9,8 @@
   "approvedRevision": null,
   "completed": [],
   "pending": [],
-  "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
-  "updatedAt": "2026-11-17T23:43:03.812Z",
+  "nextTask": "V1.4 lista (QA passed): entrega al usuario para su juicio creativo y visto bueno de Suleris; antes de publicar: leer términos comerciales de Flow Music y etiqueta IA de Meta (solo fondo micrófono S5); crédito UN Web TV obligatorio en el post.",
+  "updatedAt": "2026-11-18T00:08:10.588883Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -25,43 +25,43 @@
       "vo": {
         "status": "done",
         "startedAt": "2026-11-17T21:39:08.344Z",
-        "updatedAt": "2026-11-17T23:27:51.624Z",
+        "updatedAt": "2026-11-18T00:08:10.588883Z",
         "artifacts": [
           "public/audio/vo-preview.wav",
           "public/audio/vo-lines.json"
         ],
-        "note": ""
+        "note": "VO V1.4: reconstruida desde el original, atempo uniforme por línea (L4 1.0406, L5 1.0225, L9 1.0340, L10 1.1200, resto 1.00), crossfades 15 ms, escaneo de empalmes limpio"
       },
       "captions": {
         "status": "done",
         "startedAt": "2026-11-17T21:39:08.414Z",
-        "updatedAt": "2026-11-17T23:27:54.067Z",
+        "updatedAt": "2026-11-18T00:08:10.588883Z",
         "artifacts": [
           "src/captions.ts",
           "public/audio/captions.json"
         ],
-        "note": ""
+        "note": "Karaoke V1.4 regenerado (Whisper small + parche L7; 17 bordes corregidos con predicción; 37 chunks, 120 palabras; supresiones Browne/1891/callback/LEER)"
       },
       "mix": {
         "status": "done",
         "startedAt": "2026-11-17T21:46:57.473Z",
-        "updatedAt": "2026-11-17T23:27:54.157Z",
+        "updatedAt": "2026-11-18T00:08:10.588883Z",
         "artifacts": [
           "public/audio/mix.wav",
           "public/audio/mix.json"
         ],
-        "note": ""
+        "note": "Mezcla V1.4: ducking release 150 ms, música 0.38; PASS_REAL -15.0 LUFS, TP -1.5 dBTP; +6-9 dB en ventanas post-frase"
       },
       "render": {
         "status": "done",
         "startedAt": "2026-11-17T21:49:34.377Z",
-        "updatedAt": "2026-11-17T23:40:25.792Z",
+        "updatedAt": "2026-11-18T00:04:12.724Z",
         "artifacts": [
           "out/marti-fidel-chunks.mp4"
         ],
-        "note": "tramos en out/chunks/ sin concatenar",
+        "note": "out/marti-fidel-chunks.mp4",
         "chunks": {
-          "total": 2,
+          "total": 11,
           "done": 11,
           "completed": [
             "out/chunks/chunk_01.mp4",
@@ -76,23 +76,23 @@
             "out/chunks/chunk_10.mp4",
             "out/chunks/chunk_11.mp4"
           ],
-          "framesDone": 300,
-          "framesTotal": 300,
+          "framesDone": 1507,
+          "framesTotal": 1507,
           "percent": 100,
           "chunkSize": 150,
-          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 1200-1499 --chunk 150 --resume --out out/chunks-fix"
+          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 0-1506 --chunk 150 --resume"
         }
       },
       "qa": {
         "status": "done",
         "startedAt": "2026-11-17T21:58:07.817Z",
-        "updatedAt": "2026-11-17T23:43:03.812Z",
+        "updatedAt": "2026-11-18T00:08:10.588883Z",
         "artifacts": [
           "reports/technical-qa.json",
           "out/marti-fidel_MASTER.mp4",
           "out/marti-fidel_LIGERO.mp4"
         ],
-        "note": "Master SHA-256 0124b101bcb8fb6ccf23d9c493fdc419de5b80bb1301641afda101bf023dfbb6 (9.549.578 B); ligera e9fa6f1bc1fed8a171aad6f4ae25d3c1749996ed6b2c2987bc38988d6ffb0c7f (2.787.655 B). VO definitiva editada a 50.23 s; musica y SFX V1.2 sin cambios."
+        "note": "V1.4 final: QA full passed (1507/1507 f, -15.1 LUFS, TP -2.0 dBTP); 7 fotogramas de tramos re-renderizados revisados; tramos no tocados byte-idénticos a V1.3"
       },
       "delivery": {
         "status": "pending",
@@ -827,6 +827,150 @@
         "phase": "qa",
         "event": "checkpoint qa 2026-11-17T23:43:03.810Z",
         "artifacts": []
+      },
+      {
+        "at": "2026-11-18T00:01:38.361Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-1506 en 11 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-18T00:01:39.366Z",
+        "phase": "render",
+        "event": "Tramo 1/11 verificado (chunk_01.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_01.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:02:08.430Z",
+        "phase": "render",
+        "event": "Tramo 2/11 verificado (chunk_02.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_02.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:02:35.744Z",
+        "phase": "render",
+        "event": "Tramo 3/11 verificado (chunk_03.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_03.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:03:01.580Z",
+        "phase": "render",
+        "event": "Tramo 4/11 verificado (chunk_04.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_04.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:03:02.301Z",
+        "phase": "render",
+        "event": "Tramo 5/11 verificado (chunk_05.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_05.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:03:36.939Z",
+        "phase": "render",
+        "event": "Tramo 6/11 verificado (chunk_06.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_06.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:03:38.008Z",
+        "phase": "render",
+        "event": "Tramo 7/11 verificado (chunk_07.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_07.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:03:38.619Z",
+        "phase": "render",
+        "event": "Tramo 8/11 verificado (chunk_08.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_08.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:04:05.301Z",
+        "phase": "render",
+        "event": "Tramo 9/11 verificado (chunk_09.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_09.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:04:05.973Z",
+        "phase": "render",
+        "event": "Tramo 10/11 verificado (chunk_10.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_10.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:04:06.089Z",
+        "phase": "render",
+        "event": "Tramo 11/11 verificado (chunk_11.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_11.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:04:12.724Z",
+        "phase": "render",
+        "event": "Render completo: 11 tramos concatenados (out/marti-fidel-chunks.mp4)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-18T00:06:07.369Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel_MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:08:10.588883Z",
+        "phase": "vo",
+        "event": "V1.4: VO definitiva RECONSTRUIDA desde el original con atempo uniforme por línea (L4 1.0406, L5 1.0225, L9 1.0340, L10 1.1200, resto 1.00); mismas duraciones/inicios que V1.3; crossfades equal-power 15 ms; escaneo de empalmes limpio (peor |Δ| 621 vs p99.9 habla 5360)",
+        "artifacts": [
+          "public/audio/vo-definitiva-editada.wav"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:08:10.588883Z",
+        "phase": "captions",
+        "event": "V1.4: karaoke regenerado desde la VO nueva (Whisper small falló L7 — parche analítico de 8 palabras; 17 bordes corregidos con predicción; 37 chunks, 120 palabras; supresiones Browne 23,03 / 1891 27,36 / callback 41,84 / LEER 44,82)",
+        "artifacts": [
+          "src/captions.ts",
+          "public/audio/captions.json"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:08:10.588883Z",
+        "phase": "mix",
+        "event": "V1.4: mezcla con ducking release 150 ms y música 0.38 (mix.py --duck-release nuevo); PASS_REAL 50,23 s, -15,1 LUFS, TP -1,5 dBTP; 185/188 ventanas ≥-32 dBFS (3 excepciones son pasajes quietos del propio stem Shadows)",
+        "artifacts": [
+          "public/audio/mix.wav",
+          "public/audio/mix.json"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:08:10.588883Z",
+        "phase": "qa",
+        "event": "V1.4 final: QA full passed (1507/1507 f, -15,1 LUFS, TP -2,0 dBTP); tramos 02/03/04/06/09 re-renderizados; verificación visual 7 fotogramas; fix S3 y fix LEER/PENSAR preservados; tramos no tocados byte-idénticos a V1.3",
+        "artifacts": [
+          "out/marti-fidel_MASTER.mp4",
+          "out/marti-fidel_LIGERO.mp4"
+        ]
       }
     ]
   }

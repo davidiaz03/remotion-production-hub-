@@ -336,6 +336,144 @@ Los fondos de la ONU son reales y la voz es humana grabada.
 pertenecen al enfoque re-temporizado (56,30 s) y NO se usan en V1.3;
 se conservan como referencia.
 
+## V1.4 (17-nov-2026) — corrección de AUDIO: fluidez (microcortes y pausas)
+
+**Disparador:** feedback del usuario tras escuchar V1.3 (19:52–19:53):
+«audí audio hay microcortes y pausas que no deberían ser» y «no puede
+ser que de pronto se quede un espacio vacío entre audios, la música
+tiene que ir acompañando». El VIDEO no cambia: mismas escenas,
+fondos, mapa, logo y títulos; solo el audio y el karaoke que dependa
+de él.
+
+**Diagnóstico verificado (padre):** (1) la mezcla no tenía silencio
+literal, pero el ducking sidechain (release 420 ms) dejaba un agujero
+percibido tras cada frase — la música tardaba ~0,4 s en volver;
+(2) los «microcortes» eran las costuras de tempo de V1.3 (L4
+1,08/1,05/1,00, L5 1,08/1,08/1,00/1,00, L9 1,00/1,00/1,05 —
+cambios de velocidad en medio de la frase). Las pausas DRAMÁTICAS
+(tras «Ganamos» ~0,44 s y tras «Martí dijo…» ~0,55 s) son
+intencionales y SE CONSERVAN.
+
+**VO reconstruida desde el ORIGINAL** (`vo-definitiva.aac`,
+NO reutiliza la editada de V1.3; script
+`research/edit-vo-definitiva-v14.py`): UN SOLO factor atempo
+uniforme por línea, mismas duraciones por línea y mismos tiempos de
+inicio que V1.3, crossfades equal-power de ~15 ms en cada empalme,
+pads de silencio de 30 ms. Ninguna línea superó el tope de 1,12x.
+
+| Línea | atempo V1.4 | atempo V1.3 (mixto) |
+|-------|-------------|----------------------|
+| L1 | 1.0000 | 1.00 |
+| L2 | 1.0000 | 1.00 |
+| L3 | 1.0000 | 1.00 |
+| L4 | 1.0406 | 1,08/1,05/1,00 |
+| L5 | 1.0225 | 1,08/1,08/1,00/1,00 |
+| L6 | 1.0000 | 1.00 |
+| L7 | 1.0000 | 1.00 |
+| L8 | 1.0000 | 1.00 |
+| L9 | 1.0340 | 1,00/1,00/1,05 |
+| L10 | 1.1200 | 1,12 |
+
+VO V1.4: 9.644.204 bytes, SHA-256
+`d8324d869087e2c1513e36684788721e3d5de0c68ea2c1586da7decf3478927f`.
+
+**Escaneo de empalmes (método adecuado, no umbral global):**
+50 bordes de segmento revisados en ventanas de ±3 ms — LIMPIO.
+Peor |Δ| en un empalme: 621, frente a p99,9 del habla = 5360
+(p50 = 86, p99 = 2495, máx. del archivo = 12311); cero muestras
+>3× p99,9 en todo el archivo. No hay clics de edición.
+
+**Transcripción y karaoke:** faster-whisper small falló en la
+segmentación de L7 (omitió 8 palabras consecutivas, «esto ya estaba
+escrito. En 1891, Martí dijo,» y puso «Pero» en 29,42 s en vez de
+25,57 s; solo devolvió 109/117 palabras) aunque el audio de L7 es
+idéntico al de V1.3 (1,00x). Fix: `research/patch-transcripcion-v14.py`
+inserta las 8 palabras con los tiempos de la predicción analítica
+(exactos por construcción — mismo criterio que el alineador usa para
+bordes >0,08 s); `research/align-vo-editada.py` corrigió 17 bordes
+con la predicción (incluido «Pero», 3,85 s). Resultado: 117 palabras,
+37 chunks, 120 captions; mismas 4 supresiones con línea vacía
+(Browne 23,03 / 1891 27,36 / callback 41,84 / LEER 44,82).
+
+**Cambios de karaoke V1.4 vs V1.3:** 17 palabras >0,05 s (máx.
+0,094 s), todas en L5 (mapa, 13,3–17,9 s) y L9 (36,3–37,3 s);
+L4 ≤0,048 s. Tramos re-renderizados: **02, 03, 04, 06, 09**
+(06 por seguro: «ESCRITO.» Δfin +0,050 exacto). 07 y 08 NO se
+re-renderizan: no hay karaoke visible entre 29,87–40,70 s
+(`Video.tsx`: karaoke-a f0–896, karaoke-b f1221–1371).
+
+**Anclas del mapa NO movidas** (el video no cambia por tarea):
+rojo 14,033 s, amarillo 15,567 s, gris 16,967 s. Las desviaciones
+grupo-palabra crecen de ~0,07–0,09 s (V1.3) a ~0,14–0,18 s
+(V1.4) — el grupo aparece antes que la palabra; aceptable para un
+reveal gráfico, se reporta honestamente.
+
+**Re-mezcla** (`scripts/audio/mix.py`, nuevo argumento
+`--duck-release`, default 420 preservado para otros proyectos):
+release 420 → **150 ms**, music volume 0,32 → **0,38**
+(intento 1: 180 ms / 0,37 — peor ventana −35,8 dBFS; intento 2:
+150 ms / 0,38 — adoptado). SFX y sus tiempos SIN cambios.
+PASS_REAL, −15,0 LUFS, TP −1,5 dBTP. Mix: 38.576.742 bytes,
+SHA-256 `fd15465e7a3a6ccd569b7b4744d15ce8107f46817c240ac66901fac683d758a0`.
+
+RMS por ventana de pausa (0,25 s), V1.4 vs V1.3 (medido en mix.wav):
+
+| Pausa | V1.4 | V1.3 |
+|-------|------|------|
+| 7,04–7,99 s (la larga, 0,96 s) | −32,0 / −32,0 / −36,2 | −33,3 / −37,6 / −37,9 |
+| 11,52–12,14 s | −21,7 / −22,4 | −28,8 / −25,2 |
+| 33,41–34,00 s | −33,3 / −26,9 | −42,1 / −28,5 |
+| 26,73–27,26 s | −22,2 / −23,1 | −30,8 / −27,2 |
+| 4,15–4,59 s (dramática, tras «Ganamos») | −36,9 | −37,2 |
+| 29,73–30,27 s (dramática, tras «Martí dijo») | −25,4 / −24,4 | −30,1 / −28,0 |
+| 25,27–25,57 s | −31,2 | −37,9 |
+
+**Nota honesta sobre el objetivo −32 dBFS:** el suelo se cumple en
+185/188 ventanas de 0,25 s en 0–47 s. Las 3 excepciones
+(7,50–7,75: −35,5; 4,25–4,50: −33,7; 3,25–3,50: −32,5) son
+pasajes quietos PROPIOS del stem «Shadows & Evidence» (medido:
+stem a −41,7 dBFS en 3,25 s, −39,0 en 4,15 s, −31,9 en 7,50 s),
+no artefactos de ducking. Llegar a −32 en todas partes exigiría
+volumen de música ~0,55+ (taparía la voz) o comprimir el bus de
+música (aplanaría la dinámica del intro). El agujero de ducking
+diagnosticado SÍ está corregido: +6–9 dB en las ventanas
+post-frase (7,25 s: −38,2 → −31,4; 11,50 s: −28,6 → −21,7;
+25,25 s: −37,9 → −31,2; 26,73 s: −30,8 → −22,2;
+33,50 s: −42,1 → −33,3). Verificado en el audio del máster:
+7,25 s −31,3; 11,50 s −22,0; 26,73 s −22,3.
+
+**Mux máster + ligera:** video del concat por tramos (`-c:v copy`)
++ mix.wav nuevo DIRECTO (sin trim de 0,04 s ni boost de +6 dB:
+el audio de los tramos es el mix sin retardo — correlación 1,0 a
+0 ms —, así que el trim cortaría audio real y el boost compensa
+una atenuación del pipeline de render que el mux directo no tiene;
+`master.py --chunks-dir` NO se puede usar tal cual: el audio de los
+tramos mezclaría mezcla vieja y nueva). Cadena: alimiter 0,79 +
+AAC 192k / 48 kHz / faststart; ligera desde el máster
+(720×1280, CRF 26, AAC 128k).
+
+- Máster V1.4: 9.561.922 bytes, SHA-256
+  `d839d9f3cd997a74f11c26157a8779d6a3cfb10d40e1794b5aafd5d23875cfb0`
+- Ligera V1.4: 2.774.907 bytes, SHA-256
+  `d6baa9cb65d3f7cd6710d2b8daaf05d27f2e7c240d6f7d07e0888391ecea8371`
+- QA full: **passed** — 1507/1507 f, 1080×1920, −15,1 LUFS,
+  TP −2,0 dBTP (ligera −15,1 LUFS, TP −1,9), sin intervalos de
+  silencio, decodificación OK; los 2 intervalos oscuros son los
+  conocidos de V1 (fundido del mapa 12,23–12,33 s; corte sepia
+  25,71–26,17 s).
+
+**Verificación visual** (`audit-frames/v14/`): 7 fotogramas de los
+tramos re-renderizados revisados — S3 11,35 s (nota al pie completa
+y limpia del karaoke, fix V1.3 preservado), mapa 14,5/17,5 s
+(karaoke en sync con los nuevos tiempos), «ESTABA ESCRITO.» 26,5 s,
+callback 44,0 s y cierre 45,4 s (fix LEER/PENSAR preservado, sin
+duplicación de karaoke). Tramos NO tocados: f_2, f_32, f_47
+**byte-idénticos** a `audit-frames/v13-final/` — nada visual cambió
+fuera de los tramos re-renderizados.
+
+**Etiqueta de contenido IA de Meta al publicar:** sin cambios —
+aplica SOLO por el fondo del micrófono generado (Pollinations, S5).
+
 ## Escenas (tiempos V1.2 = montaje vigente, ver public/audio/vo-lines.json)
 
 | Escena | Fotogramas | Segundos | Contenido |

@@ -22,7 +22,9 @@ duración en cadena de una sola entrada — ver nota en el código):
   VO:    aresample 48k -> highpass 70 Hz -> loudnorm I=-18 TP=-2 LRA=9
          -> asplit (mezcla + sidechain)
   música: aresample 48k -> volume 0.32 -> [sidechaincompress bajo la VO:
-         threshold 0.018, ratio 7, attack 20 ms, release 420 ms]
+         threshold 0.018, ratio 7, attack 20 ms, release 420 ms por
+         defecto (--duck-release lo ajusta; 150-200 ms para que la
+         música vuelva antes tras cada frase)]
   mezcla: amix (VO + música duckeada + SFX) -> alimiter 0.89
          -> loudnorm I=-14.5 TP=-1.5 LRA=8 -> WAV 48 kHz s16le
 
@@ -59,6 +61,7 @@ DEFAULT_TARGET_TP = -1.5
 DEFAULT_TARGET_LRA = 8
 DEFAULT_VOICE_LUFS = -18.0
 DEFAULT_MUSIC_VOLUME = 0.32
+DEFAULT_DUCK_RELEASE = 420  # ms; V1.4 del reel marti-fidel usa 180 ms
 DEFAULT_XFADE = 1.5  # s, crossfade entre secciones de música
 DEFAULT_LIMITER = 0.89
 
@@ -129,6 +132,10 @@ def main() -> int:
     p.add_argument("--target-lra", type=float, default=DEFAULT_TARGET_LRA)
     p.add_argument("--voice-lufs", type=float, default=DEFAULT_VOICE_LUFS)
     p.add_argument("--music-volume", type=float, default=DEFAULT_MUSIC_VOLUME)
+    p.add_argument("--duck-release", type=float, default=DEFAULT_DUCK_RELEASE,
+                   help="Release del ducking sidechain en ms (420 = Studio; "
+                   "150-200 ms devuelve la música antes tras cada frase y "
+                   "evita el agujero percibido en las pausas)")
     p.add_argument("--xfade", type=float, default=DEFAULT_XFADE,
                    help="Crossfade entre secciones (s)")
     p.add_argument("--end-fade", type=float, default=0.0,
@@ -204,7 +211,7 @@ def main() -> int:
     # Ducking de la música bajo la VO (Studio: threshold 0.018, ratio 7).
     filt.append(
         "[m][side]sidechaincompress=threshold=0.018:ratio=7:"
-        "attack=20:release=420[duck]"
+        f"attack=20:release={a.duck_release}[duck]"
     )
     # SFX: adelay a su punto de sincronía, sin ducking.
     sfx_labels = []
