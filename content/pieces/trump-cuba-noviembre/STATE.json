@@ -1,0 +1,86 @@
+{
+  "schema": "content-hub.state/v1",
+  "slug": "trump-cuba-noviembre",
+  "template": "carousel",
+  "title": "Trump y Cuba",
+  "createdAt": "2026-11-18T02:44:28.436Z",
+  "pipeline": {
+    "phases": {
+      "brief": {
+        "status": "in_progress",
+        "startedAt": "2026-11-18T02:44:28.436Z",
+        "updatedAt": "2026-11-18T02:44:28.436Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "draft": {
+        "status": "done",
+        "startedAt": "2026-11-18T02:45:35.679Z",
+        "updatedAt": "2026-11-18T02:45:35.679Z",
+        "artifacts": [
+          "trump-cuba-noviembre-p01.png",
+          "trump-cuba-noviembre-p01-light.jpg",
+          "trump-cuba-noviembre-p02.png",
+          "trump-cuba-noviembre-p02-light.jpg",
+          "trump-cuba-noviembre-p03.png",
+          "trump-cuba-noviembre-p03-light.jpg",
+          "trump-cuba-noviembre-p04.png",
+          "trump-cuba-noviembre-p04-light.jpg",
+          "trump-cuba-noviembre-p05.png",
+          "trump-cuba-noviembre-p05-light.jpg",
+          "trump-cuba-noviembre-p06.png",
+          "trump-cuba-noviembre-p06-light.jpg"
+        ],
+        "note": ""
+      },
+      "review": {
+        "status": "in_progress",
+        "startedAt": "2026-11-18T02:45:35.689Z",
+        "updatedAt": "2026-11-18T02:45:35.689Z",
+        "artifacts": [],
+        "note": "Borrador listo para revisión visual"
+      },
+      "export": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-18T02:44:28.436Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-18T02:44:28.436Z",
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-18T02:44:28.436Z",
+        "phase": "brief",
+        "event": "Pieza creada",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-18T02:45:35.679Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (6 imagen(es))",
+        "artifacts": [
+          "trump-cuba-noviembre-p01.png",
+          "trump-cuba-noviembre-p01-light.jpg",
+          "trump-cuba-noviembre-p02.png",
+          "trump-cuba-noviembre-p02-light.jpg",
+          "trump-cuba-noviembre-p03.png",
+          "trump-cuba-noviembre-p03-light.jpg",
+          "trump-cuba-noviembre-p04.png",
+          "trump-cuba-noviembre-p04-light.jpg",
+          "trump-cuba-noviembre-p05.png",
+          "trump-cuba-noviembre-p05-light.jpg",
+          "trump-cuba-noviembre-p06.png",
+          "trump-cuba-noviembre-p06-light.jpg"
+        ]
+      }
+    ]
+  }
+}
