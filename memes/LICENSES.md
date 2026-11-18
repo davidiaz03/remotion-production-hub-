@@ -27,6 +27,33 @@ público): sin atribución obligatoria. Archivos incluidos: `move-spring.wav`,
 `cinematic-slam-big.wav`, `pop-large-bubble.wav`, `move-zoom-in.wav`.
 El pack completo (320 sonidos) vive en `~/workspace/remotion-hub/assets/sfx/`.
 
+`airhorn.wav` y `record-scratch.wav` son **sintetizados con ffmpeg**
+(`scripts/synth-sfx.py`, reproducible a partir de osciladores y ruido): no
+contienen ninguna grabación ajena, por lo que son **CC0 por construcción**.
+Se sintetizaron porque no se encontró material limpio y con licencia clara
+en Wikimedia Commons ni en SoundBible, y Freesound/Zapsplat exigen cuenta.
+
+## Música (`assets/music/`)
+
+Cuatro pistas de Kevin MacLeod (incompetech.com), **CC BY 4.0** — uso libre
+con atribución al autor:
+
+- `sneaky-snitch.mp3` — «Sneaky Snitch» (2015)
+- `monkeys-spinning.mp3` — «Monkeys Spinning Monkeys» (2015)
+- `carefree.mp3` — «Carefree» (2015)
+- `fluffing-a-duck.mp3` — «Fluffing a Duck» (2015)
+
+Atribución al publicar: «Música: Kevin MacLeod (incompetech.com), CC BY
+4.0». Son extractos de 60 s con fundido final, codificados a MP3 128k.
+
+Tres pistas de **Flow Music** (generadas con Lyria 3.5 en flowmusic.app
+con la cuenta del usuario, plan Plus): `shadows-evidence.mp3`,
+`historical-investigation.mp3`, `weight-of-memory.mp3`. Generadas por el
+usuario para sus proyectos; **antes de publicar, leer los términos de
+Google sobre derechos comerciales de las pistas Flow** (mismo pendiente
+que en los reels del hub). No usar fuera de los proyectos del usuario sin
+revisar esos términos.
+
 ## Imágenes generadas con IA (`assets/ai/`, `examples/demo-ia-paloma.png`)
 
 Generadas con Pollinations (modelo flux) vía el gateway del hub. Sin marca

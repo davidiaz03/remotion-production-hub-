@@ -45,6 +45,7 @@ import argparse
 import io
 import json
 import os
+import subprocess
 import sys
 from datetime import datetime
 
@@ -55,6 +56,8 @@ ROOT = os.path.dirname(HERE)
 CATALOG = os.path.join(ROOT, 'templates', 'catalog.json')
 IMAGES = os.path.join(ROOT, 'templates', 'images')
 FONT = os.path.join(ROOT, 'assets', 'fonts', 'ArchivoBlack-Regular.ttf')
+FACE_FRAME = os.path.join(HERE, 'face-frame.py')
+VENV_PYTHON = os.path.expanduser('~/workspace/remotion-hub/.venv/bin/python')
 OUT_DIR = os.path.join(ROOT, 'out')
 
 # Fuente de cuerpo para el chat falso (DejaVu del sistema; si falta, Archivo Black).
@@ -69,6 +72,43 @@ NAME_COLORS = ['#E91E63', '#2196F3', '#4CAF50', '#FF9800', '#9C27B0', '#009688']
 def load_catalog():
     with open(CATALOG, encoding='utf-8') as f:
         return json.load(f)['templates']
+
+
+def detect_faces(image_path, face_box=None):
+    """Caras [(x, y, w, h)] en px de imagen.
+
+    Usa face-frame.py con el python del venv del hub (único con cv2).
+    Devuelve None si la detección no está disponible: quien llama sigue
+    sin chequeo de caras.
+    """
+    if face_box is not None:
+        return [tuple(face_box)]
+    py = VENV_PYTHON if os.path.exists(VENV_PYTHON) else sys.executable
+    try:
+        r = subprocess.run([py, FACE_FRAME, '--boxes-only', image_path],
+                           capture_output=True, text=True, timeout=180)
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    if r.returncode != 0:
+        return None
+    try:
+        return [tuple(float(v) for v in b)
+                for b in json.loads(r.stdout).get('faces', [])]
+    except (ValueError, KeyError, TypeError):
+        return None
+
+
+def rects_overlap(a, b, pad=0):
+    """¿Se solapan los rects (x0, y0, x1, y1)? pad expande el segundo."""
+    ax0, ay0, ax1, ay1 = a
+    bx0, by0, bx1, by1 = b[0] - pad, b[1] - pad, b[2] + pad, b[3] + pad
+    return ax0 < bx1 and ax1 > bx0 and ay0 < by1 and ay1 > by0
+
+
+def face_rect(box, chin_margin=0.25):
+    """Caja de cara (x, y, w, h) -> rect con margen de barbilla."""
+    x, y, w, h = box
+    return (x, y, x + w, y + h * (1 + chin_margin))
 
 
 def find_template(templates, key):
@@ -297,6 +337,9 @@ def main():
     ap.add_argument('--grid', help='rejilla 2x2: 4 rutas separadas por coma')
     ap.add_argument('--fake-chat', help='chat falso: "yo: …|Nombre: …|…"')
     ap.add_argument('--deep-fry', action='store_true', help='filtro imagen frita')
+    ap.add_argument('--no-face-check', action='store_true',
+                    help='no detectar caras ni desplazar el texto')
+    ap.add_argument('--face-box', help='cara sintética x,y,w,h (pruebas)')
     ap.add_argument('--out', help='archivo de salida (por defecto ../out/...)')
     ap.add_argument('--png', action='store_true', help='salida PNG en vez de JPG')
     ap.add_argument('--list', action='store_true', help='listar plantillas y salir')
@@ -340,6 +383,26 @@ def main():
     pad = max(12, int(w * 0.03))
     max_text_w = w - 2 * pad
 
+    # --- Caras: avisar si el texto las tapa; desplazar si se puede ---
+    face_box = None
+    if args.face_box:
+        try:
+            face_box = [float(v) for v in args.face_box.split(',')]
+            assert len(face_box) == 4
+        except (ValueError, AssertionError):
+            ap.error('--face-box necesita x,y,w,h')
+    faces = []
+    if not args.no_face_check:
+        detected = detect_faces(base_path, face_box)
+        if detected is None:
+            print('nota: sin detección de caras (falta el venv del hub '
+                  'con cv2); el texto se coloca sin chequeo', file=sys.stderr)
+        else:
+            faces = [face_rect(b) for b in detected]
+
+    def overlaps_face(rect):
+        return any(rects_overlap(rect, f, pad=8) for f in faces)
+
     if args.texts:
         parts = [p.strip() for p in args.texts.split('|') if p.strip()]
         n = len(parts)
@@ -355,17 +418,62 @@ def main():
             else:
                 box = (w * i // n + pad // 2, pad, w * (i + 1) // n - pad // 2, h - pad)
                 start = min(int((w // n) * 0.16), int(h * 0.09))
+            if faces and overlaps_face(box):
+                print(f'aviso: el texto del panel {i + 1} tapa una cara; '
+                      f'verificar a ojo', file=sys.stderr)
             font, lines = fit_font(draw, part, box[2] - box[0], box[3] - box[1], start)
             draw_block(draw, lines, font, box)
     else:
+        # Calcular primero ambos textos; colocar después (permite desplazar).
+        jobs = []  # (kind, text, font, lines, height)
         if args.top:
             font, lines = fit_font(draw, args.top, max_text_w, int(h * 0.32), int(w * 0.09))
-            draw_block(draw, lines, font, (pad, pad, w - pad, int(h * 0.34)))
+            jobs.append(['top', args.top, font, lines])
         if args.bottom:
             font, lines = fit_font(draw, args.bottom, max_text_w, int(h * 0.32), int(w * 0.09))
-            draw_block(draw, lines, font, (pad, int(h * 0.66), w - pad, h - pad))
+            jobs.append(['bottom', args.bottom, font, lines])
+
+        def job_rect(kind, font, lines):
+            # Mismo centrado vertical que draw_block usa al dibujar.
+            heights = [draw.textbbox((0, 0), ln, font=font)[3] for ln in lines]
+            total = sum(heights) + int(font.size * 0.15) * (len(lines) - 1)
+            if kind == 'top':
+                y0, y1 = pad, int(h * 0.34)
+            else:
+                y0, y1 = int(h * 0.66), h - pad
+            y_start = y0 + (y1 - y0 - total) // 2
+            return (pad, y_start, w - pad, y_start + total)
+
+        if faces and len(jobs) == 1:
+            kind, _, font, lines = jobs[0]
+            if overlaps_face(job_rect(kind, font, lines)):
+                other = 'bottom' if kind == 'top' else 'top'
+                if not overlaps_face(job_rect(other, font, lines)):
+                    jobs[0][0] = other
+                    print(f"aviso: el texto {kind} tapaba una cara; "
+                          f"movido {'abajo' if other == 'bottom' else 'arriba'}",
+                          file=sys.stderr)
+                else:
+                    print(f'aviso: el texto {kind} tapa una cara; '
+                          f'verificar a ojo', file=sys.stderr)
+        elif faces:
+            for kind, _, font, lines in jobs:
+                if overlaps_face(job_rect(kind, font, lines)):
+                    print(f'aviso: el texto {kind} tapa una cara; '
+                          f'verificar a ojo', file=sys.stderr)
+
+        for kind, _, font, lines in jobs:
+            if kind == 'top':
+                draw_block(draw, lines, font, (pad, pad, w - pad, int(h * 0.34)))
+            else:
+                draw_block(draw, lines, font, (pad, int(h * 0.66), w - pad, h - pad))
 
     if args.caption:
+        if faces:
+            bar_h = max(60, int(h * 0.14))
+            if overlaps_face((0, h - bar_h, w, h)):
+                print('aviso: la barra del caption tapa una cara; '
+                      'verificar a ojo', file=sys.stderr)
         draw_caption_bar(img, draw, args.caption)
 
     return save(img, args, name)
