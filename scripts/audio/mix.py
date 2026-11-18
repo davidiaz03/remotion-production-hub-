@@ -62,6 +62,8 @@ DEFAULT_TARGET_LRA = 8
 DEFAULT_VOICE_LUFS = -18.0
 DEFAULT_MUSIC_VOLUME = 0.32
 DEFAULT_DUCK_RELEASE = 420  # ms; V1.4 del reel marti-fidel usa 180 ms
+DEFAULT_DUCK_THRESHOLD = 0.018  # Studio; marti-fidel V1.5 usa 0.08
+DEFAULT_DUCK_RATIO = 7.0  # Studio; marti-fidel V1.5 usa 5
 DEFAULT_XFADE = 1.5  # s, crossfade entre secciones de música
 DEFAULT_LIMITER = 0.89
 
@@ -136,6 +138,15 @@ def main() -> int:
                    help="Release del ducking sidechain en ms (420 = Studio; "
                    "150-200 ms devuelve la música antes tras cada frase y "
                    "evita el agujero percibido en las pausas)")
+    p.add_argument("--duck-threshold", type=float,
+                   default=DEFAULT_DUCK_THRESHOLD,
+                   help="Umbral del ducking sidechain (0.018 = Studio; "
+                   "subirlo a 0.05-0.08 reduce el bombeo silábico: con "
+                   "0.018 la música varía ~20 dB dentro de cada frase; "
+                   "con 0.08, ~9 dB — verificado en marti-fidel V1.5)")
+    p.add_argument("--duck-ratio", type=float, default=DEFAULT_DUCK_RATIO,
+                   help="Ratio del ducking sidechain (7 = Studio; 4-5 "
+                   "suaviza la profundidad del ducking)")
     p.add_argument("--xfade", type=float, default=DEFAULT_XFADE,
                    help="Crossfade entre secciones (s)")
     p.add_argument("--end-fade", type=float, default=0.0,
@@ -210,7 +221,8 @@ def main() -> int:
             filt.append(f"[{music_labels[0]}]volume={a.music_volume}[m]")
     # Ducking de la música bajo la VO (Studio: threshold 0.018, ratio 7).
     filt.append(
-        "[m][side]sidechaincompress=threshold=0.018:ratio=7:"
+        "[m][side]sidechaincompress="
+        f"threshold={a.duck_threshold}:ratio={a.duck_ratio}:"
         f"attack=20:release={a.duck_release}[duck]"
     )
     # SFX: adelay a su punto de sincronía, sin ducking.

@@ -36,6 +36,37 @@ sobre el ritmo, antes de fijar la escaleta.
 | `gen-vo-kokoro.py` | **VO de previsualización recomendada (Fase B, R6):** Kokoro-82M (Apache-2.0), voces ES `em_alex` (defecto), `em_santa`, `ef_dora`. Misma interfaz que Piper (JSON de guion → WAV 24 kHz + `vo-lines.json`). Determinista (empalmar es seguro). ~0,3x tiempo real en esta VM (~3 min para 48 s de VO). Modelo en `../.hf-cache`; requiere espeak-ng (apt, .deb en `../debs/`). |
 | `beats.py` | **Detección de beats/onsets (Fase B, R16):** aubio 0.4.9 → JSON con BPM, beats y onsets en segundos y en fotogramas (`--fps 30`). Coloca cortes y transiciones sobre el ritmo de la música. Ojo: recorta los beats fantasma de los WAV de Flow (la carátula mjpeg confunde a aubio, +5 s). |
 | `transcribe-vo.py` | Alinea faster-whisper word_timestamps con el guion → `captions.ts` (formato CapSegment) y, con `--out-json`, HubCaption[] para `shared/captions`. |
+| `audit-audio.py` | **Auditoría completa de audio (17-nov-2026, V1.5 marti-fidel):** guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes con clasificación por armonicidad, empalmes, palabras exprimidas), artefactos de time-stretch, mapa de silencios, música y ducking (suelo RMS, crossfade, recuperación, bombeo), máster (loudness/TP, alineación karaoke/onsets acústicos) y espectrogramas. Informe JSON + Markdown. **OBLIGATORIO antes de entregar cualquier reel: ningún reel se entrega sin pasar este módulo.** |
+
+## Auditoría de audio (`audit-audio.py`)
+
+```bash
+python3 scripts/audio/audit-audio.py --project projects/marti-fidel \
+    --tag v15 --edit-plan ../projects/marti-fidel/research/edit-plan-v15.json \
+    --section assets/music/flow/shadows.wav@0@27 \
+    --section assets/music/flow/weight.wav@25.5@50.23 \
+    --expected-frames 1507
+# Salida: projects/marti-fidel/reports/audio-audit-v15.{json,md}
+# Código 0 = sin FAIL; 1 = hay FAIL (no entregar).
+```
+
+Lecciones codificadas (verificadas 17-nov-2026, reel marti-fidel):
+- `alimiter=limit=X` con el `level` por defecto (auto-level=true)
+  aplica ganancia de maquillaje 1/X (+2,05 dB con X=0,79): NO es un
+  limitador de techo. Un techo real es `alimiter=limit=X:level=false`.
+- Whisper sobre la MEZCLA tiene un sesgo sistemático (~+0,2 s); la
+  alineación autoritativa es contra los ONSETS ACÚSTICOS de la VO
+  limpia, y Whisper adelanta los inicios ~0,1-0,2 s tras cada pausa
+  (0,55 s en la primera palabra de marti-fidel).
+- BottomKaraoke solo lee los inicios (`s`) de cada palabra: la duración
+  (e-s) NO afecta a la visualización; lo que importa es la duración de
+  visualización (inicio a inicio).
+- El escaneo de clics por umbral global es inútil (los ataques de
+  plosivas lo saturan): las discontinuidades se buscan SOLO en los
+  empalmes (método por borde).
+- El bombeo del ducking se mide en la curva de ganancia del sidechain:
+  con threshold 0,018/ratio 7 la música varía ~20 dB dentro de cada
+  frase; con threshold 0,08/ratio 5/release 250 ms, ~9 dB.
 | `diarize.py` | **Separar voces (16-nov-2026):** quién habla cuándo, con sherpa-onnx 2.0.1 (segmentación pyannote-3.0 + embedding 3D-Speaker ERes2Net, ONNX, 100 % local, sin cuenta ni token). `--speakers 2` para el diálogo de las dos presentadoras del Memorial. Modelos en `<hub>/.sherpa-models/` (46 MB). Salida JSON con segmentos {start, end, speaker}. |
 
 ## Diarización (`diarize.py`)

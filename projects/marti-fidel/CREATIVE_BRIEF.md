@@ -511,6 +511,132 @@ máster (720×1280, CRF 26, AAC 128k).
 máster `muse.ai/files/.../marti-fidel_MASTER.mp4` (ver URLs completas
 en el chat de entrega).
 
+## V1.5 (17-nov-2026, noche) — AUDITORÍA COMPLETA DE AUDIO + MÓDULO PERMANENTE + MÁSTER DEFINITIVO
+
+El usuario siguió oyendo microcortes, pausas inesperadas y frases
+incompletas en V1.4.1. Sus mediciones anteriores (RMS, silencedetect,
+escaneo de clics global) NO detectaban lo que su oído sí capta: el hub
+carecía de auditoría de audio real. Encargo en dos partes: (1) construir
+el módulo permanente, (2) auditar y corregir TODO.
+
+### Módulo permanente: `scripts/audio/audit-audio.py` (hub-level)
+
+Chequeos (a)–(h), cada uno PASS/WARN/FAIL con timestamps exactos:
+guion↔karaoke 1:1; tiempos de caption (duración, solapes, huecos
+clasificados contra el mapa de silencios de la VO, duración de
+VISUALIZACIÓN inicio-a-inicio — lo que BottomKaraoke realmente muestra);
+integridad de la VO (energía en el lado DESCARTADO de cada corte,
+clasificada por RMS + armonicidad; duración acústica por palabra;
+discontinuidades SOLO en empalmes por método de borde); artefactos de
+time-stretch (energía en el hueco adyacente al segmento; periodicidad
+vs baseline sin stretch); mapa de silencios clasificado; música (suelo
+RMS −32 dBFS, crossfade, recuperación y BOMBEO del ducking); máster
+(loudness/TP, silencedetect, alineación karaoke vs ONSETS ACÚSTICOS —
+autoritaria — y vs Whisper, detección de fallos de transcripción);
+espectrogramas (completo + por línea). Informes JSON + Markdown en
+`reports/`. **Regla en `repo/AGENTS.md`: ningún reel se entrega sin
+pasar este módulo.** Documentado en `scripts/audio/README.md`.
+
+Lecciones codificadas (verificadas 17-nov-2026):
+- `alimiter=limit=X` con `level` por defecto (auto-level=true) aplica
+  ganancia de maquillaje 1/X: **NO es un limitador de techo**. Un techo
+  real es `alimiter=limit=X:level=false` (verificado: pico 0,841→0,790).
+  Esto RESUELVE el misterio de V1.4.1 (el alimiter «no limitaba»).
+  `master.py` ya usaba `level=false`; la V1.4.1 lo descubrió por el
+  camino difícil.
+- Whisper adelanta los inicios ~0,1–0,2 s tras cada pausa (0,55 s en la
+  primera palabra) y sobre la mezcla tiene sesgo ~+0,2 s. La alineación
+  autoritaria es contra los onsets acústicos de la VO limpia.
+- BottomKaraoke solo lee los inicios (`s`): la duración (e−s) NO afecta
+  a la visualización.
+- El escaneo de clics por umbral global es inútil (los ataques de
+  plosivas lo saturan).
+
+### Auditoría V1.4.1 (reporte `reports/audio-audit-v141d`): 34 FAIL
+
+Hallazgo principal — **29 cortes descartaban habla audible**: la V1.4
+cortaba en bordes de Whisper ±30 ms, pero Whisper desplaza los bordes
+50–100 ms. Colas truncadas a −8/−14 dBFS (la caída natural de la vocal
+final cortada de golpe) y cabezas truncadas (la «l» de «la» perdida).
+Eso ERA el «microcorte» y la «frase incompleta». Además: bombeo del
+ducking 20,1 dB (la música «respiraba» con las sílabas); «El» revelado
+0,55 s antes de oírse (Whisper ponía la primera palabra en 0,00 s pero
+suena en 0,58 s); manchado atempo en las 17 guardas con stretch; fallo
+de transcripción L7 persistente en el archivo («Pero» en 29,42 s);
+24 captions <0,15 s + 1 solape. Hipótesis REFUTADAS por el módulo: la
+periodicidad WSOLA (0,77 con stretch vs 0,80 sin stretch — es la
+periodicidad natural del habla) y las «pausas inesperadas» (todas
+diseñadas; lo que se oía era la cola cortada + el bombeo).
+
+### Correcciones V1.5
+
+1. **Cortes acústicos** (`research/edit-vo-definitiva-v15.py`): cada
+   corte se coloca en SILENCIO REAL (tramo de 50 ms <−40 dBFS); se
+   conserva la caída/onset completos y solo se descarta silencio.
+   Cuando NO hay silencio entre sub-frases, se FUSIONAN (L1 f1
+   «octubre,»/«la», L7 f2 «Martí»/«dijo», L9 f1 «2005,»/«Fidel»).
+   Colas de línea extendidas hasta 0,30 s (L3 «pasado.» necesitó 0,27 s
+   de caída). Clasificación por armonicidad: los respiros descartados
+   (L6 f1, −17 dB, harm 0,08) NO son voz — descartarlos es correcto.
+2. **Rubber Band** en vez de atempo en L4/L5/L9/L10 (mismos factores
+   uniformes V1.4). Manchado en guardas: 17 → 0.
+3. **Cama de tono de sala** (2,26 s de 23 tramos limpios de la propia
+   grabación, en bucle con crossfades) en los huecos: el suelo de
+   ruido es continuo, sin agujeros digitales.
+4. **Ducking**: threshold 0,018→0,08, ratio 7→5, release 150→250 ms
+   (`mix.py` gana `--duck-threshold`/`--duck-ratio`). Bombeo 20,1 →
+   9,1 dB; profundidad media −11,8 → −3,4 dB (la música acompaña de
+   verdad); recuperación perfecta (0 lentas).
+5. **Karaoke** (`research/align-vo-editada-v15.py`): corrección
+   acústica de bordes («El» 0,00→0,55 s; «Y» L5 12,17→12,30 s; «Y» L6
+   20,73→20,88 s); cada palabra dura hasta el inicio de la siguiente
+   (solapes: 1 → 0); la astilla «a» toma sus 0,04 s del final de
+   «treinta». L7 transcribió BIEN en V1.5 (sin parche analítico).
+6. **Re-timing por los cortes acústicos**: tarjetas S3 «17»/«25»
+   (at 30/70 → 33/73; las palabras se retrasan 0,09/0,11 s) y SFX
+   number-land 8,97→9,06 y 10,23→10,33. El resto de escenas, mapa,
+   logo y títulos SIN cambios (la fusión L1 desplaza «la ONU…» +0,13 s
+   sin visual anclada; «Leer»/«Pensar» +0,07 s, dentro de tolerancia
+   de los pops del título).
+7. Re-render tramos 01–05, 08, 09 (karaoke V15a) + 02–04 (ajuste final
+   L4/L5); re-mezcla; re-mux con `alimiter=limit=0.79:level=false`
+   (techo real verificado).
+
+### Resultados V1.5 (reporte `reports/audio-audit-v15`)
+
+- **Veredicto del módulo: WARN — 0 FAIL** (V1.4.1: 34 FAIL).
+  Cortes con voz descartada 29→0; palabras exprimidas 1→0; empalmes
+  con clic 0; manchado stretch 17→0; pausas inesperadas 0; solapes 0;
+  fallos de transcripción 0; alineación karaoke/onset acústico máx
+  0,11 s (media 0,06 s); bombeo 9,1 dB; suelo RMS respetado (0
+  ventanas bajo −32 dBFS); crossfade 0,3 dB.
+- WARN restantes (60, todos aceptables y documentados): 33 captions
+  cortos por habla rápida (palabras a 0,04–0,16 s; BottomKaraoke las
+  mantiene visibles una vez reveladas — no hay parpadeo); 10
+  visualizaciones cortas (misma causa); 11 fines de caption vs fin
+  acústico (las +0,15/+0,26 s CONFIRMAN las caídas preservadas);
+  bombeo residual 9,1 dB (incluye el duck inicial de cada frase);
+  4 desvíos Whisper-sobre-mezcla (ruido de Whisper; el chequeo
+  acústico autoritativo pasa).
+- Máster: 9.557.193 B, SHA-256
+  `654b4ec0df7a1320051c849eba228659f19d1adf2a6a609553bbf2576e96bfe1`
+- Ligera: 2.780.369 B, SHA-256
+  `68f68b394d06226444feac09f047ecc0784e23eb4a1e986de1552e460543fa3c`
+- Mix: PASS_REAL, −15,0 LUFS, TP −1,5 dBTP (SHA
+  `1e824eaf45ca06bb381fcf2212b47642a731fca30564dfec67764ae43115b6ef`)
+- QA full: **passed** — 1507/1507 f, 1080×1920, −15,0 LUFS,
+  TP −1,9 dBTP, sin intervalos de silencio, decodificación OK
+  (1 intervalo oscuro: la transición del interrupt 1891, conocido).
+- Verificación visual (`audit-frames/v15/`, 11 fotogramas): «EL»
+  aparece en 0,60 s (no en 0,00 s); tarjeta «17» + karaoke
+  «DIECISIETE» en sync a 9,44 s; mapa intacto («SEIS VOTARON» a
+  14,50 s); título «LEER. PENSAR.» en sync a 45,40 s.
+
+**V1.5 es el MÁSTER DEFINITIVO.** Pendiente (no defectos de video):
+juicio creativo del usuario, visto bueno de Suleris, términos
+comerciales de Flow Music, etiqueta IA de Meta al publicar (solo por
+el fondo del micrófono generado, S5).
+
 ## Escenas (tiempos V1.2 = montaje vigente, ver public/audio/vo-lines.json)
 
 | Escena | Fotogramas | Segundos | Contenido |

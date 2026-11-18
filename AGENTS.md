@@ -30,5 +30,8 @@ Para un proyecto expresamente seleccionado, lee `PROJECTS.json`, `projects/<id>/
 ## Verificación
 Separa claramente comprobaciones estáticas, pruebas en Codespaces, renders de Actions, revisión humana y comprobación de subida a Drive. Si no ejecutaste un paso, di **pendiente**, no «completado».
 
+## Auditoría de audio — obligatoria antes de entregar (17-nov-2026)
+**Ningún reel se entrega sin pasar `scripts/audio/audit-audio.py`.** El módulo audita guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes, empalmes, palabras truncadas), artefactos de time-stretch, mapa de silencios, música y ducking, máster (loudness/TP, alineación karaoke/onsets acústicos) y espectrogramas. Veredicto FAIL = no entregar. Las mediciones anteriores (RMS global, silencedetect, escaneo de clics por umbral) NO detectaban lo que el oído sí capta (microcortes, pausas inesperadas, frases incompletas) — por eso existe este módulo. Ver `scripts/audio/README.md` § «Auditoría de audio» y el docstring del script (lecciones codificadas: alimiter `level=false`, sesgo de Whisper sobre la mezcla, BottomKaraoke solo lee `s`).
+
 ## Al cerrar
 Actualiza el historial editorial y siguiente acción, guarda la fuente en Git, comprueba SHA remoto y notifica rama, commit y revisión. Detén Codespaces para reducir consumo gratuito.

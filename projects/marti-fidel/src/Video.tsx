@@ -530,11 +530,16 @@ const BarsScene: React.FC = () => {
 // de voz (at: 0/30/70 = «ciento treinta» / «diecisiete» /
 // «veinticinco»); el count-up marcaba 55 y 7 mientras la voz ya decía
 // el número final.
+// V1.5: los cortes acústicos de L4 (la caída de «favor,» se conserva
+// entera en vez de truncarse) retrasan «diecisiete» y «veinticinco»
+// 0,09/0,11 s (9,05→9,14 y 10,32→10,42). Los pops se mueven igual
+// (at: 33/73) para mantener la misma antelación (0,15/0,09 s antes del
+// golpe de voz).
 // ================================================================
 const COUNTERS = [
 	{value: 130, label: 'A FAVOR', at: 0, color: '#FFFFFF', sub: 'PAÍSES'},
-	{value: 17, label: 'EN CONTRA', at: 30, color: MEMORIAL_RED, sub: 'PAÍSES'},
-	{value: 25, label: 'ABSTENCIONES', at: 70, color: AMBER, sub: ''},
+	{value: 17, label: 'EN CONTRA', at: 33, color: MEMORIAL_RED, sub: 'PAÍSES'},
+	{value: 25, label: 'ABSTENCIONES', at: 73, color: AMBER, sub: ''},
 ];
 
 const CountersScene: React.FC = () => {
