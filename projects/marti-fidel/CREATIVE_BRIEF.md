@@ -637,6 +637,39 @@ juicio creativo del usuario, visto bueno de Suleris, términos
 comerciales de Flow Music, etiqueta IA de Meta al publicar (solo por
 el fondo del micrófono generado, S5).
 
+## V1.5.1 (17-nov-2026) — parche final del padre: hueco 7,50–7,75 s
+
+Auditoría independiente del padre sobre V1.5: la re-mezcla desde cero
+no incluía el parche +4 dB de V1.4.1 y la ventana 7,50–7,75 s volvió a
+−35,7 dBFS (pasaje quieto del stem «Shadows & Evidence», centro del
+gap largo). El módulo no lo marcó como FAIL (mide sobre la mezcla y
+acepta el gap como beat diseñado), pero la medición sobre el MÁSTER
+FINAL es la que oye el usuario: se aplicó el mismo parche de V1.4.1
+(+4 dB, 7,40–7,90 s, rampas coseno 100 ms) sobre el audio YA limitado
+del máster V1.5; remux video stream-copy, AAC 192k; ligera desde el
+máster (720×1280, CRF 26, AAC 128k).
+
+- Máster: 9.548.823 B, SHA-256
+  `75adcbc85a8b643862ab324a8595cf74f48d2b927c39f37affa4cddac075b9a8`
+- Ligera: 2.778.003 B, SHA-256
+  `b2884c31be1bf8522f4924bbb4a666084d9f89960d01e984b56333cf7db06337`
+- QA full: **passed** — 1507/1507 f, 1080×1920, −15,1 LUFS,
+  TP −1,9 dBTP, sin intervalos de silencio, decodificación OK
+  (1 intervalo oscuro: corte sepia 25,7 s, conocido).
+- Escaneo RMS final del máster (0,25 s, 0–47 s): **1/188** bajo
+  −32 dBFS — solo la pausa dramática tras «Ganamos» (4,25–4,50 s,
+  −34,0 dBFS, intencional). Ventana 7,50–7,75 s: −35,7 → **−31,7**;
+  gap largo −23,4 dBFS.
+- Transcripción del máster final: guion completo y en orden
+  (Whisper lo lee con puntuación correcta — señal de que las palabras
+  ya no están truncadas). Visual: S3 8,99 s y cierre 45,40 s
+  verificados por el padre.
+
+**V1.5.1 es la ENTREGA DEFINITIVA.** Enlaces Muse (expiran
+2026-11-20T01:16 UTC): ligera `muse.ai/files/.../marti-fidel_LIGERO.mp4`,
+máster `muse.ai/files/.../marti-fidel_MASTER.mp4` (URLs completas en
+el chat de entrega).
+
 ## Escenas (tiempos V1.2 = montaje vigente, ver public/audio/vo-lines.json)
 
 | Escena | Fotogramas | Segundos | Contenido |

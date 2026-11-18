@@ -6,13 +6,14 @@
   "phase": "done",
   "compositionId": "MainReel",
   "latestSnapshot": null,
-  "approvedRevision": "V1.5",
+  "approvedRevision": "V1.5.1",
   "completed": [
-    "V1.5: módulo permanente audit-audio.py + cortes acústicos + Rubber Band + cama de tono de sala + ducking corregido (bombeo 20,1->9,1 dB) + karaoke con corrección acústica; auditoría 0 FAIL (V1.4.1: 34 FAIL); QA full passed (-15,0 LUFS, TP -1,9); máster definitivo"
+    "V1.5: módulo permanente audit-audio.py + cortes acústicos + Rubber Band + cama de tono de sala + ducking corregido (bombeo 20,1->9,1 dB) + karaoke con corrección acústica; auditoría 0 FAIL (V1.4.1: 34 FAIL); QA full passed (-15,0 LUFS, TP -1,9); máster definitivo",
+    "V1.5.1 (definitiva): parche +4dB en 7.40-7.90s sobre audio del máster V1.5; QA full passed (-15.1 LUFS, TP -1.9); 1/188 ventanas bajo -32 dBFS (solo pausa dramática Ganamos, intencional); entrega final con enlaces Muse"
   ],
   "pending": [],
   "nextTask": "Juicio creativo del usuario + visto bueno de Suleris; leer términos comerciales de Flow Music y etiqueta IA de Meta al publicar",
-  "updatedAt": "2026-11-18T01:08:22.506293Z",
+  "updatedAt": "2026-11-17T21:16:00-04:00",
   "pipeline": {
     "phases": {
       "assets": {
@@ -88,13 +89,13 @@
       "qa": {
         "status": "done",
         "startedAt": "2026-11-17T21:58:07.817Z",
-        "updatedAt": "2026-11-18T01:08:22.506293Z",
+        "updatedAt": "2026-11-18T01:11:28.368Z",
         "artifacts": [
           "reports/technical-qa.json",
           "out/marti-fidel_MASTER.mp4",
           "out/marti-fidel_LIGERO.mp4"
         ],
-        "note": "-15,0 LUFS, TP -1,9 dBTP; auditoría audio V1.5: 0 FAIL (WARN, 60 WARN aceptables documentados)"
+        "note": "-15.1 LUFS, TP -1.9 dBTP"
       },
       "delivery": {
         "status": "pending",
@@ -1235,6 +1236,15 @@
           "out/marti-fidel_MASTER.mp4",
           "out/marti-fidel_LIGERO.mp4",
           "reports/audio-audit-v15.json"
+        ]
+      },
+      {
+        "at": "2026-11-18T01:11:28.368Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel_MASTER.mp4"
         ]
       }
     ]
