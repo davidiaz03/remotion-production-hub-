@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+  .page { background: var(--black); color: var(--white); }
+  .quote-mark { position: absolute; top: 84px; left: 72px; width: 150px; height: 150px;
+    color: var(--red); }
+  .quote-wrap { position: absolute; left: 72px; right: 72px; top: 260px; bottom: 260px;
+    display: flex; }
+  .quote-text {
+    font-family: var(--font-body); font-style: italic; font-weight: 400;
+    font-size: 62px; line-height: 1.32; margin-left: 32px; align-self: center;
+  }
+  .attrib { position: absolute; left: 132px; right: 72px; bottom: 250px; }
+  .attrib .name { font-family: var(--font-display); font-weight: 700;
+    font-size: 44px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .attrib .role { font-size: 28px; color: var(--gray); margin-top: 6px; }
+  .attrib .context { font-size: 22px; color: #888; margin-top: 10px; font-style: italic; }
+  .footer {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 190px;
+    border-top: 1px solid #2A2A2A; display: flex; align-items: center;
+    padding: 0 72px;
+  }
+  .footer .brand-logo { height: 150px; width: auto; }
+  .footer .credit { margin-left: auto; text-align: right; }
+  .footer .credit .web { font-family: var(--font-display); font-weight: 600;
+    font-size: 30px; letter-spacing: 0.06em; color: var(--white); }
+  .footer .credit .addr { font-size: 22px; color: var(--gray); margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="page grain">
+  <div class="quote-mark icon">{{icon:quote}}</div>
+  <div class="quote-wrap">
+    <div class="red-bar"></div>
+    <div class="quote-text">«{{quote}}»</div>
+  </div>
+  <div class="attrib">
+    <div class="name">{{attribution}}</div>
+    {{#if role}}<div class="role">{{role}}</div>{{/if}}
+    {{#if context}}<div class="context">{{context}}</div>{{/if}}
+  </div>
+  <div class="footer">
+    {{logo:color}}
+    <div class="credit">
+      <div class="web">cubadenuncia.cu</div>
+      <div class="addr">Ave 5ta Nro. 1402, Miramar, La Habana</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

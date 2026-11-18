@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+  .page { background: var(--black); color: var(--white); }
+  .page.cover { background: var(--black); }
+  .page.closing { background: var(--red); color: var(--white); }
+  /* Portada */
+  .cover-top { position: absolute; top: 72px; left: 72px; right: 72px;
+    display: flex; justify-content: space-between; align-items: center; }
+  .cover-top .brand-logo { height: 170px; width: auto; }
+  .cover-top .pages { font-family: var(--font-display); font-weight: 600;
+    font-size: 30px; letter-spacing: 0.12em; color: var(--gray); }
+  .cover-title { position: absolute; left: 72px; right: 72px; top: 330px; }
+  .cover-title .title {
+    font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+    font-size: 132px; line-height: 0.95;
+  }
+  .cover-title .subtitle { margin-top: 30px; font-size: 36px; line-height: 1.4; color: #C9C9C9; }
+  .swipe { position: absolute; left: 72px; bottom: 72px; display: flex;
+    align-items: center; gap: 16px; font-family: var(--font-display);
+    font-weight: 700; font-size: 32px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--red); }
+  .swipe .icon { width: 40px; height: 40px; }
+  /* Páginas de contenido */
+  .head { position: absolute; top: 64px; left: 72px; right: 72px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 1px solid #2A2A2A; padding-bottom: 22px; }
+  .kicker { font-size: 28px; }
+  .pagenum { font-family: var(--font-display); font-weight: 600; font-size: 30px;
+    letter-spacing: 0.1em; color: var(--gray); }
+  .pagenum b { color: var(--red); font-weight: 800; }
+  .body-wrap { position: absolute; left: 72px; right: 72px; top: 170px; bottom: 190px; }
+  .headline { font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+    font-size: 88px; line-height: 0.98; }
+  .body { margin-top: 28px; font-size: 33px; line-height: 1.5; color: #C9C9C9; }
+  .items { margin-top: 34px; }
+  .item { display: flex; align-items: flex-start; gap: 22px; margin-bottom: 26px; }
+  .item .icon { width: 44px; height: 44px; color: var(--red); margin-top: 4px; }
+  .item .text { font-size: 32px; line-height: 1.4; color: #E8E8E8; }
+  .foot { position: absolute; left: 72px; right: 72px; bottom: 0; height: 150px;
+    border-top: 1px solid #2A2A2A; display: flex; align-items: center;
+    justify-content: space-between; }
+  .foot .brand-logo { height: 110px; width: auto; }
+  .foot .web { font-family: var(--font-display); font-weight: 600; font-size: 28px;
+    letter-spacing: 0.06em; color: var(--gray); }
+  /* Cierre */
+  .closing-center { position: absolute; inset: 0; display: flex;
+    flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .closing-center .brand-logo { height: 420px; width: auto; }
+  .closing-cta { margin-top: 56px; font-family: var(--font-display); font-weight: 800;
+    text-transform: uppercase; font-size: 64px; line-height: 1.05; max-width: 860px; }
+  .closing-web { margin-top: 30px; font-size: 32px; color: rgba(255,255,255,0.85); }
+</style>
+</head>
+<body>
+{{#if _first}}
+<div class="page cover grain">
+  <div class="cover-top">
+    {{logo:color}}
+    <div class="pages">{{_total}} LÁMINAS</div>
+  </div>
+  <div class="cover-title">
+    <div class="title">{{title}}</div>
+    {{#if subtitle}}<div class="subtitle">{{subtitle}}</div>{{/if}}
+  </div>
+  <div class="swipe">Desliza <span class="icon">{{icon:arrow-right}}</span></div>
+</div>
+{{/if}}
+{{#if _last}}
+<div class="page closing">
+  <div class="closing-center">
+    {{logo:white}}
+    <div class="closing-cta">{{cta}}</div>
+    <div class="closing-web">cubadenuncia.cu · facebook.com/memorialdenuncia</div>
+  </div>
+</div>
+{{/if}}
+{{#if _middle}}
+<div class="page grain">
+  <div class="head">
+    <div class="kicker">{{kicker}}</div>
+    <div class="pagenum"><b>{{_index}}</b> / {{_total}}</div>
+  </div>
+  <div class="body-wrap">
+    <div class="headline">{{headline}}</div>
+    {{#if body}}<div class="body">{{body}}</div>{{/if}}
+    {{#if items}}<div class="items">
+      {{#each items}}<div class="item"><span class="icon">{{icon:icon}}</span><div class="text">{{text}}</div></div>{{/each}}
+    </div>{{/if}}
+  </div>
+  <div class="foot">
+    {{logo:color}}
+    <div class="web">cubadenuncia.cu</div>
+  </div>
+</div>
+{{/if}}
+</body>
+</html>

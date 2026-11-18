@@ -1,0 +1,146 @@
+/* Estilos compartidos de las plantillas del hub de contenido.
+ * render.mjs copia este archivo a out/assets/base.css y las fuentes a
+ * out/assets/fonts/, por eso las rutas son relativas a assets/.
+ * Los valores vienen de brand/tokens.json; si cambia la marca, cambiar
+ * aquí Y en tokens.json (la fuente de verdad es tokens.json).
+ */
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('fonts/BarlowCondensed-Medium.ttf') format('truetype');
+  font-weight: 500; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('fonts/BarlowCondensed-SemiBold.ttf') format('truetype');
+  font-weight: 600; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('fonts/BarlowCondensed-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('fonts/BarlowCondensed-ExtraBold.ttf') format('truetype');
+  font-weight: 800; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('fonts/Barlow-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('fonts/Barlow-Medium.ttf') format('truetype');
+  font-weight: 500; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('fonts/Barlow-SemiBold.ttf') format('truetype');
+  font-weight: 600; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('fonts/Barlow-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url('fonts/Barlow-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: block;
+}
+
+:root {
+  --red: #ED1C24;
+  --black: #000000;
+  --white: #FFFFFF;
+  --gray: #77787B;
+  --paper: #F4F1EC;
+  --ink-soft: #1A1A1A;
+  --brown-dark: #624D45;
+  --brown-mid: #905745;
+  --brown-red: #BE4F38;
+  --red-tint-1: #F15B40;
+  --red-tint-2: #F58466;
+  --red-tint-3: #F9AA8F;
+  --red-tint-4: #FCD3C1;
+  --font-display: 'Barlow Condensed', 'Archivo Black', sans-serif;
+  --font-body: 'Barlow', 'Liberation Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: var(--page-w);
+  height: var(--page-h);
+  overflow: hidden;
+  background: var(--black);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  position: relative;
+  width: var(--page-w);
+  height: var(--page-h);
+  overflow: hidden;
+}
+
+/* Grano sutil sobre fondos planos (opacidad baja; nunca sobre fotos sin revisar). */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('textures/grain.png');
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* Trama de puntos sutil sobre fondos OSCUROS (la textura es opaca: fondo
+   negro + puntos blancos; no usar sobre fondos claros). */
+.halftone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('textures/halftone.png');
+  opacity: 0.07;
+  pointer-events: none;
+}
+.kicker {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--red);
+}
+
+/* Barra roja vertical junto a titulares. */
+.red-bar {
+  width: 12px;
+  background: var(--red);
+  flex: none;
+}
+
+/* Franja negra (símbolo de luto): banda que porta el logo o el crédito. */
+.black-band {
+  background: var(--black);
+  display: flex;
+  align-items: center;
+}
+
+/* Pastilla roja con el logo blanco (norma del manual sobre fotografías). */
+.logo-chip {
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-chip .brand-logo { height: 100%; width: auto; }
+
+/* El logo es vertical (573:907): se dimensiona por alto, nunca por ancho. */
+.brand-logo { display: block; }
+
+/* Iconos Lucide inline: el tamaño lo fija el padre. */
+.icon { display: inline-flex; flex: none; }
+.icon svg { width: 100%; height: 100%; }
