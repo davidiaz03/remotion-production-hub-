@@ -184,3 +184,53 @@ test('render de ejemplo (quote): PNG con dimensiones exactas + JPG ligero', asyn
 		rmSync(dir, { recursive: true, force: true });
 	}
 });
+
+test('carrusel con foto: layouts background/band/side + retrocompatibilidad', async () => {
+	const dir = mkdtempSync(path.join(tmpdir(), 'content-hub-test-'));
+	try {
+		// Foto de prueba: degradado 800x1000 (sin red, sin binarios en el repo).
+		await execFileAsync('python3', ['-c', `
+from PIL import Image
+im = Image.new('RGB', (800, 1000))
+for x in range(800):
+    for y in range(1000):
+        im.putpixel((x, y), ((x * 255) // 800, 40, (y * 255) // 1000))
+im.save('${path.join(dir, 'foto.png')}')
+`]);
+		const data = {
+			title: 'Prueba foto', subtitle: 'Tres layouts + portada y cierre sin foto.',
+			cta: 'Cierre de prueba',
+			pages: [
+				{},
+				{ kicker: 'Fondo', headline: 'Layout background', body: 'Texto.', image: 'foto.png', image_credit: 'Foto de prueba' },
+				{ kicker: 'Banda', headline: 'Layout band', body: 'Texto.', image: 'foto.png', image_layout: 'band', image_credit: 'Foto de prueba' },
+				{ kicker: 'Columna', headline: 'Layout side', body: 'Texto.', image: 'foto.png', image_layout: 'side', image_credit: 'Foto de prueba' },
+				{},
+			],
+		};
+		const dataFile = path.join(dir, 'data.json');
+		writeFileSync(dataFile, JSON.stringify(data));
+		const outDir = path.join(dir, 'out');
+		await execFileAsync(process.execPath, [
+			path.join(CONTENT, 'scripts', 'render.mjs'),
+			'--template', 'carousel',
+			'--data', dataFile,
+			'--out', outDir, '--name', 'carrusel-foto',
+		], { cwd: ROOT, timeout: 300000 });
+		for (let i = 1; i <= 5; i++) {
+			const png = path.join(outDir, `carrusel-foto-p0${i}.png`);
+			assert.ok(existsSync(png), `falta la lámina ${i}`);
+			assert.deepEqual(pngSize(png), { width: 1080, height: 1080 }, `lámina ${i} con tamaño incorrecto`);
+		}
+		// El HTML compuesto de la lámina con fondo incluye la foto y el crédito.
+		const html = readFileSync(path.join(outDir, 'carrusel-foto-p02.html'), 'utf8');
+		assert.ok(html.includes('class="photo"'), 'falta el div de foto en background');
+		assert.ok(html.includes('Foto de prueba'), 'falta el crédito en el pie');
+		const htmlBand = readFileSync(path.join(outDir, 'carrusel-foto-p03.html'), 'utf8');
+		assert.ok(htmlBand.includes('layout-band'), 'falta la clase layout-band');
+		const htmlSide = readFileSync(path.join(outDir, 'carrusel-foto-p04.html'), 'utf8');
+		assert.ok(htmlSide.includes('layout-side'), 'falta la clase layout-side');
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});

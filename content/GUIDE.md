@@ -43,6 +43,14 @@ manda en Canva; la imagen protagonista manda en generación**.
    `scripts/gen-image.py`).
 6. **Gemini Pro**: para imágenes protagonistas o estilo exacto (autorización
    permanente del usuario, 15-nov-2026). Límites por cómputo.
+7. **Licencias y créditos**: cada foto real lleva su licencia verificada en
+   su página de Commons (o su fuente) y su procedencia registrada en el
+   `ASSETS.md` de la pieza (URL, autor, licencia, fecha). El crédito corto
+   va en la lámina (`image_credit`); la atribución completa (autor + enlace
+   a la licencia) va en el manifiesto y en el pie de la publicación. Las
+   fotos CC BY exigen atribución; las CC0 y de dominio público no, pero el
+   crédito corto se pone igual por trazabilidad. Nunca usar una foto con
+   licencia sin verificar ni recortarla de forma que engañe.
 
 ## Combinaciones habituales
 
@@ -51,8 +59,10 @@ manda en Canva; la imagen protagonista manda en generación**.
 - **Miniatura con persona**: foto real → `cutout.py` → plantilla
   `thumbnail` con el recorte en `cutout` (la plantilla lo coloca a la
   derecha y desplaza el titular a la izquierda).
-- **Carrusel con fotos**: foto real por lámina (campo `image` por página)
-  o iconos Lucide si no hay foto.
+- **Carrusel con fotos**: foto real por lámina (campo `image` por página;
+  `image_layout`: `background` por defecto, `band` o `side`; crédito corto
+  en `image_credit`). Ver `templates/README.md` y la pieza
+  `trump-cuba-noviembre` (v2).
 - **Canva + código**: si el usuario pide retocar en Canva una pieza hecha
   en código, exportar el PNG y subirlo a Canva como base, o recrear el
   brief en Canva. No hay conversión automática código → diseño editable.

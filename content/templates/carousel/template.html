@@ -46,6 +46,36 @@
   .foot .brand-logo { height: 110px; width: auto; }
   .foot .web { font-family: var(--font-display); font-weight: 600; font-size: 28px;
     letter-spacing: 0.06em; color: var(--gray); }
+  .foot-right { text-align: right; }
+  .photo-credit { font-size: 19px; color: #9A9A9A; margin-top: 8px; }
+  /* Foto por lámina (v2). Sin image, la página renderiza como antes.
+     Con image: layout 'background' por defecto (foto a sangre completa +
+     velo degradado); 'band' = banda superior; 'side' = columna derecha. */
+  .with-photo.grain::after { display: none; }
+  .photo { position: absolute; inset: 0; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover;
+    object-position: 50% 30%; display: block; }
+  .with-photo .photo::after { content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.58) 45%, rgba(0,0,0,0.86) 78%, rgba(0,0,0,0.94) 100%); }
+  /* band: banda superior bajo la cabecera; texto compacto debajo.
+     Solo para fotos apaisadas y páginas con cuerpo corto (≤2 ítems). */
+  .layout-band .photo { top: 150px; height: 340px; }
+  .layout-band .photo::after { display: none; }
+  .layout-band .body-wrap { top: 520px; }
+  .layout-band .headline { font-size: 72px; }
+  .layout-band .body { font-size: 30px; margin-top: 22px; }
+  .layout-band .items { margin-top: 26px; }
+  .layout-band .item { margin-bottom: 20px; }
+  .layout-band .item .text { font-size: 28px; }
+  /* side: columna derecha de retrato; texto en columna izquierda.
+     Solo para retratos verticales y páginas con cuerpo corto. */
+  .layout-side .photo { left: 672px; top: 170px; width: 408px; height: 720px; }
+  .layout-side .photo::after { display: none; }
+  .layout-side .body-wrap { right: 448px; }
+  .layout-side .headline { font-size: 76px; }
+  .layout-side .body { font-size: 30px; margin-top: 24px; }
+  .layout-side .items { margin-top: 28px; }
+  .layout-side .item .text { font-size: 28px; }
   /* Cierre */
   .closing-center { position: absolute; inset: 0; display: flex;
     flex-direction: column; align-items: center; justify-content: center; text-align: center; }
@@ -79,7 +109,8 @@
 </div>
 {{/if}}
 {{#if _middle}}
-<div class="page grain">
+<div class="page grain{{#if image}} with-photo{{#if image_layout}} layout-{{image_layout}}{{/if}}{{/if}}">
+  {{#if image}}<div class="photo"><img src="{{image}}"{{#if image_position}} style="object-position: {{image_position}}"{{/if}} alt=""></div>{{/if}}
   <div class="head">
     <div class="kicker">{{kicker}}</div>
     <div class="pagenum"><b>{{_index}}</b> / {{_total}}</div>
@@ -93,7 +124,10 @@
   </div>
   <div class="foot">
     {{logo:color}}
-    <div class="web">cubadenuncia.cu</div>
+    <div class="foot-right">
+      <div class="web">cubadenuncia.cu</div>
+      {{#if image_credit}}<div class="photo-credit">{{image_credit}}</div>{{/if}}
+    </div>
   </div>
 </div>
 {{/if}}
