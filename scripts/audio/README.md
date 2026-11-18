@@ -67,6 +67,34 @@ Lecciones codificadas (verificadas 17-nov-2026, reel marti-fidel):
 - El bombeo del ducking se mide en la curva de ganancia del sidechain:
   con threshold 0,018/ratio 7 la música varía ~20 dB dentro de cada
   frase; con threshold 0,08/ratio 5/release 250 ms, ~9 dB.
+- **Pausas naturales (18-nov-2026, check (c) §4):** una pausa natural
+  recortada suena a palabra cortada aunque el empalme caiga en
+  silencio y no haya clic — L2 «recuento,» → «y» pasó de 0,42 s a
+  0,22 s y el usuario lo oyó como microcorte. El check compara la
+  pausa de VOZ (offset→onset, `voiced_span`: RMS > −40 dB y
+  armonicidad > 0,4 o RMS > −28 dB, para no contar respiros como fin
+  de pausa) original vs editada por línea: FAIL si la editada queda
+  < 0,25 s o pierde > 50%. Validado: V2.2 da 6 FAIL (las 6 pausas
+  malas del diagnóstico manual), V2.3 da 0.
+- **Huecos de karaoke (18-nov-2026, check (b)):** un hueco entre
+  captions no es defecto si no hay VOZ en él — el mapa de silencios
+  usa −45 dB y un tono de sala de −41 dB no cuenta como silencio
+  aunque no haya voz (L9 V2.3: hueco «LEER.»→«PENSAR.» con 0% de
+  cobertura y 0% de voz). El check acepta el hueco si ≥70% es
+  silencio O si la fracción sonora (`voiced_fraction`, misma regla
+  que `voiced_span`) es ≤30%.
+- **Tolerancia de inicio en pausas diseñadas (18-nov-2026, check
+  (e)):** el silencio detectado empieza hasta 0,28 s antes del hueco
+  diseñado porque la palabra termina acústicamente antes del fin del
+  segmento y el resto es tono de sala bajo −45 dB (keeps de cola
+  0,20–0,28 s). Tolerancia 0,35 s (la anterior, 0,12 s, daba FAIL
+  espurio en L1→L2 y L2→L3 de V2.3).
+- **Suelo de mezcla vs pasaje silencioso del stem (18-nov-2026,
+  check (f)):** si una ventana de la mezcla está bajo el suelo pero
+  la cama sin ducking TAMBIÉN está bajo el suelo, es dinámica propia
+  de la música (V2.3 @ 9,25 s: mezcla −38,2 dBFS con la cama a
+  −45,2 dBFS), no un hueco de mezcla: INFO, no FAIL. FAIL solo si
+  la cama está sobre el suelo y la mezcla cae.
 
 ## Verificación de líneas de voz (`verify-vo-lines.py`)
 

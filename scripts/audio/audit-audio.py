@@ -11,25 +11,31 @@ Chequeos (cada uno PASS/WARN/FAIL con timestamps):
   a) Guion <-> karaoke: cada palabra del guion aparece en karaoke
      exactamente 1 vez, en orden (faltantes/duplicadas/fuera de orden).
   b) Tiempos de caption: duración mínima, solapes, huecos (clasificados
-     contra el mapa de silencios de la VO), duración de VISUALIZACIÓN
-     (inicio a inicio: lo que BottomKaraoke realmente muestra — el
-     componente solo lee `s`, nunca `e`), inicios no monótonos, fin de
-     caption vs fin acústico de la palabra.
+     contra el mapa de silencios de la VO y, si este no cubre, contra
+     la fracción de VOZ en el hueco — un tono de sala de -41 dB no es
+     silencio para el detector pero tampoco es voz), duración de
+     VISUALIZACIÓN (inicio a inicio: lo que BottomKaraoke realmente
+     muestra — el componente solo lee `s`, nunca `e`), inicios no
+     monótonos, fin de caption vs fin acústico de la palabra.
   c) Integridad de la VO vs el original: energía en el LADO DESCARTADO
      de cada corte, clasificada por RMS + ARMONICIDAD (solo la voz
      sonora descartada es FAIL; respiros y clics son INFO), duración
      ACÚSTICA por palabra vs original/factor, onsets tardíos con
      análisis de rampa (salto brusco = cabeza cortada; rampa gradual =
      onset natural silencioso), discontinuidades SOLO en los empalmes
-     (método por borde).
+     (método por borde), y preservación de pausas naturales
+     intra-línea (original vs editada: FAIL si la editada queda
+     < 0,25 s o pierde > 50% de su duración).
   d) Artefactos de time-stretch: flujo espectral en las uniones de
      segmentos con tempo vs uniones SIN stretch (misma posición: inicio
      de segmento tras silencio), y periodicidad WSOLA (autocorrelación
      del flujo 8-30 ms) vs baseline sin stretch.
   e) Mapa de silencios: pausas >=0,25 s clasificadas (dramática /
-     frontera de línea / inesperada en medio de frase).
+     frontera de línea / inesperada en medio de frase). La tolerancia
+     de inicio (0,35 s) cubre el keep de cola de los segmentos.
   f) Música: curva RMS en ventanas de 0,25 s (suelo -32 dBFS fuera de
-     pausas dramáticas), análisis del crossfade entre secciones,
+     pausas dramáticas y de pasajes donde la propia cama está por
+     debajo del suelo), análisis del crossfade entre secciones,
      recuperación del ducking tras cada frase (<=6 dB del nivel sin
      ducking a los 0,25 s) y bombeo (variación de ganancia del
      sidechain dentro de cada frase).
@@ -75,6 +81,12 @@ LECCIONES codificadas aquí (verificadas 17-nov-2026):
   - BottomKaraoke solo lee los inicios (`s`) de cada palabra: la
     duración (e-s) NO afecta a la visualización; lo que importa es
     la duración de visualización (inicio a inicio).
+  - Una pausa natural recortada suena a palabra cortada aunque el
+    empalme caiga en silencio y no haya clic: L2 «recuento,» -> «y»
+    (18-nov-2026) pasó de 0,42 s a 0,22 s y el usuario lo oyó como
+    microcorte al principio del reel. El check (c) §4 compara las
+    pausas acústicas original vs editada por línea (FAIL si la
+    editada queda < 0,25 s o pierde > 50%).
 """
 import argparse
 import difflib
@@ -100,6 +112,8 @@ DUCK_PUMP_DB = 6.0         # (f) bombeo dentro de una frase (WARN)
 XFADE_DIP_DB = 6.0         # (f) caída en el crossfade (WARN)
 SPLICE_RATIO = 3.0         # (c) discontinuidad en empalme (FAIL)
 WORD_SQUEEZE = 0.80        # (c) palabra comprimida de más (FAIL)
+PAUSE_MIN_S = 0.25         # (c) pausa intra-línea mínima tras editar (FAIL)
+PAUSE_MAX_LOSS = 0.50      # (c) pérdida máxima de pausa natural (FAIL)
 SILENCE_MIN_S = 0.25       # (e) pausa mínima a clasificar
 SILENCE_THRESH_DB = -45.0  # (e) umbral de silencio
 SR = 48000
@@ -250,6 +264,89 @@ def acoustic_span(a: np.ndarray, sr: int, t0: float, t1: float,
             off = (k0 + j + 1) * 0.01
             break
     return on, off
+
+
+def voiced_span(a: np.ndarray, sr: int, t0: float, t1: float,
+                thresh_db: float = -40.0, harm_min: float = 0.4,
+                loud_db: float = -28.0) -> tuple:
+    """(onset, offset) de voz dentro de [t0, t1], en ventanas de 20 ms.
+
+    Una ventana cuenta como voz si RMS > thresh_db Y (armonicidad >
+    harm_min O RMS > loud_db): los respiros entre palabras superan
+    -40 dB (hasta -34 dB, armonicidad hasta 0,32) pero no son voz, y
+    medir la pausa con energía pura los cuenta como fin de pausa (la
+    pausa «Hoy,» -> «en» mide 0,24 s en vez de 0,35 s); la rama
+    «fuerte» (RMS > -28 dB) rescata colas de vocal que decaen con
+    armonicidad oscilante (0,31-0,58 en «para», L5) sin rescatar
+    respiros (siempre por debajo de -34 dB). Solo cuentan las
+    ventanas cuyo CENTRO cae dentro de [t0, t1]: sin esto, la rejilla
+    de 20 ms filtra la cola de la palabra anterior en la ventana de
+    onset (hasta 20 ms de fuga). El onset exige 2 ventanas
+    consecutivas; el offset es el fin de la última ventana sonora
+    con vecina sonora. Devuelve (None, None) si no hay voz
+    sostenida. Caveat: un inicio de palabra sordo (fricativa /
+    plosiva) retrasa el onset hasta la primera vocal (hasta
+    ~0,05 s), así que la pausa medida puede sobreestimar la real
+    en ese margen; el criterio de pérdida (>50%) no se ve afectado
+    porque el sesgo aplica igual al original y a la editada.
+    """
+    win = int(0.02 * sr)
+    i0, i1 = max(0, int(t0 * sr)), min(len(a), int(t1 * sr))
+    k0, k1 = i0 // win, max(i0 // win + 1, i1 // win)
+    voiced = []
+    starts = []
+    for k in range(k0, k1):
+        center = (k + 0.5) * 0.02
+        if center < t0 or center > t1:
+            continue
+        seg = a[k * win:(k + 1) * win]
+        db = 20 * math.log10(float(np.sqrt((seg ** 2).mean())) + 1e-9)
+        if db <= thresh_db:
+            voiced.append(False)
+        elif db > loud_db:
+            voiced.append(True)
+        else:
+            voiced.append(harmonicity(a, sr, k * 0.02, (k + 1) * 0.02)
+                          > harm_min)
+        starts.append(k * 0.02)
+    on = off = None
+    for j in range(len(voiced) - 1):
+        if voiced[j] and voiced[j + 1]:
+            on = starts[j]
+            break
+    for j in range(len(voiced) - 1, 0, -1):
+        if voiced[j] and voiced[j - 1]:
+            off = starts[j] + 0.02
+            break
+    return on, off
+
+
+def voiced_fraction(a: np.ndarray, sr: int, t0: float, t1: float,
+                    thresh_db: float = -40.0, harm_min: float = 0.4,
+                    loud_db: float = -28.0) -> float:
+    """Fracción de ventanas de 20 ms con voz dentro de [t0, t1].
+
+    Misma regla que voiced_span (RMS > thresh_db y armonicidad >
+    harm_min o RMS > loud_db). Sirve para decidir si en un hueco
+    entre captions hay voz real o solo tono de sala/respiros.
+    """
+    win = int(0.02 * sr)
+    i0, i1 = max(0, int(t0 * sr)), min(len(a), int(t1 * sr))
+    k0, k1 = i0 // win, max(i0 // win + 1, i1 // win)
+    n = v = 0
+    for k in range(k0, k1):
+        center = (k + 0.5) * 0.02
+        if center < t0 or center > t1:
+            continue
+        n += 1
+        seg = a[k * win:(k + 1) * win]
+        db = 20 * math.log10(float(np.sqrt((seg ** 2).mean())) + 1e-9)
+        if db <= thresh_db:
+            continue
+        if db > loud_db or harmonicity(a, sr, k * 0.02,
+                                       (k + 1) * 0.02) > harm_min:
+            v += 1
+    return v / n if n else 0.0
 
 
 def stft_mag(a: np.ndarray, sr: int, nperseg: int = 2048,
@@ -460,7 +557,14 @@ def check_b_caption_timing(rep: Report, captions: list, edited_vo,
                     continue
                 # ¿El hueco está cubierto por silencio de VO? Se exige
                 # que el silencio cubra >=70% del hueco (los bordes de
-                # Whisper y del detector difieren ~0,05-0,08 s).
+                # Whisper y del detector difieren ~0,05-0,08 s). Si el
+                # mapa de silencios (-45 dB) no lo cubre, se comprueba
+                # si hay VOZ real en el hueco: un tono de sala de
+                # -41 dB no es silencio para el detector pero tampoco
+                # es voz (L9 V2.3: hueco LEER.->PENSAR. con 0% de
+                # cobertura y 0% de voz — la pregunta del check es si
+                # suena voz mientras el karaoke está quieto, no si el
+                # tono de sala supera -45 dB).
                 overlap = 0.0
                 for gs, ge, _ in silences:
                     overlap += max(0.0, min(ge, ns) - max(gs, e))
@@ -471,16 +575,27 @@ def check_b_caption_timing(rep: Report, captions: list, edited_vo,
                             f"{captions[i + 1]['text'].strip()!r} "
                             f"({e:.2f}-{ns:.2f}s): en pausa de VO, esperado",
                             t=e)
-                else:
-                    rep.add("b", "FAIL",
+                    continue
+                vf = voiced_fraction(edited_vo, sr, e, ns)
+                if vf <= 0.30:
+                    rep.add("b", "INFO",
                             f"hueco {gap:.2f}s entre "
                             f"{c['text'].strip()!r} y "
                             f"{captions[i + 1]['text'].strip()!r} "
-                            f"({e:.2f}-{ns:.2f}s) CON VOZ ENCIMA "
-                            f"(solo {overlap / gap:.0%} cubierto por "
-                            f"silencio): el karaoke se apaga en medio "
-                            f"de la frase",
+                            f"({e:.2f}-{ns:.2f}s): en pausa de VO "
+                            f"(sin voz: solo {vf:.0%} sonoro; el tono "
+                            f"de sala supera -45 dB pero no hay voz)",
                             t=e)
+                    continue
+                rep.add("b", "FAIL",
+                        f"hueco {gap:.2f}s entre "
+                        f"{c['text'].strip()!r} y "
+                        f"{captions[i + 1]['text'].strip()!r} "
+                        f"({e:.2f}-{ns:.2f}s) CON VOZ ENCIMA "
+                        f"(solo {overlap / gap:.0%} cubierto por "
+                        f"silencio; voz en el {vf:.0%} del hueco): "
+                        f"el karaoke se apaga en medio de la frase",
+                        t=e)
     # Fin de caption vs fin acústico de la palabra (VO editada).
     n_end_off = 0
     for i, c in enumerate(captions):
@@ -677,7 +792,55 @@ def check_c_vo_integrity(rep: Report, orig_vo, edited_vo, sr: int,
                         f"completa",
                         t=pw["s"])
     rep.metrics["c_squeezed_words"] = n_sq
-    if n_cut == 0 and n_splice == 0 and n_sq == 0:
+    # 4) Preservación de pausas naturales intra-línea (lección
+    # 18-nov-2026, microcorte de L2). Por cada par de palabras
+    # consecutivas de la MISMA línea: pausa original (offset ->
+    # onset de VOZ SONORA, no de energía pura — los respiros
+    # superan -40 dB y no son voz; ver voiced_span) vs pausa
+    # editada. FAIL si la editada queda < PAUSE_MIN_S o pierde
+    # > PAUSE_MAX_LOSS de su duración. Las pausas naturales ya
+    # cortas (< 0,25 s en el original) no son FAIL: la regla
+    # protege contra RECORTES, no contra la dicción de la locutora.
+    # Las ventanas se extienden hasta 0,10 s (acotado a la mitad
+    # del hueco Whisper, para no invadir la palabra vecina) porque
+    # los bordes de Whisper caen dentro del intervalo acústico real.
+    n_pause = 0
+    for ln in plan["lines"]:
+        s0 = ln["segs"][0]["edited_start"]
+        s1 = ln["segs"][-1]["edited_end"]
+        idx = [i for i in range(n_map)
+               if s0 - 0.1 <= pred_words[i]["s"] <= s1 + 0.1]
+        for a, b in zip(idx, idx[1:]):
+            ow0, ow1 = orig_words[a], orig_words[b]
+            pw0, pw1 = pred_words[a], pred_words[b]
+            gap_o = ow1["s"] - ow0["e"]
+            gap_e = pw1["s"] - pw0["e"]
+            ext_o = min(0.10, max(0.0, gap_o / 2))
+            ext_e = min(0.10, max(0.0, gap_e / 2))
+            _on, o_off = voiced_span(orig_vo, sr, ow0["s"] - 0.05,
+                                     ow0["e"] + ext_o)
+            o_on, _off = voiced_span(orig_vo, sr, ow1["s"] - ext_o,
+                                     ow1["e"] + 0.05)
+            _on, e_off = voiced_span(edited_vo, sr, pw0["s"] - 0.05,
+                                     pw0["e"] + ext_e)
+            e_on, _off = voiced_span(edited_vo, sr, pw1["s"] - ext_e,
+                                     pw1["e"] + 0.05)
+            if None in (o_off, o_on, e_off, e_on):
+                continue
+            o_gap = o_on - o_off
+            e_gap = e_on - e_off
+            if o_gap < PAUSE_MIN_S:
+                continue
+            if e_gap < PAUSE_MIN_S or e_gap < (1 - PAUSE_MAX_LOSS) * o_gap:
+                n_pause += 1
+                rep.add("c", "FAIL",
+                        f"pausa natural recortada L{ln['linea']}: "
+                        f"{ow0['w']!r} -> {ow1['w']!r} — original "
+                        f"{o_gap:.2f}s, editada {e_gap:.2f}s "
+                        f"(pérdida {100 * (1 - e_gap / o_gap):.0f}%)",
+                        t=pw0["e"])
+    rep.metrics["c_pause_fails"] = n_pause
+    if n_cut == 0 and n_splice == 0 and n_sq == 0 and n_pause == 0:
         rep.add("c", "PASS", "VO íntegra: cortes en silencio, empalmes "
                 "limpios, sin palabras exprimidas")
 
@@ -849,9 +1012,15 @@ def check_e_silences(rep: Report, edited_vo, sr: int, plan: dict,
         # pausa real suele durar más que el hueco diseñado porque la
         # siguiente palabra arranca tarde acústicamente — eso es un
         # desvío de onset, no una pausa inesperada; lo cubren (c)/(g)).
+        # La tolerancia de inicio (0,35 s) cubre el keep de cola del
+        # segmento: la palabra termina acústicamente antes del fin del
+        # segmento y el resto es tono de sala bajo -45 dB, así que el
+        # silencio detectado empieza hasta 0,28 s antes del hueco
+        # diseñado (V2.3: keeps de cola 0,20-0,28 s; la tolerancia
+        # anterior de 0,12 s daba FAIL espurio en L1->L2 y L2->L3).
         hit = None
         for ds, de, kind in designed:
-            if ds - 0.12 <= s <= de + 0.05:
+            if ds - 0.35 <= s <= de + 0.05:
                 hit = kind
                 break
         dramatic = any(abs(s - dl["end"]) < 0.15
@@ -930,6 +1099,23 @@ def check_f_music(rep: Report, mix, bed, edited_vo, sr: int,
         if db < RMS_FLOOR_DBFS:
             in_drama = any(s - 0.1 <= t <= e + 0.1 for s, e in dramatic)
             if not in_drama:
+                # ¿La cama misma está por debajo del suelo? Entonces es
+                # dinámica propia de la música (un pasaje silencioso
+                # del stem), no un hueco de mezcla: la mezcla no puede
+                # sonar más fuerte que su propia cama (V2.3 @ 9,25 s:
+                # mezcla -38,2 dBFS con la cama a -45,2 dBFS — el stem
+                # tiene un pasaje casi en silencio en 9,25-9,50 s y la
+                # pausa natural de voz lo deja al descubierto).
+                bed_db = (energy_db(bed, sr, t, t + 0.25)
+                          if bed is not None else None)
+                if bed_db is not None and bed_db < RMS_FLOOR_DBFS:
+                    rep.add("f", "INFO",
+                            f"ventana {t:.2f}s bajo el suelo "
+                            f"({db:.1f} dBFS) pero la cama también "
+                            f"({bed_db:.1f} dBFS): pasaje silencioso "
+                            f"del stem, no hueco de mezcla",
+                            t=t)
+                    continue
                 n_low += 1
                 rep.add("f", "FAIL",
                         f"ventana de mezcla bajo el suelo: {t:.2f}s "

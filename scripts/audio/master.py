@@ -8,6 +8,14 @@ Receta probada de Marabana V1.3 (render-chunks.sh):
   concatenan con -c:v copy). El audio se recodifica con la cadena:
     atrim=start=0.04 + asetpts   (el render por tramos deja 40 ms de
                                   silencio digital al inicio)
+    atempo=X (opcional)          (compensa la DERIVA A/V del render
+                                  por tramos: cada frontera de chunk
+                                  añade ~57 ms de audio — 8 fronteras
+                                  en marti-fidel V2.2/V2.3 = +0,46 s
+                                  al final; atempo 1,0082 lo compensa
+                                  (tempo > 1 = más rápido = más corto);
+                                  medir el lag por ventana antes de
+                                  usarlo — ver CREATIVE_BRIEF V2.3)
     volume +6 dB -> 0 dB en los primeros 100 ms (el pipeline atenúa
                                   ~3-4 dB el arranque; sin el realce,
                                   los primeros 100 ms miden -22,4 dBFS)
@@ -98,6 +106,12 @@ def main() -> int:
                    help="alimiter limit (0.79 calibrado, V1.2)")
     p.add_argument("--trim-start", type=float, default=DEFAULT_TRIM_START,
                    help="Recorte de silencio inicial en s (0 para no recortar)")
+    p.add_argument("--atempo", type=float, default=1.0,
+                   help="Factor atempo para compensar la deriva A/V del "
+                   "render por tramos (1.0 = sin cambio; tempo > 1 = más "
+                   "rápido = más corto; marti-fidel V2.3: 1.0082 medido "
+                   "por correlación de forma de onda en 8 puntos — el lag "
+                   "audio-vídeo crecía ~0,0082 s/s hasta +0,35 s al final)")
     p.add_argument("--boost-db", type=float, default=DEFAULT_BOOST_DB,
                    help="Realce inicial en dB (0 para no realzar)")
     p.add_argument("--boost-ms", type=float, default=DEFAULT_BOOST_MS,
@@ -147,6 +161,12 @@ def main() -> int:
     af = []
     if a.trim_start > 0:
         af.append(f"atrim=start={a.trim_start},asetpts=PTS-STARTPTS")
+    if a.atempo != 1.0:
+        # Compensación de la deriva A/V (antes del boost/limitador:
+        # el limitador va último para cazar cualquier sobreimpulso
+        # del resampleo). El factor se mide por render, no es una
+        # constante del pipeline (depende del nº de chunks).
+        af.append(f"atempo={a.atempo}")
     if a.boost_db > 0:
         t = a.boost_ms / 1000.0
         af.append(
@@ -176,7 +196,7 @@ def main() -> int:
 
     res: dict = {"master": a.out_master, "light": a.out_light,
                  "limiter": a.limiter, "trim_start": a.trim_start,
-                 "boost_db": a.boost_db,
+                 "atempo": a.atempo, "boost_db": a.boost_db,
                  "audio": "present" if input_has_audio else "absent"}
     for key, path in (("master", a.out_master), ("light", a.out_light)):
         pr = probe(path)

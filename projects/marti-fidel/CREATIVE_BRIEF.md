@@ -1299,3 +1299,143 @@ re-render: ningún inicio de caption cambió):
    pausas naturales intra-línea ≥0,20 s como `merged_gaps` del plan
    (antes solo las que rodeaban un corte); el umbral 0,20 s cubre el
    desliz entre bordes Whisper y detector de silencio.
+
+## V2.3 (18-nov-2026) — CORRECCIÓN DEL MICROCOTE DE VOZ + DERIVA DE REVEALS
+
+El usuario escuchó la V2.2 y reportó errores de corte de voz al
+principio (primeras frases). Precisión: el microcorte está en L2,
+en la transición «...es la hora del recuento, y de la marcha
+unida».
+
+### Diagnóstico (medido por RMS 10 ms + armonicidad, no Whisper)
+- **El bug:** la pausa natural entre «recuento,» y «y» es 0,420 s
+  (offset de voz 2,73 → onset 3,15 en el original); el plan V2.2
+  cortó 2,80–3,00 s (0,20 s) del medio, dejando 0,220 s en la
+  editada. La «y» entra demasiado pronto y «recuento» suena
+  cortado/choppeado, aunque el empalme caiga en silencio (sin clic).
+- **Hipótesis refutadas:** la cola de «advertencia» (L1) NO está
+  cortada (la palabra decae a tono de sala ~4,66 s; el corte en
+  4,75 deja 0,08–0,10 s de tono); la cabeza de L1 está INTACTA (voz
+  desde ~1,16 s; el segmento empieza en 1,0 s); todas las colas de
+  palabra decaen naturalmente antes de su punto de corte; sin clics
+  en ningún empalme (saltos 0,0007–0,0066 vs p99 global 0,0785).
+- **Revisión total de pausas (el usuario tenía razón: había más):**
+  5 pausas intra-línea más estaban por debajo de 0,25 s o con
+  pérdida >50% en V2.2: L1 1891,→Martí 0,380→0,180 · L3 Hoy,→en
+  0,350→0,229 · L3 América,→el 0,390→0,181 · L3 cambió:→diecinueve
+  0,360→0,086 (la peor, −76%) · L9 Leer.→Pensar. 0,720→0,311 (−57%).
+- **REGLA NUEVA (permanente):** ninguna pausa intra-línea natural
+  puede quedar por debajo de ~0,25 s ni perder >50% de su duración;
+  si el slot no da, se compensa con stretch suave o con el hueco
+  entre líneas, NUNCA recortando la pausa. Codificada como check
+  (c) §4 en `scripts/audio/audit-audio.py` (`voiced_span`: la pausa
+  se mide entre voz sonora, no energía pura — los respiros superan
+  −40 dB y no son voz). Validación: V2.2 da 6 FAIL (exactamente las
+  6 pausas malas), V2.3 da 0.
+
+### Plan V2.3 (manifiesto `vo-real-manifest-v23.json`, audio en `public/audio/real23/`)
+| L | cambio vs V2.2 | pausa(s) editada(s) | hueco sig. |
+|---|---|---|---|
+| 1 | sin corte interno; tail 4,85 | 0,380 intacta | 0,209 |
+| 2 | sin corte interno; tail 4,36 | 0,420 intacta (el bug) | 0,369 |
+| 3 | cortes 0,050/0,093/0,063 s; head 1,08; tail 7,32; **stretch 1,11x** | 0,271/0,268/0,268 | 0,164 |
+| 4 | tail 4,95 | 0,310 intacta | 0,395 |
+| 5 | sin cambios | 0,280 intacta | 0,547 |
+| 6 | sin cambios | 0,480/0,220 intactas | 1,076 |
+| 7 | cortes 0,15/0,10 s | 0,370/0,360 | 0,254 |
+| 8 | head 0,95; tail 5,29 | 0,270 | 1,043 |
+| 9 | corte 0,20 s (descarta el respiro 1,90–1,95) | 0,507 | sting 45,20 |
+
+L3 1,11x está por encima del ~1,08x autorizado: sin ella no caben
+las 3 pausas naturales ≥0,25 s en el slot 7,738–13,364 sin recortar
+cabezas/colas por debajo de la guía (keep ≥0,15–0,20 s). atempo
+1,11x es inaudible como artefacto y el check (d) lo verifica
+(flujo espectral + periodicidad WSOLA vs baseline sin stretch).
+Constructor: `build-vo-real-v23.py` (0 errores, 14 avisos benignos:
+2 huecos cortos + 12 respiros descartados en cortes).
+
+### Deriva vídeo↔voz V2.3 (reveals re-sincronizados, `sync-drift-v2.3.json`)
+Los onsets se desplazaron al restaurar pausas (L2 «y» +0,20 s; L7
+«No» +0,10 s, «que» +0,15 s; L9 «Pensar.» +0,19 s). Nueva
+composición `src/VideoV23.tsx` (captions `src/captions-real23.ts`,
+mezcla `audio/real23/mix-v2.3.wav`):
+
+| reveal | V2.2 (vídeo) | voz V2.3 | V2.3 (fotograma local) |
+|---|---|---|---|
+| S2 l2 «Y DE LA MARCHA UNIDA» | 5,23 | 6,11 | f61 (antes f35) |
+| S7 chip «FIDEL ADVIRTIÓ:» | 31,90 | 32,63 | f66 (antes f44) |
+| S7 tarjeta Fidel | 32,23 | 33,43 | f90 (antes f54) |
+| S7 l1 «NO ES LO MISMO» | 32,43 | 33,43 | f90 (antes f60) |
+| S7 l2 «ESTAR DESINFORMADO» | 33,60 | 34,05 | f108 (antes f95) |
+| S7 l3 «QUE HABER PERDIDO» | 34,77 | 35,58 | f154 (antes f130) |
+| S7 l4 «LA CAPACIDAD DE PENSAR» | 35,93 | 36,35 | f177 (antes f165) |
+| S8 título «LEER.» | 43,07 | 43,17 | f160 (antes f157) |
+| S8 título «PENSAR.» | 43,37 | 44,43 | f198 (antes f166) |
+
+Sin tocar: S6 l2 (−0,45 s) y S8 l4 (−0,48 s), derivas negativas
+heredadas del diseño V2 (el reveal llega después de la palabra, se
+lee como énfasis); S5/S6 l1/S8 l1–l3, derivas <0,25 s; el karaoke
+(ya sincronizado). Los 5 SFX ligados a palabras se re-sincronizaron
+a los onsets V2.3: boom «gigante» 27,96 · boom «pensar.» 37,05 ·
+pop «condenado» 40,38 · pop «Leer.» 43,17 · boom «Pensar.» 44,43.
+
+### Deriva A/V del render por tramos (hallazgo de la comparativa V2.2 vs V2.3)
+La comparativa fotograma a fotograma confirmó que los únicos cambios
+visuales son los buscados (karaoke L1/L3 + reveals S2/S7/S8; el resto
+idéntico salvo ruido de codificación x264 ~0,5/255). Pero la
+comparación mezcla↔máster reveló una **deriva audio-vídeo del
+pipeline, idéntica en V2.2 y V2.3**: cada frontera de chunk añade
+~57 ms de audio (escalera, no línea continua — el lag es plano dentro
+de cada chunk y salta en las fronteras de 5 s). El audio del máster
+quedaba detrás del vídeo hasta **+0,35 s al final** (medido por
+correlación de forma de onda en 8 puntos, corr 0,72–1,18): los
+reveals re-sincronizados a la mezcla seguían apareciendo ~0,3 s antes
+de la palabra en S7/S8. La métrica g_align_master de la auditoría
+(0,221 s de media) ya lo mostraba, atribuido erróneamente al sesgo de
+Whisper — el sesgo real de Whisper es ~0,06 s.
+**Corrección (sin re-render):** `scripts/audio/master.py` acepta ahora
+`--atempo` (1,0 = sin cambio; tempo > 1 = más rápido). Con
+`--atempo 1.0082` (ajuste por mínimos cuadrados de los 8 puntos) el
+residual queda en **±0,02 s** en los 8 puntos y el audio dura 48,341 s
+frente a 48,350 s de vídeo. OJO: el primer intento usó 0,9918 (al
+revés: atempo < 1 ALARGA) y se detectó por la duración 49,152 s.
+**Pendiente para el pipeline:** la causa raíz está en el render por
+tramos (`render-chunks.mjs` — cada chunk sale con ~57 ms de audio de
+más); el atempo es una compensación por render, no una cura. Medir el
+lag en cada render nuevo antes de elegir el factor.
+
+### Entrega V2.3 (18-nov-2026, noche)
+- Máster `out/marti-fidel-v2.3_MASTER.mp4`: 19.788.148 B, SHA-256
+  `5daa7aa90c79bec2b7983f0abaf8b96b7b23ef92fcc151c64ac73eac62146916`,
+  1080×1920, 1447 f, −15,9 LUFS, TP −3,7 dBTP.
+- Ligera `out/marti-fidel-v2.3_LIGERO.mp4`: 2.994.114 B, SHA-256
+  `a1866492b15b54ea8d72b8b97458c0bbc0c64a8a14d5d90ce8a76890913dfb97`,
+  720×1280, 1447 f, −15,9 LUFS, TP −3,5 dBTP.
+- Mezcla `public/audio/real23/mix-v2.3.wav` sin cambios tras la
+  corrección del fin de «1891,» (SHA-256 `b64d0983…a0e5925`); la VO
+  es byte-idéntica (`53f38a43…27e031ac`).
+- QA full: **passed, 0 advertencias, 0 fallos** (deriva de duración
+  0,159 s, la conocida del render por tramos).
+- Auditoría de audio: **0 FAIL, 67 WARN, 9 PASS** (los WARN: 56
+  captions cortos por habla rápida — sin efecto visual —, 8 de
+  alineación Whisper en máster, 2 fusión «Y»/«EN» en L7, 1 bombeo
+  de ducking 12,4 dB; mismo patrón benigno que V2.2, que tenía 131
+  WARN). c_pause_fails 0 · c_cuts 0 · c_splice 0 · c_squeezed 0 ·
+  e_unexpected 0 · f_below_floor 0 · alineación acústica media
+  0,057 s (máx 0,091) · alineación en máster 0,064 s (antes de la
+  corrección A/V: 0,221 s).
+- Fixes al módulo de auditoría en esta versión: check (b) acepta el
+  hueco si la fracción sonora es ≤30% (tono de sala ≠ voz); check
+  (e) tolerancia de inicio 0,12→0,35 s (keeps de cola); check (f)
+  exime ventanas bajo el suelo si la cama también lo está (pasaje
+  silencioso del stem). Dato corregido: fin acústico de «1891,»
+  2,60→2,74 (Whisper lo cortaba 0,14 s antes; medido con
+  `voiced_span`).
+- **Veredicto comparativo:** V2.3 corrige el microcorte reportado
+  (pausa L2 0,220→0,420 s) y 5 pausas más (L1, L3×3, L9), re-sincroniza
+  9 reveals (errores de 0,68–1,10 s → ≤0,05 s en la mezcla) y elimina
+  la deriva A/V del pipeline (residual ≤0,02 s). No queda nada claro
+  por mejorar en esta versión: los WARN restantes son benignos y las
+  dos derivas negativas heredadas (S6 l2, S8 l4) se leen como énfasis.
+  Lo que NO vale la pena: re-masterizar V2.2 (superseded); afinar el
+  atempo por chunk (el residual ±0,02 s es imperceptible).
