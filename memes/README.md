@@ -139,6 +139,10 @@ python3 scripts/refresh-templates.py --contact-sheet
 python3 scripts/refresh-templates.py --dry-run   # ver qué cambiaría, sin tocar nada
 ```
 
+Nota: el `.gitignore` raíz excluye binarios; las imágenes nuevas que
+descargue el refresh hay que añadirlas con `git add -f` (precedente del
+content hub).
+
 Los formatos de vídeo se revisan contra Know Your Meme, Imgflip trending y
 ppl.studio/viral-formats — ver `TRENDS.md`.
 
