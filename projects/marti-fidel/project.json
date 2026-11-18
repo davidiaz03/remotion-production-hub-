@@ -1,1 +1,16 @@
-{"assets":{"manifest":"asset-manifest.json","mode":"manifest"},"audioRequired":true,"compositionId":"MainReel","crf":19,"drivePath":"Remotion Production/projects/marti-fidel","durationInFrames":1507,"fps":30,"height":1920,"id":"marti-fidel","title":"Martí-Fidel: leer, pensar","width":1080}
+{
+ "assets": {
+  "manifest": "asset-manifest.json",
+  "mode": "manifest"
+ },
+ "audioRequired": true,
+ "compositionId": "MainReelV2",
+ "crf": 19,
+ "drivePath": "Remotion Production/projects/marti-fidel",
+ "durationInFrames": 1447,
+ "fps": 30,
+ "height": 1920,
+ "id": "marti-fidel",
+ "title": "Mart\u00ed-Fidel: leer, pensar (V2)",
+ "width": 1080
+}

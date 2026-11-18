@@ -670,6 +670,110 @@ máster (720×1280, CRF 26, AAC 128k).
 máster `muse.ai/files/.../marti-fidel_MASTER.mp4` (URLs completas en
 el chat de entrega).
 
+## V2 (18-nov-2026) — REENFOQUE POR FEEDBACK DE LA DIRECTORA
+
+**Disparador:** nota de voz de Suleris Coss Díaz (18-nov, 2:24, transcrita
+con faster-whisper small local; transcripción limpia + lectura en
+`~/workspace/remotion-hub/projects/marti-fidel/research/feedback-suleris-2026-11-18.md`).
+**No aprueba el enfoque V1.5.1:** las cifras de la votación ONU como
+espina se pueden manipular y el reel se puede virar al revés; la mayor
+parte del reel habla de la ONU y muy poco de la esencia del ensayo; las
+primeras imágenes (Asamblea de la ONU) se leen como «de nuevo lo mismo».
+Pide: el RETROCESO en Latinoamérica entrelazado con Martí, y que se
+pondere la tesis «cuando uno olvida su historia está condenado a
+volverla a vivir». La idea de David «no está mal»: el material
+verificado se reutiliza, reordenado bajo la nueva tesis.
+
+**Espina nueva:** el retroceso latinoamericano + Martí entrelazado +
+«quien olvida su historia está condenado a volverla a vivir» como tesis
+y cierre. El ensayo manda; la votación ONU queda como contexto breve
+del retroceso, no como protagonista.
+
+**PROHIBIDO en V2 (por la directora):** abrir con la Asamblea de la ONU;
+contadores 130/17/25 como protagonistas; barras de caída; callback al
+130. **El mapa SÍ se queda**, reenmarcado como EL RETROCESO (países que
+se apartaron de la posición común), no como inventario de la votación:
+la VO nunca dice «no votaron» / «no se presentaron»; los tres grupos
+son la evidencia visual del retroceso y la nota de Venezuela (art. 19)
+se mantiene.
+
+**La tesis es formulación de Suleris** (idea de Santayana), NO cita de
+Martí: se presenta como tesis del reel (voz en off + texto propio),
+NUNCA atribuida a Martí. Adaptación documentada: «uno» → «un pueblo»
+(«Cuando un pueblo olvida su historia, está condenado a volverla a
+vivir»): el sujeto del reel son los pueblos de América Latina; la idea
+es idéntica a la formulación de Suleris.
+
+**Guion V2 (9 líneas, 110 palabras, ~47 s de VO + sting 3,04 s):**
+
+> L1 «En 1891, Martí escribió una advertencia.»
+> L2 «Es la hora del recuento, y de la marcha unida.» (Martí, Nuestra
+> América 1891 — primera cláusula de la oración verificada; la oración
+> completa continúa «y hemos de andar en cuadro apretado, como la plata
+> en las raíces de los Andes»)
+> L3 «Hoy, en nuestra América, el mapa cambió: diecinueve gobiernos se
+> apartaron de la posición común.»
+> L4 «Por primera vez en treinta y tres años, el Caribe dejó de votar
+> unido.» (verificado §7.1: Trinidad y Tobago, primer país del CARICOM
+> en contra; fin de 33 años de unanimidad caribeña)
+> L5 «Y un primer ministro lo contó en la radio: Washington lo llamó
+> para que cambiara su voto.» (confesión de Browne, radio 9-nov-2026)
+> L6 «Martí ya lo había dicho: ¡los árboles se han de poner en fila,
+> para que no pase el gigante de las siete leguas!» (Martí, texto exacto)
+> L7 «Y en 2005, Fidel advirtió: No es lo mismo estar desinformado que
+> haber perdido la capacidad de pensar.» (texto exacto, Cien horas)
+> L8 «Cuando un pueblo olvida su historia, está condenado a volverla a
+> vivir.» (TESIS del reel — voz en off / texto propio, SIN atribución)
+> L9 «Leer. Pensar.»
+
+**«Posición común» (L3):** la región votó a favor casi unánime durante
+décadas (2024: 187-2-1 en la AGNU — solo EE. UU. e Israel en contra,
+toda América Latina a favor; 2025: 165-7-12). En 2026, 19 gobiernos de
+la región no votaron a favor (6 en contra + 7 abstenciones + 6
+ausentes por decisión; Venezuela aparte, suspendida por mora art. 19).
+La caracterización «se apartaron de la posición común» es, por tanto,
+factual, no retórica.
+
+**Estructura V2 (1447 f = 48,23 s; tiempos de la VO Kokoro medida,
+`public/audio/v2/vo-lines.json`):**
+
+| Escena | Fotogramas | Segundos | Contenido |
+|---|---|---|---|
+| S1 Gancho Martí | 0–122 | 0,00–4,06 | Retrato busto Martí (Jamaica 1892), sepia + «1891» gigante (L1). Gancho desde el ensayo, NUNCA la ONU. Karaoke L1. |
+| S2 Cita 1 — el recuento | 122–232 | 4,06–7,74 | Martí Temple Hall cuerpo entero + cita estática «Es la hora del recuento, y de la marcha unida» (L2, sin karaoke). |
+| S3 Mapa — EL RETROCESO | 232–401 | 7,74–13,36 | Mapa Natural Earth: título «EL RETROCESO» + grupos 6/7/6 (rojo local f63 al decirse «diecinueve», amarillo f95, gris f125) + lista + nota Venezuela art. 19 (f145). Karaoke L3. |
+| S4 «33 AÑOS» | 401–536 | 13,36–17,86 | Tarjeta gráfica: «33» gigante (local f28, «treinta») + «AÑOS DE UNANIMIDAD CARIBEÑA» + sello rojo «ROTA» (local f87, «dejó»). Karaoke L4. |
+| S5 Evidencia Browne | 536–701 | 17,86–23,36 | Micrófono + «19 GOBIERNOS» + tarjeta de la confesión (local f77, «Washington»). Karaoke L5 con línea vacía en 20,42 s. |
+| S6 Cita 2 — los árboles | 701–913 | 23,36–30,43 | Retrato busto Martí (encuadre más cerrado, 50% 12%) + cita estática «¡los árboles se han de poner en fila…!» (L6, sin karaoke; «GIGANTE» en rojo). |
+| S7 Cita 3 — Fidel | 913–1135 | 30,43–37,84 | Retrato Fidel MATS 1959 + «2005 · FIDEL ADVIRTIÓ:» + cita estática (L7, sin karaoke; mismo layout V1 S8). |
+| S8 Tesis + título | 1135–1356 | 37,84–45,20 | Fondo oscuro, tesis en texto grande SIN atribución (L8; «OLVIDA» y «CONDENADO» en rojo) + «MARTÍ-FIDEL: LEER, PENSAR» (local f157/f166, golpes de voz) + CTA «GUARDA ESTE REEL» (f185). Sin karaoke. |
+| S9 Sting | 1356–1447 | 45,20–48,23 | Cierre animado oficial a 2x. |
+
+**Karaoke:** solo en las líneas habladas (L1, L3, L4, L5); las citas
+(L2, L6, L7), la tesis (L8) y «Leer. Pensar.» (L9) van como texto
+estático, sin karaoke (mismo patrón V1: las citas no se karaokean).
+`src/captions.ts` contiene los 9 segmentos completos (la auditoría
+exige guion↔karaoke 1:1); `VideoV2.tsx` filtra los segmentos hablados
+para BottomKaraoke.
+
+**Música:** misma biblioteca Flow local, re-temporizada al nuevo corte
+de actos: Shadows & Evidence (tensión) 0–~29 s (gancho, mapa, Browne)
++ Weight of Memory (emotivo) ~27,5–50 s (citas, tesis, cierre),
+crossfade 1,5 s. Sin pistas nuevas de Flow. Ducking V1.5 (threshold
+0,08 / ratio 5 / release 250 ms, music volume 0,38).
+
+**Código:** composición nueva `MainReelV2` en `src/VideoV2.tsx`
+(`Root.tsx` y `project.json` apuntan a ella en esta rama);
+`src/Video.tsx` (V1) queda intacto en el árbol como referencia (no se
+compila: Root ya no lo importa). Los másteres V1.5.1
+(`out/marti-fidel_MASTER.mp4` y `_LIGERO.mp4`) NO se tocan; los
+entregables V2 son `out/marti-fidel-v2_MASTER.mp4` y
+`out/marti-fidel-v2_LIGERO.mp4`, con chunks en `out/chunks-v2/`.
+
+**Voz:** previsualización Kokoro em_alex (como V1). La definitiva la
+graba la locutora SOLO cuando Suleris apruebe el nuevo enfoque;
+el guion listo para grabar está en `GUION-VOZ-EN-OFF-V2.md`.
+
 ## Escenas (tiempos V1.2 = montaje vigente, ver public/audio/vo-lines.json)
 
 | Escena | Fotogramas | Segundos | Contenido |
@@ -821,3 +925,72 @@ Revisión por escenas en 20 stills del máster:
   suena a ~48,00 s en el máster, dentro de la ventana en que la estrella
   se quiebra en el video (f1436 intacta → f1442 quebrada). Sincronía
   dentro de ±0,1 s: aceptada.
+
+## V2 — ENTREGA (18-nov-2026, rama `work/marti-fidel-v2`)
+
+Máster V2 + ligera, renderizados desde `MainReelV2` (`src/VideoV2.tsx`,
+1447 f = 48,23 s). VO Kokoro em_alex de previsualización (43,98 s);
+la definitiva la graba la locutora SOLO cuando Suleris apruebe el
+enfoque. Guion listo para grabar: `GUION-VOZ-EN-OFF-V2.md`.
+
+- Máster: `out/marti-fidel-v2_MASTER.mp4` — 8.469.881 B, SHA-256
+  `bf82f7728f99b5391bd93d4344de04150cbd7b49e1b7bf460c9a5a1804b22e78`
+- Ligera: `out/marti-fidel-v2_LIGERO.mp4` — 2.232.795 B, SHA-256
+  `d854f2c85212e635b60504b54ec6f9d2846ac9e5635de1d6ae58447aced46e0d`
+- Los másteres V1.5.1 (`marti-fidel_MASTER.mp4` / `_LIGERO.mp4`) quedan
+  INTACTOS (hashes verificados: `75adcbc8…b9a8` / `b2884c31…337`).
+- QA full `qa-media.mjs --mode full`: **passed** — 1447/1447 f,
+  1080×1920, −15,8 LUFS, TP −2,0 dBTP, sin silencio inicial/final.
+  1 advertencia: intervalo oscuro 7,79–7,89 s (0,1 s, fade-in del mapa
+  en la transición S2→S3; mismo tipo que los aceptados en V1).
+- Verificación visual: 9 stills pre-render + 10 fotogramas del máster
+  (`audit-frames/v2/`: gancho, recuento, mapa completo, ROTA, Browne,
+  árboles, Fidel, tesis, título, sting) — todos correctos; logo
+  completo legible desde el fotograma 0; sin texto sobre caras.
+- Auditoría de audio `audit-audio.py --tag v2`: **0 FAIL**
+  (8 PASS, 60 WARN, 27 INFO; `reports/audio-audit-v2.{json,md}`).
+  PASS en (a) guion↔karaoke 1:1 (117 palabras), (c) VO íntegra,
+  (d) sin stretch, (e) 13 pausas todas diseñadas, (f) suelo −32 dBFS
+  respetado (crossfade 2,5 dB; recuperación del ducking OK),
+  (g) alineación karaoke/onset acústico media 0,027 s, máx 0,11 s;
+  máster −15,8 LUFS / TP −2,0 dBTP sin silencios. Los 60 WARN son los
+  benignos conocidos: 56 de duraciones cortas de caption (sin efecto
+  visual en BottomKaraoke, que solo lee `s`), 3 de sesgo de Whisper
+  sobre el máster (la alineación autoritativa es la acústica) y 1 de
+  bombeo del ducking (6,6 dB; la receta V1.5 documenta ~9 dB).
+
+**Parches de audio V2 (precedente V1.4.1):**
+- Mezcla: +4 dB con rampas coseno 100 ms en 32,45–32,90 s (la pausa
+  tras «2005,» dejaba la ventana 32,50–32,75 a −33,9 dBFS; tras el
+  parche −30,3 dBFS). Original conservado en `/tmp/mix-v2-orig.wav`
+  (no en el repo: `public/` está ignorado por git).
+- Máster: +4 dB en 7,40–7,90 s (el pasaje quieto de Shadows; en el
+  máster la ventana 7,50–7,75 medía −33,1 dBFS RMS; tras el parche
+  −28,7 dBFS), aplicado SOBRE el audio del máster con remux
+  (video stream-copy) + `alimiter=limit=0.79:level=false` — el
+  remux sin limitador subió el TP a −0,6 dBTP (la re-codificación
+  AAC→AAC añade sobreimpulso inter-muestra); con `level=false` el
+  máster quedó en TP −2,0 dBTP. Lección: NUNCA re-codificar el audio
+  del máster sin limitador de techo real.
+- NOTA mezcla↔máster: la mezcla y el máster difieren en ~60–100 ms
+  (la deriva de audio del render por tramos, ya documentada en V1:
+  ≈+0,12 s al final), lo que desplaza la energía entre ventanas RMS
+  vecinas: la mezcla tiene el hueco en 32,5 s (el máster no: −24,4
+  dBFS) y el máster lo tiene en 7,5 s (la mezcla no: −28,0 dBFS).
+  Por eso cada parche va donde hace falta; NO se re-renderizó para
+  unificarlos (el máster entregado ya está verificado por QA,
+  auditoría y escaneo RMS propio).
+
+**Correcciones de auditoría V2 (primera corrida: 66 FAIL):**
+- La primera corrida usó por defecto la transcripción V1
+  (`public/audio/vo-editada-transcripcion.json`) → 50 FAIL de (g)
+  espurios. En V2 hay que pasar rutas explícitas: transcripción y
+  predicción V2 + plan V2 (ver el comando en `reports/`).
+- Transcripción V2 = tiempos del alineador (Whisper + 3 palabras
+  interpoladas documentadas); predicción V2 = identidad (sin
+  edición, orig == edited). Plan V2 (`research/edit-plan-v2.json`,
+  fuera del repo como el V1.5): 9 líneas de un solo segmento,
+  factor 1.0, pausas de coma en `merged_gaps`.
+- Fines de palabra corregidos a su offset acústico real (Whisper
+  cortaba las colas): «1891,» 1,38→1,65 s; «2005,» 31,26→31,47 s
+  (en `captions.json` y `captions.ts`; `e` no afecta al render).

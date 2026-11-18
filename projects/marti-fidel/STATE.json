@@ -13,7 +13,7 @@
   ],
   "pending": [],
   "nextTask": "Juicio creativo del usuario + visto bueno de Suleris; leer términos comerciales de Flow Music y etiqueta IA de Meta al publicar",
-  "updatedAt": "2026-11-17T21:16:00-04:00",
+  "updatedAt": "2026-11-18T16:57:58.322Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -28,43 +28,50 @@
       "vo": {
         "status": "done",
         "startedAt": "2026-11-17T21:39:08.344Z",
-        "updatedAt": "2026-11-18T01:08:22.506293Z",
+        "updatedAt": "2026-11-18T16:31:11.995Z",
         "artifacts": [
           "public/audio/vo-preview.wav",
-          "public/audio/vo-lines.json"
+          "public/audio/vo-lines.json",
+          "public/audio/v2/vo-preview-v2.wav",
+          "public/audio/v2/vo-lines.json"
         ],
         "note": "VO V1.5: cortes acústicos en silencio real (fusiones L1 f1, L7 f2, L9 f1; colas hasta 0,30 s), Rubber Band en L4/L5/L9/L10 (mismos factores V1.4), cama de tono de sala en huecos; 0 cortes con voz descartada"
       },
       "captions": {
         "status": "done",
         "startedAt": "2026-11-17T21:39:08.414Z",
-        "updatedAt": "2026-11-18T01:08:22.506293Z",
+        "updatedAt": "2026-11-18T16:31:12.146Z",
         "artifacts": [
           "src/captions.ts",
-          "public/audio/captions.json"
+          "public/audio/captions.json",
+          "public/audio/v2/captions.json"
         ],
         "note": "Karaoke V1.5 regenerado (Whisper small, L7 correcta sin parche; 14 bordes corregidos con predicción; corrección acústica: El 0,00->0,55, Y 12,17->12,30, Y 20,73->20,88; e= siguiente inicio, 0 solapes; 37 chunks, 120 palabras)"
       },
       "mix": {
         "status": "done",
         "startedAt": "2026-11-17T21:46:57.473Z",
-        "updatedAt": "2026-11-18T01:08:22.506293Z",
+        "updatedAt": "2026-11-18T16:31:12.274Z",
         "artifacts": [
           "public/audio/mix.wav",
-          "public/audio/mix.json"
+          "public/audio/mix.json",
+          "public/audio/v2/mix-v2.wav",
+          "public/audio/v2/mix-v2.json"
         ],
         "note": "Mezcla V1.5: ducking threshold 0,08 / ratio 5 / release 250 ms (mix.py --duck-threshold/--duck-ratio nuevos); PASS_REAL -15,0 LUFS, TP -1,5 dBTP; SFX 17/25 en 9,06/10,33"
       },
       "render": {
         "status": "done",
         "startedAt": "2026-11-17T21:49:34.377Z",
-        "updatedAt": "2026-11-18T01:04:54.164Z",
+        "updatedAt": "2026-11-18T16:56:22.463Z",
         "artifacts": [
-          "out/marti-fidel-chunks.mp4"
+          "out/marti-fidel-chunks.mp4",
+          "out/marti-fidel-v2-chunks.mp4",
+          "out/chunks-v2"
         ],
-        "note": "out/marti-fidel-chunks.mp4",
+        "note": "out/marti-fidel-v2-chunks.mp4",
         "chunks": {
-          "total": 11,
+          "total": 10,
           "done": 11,
           "completed": [
             "out/chunks/chunk_01.mp4",
@@ -79,30 +86,34 @@
             "out/chunks/chunk_10.mp4",
             "out/chunks/chunk_11.mp4"
           ],
-          "framesDone": 1507,
-          "framesTotal": 1507,
+          "framesDone": 1447,
+          "framesTotal": 1447,
           "percent": 100,
           "chunkSize": 150,
-          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 0-1506 --chunk 150 --resume"
+          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 0-1446 --chunk 150 --resume --out out/chunks-v2 --concat-out out/marti-fidel-v2-chunks.mp4"
         }
       },
       "qa": {
         "status": "done",
         "startedAt": "2026-11-17T21:58:07.817Z",
-        "updatedAt": "2026-11-18T01:11:28.368Z",
+        "updatedAt": "2026-11-18T16:56:25.553Z",
         "artifacts": [
           "reports/technical-qa.json",
           "out/marti-fidel_MASTER.mp4",
-          "out/marti-fidel_LIGERO.mp4"
+          "out/marti-fidel_LIGERO.mp4",
+          "out/marti-fidel-v2_MASTER.mp4",
+          "out/marti-fidel-v2_MASTER-prepatch.mp4",
+          "out/marti-fidel-v2_LIGERO.mp4",
+          "reports/audio-audit-v2.json"
         ],
-        "note": "-15.1 LUFS, TP -1.9 dBTP"
+        "note": "-15.8 LUFS, TP -2 dBTP"
       },
       "delivery": {
         "status": "pending",
         "startedAt": null,
-        "updatedAt": null,
+        "updatedAt": "2026-11-18T16:57:58.321Z",
         "artifacts": [],
-        "note": ""
+        "note": "V2 Martí-Fidel: máster + ligera, QA passed, auditoría 0 FAIL"
       }
     },
     "milestones": [
@@ -1246,6 +1257,177 @@
           "reports/technical-qa.json",
           "out/marti-fidel_MASTER.mp4"
         ]
+      },
+      {
+        "at": "2026-11-18T16:31:11.995Z",
+        "phase": "vo",
+        "event": "VO V2 previsualización Kokoro em_alex (9 líneas, 43,98 s)",
+        "artifacts": [
+          "public/audio/v2/vo-preview-v2.wav",
+          "public/audio/v2/vo-lines.json"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:31:12.146Z",
+        "phase": "captions",
+        "event": "Karaoke V2 desde VO Kokoro (9 segmentos, 30 chunks, 110 palabras)",
+        "artifacts": [
+          "src/captions.ts",
+          "public/audio/v2/captions.json"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:31:12.274Z",
+        "phase": "mix",
+        "event": "Mezcla V2: VO + Shadows/Weight + 19 SFX (PASS_REAL -15,8 LUFS, TP -1,5)",
+        "artifacts": [
+          "public/audio/v2/mix-v2.wav",
+          "public/audio/v2/mix-v2.json"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:33:59.274Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-1446 en 10 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-18T16:34:42.953Z",
+        "phase": "render",
+        "event": "Tramo 1/10 verificado (chunk_01.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_01.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:35:22.514Z",
+        "phase": "render",
+        "event": "Tramo 2/10 verificado (chunk_02.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_02.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:35:53.356Z",
+        "phase": "render",
+        "event": "Tramo 3/10 verificado (chunk_03.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_03.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:36:27.400Z",
+        "phase": "render",
+        "event": "Tramo 4/10 verificado (chunk_04.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_04.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:37:07.539Z",
+        "phase": "render",
+        "event": "Tramo 5/10 verificado (chunk_05.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_05.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:37:48.775Z",
+        "phase": "render",
+        "event": "Tramo 6/10 verificado (chunk_06.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_06.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:38:27.000Z",
+        "phase": "render",
+        "event": "Tramo 7/10 verificado (chunk_07.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_07.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:39:02.884Z",
+        "phase": "render",
+        "event": "Tramo 8/10 verificado (chunk_08.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_08.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:39:34.017Z",
+        "phase": "render",
+        "event": "Tramo 9/10 verificado (chunk_09.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_09.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:40:11.771Z",
+        "phase": "render",
+        "event": "Tramo 10/10 verificado (chunk_10.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_10.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:40:19.135Z",
+        "phase": "render",
+        "event": "Render completo: 10 tramos concatenados (out/marti-fidel-v2-chunks.mp4)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-18T16:44:04.161Z",
+        "phase": "qa",
+        "event": "QA técnico failed — marti-fidel-v2_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel-v2_MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:45:00.465Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel-v2_MASTER-prepatch.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel-v2_MASTER-prepatch.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:46:44.760Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel-v2_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel-v2_MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:56:22.463Z",
+        "phase": "render",
+        "event": "Render V2: 1447/1447 f en 10 tramos (MainReelV2)",
+        "artifacts": [
+          "out/marti-fidel-v2-chunks.mp4",
+          "out/chunks-v2"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:56:25.553Z",
+        "phase": "qa",
+        "event": "Máster V2 + ligera, QA full passed (-15,8 LUFS, TP -2,0, 1447/1447 f); parche 7,5 s + limiter level=false; auditoría audio v2: 0 FAIL",
+        "artifacts": [
+          "out/marti-fidel-v2_MASTER.mp4",
+          "out/marti-fidel-v2_LIGERO.mp4",
+          "reports/audio-audit-v2.json"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:57:58.321Z",
+        "phase": "delivery",
+        "event": "checkpoint delivery 2026-11-18T16:57:58.311Z",
+        "artifacts": []
       }
     ]
   }
