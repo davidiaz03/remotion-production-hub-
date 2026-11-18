@@ -23,13 +23,13 @@ Ver la matriz completa en [`GUIDE.md`](GUIDE.md).
 
 ```
 content/
-  README.md / BRAND.md / GUIDE.md / CANVA.md / WORKFLOW.md / COPY.md
+  README.md / BRAND.md / GUIDE.md / CANVA.md / WORKFLOW.md / COPY.md / RESEARCH.md
   brand/            tokens.json, logo-color.png, fonts/ (Barlow OFL), textures/
   lib/              base.css (estilos compartidos), icons/ (31 Lucide, ISC)
   templates/        post, story, carousel, infographic, thumbnail, quote
   scripts/          render.mjs, cdp.mjs, template.mjs, state.mjs, new-piece.mjs,
                     make-logo-white.py, duotone.py, cutout.py, gen-image.py,
-                    postprocess.py, contact-sheet.py
+                    postprocess.py, contact-sheet.py, face-frame.py, letterbox.py, density.mjs
   pieces/           piezas en curso (cada una: brief.md, data.json, STATE.json, out/)
   examples/out/     renders de ejemplo (ignorado por git)
 ```
@@ -79,6 +79,11 @@ ligero (móvil/WhatsApp), igual que los reels.
   VM; el render usa CDP (ver `scripts/cdp.mjs`).
 - **rembg**: `pip install rembg` en el venv del hub; el modelo u2net vive
   en `~/workspace/remotion-hub/.u2net` (si falta, rembg lo descarga solo).
+- **YuNet (detección de caras)**: el modelo vive en
+  `~/workspace/remotion-hub/.yunet/`; `scripts/face-frame.py` lo descarga
+  solo si falta (232 KB, OpenCV Zoo). Requiere el venv del hub
+  (`~/workspace/remotion-hub/.venv/bin/python`); el python3 del sistema
+  no tiene cv2.
 - **Pollinations**: token en `~/workspace/remotion-hub/.env`
   (`POLLINATIONS_TOKEN`); sin token el gateway responde 401.
 - **Fuentes/logo**: versionados en `brand/` (las fuentes son OFL; el logo

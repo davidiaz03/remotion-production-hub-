@@ -45,12 +45,38 @@ manda en Canva; la imagen protagonista manda en generación**.
    permanente del usuario, 15-nov-2026). Límites por cómputo.
 7. **Licencias y créditos**: cada foto real lleva su licencia verificada en
    su página de Commons (o su fuente) y su procedencia registrada en el
-   `ASSETS.md` de la pieza (URL, autor, licencia, fecha). El crédito corto
-   va en la lámina (`image_credit`); la atribución completa (autor + enlace
-   a la licencia) va en el manifiesto y en el pie de la publicación. Las
-   fotos CC BY exigen atribución; las CC0 y de dominio público no, pero el
-   crédito corto se pone igual por trazabilidad. Nunca usar una foto con
-   licencia sin verificar ni recortarla de forma que engañe.
+   `ASSETS.md` de la pieza (URL, autor, licencia, fecha). El crédito va
+   **en el pie de la publicación**, no en la lámina (regla de investigación
+   Instagram); en la lámina solo se imprime con `show_credit: true` si el
+   producto lo pide. Las fotos CC BY exigen atribución (en el pie y en el
+   manifiesto); las CC0 y de dominio público no, pero el crédito se pone
+   igual en el pie por trazabilidad. Nunca usar una foto con licencia sin
+   verificar ni recortarla de forma que engañe.
+
+## Reglas de calidad para contenido estático (investigación Instagram, 17-nov-2026)
+
+Observación en vivo de carruseles de AJ+, Brut, BBC News, Al Jazeera
+English y Granma (detalle en [`RESEARCH.md`](RESEARCH.md)). Reglas
+obligatorias para carruseles del hub:
+
+1. **Cara libre**: nunca cruzar el titular sobre la cara. Cara en los
+   dos tercios superiores, texto en el tercio inferior. Verificar con
+   `scripts/face-frame.py` antes del render y a ojo después. Si la cara
+   no cabe (retrato demasiado ajustado), cambiar de foto, de layout o
+   acolcharla con `scripts/letterbox.py`.
+2. **Titular abajo**, en negrita, 8–15 palabras en portada; subtítulo o
+   dato justo debajo.
+3. **Contraste** por degradado negro inferior, panel sólido o palabra
+   clave resaltada en rojo de marca (`*palabra*` en titulares). Nunca
+   texto directo sobre foto clara; sin duotono en carruseles informativos.
+4. **Densidad**: una idea por lámina; cuerpo 18–30 palabras; techo 50
+   palabras por lámina; titular ≤15 palabras. `scripts/density.mjs` avisa.
+5. **Estructura**: portada con titular completo; desarrollo con una
+   pregunta, un dato o una cita por lámina; cierre con cita o dato, **sin
+   CTA gráfico** (el CTA va en el pie de la publicación).
+6. **Créditos en el pie**, no en la imagen.
+7. **Formato 4:5** (1080×1350) como estándar de carrusel.
+8. **5–10 láminas** óptimo; no alargar reutilizando la misma foto.
 
 ## Combinaciones habituales
 
@@ -60,9 +86,10 @@ manda en Canva; la imagen protagonista manda en generación**.
   `thumbnail` con el recorte en `cutout` (la plantilla lo coloca a la
   derecha y desplaza el titular a la izquierda).
 - **Carrusel con fotos**: foto real por lámina (campo `image` por página;
-  `image_layout`: `background` por defecto, `band` o `side`; crédito corto
-  en `image_credit`). Ver `templates/README.md` y la pieza
-  `trump-cuba-noviembre` (v2).
+  `image_layout`: `background` por defecto, `band` o `side`; encuadre con
+  `scripts/face-frame.py`; crédito en el pie, no en la lámina). Formato
+  4:5 (`data.format: "4:5"`). Ver `templates/README.md`, `RESEARCH.md` y
+  la pieza `trump-cuba-noviembre` (v3).
 - **Canva + código**: si el usuario pide retocar en Canva una pieza hecha
   en código, exportar el PNG y subirlo a Canva como base, o recrear el
   brief en Canva. No hay conversión automática código → diseño editable.

@@ -4,6 +4,10 @@
  * Sintaxis (en template.html):
  *   {{key}}            valor escapado (rutas con punto: {{stat.value}})
  *   {{key|raw}}        valor sin escapar (HTML ya construido)
+ *   {{hl:key}}         valor escapado con resaltado: lo que vaya entre
+ *                      asteriscos (*palabra*) sale como
+ *                      <span class="hl">palabra</span> (rojo de marca, ver
+ *                      base.css). Para palabras clave en titulares.
  *   {{#if key}}…{{/if}}  bloque si key es veraz (listas: no vacías).
  *                      Acepta negación: {{#if !key}}. Anidable.
  *   {{#each items}}…{{/each}}  repite por cada elemento; dentro, {{field}}
@@ -124,6 +128,16 @@ function renderTag(tag, ctx, opts, warnings) {
 	if (logoM) return `<img class="brand-logo" src="assets/logo-${logoM[1]}.png" alt="Memorial de la Denuncia">`;
 	const assetM = tag.match(/^asset:(.+)$/);
 	if (assetM) return assetM[1];
+	const hlM = tag.match(/^hl:([\w.@]+)$/);
+	if (hlM) {
+		const val = lookup(ctx, hlM[1]);
+		if (val === undefined || val === null) {
+			warnings.push(`campo ausente en data: ${hlM[1]}`);
+			return '';
+		}
+		// Escapa todo y convierte *palabra* en <span class="hl">palabra</span>.
+		return escapeHtml(val).replace(/\*([^*]+)\*/g, '<span class="hl">$1</span>');
+	}
 	const varM = tag.match(/^([\w.@]+)(\|raw)?$/);
 	if (varM) {
 		const val = lookup(ctx, varM[1]);

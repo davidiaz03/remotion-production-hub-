@@ -23,6 +23,7 @@ import { promisify } from 'node:util';
 import { screenshot } from './cdp.mjs';
 import { renderTemplate } from './template.mjs';
 import { readState, setPhase, recordMilestone } from './state.mjs';
+import { checkCarousel } from './density.mjs';
 
 const execFileAsync = promisify(execFile);
 const CONTENT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -96,6 +97,15 @@ function stageImages(data, dataDir, assetsDir, used) {
 
 async function renderOne({ tpl, data, outDir, name, waitMs }) {
 	const { dir: tplDir, meta, html } = tpl;
+	// Variante de formato (p. ej. carrusel 4:5): data.format elige entre
+	// meta.variants; si no hay variante, tamaño base de la plantilla.
+	const formatKey = data.format ?? 'square';
+	const variant = (meta.variants && meta.variants[formatKey]) || null;
+	if (formatKey !== 'square' && !variant) {
+		console.warn(`  ! formato '${formatKey}' desconocido en ${meta.name}; se usa ${meta.width}x${meta.height}`);
+	}
+	const dims = variant ?? { width: meta.width, height: meta.height };
+	data._format45 = formatKey === '4:5';
 	mkdirSync(outDir, { recursive: true });
 	const assetsDir = path.join(outDir, 'assets');
 	mkdirSync(path.join(assetsDir, 'fonts'), { recursive: true });
@@ -122,15 +132,15 @@ async function renderOne({ tpl, data, outDir, name, waitMs }) {
 	const { html: composed, warnings } = renderTemplate(html, data, { iconsDir: path.join(CONTENT, 'lib', 'icons') });
 	for (const w of warnings) console.warn(`  ! ${w}`);
 	const withSize = composed.replace('</head>',
-		`<style>:root{--page-w:${meta.width}px;--page-h:${meta.height}px}</style></head>`);
+		`<style>:root{--page-w:${dims.width}px;--page-h:${dims.height}px}</style></head>`);
 	const htmlPath = path.join(outDir, `${name}.html`);
 	writeFileSync(htmlPath, withSize);
 	// Screenshot por CDP.
 	const pngPath = path.join(outDir, `${name}.png`);
-	await screenshot({ url: `file://${htmlPath}`, width: meta.width, height: meta.height, out: pngPath, waitMs });
+	await screenshot({ url: `file://${htmlPath}`, width: dims.width, height: dims.height, out: pngPath, waitMs });
 	const size = pngSize(pngPath);
-	if (size.width !== meta.width || size.height !== meta.height) {
-		throw new Error(`Dimensiones incorrectas en ${name}.png: ${size.width}x${size.height}, esperado ${meta.width}x${meta.height}`);
+	if (size.width !== dims.width || size.height !== dims.height) {
+		throw new Error(`Dimensiones incorrectas en ${name}.png: ${size.width}x${size.height}, esperado ${dims.width}x${dims.height}`);
 	}
 	// JPG ligero.
 	const { stdout } = await execFileAsync('python3', [
@@ -170,6 +180,10 @@ async function main() {
 		const tpl = loadTemplate(job.template);
 		const data = JSON.parse(readFileSync(job.dataFile, 'utf8'));
 		data.__dir = path.dirname(job.dataFile);
+		// Guardarraíles de densidad (no bloquean; el QA decide).
+		if (job.template === 'carousel') {
+			for (const w of checkCarousel(data)) console.warn(`  ! densidad: ${w}`);
+		}
 		const artifacts = [];
 		if (tpl.meta.multi && Array.isArray(data.pages) && data.pages.length > 0) {
 			for (let i = 0; i < data.pages.length; i++) {

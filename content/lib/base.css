@@ -115,6 +115,10 @@ html, body {
   color: var(--red);
 }
 
+/* Resaltado de palabra clave en titulares (sintaxis {{hl:}} del motor):
+   rojo de marca sobre el texto. Regla de investigación Instagram (RESEARCH.md). */
+.hl { color: var(--red); }
+
 /* Barra roja vertical junto a titulares. */
 .red-bar {
   width: 12px;
