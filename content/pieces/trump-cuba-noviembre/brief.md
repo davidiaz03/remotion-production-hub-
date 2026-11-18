@@ -48,7 +48,15 @@
 - Las citas de Trump van traducidas del inglés; los originales están arriba. En la publicación, indicarlo en el pie de foto.
 
 ## Imagen
-- Ninguna foto: la plantilla `carousel` no tiene campo de imagen por lámina; el carrusel es solo de diseño (tipografía, iconos Lucide, texturas del hub), que es su modo previsto. No se descargaron fotos de Trump, Díaz-Canel ni Bruno (no había dónde colocarlas sin modificar la plantilla). Añadir soporte de foto por lámina queda como mejora futura del hub, no de esta pieza.
+- **v2 (17-nov-2026)**: carrusel CON fotos. La plantilla `carousel` ganó
+  soporte de foto por lámina (`image` + `image_layout` + `image_credit`):
+  las láminas 2–5 llevan retrato a sangre completa con velo
+  (`background`). Portada y cierre quedan solo de diseño. Fotos reales de
+  Wikimedia Commons con licencia verificada — ver `ASSETS.md` (Bruno:
+  CC0; Trump ×2: dominio público; Díaz-Canel: CC BY 4.0, con atribución
+  en lámina y pie). Ninguna foto es del hecho de noviembre de 2026: son
+  retratos de identificación, no archivo del hecho.
+- v1: sin fotos (la plantilla no tenía campo de imagen por lámina).
 
 ## Pie de foto sugerido para Instagram
 > Trump y Cuba: lo que se dijo en noviembre.
@@ -59,6 +67,8 @@
 >
 > Las citas de Trump están traducidas del inglés. Fuentes: Salem News Channel · Presidencia de Cuba / Cubadebate · Granma · CNN en Español · noviembre de 2026.
 >
+> Fotos: Bruno Rodríguez — Presidencia de El Salvador (CC0); Donald Trump — Daniel Torok / Casa Blanca (dominio público); Miguel Díaz-Canel — Khamenei.ir (CC BY 4.0). Vía Wikimedia Commons.
+>
 > #CubaNoEsUnaAmenaza #MemorialDeLaDenuncia
 
 ## Registro de revisiones
@@ -66,3 +76,4 @@
 | Fecha | Versión | Cambio | Aprobado por |
 |---|---|---|---|
 | 17-nov-2026 | v1 | Borrador inicial | (pendiente del usuario) |
+| 17-nov-2026 | v2 | Fotos reales en láminas 2–5 (layout `background`); textos verificados sin cambios; créditos en lámina + atribución en pie | (pendiente del usuario) |
