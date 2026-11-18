@@ -7,11 +7,11 @@
   "pipeline": {
     "phases": {
       "brief": {
-        "status": "in_progress",
+        "status": "done",
         "startedAt": "2026-11-18T02:44:28.436Z",
-        "updatedAt": "2026-11-18T02:44:28.436Z",
+        "updatedAt": "2026-11-18T02:46:29.766Z",
         "artifacts": [],
-        "note": ""
+        "note": "Hechos verificados con fuentes; originales en inglés en brief.md"
       },
       "draft": {
         "status": "done",
@@ -34,18 +34,25 @@
         "note": ""
       },
       "review": {
-        "status": "in_progress",
+        "status": "done",
         "startedAt": "2026-11-18T02:45:35.689Z",
-        "updatedAt": "2026-11-18T02:45:35.689Z",
+        "updatedAt": "2026-11-18T02:46:29.768Z",
         "artifacts": [],
-        "note": "Borrador listo para revisión visual"
+        "note": "QA visual: 6/6 láminas limpias, sin texto cortado ni colisiones"
       },
       "export": {
-        "status": "pending",
-        "startedAt": null,
-        "updatedAt": "2026-11-18T02:44:28.436Z",
-        "artifacts": [],
-        "note": ""
+        "status": "done",
+        "startedAt": "2026-11-18T02:46:29.768Z",
+        "updatedAt": "2026-11-18T02:46:29.768Z",
+        "artifacts": [
+          "trump-cuba-noviembre-p01-light.jpg",
+          "trump-cuba-noviembre-p02-light.jpg",
+          "trump-cuba-noviembre-p03-light.jpg",
+          "trump-cuba-noviembre-p04-light.jpg",
+          "trump-cuba-noviembre-p05-light.jpg",
+          "trump-cuba-noviembre-p06-light.jpg"
+        ],
+        "note": "JPG ligeros copiados a ~/workspace/carrusel-trump-cuba/"
       },
       "delivery": {
         "status": "pending",
@@ -80,6 +87,12 @@
           "trump-cuba-noviembre-p06.png",
           "trump-cuba-noviembre-p06-light.jpg"
         ]
+      },
+      {
+        "at": "2026-11-18T02:46:29.768Z",
+        "phase": "review",
+        "event": "QA visual aprobado (6/6)",
+        "artifacts": []
       }
     ]
   }
