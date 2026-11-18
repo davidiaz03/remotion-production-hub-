@@ -13,7 +13,7 @@
   ],
   "pending": [],
   "nextTask": "Juicio creativo del usuario + visto bueno de Suleris; leer términos comerciales de Flow Music y etiqueta IA de Meta al publicar",
-  "updatedAt": "2026-11-18T16:57:58.322Z",
+  "updatedAt": "2026-11-18T16:58:11.851Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -109,11 +109,15 @@
         "note": "-15.8 LUFS, TP -2 dBTP"
       },
       "delivery": {
-        "status": "pending",
-        "startedAt": null,
-        "updatedAt": "2026-11-18T16:57:58.321Z",
-        "artifacts": [],
-        "note": "V2 Martí-Fidel: máster + ligera, QA passed, auditoría 0 FAIL"
+        "status": "done",
+        "startedAt": "2026-11-18T16:58:11.709Z",
+        "updatedAt": "2026-11-18T16:58:11.851Z",
+        "artifacts": [
+          "out/marti-fidel-v2_MASTER.mp4",
+          "out/marti-fidel-v2_LIGERO.mp4",
+          "GUION-VOZ-EN-OFF-V2.md"
+        ],
+        "note": "V2: hito delivery registrado"
       }
     },
     "milestones": [
@@ -1427,6 +1431,22 @@
         "at": "2026-11-18T16:57:58.321Z",
         "phase": "delivery",
         "event": "checkpoint delivery 2026-11-18T16:57:58.311Z",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-18T16:58:11.709Z",
+        "phase": "delivery",
+        "event": "V2 entregada: máster + ligera + guion para locutora; pendiente aprobación de Suleris del enfoque antes de grabar la VO definitiva",
+        "artifacts": [
+          "out/marti-fidel-v2_MASTER.mp4",
+          "out/marti-fidel-v2_LIGERO.mp4",
+          "GUION-VOZ-EN-OFF-V2.md"
+        ]
+      },
+      {
+        "at": "2026-11-18T16:58:11.851Z",
+        "phase": "delivery",
+        "event": "checkpoint delivery 2026-11-18T16:58:11.849Z",
         "artifacts": []
       }
     ]
