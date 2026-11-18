@@ -3,14 +3,16 @@
   "id": "marti-fidel",
   "title": "Martí-Fidel: leer, pensar",
   "objective": "Martí-Fidel: leer, pensar",
-  "phase": "editing",
+  "phase": "done",
   "compositionId": "MainReel",
   "latestSnapshot": null,
-  "approvedRevision": null,
-  "completed": [],
+  "approvedRevision": "V1.4.1",
+  "completed": [
+    "V1.4.1: parche +4dB en 7.40-7.90s sobre audio del máster V1.4; QA full passed (-15.1 LUFS, TP -2.0); 0/188 ventanas bajo -32 dBFS salvo pausa dramática Ganamos (intencional); entrega final con enlaces Muse"
+  ],
   "pending": [],
-  "nextTask": "V1.4 lista (QA passed): entrega al usuario para su juicio creativo y visto bueno de Suleris; antes de publicar: leer términos comerciales de Flow Music y etiqueta IA de Meta (solo fondo micrófono S5); crédito UN Web TV obligatorio en el post.",
-  "updatedAt": "2026-11-18T00:08:10.588883Z",
+  "nextTask": "Juicio creativo del usuario + visto bueno de Suleris; leer términos comerciales de Flow Music y etiqueta IA de Meta al publicar",
+  "updatedAt": "2026-11-17T20:15:00-04:00",
   "pipeline": {
     "phases": {
       "assets": {
@@ -86,13 +88,13 @@
       "qa": {
         "status": "done",
         "startedAt": "2026-11-17T21:58:07.817Z",
-        "updatedAt": "2026-11-18T00:08:10.588883Z",
+        "updatedAt": "2026-11-18T00:15:13.086Z",
         "artifacts": [
           "reports/technical-qa.json",
           "out/marti-fidel_MASTER.mp4",
           "out/marti-fidel_LIGERO.mp4"
         ],
-        "note": "V1.4 final: QA full passed (1507/1507 f, -15.1 LUFS, TP -2.0 dBTP); 7 fotogramas de tramos re-renderizados revisados; tramos no tocados byte-idénticos a V1.3"
+        "note": "-15.1 LUFS, TP -2 dBTP"
       },
       "delivery": {
         "status": "pending",
@@ -970,6 +972,15 @@
         "artifacts": [
           "out/marti-fidel_MASTER.mp4",
           "out/marti-fidel_LIGERO.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-18T00:15:13.086Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel_MASTER.mp4"
         ]
       }
     ]

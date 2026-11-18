@@ -474,6 +474,43 @@ fuera de los tramos re-renderizados.
 **Etiqueta de contenido IA de Meta al publicar:** sin cambios —
 aplica SOLO por el fondo del micrófono generado (Pollinations, S5).
 
+## V1.4.1 (17-nov-2026) — parche final: último hueco de música (7,50–7,75 s)
+
+Auditoría independiente del padre sobre V1.4 encontró UNA ventana
+residual bajo el suelo −32 dBFS: 7,50–7,75 s a −35,6 dBFS (centro del
+gap largo 7,04–7,99 s; pasaje quieto del stem «Shadows & Evidence»).
+Parche: +4 dB con rampas coseno de 100 ms en 7,40–7,90 s, aplicado
+SOBRE EL AUDIO DEL MÁSTER V1.4 (ya limitado/normalizado a −15,2 LUFS,
+TP −2,0) — NO sobre mix.wav: dos intentos de re-mux desde mix.wav con
+`alimiter=limit=0.79` subieron el máster a −13,3 LUFS / TP +0,2
+(el alimiter no limitó como se esperaba; causa no investigada a fondo;
+NO reutilizar esa cadena sin verificar). Remux: video stream-copy del
+máster V1.4 + audio parcheado, AAC 192k, faststart; ligera desde el
+máster (720×1280, CRF 26, AAC 128k).
+
+- Máster: 9.565.967 B, SHA-256
+  `c3ac92908ba59f4c46dfa9b19289ac793ea71a4e98a6960eea772c80f0a84964`
+- Ligera: 2.770.945 B, SHA-256
+  `671497bf54d26af96d3392d36128b8fadda05a17dabf942110feae10cc767aa0`
+- QA full: **passed** — 1507/1507 f, 1080×1920, −15,1 LUFS,
+  TP −2,0 dBTP, sin intervalos de silencio, decodificación OK
+  (los 2 intervalos oscuros son los conocidos de V1).
+- Escaneo RMS final del máster (ventanas 0,25 s, 0–47 s): **0/188**
+  por debajo de −32 dBFS, salvo la pausa dramática tras «Ganamos»
+  (4,25–4,50 s, −34,0 dBFS — silencio intencional, por diseño).
+  Ventana 7,50–7,75 s: −35,6 → **−31,6 dBFS**; gap largo −30,5 dBFS.
+- Sincronía karaoke vs voz del máster (Whisper independiente):
+  media 0,023 s, mediana 0,020 s. El único desvío (+0,54 s en
+  «fidel») es inestabilidad de Whisper en un caption NO visible
+  (sin karaoke en pantalla 29,87–40,70 s); sin efecto.
+- Transcripción del máster final: guion completo y en orden,
+  palabras de L7 presentes (el parche analítico de V1.4 verificado).
+
+**V1.4.1 es la ENTREGA FINAL.** Enlaces Muse (expiran
+2026-11-20T00:15 UTC): ligera `muse.ai/files/.../marti-fidel_LIGERO.mp4`,
+máster `muse.ai/files/.../marti-fidel_MASTER.mp4` (ver URLs completas
+en el chat de entrega).
+
 ## Escenas (tiempos V1.2 = montaje vigente, ver public/audio/vo-lines.json)
 
 | Escena | Fotogramas | Segundos | Contenido |
