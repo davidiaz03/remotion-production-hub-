@@ -1154,3 +1154,148 @@ enfoque. Guion listo para grabar: `GUION-VOZ-EN-OFF-V2.md`.
 - Fines de palabra corregidos a su offset acústico real (Whisper
   cortaba las colas): «1891,» 1,38→1,65 s; «2005,» 31,26→31,47 s
   (en `captions.json` y `captions.ts`; `e` no afecta al render).
+
+## V2.2 (18-nov-2026) — VOZ REAL DE LA LOCUTORA (visuales V2.1)
+
+La locutora grabó las 9 líneas V2 (originales `.aac` en
+`~/workspace/user/files/`; wavs + transcripciones faster-whisper con
+word timestamps en `~/workspace/remotion-hub/projects/marti-fidel/
+research/vo-real-transcripts-2026-11-18.json`). V2.2 = visuales V2.1
+intactos + voz real. El montaje NO se re-temporiza (regla del
+usuario: el audio se edita para encajar en el montaje).
+
+### Lección 18-nov-2026: el ASR no declara errores (falsos positivos)
+La primera verificación pidió regrabar las líneas 1 y 8 por
+«errores» que NO existían: faster-whisper small y base + la
+transcripción automática oyeron «pertenencia/vertencia» en vez de
+«advertencia», «el pueblo» en vez de «un pueblo», y tragaron la «a»
+de «condenado a volverla». El usuario escuchó los audios: las dos
+líneas estaban bien. Causa: habla rápida cubana («a'vertencia» con
+d suave, vocales tragadas entre palabras). El acuerdo entre sistemas
+ASR NO es evidencia de error real. REGLA: la verificación por
+transcripción contra un guion conocido solo señala SOSPECHAS; una
+discrepancia de una sola palabra es «verificar de oído», nunca un
+veredicto de regrabar; el oído humano desempata. Implementado en
+`scripts/audio/verify-vo-lines.py` (MATCH / INCIERTO /
+DISCREPANCIA, coincidencia difusa + números en español + detección
+de fusiones; self-test 9/9 con los casos del 18-nov). Sobre la voz
+real: 5 MATCH, 4 INCIERTO (L1, L6, L7, L8 — exactamente los casos
+que el usuario ya verificó de oído), 0 DISCREPANCIA.
+
+### Medidas de la voz real (sobre acústico, no Whisper)
+- Los tiempos de Whisper NO son fiables: pone la primera palabra en
+  0,0 (el habla real empieza ~0,9–1,4 s después del inicio del
+  archivo en todas las líneas), funde palabras («Martí ya»→
+  «Martilla», «Fidel advirtió»→«Fidelad virtió», «33»→una palabra,
+  «Y en»→«yen»). Los tiempos del manifiesto son Whisper CORREGIDOS
+  por sobre acústico; el texto es SIEMPRE el guion.
+- La «voz total 44,86 s» inicial era la suma de spans Whisper
+  (incluye ~1 s de tono de sala previo por línea). El habla real
+  medida por sobre es ~39,65 s; tras recortes, ~39,54 s.
+- Niveles: medias −19,7 a −24,6 dB, picos −2,8 a −7,0 dB, sin
+  clipping; 48 kHz estéreo dual-mono (max|L−R| ≈ 0). Piso de ruido
+  ~−40 a −48 dB RMS en huecos; cola L9: pico espectral 145 Hz, sin
+  hum 50/60 Hz dominante. Decisión: NO DeepFilterNet (SNR ~20–25 dB,
+  tono de sala normal, sin ruido intrusivo).
+
+### Plan de ajuste de tiempos (manifiesto `vo-real-manifest.json`)
+Inicios = V2 (vídeo no re-temporizado). Limpieza por línea: downmix
+mono, highpass 70 Hz, loudnorm I=−18 TP=−2 LRA=9 (misma cadena VO
+de `mix.py`), fundidos de 5 ms en cada empalme.
+
+| L | head–tail (archivo) | cortes internos | stretch | span | inicio→fin | holgura |
+|---|---|---|---|---|---|---|
+| 1 | 1,00–4,75 | [2,75, 2,95] | 1,00 | 3,55 | 0,00→3,55 | 0,51 |
+| 2 | 1,05–4,25 | [2,80, 3,00] | 1,00 | 3,00 | 4,06→7,06 | 0,68 |
+| 3 | 1,05–7,35 | [1,55,1,70],[2,85,3,05],[4,05,4,30] | 1,05 | 5,43 | 7,74→13,17 | 0,20 |
+| 4 | 0,85–4,85 | — | 1,00 | 4,00 | 13,36→17,36 | 0,50 |
+| 5 | 0,60–5,55 | — | 1,00 | 4,95 | 17,86→22,81 | 0,55 |
+| 6 | 1,30–7,30 | — | 1,00 | 6,00 | 23,36→29,36 | 1,08 |
+| 7 | 1,25–8,65 | [3,95,4,20],[6,20,6,35] | 1,00 | 7,00 | 30,43→37,43 | 0,40 |
+| 8 | 1,00–5,20 | [3,05,3,20] | 1,00 | 4,05 | 37,84→41,89 | 1,18 |
+| 9 | 0,80–3,10 | [1,80,2,20] | 1,03 | 1,84 | 43,07→44,91 | 0,29 (sting 45,20) |
+
+Huecos entre líneas: 0,51 / 0,68 / 0,20 / 0,50 / 0,85 / 1,08 / 0,40 /
+1,18 s (todos ≥0,20 s). Solo dos stretches suaves (máx autorizado
+~1,08x): L3 1,05x y L9 1,03x. Tres puntos de corte se corrigieron
+antes del manifiesto por FAIL-RISK de la auditoría (cola L3
+7,15→7,35; cabeza L5 0,90→0,60; cola L8 5,05→5,20). El constructor
+`build-vo-real.py` re-verifica todos los cortes con las funciones de
+la auditoría y aborta si hay FAIL-RISK (corrida final: 0 errores).
+
+### Mezcla V2.2 (`mix-v2.2.sh`, generada por el constructor)
+Misma música (Shadows & Evidence 0–24,11 + Weight of Memory
+22,61–48,23, xfade 1,5 s, end-fade 1,0 s) y mismos SFX fijos que V2.
+Los 5 SFX ligados a palabras se re-sincronizaron a los onsets
+reales: boom «gigante» 27,96 · boom «pensar.» 36,90 · pop
+«condenado» 40,33 · pop «Leer.» 43,17 · boom «Pensar.» 44,24.
+Mezcla: PASS_REAL, −15,8 LUFS, TP −1,5, 48,23 s.
+
+### Deriva vídeo↔voz (reveals fijos vs onsets reales)
+El karaoke (audio-driven) queda sincronizado en cualquier caso.
+Derivas mayores que en V2 (el vídeo NO se re-temporiza por orden
+expresa; informe completo en
+`public/audio/real/sync-drift-v2.2.json`): S2 l2 +0,68 · S7 chip
+ADVIRTIÓ +0,73 / tarjeta +1,10 / l1 +0,90 / l3 +0,66 · S8 título
+PENSAR +0,87 (el outlier: el título aparece ~0,9 s antes de la
+palabra). Seguimiento propuesto (NO hecho en V2.2): retocar 3
+constantes de fotograma (S2 l2, S8 leerIn/pensarIn).
+
+### Auditoría V2.2
+`bash audit-v2.2.sh` (rutas `real/` explícitas). La VO original es
+la concatenación de los 9 archivos grabados (54,12 s, sin solapes):
+si se colocaran en los slots, las colas/cabezas con tono de sala se
+solaparían y el check (c) mediría la voz de la línea vecina en los
+puntos de corte (eso dio un FAIL espurio en la primera corrida del
+constructor: L7 corte fin @ 39,13 s). El edit-plan expresa las
+coordenadas originales en esa concatenación.
+
+## V2.2 — ENTREGA (18-nov-2026, rama `work/marti-fidel-v2`)
+
+Render por tramos (10 tramos, 1447/1447 f) + `master.py`:
+- Máster `out/marti-fidel-v2.2_MASTER.mp4`: 19.796.494 B, SHA-256
+  `222a1cb8cac60af49639e94ed8ff913bfdc17d33b74ba0ad447f3a6bee1fa651`,
+  1080×1920, 1447 f, −15,8 LUFS, TP −3,7 dBTP.
+- Ligera `out/marti-fidel-v2.2_LIGERO.mp4`: 3.002.943 B, SHA-256
+  `a58f2bdeaeb28acbc122349fc517773c1648fd410bb3f7613426b621efd3a0f9`,
+  720×1280, 1447 f, −15,9 LUFS, TP −3,8 dBTP.
+- Mezcla `public/audio/real/mix-v2.2.wav`: SHA-256
+  `692e9bbc03f1b27b8b210f5f5fb5cd536f03c4c62504c02807631a9b3d8d0723`
+  (PASS_REAL, −15,8 LUFS, TP −1,5). VO editada SHA-256
+  `03ca692224255316992b4ad67d566678d1287214bf7972993a5432d6eff0481e`.
+
+QA técnico (`qa-media.mjs --mode full`): passed, 0 advertencias, 0
+fallos (1447 f, fps 29,93, audio presente, decodificación OK, sin
+intervalos negros; deriva de duración 0,159 s, la conocida del
+render por tramos).
+
+Auditoría de audio (`bash audit-v2.2.sh`, informe
+`reports/audio-audit-v2.2.*`): **0 FAIL, 131 WARN, 9 PASS, 36 INFO**
+— mismo veredicto que V2.1 (0 FAIL, 135 WARN). Alineación
+karaoke/onset acústico: media 0,057 s, máx 0,091 s (límite 0,15 s);
+karaoke/voz limpia 0,000 s. WARNs benignos: 71 (g) sesgo Whisper
+sobre el máster (media +0,22 s, sistemático conocido), 57 (b)
+captions cortos del habla rápida natural (sin efecto visual en
+BottomKaraoke), 2 (c) «Y»/«EN» de L7 sin energía sostenida sobre
+−40 dB (la fusión «yen» tragada, tal como la grabó la locutora;
+línea aprobada de oído por el usuario), 1 (f) bombeo del ducking
+12,4 dB (la voz real tiene más rango dinámico que Kokoro; V1.5
+entregó con 9,1 dB; es WARN, sin umbral FAIL).
+
+Correcciones tras la primera corrida (3 FAIL → 0 FAIL, sin
+re-render: ningún inicio de caption cambió):
+1. (b) Hueco 0,40 s entre «2005,» y «FIDEL» con voz encima: Whisper
+   cortó la cola «-cinco» (la voz real llega a ~31,95 s editado, con
+   harmonicidad 0,64 en el hueco). Fin de «2005,» 2,60→2,75 en el
+   manifiesto; hueco resultante 0,25 s.
+2. (c) «EL» exprimida (0,10 s vs 0,13 s esperados): artefacto de
+   umbral −40 dB entre el archivo crudo y el normalizado (el onset
+   cruza 22 ms más tarde tras loudnorm; la palabra está íntegra,
+   factor 1,0, sin cortes cerca). Fin de «el» 3,38→3,44 (offset
+   acústico incl. la transición a «Caribe»); ratio 0,82 > 0,80.
+   Añade 1 solape WARN (b) de 0,06 s, sin efecto visual.
+3. (e) Pausa inesperada 0,39 s @ 24,75–25,14 (la pausa de dos puntos
+   tras «dicho:» en L6). El constructor ahora registra TODAS las
+   pausas naturales intra-línea ≥0,20 s como `merged_gaps` del plan
+   (antes solo las que rodeaban un corte); el umbral 0,20 s cubre el
+   desliz entre bordes Whisper y detector de silencio.

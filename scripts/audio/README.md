@@ -67,6 +67,33 @@ Lecciones codificadas (verificadas 17-nov-2026, reel marti-fidel):
 - El bombeo del ducking se mide en la curva de ganancia del sidechain:
   con threshold 0,018/ratio 7 la música varía ~20 dB dentro de cada
   frase; con threshold 0,08/ratio 5/release 250 ms, ~9 dB.
+
+## Verificación de líneas de voz (`verify-vo-lines.py`)
+
+```bash
+python3 scripts/audio/verify-vo-lines.py \
+    --script projects/marti-fidel/vo-captions-v2.json \
+    --transcription research/vo-real-transcripts-2026-11-18.json
+# Salida: MATCH / INCIERTO / DISCREPANCIA por línea.
+# Código 0 = sin DISCREPANCIA; 2 = alguna DISCREPANCIA (revisión humana).
+```
+
+Compara la transcripción ASR con el guion CONOCIDO usando alineación
+difusa (difflib), normalización de números en español («treinta y
+tres» → 33) y detección de fusiones («Martí ya» → «Martilla»).
+INCIERTO = discrepancia de una sola palabra, palabra de baja
+probabilidad ASR o fusión/tragado sospechoso → «verificar de oído»,
+NUNCA un veredicto de regrabar por sí solo. DISCREPANCIA = palabras
+faltantes o sobrantes claras con contexto ASR de alta confianza.
+
+Lección del 18-nov-2026 (caso Martí-Fidel, NO olvidar): faster-whisper
+(small y base) y la transcripción automática coincidieron en TRES
+errores que NO existían («advertencia»→«pertenencia», «un pueblo»→
+«el pueblo», la «a» de «condenado a volverla» tragada). El habla
+rápida cubana engaña al ASR; el acuerdo entre sistemas NO es
+evidencia de error real. El oído humano es el desempate. Self-test
+con los casos del 18-nov: `python3 scripts/audio/verify-vo-lines.py
+--self-test` (9/9).
 | `diarize.py` | **Separar voces (16-nov-2026):** quién habla cuándo, con sherpa-onnx 2.0.1 (segmentación pyannote-3.0 + embedding 3D-Speaker ERes2Net, ONNX, 100 % local, sin cuenta ni token). `--speakers 2` para el diálogo de las dos presentadoras del Memorial. Modelos en `<hub>/.sherpa-models/` (46 MB). Salida JSON con segmentos {start, end, speaker}. |
 
 ## Diarización (`diarize.py`)

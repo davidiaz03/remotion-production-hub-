@@ -1,0 +1,743 @@
+{
+ "lines": [
+  {
+   "cuts": [
+    [
+     2.75,
+     2.95
+    ]
+   ],
+   "file": "1.1_0_8puo.wav",
+   "head": 1.0,
+   "linea": 1,
+   "start": 0.0,
+   "stretch": 1.0,
+   "tail": 4.75,
+   "words": [
+    [
+     "En",
+     1.05,
+     1.2
+    ],
+    [
+     "1891,",
+     1.2,
+     2.6
+    ],
+    [
+     "Martí",
+     3.05,
+     3.46
+    ],
+    [
+     "escribió",
+     3.46,
+     3.86
+    ],
+    [
+     "una",
+     3.86,
+     3.94
+    ],
+    [
+     "advertencia.",
+     3.94,
+     4.65
+    ]
+   ]
+  },
+  {
+   "cuts": [
+    [
+     2.8,
+     3.0
+    ]
+   ],
+   "file": "2_8_2eq5.wav",
+   "head": 1.05,
+   "linea": 2,
+   "start": 4.059,
+   "stretch": 1.0,
+   "tail": 4.25,
+   "words": [
+    [
+     "Es",
+     1.15,
+     1.44
+    ],
+    [
+     "la",
+     1.44,
+     1.68
+    ],
+    [
+     "hora",
+     1.68,
+     1.86
+    ],
+    [
+     "del",
+     1.86,
+     2.04
+    ],
+    [
+     "recuento,",
+     2.04,
+     2.64
+    ],
+    [
+     "y",
+     3.1,
+     3.22
+    ],
+    [
+     "de",
+     3.22,
+     3.32
+    ],
+    [
+     "la",
+     3.32,
+     3.44
+    ],
+    [
+     "marcha",
+     3.44,
+     3.82
+    ],
+    [
+     "unida.",
+     3.82,
+     4.08
+    ]
+   ]
+  },
+  {
+   "cuts": [
+    [
+     1.55,
+     1.7
+    ],
+    [
+     2.85,
+     3.05
+    ],
+    [
+     4.05,
+     4.3
+    ]
+   ],
+   "file": "3_7_ctxi.wav",
+   "head": 1.05,
+   "linea": 3,
+   "start": 7.738,
+   "stretch": 1.05,
+   "tail": 7.35,
+   "words": [
+    [
+     "Hoy,",
+     1.15,
+     1.45
+    ],
+    [
+     "en",
+     1.8,
+     1.98
+    ],
+    [
+     "nuestra",
+     1.98,
+     2.16
+    ],
+    [
+     "América,",
+     2.16,
+     2.64
+    ],
+    [
+     "el",
+     3.1,
+     3.28
+    ],
+    [
+     "mapa",
+     3.28,
+     3.46
+    ],
+    [
+     "cambió:",
+     3.46,
+     3.98
+    ],
+    [
+     "diecinueve",
+     4.4,
+     4.78
+    ],
+    [
+     "gobiernos",
+     4.78,
+     5.42
+    ],
+    [
+     "se",
+     5.42,
+     5.6
+    ],
+    [
+     "apartaron",
+     5.6,
+     6.02
+    ],
+    [
+     "de",
+     6.02,
+     6.16
+    ],
+    [
+     "la",
+     6.16,
+     6.26
+    ],
+    [
+     "posición",
+     6.26,
+     6.62
+    ],
+    [
+     "común.",
+     6.62,
+     7.1
+    ]
+   ]
+  },
+  {
+   "cuts": [],
+   "file": "4_6_gi2m.wav",
+   "head": 0.85,
+   "linea": 4,
+   "start": 13.364,
+   "stretch": 1.0,
+   "tail": 4.85,
+   "words": [
+    [
+     "Por",
+     0.95,
+     1.15
+    ],
+    [
+     "primera",
+     1.15,
+     1.4
+    ],
+    [
+     "vez",
+     1.4,
+     1.7
+    ],
+    [
+     "en",
+     1.7,
+     1.88
+    ],
+    [
+     "treinta",
+     1.88,
+     2.14
+    ],
+    [
+     "y",
+     2.14,
+     2.2
+    ],
+    [
+     "tres",
+     2.2,
+     2.4
+    ],
+    [
+     "años,",
+     2.4,
+     2.86
+    ],
+    [
+     "el",
+     3.32,
+     3.44
+    ],
+    [
+     "Caribe",
+     3.38,
+     3.72
+    ],
+    [
+     "dejó",
+     3.72,
+     4.02
+    ],
+    [
+     "de",
+     4.02,
+     4.06
+    ],
+    [
+     "votar",
+     4.06,
+     4.38
+    ],
+    [
+     "unido.",
+     4.38,
+     4.7
+    ]
+   ]
+  },
+  {
+   "cuts": [],
+   "file": "5_5_vxvn.wav",
+   "head": 0.6,
+   "linea": 5,
+   "start": 17.859,
+   "stretch": 1.0,
+   "tail": 5.55,
+   "words": [
+    [
+     "Y",
+     0.8,
+     1.16
+    ],
+    [
+     "un",
+     1.16,
+     1.26
+    ],
+    [
+     "primer",
+     1.26,
+     1.54
+    ],
+    [
+     "ministro",
+     1.54,
+     2.04
+    ],
+    [
+     "lo",
+     2.04,
+     2.16
+    ],
+    [
+     "contó",
+     2.16,
+     2.44
+    ],
+    [
+     "en",
+     2.44,
+     2.5
+    ],
+    [
+     "la",
+     2.5,
+     2.6
+    ],
+    [
+     "radio:",
+     2.6,
+     2.98
+    ],
+    [
+     "Washington",
+     3.28,
+     3.72
+    ],
+    [
+     "lo",
+     3.72,
+     3.98
+    ],
+    [
+     "llamó",
+     3.98,
+     4.24
+    ],
+    [
+     "para",
+     4.24,
+     4.42
+    ],
+    [
+     "que",
+     4.42,
+     4.54
+    ],
+    [
+     "cambiara",
+     4.54,
+     4.92
+    ],
+    [
+     "su",
+     4.92,
+     5.12
+    ],
+    [
+     "voto.",
+     5.12,
+     5.45
+    ]
+   ]
+  },
+  {
+   "cuts": [],
+   "file": "6_4_5ftw.wav",
+   "head": 1.3,
+   "linea": 6,
+   "start": 23.356,
+   "stretch": 1.0,
+   "tail": 7.3,
+   "words": [
+    [
+     "Martí",
+     1.4,
+     1.8
+    ],
+    [
+     "ya",
+     1.8,
+     1.94
+    ],
+    [
+     "lo",
+     1.94,
+     2.1
+    ],
+    [
+     "había",
+     2.1,
+     2.28
+    ],
+    [
+     "dicho:",
+     2.28,
+     2.6
+    ],
+    [
+     "¡los",
+     3.12,
+     3.3
+    ],
+    [
+     "árboles",
+     3.3,
+     3.72
+    ],
+    [
+     "se",
+     3.72,
+     3.94
+    ],
+    [
+     "han",
+     3.94,
+     4.02
+    ],
+    [
+     "de",
+     4.02,
+     4.12
+    ],
+    [
+     "poner",
+     4.12,
+     4.28
+    ],
+    [
+     "en",
+     4.28,
+     4.48
+    ],
+    [
+     "fila,",
+     4.48,
+     4.9
+    ],
+    [
+     "para",
+     5.1,
+     5.24
+    ],
+    [
+     "que",
+     5.24,
+     5.36
+    ],
+    [
+     "no",
+     5.36,
+     5.48
+    ],
+    [
+     "pase",
+     5.48,
+     5.74
+    ],
+    [
+     "el",
+     5.74,
+     5.9
+    ],
+    [
+     "gigante",
+     5.9,
+     6.32
+    ],
+    [
+     "de",
+     6.32,
+     6.44
+    ],
+    [
+     "las",
+     6.44,
+     6.56
+    ],
+    [
+     "siete",
+     6.56,
+     6.78
+    ],
+    [
+     "leguas!",
+     6.78,
+     7.15
+    ]
+   ]
+  },
+  {
+   "cuts": [
+    [
+     3.95,
+     4.2
+    ],
+    [
+     6.2,
+     6.35
+    ]
+   ],
+   "file": "7_3_2iph.wav",
+   "head": 1.25,
+   "linea": 7,
+   "start": 30.432,
+   "stretch": 1.0,
+   "tail": 8.65,
+   "words": [
+    [
+     "Y",
+     1.35,
+     1.42
+    ],
+    [
+     "en",
+     1.42,
+     1.5
+    ],
+    [
+     "2005,",
+     1.8,
+     2.75
+    ],
+    [
+     "Fidel",
+     3.0,
+     3.45
+    ],
+    [
+     "advirtió:",
+     3.45,
+     3.9
+    ],
+    [
+     "No",
+     4.4,
+     4.54
+    ],
+    [
+     "es",
+     4.54,
+     4.66
+    ],
+    [
+     "lo",
+     4.66,
+     4.76
+    ],
+    [
+     "mismo",
+     4.76,
+     5.02
+    ],
+    [
+     "estar",
+     5.02,
+     5.3
+    ],
+    [
+     "desinformado",
+     5.3,
+     6.14
+    ],
+    [
+     "que",
+     6.5,
+     6.65
+    ],
+    [
+     "haber",
+     6.65,
+     6.85
+    ],
+    [
+     "perdido",
+     6.85,
+     7.3
+    ],
+    [
+     "la",
+     7.3,
+     7.42
+    ],
+    [
+     "capacidad",
+     7.42,
+     7.82
+    ],
+    [
+     "de",
+     7.82,
+     8.12
+    ],
+    [
+     "pensar.",
+     8.12,
+     8.5
+    ]
+   ]
+  },
+  {
+   "cuts": [
+    [
+     3.05,
+     3.2
+    ]
+   ],
+   "file": "8_2_5gsl.wav",
+   "head": 1.0,
+   "linea": 8,
+   "start": 37.836,
+   "stretch": 1.0,
+   "tail": 5.2,
+   "words": [
+    [
+     "Cuando",
+     1.1,
+     1.45
+    ],
+    [
+     "un",
+     1.45,
+     1.58
+    ],
+    [
+     "pueblo",
+     1.58,
+     1.85
+    ],
+    [
+     "olvida",
+     1.85,
+     2.28
+    ],
+    [
+     "su",
+     2.28,
+     2.46
+    ],
+    [
+     "historia,",
+     2.46,
+     2.95
+    ],
+    [
+     "está",
+     3.35,
+     3.64
+    ],
+    [
+     "condenado",
+     3.64,
+     4.06
+    ],
+    [
+     "a",
+     4.06,
+     4.16
+    ],
+    [
+     "volverla",
+     4.16,
+     4.66
+    ],
+    [
+     "a",
+     4.66,
+     4.7
+    ],
+    [
+     "vivir.",
+     4.7,
+     4.95
+    ]
+   ]
+  },
+  {
+   "cuts": [
+    [
+     1.8,
+     2.2
+    ]
+   ],
+   "file": "9_1_ije7.wav",
+   "head": 0.8,
+   "linea": 9,
+   "start": 43.069,
+   "stretch": 1.03,
+   "tail": 3.1,
+   "words": [
+    [
+     "Leer.",
+     0.9,
+     1.75
+    ],
+    [
+     "Pensar.",
+     2.4,
+     3.0
+    ]
+   ]
+  }
+ ],
+ "notes": [
+  "Los tiempos de palabra son los de faster-whisper CORREGIDOS por sobre acústico (RMS 0,1 s): Whisper desplaza los bordes de la primera palabra al 0,0 del archivo y funde palabras en el habla rápida cubana ('Martí ya' -> 'Martilla', 'Fidel advirtió' -> 'Fidelad virtió', '33' -> una sola palabra, 'a' tragada en 'condenado a volverla').",
+  "El texto es SIEMPRE el guion (advertencia, un pueblo, condenado a volverla a vivir), no lo que Whisper creyó oír. Ver scripts/audio/verify-vo-lines.py (lección 18-nov-2026).",
+  "head/tail/cuts en segundos, coordenadas del archivo .wav original. Los cortes caen en pausas medidas (sobre <-38 dB) y fueron verificados contra el criterio de la auditoría (RMS > -45 dB y armonicidad > 0,4 en los 50 ms del lado descartado = FAIL): ningún punto de corte es FAIL-RISK.",
+  "stretch: atempo. Solo L3 (1.05x) y L9 (1.03x) lo necesitan; el resto va a 1.0. Máximo autorizado por el usuario: ~1.08x.",
+  "start: inicio de línea en la línea de tiempo final = inicios V2 (el montaje NO se re-temporiza)."
+ ],
+ "sources": {
+  "originals": "~/workspace/user/files/*.aac",
+  "research_dir": "/home/hatch/workspace/remotion-hub/projects/marti-fidel/research",
+  "transcripts": "vo-real-transcripts-2026-11-18.json"
+ },
+ "version": "V2.2 — voz real de la locutora (9 líneas aprobadas 18-nov-2026)"
+}
