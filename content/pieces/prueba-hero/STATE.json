@@ -1,0 +1,75 @@
+{
+  "schema": "content-hub.state/v1",
+  "slug": "prueba-hero",
+  "template": "post",
+  "title": "Prueba: post con imagen generada + duotono",
+  "createdAt": "2026-11-18T02:30:02.788Z",
+  "pipeline": {
+    "phases": {
+      "brief": {
+        "status": "done",
+        "startedAt": "2026-11-18T02:30:02.788Z",
+        "updatedAt": "2026-11-18T02:37:03.207Z",
+        "artifacts": [],
+        "note": "Brief completo (pieza de prueba)"
+      },
+      "draft": {
+        "status": "done",
+        "startedAt": "2026-11-18T02:30:22.169Z",
+        "updatedAt": "2026-11-18T02:31:17.182Z",
+        "artifacts": [
+          "prueba-hero.png",
+          "prueba-hero-light.jpg"
+        ],
+        "note": ""
+      },
+      "review": {
+        "status": "done",
+        "startedAt": "2026-11-18T02:30:22.261Z",
+        "updatedAt": "2026-11-18T02:37:00.804Z",
+        "artifacts": [],
+        "note": "QA visual superado 17-nov-2026 (pieza de prueba, no para publicar)"
+      },
+      "export": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-18T02:30:02.788Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-18T02:30:02.788Z",
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-18T02:30:02.788Z",
+        "phase": "brief",
+        "event": "Pieza creada",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-18T02:30:22.169Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "prueba-hero.png",
+          "prueba-hero-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-18T02:31:17.182Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "prueba-hero.png",
+          "prueba-hero-light.jpg"
+        ]
+      }
+    ]
+  }
+}
