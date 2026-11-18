@@ -926,6 +926,166 @@ Revisión por escenas en 20 stills del máster:
   se quiebra en el video (f1436 intacta → f1442 quebrada). Sincronía
   dentro de ±0,1 s: aceptada.
 
+## V2.1 (18-nov-2026) — AUDITORÍA DE OFICIO vs. REELS DE 2026 + MEJORAS
+
+**Disparador:** el usuario (18-nov 13:15) pidió auditar la V2 contra los
+reels de hoy en día, buscar referencias propias y más recursos visuales;
+pasó como referencia @unkindtruth_ «Eight pages»
+(https://www.instagram.com/reel/Df317YHBF8C/ — 58,7K likes, 76 s).
+**El enfoque editorial aprobado por Suleris NO se toca:** mismo guion,
+misma estructura, misma tesis. Solo oficio visual/sonoro.
+Referencias completas en
+`~/workspace/remotion-hub/projects/marti-fidel/research/ref-audit-2026-11-18.md`
+(5 casos vistos: Unkind Truth + NOVA/PBS Chauvet + MapSody Fall Line +
+60SecHistory Chernobyl + Agensea Spartakiáda).
+
+### Auditoría de la V2 (16 stills del máster, 0,5–47 s)
+
+**A la altura de 2026:**
+- Sistema documental oscuro coherente; logotipo completo legible desde
+  el fotograma 0; ningún texto cruza caras; karaoke con palabra clave
+  en rojo, sincronizado.
+- Gancho fuerte (Martí + «1891» gigante) y tesis tipográfica limpia.
+- El mapa con reveal secuencial por grupos y la tarjeta «33 / ROTA»
+  como evidencia son recursos de nivel (patrón MapSody/Agensea).
+
+**Lo que se queda corto (priorizado):**
+1. **Sin motivo visual sostenido:** 9 escenas sin hilo — retrato →
+   retrato → mapa → tarjeta numérica → micrófono → retrato → retrato →
+   texto → sting. Las 5 referencias sostienen UN mundo visual todo el
+   reel (libro, cueva, mapa, estadio, reactor). La V2 es un collage.
+2. **Retratos y mapa estáticos:** los push-ins 1→1,04/1,06 existen pero
+   son solo escala, sin deriva, y a simple vista los planos parecen
+   fijos (0,5 s vs 2 s idénticos). El mapa no se mueve en absoluto.
+   NOVA/MapSody demuestran que la cámara debe derivar siempre.
+3. **Fondos planos sin textura:** NAVY/NAVY2 lisos en mapa, «33» y
+   tesis; sin grano, sin viñeta, sin atmósfera. El archivo se presenta
+   en crudo, sin tratamiento cinematográfico.
+4. **Transiciones duras en todos los actos:** 8 cortes secos, incluidos
+   los saltos de paleta sepia↔navy (S2→S3, S5→S6), que se sienten como
+   cambio de video.
+5. **Tipografía sin jerarquía de objeto:** las citas van como rótulo
+   con sombra sobre la foto (S2/S6/S7); la lista del mapa (27 px) es
+   densa y pequeña; la tarjeta de Browne compite con el «19 GOBIERNOS»
+   y el micrófono en el mismo fotograma.
+6. **Sonido:** la mezcla V2 ya pone la voz por encima (ducking
+   0,08/5/250 ms, música 0,38; auditoría 0 FAIL). La medición del
+   máster confirma voz dominante (ver §V2.1 mezcla). No se re-abre la
+   cadena de audio: el cambio sería marginal y obligaría a re-validar
+   los parches.
+
+### Mejoras V2.1 (aplicadas; mismo guion, mismos tiempos, misma tesis)
+
+1. **Motivo recurrente — «el manuscrito»:** el reel trata de un
+   ensayo, así que el ensayo es el objeto: las citas (S2/S6/S7) van
+   sobre una tarjeta de papel envejecido (textura procedural propia,
+   crema, con regla de margen roja a la izquierda y folio «NUESTRA
+   AMÉRICA · 1891» / «CIEN HORAS · 2005»); el «1891» del gancho va
+   sobre una banda-folio de papel; la tesis (S8) va sobre la misma
+   textura oscurecida (la página de cierre del ensayo); S4 lleva la
+   regla de margen roja como eco. NO es el libro de Unkind Truth: no
+   hay libro, ni páginas que pasan, ni escritorio — es un sistema de
+   textura + margen, tratamiento propio.
+2. **Movimiento cinematográfico lento:** deriva (translate ±10–15 px)
+   añadida a los push-ins de todos los retratos (rango a 1,08 en
+   S1/S6/S7); cámara de mapa en movimiento continuo (zoom 1,0→1,07 +
+   paneo hacia el Caribe durante S3, con overlays/puntos/anillo dentro
+   del mismo contenedor para no desalinear nada); deriva en el
+   micrófono de S5.
+3. **Paso de textura global:** grano de película procedural (8 tiles,
+   ciclo 12 fps, opacidad 0,05, blend overlay) + viñeta sutil en
+   f0–1356 (no en el sting, que es la animación oficial).
+4. **Transiciones:** fundidos cruzados de 12 f en S1→S2, S2→S3,
+   S5→S6, S6→S7 y S7→S8 (la escena entrante hace fade-in sobre la
+   saliente, que se extiende 12 f). Cortes duros solo donde la voz da
+   un golpe: S3→S4 y S4→S5 (tarjetas numéricas).
+5. **Tipografía con más jerarquía y calma:** citas sobre papel (mejor
+   contraste, sin sombra sobre foto), interlineado 1,35; lista del
+   mapa a 29 px con scrim suave detrás; tarjeta de Browne con la cita
+   a 40 px.
+6. **Sonido:** se conserva la mezcla V2 íntegra (misma VO, misma
+   música, mismos SFX, mismos parches). Verificación: la auditoría de
+   audio se re-corre sobre el máster V2.1 (obligatorio) y el escaneo
+   RMS del máster confirma los parches.
+
+**Descartado (con motivo):**
+- Re-mezclar con la música más baja (0,38→0,33): la voz ya domina por
+  el ducking; bajar la música empuja ventanas de pausa bajo el suelo
+  −32 dBFS y obligaría a re-parchear y re-validar toda la cadena por
+  una ganancia marginal.
+- Presentador a cámara: no hay material; las referencias sin
+  presentador (NOVA, MapSody, 60SecHistory) demuestran que el formato
+  faceless rinde.
+- Libro animado como motivo: sería copiar el referente del usuario.
+- Viñetas ilustradas estilo MapSody para el retroceso: el mapa real
+  con datos verificados es más creíble que una ilustración y la
+  directora prohibió que las cifras dominen; el mapa ya es la
+  evidencia.
+
+### Recursos visuales nuevos V2.1 (procedencia y licencia)
+
+| Asset | Procedencia / licencia | Uso |
+|---|---|---|
+| `img/paper-manuscript.png` (1080×1920) + `img/paper-manuscript-dark.png` | Textura procedural generada con PIL/numpy (base crema + fibras + manchas + grano; creación propia, sin licencia de terceros) | Tarjetas de citas S2/S6/S7, banda-folio S1, fondo tesis S8 |
+| `img/grain/grain-0..7.png` (270×480) | Ruido procedural generado con PIL/numpy (creación propia) | Grano de película global, ciclo 12 fps, opacidad 0,05 |
+| `img/marti-loc-half.jpg` (3110×3934) | Library of Congress, LC-USZ62-113376: «José Martí, national hero of Cuba, half-length portrait, facing left», halftone 1890–1920; `unrestricted: true`, sin aviso de derechos — dominio público. Máster TIFF 3272×4096 descargado de tile.loc.gov; recortado el borde del negativo y contraste +8%. Sepia 0,35 en el reel para unificar con S1/S2. | Retrato de S6 (sustituye al busto de Jamaica, que se repetía de S1) |
+| `img/revista-ilustrada-1891.jpg` (900×1348) | Portada de *La Revista Ilustrada de Nueva York*, Vol. 5 No. 1, NUEVA YORK, ENERO DE 1891 — «Nuestra América» primera en el SUMARIO. Facsímil del Portal José Martí (josemarti.cu/album/facsimiles, Imagen 35), Colección Memorial José Martí; obra de 1891 = dominio público. Original 450×674, upscale 2× Lanczos + sharpen leve. | Documento que asoma en S2 (arriba derecha, inclinado −3°) |
+
+## V2.1 — ENTREGA (18-nov-2026, rama `work/marti-fidel-v2`)
+
+Máster V2.1 + ligera, renderizados desde `MainReelV21`
+(`src/VideoV21.tsx`, 1447 f = 48,23 s; `src/VideoV2.tsx` intacta).
+Misma VO Kokoro, misma mezcla `audio/v2/mix-v2.wav`, mismo guion y
+misma tesis que V2. Render por tramos: 10 chunks de 150 f
+(`out/chunks-v21/`, concat 1447/1447 f ✓).
+
+- Máster: `out/marti-fidel-v2.1_MASTER.mp4` — 19.788.669 B, SHA-256
+  `7820801260386ae6cada5d7daf759cf5de68483e7f017f98205aa9e55b6aa37e`
+  (mayor que V2 por el grano de película: el ruido no comprime).
+- Ligera: `out/marti-fidel-v2.1_LIGERO.mp4` — 2.991.034 B, SHA-256
+  `aebecf9c989b737dad95c1a77729259bd0d0689c0c66e6dfbec6329badde1969`
+- Los másteres V2 (`bf82f772…2e78` / `d854f2c8…6e0d`) y V1.5.1
+  (`75adcbc8…b9a8` / `b2884c31…337`) quedan INTACTOS (hashes
+  verificados antes de renderizar).
+- QA full `qa-media.mjs --mode full`: **passed** — 1447/1447 f,
+  1080×1920, −15,8 LUFS, TP −2,3 dBTP, sin silencio inicial/final,
+  sin intervalos negros, **0 advertencias** (la V2 tenía 1: el
+  intervalo oscuro 7,79–7,89 s del corte S2→S3, eliminado por los
+  fundidos).
+- Verificación visual: 10 stills pre-render (f60–f1400: gancho,
+  disolución S1→S2, recuento, mapa, 33/ROTA, Browne, árboles LoC,
+  Fidel, tesis, sting) + 10 fotogramas del máster
+  (`audit-frames/v21/`, 2–47 s) — todos correctos; logo completo
+  legible desde el fotograma 0; sin texto sobre caras; puntos del
+  mapa alineados con la cámara en movimiento.
+- Escaneo RMS del máster (ventanas 0,25 s): **sin parche** — la
+  ventana 7,50–7,75 s mide −31,5 dBFS (sobre el suelo −32; la V2
+  necesitó +4 dB ahí porque medía −33,1). La única ventana bajo
+  el suelo es 3,75 s (−35,3), idéntica a la del máster V2
+  entregado (−35,5): pausa diseñada entre L1 y L2, no regresión.
+- Auditoría de audio `audit-v21.sh` (`--tag v2.1`): **0 FAIL**
+  (9 PASS, 135 WARN, 26 INFO; `reports/audio-audit-v2.1.{json,md}`).
+  PASS en (a) guion↔karaoke 1:1 (117 palabras), (c) VO íntegra,
+  (d) sin stretch, (e) 13 pausas diseñadas, (f) suelo −32 dBFS en
+  la mezcla, (g) alineación karaoke/onset acústico media 0,027 s,
+  máx 0,11 s (idéntica a V2) y máster −15,8 LUFS / TP −2,3 dBTP
+  sin silencios, (h). Los 135 WARN son los benignos conocidos:
+  56 de duraciones cortas de caption (igual que V2), 1 de bombeo
+  del ducking 6,6 dB (igual que V2, misma mezcla) y 78 de desvío
+  karaoke/voz en el máster según Whisper (±0,16–0,28 s; la
+  alineación autoritativa es la acústica, que pasa con los mismos
+  valores que V2 — Whisper sobre el máster mezclado tiene sesgo
+  de bordes; en V2 fueron 3, aquí 78 por la variabilidad de la
+  transcripción, sin cambio en la evidencia acústica).
+
+**Corrección de auditoría V2.1 (primera corrida: 127 FAIL):**
+- La primera corrida no pasaba `--transcription-edited`, así que
+  el chequeo (g) cargó por defecto la transcripción V1
+  («El 28 de octubre, la ONU votó…») contra la predicción V2 →
+  127 FAIL espurios. En V2.1 hay que pasar AMBAS transcripciones
+  con la ruta V2 (orig == edited, sin edición). `audit-v21.sh`
+  ya lo hace; no usar `audit-marti-fidel.sh` (apunta a V1).
+
 ## V2 — ENTREGA (18-nov-2026, rama `work/marti-fidel-v2`)
 
 Máster V2 + ligera, renderizados desde `MainReelV2` (`src/VideoV2.tsx`,
