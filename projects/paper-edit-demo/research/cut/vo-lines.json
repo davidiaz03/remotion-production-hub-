@@ -1,0 +1,38 @@
+{
+ "samplerate": 48000,
+ "voice": "paper-edit",
+ "source": "rough-cut",
+ "totalDuration": 28.73,
+ "lines": [
+  {
+   "start": 0.01,
+   "end": 3.01,
+   "text": "Y el 4 de febrero del año 74,"
+  },
+  {
+   "start": 3.2,
+   "end": 6.48,
+   "text": "Y fui para allá, eso fue el lunes 4 de febrero."
+  },
+  {
+   "start": 6.267,
+   "end": 10.107,
+   "text": "Bueno, me senté detrás de un libro y empecé a abrir la correspondencia."
+  },
+  {
+   "start": 9.933,
+   "end": 17.153,
+   "text": "Me tope con un paquético que el remitente decía, Fernández Sociedad Anónima, procedente de México."
+  },
+  {
+   "start": 17.033,
+   "end": 27.153,
+   "text": "sentí una explosión, pero no pensé nunca, bueno, en aquel momento, no pensé que era una explosión ni nada, pensé que a lo mejor era un petardo, alguien,"
+  },
+  {
+   "start": 27.253,
+   "end": 28.413,
+   "text": "una broma de algún lugar."
+  }
+ ]
+}

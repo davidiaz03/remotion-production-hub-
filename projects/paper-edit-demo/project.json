@@ -1,0 +1,16 @@
+{
+  "assets": {
+    "manifest": "asset-manifest.json",
+    "mode": "manifest"
+  },
+  "audioRequired": true,
+  "compositionId": "QuietReel",
+  "crf": 19,
+  "drivePath": "Remotion Production/projects/paper-edit-demo",
+  "durationInFrames": 953,
+  "fps": 30,
+  "height": 1920,
+  "id": "paper-edit-demo",
+  "title": "Prueba edición en papel",
+  "width": 1080
+}

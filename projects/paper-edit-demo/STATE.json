@@ -1,0 +1,78 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "paper-edit-demo",
+  "title": "Prueba edición en papel",
+  "objective": "Prueba edición en papel",
+  "phase": "editing",
+  "compositionId": "QuietReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [],
+  "pending": [],
+  "nextTask": "Transcribir la grabación con paper-edit.py, pedir la selección al usuario, montar con assemble-cut.py --project, renderizar, mezclar con mix.py y auditar con audit-audio.py.",
+  "updatedAt": "2026-11-18T01:50:11.286Z",
+  "pipeline": {
+    "phases": {
+      "assets": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "vo": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "captions": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "mix": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "render": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": "",
+        "chunks": {
+          "total": 0,
+          "done": 0,
+          "completed": [],
+          "framesDone": 0,
+          "framesTotal": 0,
+          "percent": 0,
+          "chunkSize": 150,
+          "resumeCommand": ""
+        }
+      },
+      "qa": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": []
+  }
+}

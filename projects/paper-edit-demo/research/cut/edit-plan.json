@@ -1,0 +1,76 @@
+{
+ "kind": "paper-edit",
+ "pad": 0.03,
+ "lines": [
+  {
+   "linea": 1,
+   "factor_uniforme": 1.0,
+   "segs": [
+    {
+     "orig_start": 16.57,
+     "orig_end": 20.07,
+     "edited_start": 0.0,
+     "edited_end": 3.5,
+     "prev_phrase_gap": 0.79,
+     "next_phrase_gap": 1.05
+    }
+   ]
+  },
+  {
+   "linea": 2,
+   "factor_uniforme": 1.0,
+   "segs": [
+    {
+     "orig_start": 56.38,
+     "orig_end": 59.73,
+     "edited_start": 3.2,
+     "edited_end": 6.567,
+     "prev_phrase_gap": 1.9,
+     "next_phrase_gap": 1.65
+    }
+   ]
+  },
+  {
+   "linea": 3,
+   "factor_uniforme": 1.0,
+   "segs": [
+    {
+     "orig_start": 71.72,
+     "orig_end": 75.67,
+     "edited_start": 6.267,
+     "edited_end": 10.233,
+     "prev_phrase_gap": 1.98,
+     "next_phrase_gap": 0.59
+    }
+   ]
+  },
+  {
+   "linea": 4,
+   "factor_uniforme": 1.0,
+   "segs": [
+    {
+     "orig_start": 76.26,
+     "orig_end": 83.65,
+     "edited_start": 9.933,
+     "edited_end": 17.333,
+     "prev_phrase_gap": 0.7,
+     "next_phrase_gap": 0.51
+    }
+   ]
+  },
+  {
+   "linea": 5,
+   "factor_uniforme": 1.0,
+   "segs": [
+    {
+     "orig_start": 112.9,
+     "orig_end": 124.56,
+     "edited_start": 17.033,
+     "edited_end": 28.7,
+     "prev_phrase_gap": 2.96,
+     "next_phrase_gap": 1.46
+    }
+   ]
+  }
+ ]
+}

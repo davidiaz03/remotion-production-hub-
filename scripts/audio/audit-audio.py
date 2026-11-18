@@ -29,10 +29,13 @@ Chequeos (cada uno PASS/WARN/FAIL con timestamps):
   e) Mapa de silencios: pausas >=0,25 s clasificadas (dramática /
      frontera de línea / inesperada en medio de frase).
   f) Música: curva RMS en ventanas de 0,25 s (suelo -32 dBFS fuera de
-     pausas dramáticas), análisis del crossfade entre secciones,
+     pausas dramáticas; -38 dBFS en la cola musical tras la voz),
+     análisis del crossfade entre secciones,
      recuperación del ducking tras cada frase (<=6 dB del nivel sin
      ducking a los 0,25 s) y bombeo (variación de ganancia del
-     sidechain dentro de cada frase).
+     sidechain dentro de cada frase, medida con los parámetros REALES
+     de la mezcla — leídos de mix.wav.json — y la voz normalizada al
+     mismo nivel que el sidechain de la mezcla).
   g) Máster: loudness/TP, silencedetect, onset de voz vs t=0,
      alineación karaoke vs ONSETS ACÚSTICOS de la VO editada
      (autoritaria) y vs voz del máster (Whisper, con su sesgo
@@ -52,6 +55,20 @@ Entradas (rutas por defecto dentro del proyecto):
   public/audio/mix.wav (o --mix)
   out/*_MASTER.mp4 (o --master)
   --section ARCHIVO@INICIO@FIN (música, formato de mix.py)
+
+Proyectos PAPER-EDIT (edición seria de grabaciones): assemble-cut.py
+genera los equivalentes (public/audio/voice-orig.wav,
+voice-edited.wav, research/transcription-selected.json,
+research/edit-plan.json con "kind": "paper-edit") y el módulo los
+levanta solo. Con kind=paper-edit cambian TRES semánticas, porque la
+voz es habla real y no VO guionizada: (c) la voz descartada en un
+corte es INFO (no FAIL) cuando pertenece a la frase vecina excluida
+(hueco < 0,07 s en el plan); (e) las pausas en medio de frase son
+WARN («pausa natural»), no FAIL; (f) todas las pausas naturales
+eximen del suelo RMS, no solo las dramáticas. Además, en cualquier
+proyecto: el fundido final (--end-fade) está exento del suelo, y el
+bombeo se mide solo sobre la región con voz (la liberación del
+ducking tras la última palabra no es bombeo).
 
 Uso:
   python3 scripts/audio/audit-audio.py --project projects/marti-fidel \\
@@ -95,6 +112,7 @@ MIN_DISPLAY_S = 0.10       # (b) duración mínima de visualización (WARN)
 GAP_CLASSIFY_S = 0.35      # (b) hueco entre captions a clasificar
 SYNC_MAX_S = 0.15          # (b,g) desvío máximo karaoke/voz (FAIL)
 RMS_FLOOR_DBFS = -32.0     # (f) suelo de música en la mezcla (FAIL)
+RMS_FLOOR_OUTRO_DBFS = -38.0  # (f) suelo en la cola musical tras la voz
 DUCK_RECOVERY_DB = 6.0     # (f) recuperación del ducking (FAIL)
 DUCK_PUMP_DB = 6.0         # (f) bombeo dentro de una frase (WARN)
 XFADE_DIP_DB = 6.0         # (f) caída en el crossfade (WARN)
@@ -546,6 +564,21 @@ def check_c_vo_integrity(rep: Report, orig_vo, edited_vo, sr: int,
                     continue
                 h = harmonicity(orig_vo, sr, t0, t1)
                 if h > 0.4:
+                    # Paper-edit: si la frase vecina del papel empieza o
+                    # termina a menos de 70 ms del corte, la voz
+                    # descartada es de ESA frase (excluida a propósito),
+                    # no una cola truncada de la frase incluida.
+                    gap = sg.get("prev_phrase_gap") \
+                        if label == "inicio" \
+                        else sg.get("next_phrase_gap")
+                    if gap is not None and gap < 0.07:
+                        rep.add("c", "INFO",
+                                f"corte L{ln['linea']} {label}: la voz "
+                                f"descartada es la frase vecina (hueco "
+                                f"{gap:.2f}s), excluida a propósito — "
+                                f"no es una cola truncada",
+                                t=te)
+                        continue
                     n_cut += 1
                     failed_cuts.add(round(te, 2))
                     rep.add("c", "FAIL",
@@ -688,9 +721,6 @@ def check_d_stretch(rep: Report, edited_vo, sr: int, plan: dict):
         rep.add("d", "INFO", "sin plan de edición: no se puede localizar "
                 "los segmentos con tempo")
         return
-    mag = stft_mag(edited_vo, sr)
-    flux = spectral_flux(mag)
-    hop_s = 512 / sr  # ~10,7 ms por trama
     stretched = [ln for ln in plan["lines"]
                  if ln["factor_uniforme"] > 1.001]
     plain = [ln for ln in plan["lines"]
@@ -698,6 +728,14 @@ def check_d_stretch(rep: Report, edited_vo, sr: int, plan: dict):
     if not stretched:
         rep.add("d", "PASS", "ninguna línea con tempo != 1 (sin stretch)")
         return
+    try:
+        mag = stft_mag(edited_vo, sr)
+    except ImportError as exc:
+        rep.add("d", "INFO", f"sin scipy: no se puede medir flujo espectral "
+                f"({exc}) — instalar scipy o correr con python3 del sistema")
+        return
+    flux = spectral_flux(mag)
+    hop_s = 512 / sr  # ~10,7 ms por trama
     # Baseline de flujo dentro de segmentos SIN stretch.
     base_vals = []
     for ln in plain:
@@ -813,6 +851,10 @@ def check_e_silences(rep: Report, edited_vo, sr: int, plan: dict,
     """(e) Mapa de silencios: pausas >=0,25 s clasificadas."""
     sil = find_silences(edited_vo, sr)
     rep.metrics["e_silences"] = [(s, e, d) for s, e, d in sil]
+    # Paper-edit: la voz es habla real, no VO guionizada; las pausas en
+    # medio de frase son el ritmo natural del hablante, no un defecto
+    # de edición. Se señalan como WARN, no como FAIL.
+    paper_edit = bool(plan) and plan.get("kind") == "paper-edit"
     # Intervalos de pausa DISEÑADOS: huecos entre sub-segmentos y entre
     # líneas (del plan de edición, en tiempo editado), MÁS los huecos
     # internos de los segmentos fusionados (la transición natural
@@ -861,6 +903,11 @@ def check_e_silences(rep: Report, edited_vo, sr: int, plan: dict,
             rep.add("e", "INFO",
                     f"pausa {d:.2f}s @ {s:.2f}-{e:.2f}s ({tag}, {hit})",
                     t=s)
+        elif paper_edit:
+            rep.add("e", "WARN",
+                    f"pausa natural {d:.2f}s @ {s:.2f}-{e:.2f}s en medio "
+                    f"de frase (habla real; en VO guionizada sería FAIL)",
+                    t=s)
         else:
             n_unexp += 1
             rep.add("e", "FAIL",
@@ -873,8 +920,10 @@ def check_e_silences(rep: Report, edited_vo, sr: int, plan: dict,
                     t=s)
     rep.metrics["e_unexpected_pauses"] = n_unexp
     if n_unexp == 0:
+        note = "todas diseñadas o naturales" if paper_edit \
+            else "todas diseñadas"
         rep.add("e", "PASS", f"mapa de silencios: {len(sil)} pausas, "
-                "todas diseñadas")
+                f"{note}")
     return sil
 
 
@@ -914,26 +963,44 @@ def build_music_bed(sections, seconds: float, music_volume: float,
 def check_f_music(rep: Report, mix, bed, edited_vo, sr: int,
                   silences: list, sections, xfade: float,
                   duck_release: float, duck_threshold: float,
-                  duck_ratio: float, sfx_times: list):
+                  duck_ratio: float, sfx_times: list,
+                  seconds: float = 50.23, end_fade: float = 1.0,
+                  paper_edit: bool = False, voice_lufs: float = -18.0):
     """(f) Música: suelo RMS, crossfade, recuperación y bombeo del ducking."""
     # 1) Suelo RMS de la mezcla en ventanas de 0,25 s.
     curve = rms_windows(mix, sr, 0.25)
     rep.metrics["f_mix_rms_curve"] = [(round(t, 2), round(db, 1))
                                       for t, db in curve]
-    # Pausas dramáticas (exentas del suelo): tras «Ganamos» y tras
-    # «Martí dijo…» (detectadas como pausas >=0,4 s en frontera de línea).
+    # Pausas exentas del suelo: las dramáticas (>=0,4 s) en cualquier
+    # proyecto; en paper-edit, TODAS las pausas naturales (la mezcla
+    # baja cuando la voz se detiene: es el habla real, no un hueco).
     dramatic = [(s, e) for s, e, d in silences if d >= 0.4]
+    exempt = [(s, e) for s, e, _d in silences] if paper_edit else dramatic
+    # Fin de la voz (inicio del silencio final, si lo hay): a partir
+    # de ahí +1 s la mezcla es solo música (cierre/sting) y el suelo
+    # baja a -38 dBFS — la decaída natural de la pista hacia el fundido
+    # no es un hueco, pero un silencio digital seguiría siendo FAIL.
+    voice_len = len(edited_vo) / sr if edited_vo is not None else seconds
+    voice_end = voice_len
+    if silences and silences[-1][1] >= voice_len - 0.1:
+        voice_end = silences[-1][0]
+    outro_start = min(seconds, voice_end + 1.0)
     n_low = 0
     for t, db in curve:
-        if t > 47.0:
+        if t > seconds:
             break
-        if db < RMS_FLOOR_DBFS:
-            in_drama = any(s - 0.1 <= t <= e + 0.1 for s, e in dramatic)
-            if not in_drama:
+        # El fundido final baja legítimamente por debajo del suelo.
+        if t + 0.25 > seconds - end_fade:
+            continue
+        floor = RMS_FLOOR_OUTRO_DBFS if t >= outro_start \
+            else RMS_FLOOR_DBFS
+        if db < floor:
+            in_pause = any(s - 0.1 <= t <= e + 0.1 for s, e in exempt)
+            if not in_pause:
                 n_low += 1
                 rep.add("f", "FAIL",
                         f"ventana de mezcla bajo el suelo: {t:.2f}s "
-                        f"RMS {db:.1f} dBFS (< {RMS_FLOOR_DBFS})",
+                        f"RMS {db:.1f} dBFS (< {floor})",
                         t=t)
     rep.metrics["f_windows_below_floor"] = n_low
     # 2) Crossfade entre secciones (sobre la cama, sin VO ni SFX).
@@ -966,7 +1033,7 @@ def check_f_music(rep: Report, mix, bed, edited_vo, sr: int,
     if bed is not None:
         n_slow = 0
         for s, e, d in silences:
-            if d < 0.3 or s < 0.5 or s > 47.0:
+            if d < 0.3 or s < 0.5 or s > seconds:
                 continue
             # Ventana de medida: [+0,25, +0,50] tras el fin de la frase,
             # SIN salirse del silencio (si la pausa es corta, la ventana
@@ -990,12 +1057,49 @@ def check_f_music(rep: Report, mix, bed, edited_vo, sr: int,
                         t=s)
         rep.metrics["f_duck_slow_recovery"] = n_slow
         # 4) Bombeo: curva de ganancia del sidechain en aislamiento.
-        gain_db = ducking_gain_curve(bed, edited_vo, sr, duck_release,
+        # La mezcla usa como sidechain la voz NORMALIZADA (loudnorm a
+        # voice_lufs en mix.py); la VO cruda puede estar 5-8 dB por
+        # encima y la simulación exageraría el ducking. Normalizar
+        # antes de medir (ganancia constante: el sidechain solo ve la
+        # envolvente, que se conserva).
+        rep.add("f", "INFO",
+                f"ducking medido con threshold={duck_threshold} "
+                f"ratio={duck_ratio} release={duck_release} ms, voz "
+                f"normalizada a {voice_lufs} LUFS")
+        voice_sim = edited_vo
+        try:
+            with tempfile.TemporaryDirectory() as td:
+                vp = os.path.join(td, "vo-lufs.wav")
+                import wave
+                w = wave.open(vp, "wb")
+                w.setnchannels(1)
+                w.setsampwidth(2)
+                w.setframerate(sr)
+                w.writeframes(np.clip(np.round(edited_vo * 32767),
+                                      -32768, 32767).astype(np.int16)
+                              .tobytes())
+                w.close()
+                lufs, _tp = ebur128(vp)
+                voice_sim = edited_vo * (10 ** ((voice_lufs - lufs) / 20))
+        except Exception as exc:
+            rep.add("f", "INFO",
+                    f"sin medida LUFS de la voz ({exc}): bombeo medido "
+                    f"con la voz cruda")
+        gain_db = ducking_gain_curve(bed, voice_sim, sr, duck_release,
                                      duck_threshold, duck_ratio)
         if gain_db is not None:
-            # Variación dentro de cada frase (entre pausas).
-            bounds = [0.0] + [e for _s, e, _d in silences if e < 47.0]
-            bounds += [47.0]
+            # Variación dentro de cada frase (entre pausas). El último
+            # intervalo termina donde termina la VOZ (inicio del
+            # silencio final, si lo hay), no donde termina la música:
+            # si no, la liberación del ducking tras la última palabra
+            # (cola musical, cierre) se cuenta como «bombeo».
+            voice_len = len(edited_vo) / sr
+            voice_end = voice_len
+            if silences and silences[-1][1] >= voice_len - 0.1:
+                voice_end = silences[-1][0]
+            final = min(seconds, voice_end)
+            bounds = [0.0] + [e for _s, e, _d in silences if e < final]
+            bounds += [final]
             worst = 0.0
             for a, b in zip(bounds[:-1], bounds[1:]):
                 if b - a < 0.5:
@@ -1376,9 +1480,15 @@ def main() -> int:
     p.add_argument("--sfx", action="append", default=[], type=parse_sfx,
                    help="SFX ARCHIVO@SEGUNDO (repetible)")
     p.add_argument("--music-volume", type=float, default=0.38)
-    p.add_argument("--duck-release", type=float, default=150.0)
-    p.add_argument("--duck-threshold", type=float, default=0.018)
-    p.add_argument("--duck-ratio", type=float, default=7.0)
+    p.add_argument("--duck-release", type=float, default=None,
+                   help="Release del ducking en ms (defecto: el de "
+                        "mix.wav.json; si no lo hay, 150)")
+    p.add_argument("--duck-threshold", type=float, default=None,
+                   help="Umbral del ducking (defecto: el de mix.wav.json;"
+                        " si no lo hay, 0.018)")
+    p.add_argument("--duck-ratio", type=float, default=None,
+                   help="Ratio del ducking (defecto: el de mix.wav.json;"
+                        " si no lo hay, 7.0)")
     p.add_argument("--xfade", type=float, default=1.5)
     p.add_argument("--end-fade", type=float, default=1.0)
     p.add_argument("--seconds", type=float, default=50.23)
@@ -1407,9 +1517,11 @@ def main() -> int:
     captions_p = pick(a.captions, "public/audio/captions.json")
     vo_lines_p = pick(a.vo_lines, "public/audio/vo-lines.json")
     orig_p = pick(a.voice_orig, "public/audio/vo-definitiva.wav",
-                  "public/audio/vo-definitiva-48k.wav")
+                  "public/audio/vo-definitiva-48k.wav",
+                  "public/audio/voice-orig.wav")  # paper-edit
     edited_p = pick(a.voice_edited,
-                    "public/audio/vo-definitiva-editada.wav")
+                    "public/audio/vo-definitiva-editada.wav",
+                    "public/audio/voice-edited.wav")  # paper-edit
     mix_p = pick(a.mix, "public/audio/mix.wav")
     master_p = a.master
     if not master_p:
@@ -1419,11 +1531,12 @@ def main() -> int:
                     os.path.join(proj, "out")) else []
         master_p = outs[0] if outs else None
     trans_p = pick(a.transcription,
-                   "public/audio/vo-definitiva-transcripcion.json")
+                   "public/audio/vo-definitiva-transcripcion.json",
+                   "research/transcription-selected.json")  # paper-edit
     trans_ed_p = pick(a.transcription_edited,
                       "public/audio/vo-editada-transcripcion.json")
     pred_p = pick(a.prediction, "research/vo-editada-prediccion.json")
-    plan_p = a.edit_plan
+    plan_p = pick(a.edit_plan, "research/edit-plan.json")
 
     rep = Report(os.path.basename(os.path.abspath(proj)))
     print(f"Auditoría de audio: {proj} ({a.tag})")
@@ -1479,9 +1592,49 @@ def main() -> int:
             rep.add("f", "WARN", f"no se pudo reconstruir la cama "
                     f"musical: {exc}")
     if mix is not None:
+        paper_edit = bool(plan) and plan.get("kind") == "paper-edit"
+        # Parámetros REALES de la mezcla (del informe de mix.py): el
+        # módulo debe medir el ducking con los mismos que la mezcla,
+        # no con sus valores por defecto (los agresivos del Studio:
+        # 0,018/7,0/150), que exageran el bombeo. Prioridad: flags CLI
+        # > mix.wav.json > valores por defecto.
+        mix_duck = {"threshold": None, "ratio": None, "release": None,
+                    "voice_lufs": None}
+        mix_json = (mix_p + ".json") if mix_p else None
+        if mix_json and os.path.exists(mix_json):
+            try:
+                cmd = " ".join(json.load(open(mix_json)).get("command",
+                                                             []))
+                m = re.search(r"sidechaincompress=threshold=([\d.]+):"
+                              r"ratio=([\d.]+):attack=[\d.]+:"
+                              r"release=([\d.]+)", cmd)
+                if m:
+                    mix_duck.update(threshold=float(m.group(1)),
+                                    ratio=float(m.group(2)),
+                                    release=float(m.group(3)))
+                m2 = re.search(r"loudnorm=I=(-?[\d.]+):TP=", cmd)
+                if m2:
+                    mix_duck["voice_lufs"] = float(m2.group(1))
+            except Exception:
+                pass
+        duck_threshold = a.duck_threshold \
+            if a.duck_threshold is not None \
+            else (mix_duck["threshold"]
+                  if mix_duck["threshold"] is not None else 0.018)
+        duck_ratio = a.duck_ratio \
+            if a.duck_ratio is not None \
+            else (mix_duck["ratio"]
+                  if mix_duck["ratio"] is not None else 7.0)
+        duck_release = a.duck_release \
+            if a.duck_release is not None \
+            else (mix_duck["release"]
+                  if mix_duck["release"] is not None else 150.0)
+        voice_lufs = mix_duck["voice_lufs"] \
+            if mix_duck["voice_lufs"] is not None else -18.0
         check_f_music(rep, mix, bed, edited_vo, SR, silences, a.section,
-                      a.xfade, a.duck_release, a.duck_threshold,
-                      a.duck_ratio, [t for _p, t in a.sfx])
+                      a.xfade, duck_release, duck_threshold,
+                      duck_ratio, [t for _p, t in a.sfx],
+                      a.seconds, a.end_fade, paper_edit, voice_lufs)
     else:
         rep.add("f", "INFO", "falta mix.wav")
     # (g) máster

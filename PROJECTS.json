@@ -47,6 +47,14 @@
       "approvedRevision": null,
       "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
       "updatedAt": "2026-11-17T21:32:26.430Z"
+    },
+    {
+      "id": "paper-edit-demo",
+      "title": "Prueba edición en papel",
+      "latestSnapshot": null,
+      "approvedRevision": null,
+      "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
+      "updatedAt": "2026-11-18T01:50:11.286Z"
     }
   ]
 }

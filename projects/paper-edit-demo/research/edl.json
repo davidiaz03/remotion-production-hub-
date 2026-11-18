@@ -1,0 +1,69 @@
+{
+ "version": 1,
+ "source": "/home/hatch/workspace/pilar/testimonio_pilar_192959.mp4",
+ "paper": "/home/hatch/workspace/remotion-hub/repo/projects/paper-edit-demo/research/paper/paper.json",
+ "xfade": 0.3,
+ "fps": 30,
+ "width": 1088,
+ "height": 1920,
+ "segments": [
+  {
+   "order": 1,
+   "paper_ids": [
+    5
+   ],
+   "src_start": 16.57,
+   "src_end": 20.07,
+   "out_start": 0.0,
+   "out_end": 3.5,
+   "transition_in": "cut"
+  },
+  {
+   "order": 2,
+   "paper_ids": [
+    12
+   ],
+   "src_start": 56.38,
+   "src_end": 59.73,
+   "out_start": 3.2,
+   "out_end": 6.567,
+   "transition_in": "xfade"
+  },
+  {
+   "order": 3,
+   "paper_ids": [
+    15
+   ],
+   "src_start": 71.72,
+   "src_end": 75.67,
+   "out_start": 6.267,
+   "out_end": 10.233,
+   "transition_in": "xfade"
+  },
+  {
+   "order": 4,
+   "paper_ids": [
+    16
+   ],
+   "src_start": 76.26,
+   "src_end": 83.65,
+   "out_start": 9.933,
+   "out_end": 17.333,
+   "transition_in": "xfade"
+  },
+  {
+   "order": 5,
+   "paper_ids": [
+    21,
+    22
+   ],
+   "src_start": 112.9,
+   "src_end": 124.56,
+   "out_start": 17.033,
+   "out_end": 28.7,
+   "transition_in": "xfade"
+  }
+ ],
+ "duration": 28.73,
+ "rough_cut": "/home/hatch/workspace/remotion-hub/repo/projects/paper-edit-demo/research/cut/rough-cut.mp4"
+}
