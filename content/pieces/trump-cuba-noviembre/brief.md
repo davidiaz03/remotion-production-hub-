@@ -1,6 +1,6 @@
 # Brief — Trump y Cuba
 
-- **Pieza:** `trump-cuba-noviembre` · plantilla `carousel` (6 láminas, 1080×1080)
+- **Pieza:** `trump-cuba-noviembre` · plantilla `carousel` (6 láminas, 1080×1350, formato 4:5) · **v3 vigente**
 - **Objetivo:** primer producto real del hub de contenido estático; prueba de calidad. Carrusel para Instagram sobre las últimas menciones de Trump sobre Cuba (noviembre 2026) y la respuesta de Cuba. Tono informativo, con citas verificadas y fechas.
 - **Canal:** Instagram del Memorial (@memorialdenuncia) / Facebook.
 
@@ -39,15 +39,43 @@
 - **Comando Sur (marzo 2026)**: «las tropas no ensayaban una invasión de Cuba» (Gen. Francis Donovan ante el Senado) — una sola fuente secundaria. Solo en este brief, NO en el carrusel.
 
 ## Copy
-- Portada: TRUMP Y CUBA / Amenazas de fuerza militar, sanciones y la respuesta de La Habana · 5–13 de noviembre de 2026.
-- Lámina 2: Bruno (5 nov) — «Seguirán fracasando…».
-- Lámina 3: Trump (12 nov) — «Quiero dejar resuelto lo de Cuba antes de irme».
-- Lámina 4: Trump (12 nov) — «Ciertamente lo consideraría, sí» (fuerza militar).
-- Lámina 5: Díaz-Canel (13 nov) — «Tenemos la decisión de rechazar…».
+- Portada (v3): TRUMP DICE QUE *RESOLVERÁ CUBA* Y NO DESCARTA LA FUERZA MILITAR (11 palabras; «RESOLVERÁ CUBA» resaltado en rojo) + subtítulo «Sanciones, una entrevista y la respuesta de La Habana · 5–13 de noviembre de 2026». (v1/v2: «TRUMP Y CUBA / Amenazas de fuerza militar…».)
+- Lámina 2: Bruno (5 nov) — «Seguirán *fracasando*…».
+- Lámina 3: Trump (12 nov) — «Quiero dejar resuelto lo de *Cuba* antes de irme».
+- Lámina 4: Trump (12 nov) — «Ciertamente lo *consideraría*, sí» (fuerza militar).
+- Lámina 5: Díaz-Canel (13 nov) — «Tenemos la decisión de *rechazar*…».
 - Cierre: CUBA NO ES UNA AMENAZA. EL BLOQUEO SÍ.
 - Las citas de Trump van traducidas del inglés; los originales están arriba. En la publicación, indicarlo en el pie de foto.
 
+## Recortes por densidad (v3)
+La regla de densidad (techo 50 palabras por lámina, una idea por lámina)
+obligó a recortar la v2 (53/56/60 palabras en las láminas 2/3/5). Ningún
+hecho verificado cambió: solo se eliminaron ítems secundarios, que quedan
+registrados aquí y en el brief (los hechos siguen arriba).
+- Lámina 2: eliminado el ítem «Granma caracteriza las sanciones como
+  "castigo colectivo"». Queda 1 ítem: 10 objetivos y 5 buques (OE 14404).
+- Lámina 3: eliminado el ítem de la difusión en X (la frase la difundió el
+  Departamento de Estado en X). Queda 1 ítem: entrevista telefónica en
+  Salem News Channel.
+- Lámina 4: eliminado el ítem «seguir de cerca» (eye). Queda 1 ítem: «No
+  anunció ninguna operación, plan ni fecha».
+- Lámina 5: eliminados los ítems «en uniforme verde oliva» (camera) y la
+  cita de X del mismo día (share-2). Queda 1 ítem: consejo de defensa de
+  zona, Boyeros, Día Nacional de la Defensa. La cita de X sigue recogida
+  en la sección «13 nov 2026» de este brief.
+
 ## Imagen
+- **v3 (17-nov-2026)**: reconstrucción con las reglas de calidad de
+  `content/RESEARCH.md` (investigación en Instagram: AJ+, Brut, BBC,
+  Al Jazeera, Granma). Formato **4:5 (1080×1350)**; portada con titular
+  completo; cara libre en las 4 láminas con foto (texto en el tercio
+  inferior, sobre torso o negro, nunca sobre ojos o boca); palabra clave
+  resaltada en rojo en cada titular; densidad 33–43 palabras por lámina;
+  créditos SOLO en el pie de la publicación (ya no en la imagen). Los
+  tres retratos oficiales eran demasiado ajustados para el layout
+  `background` en 4:5 (la cara no cabía en la zona libre): se acolcharon
+  con negro con `scripts/letterbox.py` (ver `ASSETS.md`); el contenido
+  de las fotos no se alteró. QA visual lámina por lámina: 6/6 en verde.
 - **v2 (17-nov-2026)**: carrusel CON fotos. La plantilla `carousel` ganó
   soporte de foto por lámina (`image` + `image_layout` + `image_credit`):
   las láminas 2–5 llevan retrato a sangre completa con velo
@@ -77,3 +105,4 @@
 |---|---|---|---|
 | 17-nov-2026 | v1 | Borrador inicial | (pendiente del usuario) |
 | 17-nov-2026 | v2 | Fotos reales en láminas 2–5 (layout `background`); textos verificados sin cambios; créditos en lámina + atribución en pie | (pendiente del usuario) |
+| 17-nov-2026 | v3 | Formato 4:5; cara libre (letterbox en láminas 3–5); titular completo en portada; resaltado en rojo; densidad 33–43 palabras (recortes anotados arriba); créditos solo en el pie | (pendiente del usuario) |
