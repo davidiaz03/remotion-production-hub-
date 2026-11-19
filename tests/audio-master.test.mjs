@@ -104,3 +104,38 @@ test('master: proyecto con audio mide LUFS/TP como antes (regresión)', (t) => {
 		rmSync(dir, {recursive: true, force: true});
 	}
 });
+
+test('master: proyecto horizontal produce ligera 720x405 (aspecto auto) y --no-light la omite', (t) => {
+	available(t);
+	const dir = mkdtempSync(path.join(os.tmpdir(), 'master-horiz-'));
+	try {
+		// Entrada horizontal 1920x1080 con audio.
+		const input = path.join(dir, 'horiz.mp4');
+		const g = spawnSync('ffmpeg', ['-y', '-hide_banner', '-v', 'error',
+			'-f', 'lavfi', '-i', 'testsrc2=size=1920x1080:rate=30:duration=1',
+			'-f', 'lavfi', '-i', 'sine=frequency=440:duration=1',
+			'-c:v', 'libx264', '-crf', '19', '-pix_fmt', 'yuv420p',
+			'-c:a', 'aac', '-shortest', input], {encoding: 'utf8'});
+		assert.equal(g.status, 0, g.stderr);
+		const master = path.join(dir, 'master.mp4');
+		const light = path.join(dir, 'light.mp4');
+		const r = spawnSync(PYTHON, [MASTER, '--input', input,
+			'--out-master', master, '--out-light', light,
+			'--no-trim', '--no-boost'], {encoding: 'utf8', timeout: 180000});
+		assert.equal(r.status, 0, r.stderr);
+		const j = JSON.parse(readFileSync(`${master}.json`, 'utf8'));
+		assert.equal(j.light.width, 720);
+		assert.equal(j.light.height, 404);
+		// --no-light: sin ligera y sin error por falta de --out-light.
+		const master2 = path.join(dir, 'master2.mp4');
+		const r2 = spawnSync(PYTHON, [MASTER, '--input', input,
+			'--out-master', master2, '--no-light',
+			'--no-trim', '--no-boost'], {encoding: 'utf8', timeout: 180000});
+		assert.equal(r2.status, 0, r2.stderr);
+		const j2 = JSON.parse(readFileSync(`${master2}.json`, 'utf8'));
+		assert.equal(j2.light, null);
+		assert.equal(j2.master.width, 1920);
+	} finally {
+		rmSync(dir, {recursive: true, force: true});
+	}
+});

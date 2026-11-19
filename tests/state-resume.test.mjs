@@ -11,6 +11,7 @@ import {
 	loadState,
 	recordMilestone,
 	setPhase,
+	syncFromArtifacts,
 	updateRender,
 } from '../scripts/state.mjs';
 
@@ -393,6 +394,56 @@ test('resume: proyecto completo no pide ningún comando', () => {
 		assert.match(r.stdout, /Proyecto completo/);
 		assert.match(r.stdout, /Sin comando pendiente/);
 		assert.equal(existsSync(path.join(root, 'projects', ID, 'STATE.json')), true);
+	} finally {
+		rmSync(root, {recursive: true, force: true});
+	}
+});
+
+test('state sync: deriva fases done desde artefactos en disco (repara STATE desactualizado)', () => {
+	const root = fixtureRoot({legacy: true});
+	try {
+		const home = path.join(root, 'projects', ID);
+		// STATE v1 puro (sin pipeline): todo pending tras la migración.
+		// Artefactos de un proyecto casi completo en disco.
+		for (const dir of ['public/img', 'public/audio/vo', 'out/chunks', 'reports', 'src']) {
+			mkdirSync(path.join(home, dir), {recursive: true});
+		}
+		writeFileSync(path.join(home, 'public/img/ill.png'), 'x');
+		writeFileSync(path.join(home, 'public/audio/vo-full.wav'), 'x');
+		writeFileSync(path.join(home, 'src/captions.json'), '{}');
+		writeFileSync(path.join(home, 'public/audio/mix.wav'), 'x');
+		writeFileSync(path.join(home, 'out/chunks/manifest.json'), JSON.stringify({chunks: [{}, {}], totalFrames: 300, chunkSize: 150}));
+		writeFileSync(path.join(home, `out/${ID}-chunks.mp4`), 'x');
+		writeFileSync(path.join(home, 'reports/technical-qa.json'), JSON.stringify({technicalStatus: 'passed', file: 'x.mp4'}));
+		const {changes} = syncFromArtifacts(root, ID);
+		const s = readState(root);
+		assert.equal(s.pipeline.phases.assets.status, 'done');
+		assert.equal(s.pipeline.phases.vo.status, 'done');
+		assert.equal(s.pipeline.phases.captions.status, 'done');
+		assert.equal(s.pipeline.phases.mix.status, 'done');
+		assert.equal(s.pipeline.phases.render.status, 'done');
+		assert.equal(s.pipeline.phases.render.chunks.percent, 100);
+		assert.equal(s.pipeline.phases.qa.status, 'done');
+		assert.equal(s.pipeline.phases.delivery.status, 'pending');
+		assert.ok(changes.length >= 6);
+		// Segunda pasada: sin cambios (idempotente).
+		const again = syncFromArtifacts(root, ID);
+		assert.deepEqual(again.changes, []);
+	} finally {
+		rmSync(root, {recursive: true, force: true});
+	}
+});
+
+test('state sync CLI: marca qa failed cuando el informe dice failed', () => {
+	const root = fixtureRoot({legacy: true});
+	try {
+		const home = path.join(root, 'projects', ID);
+		mkdirSync(path.join(home, 'reports'), {recursive: true});
+		writeFileSync(path.join(home, 'reports/technical-qa.json'), JSON.stringify({technicalStatus: 'failed', file: 'x.mp4'}));
+		const r = runNode(root, 'state.mjs', [ID, 'sync', '--root', root]);
+		assert.equal(r.status, 0, r.stderr);
+		assert.match(r.stdout, /qa → failed/);
+		assert.equal(readState(root).pipeline.phases.qa.status, 'failed');
 	} finally {
 		rmSync(root, {recursive: true, force: true});
 	}

@@ -30,6 +30,23 @@ Para un proyecto expresamente seleccionado, lee `PROJECTS.json`, `projects/<id>/
 ## Verificación
 Separa claramente comprobaciones estáticas, pruebas en Codespaces, renders de Actions, revisión humana y comprobación de subida a Drive. Si no ejecutaste un paso, di **pendiente**, no «completado».
 
+## Tests en esta VM
+`/tmp` es un tmpfs de solo 512 MB y los tests de checkpoint/persistencia copian el repo entero (~1 GB con los videos de los proyectos): `npm test` sin más muere con ENOSPC. En esta caja, ejecuta siempre con un TMPDIR en el disco grande y limpia después:
+```bash
+mkdir -p ~/workspace/.tmp-test
+TMPDIR=~/workspace/.tmp-test npm test
+rm -rf ~/workspace/.tmp-test/*
+```
+(Los tests no limpian sus directorios temporales si fallan: un fallo deja copias de ~500 MB detrás.)
+
+## Velocidad — reglas medidas (19-nov-2026, auditoría `docs/SPEED-2026-11-19.md`)La caja tiene **1,5 CPU efectivas y 7,7 GB de RAM, sin GPU**: el paralelismo que ayuda en otra máquina aquí estorba. Todo lo siguiente está medido, no supuesto:
+- **VO: UN solo worker, en secuencia** (`scripts/audio/vo-batch.py`, `--threads 2`). Dos workers en paralelo dieron RTF 8-12 en modern-wisdom-aprende; uno solo con 2 hilos da RTF ≈ 1,6. Nunca lances 2 Kokoro a la vez.
+- **Música: biblioteca primero** (`assets/music/beds/` + `bed-loop.py`). Generar 60 s nuevos con MusicGen cuesta ~30 min; buclear una cama existente, segundos. Añade al registro cada cama nueva que generes.
+- **Encodes de entrega en CRF, un pase** (`scripts/encode-delivery.mjs`): 720p CRF 21, 360p CRF 24. El 2-pass con bitrate fijo produce archivos MÁS grandes en contenido plano.
+- **Video largo: orquesta con `scripts/pipeline.mjs`** (config en `templates/pipeline.json`), no fase a fase a mano. Si STATE.json parece desactualizado, repáralo con `node scripts/state.mjs <id> sync`.
+- **Render por tramos:** 150 f para contenido con shaders/WebGL; 450 f para contenido estático/diagramas. No paralelices tramos en esta caja.
+- **QA:** `qa-media.mjs --mode full` hace un solo pase de análisis; para downscales pasa `--expect WxH`.
+
 ## Auditoría de audio — obligatoria antes de entregar (17-nov-2026)
 **Ningún reel se entrega sin pasar `scripts/audio/audit-audio.py`.** El módulo audita guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes, empalmes, palabras truncadas), artefactos de time-stretch, mapa de silencios, música y ducking, máster (loudness/TP, alineación karaoke/onsets acústicos) y espectrogramas. Veredicto FAIL = no entregar. Las mediciones anteriores (RMS global, silencedetect, escaneo de clics por umbral) NO detectaban lo que el oído sí capta (microcortes, pausas inesperadas, frases incompletas) — por eso existe este módulo. Ver `scripts/audio/README.md` § «Auditoría de audio» y el docstring del script (lecciones codificadas: alimiter `level=false`, sesgo de Whisper sobre la mezcla, BottomKaraoke solo lee `s`).
 
