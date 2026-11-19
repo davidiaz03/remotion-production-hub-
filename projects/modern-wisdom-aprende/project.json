@@ -1,0 +1,16 @@
+{
+  "assets": {
+    "manifest": "asset-manifest.json",
+    "mode": "manifest"
+  },
+  "audioRequired": true,
+  "compositionId": "MainReel",
+  "crf": 19,
+  "drivePath": "Remotion Production/projects/modern-wisdom-aprende",
+  "durationInFrames": 69409,
+  "fps": 30,
+  "height": 1080,
+  "id": "modern-wisdom-aprende",
+  "title": "Modern Wisdom: aprender",
+  "width": 1920
+}
