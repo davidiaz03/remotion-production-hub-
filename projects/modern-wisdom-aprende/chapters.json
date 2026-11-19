@@ -1,0 +1,115 @@
+{
+  "chapters": [
+    {
+      "estimated_s": 94,
+      "key_idea": "Quince capítulos, una acción por capítulo, y una sola métrica: éxito es haber actuado.",
+      "number": 0,
+      "short_title": "Apertura",
+      "title": "Apertura: qué es este video y cómo usarlo"
+    },
+    {
+      "estimated_s": 117,
+      "key_idea": "Modern Wisdom es una biblioteca de marcos mentales y algunas herramientas excelentes, no una autoridad científica. El filtro lo pones tú.",
+      "number": 1,
+      "short_title": "El podcast",
+      "title": "El podcast en 2 minutos"
+    },
+    {
+      "estimated_s": 110,
+      "key_idea": "La no-necesidad es que tu opinión sobre ti pese más que la reacción ajena. Éxito es haber actuado, no lo que el otro haga después.",
+      "number": 2,
+      "short_title": "No-necesidad",
+      "title": "La idea central: la no-necesidad"
+    },
+    {
+      "estimated_s": 137,
+      "key_idea": "La confianza es una pila de pruebas innegables que se acumula actuando. Gana el segundo decisivo, y no copies la dosis de nadie.",
+      "number": 3,
+      "short_title": "Confianza",
+      "title": "La confianza es evidencia"
+    },
+    {
+      "estimated_s": 179,
+      "key_idea": "La exposición vence a la evitación. Jerarquía de diez peldaños, un peldaño por semana, sin muletas.",
+      "number": 4,
+      "short_title": "Ansiedad",
+      "title": "La ansiedad se cura actuando"
+    },
+    {
+      "estimated_s": 176,
+      "key_idea": "Escucha con looping, pregunta cómo y por qué, diagnostica la conversación antes de responder, y sé asertivo: respeto a ambos, a ti y al otro.",
+      "number": 5,
+      "short_title": "Conversar",
+      "title": "Conversar mejor"
+    },
+    {
+      "estimated_s": 154,
+      "key_idea": "Sentirse amado viene de ser conocido, no de ser admirado. Valida antes de arreglar, celebra las buenas noticias ajenas, y prueba una semana extrovertida.",
+      "number": 6,
+      "short_title": "Conectar",
+      "title": "Sentirse amado y conectar"
+    },
+    {
+      "estimated_s": 251,
+      "key_idea": "El 80/20 es un mito, el físico importa menos de lo que crees, la falta de claridad es la señal, y el desprecio destruye lo que la validación construye.",
+      "number": 7,
+      "short_title": "Sin mitos",
+      "title": "Relaciones sin mitos"
+    },
+    {
+      "estimated_s": 176,
+      "key_idea": "La manosfera describe problemas reales con análisis venenoso. Quédate con lo verdadero, desecha el marco adversarial, y recuerda: os necesitamos, no pobrecitos.",
+      "number": 8,
+      "short_title": "Manosfera",
+      "title": "La manosfera y el criterio"
+    },
+    {
+      "estimated_s": 173,
+      "key_idea": "Pregunta qué querría tu yo de mañana, describe los hechos en llano, juega al juego de crear y no al de parecer, y piensa veinte minutos al día en quietud.",
+      "number": 9,
+      "short_title": "Mentalidad",
+      "title": "Mentalidad y claridad"
+    },
+    {
+      "estimated_s": 175,
+      "key_idea": "Estudio con nombre, año y revista, o no es un dato. Lo sólido es la psicología clínica y social clásica; lo especulativo casi siempre empieza por «esto evolucionó para».",
+      "number": 10,
+      "short_title": "Filtro crítico",
+      "title": "El filtro crítico"
+    },
+    {
+      "estimated_s": 175,
+      "key_idea": "Cuba conserva lo que el podcast echa de menos: terceros espacios, reputación verificable y conversación real. Úsalos deliberadamente, y compara solo con tu ayer.",
+      "number": 11,
+      "short_title": "Traducción cubana",
+      "title": "Traducción cubana"
+    },
+    {
+      "estimated_s": 165,
+      "key_idea": "El consejo exagera lo que ya eres. Filtra todo por quién eres tú, y recuerda que aprender sin actuar es procrastinar con buenas intenciones.",
+      "number": 12,
+      "short_title": "Advertencia",
+      "title": "La advertencia maestra"
+    },
+    {
+      "estimated_s": 185,
+      "key_idea": "Cuatro semanas, dos episodios por semana, un hábito nuevo por semana, y una acción por cada episodio. Sin acción, no cuenta como avance.",
+      "number": 13,
+      "short_title": "Plan 4 semanas",
+      "title": "El plan de 4 semanas"
+    },
+    {
+      "estimated_s": 125,
+      "key_idea": "Escribe tu página: qué mentalidad voy a mantener. Si solo vieras 3 episodios: #1115, #1096 y #1050.",
+      "number": 14,
+      "short_title": "Cierre",
+      "title": "Cierre: las 9 ideas y tu página"
+    }
+  ],
+  "meta": {
+    "note": "Duraciones estimadas desde vo-script.json: caracteres/800 por minuto (ritmo pausado) + pausas del guion. La duración real se mide al generar la VO por capítulos (Kokoro, voz em_alex, speed 0.95).",
+    "title": "Modern Wisdom: aprender (video didáctico personal, no publicable)",
+    "total_estimated_min": 39.9,
+    "total_estimated_s": 2392
+  }
+}

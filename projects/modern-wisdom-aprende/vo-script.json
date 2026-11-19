@@ -1,0 +1,1880 @@
+{
+  "meta": {
+    "title": "Modern Wisdom: aprender (video didáctico personal, no publicable)",
+    "voice": "em_alex",
+    "speed": 0.95,
+    "note": "Generar por capítulos: filtrar por campo \"chapter\" (0-14). gen-vo-kokoro.py ignora campos extra. Pausas: 0.25 entre líneas, 0.5 entre párrafos, 0.7 fin de bloque, 0.9 tras título de capítulo, 1.2 fin de capítulo.",
+    "total_chars": 30262,
+    "total_lines": 373,
+    "total_pause_s": 121.2,
+    "estimated_duration_s": 2391,
+    "estimated_duration_min": 39.8
+  },
+  "fragments": [
+    {
+      "chapter": 0,
+      "text": "CAPÍTULO 0. APERTURA.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 0,
+      "text": "Este video es para ti, y solo para ti.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "No es un video para publicar.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Es un resumen para aprender, no un resumen para consumir.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Lo que vas a escuchar viene de una investigación sobre el podcast Modern Wisdom, de Chris Williamson.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Se estudiaron unos treinta episodios, de un catálogo de casi mil doscientos, entre 2018 y 2026.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Cada idea tiene su fuente: un episodio, un autor, y un estado de verificación.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Cuando algo es sólido, lo diré.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Cuando algo es preliminar, un mito o una opinión, lo diré también.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Este video dura unos treinta y cinco minutos, dividido en quince capítulos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Puedes verlo de una sentada, pero está pensado para usarse por capítulos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "La regla es una: por cada capítulo, una acción concreta.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Sin acción, esto es entretenimiento, no avance.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Y el criterio de todo este proyecto es: cero pickup, cero psicología oscura.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Aquí no hay trucos para manipular a nadie.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Hay claridad, asertividad y conversación real.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Tu métrica de éxito, la que ya usas, es haber actuado.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "No la reacción del otro.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 0,
+      "text": "Guárdala, porque todo lo que viene se mide con ella.",
+      "pause_after": 0.7
+    },
+    {
+      "chapter": 0,
+      "text": "En resumen: quince capítulos, una acción por capítulo, y una sola métrica: éxito es haber actuado.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 1,
+      "text": "CAPÍTULO 1. EL PODCAST EN DOS MINUTOS.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 1,
+      "text": "Modern Wisdom es el podcast de Chris Williamson.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "Williamson es inglés, ex concursante de Love Island en 2015, ex promotor de discotecas y graduado en empresariales.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "Su canal de YouTube tiene unos cuatro millones y medio de suscriptores.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "El podcast lleva desde 2018, con casi mil doscientos episodios.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "Cada episodio es una entrevista larga, de unas dos horas, y algunos superan las tres.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "Según el propio episodio 1034, fue el octavo podcast más grande del mundo según Spotify Wrapped 2025.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "Su fortaleza como entrevistador es real: lee el libro del invitado y pregunta como lo haría un lector atento.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "Su debilidad también es real, y tienes que conocerla desde el principio.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "Williamson no es científico, y rara vez contradice a un invitado con datos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "A veces cita cifras de memoria que no se sostienen, y ya verás ejemplos concretos en el capítulo diez.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "El programa, además, iguala a todos los invitados: un investigador con veintiocho años de ensayos controlados ocupa el mismo sillón que un coach sin una sola publicación revisada.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "La distinción tienes que hacerla tú.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "Por eso el filtro es este: quédate con lo conductual y gratuito.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "Desecha lo que requiera comprar algo, lo que dependa de aplicaciones de citas y lo que te haga sentir peor contigo mismo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 1,
+      "text": "Sin ese filtro, es ruido con acento británico.",
+      "pause_after": 0.7
+    },
+    {
+      "chapter": 1,
+      "text": "En resumen: Modern Wisdom es una biblioteca de marcos mentales y algunas herramientas excelentes, no una autoridad científica. El filtro lo pones tú.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 2,
+      "text": "CAPÍTULO 2. LA IDEA CENTRAL: LA NO-NECESIDAD.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 2,
+      "text": "Casi todos los episodios de este podcast repiten una sola idea central.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Esa idea es la no-necesidad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Mark Manson la formula en el episodio 1096 como una teoría unificada del atractivo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "La definición es esta: la necesidad ocurre cuando pones más prioridad en lo que otros piensan de ti que en lo que tú piensas de ti.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Dicho al revés: no necesitar es que tu opinión sobre ti pese más que la reacción ajena.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Esto no es indiferencia, y no es frialdad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Es que la acción nazca de tus valores, no de la búsqueda de validación.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Esta idea no es nueva para ti.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Es el marco teórico de algo que ya practicas: tu métrica de éxito es haber actuado, no la reacción del otro.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Si le hablas a la compañera del curso de inglés, el éxito es haberle hablado.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Su respuesta no es tu nota.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Naval Ravikant, en el episodio 922, dice lo mismo con otras palabras: la autoestima es la reputación que tienes contigo mismo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Se construye viviendo según tu código y cumpliendo lo que te prometes, no recogiendo aplausos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Y una consecuencia práctica: la no-necesidad no se finge.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "Si actúas con desapego como una técnica para gustar más, eso sigue siendo necesidad, solo que disfrazada.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 2,
+      "text": "La prueba es simple: si nadie te viera, ¿harías lo mismo?",
+      "pause_after": 0.7
+    },
+    {
+      "chapter": 2,
+      "text": "En resumen: la no-necesidad es que tu opinión sobre ti pese más que la reacción ajena. Éxito es haber actuado, no lo que el otro haga después.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 3,
+      "text": "CAPÍTULO 3. LA CONFIANZA ES EVIDENCIA.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 3,
+      "text": "La segunda idea que más se repite en el podcast es esta: la confianza no se afirma, se acumula.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "David Goggins, en el episodio 577, la llama una pila de pruebas innegables.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Detrás de esa frase hay ciencia sólida.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "El psicólogo Albert Bandura demostró que la autoeficacia, la creencia de que puedes hacer algo, se construye sobre todo por experiencia de dominio.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Es decir: por haberlo hecho ya, no por habértelo repetido.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Cada acción completada es un depósito en esa pila.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Cada evitación es un retiro.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Manson, en el episodio 1096, añade una distinción importante: la confianza de estado y la confianza de rasgo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "La de estado es temporal: te sientes seguro en un momento concreto.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "La de rasgo es profunda, y solo se construye viviendo cosas que no salieron como planeabas, y sobreviviendo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Goggins aporta una herramienta concreta, la teoría de la decisión de un segundo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Un evento de ciento treinta horas se gana o se pierde en segundos aislados, en los que el dolor dispara el pánico.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "El fallo casi nunca viene del conjunto.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Viene de perder un segundo concreto, ese en el que ibas a rendirte.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "La unidad real de cambio no es ser disciplinado en general.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Es ganar ese segundo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Y aquí va una advertencia que el propio material exige: no copies la dosis de Goggins.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Las ultras de doscientas cuarenta millas y los entrenamientos extremos son imprudentes con la alimentación, el descanso y el acceso médico que tienes en Cuba.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Copia el principio, no la escala.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "Por último, Williamson, en el episodio 816, deja una idea sobre la inseguridad: úsala como encendedor, no como motor.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 3,
+      "text": "En resumen: la confianza es una pila de pruebas innegables que se acumula actuando. Gana el segundo decisivo, y no copies la dosis de nadie.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 4,
+      "text": "CAPÍTULO 4. LA ANSIEDAD SE CURA ACTUANDO.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 4,
+      "text": "Este capítulo es el que más respaldo científico tiene de todo el video.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Su fuente principal es Donald Robertson, psicoterapeuta cognitivo-conductual, en el episodio 1050.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "La tesis es simple: la ansiedad se trata con herramientas concretas, no con insight.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Y la herramienta central es la terapia de exposición.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Lleva más de setenta años usándose en terapia cognitivo-conductual, con metaanálisis amplios detrás.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Es probablemente el tratamiento más fiable que existe para fobias y ansiedad social.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "La lógica es esta: la evitación es la raíz del problema.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Evitar lo que da ansiedad impide que te habitúes, y tu vida se va encogiendo poco a poco.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Robertson y Spencer Greenberg, en el episodio 1161, dan el mismo protocolo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Primero, escribe una jerarquía de miedos: diez situaciones sociales ordenadas de menor a mayor dificultad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Segundo, sube un peldaño por semana, sin conductas de seguridad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Las conductas de seguridad son las muletas: mirar el móvil, evitar el contacto visual, ensayar cada frase.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Si usas muletas, no aprendes que no pasa nada.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Tercero, la posposición de la preocupación.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Anota la preocupación y revísala en un horario fijo, por ejemplo a las siete de la tarde, durante veinte minutos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Fuera de esa hora, la preocupación se pospone por escrito.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Según Robertson, esto puede reducir la preocupación a la mitad en un par de semanas.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Es evidencia moderada, no una promesa.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Cuarto, los ataques a la vergüenza.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Haz deliberadamente algo levemente vergonzoso en público para aprender que la vergüenza no mata.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "La versión cubana: pedir algo en voz alta, hacer una pregunta tonta en clase.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "El objetivo es aprender que la vergüenza pasa en treinta segundos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Quinto, la premeditatio malorum, imaginar lo malo que puede pasar, en detalle, antes de que ocurra.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Es una exposición mental, y reduce el impacto cuando lo malo llega de verdad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Una última herramienta, de Arthur Brooks en el episodio 931: convertir la ansiedad en miedo concreto.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "La ansiedad es miedo sin enfocar.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "Escribe cinco cosas que te causan ansiedad y pregúntate: ¿qué es lo peor que puede pasar? ¿Qué tan probable es? ¿Qué haría si pasara?",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 4,
+      "text": "En resumen: la exposición vence a la evitación. Jerarquía de diez peldaños, un peldaño por semana, sin muletas. La ansiedad no se piensa: se actúa.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 5,
+      "text": "CAPÍTULO 5. CONVERSAR MEJOR.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 5,
+      "text": "La comunicación es una habilidad aprendible, no un talento innato.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Esa es la tesis de Charles Duhigg en el episodio 909, el más denso en tácticas por hora de todo el material.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Su técnica central es el looping, el bucle de comprensión.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Parafrasea lo que el otro dijo y confirma: ¿es eso lo que quieres decir?",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Repite hasta que la otra persona se sienta comprendida.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Úsalo como principio, no como guion: en una conversación cubana, el looping formal puede sonar artificial si lo aplicas como un libreto.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Segunda herramienta: las preguntas profundas, las que empiezan por cómo y por qué.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Preguntar por valores, emociones y experiencias genera conexión.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Las preguntas factuales la mantienen superficial.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Tercera: diagnosticar el tipo de conversación antes de responder.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Toda conversación es práctica, resolver algo, emocional, ser escuchado, o social, pertenecer.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "El error clásico es responder con soluciones a una conversación emocional.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Cuarta: el carisma inverso.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Duhigg cuenta la anécdota de la madre de Winston Churchill: Disraeli la hizo sentir la mujer más interesante del mundo; Gladstone, que él era el hombre más interesante.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "La gente recuerda cómo la hiciste sentir, no lo brillante que fuiste.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Pasemos a las conversaciones difíciles, con Jefferson Fisher, abogado litigante, en el episodio 1093.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Su primera herramienta es Start With the No, empezar con el no.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Para dar una mala noticia, encabeza con la noticia dura, y luego gratitud y amabilidad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Segunda: en vez de discutir eso no es lo que dije, pregunta: ¿qué escuchaste?",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Desactiva la defensiva y revela el malentendido real.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Tercera: elimina las frases que te hacen sonar débil.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "En español: perdona que te moleste, igual estoy equivocado pero, no sé, digo yo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Cuarta: el silencio.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Fisher dice que los mentirosos aman las refutaciones y odian el silencio.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Ante una mentira o una provocación, el silencio es más potente que la réplica.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "Y la definición que lo resume todo: pasivo es no respetarte a ti, agresivo es no respetar al otro, asertivo es respetar a ambos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "La calma, dice Fisher, es el esfuerzo, no el grito.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 5,
+      "text": "En resumen: escucha con looping, pregunta cómo y por qué, diagnostica la conversación antes de responder, y sé asertivo: respeto a ambos, a ti y al otro.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 6,
+      "text": "CAPÍTULO 6. SENTIRSE AMADO Y CONECTAR.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 6,
+      "text": "La invitada con mayor peso académico de todo el material es Sonja Lyubomirsky, en el episodio 1115.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Lleva veintiocho años haciendo intervenciones de felicidad: gratitud, amabilidad, sociabilidad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Su conclusión: todas funcionan por lo mismo, porque hacen sentir más conectado y amado.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Y su distinción central es esta: ser admirado no es ser amado.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "La clave para sentirse amado es ser conocido.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Si escondes tus debilidades, siempre dudarás: si me conociera de verdad, ¿me querría?",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Tres herramientas concretas, todas gratuitas y presenciales.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Primera: valida antes de arreglar.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Cuando alguien te cuenta un problema, primero valida: eso debe ser tan doloroso.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Los consejos, después, y solo si se piden.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Segunda: cómo reaccionas a las buenas noticias ajenas predice la duración de la relación.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Celebrar con entusiasmo genuino es lo protector.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "La envidia o la amenaza lo corroen.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Esto tiene respaldo fuerte, en los estudios de Gable y sus colegas.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Tercera: el experimento más potente medido en todo el material.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Margolis y Lyubomirsky pidieron a introvertidos y extrovertidos que actuaran más sociables durante una semana.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Lyubomirsky dice que produjo los mayores efectos jamás encontrados en cualquiera de sus intervenciones.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Y el mito de que los introvertidos se agotan socializando no se sostiene: también ellos mejoraron.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Es un experimento publicado, con efectos grandes pero de corto plazo: una semana.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Cuba es un entorno ideal para probarlo: la gente habla en la cola, en la guagua, en el barrio.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Una nota más: la paradoja de la vulnerabilidad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "Creemos que mostrarnos vulnerables hará que nos quieran menos, y en promedio hace que nos quieran más.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "El efecto pratfall, que lo respalda parcialmente, tiene réplicas mixtas, así que tómalo como tendencia, no como ley.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 6,
+      "text": "En resumen: sentirse amado viene de ser conocido, no de ser admirado. Valida antes de arreglar, celebra las buenas noticias ajenas, y prueba una semana extrovertida.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 7,
+      "text": "CAPÍTULO 7. RELACIONES SIN MITOS.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 7,
+      "text": "Este capítulo desmonta creencias, y es el más largo porque hay mucho que desmontar.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Empieza por el mito más citado en el entorno de este podcast: el ochenta veinte.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "La idea de que el veinte por ciento de los hombres acapara al ochenta por ciento de las mujeres.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "El origen real es un post de Medium de 2015 que aplicó el principio de Pareto a un modelo de likes de Tinder.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Se basó en veintisiete mujeres que chatearon con un perfil masculino falso, sin encuestar a ningún hombre.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Y las cifras exactas del post describían likes, no citas, no sexo, no relaciones.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "¿Qué sí es real? La desigualdad de atención en las aplicaciones existe y es grande.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Hinge, en 2017, encontró que la mitad de los likes fue a parar a alrededor del quince por ciento de los hombres.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Lo que no se sostiene es el salto de likes concentrados a relaciones concentradas.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "En la encuesta nacional estadounidense de crecimiento familiar, la mediana de parejas sexuales en el último año es una, tanto para hombres como para mujeres.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "El ochenta veinte como cifra es un meme, no una medición.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Y el propio episodio 1133, la mesa redonda sobre atracción femenina, lo desmonta.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Lo mismo pasa con el Chad: los números de parejas sexuales son estables en ambos sexos, y el monopolio es un invento de estadísticas sesgadas de aplicaciones.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Sobre el físico, dos datos que desactivan inseguridades.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Primero, según el episodio 1031, la preferencia revelada de las mujeres está alrededor del trece al quince por ciento de grasa corporal, no el diez por ciento del culto al gimnasio.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Y un matiz: la competencia por el físico es sobre todo entre hombres; el episodio 1133 lo llama mogging, señalización de estatus ante otros hombres.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Eastwick demostró, con respaldo fuerte, que las diferencias sexuales de las encuestas se reducen mucho cuando se mide la conducta real.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Observa lo que la gente hace, no lo que dice que quiere.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Mercedes Coffman, en el episodio 1092, propone un estándar de oro con tres partes: disponibilidad, capacidad y madurez.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Y su herramienta central es la prueba de claridad: un hombre genuinamente interesado da claridad incluso en sus días más ocupados.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "La falta de claridad es la señal.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Esto vale en espejo: da claridad tú también, en vez de mantener a alguien en confusión.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Coffman distingue además la limerencia del amor.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "La limerencia es una fijación emocional alimentada por la incertidumbre, con pensamientos intrusivos y ansia de validación.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Ojo: las cifras de prevalencia que se citan en ese episodio no pudieron verificarse, así que no las repito aquí como datos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "El concepto es útil, las cifras no son fiables.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Y cierro con lo que destruye y lo que construye una relación.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Arthur Brooks, en el episodio 931, recoge el hallazgo de Gottman, con décadas de observación detrás: el desprecio destruye los matrimonios.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "El desprecio es ira más asco: poner los ojos en blanco, el sarcasmo, la descalificación.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Es más dañino que la ira o el conflicto.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "Su inverso es lo que sostiene las relaciones largas: validación, celebrar las buenas noticias, contacto y mirada.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 7,
+      "text": "En resumen: el ochenta veinte es un mito, el físico importa menos de lo que crees, la falta de claridad es la señal, y el desprecio destruye lo que la validación construye.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 8,
+      "text": "CAPÍTULO 8. LA MANOSFERA Y EL CRITERIO.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 8,
+      "text": "Este capítulo no es de técnicas, es de criterio.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Y su fuente principal es el episodio 540, con Destiny, el único episodio de este bloque que se leyó en transcripción completa.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "La tesis es que la manosfera describe problemas reales de hombres reales, pero su análisis es adversarial y suma cero.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Destiny distingue tres olas.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "La primera ola fue el pickup: Strauss, Mystery, el negging, la programación neurolingüística.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "La segunda ola, después del Me Too, fue la del hombre de alto valor, alfa y beta, la psicología evolutiva y el valor de mercado sexual.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "El problema fundamental de ambas es el mismo: ven a hombres y mujeres como adversarios.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "La tercera ola, la que falta, trataría a hombres y mujeres como compatriotas, y enseñaría a mantener relaciones, no solo a conseguirlas.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Todo es conseguir a la chica, aunque la mayoría terminará en una relación comprometida.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "La frase clave del episodio es esta: las descripciones de la red pill suelen ser acertadas, pero el análisis que viene después es venenoso.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Esa es la brújula: separar lo verdadero de lo venenoso.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "El podcast condena el pickup de forma explícita y repetida.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Jordan Peterson, en el episodio 712, lo llama psicopatía guionizada: practicar manipulación sin integrarla entrena psicopatía real.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Mark Manson, en el episodio 340, lo compara con ganar un concurso de halterofilia con un exoesqueleto oculto: simula atractivo sin construirlo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Y el episodio 540 añade dos diagnósticos útiles.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Primero, las amistades masculinas pobres: las amistades femeninas son emocionalmente satisfactorias, las masculinas, superficiales.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Segundo, la paradoja de la región beta, de Gilbert: estar regular a veces se siente peor que estar mal.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "La gente queda atrapada en estar cómodamente entumecida.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "La pregunta para salir es: dentro de tres años, mirando atrás, ¿qué decisión me habría gustado tomar hoy?",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Cierro con Richard Reeves, en el episodio 1087.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "Su mensaje para los jóvenes no es lástima, pobrecitos, sino ser necesitados: os necesitamos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "La sociedad todavía te necesita. Tu familia todavía te necesita.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 8,
+      "text": "En resumen: la manosfera describe problemas reales con análisis venenoso. Quédate con lo verdadero, desecha el marco adversarial, y recuerda: os necesitamos, no pobrecitos.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 9,
+      "text": "CAPÍTULO 9. MENTALIDAD Y CLARIDAD.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 9,
+      "text": "Este capítulo recoge el estoicismo práctico y las ideas de mentalidad que sí sostienen los datos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Empieza con Marco Aurelio, en la voz de Donald Robertson, episodio 274.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Marco Aurelio no era un filósofo de torre de marfil: era un emperador en guerra, con insomnio, ira y duelo, y sus Meditaciones son un diario privado, no un tratado.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Su herramienta más práctica para ti es una pregunta de cinco segundos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Ante la ira, pregúntate: ¿qué querría mi yo de mañana que hiciera ahora?",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Úsala antes de responder con ira en WhatsApp.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Segunda herramienta: la re-descripción llana.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Ante la retórica inflamada, describe los hechos en lenguaje llano y sin adornos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Es exactamente tu regla de verificación para el radar social, con nombre estoico.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Y el estoicismo no es resignación: el fatalismo, eso de que estaba destinado a ser, es una forma de rendirse.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Los estoicos no eran robots sin humor: el estoicismo real siente todo y elige la respuesta.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Pasemos a Naval Ravikant, en el episodio 922.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Su distinción central: los juegos de estatus son suma cero, y los juegos de creación son suma positiva.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Elige en qué juego juegas.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "En un entorno de escasez y comparación constante, elegir el juego de crear en vez del juego de parecer es una decisión de salud mental.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Naval añade que la atención, no el tiempo, es la moneda real de la vida: cada hora de scroll es una decisión de gasto real.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "De Andrew Huberman, en el episodio 700, quédate con una práctica gratuita: body still, mind active.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Veinte minutos diarios de pensamiento deliberado en quietud.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Sin estímulos, sin móvil, solo pensar.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Es gratis, no necesita tecnología, y es perfecto para Cuba.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Y de Manson, en el episodio 961, una frase para revisar tu semana: no estás estresado por hacer demasiado, sino por hacer demasiado poco de lo que te importa.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "Y una advertencia de Robertson: hay quien tiene una biblioteca enorme de autoayuda y cero mejora, porque leer sobre el cambio sustituye al cambio.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 9,
+      "text": "La regla que ya conoces: por cada hora de contenido, una acción concreta.",
+      "pause_after": 0.7
+    },
+    {
+      "chapter": 9,
+      "text": "En resumen: pregunta qué querría tu yo de mañana, describe los hechos en llano, juega al juego de crear y no al de parecer, y piensa veinte minutos al día en quietud.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 10,
+      "text": "CAPÍTULO 10. EL FILTRO CRÍTICO.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 10,
+      "text": "Este capítulo es el filtro con el que debes escuchar todo lo anterior.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Primero, qué es sólido.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "La terapia de exposición, con setenta años de evidencia.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "El desprecio como predictor de divorcio, con décadas de observación de Gottman.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "La autoeficacia de Bandura.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Las intervenciones de felicidad de Lyubomirsky, con veintiocho años de ensayos controlados.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Las preferencias declaradas frente a las reveladas, de Eastwick.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Eso puedes citarlo con confianza.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Segundo, qué es broscience, especulación o mito.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "La hipótesis de sedación, que el porno y los videojuegos serían una válvula de escape del celibato masculino, es broscience declarada por el propio Chris Williamson en el episodio 586.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "El ochenta veinte, ya lo viste, es un mito.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Y hay cifras concretas que no debes citar jamás como datos, aunque las oigas en el podcast.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "La cifra sobre control de impulsos atribuida a Kathryn Paige Harden en el episodio 540 no se pudo verificar, y la atribución es dudosa.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Las cifras de limerencia y autosabotaje del episodio 1092 no tienen fuente rastreable.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "La afirmación de que Gottman predice el divorcio con más del noventa por ciento de precisión es controvertida, y no se ha replicado con esa exactitud fuera de su laboratorio.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Y un término de la descripción del episodio 1034, Anorexic Hermit Crab, que ninguna fuente define: no inventes una definición.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "La regla práctica es esta: si el estudio tiene nombre, año y revista, es verificable.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Si el invitado dice hay un estudio que, sin más, es rumor con corbata.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Y cuando un invitado dice esto evolucionó para, pregúntate si hay un test directo o solo una historia coherente.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Tercero, los vacíos: lo que el podcast no dice.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Casi nada sobre relaciones fuera del mundo occidental rico, nada sobre Cuba o América Latina, y poco sobre salud mental clínica seria, donde Robertson es la excepción.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "La traducción cultural es tarea tuya.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Y un último sesgo: los títulos se retitulan para el algoritmo, y varios episodios tienen una hora útil dentro de tres de metraje.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 10,
+      "text": "Juzga el episodio, no el titular.",
+      "pause_after": 0.7
+    },
+    {
+      "chapter": 10,
+      "text": "En resumen: estudio con nombre, año y revista, o no es un dato. Lo sólido es la psicología clínica y social clásica; lo especulativo casi siempre empieza por esto evolucionó para.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 11,
+      "text": "CAPÍTULO 11. TRADUCCIÓN CUBANA.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 11,
+      "text": "La mitad del valor de este video está aquí, porque el podcast no hace esta traducción por ti.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Primera idea: sin aplicaciones, el juego es otro, y mejor.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "En Cuba el emparejamiento es presencial, comunitario y con reputación verificable: barrio, amigos comunes, trabajo, universidad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Eso elimina el anonimato y el engaño sin consecuencias, y potencia lo mejor: consistencia, reputación, conversación real.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Tu desventaja aparente es una ventaja estructural.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Segunda: Cuba conserva los terceros espacios que el podcast echa de menos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Cox y Perry y Harrington describen como paraíso perdido exactamente tu entorno: la cola, el parque, la fiesta, el barrio, los amigos que presentan.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "La tarea no es construirlos, es usarlos deliberadamente.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Tercera: la fricción ya sobra.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Tu vida ya tiene fricción estructural de sobra: transporte, apagones, escasez, trámites.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "La traducción correcta no es busca más dificultad, sino elige en qué dificultad inviertes tu energía escasa.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Cuarta: las redes son densas.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Los consejos de saca a esa persona de tu vida chocan con un entorno pequeño donde todo el mundo se conoce y se depende mutuamente.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "La versión cubana es la distancia gradual, no la ruptura escenificada.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Quinta: sin terapia accesible, las técnicas autoaplicables son el plan A, no el plan B.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Worry time, jerarquía de exposición, premeditatio malorum: todo funciona con papel y disciplina.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Eso no es una limitación: son las técnicas con más evidencia y menos dependencia de consumo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Sexta: el dinero no es la métrica.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "En el episodio 900, Williamson dice: ya eres rico si más dinero no cambiaría tu tiempo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Séptima: la comparación correcta es con tu ayer, no con creadores de Estados Unidos o Europa.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Peterson, en el episodio 712, lo formula mejor que nadie: eres el único grupo de control con tus talentos, limitaciones y tragedias exactos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Y octava: la autenticidad se traduce directamente.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Competencia práctica más dulzura, sin pose.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 11,
+      "text": "Saber resolver, ser útil, ser buen conversador, sin adoptar ni la pose del duro ni la del sensible de manual.",
+      "pause_after": 0.7
+    },
+    {
+      "chapter": 11,
+      "text": "En resumen: Cuba conserva lo que el podcast echa de menos: terceros espacios, reputación verificable y conversación real. Úsalos deliberadamente, y compara solo con tu ayer.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 12,
+      "text": "CAPÍTULO 12. LA ADVERTENCIA MAESTRA.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 12,
+      "text": "Este capítulo es una advertencia contra el propio material de este video.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Y es la más importante.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Williamson, en el episodio 1034, describe a los advice hyper-responders, los hiper-respondedores de consejos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "El consejo no esculpe: exagera lo que ya eres.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "No seas insistente con las mujeres vuelve aún más tímidos a los hombres ansiosos y concienzudos, mientras los que invaden límites no hacen caso.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Trabaja más duro lo devora el sobreexigido inseguro, y el vago pasa de largo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Tú eres concienzudo, autoexigente y gran consumidor de consejos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Eres el perfil exacto del hiper-respondedor.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Cada consejo de este video debe pasar el filtro: ¿me está diciendo que haga más de algo que ya hago en exceso?",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Si la respuesta es sí, el consejo que probablemente necesitas es el opuesto: descansa, publica imperfecto, deja algo sin optimizar.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Segunda advertencia, de Manson en el episodio 1096: aprender es la forma favorita de procrastinar de la gente lista.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Aprender se siente seguro y se siente como progreso, y pospone el riesgo de hacer la cosa de verdad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Si lo ves entero y no actúas, no aprendiste: te entretuviste con buenas intenciones.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Tercera: el Complejo de Atlas, también del episodio 1034.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Asumir la responsabilidad de las emociones y los errores de los demás para mantener la paz.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "La verdadera fortaleza es saber cuándo devolver las cargas que no te pertenecen.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Cuarta: la ilusión input-output.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Los inputs son el esfuerzo, los outputs son el trabajo hecho, y los outcomes son los resultados reales.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Solo los outcomes miden efectividad real.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Y una última, para quitarte un peso: sentir ansiedad antes de hablar con alguien no es vergonzoso.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Y la procrastinación, dice Williamson, no es pereza: es miedo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Cuando pospones algo, la pregunta no es por qué soy tan vago, sino a qué le tengo miedo aquí.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Recuerda que estos marcos del episodio 1034 son frameworks de autor, no ciencia.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 12,
+      "text": "Úsalos como lentes, no como leyes.",
+      "pause_after": 0.7
+    },
+    {
+      "chapter": 12,
+      "text": "En resumen: el consejo exagera lo que ya eres. Filtra todo por quién eres tú, y recuerda que aprender sin actuar es procrastinar con buenas intenciones.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 13,
+      "text": "CAPÍTULO 13. EL PLAN DE CUATRO SEMANAS.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 13,
+      "text": "Todo lo anterior se convierte en un plan de cuatro semanas.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "La regla general: por cada episodio visto, una acción concreta.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Semana uno: fundamentos, exposición y claridad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Episodios 1115 de Lyubomirsky y 1096 de Manson.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Hábito diario: worry time a las siete de la tarde, veinte minutos, en libreta.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Acciones: escribe tu jerarquía de exposición social, diez situaciones, sin muletas.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Inicia una conversación con un desconocido.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Semana dos: comunicación, escuchar y validar.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Episodios 909 de Duhigg y 1093 de Fisher.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Hábito diario: body still, mind active, veinte minutos sin móvil.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Acciones: practica looping en dos reuniones, valida antes de arreglar en dos conversaciones, celebra con entusiasmo una buena noticia ajena, y elimina dos muletillas debilitantes de tu español profesional.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Semana tres: límites y verdad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Episodios 540 de Destiny y 1092 de Coffman.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Hábito diario: ¿qué querría mi yo de mañana?, pausa de cinco segundos antes de responder con ira.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Acciones: aplica la regla de las tres quejas, anota la primera y la segunda irritación, y a la tercera confronta con evidencia concreta y calma.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Aplica el test de claridad a una situación confusa, y da claridad tú en una donde la estés evitando.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Practica Start With the No al dar una mala noticia en el trabajo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Y haz un ataque a la vergüenza versión cubana.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Semana cuatro: integración, actuar, medir, decidir.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Episodios 1050 y 274 de Robertson.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Hábito diario: consolida los dos hábitos que más te sirvieron, y descarta el resto sin culpa.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Aplica Play It Out a una acción que llevas posponiendo por miedo: imagina el peor escenario en detalle, pregunta y luego qué, y actúa.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Y escribe una página: qué mentalidad voy a mantener.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "No una lista de consejos: tres a cinco frases en primera persona, en tu voz, basadas en lo que probaste estas cuatro semanas.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Esa página vale más que este video entero.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Y decide si sigues con la segunda fase o paras aquí: parar también es válido.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "El objetivo no es ver treinta episodios, es actuar mejor.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 13,
+      "text": "Los hábitos permanentes, si funcionan, son los de estas cuatro semanas: worry time, exposición semanal, la pregunta de tu yo de mañana, looping, Start With the No, y el test de claridad.",
+      "pause_after": 0.7
+    },
+    {
+      "chapter": 13,
+      "text": "En resumen: cuatro semanas, dos episodios por semana, un hábito nuevo por semana, y una acción por cada episodio. Sin acción, no cuenta como avance.",
+      "pause_after": 1.2
+    },
+    {
+      "chapter": 14,
+      "text": "CAPÍTULO 14. CIERRE.",
+      "pause_after": 0.9
+    },
+    {
+      "chapter": 14,
+      "text": "Llegamos al final, y es momento de recapitular las nueve ideas de la síntesis.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Primera: la no-necesidad es el principio unificador.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Que tu opinión sobre ti pese más que la reacción ajena.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Segunda: la confianza es evidencia, no afirmación.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Tercera: la exposición vence a la evitación.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Cuarta: la conexión es el mecanismo de la felicidad.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Quinta: el desprecio destruye, la validación construye.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Sexta: la vulnerabilidad bien dosificada acerca, la performance aleja.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Séptima: la claridad es una habilidad, no un rasgo.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Octava: el consejo debe filtrarse por quién eres.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Y novena: lo que no sostienen los datos.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Que el físico sea destino, que el ochenta veinte describa el mundo, que la psicología oscura funcione a largo plazo, que la felicidad se compre, o que leer más te haga mejor.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Ahora te toca a ti.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Escribe tu página: qué mentalidad voy a mantener.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Tres a cinco frases en primera persona, en tu voz, basadas en lo que probaste, no en lo que escuchaste.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Esa página es el verdadero final de este video.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Y si solo vieras tres episodios del podcast, que sean estos: el 1115, Lyubomirsky, sobre conexión y acción social; el 1096, Manson, sobre no-necesidad y aprender como procrastinación; y el 1050, Robertson, sobre ansiedad y exposición.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Con esos tres y el plan de cuatro semanas tienes el ochenta por ciento del valor de los treinta.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "No hay nada más que añadir.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Una acción por capítulo, y la próxima vez que sientas el impulso de consumir otro video como este, pregúntate: ¿qué estoy evitando hacer mientras lo veo?",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Éxito es haber actuado.",
+      "pause_after": 0.25
+    },
+    {
+      "chapter": 14,
+      "text": "Nos vemos en la práctica.",
+      "pause_after": 1.5
+    }
+  ]
+}
