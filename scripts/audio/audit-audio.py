@@ -123,6 +123,13 @@ import numpy as np
 # ---------------- umbrales (ver docstring) ----------------
 MIN_CAPTION_S = 0.18       # (b) duración mínima de caption (WARN)
 MIN_DISPLAY_S = 0.10       # (b) duración mínima de visualización (WARN)
+GAP_ONSET_DIP_DB = 10.0    # (b) caída bajo el nivel de arranque de la
+                           # palabra siguiente que marca el valle antes
+                           # de su inicio acústico (ver check_b)
+GAP_ONSET_JITTER_S = 0.20  # (b) adelanto máximo del inicio acústico
+                           # respecto al caption (jitter de Whisper);
+                           # más que eso es FAIL
+GAP_ONSET_WIN_S = 0.025    # (b) ventana del barrido hacia atrás
 GAP_CLASSIFY_S = 0.35      # (b) hueco entre captions a clasificar
 SYNC_MAX_S = 0.15          # (b,g) desvío máximo karaoke/voz (FAIL)
 RMS_FLOOR_DBFS = -32.0     # (f) suelo de música en la mezcla (FAIL)
@@ -522,8 +529,18 @@ def check_b_caption_timing(rep: Report, captions: list, edited_vo,
     Lo que sí es defecto visual: inicios no monótonos y palabras cuya
     visualización (inicio a inicio) es <0,10 s (el pop de 0,1 s se
     corta) o cuyo inicio no coincide con el onset acústico.
+
+    Las incidencias repetitivas (caption corto, solape, visualización
+    corta, fin desplazado, huecos esperados) se AGREGAN en un resumen
+    por categoría con los 3 primeros ejemplos: en video largo un
+    informe por caption genera miles de WARNs que entierran la señal
+    (modern-wisdom-aprende: 1.850 WARNs de (b) en un informe de 0,7 MB).
+    Los FAILs sí se emiten uno a uno.
     """
     n_short = n_overlap = n_disp = 0
+    ex_short, ex_overlap, ex_disp, ex_end = [], [], [], []
+    n_gap_chunk = n_gap_pause = n_gap_novoice = n_gap_tail = 0
+    ex_tail = []
     prev_s = -1.0
     for i, c in enumerate(captions):
         s, e = c["startMs"] / 1000, c["endMs"] / 1000
@@ -536,29 +553,24 @@ def check_b_caption_timing(rep: Report, captions: list, edited_vo,
         prev_s = s
         if dur < MIN_CAPTION_S:
             n_short += 1
-            rep.add("b", "WARN",
-                    f"caption corto ({dur:.3f}s < {MIN_CAPTION_S}s): "
-                    f"{c['text'].strip()!r} @ {s:.2f}s "
-                    f"[sin efecto visual en BottomKaraoke; importa en SRT]",
-                    t=s)
+            if len(ex_short) < 3:
+                ex_short.append(f"{c['text'].strip()!r} @ {s:.2f}s "
+                                f"({dur:.3f}s)")
         if i + 1 < len(captions):
             ns = captions[i + 1]["startMs"] / 1000
             if e > ns + 1e-6:
                 n_overlap += 1
-                rep.add("b", "WARN",
-                        f"solape {e - ns:.3f}s: {c['text'].strip()!r} "
-                        f"(fin {e:.2f}s) con "
+                if len(ex_overlap) < 3:
+                    ex_overlap.append(
+                        f"{c['text'].strip()!r} (fin {e:.2f}s) con "
                         f"{captions[i + 1]['text'].strip()!r} "
-                        f"(inicio {ns:.2f}s)",
-                        t=s)
+                        f"(inicio {ns:.2f}s)")
             disp = ns - s
             if disp < MIN_DISPLAY_S:
                 n_disp += 1
-                rep.add("b", "WARN",
-                        f"visualización corta ({disp:.3f}s): "
-                        f"{c['text'].strip()!r} @ {s:.2f}s — el pop "
-                        f"de 0,1 s se corta antes de terminar",
-                        t=s)
+                if len(ex_disp) < 3:
+                    ex_disp.append(f"{c['text'].strip()!r} @ {s:.2f}s "
+                                   f"({disp:.3f}s)")
             gap = ns - e
             if gap > GAP_CLASSIFY_S:
                 # Hueco ENTRE chunks (fin de línea visible): el karaoke
@@ -566,13 +578,7 @@ def check_b_caption_timing(rep: Report, captions: list, edited_vo,
                 # anterior queda visible hasta que empieza la siguiente.
                 # Solo es defecto un hueco DENTRO de un chunk.
                 if c.get("pageBreakAfter"):
-                    rep.add("b", "INFO",
-                            f"hueco {gap:.2f}s entre chunks: "
-                            f"{c['text'].strip()!r} -> "
-                            f"{captions[i + 1]['text'].strip()!r} "
-                            f"({e:.2f}-{ns:.2f}s): cambio de línea, "
-                            f"la anterior queda visible (pegajoso)",
-                            t=e)
+                    n_gap_chunk += 1
                     continue
                 # ¿El hueco está cubierto por silencio de VO? Se exige
                 # que el silencio cubra >=70% del hueco (los bordes de
@@ -588,23 +594,59 @@ def check_b_caption_timing(rep: Report, captions: list, edited_vo,
                 for gs, ge, _ in silences:
                     overlap += max(0.0, min(ge, ns) - max(gs, e))
                 if overlap >= 0.7 * gap:
-                    rep.add("b", "INFO",
-                            f"hueco {gap:.2f}s entre "
-                            f"{c['text'].strip()!r} y "
-                            f"{captions[i + 1]['text'].strip()!r} "
-                            f"({e:.2f}-{ns:.2f}s): en pausa de VO, esperado",
-                            t=e)
+                    n_gap_pause += 1
                     continue
                 vf = voiced_fraction(edited_vo, sr, e, ns)
                 if vf <= 0.30:
-                    rep.add("b", "INFO",
-                            f"hueco {gap:.2f}s entre "
-                            f"{c['text'].strip()!r} y "
+                    n_gap_novoice += 1
+                    continue
+                # ¿La «voz» del hueco es la COLA de la palabra anterior,
+                # o la palabra siguiente sonando ANTES de su caption?
+                # Lo que el espectador percibe es el desfase entre el
+                # inicio acústico de la palabra siguiente y su caption:
+                # si la palabra empieza <=0,20 s antes de su caption,
+                # el desfase es imperceptible (jitter de timestamps de
+                # Whisper). El inicio acústico se estima buscando hacia
+                # atrás desde el caption el final del último tramo
+                # sonoro sostenido: todo lo que suena antes es cola de
+                # la palabra anterior (vocales que decaen, /s/ finales
+                # que se sostienen planas y luego se cortan, respiros)
+                # y no es defecto. Si el tramo sonoro llega hasta el
+                # inicio del hueco sin ninguna pausa, las palabras van
+                # pegadas y la frontera de Whisper es arbitraria:
+                # tampoco es defecto atribuible al caption.
+                # (19-nov-2026: la primera versión de este test medía
+                # decaimiento de energía primer->último tercio, pero
+                # las /s/ finales no decaen y los inicios ~0,1 s
+                # adelantados daban 4 falsos FAIL en MW; el test de
+                # inicio acústico los clasifica bien a los 10.)
+                onset_level = energy_db(edited_vo, sr, ns, ns + 0.15)
+                dip_db = onset_level - GAP_ONSET_DIP_DB
+                t = ns
+                quiet_run = 0
+                onset = None
+                while t - GAP_ONSET_WIN_S >= e:
+                    w = energy_db(edited_vo, sr, t - GAP_ONSET_WIN_S, t)
+                    if w <= dip_db:
+                        quiet_run += 1
+                        # 3 ventanas quietas seguidas (75 ms) = pausa
+                        # real; 1-2 ventanas pueden ser el cierre de
+                        # una oclusiva (/p/, /t/) dentro de la palabra.
+                        if quiet_run >= 3:
+                            onset = t + 2 * GAP_ONSET_WIN_S
+                            break
+                    else:
+                        quiet_run = 0
+                    t -= GAP_ONSET_WIN_S
+                if onset is None or ns - onset <= GAP_ONSET_JITTER_S:
+                    n_gap_tail += 1
+                    if len(ex_tail) < 3:
+                        ex_tail.append(
+                            f"{c['text'].strip()!r} -> "
                             f"{captions[i + 1]['text'].strip()!r} "
-                            f"({e:.2f}-{ns:.2f}s): en pausa de VO "
-                            f"(sin voz: solo {vf:.0%} sonoro; el tono "
-                            f"de sala supera -45 dB pero no hay voz)",
-                            t=e)
+                            f"@ {e:.2f}s "
+                            f"(inicio acústico "
+                            f"{'pegado a la palabra anterior' if onset is None else f'{onset:.2f}s, {ns - onset:.2f}s antes del caption'})")
                     continue
                 rep.add("b", "FAIL",
                         f"hueco {gap:.2f}s entre "
@@ -612,7 +654,9 @@ def check_b_caption_timing(rep: Report, captions: list, edited_vo,
                         f"{captions[i + 1]['text'].strip()!r} "
                         f"({e:.2f}-{ns:.2f}s) CON VOZ ENCIMA "
                         f"(solo {overlap / gap:.0%} cubierto por "
-                        f"silencio; voz en el {vf:.0%} del hueco): "
+                        f"silencio; voz en el {vf:.0%} del hueco; "
+                        f"la palabra siguiente empieza en {onset:.2f}s, "
+                        f"{ns - onset:.2f}s antes de su caption): "
                         f"el karaoke se apaga en medio de la frase",
                         t=e)
     # Fin de caption vs fin acústico de la palabra (VO editada).
@@ -624,15 +668,44 @@ def check_b_caption_timing(rep: Report, captions: list, edited_vo,
         _on, off = acoustic_span(edited_vo, sr, s, min(nxt, e + 0.3))
         if off is not None and abs(off - e) > SYNC_MAX_S:
             n_end_off += 1
-            rep.add("b", "WARN",
-                    f"fin de caption {e:.2f}s vs fin acústico "
-                    f"{off:.2f}s ({off - e:+.2f}s): "
-                    f"{c['text'].strip()!r}",
-                    t=s)
+            if len(ex_end) < 3:
+                ex_end.append(f"{c['text'].strip()!r} @ {s:.2f}s "
+                              f"(fin {e:.2f}s vs acústico {off:.2f}s)")
     rep.metrics["b_short_captions"] = n_short
     rep.metrics["b_overlaps"] = n_overlap
     rep.metrics["b_short_display"] = n_disp
     rep.metrics["b_end_mismatch"] = n_end_off
+    rep.metrics["b_gaps_between_chunks"] = n_gap_chunk
+    rep.metrics["b_gaps_in_pause"] = n_gap_pause
+    rep.metrics["b_gaps_no_voice"] = n_gap_novoice
+    rep.metrics["b_gaps_tail_or_jitter"] = n_gap_tail
+    if n_short:
+        rep.add("b", "WARN",
+                f"{n_short} captions cortos (< {MIN_CAPTION_S}s) "
+                f"[sin efecto visual en BottomKaraoke; importa en SRT]. "
+                f"Ej.: {'; '.join(ex_short)}")
+    if n_overlap:
+        rep.add("b", "WARN",
+                f"{n_overlap} solapes fin->inicio. "
+                f"Ej.: {'; '.join(ex_overlap)}")
+    if n_disp:
+        rep.add("b", "WARN",
+                f"{n_disp} visualizaciones cortas (< {MIN_DISPLAY_S}s: "
+                f"el pop de 0,1 s se corta). Ej.: {'; '.join(ex_disp)}")
+    if n_end_off:
+        rep.add("b", "WARN",
+                f"{n_end_off} fines de caption desplazados > "
+                f"{SYNC_MAX_S}s del fin acústico. "
+                f"Ej.: {'; '.join(ex_end)}")
+    if n_gap_chunk or n_gap_pause or n_gap_novoice or n_gap_tail:
+        rep.add("b", "INFO",
+                f"huecos clasificados como esperados: {n_gap_chunk} "
+                f"entre chunks (línea pegajosa), {n_gap_pause} en "
+                f"pausa de VO, {n_gap_novoice} sin voz (tono de sala), "
+                f"{n_gap_tail} colas de palabra anterior o inicios "
+                f"<=0,20 s antes del caption (jitter de Whisper)"
+                + (f". Ej.: {'; '.join(ex_tail)}" if ex_tail
+                   else ""))
     if n_short == 0 and n_overlap == 0 and n_disp == 0:
         rep.add("b", "PASS", "tiempos de caption sin incidencias")
 
@@ -1103,18 +1176,32 @@ def check_f_music(rep: Report, mix, bed, edited_vo, sr: int,
                   silences: list, sections, xfade: float,
                   duck_release: float, duck_threshold: float,
                   duck_ratio: float, sfx_times: list):
-    """(f) Música: suelo RMS, crossfade, recuperación y bombeo del ducking."""
+    """(f) Música: suelo RMS, crossfade, recuperación y bombeo del ducking.
+
+    Cubre TODA la duración de la mezcla: el límite de 47 s cableado
+    (herencia de reels de 48 s) dejaba sin auditar el 97% de un video
+    de 33 min (modern-wisdom-aprende, 19-nov-2026).
+    """
+    dur_s = len(mix) / sr
     # 1) Suelo RMS de la mezcla en ventanas de 0,25 s.
     curve = rms_windows(mix, sr, 0.25)
-    rep.metrics["f_mix_rms_curve"] = [(round(t, 2), round(db, 1))
-                                      for t, db in curve]
+    # La curva completa en el informe (1 punto/0,25 s = ~7.800 puntos
+    # en 33 min) hincha el JSON sin aportar: se guarda diezmada a 5 s
+    # + resumen estadístico.
+    rep.metrics["f_mix_rms_db"] = {
+        "min": round(min(db for _t, db in curve), 1) if curve else None,
+        "mean": round(sum(db for _t, db in curve) / len(curve), 1)
+        if curve else None,
+        "duration_s": round(dur_s, 1),
+    }
+    rep.metrics["f_mix_rms_curve_5s"] = [
+        (round(t, 1), round(db, 1)) for t, db in curve
+        if abs(t / 5.0 - round(t / 5.0)) < 0.03]
     # Pausas dramáticas (exentas del suelo): tras «Ganamos» y tras
     # «Martí dijo…» (detectadas como pausas >=0,4 s en frontera de línea).
     dramatic = [(s, e) for s, e, d in silences if d >= 0.4]
     n_low = 0
     for t, db in curve:
-        if t > 47.0:
-            break
         if db < RMS_FLOOR_DBFS:
             in_drama = any(s - 0.1 <= t <= e + 0.1 for s, e in dramatic)
             if not in_drama:
@@ -1171,7 +1258,7 @@ def check_f_music(rep: Report, mix, bed, edited_vo, sr: int,
     if bed is not None:
         n_slow = 0
         for s, e, d in silences:
-            if d < 0.3 or s < 0.5 or s > 47.0:
+            if d < 0.3 or s < 0.5:
                 continue
             # Ventana de medida: [+0,25, +0,50] tras el fin de la frase,
             # SIN salirse del silencio (si la pausa es corta, la ventana
@@ -1199,8 +1286,8 @@ def check_f_music(rep: Report, mix, bed, edited_vo, sr: int,
                                      duck_threshold, duck_ratio)
         if gain_db is not None:
             # Variación dentro de cada frase (entre pausas).
-            bounds = [0.0] + [e for _s, e, _d in silences if e < 47.0]
-            bounds += [47.0]
+            bounds = [0.0] + [e for _s, e, _d in silences]
+            bounds += [dur_s]
             worst = 0.0
             for a, b in zip(bounds[:-1], bounds[1:]):
                 if b - a < 0.5:
