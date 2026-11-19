@@ -45,6 +45,16 @@ Chequeos (cada uno PASS/WARN/FAIL con timestamps):
      conocido), y detección de fallos de transcripción (Whisper vs
      predicción analítica).
   h) Espectrogramas (completo + por línea) para revisión visual.
+  i) Microcortes de voz a nivel de forma de onda (microcut.py):
+     calidad de cada empalme (saltos de muestra, DC, distancia
+     espectral, hueco del fundido), dips dentro de palabras
+     (editada vs original con alineación por palabra — los
+     cierres de oclusiva naturales aparecen en ambos y no se
+     marcan), contigüidad de segmentos (cada segmento editado
+     debe ser un trozo contiguo del original) y SFX que entierran
+     el ataque de una palabra en la mezcla. Las pausas
+     recortadas las cubre (c) §4 con la misma regla, así que (i3)
+     no se repite aquí.
 
 Entradas (rutas por defecto dentro del proyecto):
   public/audio/vo-lines.json (dict con clave `lines`)
@@ -87,6 +97,15 @@ LECCIONES codificadas aquí (verificadas 17-nov-2026):
     microcorte al principio del reel. El check (c) §4 compara las
     pausas acústicas original vs editada por línea (FAIL si la
     editada queda < 0,25 s o pierde > 50%).
+  - La V2.3 pasó (c) con 0 FAIL y el usuario TODAVÍA oyó
+    microcortes: la causa no estaba en la VO (empalmes limpios a
+    nivel de muestra, sin dips dentro de palabras) sino en la
+    MEZCLA — SFX que entierran el ataque de palabras (+22 a +29 dB
+    sobre la voz en los primeros 30 ms: «pensar.» 37,05 s, «Leer.»
+    43,17 s, «Pensar.» 44,43 s) — y en huecos de fundido de 13-33 dB
+    en los empalmes (el patrón fade-out + fade-in no es un
+    crossfade). La sección (i) mide ambas cosas; `vo_build.py`
+    previene los huecos con crossfades de igual potencia.
 """
 import argparse
 import difflib
@@ -1487,6 +1506,42 @@ def check_h_spectrograms(rep: Report, mix, edited_vo, sr: int,
             f"spectrograms/ (revisión visual)")
 
 
+def check_i_microcuts(rep: Report, orig_vo, edited_vo, sr: int,
+                      plan: dict, orig_words: list, pred_words: list,
+                      mix=None, sfx_times=None):
+    """(i) Microcortes de voz a nivel de forma de onda (microcut.py).
+
+    Delega en `microcut.detect_all`: (i1) calidad de empalme
+    (saltos de muestra, DC, distancia espectral, hueco de fundido),
+    (i2) dips dentro de palabras (editada vs original, con
+    alineación por palabra), (i3) pausas recortadas — OMITIDO
+    aquí porque (c) §4 ya lo cubre con la misma regla (evita el
+    doble reporte del mismo defecto) —, (i4) contigüidad de
+    segmentos (cada segmento editado debe ser un trozo contiguo
+    del original) e (i5) SFX que entierran el ataque de una
+    palabra en la mezcla. Los hallazgos se vuelcan con check "i"
+    y el sub-check entre corchetes en el mensaje.
+    """
+    here = os.path.dirname(os.path.abspath(__file__))
+    if here not in sys.path:
+        sys.path.insert(0, here)
+    import microcut as mc
+    if plan is None or not orig_words or not pred_words:
+        rep.add("i", "INFO", "faltan edit-plan, transcripción del "
+                "original o predicción: no se auditan microcortes")
+        return
+    res = mc.detect_all(edited_vo, orig_vo, sr, plan, pred_words,
+                        orig_words, mix=mix, sfx_times=sfx_times)
+    for k, v in res["metrics"].items():
+        rep.metrics[k] = v
+    for f in res["findings"]:
+        if f["check"] == "i3":
+            continue  # cubierto por (c) §4 (misma regla)
+        rep.add("i", f["sev"], f"[{f['check']}] {f['msg']}", t=f["t"])
+    rep.add("i", "INFO", "pausas intra-línea: cubiertas por (c) §4 "
+            "(misma regla que (i3): <0,25 s o pérdida >50%)")
+
+
 # ---------------- informes ----------------
 
 def write_reports(rep: Report, out_dir: str, tag: str):
@@ -1503,12 +1558,13 @@ def write_reports(rep: Report, out_dir: str, tag: str):
         f.write(f"**Veredicto: {rep.overall()}** — "
                 f"{c['FAIL']} FAIL, {c['WARN']} WARN, "
                 f"{c['PASS']} PASS, {c['INFO']} INFO.\n\n")
-        order = ["a", "b", "c", "d", "e", "f", "g", "h"]
+        order = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
         names = {
             "a": "Guion ↔ karaoke", "b": "Tiempos de caption",
             "c": "Integridad de la VO", "d": "Artefactos de time-stretch",
             "e": "Mapa de silencios", "f": "Música y ducking",
-            "g": "Máster", "h": "Espectrogramas"}
+            "g": "Máster", "h": "Espectrogramas",
+            "i": "Microcortes de voz (forma de onda)"}
         for k in order:
             fs = [x for x in rep.findings if x["check"] == k]
             if not fs:
@@ -1682,6 +1738,13 @@ def main() -> int:
     if not a.no_spectrograms and mix is not None \
             and edited_vo is not None and vo_lines:
         check_h_spectrograms(rep, mix, edited_vo, SR, vo_lines, out_dir)
+    # (i) microcortes de voz (forma de onda)
+    if orig_vo is not None and edited_vo is not None:
+        check_i_microcuts(rep, orig_vo, edited_vo, SR, plan,
+                          orig_words, pred_words, mix=mix,
+                          sfx_times=[t for _p, t in a.sfx])
+    else:
+        rep.add("i", "INFO", "faltan VO original/editada")
 
     jp, mp = write_reports(rep, out_dir, a.tag)
     c = rep.counts()

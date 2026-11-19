@@ -1,0 +1,344 @@
+{
+ "version": "V2.2 (voz real)",
+ "total": 45.023,
+ "pad": 0.03,
+ "fade": 0.005,
+ "lines": [
+  {
+   "linea": 1,
+   "slot": 0.0,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 1.0,
+     "orig_end": 2.75,
+     "orig_word_start": 1.05,
+     "orig_word_end": 2.6,
+     "edited_start": 0.0,
+     "edited_end": 1.75,
+     "head_keep": 0.05,
+     "tail_keep": 0.15,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 2.95,
+     "orig_end": 4.75,
+     "orig_word_start": 3.05,
+     "orig_word_end": 4.65,
+     "edited_start": 1.75,
+     "edited_end": 3.55,
+     "head_keep": 0.1,
+     "tail_keep": 0.1,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": [
+    [
+     1.6,
+     1.85
+    ]
+   ]
+  },
+  {
+   "linea": 2,
+   "slot": 4.059,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 6.255,
+     "orig_end": 8.005,
+     "orig_word_start": 6.355,
+     "orig_word_end": 7.845,
+     "edited_start": 4.059,
+     "edited_end": 5.809,
+     "head_keep": 0.1,
+     "tail_keep": 0.16,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 8.205,
+     "orig_end": 9.455,
+     "orig_word_start": 8.305,
+     "orig_word_end": 9.285,
+     "edited_start": 5.809,
+     "edited_end": 7.059,
+     "head_keep": 0.1,
+     "tail_keep": 0.17,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": [
+    [
+     5.649,
+     5.909
+    ]
+   ]
+  },
+  {
+   "linea": 3,
+   "slot": 7.738,
+   "factor_uniforme": 1.05,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 10.757,
+     "orig_end": 11.257,
+     "orig_word_start": 10.857,
+     "orig_word_end": 11.157,
+     "edited_start": 7.738,
+     "edited_end": 8.215,
+     "head_keep": 0.1,
+     "tail_keep": 0.1,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 11.407,
+     "orig_end": 12.557,
+     "orig_word_start": 11.507,
+     "orig_word_end": 12.347,
+     "edited_start": 8.215,
+     "edited_end": 9.313,
+     "head_keep": 0.1,
+     "tail_keep": 0.21,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 12.757,
+     "orig_end": 13.757,
+     "orig_word_start": 12.807,
+     "orig_word_end": 13.687,
+     "edited_start": 9.313,
+     "edited_end": 10.268,
+     "head_keep": 0.05,
+     "tail_keep": 0.07,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 14.007,
+     "orig_end": 17.057,
+     "orig_word_start": 14.107,
+     "orig_word_end": 16.807,
+     "edited_start": 10.268,
+     "edited_end": 13.179,
+     "head_keep": 0.1,
+     "tail_keep": 0.25,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": [
+    [
+     9.113,
+     9.361
+    ]
+   ]
+  },
+  {
+   "linea": 4,
+   "slot": 13.364,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 18.066,
+     "orig_end": 22.066,
+     "orig_word_start": 18.166,
+     "orig_word_end": 21.916,
+     "edited_start": 13.364,
+     "edited_end": 17.364,
+     "head_keep": 0.1,
+     "tail_keep": 0.15,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": [
+    [
+     15.374,
+     15.834
+    ]
+   ]
+  },
+  {
+   "linea": 5,
+   "slot": 17.859,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 22.915,
+     "orig_end": 27.865,
+     "orig_word_start": 23.115,
+     "orig_word_end": 27.765,
+     "edited_start": 17.859,
+     "edited_end": 22.809,
+     "head_keep": 0.2,
+     "tail_keep": 0.1,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": [
+    [
+     20.239,
+     20.539
+    ]
+   ]
+  },
+  {
+   "linea": 6,
+   "slot": 23.356,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 29.396,
+     "orig_end": 35.396,
+     "orig_word_start": 29.496,
+     "orig_word_end": 35.246,
+     "edited_start": 23.356,
+     "edited_end": 29.356,
+     "head_keep": 0.1,
+     "tail_keep": 0.15,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": [
+    [
+     24.656,
+     25.176
+    ]
+   ]
+  },
+  {
+   "linea": 7,
+   "slot": 30.432,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 36.919,
+     "orig_end": 39.619,
+     "orig_word_start": 37.019,
+     "orig_word_end": 39.569,
+     "edited_start": 30.432,
+     "edited_end": 33.132,
+     "head_keep": 0.1,
+     "tail_keep": 0.05,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 39.869,
+     "orig_end": 41.869,
+     "orig_word_start": 40.069,
+     "orig_word_end": 41.809,
+     "edited_start": 33.132,
+     "edited_end": 35.132,
+     "head_keep": 0.2,
+     "tail_keep": 0.06,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 42.019,
+     "orig_end": 44.319,
+     "orig_word_start": 42.169,
+     "orig_word_end": 44.169,
+     "edited_start": 35.132,
+     "edited_end": 37.432,
+     "head_keep": 0.15,
+     "tail_keep": 0.15,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": [
+    [
+     30.682,
+     30.982
+    ],
+    [
+     31.932,
+     32.182
+    ],
+    [
+     33.082,
+     33.332
+    ],
+    [
+     35.072,
+     35.282
+    ]
+   ]
+  },
+  {
+   "linea": 8,
+   "slot": 37.836,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 45.779,
+     "orig_end": 47.829,
+     "orig_word_start": 45.879,
+     "orig_word_end": 47.729,
+     "edited_start": 37.836,
+     "edited_end": 39.886,
+     "head_keep": 0.1,
+     "tail_keep": 0.1,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 47.979,
+     "orig_end": 49.979,
+     "orig_word_start": 48.129,
+     "orig_word_end": 49.729,
+     "edited_start": 39.886,
+     "edited_end": 41.886,
+     "head_keep": 0.15,
+     "tail_keep": 0.25,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": [
+    [
+     39.786,
+     40.036
+    ]
+   ]
+  },
+  {
+   "linea": 9,
+   "slot": 43.069,
+   "factor_uniforme": 1.03,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 51.104,
+     "orig_end": 52.104,
+     "orig_word_start": 51.204,
+     "orig_word_end": 52.054,
+     "edited_start": 43.069,
+     "edited_end": 44.045,
+     "head_keep": 0.1,
+     "tail_keep": 0.05,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 52.504,
+     "orig_end": 53.404,
+     "orig_word_start": 52.704,
+     "orig_word_end": 53.304,
+     "edited_start": 44.045,
+     "edited_end": 44.923,
+     "head_keep": 0.2,
+     "tail_keep": 0.1,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": [
+    [
+     43.996,
+     44.24
+    ]
+   ]
+  }
+ ]
+}

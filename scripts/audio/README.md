@@ -36,7 +36,10 @@ sobre el ritmo, antes de fijar la escaleta.
 | `gen-vo-kokoro.py` | **VO de previsualización recomendada (Fase B, R6):** Kokoro-82M (Apache-2.0), voces ES `em_alex` (defecto), `em_santa`, `ef_dora`. Misma interfaz que Piper (JSON de guion → WAV 24 kHz + `vo-lines.json`). Determinista (empalmar es seguro). ~0,3x tiempo real en esta VM (~3 min para 48 s de VO). Modelo en `../.hf-cache`; requiere espeak-ng (apt, .deb en `../debs/`). |
 | `beats.py` | **Detección de beats/onsets (Fase B, R16):** aubio 0.4.9 → JSON con BPM, beats y onsets en segundos y en fotogramas (`--fps 30`). Coloca cortes y transiciones sobre el ritmo de la música. Ojo: recorta los beats fantasma de los WAV de Flow (la carátula mjpeg confunde a aubio, +5 s). |
 | `transcribe-vo.py` | Alinea faster-whisper word_timestamps con el guion → `captions.ts` (formato CapSegment) y, con `--out-json`, HubCaption[] para `shared/captions`. |
-| `audit-audio.py` | **Auditoría completa de audio (17-nov-2026, V1.5 marti-fidel):** guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes con clasificación por armonicidad, empalmes, palabras exprimidas), artefactos de time-stretch, mapa de silencios, música y ducking (suelo RMS, crossfade, recuperación, bombeo), máster (loudness/TP, alineación karaoke/onsets acústicos) y espectrogramas. Informe JSON + Markdown. **OBLIGATORIO antes de entregar cualquier reel: ningún reel se entrega sin pasar este módulo.** |
+| `audit-audio.py` | **Auditoría completa de audio (17-nov-2026, V1.5 marti-fidel):** guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes con clasificación por armonicidad, empalmes, palabras exprimidas), artefactos de time-stretch, mapa de silencios, música y ducking (suelo RMS, crossfade, recuperación, bombeo), máster (loudness/TP, alineación karaoke/onsets acústicos), espectrogramas y microcortes de voz (sección (i), 18-nov-2026). Informe JSON + Markdown. **OBLIGATORIO antes de entregar cualquier reel: ningún reel se entrega sin pasar este módulo.** |
+| `microcut.py` | **Detector de microcortes de voz a nivel de forma de onda (18-nov-2026, sección (i) de la auditoría):** calidad de empalme, dips dentro de palabras (editada vs original), pausas recortadas, contigüidad de segmentos y SFX que entierran ataques de palabra. CLI propia + `detect_all()` para tests y auditoría. |
+| `vo_build.py` | **Construcción de VO sin microcortes (18-nov-2026):** sustituye el patrón `edit_line` + `fade_edges` (fundido de salida + fundido de entrada, que deja un hueco de ~10 ms a −85 dBFS) por crossfades de igual potencia, cortes ajustados a cruces por cero, validación contra los timestamps de Whisper (nunca recortar dentro de una palabra, margen 30 ms) y suelo de pausa (regla 18-nov: ≥0,25 s y ≤50% de pérdida). |
+| `test_microcut.py` | Suite de `microcut.py` + `vo_build.py` (27 tests): microcortes sintéticos inyectados (huecos de 5/10/20/30/50 ms, empalme brusco, pausa exprimida, segmento mal mapeado, SFX sobre onset) + casos reales V2.2/V2.3/baseline (se saltan si faltan los audios, que son salidas de build no versionadas; los edit-plan y predicciones están vendorizados en `tests/fixtures/`). |
 
 ## Auditoría de audio (`audit-audio.py`)
 
@@ -95,6 +98,93 @@ Lecciones codificadas (verificadas 17-nov-2026, reel marti-fidel):
   de la música (V2.3 @ 9,25 s: mezcla −38,2 dBFS con la cama a
   −45,2 dBFS), no un hueco de mezcla: INFO, no FAIL. FAIL solo si
   la cama está sobre el suelo y la mezcla cae.
+
+## Microcortes de voz (`microcut.py` + `vo_build.py`, 18-nov-2026)
+
+La V2.3 de marti-fidel pasó la auditoría (c) con 0 FAIL y el usuario
+TODAVÍA oyó microcortes en la voz, muy pequeños pero reales. La
+investigación demostró que la VO editada estaba limpia a nivel de
+muestra (empalmes sin saltos, sin dips dentro de palabras) y que lo
+que se oye son tres cosas distintas: **SFX que entierran el ataque
+de palabras en la mezcla** (la palabra suena cortada por la cabeza),
+**huecos de fundido en los empalmes** (el patrón fade-out + fade-in
+no es un crossfade) y, como contribuyentes, los saltos de ganancia
+del loudnorm junto a SFX fuertes (−2 a −3 dB en 50 ms) y el bombeo
+del ducking. Esta sección mide las dos primeras; `vo_build.py`
+previene la segunda en la construcción.
+
+```bash
+# Detector standalone (JSON + código 1 si hay FAIL)
+python3 scripts/audio/microcut.py \
+  --edited projects/marti-fidel/public/audio/real23/vo-real.wav \
+  --orig projects/marti-fidel/public/audio/real23/vo-real-raw.wav \
+  --edit-plan research/edit-plan-v2.3.json \
+  --prediction research/vo-real-prediccion-v2.3.json \
+  --transcription projects/marti-fidel/public/audio/real23/vo-real-transcripcion-orig.json \
+  --mix projects/marti-fidel/public/audio/real23/mix-v2.3.wav \
+  --sfx x@37.05 --sfx x@43.17 --sfx x@44.43 --out /tmp/detect.json
+# Integrado: audit-audio.py, sección (i) (necesita --edit-plan,
+# --prediction, --transcription y --sfx; (i3) no se repite: lo
+# cubre (c) §4 con la misma regla).
+```
+
+Checks y umbrales (constantes al inicio de `microcut.py`):
+
+| Check | Qué mide | Umbrales |
+|---|---|---|
+| (i1) Empalme | Salto de muestra en ±1 ms vs p99,9 local; salto de DC (10 ms antes vs después); distancia espectral entre lados (20 ms); hueco del fundido (envolvente a 1 ms en ±15 ms) | FAIL: salto >4×; WARN: DC >0,01, espectral >0,6, hueco >12 dB; FAIL: hueco >20 dB con flancos >−40 dBFS (audible) |
+| (i2) Dips en palabras | Comparación directa de envolventes 5 ms editada vs original (normalizadas por mediana; alineación por palabra ±30 ms; referencia = mínimo del original en ±10 ms) | FAIL: caída >10 dB durante 5–80 ms donde el original tiene voz clara sostenida (mediana ±25 ms >−30 dBFS) |
+| (i3) Pausas | Pausa de voz (offset→onset, `voiced_span`) original vs editada | FAIL: editada <0,25 s o pérdida >50% (misma regla que (c) §4) |
+| (i4) Contigüidad | Correlación por sub-ventanas de 100 ms con energía contra el original en la posición mapeada (forma de onda si factor ≈1; envolvente RMS si hay stretch) | FAIL: correlación mediana <0,70 o salto de lag >15 ms (40 ms con stretch) entre ventanas consecutivas |
+| (i5) SFX | Nivel de mezcla vs VO en los primeros 30 ms de una palabra cuyo onset cae a ±40/50 ms de un SFX | WARN >10 dB, FAIL >15 dB |
+
+Cómo interpretar los resultados:
+- Un FAIL de (i5) es un defecto de MEZCLA, no de VO: mover el SFX
+  50–100 ms o bajarlo 6–10 dB; no re-editar la voz.
+- Un WARN de (i1) por hueco de fundido es el patrón viejo de
+  construcción: reconstruir la línea con `vo_build.edit_line_safe`
+  (crossfade de igual potencia) en vez de parchear el audio.
+- (i2) NO marca cierres de oclusiva (/t/ en «recuento», «gigante»)
+  ni caídas fonéticas naturales: aparecen en AMBOS audios en la
+  misma posición alineada. Si (i2) marca algo, la editada cae donde
+  el original no cae: borde de fonema recortado o hueco de edición.
+- (i4) con stretch usa la envolvente, no la forma de onda: WSOLA
+  reescribe la forma de onda pero conserva la envolvente. El lag
+  con stretch es ruidoso (umbral 40 ms); la correlación de
+  envolvente es la señal autoritativa ahí.
+
+Validación (18-nov-2026, `test_microcut.py`, 27 tests):
+- V2.2 (caso malo conocido): (i3) marca exactamente las 6 pausas
+  malas (1891,→MARTÍ, RECUENTO,→Y, HOY,→EN, AMÉRICA,→EL,
+  CAMBIÓ:→DIECINUEVE, LEER.→PENSAR.).
+- V2.3: (i2), (i3), (i4) limpios; (i5) 3 FAIL reales («pensar.»
+  @37,05 +23 dB, «Leer.» @43,17 +28 dB, «Pensar.» @44,43 +24 dB);
+  (i1) 5 WARN reales (huecos de fundido 13–33 dB).
+- Baseline limpio (9 audios originales sin editar): 0 hallazgos.
+- Sintéticos: huecos de 5/10/20/30/50 ms dentro de palabra,
+  empalme brusco, pausa exprimida, segmento mal mapeado y SFX sobre
+  onset — todos cazados; voz limpia, cierre natural y hueco en
+  pausa — ninguno marcado.
+- `vo_build`: L3 reconstruida desde el original — los 3 empalmes
+  pasan de WARN (17,6 dB) a PASS (≤9,9 dB); duración exacta.
+
+Límites honestos (qué NO detecta el análisis de forma de onda):
+- Los saltos de ganancia del loudnorm junto a SFX (−2 a −3 dB en
+  50 ms) y el bombeo del ducking (12,4 dB en V2.3) no son
+  microcortes localizables: son dinámica de la mezcla. Se sienten
+  como voz «cortada» pero ningún check de forma de onda los aísla
+  de la dinámica natural; (f) mide el bombeo y (i5) el caso
+  extremo (SFX sobre ataque).
+- Un artefacto WSOLA dentro de una palabra con stretch (p. ej.
+  L3 a 1,11x) puede sonar a microcorte sin dejar dip medible: la
+  envolvente se conserva y la forma de onda cambia por diseño.
+  Si (i2)/(i4) están limpios y el oído insiste, la vía es escucha
+  humana dirigida por los timestamps sospechosos (segmentos con
+  stretch >1,05x y onsets junto a SFX), no más análisis.
+- La distancia espectral de (i1) asume tono de sala coloreado
+  (el real): con ruido blanco, dos tramos independientes dan
+  distancia ~1,0 por construcción y el check marcaría WARN
+  espurio. En audio real no es un problema (V2.3: 0,07–0,10).
 
 ## Verificación de líneas de voz (`verify-vo-lines.py`)
 
