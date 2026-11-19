@@ -38,13 +38,29 @@ style prompt BLOQUEADO es obligatorio (ver skill motion_graphics_reels
 Emparejar con rembg (tools/bg-remove.py) para recortar el fondo.
 """
 import argparse
+import hashlib
 import os
+import shutil
 import sys
 import time
 import urllib.parse
 import urllib.request
 
 API = "https://gen.pollinations.ai/image/{prompt}"
+
+# Caché por hash del prompt completo + modelo + seed + tamaño: la
+# misma imagen no se vuelve a generar (ni a descargar) en otro
+# proyecto o al reintentar un paso. La seed fija ya la hace
+# reproducible; el caché evita pagar dos veces la misma llamada.
+CACHE_DIR = os.path.expanduser(
+    "~/workspace/remotion-hub/assets/illustrations-cache")
+
+
+def cache_path(prompt, model, seed, width, height):
+    key = hashlib.sha256(
+        f"{model}|{seed}|{width}x{height}|{prompt}".encode("utf-8")
+    ).hexdigest()[:16]
+    return os.path.join(CACHE_DIR, f"{key}.png")
 
 
 def build_url(prompt, model, seed, width, height, nologo=True):
@@ -75,9 +91,20 @@ def main():
     ap.add_argument("--token", default=os.environ.get("POLLINATIONS_TOKEN", ""),
                     help="Token Seed (o variable POLLINATIONS_TOKEN)")
     ap.add_argument("--retries", type=int, default=3)
+    ap.add_argument("--no-cache", action="store_true",
+                    help="Ignorar el caché (regenerar aunque exista)")
     args = ap.parse_args()
 
     full = f"{args.style_prompt}, {args.prompt}" if args.style_prompt else args.prompt
+    cached = cache_path(full, args.model, args.seed,
+                        args.width, args.height)
+    if not args.no_cache and os.path.isfile(cached):
+        os.makedirs(os.path.dirname(os.path.abspath(args.out)),
+                    exist_ok=True)
+        shutil.copyfile(cached, args.out)
+        print(f"OK {args.out} (desde caché, seed={args.seed}, "
+              f"model={args.model})")
+        return 0
     if not args.token:
         print("ERROR: el gateway gen.pollinations.ai exige autenticación. "
               "Configura POLLINATIONS_TOKEN (token Seed gratuito en "
@@ -110,6 +137,10 @@ def main():
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     with open(args.out, "wb") as fh:
         fh.write(data)
+    if not args.no_cache:
+        os.makedirs(CACHE_DIR, exist_ok=True)
+        with open(cached, "wb") as fh:
+            fh.write(data)
     print(f"OK {args.out} ({len(data)} bytes, seed={args.seed}, "
           f"model={args.model}, watermark=no)")
     return 0

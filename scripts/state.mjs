@@ -44,7 +44,7 @@
  * para pruebas. La escritura es atómica (temporal + rename) para que
  * matar un proceso a mitad de hito no corrompa STATE.json.
  */
-import {existsSync, readFileSync, renameSync, writeFileSync} from 'node:fs';
+import {existsSync, readFileSync, readdirSync, renameSync, writeFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {ROOT, SLUG_RE, parseArgs} from './lib.mjs';
@@ -269,6 +269,104 @@ function resolveRoot(opts) {
 	return opts.root ? path.resolve(String(opts.root)) : process.env.REMOTION_HUB_ROOT || ROOT;
 }
 
+/**
+ * Reconcilia STATE.json con los artefactos que existen en disco.
+ *
+ * En modern-wisdom-aprende las fases captions/mix quedaron en
+ * `pending` aunque el trabajo estaba hecho y anotado: los hitos se
+ * registraron sin `--status done`. `sync` deriva el estado de los
+ * archivos (vo-full.wav → vo done, captions.json → captions done,
+ * mix.wav → mix done, manifest de chunks + mp4 concatenado → render
+ * done, technical-qa.json → qa done/failed según su veredicto) para
+ * que un agente en frío pueda fiarse de STATE.json. Solo sube estados
+ * (pending → in_progress/done), salvo qa, que refleja el veredicto
+ * del último informe. `delivery` es manual y no se toca.
+ */
+export function syncFromArtifacts(root, slug) {
+	const state = loadState(root, slug);
+	const home = projectHome(root, slug);
+	const now = new Date().toISOString();
+	const phases = state.pipeline.phases;
+	const changes = [];
+	const hasFiles = (dir) => {
+		try {
+			return readdirSync(path.join(home, dir)).some((f) => f !== '.gitkeep');
+		} catch {
+			return false;
+		}
+	};
+	const upgrade = (phase, status, artifacts, note) => {
+		const cur = phases[phase];
+		if (cur.status === 'done' && status === 'done') return;
+		if (cur.status === 'done') return; // nunca se baja de done salvo qa
+		touchPhase(cur, now, status);
+		addArtifacts(cur, artifacts);
+		if (note) cur.note = note;
+		changes.push(`${phase} → ${status}`);
+	};
+	if (hasFiles('public/img')) {
+		upgrade('assets', 'done', ['public/img/'], 'ilustraciones en public/img/');
+	}
+	if (existsSync(path.join(home, 'public/audio/vo-full.wav'))) {
+		upgrade('vo', 'done', ['public/audio/vo-full.wav'], 'VO completa (vo-full.wav en disco)');
+	} else if (hasFiles('public/audio/vo')) {
+		upgrade('vo', 'in_progress', ['public/audio/vo/'], 'capítulos de VO en curso');
+	}
+	const capJson = existsSync(path.join(home, 'src/captions.json'));
+	const capTs = existsSync(path.join(home, 'src/captions.ts'));
+	if (capJson || capTs) {
+		upgrade('captions', 'done',
+			[capJson ? 'src/captions.json' : 'src/captions.ts'],
+			'karaoke generado (captions en disco)');
+	}
+	if (existsSync(path.join(home, 'public/audio/mix.wav'))) {
+		upgrade('mix', 'done', ['public/audio/mix.wav'], 'mezcla en disco (mix.wav)');
+	}
+	const manifestPath = path.join(home, 'out/chunks/manifest.json');
+	const concatPath = path.join(home, 'out', `${slug}-chunks.mp4`);
+	if (existsSync(manifestPath) && existsSync(concatPath)) {
+		upgrade('render', 'done', [`out/${slug}-chunks.mp4`], 'render por tramos completo y concatenado');
+		try {
+			const m = JSON.parse(readFileSync(manifestPath, 'utf8'));
+			phases.render.chunks.total = m.chunks?.length ?? 0;
+			phases.render.chunks.done = m.chunks?.length ?? 0;
+			phases.render.chunks.framesTotal = m.totalFrames ?? 0;
+			phases.render.chunks.framesDone = m.totalFrames ?? 0;
+			phases.render.chunks.percent = 100;
+			phases.render.chunks.chunkSize = m.chunkSize ?? 150;
+		} catch {
+			// Manifiesto ilegible: el estado done se mantiene por los archivos.
+		}
+	} else if (hasFiles('out/chunks')) {
+		upgrade('render', 'in_progress', ['out/chunks/'], 'tramos de render en curso');
+	}
+	const qaPath = path.join(home, 'reports/technical-qa.json');
+	if (existsSync(qaPath)) {
+		try {
+			const q = JSON.parse(readFileSync(qaPath, 'utf8'));
+			const verdict = q.technicalStatus === 'passed' ? 'done' : 'failed';
+			const cur = phases.qa;
+			if (cur.status !== verdict) {
+				touchPhase(cur, now, verdict);
+				addArtifacts(cur, ['reports/technical-qa.json']);
+				cur.note = `QA técnico ${q.technicalStatus} (${q.file ?? ''})`;
+				changes.push(`qa → ${verdict}`);
+			}
+		} catch {
+			// Informe ilegible: no se toca la fase.
+		}
+	}
+	if (changes.length) {
+		state.pipeline.milestones.push({
+			at: now,
+			phase: 'qa',
+			event: `STATE sincronizado desde artefactos: ${changes.join(', ')}`,
+			artifacts: [],
+		});
+	}
+	return {state: saveState(root, slug, state), changes};
+}
+
 function collectArtifacts(argv) {
 	// parseArgs NO acumula flags repetidas (la última sobrescribe a
 	// las anteriores), así que se escanea argv crudo para acumular
@@ -304,10 +402,17 @@ if (isMain) {
 	const root = resolveRoot(opts);
 	if (!slug || !action) {
 		throw Error(
-			'Use: node scripts/state.mjs <proyecto> show|milestone|phase|render [...]',
+			'Use: node scripts/state.mjs <proyecto> show|milestone|phase|render|sync [...]',
 		);
 	}
-	if (action === 'show') {
+	if (action === 'sync') {
+		const {changes} = syncFromArtifacts(root, slug);
+		console.log(
+			changes.length
+				? `STATE_OK ${slug} sync: ${changes.join(', ')}`
+				: `STATE_OK ${slug} sync: sin cambios (STATE ya refleja los artefactos)`,
+		);
+	} else if (action === 'show') {
 		const state = loadState(root, slug);
 		if (opts.json === true || opts.json === 'true') {
 			console.log(JSON.stringify(state, null, 2));
