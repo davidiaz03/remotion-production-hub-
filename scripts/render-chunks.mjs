@@ -26,6 +26,15 @@
  *   A). Marabana V1.3 usó 240 f con concurrencia 1 por OOM en Chromium
  *   (ver projects/marabana-v1/render-chunks.sh): si un render muere por
  *   memoria, sube --chunk y baja --concurrency a 1.
+ * - Tamaño de tramo y velocidad (medido 19-nov-2026, composición MW,
+ *   caja de 1,5 CPU): 150 f = 27 s, 450 f = 44 s, 900 f = 72 s. El
+ *   arranque de cada tramo cuesta ~18 s (Chromium + bundle), así que
+ *   los tramos grandes rinden mucho más: a 450 f el arranque es el
+ *   40% del tiempo del tramo; a 900 f, el 25%. Para contenido sin
+ *   shaders (láminas, diagramas, karaoke) usa --chunk 900: en un
+ *   video de 33 min ahorra ~30 min frente a 450 f. Para contenido
+ *   con shaders WebGL pesados, mantén 150 f (un fallo de fotograma
+ *   solo pierde 5 s de render y el timeout por tramo es más seguro).
  */
 import {
 	existsSync,

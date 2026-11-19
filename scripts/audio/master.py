@@ -26,8 +26,13 @@ Receta probada de Marabana V1.3 (render-chunks.sh):
                                   dBTP pedido; con 0.79 queda ~-1,6 dBTP;
                                   V1.3 midió -1,99 dBTP)
     AAC 192k, 48 kHz, faststart
-  LIGERA (720×1280): un solo paso desde el máster — scale 720:1280,
-  libx264 CRF 26, AAC 128k, faststart. Es la que se adjunta en el chat.
+  LIGERA (720×1280 en vertical; en horizontal 720×ancho proporcional):
+  un solo paso desde el máster — scale, libx264 CRF 26, AAC 128k,
+  faststart. Es la que se adjunta en el chat. El alto se calcula del
+  aspecto REAL de entrada (--light-aspect auto, defecto): antes era
+  siempre 720×1280 y en proyectos horizontales producía un archivo
+  deformado que había que borrar (modern-wisdom-aprende perdió ~21 min
+  en esa codificación inútil). Con --no-light se omite la ligera.
 
 Uso:
   .venv/bin/python scripts/audio/master.py --chunks-dir out/chunks \\
@@ -100,7 +105,19 @@ def main() -> int:
     src.add_argument("--chunks-dir",
                      help="Carpeta con chunk_*.mp4 (render por tramos)")
     p.add_argument("--out-master", required=True)
-    p.add_argument("--out-light", required=True)
+    p.add_argument("--out-light",
+                   help="Salida ligera (opcional si --no-light)")
+    p.add_argument("--no-light", action="store_true",
+                   help="No generar la versión ligera (ahorra una "
+                   "codificación completa; útil en video largo)")
+    p.add_argument("--light-aspect", default="auto",
+                   choices=["auto", "vertical", "horizontal"],
+                   help="Aspecto de la ligera: auto (del video de "
+                   "entrada), vertical (9:16) u horizontal (16:9)")
+    p.add_argument("--light-preset", default="medium",
+                   help="Preset x264 de la ligera (defecto medium; "
+                   "fast es ~2x más rápido con calidad equivalente "
+                   "en contenido plano — ver docs/SPEED-2026-11-19.md)")
     p.add_argument("--report", help="Informe JSON (por defecto <máster>.json)")
     p.add_argument("--limiter", type=float, default=DEFAULT_LIMITER,
                    help="alimiter limit (0.79 calibrado, V1.2)")
@@ -129,7 +146,11 @@ def main() -> int:
         a.trim_start = 0.0
     if a.no_boost:
         a.boost_db = 0.0
-    for out in (a.out_master, a.out_light):
+    if not a.no_light and not a.out_light:
+        p.error("--out-light es obligatorio salvo con --no-light")
+    if a.no_light and a.out_light:
+        p.error("--no-light y --out-light son excluyentes")
+    for out in [o for o in (a.out_master, a.out_light) if o]:
         if os.path.exists(out) and not a.force:
             p.error(f"la salida ya existe: {out} (usa --force)")
         os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
@@ -183,22 +204,38 @@ def main() -> int:
     run(master_cmd)
     print(f"MÁSTER: {a.out_master} ({os.path.getsize(a.out_master)} bytes)")
 
-    light_h = a.light_width * 16 // 9  # 720 -> 1280 (vertical 9:16)
-    light_cmd = ["ffmpeg", "-y", "-v", "error", "-i", a.out_master,
-                 "-vf", f"scale={a.light_width}:{light_h}",
-                 "-c:v", "libx264", "-crf", str(a.light_crf),
-                 "-preset", "medium", "-pix_fmt", "yuv420p"]
-    if input_has_audio:
-        light_cmd += ["-c:a", "aac", "-b:a", "128k", "-ar", "48000"]
-    light_cmd += ["-movflags", "+faststart", a.out_light]
-    run(light_cmd)
-    print(f"LIGERA: {a.out_light} ({os.path.getsize(a.out_light)} bytes)")
+    # Ligera: alto desde el aspecto REAL de entrada (auto) o forzado.
+    # Antes era siempre light_width*16//9 (vertical): en horizontal
+    # deformaba el video y el archivo se borraba tras codificarlo.
+    light_paths = []
+    if not a.no_light:
+        mprobe = probe(a.out_master)
+        mvid = next(s for s in mprobe["streams"]
+                    if s["codec_type"] == "video")
+        mw, mh = int(mvid["width"]), int(mvid["height"])
+        if a.light_aspect == "vertical":
+            light_h = a.light_width * 16 // 9
+        elif a.light_aspect == "horizontal":
+            light_h = a.light_width * 9 // 16
+        else:
+            light_h = max(2, round(a.light_width * mh / mw) // 2 * 2)
+        light_cmd = ["ffmpeg", "-y", "-v", "error", "-i", a.out_master,
+                     "-vf", f"scale={a.light_width}:{light_h}",
+                     "-c:v", "libx264", "-crf", str(a.light_crf),
+                     "-preset", a.light_preset, "-pix_fmt", "yuv420p"]
+        if input_has_audio:
+            light_cmd += ["-c:a", "aac", "-b:a", "128k", "-ar", "48000"]
+        light_cmd += ["-movflags", "+faststart", a.out_light]
+        run(light_cmd)
+        print(f"LIGERA: {a.out_light} ({os.path.getsize(a.out_light)} bytes)")
+        light_paths = [a.out_light]
 
     res: dict = {"master": a.out_master, "light": a.out_light,
                  "limiter": a.limiter, "trim_start": a.trim_start,
                  "atempo": a.atempo, "boost_db": a.boost_db,
                  "audio": "present" if input_has_audio else "absent"}
-    for key, path in (("master", a.out_master), ("light", a.out_light)):
+    for key, path in (("master", a.out_master),) + (
+            (("light", a.out_light),) if light_paths else ()):
         pr = probe(path)
         vid = next(s for s in pr["streams"] if s["codec_type"] == "video")
         out_has_audio = any(s.get("codec_type") == "audio"
