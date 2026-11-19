@@ -10,7 +10,7 @@
   "completed": [],
   "pending": [],
   "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
-  "updatedAt": "2026-11-19T18:53:30.492Z",
+  "updatedAt": "2026-11-19T22:16:36.700Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -34,16 +34,16 @@
       "captions": {
         "status": "pending",
         "startedAt": null,
-        "updatedAt": null,
+        "updatedAt": "2026-11-19T22:03:22.126Z",
         "artifacts": [],
-        "note": ""
+        "note": "Karaoke real: transcripción faster-whisper alineada al guion (5097 captions, 1045 chunks, 219 keywords); SRT exportado (1045 entradas)."
       },
       "mix": {
         "status": "pending",
         "startedAt": null,
-        "updatedAt": null,
+        "updatedAt": "2026-11-19T22:03:16.698Z",
         "artifacts": [],
-        "note": ""
+        "note": "Mezcla mix.py (VO + cama MusicGen 3x60s en bucle, ducking 0.08/5/180ms): -15.6 LUFS, -1.5 dBTP, PASS_REAL."
       },
       "render": {
         "status": "done",
@@ -195,18 +195,21 @@
         }
       },
       "qa": {
-        "status": "pending",
-        "startedAt": null,
-        "updatedAt": null,
-        "artifacts": [],
-        "note": ""
+        "status": "done",
+        "startedAt": "2026-11-19T22:16:36.674Z",
+        "updatedAt": "2026-11-19T22:16:36.674Z",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/modern-wisdom-aprende-MASTER.mp4"
+        ],
+        "note": "-15.7 LUFS, TP -1.5 dBTP"
       },
       "delivery": {
         "status": "pending",
         "startedAt": null,
-        "updatedAt": null,
+        "updatedAt": "2026-11-19T22:03:22.313Z",
         "artifacts": [],
-        "note": ""
+        "note": "Máster 1080p (107.7 MB, -15.7 LUFS, -1.5 dBTP) + 720p (64.7 MB) + 360p entrega principal (109.1 MB, 500k 2-pass, AAC 96k) + SRT."
       }
     },
     "milestones": [
@@ -1679,6 +1682,33 @@
         "phase": "render",
         "event": "done",
         "artifacts": []
+      },
+      {
+        "at": "2026-11-19T22:03:16.698Z",
+        "phase": "mix",
+        "event": "done",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-19T22:03:22.126Z",
+        "phase": "captions",
+        "event": "done",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-19T22:03:22.313Z",
+        "phase": "delivery",
+        "event": "done",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-19T22:16:36.674Z",
+        "phase": "qa",
+        "event": "QA técnico passed — modern-wisdom-aprende-MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/modern-wisdom-aprende-MASTER.mp4"
+        ]
       }
     ]
   }
