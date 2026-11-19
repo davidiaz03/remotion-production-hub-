@@ -1439,3 +1439,43 @@ lag en cada render nuevo antes de elegir el factor.
   dos derivas negativas heredadas (S6 l2, S8 l4) se leen como énfasis.
   Lo que NO vale la pena: re-masterizar V2.2 (superseded); afinar el
   atempo por chunk (el residual ±0,02 s es imperceptible).
+
+### Entrega V2.4 (18-nov-2026, noche — solo audio, mismo vídeo V2.3)
+El usuario pidió corregir la mezcla YA porque Suleris aún no había
+visto la V2.3. El detector nuevo (sección (i), rama
+`work/audio-microcut-detection`, fusionada aquí) había localizado lo
+que el oído notaba en V2.3: 3 SFX que enterraban el ataque de palabras
+en la mezcla + huecos de fundido de ~10 ms en los empalmes internos.
+- **VO reconstruida** con `edit_line_safe` (`scripts/audio/vo_build.py`:
+  crossfades de igual potencia, cruces por cero): los 7 empalmes
+  internos (L3×3, L7×2, L8, L9) ya no tienen hueco. Timings idénticos
+  a V2.3 (captions: máx. 8 ms de diferencia por el snap a cruce por
+  cero; duraciones por línea ±5 ms; LUFS/TP iguales).
+- **3 SFX movidos +80 ms tras el onset** (mover, no bajar: el exceso
+  era +23/+28/+24 dB y bajar 6–10 dB no bastaba): boom «pensar.»
+  37,05→37,13 · pop «Leer.» 43,17→43,25 · boom «Pensar.» 44,43→44,51.
+  Los otros 2 SFX ligados a palabras (boom «gigante» 27,96, pop
+  «condenado» 40,38) quedaban en PASS y no se tocaron.
+- **Máster sin re-render de vídeo**: vídeo copiado de
+  `marti-fidel-v2.3-chunks.mp4` + mezcla nueva, vía `master.py
+  --input` con `--no-trim --no-boost` y **sin atempo**. OJO: el atempo
+  1,0082 de V2.3 compensaba la deriva del audio RENDERIZADO POR
+  TRAMOS; la mezcla fresca nunca pasa por ese pipeline y va 1:1 con
+  la línea de tiempo del vídeo (ambos 48,23 s). Aplicar atempo a la
+  mezcla fresca la habría adelantado hasta −0,36 s al final.
+  Verificado por correlación mezcla↔máster en 5 puntos: lag constante
+  +5 ms (priming AAC), corr 0,996–1,000, sin deriva progresiva.
+- Máster `out/marti-fidel-v2.4_MASTER.mp4`: 19.794.215 B, SHA-256
+  `532bb7d221aab5a50a33e36196162879aa884c5f2eebb6052f4dbe57bb4b824c`,
+  1080×1920, 1447 f, −16,0 LUFS, TP −2,0 dBTP.
+- Ligera `out/marti-fidel-v2.4_LIGERO.mp4`: 3.019.861 B, SHA-256
+  `f8565fccd77cafda69d9e27ea00c6122efeb59234373515309c362c28fa025f5`,
+  720×1280, 1447 f, −16,0 LUFS, TP −1,8 dBTP.
+- QA full: **passed, 0 advertencias, 0 fallos**.
+- Auditoría de audio: **0 FAIL, 66 WARN, 13 PASS** (V2.3: 0 FAIL, 67
+  WARN, 9 PASS). Sección (i) entera en PASS: (i1) empalmes limpios
+  (peor dip 10,1 dB, bajo el umbral WARN de 12 dB), (i2) sin dips en
+  palabras, (i4) 16/16 segmentos contiguos, (i5) 0 enmascaramientos.
+  Alineación en máster 0,044 s de media (V2.3: 0,064 s). Los 66 WARN
+  son el patrón benigno conocido (56 captions cortos, 7 Whisper en
+  máster, 2 fusiones «Y»/«EN» en L7, 1 bombeo de ducking 12,4 dB).

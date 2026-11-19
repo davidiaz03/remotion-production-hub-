@@ -15,7 +15,7 @@
   ],
   "pending": [],
   "nextTask": "Juicio creativo del usuario + visto bueno de Suleris; leer términos comerciales de Flow Music y etiqueta IA de Meta al publicar",
-  "updatedAt": "2026-11-18T23:17:27.555Z",
+  "updatedAt": "2026-11-19T00:58:36.925Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -98,7 +98,7 @@
       "qa": {
         "status": "done",
         "startedAt": "2026-11-17T21:58:07.817Z",
-        "updatedAt": "2026-11-18T23:17:27.516Z",
+        "updatedAt": "2026-11-19T00:58:36.837Z",
         "artifacts": [
           "reports/technical-qa.json",
           "out/marti-fidel_MASTER.mp4",
@@ -109,9 +109,10 @@
           "reports/audio-audit-v2.json",
           "out/marti-fidel-v2.1_MASTER.mp4",
           "out/marti-fidel-v2.2_MASTER.mp4",
-          "out/marti-fidel-v2.3_MASTER.mp4"
+          "out/marti-fidel-v2.3_MASTER.mp4",
+          "out/marti-fidel-v2.4_MASTER.mp4"
         ],
-        "note": "-15.9 LUFS, TP -3.7 dBTP"
+        "note": "-16 LUFS, TP -2 dBTP"
       },
       "delivery": {
         "status": "done",
@@ -1764,6 +1765,15 @@
         "artifacts": [
           "reports/technical-qa.json",
           "out/marti-fidel-v2.3_MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T00:58:36.837Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel-v2.4_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel-v2.4_MASTER.mp4"
         ]
       }
     ]
