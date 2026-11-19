@@ -107,6 +107,9 @@ def main() -> int:
     p.add_argument("--out-json", help="JSON de HubCaption[] (flujo nuevo)")
     p.add_argument("--model", default=DEFAULT_MODEL)
     p.add_argument("--language", default="es")
+    p.add_argument("--threads", type=int, default=2,
+                   help="Hilos CPU de faster-whisper (defecto 2; la "
+                   "caja tiene 1,5 CPU efectivas y más hilos no ayuda)")
     p.add_argument("--fps", type=int, default=30,
                    help="fps para el campo frames de cada segmento")
     p.add_argument("--key-words", default="",
@@ -132,7 +135,10 @@ def main() -> int:
         lines = json.load(f)["lines"]
     assert len(lines) == len(fragments), "vo-lines.json y el guion difieren"
 
+    import time as _time
+    _t0 = _time.perf_counter()
     model = WhisperModel(a.model, device="cpu", compute_type="int8",
+                         cpu_threads=max(1, a.threads), num_workers=1,
                          local_files_only=True)
     segments, _ = model.transcribe(a.vo, language=a.language,
                                    word_timestamps=True)
@@ -140,7 +146,8 @@ def main() -> int:
     for seg in segments:
         all_words.extend({"word": w.word.strip(), "start": w.start, "end": w.end}
                          for w in seg.words)
-    print(f"Whisper: {len(all_words)} palabras en total")
+    print(f"Whisper: {len(all_words)} palabras en total "
+          f"({_time.perf_counter() - _t0:.0f} s)")
 
     key_words = {norm(w) for w in a.key_words.split(",") if w.strip()}
     key_times = {}

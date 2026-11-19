@@ -27,8 +27,22 @@ Uso:
   # Salida: <out> (48 kHz, -16 LUFS) + secciones crudas en
   # <out-dir>/music-sections/ (por si hay que remezclar).
 
-OJO: la generación en CPU es el paso más lento del reel (~1-2 min por
-sección). Avisar al usuario del tiempo antes de lanzar.
+OJO: la generación en CPU es el paso más lento del reel. Velocidad
+REAL medida en esta caja (1,5 CPU): ~30 min por sección de 60 s
+(modern-wisdom-aprende, 19-nov-2026: probe + 3×60 s = 1 h 46 min).
+Para video largo NO regeneres la cama en cada proyecto: usa la
+biblioteca de camas pregeneradas (assets/music-beds/ + registry.json,
+ver scripts/audio/bed-loop.py) y reserva MusicGen para camas nuevas
+que la biblioteca no cubra. Avisar al usuario del tiempo antes de
+lanzar una generación nueva.
+
+Acelerante medido (19-nov-2026, 10 s de audio): --guidance-scale 1.0
+(sin classifier-free guidance: 1 pase por token en vez de 2) tarda
+120 s frente a 201 s con el defecto 3.0 (1,7x). NO es el defecto
+porque no se verificó de oído si la música sigue el prompt igual de
+bien; para una cama ambiental bajo narración es probablemente
+aceptable, pero la primera cama con gs=1.0 debe escucharse antes de
+usarla en un video serio.
 """
 import argparse
 import json
