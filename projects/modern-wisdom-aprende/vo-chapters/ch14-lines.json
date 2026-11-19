@@ -1,0 +1,170 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.659,
+  "total_duration": 103.366,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 14. CIERRE.",
+      "start": 0.0,
+      "end": 1.711,
+      "duration": 1.711
+    },
+    {
+      "index": 1,
+      "text": "Llegamos al final, y es momento de recapitular las nueve ideas de la síntesis.",
+      "start": 2.611,
+      "end": 7.261,
+      "duration": 4.65
+    },
+    {
+      "index": 2,
+      "text": "Primera: la no-necesidad es el principio unificador.",
+      "start": 7.511,
+      "end": 10.756,
+      "duration": 3.245
+    },
+    {
+      "index": 3,
+      "text": "Que tu opinión sobre ti pese más que la reacción ajena.",
+      "start": 11.006,
+      "end": 14.202,
+      "duration": 3.196
+    },
+    {
+      "index": 4,
+      "text": "Segunda: la confianza es evidencia, no afirmación.",
+      "start": 14.452,
+      "end": 17.526,
+      "duration": 3.074
+    },
+    {
+      "index": 5,
+      "text": "Tercera: la exposición vence a la evitación.",
+      "start": 17.776,
+      "end": 20.456,
+      "duration": 2.68
+    },
+    {
+      "index": 6,
+      "text": "Cuarta: la conexión es el mecanismo de la felicidad.",
+      "start": 20.706,
+      "end": 23.956,
+      "duration": 3.25
+    },
+    {
+      "index": 7,
+      "text": "Quinta: el desprecio destruye, la validación construye.",
+      "start": 24.206,
+      "end": 27.602,
+      "duration": 3.396
+    },
+    {
+      "index": 8,
+      "text": "Sexta: la vulnerabilidad bien dosificada acerca, la performance aleja.",
+      "start": 27.852,
+      "end": 32.295,
+      "duration": 4.442
+    },
+    {
+      "index": 9,
+      "text": "Séptima: la claridad es una habilidad, no un rasgo.",
+      "start": 32.545,
+      "end": 35.541,
+      "duration": 2.996
+    },
+    {
+      "index": 10,
+      "text": "Octava: el consejo debe filtrarse por quién eres.",
+      "start": 35.791,
+      "end": 38.748,
+      "duration": 2.957
+    },
+    {
+      "index": 11,
+      "text": "Y novena: lo que no sostienen los datos.",
+      "start": 38.998,
+      "end": 41.306,
+      "duration": 2.309
+    },
+    {
+      "index": 12,
+      "text": "Que el físico sea destino, que el ochenta veinte describa el mundo, que la psicología oscura funcione a largo plazo, que la felicidad se compre, o que leer más te haga mejor.",
+      "start": 41.556,
+      "end": 51.159,
+      "duration": 9.603
+    },
+    {
+      "index": 13,
+      "text": "Ahora te toca a ti.",
+      "start": 51.409,
+      "end": 52.752,
+      "duration": 1.343
+    },
+    {
+      "index": 14,
+      "text": "Escribe tu página: qué mentalidad voy a mantener.",
+      "start": 53.002,
+      "end": 55.982,
+      "duration": 2.98
+    },
+    {
+      "index": 15,
+      "text": "Tres a cinco frases en primera persona, en tu voz, basadas en lo que probaste, no en lo que escuchaste.",
+      "start": 56.232,
+      "end": 62.251,
+      "duration": 6.019
+    },
+    {
+      "index": 16,
+      "text": "Esa página es el verdadero final de este video.",
+      "start": 62.501,
+      "end": 65.447,
+      "duration": 2.946
+    },
+    {
+      "index": 17,
+      "text": "Y si solo vieras tres episodios del podcast, que sean estos: el 1115, Lyubomirsky, sobre conexión y acción social; el 1096, Manson, sobre no-necesidad y aprender como procrastinación; y el 1050, Robertson, sobre ansiedad y exposición.",
+      "start": 65.697,
+      "end": 81.468,
+      "duration": 15.771
+    },
+    {
+      "index": 18,
+      "text": "Con esos tres y el plan de cuatro semanas tienes el ochenta por ciento del valor de los treinta.",
+      "start": 81.718,
+      "end": 87.065,
+      "duration": 5.347
+    },
+    {
+      "index": 19,
+      "text": "No hay nada más que añadir.",
+      "start": 87.315,
+      "end": 88.916,
+      "duration": 1.602
+    },
+    {
+      "index": 20,
+      "text": "Una acción por capítulo, y la próxima vez que sientas el impulso de consumir otro video como este, pregúntate: ¿qué estoy evitando hacer mientras lo veo?",
+      "start": 89.166,
+      "end": 98.176,
+      "duration": 9.01
+    },
+    {
+      "index": 21,
+      "text": "Éxito es haber actuado.",
+      "start": 98.426,
+      "end": 100.011,
+      "duration": 1.585
+    },
+    {
+      "index": 22,
+      "text": "Nos vemos en la práctica.",
+      "start": 100.261,
+      "end": 101.866,
+      "duration": 1.605
+    }
+  ]
+}

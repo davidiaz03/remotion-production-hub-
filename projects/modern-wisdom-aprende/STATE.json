@@ -10,7 +10,7 @@
   "completed": [],
   "pending": [],
   "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
-  "updatedAt": "2026-11-19T13:53:51.225Z",
+  "updatedAt": "2026-11-19T16:40:03.897Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -23,13 +23,13 @@
       "vo": {
         "status": "done",
         "startedAt": "2026-11-19T13:53:51.212Z",
-        "updatedAt": "2026-11-19T13:53:51.212Z",
+        "updatedAt": "2026-11-19T16:40:03.897Z",
         "artifacts": [
           "public/audio/voice-test/em_alex.wav",
           "public/audio/voice-test/em_santa.wav",
           "voice-music-test.md"
         ],
-        "note": ""
+        "note": "VO completa 15/15 capitulos (em_alex, 0.95): 1958.6 s (32.6 min). Timeline regenerado en modo real: 58848 f (32.7 min)."
       },
       "captions": {
         "status": "pending",
@@ -87,6 +87,12 @@
           "public/audio/voice-test/em_santa.wav",
           "voice-music-test.md"
         ]
+      },
+      {
+        "at": "2026-11-19T16:40:03.897Z",
+        "phase": "vo",
+        "event": "done",
+        "artifacts": []
       }
     ]
   }

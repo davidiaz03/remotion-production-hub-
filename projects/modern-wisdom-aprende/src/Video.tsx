@@ -1,8 +1,9 @@
 import React from 'react';
 import {AbsoluteFill, Sequence} from 'remotion';
 import {BottomKaraoke} from '../../../shared/captions/BottomKaraoke';
+import {captionsToLines, type HubCaption} from '../../../shared/captions';
 import timelineRaw from './timeline.json';
-import {buildPlaceholderKaraokeLines} from './karaoke';
+import captionsRaw from './captions.json';
 import {COLORS} from './theme';
 import type {DataItem, Timeline, TimelineScene} from './types';
 import {BigStatement} from './components/BigStatement';
@@ -39,17 +40,13 @@ const TIMELINE = timelineRaw as unknown as Timeline;
  * la VO, re-ejecutar el script: mismo formato, tiempos reales.
  */
 
-// TODO (karaoke real): cuando exista la transcripción de la VO
-// (scripts/audio/transcribe-vo.py → faster-whisper word_timestamps),
-// sustituir buildPlaceholderKaraokeLines() por el flujo canónico del
-// hub: whisperWordsToCaptions(words, {chunkEndIndices, keywordWords}) +
-// captionsToLines() (ver shared/captions/README.md y src/karaoke.ts).
-// El karaoke placeholder reparte las palabras uniformemente por línea:
-// sirve para verificar layout y ritmo, NO para el máster final.
-const KARAOKE_LINES = buildPlaceholderKaraokeLines(
-  TIMELINE.lines,
-  TIMELINE.fps,
-);
+// Karaoke REAL: faster-whisper word_timestamps sobre la VO completa,
+// alineados al guion con scripts/audio/transcribe-vo.py
+// (src/captions.json = HubCaption[], texto en mayúsculas, kw + pageBreakAfter
+// según vo-captions.json). El flujo canónico del hub agrupa las páginas
+// con captionsToLines(). El placeholder (src/karaoke.ts) queda solo como
+// referencia para futuros proyectos sin VO.
+const KARAOKE_LINES = captionsToLines(captionsRaw as unknown as HubCaption[]);
 
 const SceneContent: React.FC<{
   scene: TimelineScene;

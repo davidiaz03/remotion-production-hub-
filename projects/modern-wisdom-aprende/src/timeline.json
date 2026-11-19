@@ -1,15 +1,26 @@
 {
   "fps": 30,
   "tailFrames": 90,
-  "totalFrames": 69409,
-  "mode": "mixed",
+  "totalFrames": 58848,
+  "mode": "real",
   "realChapters": [
     0,
     1,
     2,
-    3
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
   ],
-  "generatedAt": "2026-11-19T14:52:12.653Z",
+  "generatedAt": "2026-11-19T16:39:53.818Z",
   "lines": [
     {
       "line": 1,
@@ -555,2072 +566,2072 @@
       "chapter": 4,
       "text": "CAPÍTULO 4. LA ANSIEDAD SE CURA ACTUANDO.",
       "startFrame": 11299,
-      "endFrame": 11391
+      "endFrame": 11385
     },
     {
       "line": 79,
       "chapter": 4,
       "text": "Este capítulo es el que más respaldo científico tiene de todo el video.",
-      "startFrame": 11418,
-      "endFrame": 11577
+      "startFrame": 11412,
+      "endFrame": 11540
     },
     {
       "line": 80,
       "chapter": 4,
       "text": "Su fuente principal es Donald Robertson, psicoterapeuta cognitivo-conductual, en el episodio 1050.",
-      "startFrame": 11585,
-      "endFrame": 11805
+      "startFrame": 11547,
+      "endFrame": 11738
     },
     {
       "line": 81,
       "chapter": 4,
       "text": "La tesis es simple: la ansiedad se trata con herramientas concretas, no con insight.",
-      "startFrame": 11813,
-      "endFrame": 12002
+      "startFrame": 11746,
+      "endFrame": 11890
     },
     {
       "line": 82,
       "chapter": 4,
       "text": "Y la herramienta central es la terapia de exposición.",
-      "startFrame": 12009,
-      "endFrame": 12128
+      "startFrame": 11898,
+      "endFrame": 11989
     },
     {
       "line": 83,
       "chapter": 4,
       "text": "Lleva más de setenta años usándose en terapia cognitivo-conductual, con metaanálisis amplios detrás.",
-      "startFrame": 12136,
-      "endFrame": 12361
+      "startFrame": 11996,
+      "endFrame": 12184
     },
     {
       "line": 84,
       "chapter": 4,
       "text": "Es probablemente el tratamiento más fiable que existe para fobias y ansiedad social.",
-      "startFrame": 12368,
-      "endFrame": 12557
+      "startFrame": 12192,
+      "endFrame": 12337
     },
     {
       "line": 85,
       "chapter": 4,
       "text": "La lógica es esta: la evitación es la raíz del problema.",
-      "startFrame": 12564,
-      "endFrame": 12690
+      "startFrame": 12345,
+      "endFrame": 12453
     },
     {
       "line": 86,
       "chapter": 4,
       "text": "Evitar lo que da ansiedad impide que te habitúes, y tu vida se va encogiendo poco a poco.",
-      "startFrame": 12697,
-      "endFrame": 12897
+      "startFrame": 12460,
+      "endFrame": 12618
     },
     {
       "line": 87,
       "chapter": 4,
       "text": "Robertson y Spencer Greenberg, en el episodio 1161, dan el mismo protocolo.",
-      "startFrame": 12904,
-      "endFrame": 13072
+      "startFrame": 12626,
+      "endFrame": 12788
     },
     {
       "line": 88,
       "chapter": 4,
       "text": "Primero, escribe una jerarquía de miedos: diez situaciones sociales ordenadas de menor a mayor dificultad.",
-      "startFrame": 13080,
-      "endFrame": 13318
+      "startFrame": 12796,
+      "endFrame": 12979
     },
     {
       "line": 89,
       "chapter": 4,
       "text": "Segundo, sube un peldaño por semana, sin conductas de seguridad.",
-      "startFrame": 13326,
-      "endFrame": 13470
+      "startFrame": 12987,
+      "endFrame": 13099
     },
     {
       "line": 90,
       "chapter": 4,
       "text": "Las conductas de seguridad son las muletas: mirar el móvil, evitar el contacto visual, ensayar cada frase.",
-      "startFrame": 13477,
-      "endFrame": 13715
+      "startFrame": 13106,
+      "endFrame": 13303
     },
     {
       "line": 91,
       "chapter": 4,
       "text": "Si usas muletas, no aprendes que no pasa nada.",
-      "startFrame": 13723,
-      "endFrame": 13826
+      "startFrame": 13310,
+      "endFrame": 13392
     },
     {
       "line": 92,
       "chapter": 4,
       "text": "Tercero, la posposición de la preocupación.",
-      "startFrame": 13834,
-      "endFrame": 13931
+      "startFrame": 13399,
+      "endFrame": 13478
     },
     {
       "line": 93,
       "chapter": 4,
       "text": "Anota la preocupación y revísala en un horario fijo, por ejemplo a las siete de la tarde, durante veinte minutos.",
-      "startFrame": 13938,
-      "endFrame": 14192
+      "startFrame": 13486,
+      "endFrame": 13680
     },
     {
       "line": 94,
       "chapter": 4,
       "text": "Fuera de esa hora, la preocupación se pospone por escrito.",
-      "startFrame": 14199,
-      "endFrame": 14329
+      "startFrame": 13688,
+      "endFrame": 13789
     },
     {
       "line": 95,
       "chapter": 4,
       "text": "Según Robertson, esto puede reducir la preocupación a la mitad en un par de semanas.",
-      "startFrame": 14337,
-      "endFrame": 14526
+      "startFrame": 13796,
+      "endFrame": 13943
     },
     {
       "line": 96,
       "chapter": 4,
       "text": "Es evidencia moderada, no una promesa.",
-      "startFrame": 14533,
-      "endFrame": 14618
+      "startFrame": 13951,
+      "endFrame": 14022
     },
     {
       "line": 97,
       "chapter": 4,
       "text": "Cuarto, los ataques a la vergüenza.",
-      "startFrame": 14626,
-      "endFrame": 14705
+      "startFrame": 14030,
+      "endFrame": 14094
     },
     {
       "line": 98,
       "chapter": 4,
       "text": "Haz deliberadamente algo levemente vergonzoso en público para aprender que la vergüenza no mata.",
-      "startFrame": 14712,
-      "endFrame": 14928
+      "startFrame": 14102,
+      "endFrame": 14279
     },
     {
       "line": 99,
       "chapter": 4,
       "text": "La versión cubana: pedir algo en voz alta, hacer una pregunta tonta en clase.",
-      "startFrame": 14935,
-      "endFrame": 15108
+      "startFrame": 14286,
+      "endFrame": 14423
     },
     {
       "line": 100,
       "chapter": 4,
       "text": "El objetivo es aprender que la vergüenza pasa en treinta segundos.",
-      "startFrame": 15115,
-      "endFrame": 15263
+      "startFrame": 14430,
+      "endFrame": 14551
     },
     {
       "line": 101,
       "chapter": 4,
       "text": "Quinto, la premeditatio malorum, imaginar lo malo que puede pasar, en detalle, antes de que ocurra.",
-      "startFrame": 15271,
-      "endFrame": 15493
+      "startFrame": 14559,
+      "endFrame": 14730
     },
     {
       "line": 102,
       "chapter": 4,
       "text": "Es una exposición mental, y reduce el impacto cuando lo malo llega de verdad.",
-      "startFrame": 15501,
-      "endFrame": 15674
+      "startFrame": 14737,
+      "endFrame": 14874
     },
     {
       "line": 103,
       "chapter": 4,
       "text": "Una última herramienta, de Arthur Brooks en el episodio 931: convertir la ansiedad en miedo concreto.",
-      "startFrame": 15681,
-      "endFrame": 15908
+      "startFrame": 14881,
+      "endFrame": 15089
     },
     {
       "line": 104,
       "chapter": 4,
       "text": "La ansiedad es miedo sin enfocar.",
-      "startFrame": 15915,
-      "endFrame": 15989
+      "startFrame": 15097,
+      "endFrame": 15161
     },
     {
       "line": 105,
       "chapter": 4,
       "text": "Escribe cinco cosas que te causan ansiedad y pregúntate: ¿qué es lo peor que puede pasar? ¿Qué tan probable es? ¿Qué haría si pasara?",
-      "startFrame": 15997,
-      "endFrame": 16296
+      "startFrame": 15169,
+      "endFrame": 15391
     },
     {
       "line": 106,
       "chapter": 4,
       "text": "En resumen: la exposición vence a la evitación. Jerarquía de diez peldaños, un peldaño por semana, sin muletas. La ansiedad no se piensa: se actúa.",
-      "startFrame": 16303,
-      "endFrame": 16633
+      "startFrame": 15399,
+      "endFrame": 15664
     },
     {
       "line": 107,
       "chapter": 5,
       "text": "CAPÍTULO 5. CONVERSAR MEJOR.",
-      "startFrame": 16669,
-      "endFrame": 16732
+      "startFrame": 15700,
+      "endFrame": 15763
     },
     {
       "line": 108,
       "chapter": 5,
       "text": "La comunicación es una habilidad aprendible, no un talento innato.",
-      "startFrame": 16759,
-      "endFrame": 16907
+      "startFrame": 15790,
+      "endFrame": 15903
     },
     {
       "line": 109,
       "chapter": 5,
       "text": "Esa es la tesis de Charles Duhigg en el episodio 909, el más denso en tácticas por hora de todo el material.",
-      "startFrame": 16915,
-      "endFrame": 17158
+      "startFrame": 15911,
+      "endFrame": 16111
     },
     {
       "line": 110,
       "chapter": 5,
       "text": "Su técnica central es el looping, el bucle de comprensión.",
-      "startFrame": 17165,
-      "endFrame": 17295
+      "startFrame": 16118,
+      "endFrame": 16221
     },
     {
       "line": 111,
       "chapter": 5,
       "text": "Parafrasea lo que el otro dijo y confirma: ¿es eso lo que quieres decir?",
-      "startFrame": 17303,
-      "endFrame": 17465
+      "startFrame": 16229,
+      "endFrame": 16351
     },
     {
       "line": 112,
       "chapter": 5,
       "text": "Repite hasta que la otra persona se sienta comprendida.",
-      "startFrame": 17472,
-      "endFrame": 17596
+      "startFrame": 16359,
+      "endFrame": 16456
     },
     {
       "line": 113,
       "chapter": 5,
       "text": "Úsalo como principio, no como guion: en una conversación cubana, el looping formal puede sonar artificial si lo aplicas como un libreto.",
-      "startFrame": 17603,
-      "endFrame": 17909
+      "startFrame": 16464,
+      "endFrame": 16707
     },
     {
       "line": 114,
       "chapter": 5,
       "text": "Segunda herramienta: las preguntas profundas, las que empiezan por cómo y por qué.",
-      "startFrame": 17916,
-      "endFrame": 18100
+      "startFrame": 16715,
+      "endFrame": 16856
     },
     {
       "line": 115,
       "chapter": 5,
       "text": "Preguntar por valores, emociones y experiencias genera conexión.",
-      "startFrame": 18108,
-      "endFrame": 18252
+      "startFrame": 16863,
+      "endFrame": 16983
     },
     {
       "line": 116,
       "chapter": 5,
       "text": "Las preguntas factuales la mantienen superficial.",
-      "startFrame": 18259,
-      "endFrame": 18369
+      "startFrame": 16991,
+      "endFrame": 17082
     },
     {
       "line": 117,
       "chapter": 5,
       "text": "Tercera: diagnosticar el tipo de conversación antes de responder.",
-      "startFrame": 18377,
-      "endFrame": 18523
+      "startFrame": 17089,
+      "endFrame": 17204
     },
     {
       "line": 118,
       "chapter": 5,
       "text": "Toda conversación es práctica, resolver algo, emocional, ser escuchado, o social, pertenecer.",
-      "startFrame": 18531,
-      "endFrame": 18740
+      "startFrame": 17212,
+      "endFrame": 17377
     },
     {
       "line": 119,
       "chapter": 5,
       "text": "El error clásico es responder con soluciones a una conversación emocional.",
-      "startFrame": 18748,
-      "endFrame": 18914
+      "startFrame": 17384,
+      "endFrame": 17524
     },
     {
       "line": 120,
       "chapter": 5,
       "text": "Cuarta: el carisma inverso.",
-      "startFrame": 18922,
-      "endFrame": 18983
+      "startFrame": 17532,
+      "endFrame": 17583
     },
     {
       "line": 121,
       "chapter": 5,
       "text": "Duhigg cuenta la anécdota de la madre de Winston Churchill: Disraeli la hizo sentir la mujer más interesante del mundo; Gladstone, que él era el hombre más interesante.",
-      "startFrame": 18990,
-      "endFrame": 19368
+      "startFrame": 17591,
+      "endFrame": 17876
     },
     {
       "line": 122,
       "chapter": 5,
       "text": "La gente recuerda cómo la hiciste sentir, no lo brillante que fuiste.",
-      "startFrame": 19375,
-      "endFrame": 19530
+      "startFrame": 17884,
+      "endFrame": 18002
     },
     {
       "line": 123,
       "chapter": 5,
       "text": "Pasemos a las conversaciones difíciles, con Jefferson Fisher, abogado litigante, en el episodio 1093.",
-      "startFrame": 19538,
-      "endFrame": 19765
+      "startFrame": 18009,
+      "endFrame": 18213
     },
     {
       "line": 124,
       "chapter": 5,
       "text": "Su primera herramienta es Start With the No, empezar con el no.",
-      "startFrame": 19773,
-      "endFrame": 19915
+      "startFrame": 18220,
+      "endFrame": 18323
     },
     {
       "line": 125,
       "chapter": 5,
       "text": "Para dar una mala noticia, encabeza con la noticia dura, y luego gratitud y amabilidad.",
-      "startFrame": 19922,
-      "endFrame": 20118
+      "startFrame": 18330,
+      "endFrame": 18492
     },
     {
       "line": 126,
       "chapter": 5,
       "text": "Segunda: en vez de discutir eso no es lo que dije, pregunta: ¿qué escuchaste?",
-      "startFrame": 20125,
-      "endFrame": 20298
+      "startFrame": 18499,
+      "endFrame": 18625
     },
     {
       "line": 127,
       "chapter": 5,
       "text": "Desactiva la defensiva y revela el malentendido real.",
-      "startFrame": 20306,
-      "endFrame": 20425
+      "startFrame": 18633,
+      "endFrame": 18733
     },
     {
       "line": 128,
       "chapter": 5,
       "text": "Tercera: elimina las frases que te hacen sonar débil.",
-      "startFrame": 20433,
-      "endFrame": 20552
+      "startFrame": 18740,
+      "endFrame": 18831
     },
     {
       "line": 129,
       "chapter": 5,
       "text": "En español: perdona que te moleste, igual estoy equivocado pero, no sé, digo yo.",
-      "startFrame": 20560,
-      "endFrame": 20740
+      "startFrame": 18839,
+      "endFrame": 18976
     },
     {
       "line": 130,
       "chapter": 5,
       "text": "Cuarta: el silencio.",
-      "startFrame": 20747,
-      "endFrame": 20792
+      "startFrame": 18984,
+      "endFrame": 19024
     },
     {
       "line": 131,
       "chapter": 5,
       "text": "Fisher dice que los mentirosos aman las refutaciones y odian el silencio.",
-      "startFrame": 20799,
-      "endFrame": 20963
+      "startFrame": 19031,
+      "endFrame": 19161
     },
     {
       "line": 132,
       "chapter": 5,
       "text": "Ante una mentira o una provocación, el silencio es más potente que la réplica.",
-      "startFrame": 20971,
-      "endFrame": 21146
+      "startFrame": 19168,
+      "endFrame": 19305
     },
     {
       "line": 133,
       "chapter": 5,
       "text": "Y la definición que lo resume todo: pasivo es no respetarte a ti, agresivo es no respetar al otro, asertivo es respetar a ambos.",
-      "startFrame": 21154,
-      "endFrame": 21442
+      "startFrame": 19313,
+      "endFrame": 19543
     },
     {
       "line": 134,
       "chapter": 5,
       "text": "La calma, dice Fisher, es el esfuerzo, no el grito.",
-      "startFrame": 21449,
-      "endFrame": 21564
+      "startFrame": 19550,
+      "endFrame": 19640
     },
     {
       "line": 135,
       "chapter": 5,
       "text": "En resumen: escucha con looping, pregunta cómo y por qué, diagnostica la conversación antes de responder, y sé asertivo: respeto a ambos, a ti y al otro.",
-      "startFrame": 21571,
-      "endFrame": 21915
+      "startFrame": 19648,
+      "endFrame": 19919
     },
     {
       "line": 136,
       "chapter": 6,
       "text": "CAPÍTULO 6. SENTIRSE AMADO Y CONECTAR.",
-      "startFrame": 21949,
-      "endFrame": 22035
+      "startFrame": 19955,
+      "endFrame": 20033
     },
     {
       "line": 137,
       "chapter": 6,
       "text": "La invitada con mayor peso académico de todo el material es Sonja Lyubomirsky, en el episodio 1115.",
-      "startFrame": 22062,
-      "endFrame": 22285
+      "startFrame": 20060,
+      "endFrame": 20256
     },
     {
       "line": 138,
       "chapter": 6,
       "text": "Lleva veintiocho años haciendo intervenciones de felicidad: gratitud, amabilidad, sociabilidad.",
-      "startFrame": 22293,
-      "endFrame": 22507
+      "startFrame": 20263,
+      "endFrame": 20437
     },
     {
       "line": 139,
       "chapter": 6,
       "text": "Su conclusión: todas funcionan por lo mismo, porque hacen sentir más conectado y amado.",
-      "startFrame": 22515,
-      "endFrame": 22711
+      "startFrame": 20445,
+      "endFrame": 20599
     },
     {
       "line": 140,
       "chapter": 6,
       "text": "Y su distinción central es esta: ser admirado no es ser amado.",
-      "startFrame": 22719,
-      "endFrame": 22859
+      "startFrame": 20606,
+      "endFrame": 20725
     },
     {
       "line": 141,
       "chapter": 6,
       "text": "La clave para sentirse amado es ser conocido.",
-      "startFrame": 22866,
-      "endFrame": 22967
+      "startFrame": 20733,
+      "endFrame": 20819
     },
     {
       "line": 142,
       "chapter": 6,
       "text": "Si escondes tus debilidades, siempre dudarás: si me conociera de verdad, ¿me querría?",
-      "startFrame": 22975,
-      "endFrame": 23167
+      "startFrame": 20826,
+      "endFrame": 20967
     },
     {
       "line": 143,
       "chapter": 6,
       "text": "Tres herramientas concretas, todas gratuitas y presenciales.",
-      "startFrame": 23174,
-      "endFrame": 23309
+      "startFrame": 20975,
+      "endFrame": 21083
     },
     {
       "line": 144,
       "chapter": 6,
       "text": "Primera: valida antes de arreglar.",
-      "startFrame": 23317,
-      "endFrame": 23394
+      "startFrame": 21090,
+      "endFrame": 21153
     },
     {
       "line": 145,
       "chapter": 6,
       "text": "Cuando alguien te cuenta un problema, primero valida: eso debe ser tan doloroso.",
-      "startFrame": 23401,
-      "endFrame": 23581
+      "startFrame": 21160,
+      "endFrame": 21303
     },
     {
       "line": 146,
       "chapter": 6,
       "text": "Los consejos, después, y solo si se piden.",
-      "startFrame": 23589,
-      "endFrame": 23684
+      "startFrame": 21310,
+      "endFrame": 21390
     },
     {
       "line": 147,
       "chapter": 6,
       "text": "Segunda: cómo reaccionas a las buenas noticias ajenas predice la duración de la relación.",
-      "startFrame": 23691,
-      "endFrame": 23892
+      "startFrame": 21398,
+      "endFrame": 21556
     },
     {
       "line": 148,
       "chapter": 6,
       "text": "Celebrar con entusiasmo genuino es lo protector.",
-      "startFrame": 23899,
-      "endFrame": 24007
+      "startFrame": 21564,
+      "endFrame": 21653
     },
     {
       "line": 149,
       "chapter": 6,
       "text": "La envidia o la amenaza lo corroen.",
-      "startFrame": 24015,
-      "endFrame": 24094
+      "startFrame": 21660,
+      "endFrame": 21725
     },
     {
       "line": 150,
       "chapter": 6,
       "text": "Esto tiene respaldo fuerte, en los estudios de Gable y sus colegas.",
-      "startFrame": 24101,
-      "endFrame": 24252
+      "startFrame": 21732,
+      "endFrame": 21849
     },
     {
       "line": 151,
       "chapter": 6,
       "text": "Tercera: el experimento más potente medido en todo el material.",
-      "startFrame": 24260,
-      "endFrame": 24402
+      "startFrame": 21857,
+      "endFrame": 21965
     },
     {
       "line": 152,
       "chapter": 6,
       "text": "Margolis y Lyubomirsky pidieron a introvertidos y extrovertidos que actuaran más sociables durante una semana.",
-      "startFrame": 24410,
-      "endFrame": 24658
+      "startFrame": 21973,
+      "endFrame": 22167
     },
     {
       "line": 153,
       "chapter": 6,
       "text": "Lyubomirsky dice que produjo los mayores efectos jamás encontrados en cualquiera de sus intervenciones.",
-      "startFrame": 24665,
-      "endFrame": 24897
+      "startFrame": 22175,
+      "endFrame": 22365
     },
     {
       "line": 154,
       "chapter": 6,
       "text": "Y el mito de que los introvertidos se agotan socializando no se sostiene: también ellos mejoraron.",
-      "startFrame": 24905,
-      "endFrame": 25126
+      "startFrame": 22372,
+      "endFrame": 22537
     },
     {
       "line": 155,
       "chapter": 6,
       "text": "Es un experimento publicado, con efectos grandes pero de corto plazo: una semana.",
-      "startFrame": 25133,
-      "endFrame": 25316
+      "startFrame": 22544,
+      "endFrame": 22688
     },
     {
       "line": 156,
       "chapter": 6,
       "text": "Cuba es un entorno ideal para probarlo: la gente habla en la cola, en la guagua, en el barrio.",
-      "startFrame": 25323,
-      "endFrame": 25535
+      "startFrame": 22695,
+      "endFrame": 22850
     },
     {
       "line": 157,
       "chapter": 6,
       "text": "Una nota más: la paradoja de la vulnerabilidad.",
-      "startFrame": 25542,
-      "endFrame": 25648
+      "startFrame": 22857,
+      "endFrame": 22943
     },
     {
       "line": 158,
       "chapter": 6,
       "text": "Creemos que mostrarnos vulnerables hará que nos quieran menos, y en promedio hace que nos quieran más.",
-      "startFrame": 25655,
-      "endFrame": 25885
+      "startFrame": 22950,
+      "endFrame": 23109
     },
     {
       "line": 159,
       "chapter": 6,
       "text": "El efecto pratfall, que lo respalda parcialmente, tiene réplicas mixtas, así que tómalo como tendencia, no como ley.",
-      "startFrame": 25892,
-      "endFrame": 26153
+      "startFrame": 23117,
+      "endFrame": 23318
     },
     {
       "line": 160,
       "chapter": 6,
       "text": "En resumen: sentirse amado viene de ser conocido, no de ser admirado. Valida antes de arreglar, celebra las buenas noticias ajenas, y prueba una semana extrovertida.",
-      "startFrame": 26161,
-      "endFrame": 26533
+      "startFrame": 23326,
+      "endFrame": 23627
     },
     {
       "line": 161,
       "chapter": 7,
       "text": "CAPÍTULO 7. RELACIONES SIN MITOS.",
-      "startFrame": 26569,
-      "endFrame": 26643
+      "startFrame": 23663,
+      "endFrame": 23733
     },
     {
       "line": 162,
       "chapter": 7,
       "text": "Este capítulo desmonta creencias, y es el más largo porque hay mucho que desmontar.",
-      "startFrame": 26670,
-      "endFrame": 26857
+      "startFrame": 23760,
+      "endFrame": 23902
     },
     {
       "line": 163,
       "chapter": 7,
       "text": "Empieza por el mito más citado en el entorno de este podcast: el ochenta veinte.",
-      "startFrame": 26864,
-      "endFrame": 27044
+      "startFrame": 23909,
+      "endFrame": 24047
     },
     {
       "line": 164,
       "chapter": 7,
       "text": "La idea de que el veinte por ciento de los hombres acapara al ochenta por ciento de las mujeres.",
-      "startFrame": 27051,
-      "endFrame": 27267
+      "startFrame": 24055,
+      "endFrame": 24208
     },
     {
       "line": 165,
       "chapter": 7,
       "text": "El origen real es un post de Medium de 2015 que aplicó el principio de Pareto a un modelo de likes de Tinder.",
-      "startFrame": 27274,
-      "endFrame": 27519
+      "startFrame": 24215,
+      "endFrame": 24418
     },
     {
       "line": 166,
       "chapter": 7,
       "text": "Se basó en veintisiete mujeres que chatearon con un perfil masculino falso, sin encuestar a ningún hombre.",
-      "startFrame": 27527,
-      "endFrame": 27765
+      "startFrame": 24425,
+      "endFrame": 24608
     },
     {
       "line": 167,
       "chapter": 7,
       "text": "Y las cifras exactas del post describían likes, no citas, no sexo, no relaciones.",
-      "startFrame": 27773,
-      "endFrame": 27955
+      "startFrame": 24616,
+      "endFrame": 24764
     },
     {
       "line": 168,
       "chapter": 7,
       "text": "¿Qué sí es real? La desigualdad de atención en las aplicaciones existe y es grande.",
-      "startFrame": 27963,
-      "endFrame": 28150
+      "startFrame": 24771,
+      "endFrame": 24911
     },
     {
       "line": 169,
       "chapter": 7,
       "text": "Hinge, en 2017, encontró que la mitad de los likes fue a parar a alrededor del quince por ciento de los hombres.",
-      "startFrame": 28157,
-      "endFrame": 28409
+      "startFrame": 24919,
+      "endFrame": 25122
     },
     {
       "line": 170,
       "chapter": 7,
       "text": "Lo que no se sostiene es el salto de likes concentrados a relaciones concentradas.",
-      "startFrame": 28416,
-      "endFrame": 28600
+      "startFrame": 25129,
+      "endFrame": 25275
     },
     {
       "line": 171,
       "chapter": 7,
       "text": "En la encuesta nacional estadounidense de crecimiento familiar, la mediana de parejas sexuales en el último año es una, tanto para hombres como para mujeres.",
-      "startFrame": 28608,
-      "endFrame": 28961
+      "startFrame": 25282,
+      "endFrame": 25553
     },
     {
       "line": 172,
       "chapter": 7,
       "text": "El ochenta veinte como cifra es un meme, no una medición.",
-      "startFrame": 28969,
-      "endFrame": 29097
+      "startFrame": 25560,
+      "endFrame": 25657
     },
     {
       "line": 173,
       "chapter": 7,
       "text": "Y el propio episodio 1133, la mesa redonda sobre atracción femenina, lo desmonta.",
-      "startFrame": 29105,
-      "endFrame": 29287
+      "startFrame": 25664,
+      "endFrame": 25839
     },
     {
       "line": 174,
       "chapter": 7,
       "text": "Lo mismo pasa con el Chad: los números de parejas sexuales son estables en ambos sexos, y el monopolio es un invento de estadísticas sesgadas de aplicaciones.",
-      "startFrame": 29295,
-      "endFrame": 29650
+      "startFrame": 25846,
+      "endFrame": 26132
     },
     {
       "line": 175,
       "chapter": 7,
       "text": "Sobre el físico, dos datos que desactivan inseguridades.",
-      "startFrame": 29658,
-      "endFrame": 29784
+      "startFrame": 26140,
+      "endFrame": 26241
     },
     {
       "line": 176,
       "chapter": 7,
       "text": "Primero, según el episodio 1031, la preferencia revelada de las mujeres está alrededor del trece al quince por ciento de grasa corporal, no el diez por ciento del culto al gimnasio.",
-      "startFrame": 29791,
-      "endFrame": 30198
+      "startFrame": 26248,
+      "endFrame": 26581
     },
     {
       "line": 177,
       "chapter": 7,
       "text": "Y un matiz: la competencia por el físico es sobre todo entre hombres; el episodio 1133 lo llama mogging, señalización de estatus ante otros hombres.",
-      "startFrame": 30206,
-      "endFrame": 30539
+      "startFrame": 26589,
+      "endFrame": 26883
     },
     {
       "line": 178,
       "chapter": 7,
       "text": "Eastwick demostró, con respaldo fuerte, que las diferencias sexuales de las encuestas se reducen mucho cuando se mide la conducta real.",
-      "startFrame": 30546,
-      "endFrame": 30850
+      "startFrame": 26890,
+      "endFrame": 27126
     },
     {
       "line": 179,
       "chapter": 7,
       "text": "Observa lo que la gente hace, no lo que dice que quiere.",
-      "startFrame": 30857,
-      "endFrame": 30983
+      "startFrame": 27134,
+      "endFrame": 27223
     },
     {
       "line": 180,
       "chapter": 7,
       "text": "Mercedes Coffman, en el episodio 1092, propone un estándar de oro con tres partes: disponibilidad, capacidad y madurez.",
-      "startFrame": 30990,
-      "endFrame": 31258
+      "startFrame": 27230,
+      "endFrame": 27464
     },
     {
       "line": 181,
       "chapter": 7,
       "text": "Y su herramienta central es la prueba de claridad: un hombre genuinamente interesado da claridad incluso en sus días más ocupados.",
-      "startFrame": 31265,
-      "endFrame": 31557
+      "startFrame": 27471,
+      "endFrame": 27704
     },
     {
       "line": 182,
       "chapter": 7,
       "text": "La falta de claridad es la señal.",
-      "startFrame": 31565,
-      "endFrame": 31639
+      "startFrame": 27711,
+      "endFrame": 27777
     },
     {
       "line": 183,
       "chapter": 7,
       "text": "Esto vale en espejo: da claridad tú también, en vez de mantener a alguien en confusión.",
-      "startFrame": 31647,
-      "endFrame": 31843
+      "startFrame": 27785,
+      "endFrame": 27934
     },
     {
       "line": 184,
       "chapter": 7,
       "text": "Coffman distingue además la limerencia del amor.",
-      "startFrame": 31850,
-      "endFrame": 31958
+      "startFrame": 27942,
+      "endFrame": 28030
     },
     {
       "line": 185,
       "chapter": 7,
       "text": "La limerencia es una fijación emocional alimentada por la incertidumbre, con pensamientos intrusivos y ansia de validación.",
-      "startFrame": 31965,
-      "endFrame": 32242
+      "startFrame": 28038,
+      "endFrame": 28255
     },
     {
       "line": 186,
       "chapter": 7,
       "text": "Ojo: las cifras de prevalencia que se citan en ese episodio no pudieron verificarse, así que no las repito aquí como datos.",
-      "startFrame": 32249,
-      "endFrame": 32526
+      "startFrame": 28262,
+      "endFrame": 28483
     },
     {
       "line": 187,
       "chapter": 7,
       "text": "El concepto es útil, las cifras no son fiables.",
-      "startFrame": 32533,
-      "endFrame": 32639
+      "startFrame": 28490,
+      "endFrame": 28578
     },
     {
       "line": 188,
       "chapter": 7,
       "text": "Y cierro con lo que destruye y lo que construye una relación.",
-      "startFrame": 32646,
-      "endFrame": 32783
+      "startFrame": 28586,
+      "endFrame": 28692
     },
     {
       "line": 189,
       "chapter": 7,
       "text": "Arthur Brooks, en el episodio 931, recoge el hallazgo de Gottman, con décadas de observación detrás: el desprecio destruye los matrimonios.",
-      "startFrame": 32791,
-      "endFrame": 33104
+      "startFrame": 28700,
+      "endFrame": 28977
     },
     {
       "line": 190,
       "chapter": 7,
       "text": "El desprecio es ira más asco: poner los ojos en blanco, el sarcasmo, la descalificación.",
-      "startFrame": 33111,
-      "endFrame": 33309
+      "startFrame": 28984,
+      "endFrame": 29145
     },
     {
       "line": 191,
       "chapter": 7,
       "text": "Es más dañino que la ira o el conflicto.",
-      "startFrame": 33316,
-      "endFrame": 33406
+      "startFrame": 29153,
+      "endFrame": 29224
     },
     {
       "line": 192,
       "chapter": 7,
       "text": "Su inverso es lo que sostiene las relaciones largas: validación, celebrar las buenas noticias, contacto y mirada.",
-      "startFrame": 33413,
-      "endFrame": 33667
+      "startFrame": 29232,
+      "endFrame": 29429
     },
     {
       "line": 193,
       "chapter": 7,
       "text": "En resumen: el ochenta veinte es un mito, el físico importa menos de lo que crees, la falta de claridad es la señal, y el desprecio destruye lo que la validación construye.",
-      "startFrame": 33675,
-      "endFrame": 34062
+      "startFrame": 29436,
+      "endFrame": 29738
     },
     {
       "line": 194,
       "chapter": 8,
       "text": "CAPÍTULO 8. LA MANOSFERA Y EL CRITERIO.",
-      "startFrame": 34099,
-      "endFrame": 34187
+      "startFrame": 29774,
+      "endFrame": 29851
     },
     {
       "line": 195,
       "chapter": 8,
       "text": "Este capítulo no es de técnicas, es de criterio.",
-      "startFrame": 34214,
-      "endFrame": 34322
+      "startFrame": 29878,
+      "endFrame": 29965
     },
     {
       "line": 196,
       "chapter": 8,
       "text": "Y su fuente principal es el episodio 540, con Destiny, el único episodio de este bloque que se leyó en transcripción completa.",
-      "startFrame": 34330,
-      "endFrame": 34614
+      "startFrame": 29973,
+      "endFrame": 30219
     },
     {
       "line": 197,
       "chapter": 8,
       "text": "La tesis es que la manosfera describe problemas reales de hombres reales, pero su análisis es adversarial y suma cero.",
-      "startFrame": 34621,
-      "endFrame": 34887
+      "startFrame": 30227,
+      "endFrame": 30437
     },
     {
       "line": 198,
       "chapter": 8,
       "text": "Destiny distingue tres olas.",
-      "startFrame": 34894,
-      "endFrame": 34957
+      "startFrame": 30445,
+      "endFrame": 30500
     },
     {
       "line": 199,
       "chapter": 8,
       "text": "La primera ola fue el pickup: Strauss, Mystery, el negging, la programación neurolingüística.",
-      "startFrame": 34965,
-      "endFrame": 35175
+      "startFrame": 30507,
+      "endFrame": 30664
     },
     {
       "line": 200,
       "chapter": 8,
       "text": "La segunda ola, después del Me Too, fue la del hombre de alto valor, alfa y beta, la psicología evolutiva y el valor de mercado sexual.",
-      "startFrame": 35182,
-      "endFrame": 35486
+      "startFrame": 30671,
+      "endFrame": 30903
     },
     {
       "line": 201,
       "chapter": 8,
       "text": "El problema fundamental de ambas es el mismo: ven a hombres y mujeres como adversarios.",
-      "startFrame": 35494,
-      "endFrame": 35690
+      "startFrame": 30911,
+      "endFrame": 31065
     },
     {
       "line": 202,
       "chapter": 8,
       "text": "La tercera ola, la que falta, trataría a hombres y mujeres como compatriotas, y enseñaría a mantener relaciones, no solo a conseguirlas.",
-      "startFrame": 35698,
-      "endFrame": 36004
+      "startFrame": 31073,
+      "endFrame": 31319
     },
     {
       "line": 203,
       "chapter": 8,
       "text": "Todo es conseguir a la chica, aunque la mayoría terminará en una relación comprometida.",
-      "startFrame": 36012,
-      "endFrame": 36208
+      "startFrame": 31327,
+      "endFrame": 31479
     },
     {
       "line": 204,
       "chapter": 8,
       "text": "La frase clave del episodio es esta: las descripciones de la red pill suelen ser acertadas, pero el análisis que viene después es venenoso.",
-      "startFrame": 36216,
-      "endFrame": 36529
+      "startFrame": 31486,
+      "endFrame": 31737
     },
     {
       "line": 205,
       "chapter": 8,
       "text": "Esa es la brújula: separar lo verdadero de lo venenoso.",
-      "startFrame": 36537,
-      "endFrame": 36661
+      "startFrame": 31744,
+      "endFrame": 31843
     },
     {
       "line": 206,
       "chapter": 8,
       "text": "El podcast condena el pickup de forma explícita y repetida.",
-      "startFrame": 36668,
-      "endFrame": 36801
+      "startFrame": 31851,
+      "endFrame": 31956
     },
     {
       "line": 207,
       "chapter": 8,
       "text": "Jordan Peterson, en el episodio 712, lo llama psicopatía guionizada: practicar manipulación sin integrarla entrena psicopatía real.",
-      "startFrame": 36808,
-      "endFrame": 37103
+      "startFrame": 31963,
+      "endFrame": 32228
     },
     {
       "line": 208,
       "chapter": 8,
       "text": "Mark Manson, en el episodio 340, lo compara con ganar un concurso de halterofilia con un exoesqueleto oculto: simula atractivo sin construirlo.",
-      "startFrame": 37111,
-      "endFrame": 37433
+      "startFrame": 32236,
+      "endFrame": 32521
     },
     {
       "line": 209,
       "chapter": 8,
       "text": "Y el episodio 540 añade dos diagnósticos útiles.",
-      "startFrame": 37441,
-      "endFrame": 37549
+      "startFrame": 32528,
+      "endFrame": 32645
     },
     {
       "line": 210,
       "chapter": 8,
       "text": "Primero, las amistades masculinas pobres: las amistades femeninas son emocionalmente satisfactorias, las masculinas, superficiales.",
-      "startFrame": 37557,
-      "endFrame": 37852
+      "startFrame": 32653,
+      "endFrame": 32892
     },
     {
       "line": 211,
       "chapter": 8,
       "text": "Segundo, la paradoja de la región beta, de Gilbert: estar regular a veces se siente peor que estar mal.",
-      "startFrame": 37860,
-      "endFrame": 38092
+      "startFrame": 32900,
+      "endFrame": 33085
     },
     {
       "line": 212,
       "chapter": 8,
       "text": "La gente queda atrapada en estar cómodamente entumecida.",
-      "startFrame": 38100,
-      "endFrame": 38226
+      "startFrame": 33092,
+      "endFrame": 33197
     },
     {
       "line": 213,
       "chapter": 8,
       "text": "La pregunta para salir es: dentro de tres años, mirando atrás, ¿qué decisión me habría gustado tomar hoy?",
-      "startFrame": 38234,
-      "endFrame": 38471
+      "startFrame": 33205,
+      "endFrame": 33387
     },
     {
       "line": 214,
       "chapter": 8,
       "text": "Cierro con Richard Reeves, en el episodio 1087.",
-      "startFrame": 38478,
-      "endFrame": 38584
+      "startFrame": 33394,
+      "endFrame": 33500
     },
     {
       "line": 215,
       "chapter": 8,
       "text": "Su mensaje para los jóvenes no es lástima, pobrecitos, sino ser necesitados: os necesitamos.",
-      "startFrame": 38591,
-      "endFrame": 38798
+      "startFrame": 33508,
+      "endFrame": 33671
     },
     {
       "line": 216,
       "chapter": 8,
       "text": "La sociedad todavía te necesita. Tu familia todavía te necesita.",
-      "startFrame": 38806,
-      "endFrame": 38950
+      "startFrame": 33678,
+      "endFrame": 33800
     },
     {
       "line": 217,
       "chapter": 8,
       "text": "En resumen: la manosfera describe problemas reales con análisis venenoso. Quédate con lo verdadero, desecha el marco adversarial, y recuerda: os necesitamos, no pobrecitos.",
-      "startFrame": 38958,
-      "endFrame": 39346
+      "startFrame": 33807,
+      "endFrame": 34116
     },
     {
       "line": 218,
       "chapter": 9,
       "text": "CAPÍTULO 9. MENTALIDAD Y CLARIDAD.",
-      "startFrame": 39379,
-      "endFrame": 39456
+      "startFrame": 34152,
+      "endFrame": 34223
     },
     {
       "line": 219,
       "chapter": 9,
       "text": "Este capítulo recoge el estoicismo práctico y las ideas de mentalidad que sí sostienen los datos.",
-      "startFrame": 39483,
-      "endFrame": 39702
+      "startFrame": 34250,
+      "endFrame": 34421
     },
     {
       "line": 220,
       "chapter": 9,
       "text": "Empieza con Marco Aurelio, en la voz de Donald Robertson, episodio 274.",
-      "startFrame": 39709,
-      "endFrame": 39869
+      "startFrame": 34428,
+      "endFrame": 34593
     },
     {
       "line": 221,
       "chapter": 9,
       "text": "Marco Aurelio no era un filósofo de torre de marfil: era un emperador en guerra, con insomnio, ira y duelo, y sus Meditaciones son un diario privado, no un tratado.",
-      "startFrame": 39877,
-      "endFrame": 40247
+      "startFrame": 34601,
+      "endFrame": 34882
     },
     {
       "line": 222,
       "chapter": 9,
       "text": "Su herramienta más práctica para ti es una pregunta de cinco segundos.",
-      "startFrame": 40254,
-      "endFrame": 40412
+      "startFrame": 34889,
+      "endFrame": 35009
     },
     {
       "line": 223,
       "chapter": 9,
       "text": "Ante la ira, pregúntate: ¿qué querría mi yo de mañana que hiciera ahora?",
-      "startFrame": 40419,
-      "endFrame": 40581
+      "startFrame": 35017,
+      "endFrame": 35135
     },
     {
       "line": 224,
       "chapter": 9,
       "text": "Úsala antes de responder con ira en WhatsApp.",
-      "startFrame": 40589,
-      "endFrame": 40691
+      "startFrame": 35143,
+      "endFrame": 35224
     },
     {
       "line": 225,
       "chapter": 9,
       "text": "Segunda herramienta: la re-descripción llana.",
-      "startFrame": 40698,
-      "endFrame": 40800
+      "startFrame": 35231,
+      "endFrame": 35309
     },
     {
       "line": 226,
       "chapter": 9,
       "text": "Ante la retórica inflamada, describe los hechos en lenguaje llano y sin adornos.",
-      "startFrame": 40807,
-      "endFrame": 40987
+      "startFrame": 35316,
+      "endFrame": 35458
     },
     {
       "line": 227,
       "chapter": 9,
       "text": "Es exactamente tu regla de verificación para el radar social, con nombre estoico.",
-      "startFrame": 40995,
-      "endFrame": 41178
+      "startFrame": 35465,
+      "endFrame": 35605
     },
     {
       "line": 228,
       "chapter": 9,
       "text": "Y el estoicismo no es resignación: el fatalismo, eso de que estaba destinado a ser, es una forma de rendirse.",
-      "startFrame": 41185,
-      "endFrame": 41431
+      "startFrame": 35612,
+      "endFrame": 35810
     },
     {
       "line": 229,
       "chapter": 9,
       "text": "Los estoicos no eran robots sin humor: el estoicismo real siente todo y elige la respuesta.",
-      "startFrame": 41438,
-      "endFrame": 41643
+      "startFrame": 35817,
+      "endFrame": 35981
     },
     {
       "line": 230,
       "chapter": 9,
       "text": "Pasemos a Naval Ravikant, en el episodio 922.",
-      "startFrame": 41651,
-      "endFrame": 41753
+      "startFrame": 35988,
+      "endFrame": 36101
     },
     {
       "line": 231,
       "chapter": 9,
       "text": "Su distinción central: los juegos de estatus son suma cero, y los juegos de creación son suma positiva.",
-      "startFrame": 41760,
-      "endFrame": 41992
+      "startFrame": 36109,
+      "endFrame": 36294
     },
     {
       "line": 232,
       "chapter": 9,
       "text": "Elige en qué juego juegas.",
-      "startFrame": 42000,
-      "endFrame": 42059
+      "startFrame": 36301,
+      "endFrame": 36351
     },
     {
       "line": 233,
       "chapter": 9,
       "text": "En un entorno de escasez y comparación constante, elegir el juego de crear en vez del juego de parecer es una decisión de salud mental.",
-      "startFrame": 42066,
-      "endFrame": 42371
+      "startFrame": 36359,
+      "endFrame": 36595
     },
     {
       "line": 234,
       "chapter": 9,
       "text": "Naval añade que la atención, no el tiempo, es la moneda real de la vida: cada hora de scroll es una decisión de gasto real.",
-      "startFrame": 42378,
-      "endFrame": 42655
+      "startFrame": 36603,
+      "endFrame": 36812
     },
     {
       "line": 235,
       "chapter": 9,
       "text": "De Andrew Huberman, en el episodio 700, quédate con una práctica gratuita: body still, mind active.",
-      "startFrame": 42663,
-      "endFrame": 42886
+      "startFrame": 36820,
+      "endFrame": 37006
     },
     {
       "line": 236,
       "chapter": 9,
       "text": "Veinte minutos diarios de pensamiento deliberado en quietud.",
-      "startFrame": 42894,
-      "endFrame": 43029
+      "startFrame": 37014,
+      "endFrame": 37116
     },
     {
       "line": 237,
       "chapter": 9,
       "text": "Sin estímulos, sin móvil, solo pensar.",
-      "startFrame": 43037,
-      "endFrame": 43123
+      "startFrame": 37124,
+      "endFrame": 37190
     },
     {
       "line": 238,
       "chapter": 9,
       "text": "Es gratis, no necesita tecnología, y es perfecto para Cuba.",
-      "startFrame": 43130,
-      "endFrame": 43263
+      "startFrame": 37197,
+      "endFrame": 37307
     },
     {
       "line": 239,
       "chapter": 9,
       "text": "Y de Manson, en el episodio 961, una frase para revisar tu semana: no estás estresado por hacer demasiado, sino por hacer demasiado poco de lo que te importa.",
-      "startFrame": 43271,
-      "endFrame": 43627
+      "startFrame": 37314,
+      "endFrame": 37635
     },
     {
       "line": 240,
       "chapter": 9,
       "text": "Y una advertencia de Robertson: hay quien tiene una biblioteca enorme de autoayuda y cero mejora, porque leer sobre el cambio sustituye al cambio.",
-      "startFrame": 43635,
-      "endFrame": 43964
+      "startFrame": 37643,
+      "endFrame": 37897
     },
     {
       "line": 241,
       "chapter": 9,
       "text": "La regla que ya conoces: por cada hora de contenido, una acción concreta.",
-      "startFrame": 43972,
-      "endFrame": 44137
+      "startFrame": 37905,
+      "endFrame": 38032
     },
     {
       "line": 242,
       "chapter": 9,
       "text": "En resumen: pregunta qué querría tu yo de mañana, describe los hechos en llano, juega al juego de crear y no al de parecer, y piensa veinte minutos al día en quietud.",
-      "startFrame": 44158,
-      "endFrame": 44532
+      "startFrame": 38053,
+      "endFrame": 38332
     },
     {
       "line": 243,
       "chapter": 10,
       "text": "CAPÍTULO 10. EL FILTRO CRÍTICO.",
-      "startFrame": 44569,
-      "endFrame": 44639
+      "startFrame": 38368,
+      "endFrame": 38433
     },
     {
       "line": 244,
       "chapter": 10,
       "text": "Este capítulo es el filtro con el que debes escuchar todo lo anterior.",
-      "startFrame": 44666,
-      "endFrame": 44823
+      "startFrame": 38460,
+      "endFrame": 38584
     },
     {
       "line": 245,
       "chapter": 10,
       "text": "Primero, qué es sólido.",
-      "startFrame": 44831,
-      "endFrame": 44883
+      "startFrame": 38591,
+      "endFrame": 38631
     },
     {
       "line": 246,
       "chapter": 10,
       "text": "La terapia de exposición, con setenta años de evidencia.",
-      "startFrame": 44890,
-      "endFrame": 45016
+      "startFrame": 38639,
+      "endFrame": 38739
     },
     {
       "line": 247,
       "chapter": 10,
       "text": "El desprecio como predictor de divorcio, con décadas de observación de Gottman.",
-      "startFrame": 45023,
-      "endFrame": 45201
+      "startFrame": 38747,
+      "endFrame": 38882
     },
     {
       "line": 248,
       "chapter": 10,
       "text": "La autoeficacia de Bandura.",
-      "startFrame": 45208,
-      "endFrame": 45269
+      "startFrame": 38889,
+      "endFrame": 38938
     },
     {
       "line": 249,
       "chapter": 10,
       "text": "Las intervenciones de felicidad de Lyubomirsky, con veintiocho años de ensayos controlados.",
-      "startFrame": 45276,
-      "endFrame": 45481
+      "startFrame": 38945,
+      "endFrame": 39097
     },
     {
       "line": 250,
       "chapter": 10,
       "text": "Las preferencias declaradas frente a las reveladas, de Eastwick.",
-      "startFrame": 45488,
-      "endFrame": 45632
+      "startFrame": 39105,
+      "endFrame": 39209
     },
     {
       "line": 251,
       "chapter": 10,
       "text": "Eso puedes citarlo con confianza.",
-      "startFrame": 45639,
-      "endFrame": 45713
+      "startFrame": 39216,
+      "endFrame": 39281
     },
     {
       "line": 252,
       "chapter": 10,
       "text": "Segundo, qué es broscience, especulación o mito.",
-      "startFrame": 45721,
-      "endFrame": 45829
+      "startFrame": 39288,
+      "endFrame": 39375
     },
     {
       "line": 253,
       "chapter": 10,
       "text": "La hipótesis de sedación, que el porno y los videojuegos serían una válvula de escape del celibato masculino, es broscience declarada por el propio Chris Williamson en el episodio 586.",
-      "startFrame": 45836,
-      "endFrame": 46250
+      "startFrame": 39382,
+      "endFrame": 39740
     },
     {
       "line": 254,
       "chapter": 10,
       "text": "El ochenta veinte, ya lo viste, es un mito.",
-      "startFrame": 46257,
-      "endFrame": 46354
+      "startFrame": 39747,
+      "endFrame": 39823
     },
     {
       "line": 255,
       "chapter": 10,
       "text": "Y hay cifras concretas que no debes citar jamás como datos, aunque las oigas en el podcast.",
-      "startFrame": 46361,
-      "endFrame": 46566
+      "startFrame": 39831,
+      "endFrame": 39989
     },
     {
       "line": 256,
       "chapter": 10,
       "text": "La cifra sobre control de impulsos atribuida a Kathryn Paige Harden en el episodio 540 no se pudo verificar, y la atribución es dudosa.",
-      "startFrame": 46573,
-      "endFrame": 46877
+      "startFrame": 39996,
+      "endFrame": 40261
     },
     {
       "line": 257,
       "chapter": 10,
       "text": "Las cifras de limerencia y autosabotaje del episodio 1092 no tienen fuente rastreable.",
-      "startFrame": 46884,
-      "endFrame": 47077
+      "startFrame": 40268,
+      "endFrame": 40442
     },
     {
       "line": 258,
       "chapter": 10,
       "text": "La afirmación de que Gottman predice el divorcio con más del noventa por ciento de precisión es controvertida, y no se ha replicado con esa exactitud fuera de su laboratorio.",
-      "startFrame": 47085,
-      "endFrame": 47476
+      "startFrame": 40450,
+      "endFrame": 40756
     },
     {
       "line": 259,
       "chapter": 10,
       "text": "Y un término de la descripción del episodio 1034, Anorexic Hermit Crab, que ninguna fuente define: no inventes una definición.",
-      "startFrame": 47484,
-      "endFrame": 47767
+      "startFrame": 40764,
+      "endFrame": 41004
     },
     {
       "line": 260,
       "chapter": 10,
       "text": "La regla práctica es esta: si el estudio tiene nombre, año y revista, es verificable.",
-      "startFrame": 47775,
-      "endFrame": 47966
+      "startFrame": 41011,
+      "endFrame": 41167
     },
     {
       "line": 261,
       "chapter": 10,
       "text": "Si el invitado dice hay un estudio que, sin más, es rumor con corbata.",
-      "startFrame": 47974,
-      "endFrame": 48131
+      "startFrame": 41175,
+      "endFrame": 41292
     },
     {
       "line": 262,
       "chapter": 10,
       "text": "Y cuando un invitado dice esto evolucionó para, pregúntate si hay un test directo o solo una historia coherente.",
-      "startFrame": 48139,
-      "endFrame": 48391
+      "startFrame": 41299,
+      "endFrame": 41487
     },
     {
       "line": 263,
       "chapter": 10,
       "text": "Tercero, los vacíos: lo que el podcast no dice.",
-      "startFrame": 48398,
-      "endFrame": 48504
+      "startFrame": 41495,
+      "endFrame": 41582
     },
     {
       "line": 264,
       "chapter": 10,
       "text": "Casi nada sobre relaciones fuera del mundo occidental rico, nada sobre Cuba o América Latina, y poco sobre salud mental clínica seria, donde Robertson es la excepción.",
-      "startFrame": 48511,
-      "endFrame": 48887
+      "startFrame": 41590,
+      "endFrame": 41898
     },
     {
       "line": 265,
       "chapter": 10,
       "text": "La traducción cultural es tarea tuya.",
-      "startFrame": 48894,
-      "endFrame": 48977
+      "startFrame": 41905,
+      "endFrame": 41979
     },
     {
       "line": 266,
       "chapter": 10,
       "text": "Y un último sesgo: los títulos se retitulan para el algoritmo, y varios episodios tienen una hora útil dentro de tres de metraje.",
-      "startFrame": 48985,
-      "endFrame": 49275
+      "startFrame": 41987,
+      "endFrame": 42216
     },
     {
       "line": 267,
       "chapter": 10,
       "text": "Juzga el episodio, no el titular.",
-      "startFrame": 49283,
-      "endFrame": 49357
+      "startFrame": 42223,
+      "endFrame": 42285
     },
     {
       "line": 268,
       "chapter": 10,
       "text": "En resumen: estudio con nombre, año y revista, o no es un dato. Lo sólido es la psicología clínica y social clásica; lo especulativo casi siempre empieza por esto evolucionó para.",
-      "startFrame": 49378,
-      "endFrame": 49781
+      "startFrame": 42306,
+      "endFrame": 42636
     },
     {
       "line": 269,
       "chapter": 11,
       "text": "CAPÍTULO 11. TRADUCCIÓN CUBANA.",
-      "startFrame": 49819,
-      "endFrame": 49889
+      "startFrame": 42672,
+      "endFrame": 42734
     },
     {
       "line": 270,
       "chapter": 11,
       "text": "La mitad del valor de este video está aquí, porque el podcast no hace esta traducción por ti.",
-      "startFrame": 49916,
-      "endFrame": 50125
+      "startFrame": 42761,
+      "endFrame": 42917
     },
     {
       "line": 271,
       "chapter": 11,
       "text": "Primera idea: sin aplicaciones, el juego es otro, y mejor.",
-      "startFrame": 50133,
-      "endFrame": 50264
+      "startFrame": 42924,
+      "endFrame": 43028
     },
     {
       "line": 272,
       "chapter": 11,
       "text": "En Cuba el emparejamiento es presencial, comunitario y con reputación verificable: barrio, amigos comunes, trabajo, universidad.",
-      "startFrame": 50271,
-      "endFrame": 50559
+      "startFrame": 43036,
+      "endFrame": 43267
     },
     {
       "line": 273,
       "chapter": 11,
       "text": "Eso elimina el anonimato y el engaño sin consecuencias, y potencia lo mejor: consistencia, reputación, conversación real.",
-      "startFrame": 50567,
-      "endFrame": 50840
+      "startFrame": 43274,
+      "endFrame": 43497
     },
     {
       "line": 274,
       "chapter": 11,
       "text": "Tu desventaja aparente es una ventaja estructural.",
-      "startFrame": 50847,
-      "endFrame": 50960
+      "startFrame": 43504,
+      "endFrame": 43595
     },
     {
       "line": 275,
       "chapter": 11,
       "text": "Segunda: Cuba conserva los terceros espacios que el podcast echa de menos.",
-      "startFrame": 50967,
-      "endFrame": 51134
+      "startFrame": 43602,
+      "endFrame": 43724
     },
     {
       "line": 276,
       "chapter": 11,
       "text": "Cox y Perry y Harrington describen como paraíso perdido exactamente tu entorno: la cola, el parque, la fiesta, el barrio, los amigos que presentan.",
-      "startFrame": 51141,
-      "endFrame": 51472
+      "startFrame": 43732,
+      "endFrame": 43998
     },
     {
       "line": 277,
       "chapter": 11,
       "text": "La tarea no es construirlos, es usarlos deliberadamente.",
-      "startFrame": 51480,
-      "endFrame": 51606
+      "startFrame": 44005,
+      "endFrame": 44108
     },
     {
       "line": 278,
       "chapter": 11,
       "text": "Tercera: la fricción ya sobra.",
-      "startFrame": 51614,
-      "endFrame": 51682
+      "startFrame": 44116,
+      "endFrame": 44174
     },
     {
       "line": 279,
       "chapter": 11,
       "text": "Tu vida ya tiene fricción estructural de sobra: transporte, apagones, escasez, trámites.",
-      "startFrame": 51689,
-      "endFrame": 51887
+      "startFrame": 44182,
+      "endFrame": 44339
     },
     {
       "line": 280,
       "chapter": 11,
       "text": "La traducción correcta no es busca más dificultad, sino elige en qué dificultad inviertes tu energía escasa.",
-      "startFrame": 51895,
-      "endFrame": 52138
+      "startFrame": 44347,
+      "endFrame": 44540
     },
     {
       "line": 281,
       "chapter": 11,
       "text": "Cuarta: las redes son densas.",
-      "startFrame": 52146,
-      "endFrame": 52211
+      "startFrame": 44547,
+      "endFrame": 44602
     },
     {
       "line": 282,
       "chapter": 11,
       "text": "Los consejos de saca a esa persona de tu vida chocan con un entorno pequeño donde todo el mundo se conoce y se depende mutuamente.",
-      "startFrame": 52219,
-      "endFrame": 52512
+      "startFrame": 44609,
+      "endFrame": 44844
     },
     {
       "line": 283,
       "chapter": 11,
       "text": "La versión cubana es la distancia gradual, no la ruptura escenificada.",
-      "startFrame": 52519,
-      "endFrame": 52677
+      "startFrame": 44851,
+      "endFrame": 44980
     },
     {
       "line": 284,
       "chapter": 11,
       "text": "Quinta: sin terapia accesible, las técnicas autoaplicables son el plan A, no el plan B.",
-      "startFrame": 52684,
-      "endFrame": 52880
+      "startFrame": 44988,
+      "endFrame": 45141
     },
     {
       "line": 285,
       "chapter": 11,
       "text": "Worry time, jerarquía de exposición, premeditatio malorum: todo funciona con papel y disciplina.",
-      "startFrame": 52887,
-      "endFrame": 53103
+      "startFrame": 45148,
+      "endFrame": 45321
     },
     {
       "line": 286,
       "chapter": 11,
       "text": "Eso no es una limitación: son las técnicas con más evidencia y menos dependencia de consumo.",
-      "startFrame": 53111,
-      "endFrame": 53318
+      "startFrame": 45329,
+      "endFrame": 45497
     },
     {
       "line": 287,
       "chapter": 11,
       "text": "Sexta: el dinero no es la métrica.",
-      "startFrame": 53326,
-      "endFrame": 53403
+      "startFrame": 45504,
+      "endFrame": 45569
     },
     {
       "line": 288,
       "chapter": 11,
       "text": "En el episodio 900, Williamson dice: ya eres rico si más dinero no cambiaría tu tiempo.",
-      "startFrame": 53410,
-      "endFrame": 53606
+      "startFrame": 45577,
+      "endFrame": 45752
     },
     {
       "line": 289,
       "chapter": 11,
       "text": "Séptima: la comparación correcta es con tu ayer, no con creadores de Estados Unidos o Europa.",
-      "startFrame": 53613,
-      "endFrame": 53822
+      "startFrame": 45760,
+      "endFrame": 45926
     },
     {
       "line": 290,
       "chapter": 11,
       "text": "Peterson, en el episodio 712, lo formula mejor que nadie: eres el único grupo de control con tus talentos, limitaciones y tragedias exactos.",
-      "startFrame": 53830,
-      "endFrame": 54145
+      "startFrame": 45934,
+      "endFrame": 46215
     },
     {
       "line": 291,
       "chapter": 11,
       "text": "Y octava: la autenticidad se traduce directamente.",
-      "startFrame": 54153,
-      "endFrame": 54266
+      "startFrame": 46222,
+      "endFrame": 46315
     },
     {
       "line": 292,
       "chapter": 11,
       "text": "Competencia práctica más dulzura, sin pose.",
-      "startFrame": 54273,
-      "endFrame": 54370
+      "startFrame": 46322,
+      "endFrame": 46408
     },
     {
       "line": 293,
       "chapter": 11,
       "text": "Saber resolver, ser útil, ser buen conversador, sin adoptar ni la pose del duro ni la del sensible de manual.",
-      "startFrame": 54377,
-      "endFrame": 54622
+      "startFrame": 46416,
+      "endFrame": 46602
     },
     {
       "line": 294,
       "chapter": 11,
       "text": "En resumen: Cuba conserva lo que el podcast echa de menos: terceros espacios, reputación verificable y conversación real. Úsalos deliberadamente, y compara solo con tu ayer.",
-      "startFrame": 54644,
-      "endFrame": 55034
+      "startFrame": 46623,
+      "endFrame": 46939
     },
     {
       "line": 295,
       "chapter": 12,
       "text": "CAPÍTULO 12. LA ADVERTENCIA MAESTRA.",
-      "startFrame": 55069,
-      "endFrame": 55150
+      "startFrame": 46975,
+      "endFrame": 47051
     },
     {
       "line": 296,
       "chapter": 12,
       "text": "Este capítulo es una advertencia contra el propio material de este video.",
-      "startFrame": 55177,
-      "endFrame": 55342
+      "startFrame": 47078,
+      "endFrame": 47212
     },
     {
       "line": 297,
       "chapter": 12,
       "text": "Y es la más importante.",
-      "startFrame": 55349,
-      "endFrame": 55401
+      "startFrame": 47219,
+      "endFrame": 47267
     },
     {
       "line": 298,
       "chapter": 12,
       "text": "Williamson, en el episodio 1034, describe a los advice hyper-responders, los hiper-respondedores de consejos.",
-      "startFrame": 55408,
-      "endFrame": 55654
+      "startFrame": 47274,
+      "endFrame": 47488
     },
     {
       "line": 299,
       "chapter": 12,
       "text": "El consejo no esculpe: exagera lo que ya eres.",
-      "startFrame": 55661,
-      "endFrame": 55765
+      "startFrame": 47496,
+      "endFrame": 47580
     },
     {
       "line": 300,
       "chapter": 12,
       "text": "No seas insistente con las mujeres vuelve aún más tímidos a los hombres ansiosos y concienzudos, mientras los que invaden límites no hacen caso.",
-      "startFrame": 55772,
-      "endFrame": 56097
+      "startFrame": 47587,
+      "endFrame": 47841
     },
     {
       "line": 301,
       "chapter": 12,
       "text": "Trabaja más duro lo devora el sobreexigido inseguro, y el vago pasa de largo.",
-      "startFrame": 56104,
-      "endFrame": 56278
+      "startFrame": 47849,
+      "endFrame": 47989
     },
     {
       "line": 302,
       "chapter": 12,
       "text": "Tú eres concienzudo, autoexigente y gran consumidor de consejos.",
-      "startFrame": 56285,
-      "endFrame": 56429
+      "startFrame": 47997,
+      "endFrame": 48119
     },
     {
       "line": 303,
       "chapter": 12,
       "text": "Eres el perfil exacto del hiper-respondedor.",
-      "startFrame": 56437,
-      "endFrame": 56536
+      "startFrame": 48126,
+      "endFrame": 48206
     },
     {
       "line": 304,
       "chapter": 12,
       "text": "Cada consejo de este video debe pasar el filtro: ¿me está diciendo que haga más de algo que ya hago en exceso?",
-      "startFrame": 56544,
-      "endFrame": 56792
+      "startFrame": 48214,
+      "endFrame": 48404
     },
     {
       "line": 305,
       "chapter": 12,
       "text": "Si la respuesta es sí, el consejo que probablemente necesitas es el opuesto: descansa, publica imperfecto, deja algo sin optimizar.",
-      "startFrame": 56800,
-      "endFrame": 57096
+      "startFrame": 48412,
+      "endFrame": 48653
     },
     {
       "line": 306,
       "chapter": 12,
       "text": "Segunda advertencia, de Manson en el episodio 1096: aprender es la forma favorita de procrastinar de la gente lista.",
-      "startFrame": 57103,
-      "endFrame": 57365
+      "startFrame": 48661,
+      "endFrame": 48890
     },
     {
       "line": 307,
       "chapter": 12,
       "text": "Aprender se siente seguro y se siente como progreso, y pospone el riesgo de hacer la cosa de verdad.",
-      "startFrame": 57372,
-      "endFrame": 57598
+      "startFrame": 48897,
+      "endFrame": 49070
     },
     {
       "line": 308,
       "chapter": 12,
       "text": "Si lo ves entero y no actúas, no aprendiste: te entretuviste con buenas intenciones.",
-      "startFrame": 57605,
-      "endFrame": 57795
+      "startFrame": 49077,
+      "endFrame": 49223
     },
     {
       "line": 309,
       "chapter": 12,
       "text": "Tercera: el Complejo de Atlas, también del episodio 1034.",
-      "startFrame": 57802,
-      "endFrame": 57931
+      "startFrame": 49231,
+      "endFrame": 49353
     },
     {
       "line": 310,
       "chapter": 12,
       "text": "Asumir la responsabilidad de las emociones y los errores de los demás para mantener la paz.",
-      "startFrame": 57938,
-      "endFrame": 58143
+      "startFrame": 49361,
+      "endFrame": 49517
     },
     {
       "line": 311,
       "chapter": 12,
       "text": "La verdadera fortaleza es saber cuándo devolver las cargas que no te pertenecen.",
-      "startFrame": 58151,
-      "endFrame": 58331
+      "startFrame": 49524,
+      "endFrame": 49666
     },
     {
       "line": 312,
       "chapter": 12,
       "text": "Cuarta: la ilusión input-output.",
-      "startFrame": 58339,
-      "endFrame": 58411
+      "startFrame": 49674,
+      "endFrame": 49736
     },
     {
       "line": 313,
       "chapter": 12,
       "text": "Los inputs son el esfuerzo, los outputs son el trabajo hecho, y los outcomes son los resultados reales.",
-      "startFrame": 58419,
-      "endFrame": 58651
+      "startFrame": 49744,
+      "endFrame": 49927
     },
     {
       "line": 314,
       "chapter": 12,
       "text": "Solo los outcomes miden efectividad real.",
-      "startFrame": 58659,
-      "endFrame": 58752
+      "startFrame": 49935,
+      "endFrame": 50018
     },
     {
       "line": 315,
       "chapter": 12,
       "text": "Y una última, para quitarte un peso: sentir ansiedad antes de hablar con alguien no es vergonzoso.",
-      "startFrame": 58759,
-      "endFrame": 58980
+      "startFrame": 50025,
+      "endFrame": 50196
     },
     {
       "line": 316,
       "chapter": 12,
       "text": "Y la procrastinación, dice Williamson, no es pereza: es miedo.",
-      "startFrame": 58988,
-      "endFrame": 59128
+      "startFrame": 50203,
+      "endFrame": 50310
     },
     {
       "line": 317,
       "chapter": 12,
       "text": "Cuando pospones algo, la pregunta no es por qué soy tan vago, sino a qué le tengo miedo aquí.",
-      "startFrame": 59135,
-      "endFrame": 59345
+      "startFrame": 50318,
+      "endFrame": 50473
     },
     {
       "line": 318,
       "chapter": 12,
       "text": "Recuerda que estos marcos del episodio 1034 son frameworks de autor, no ciencia.",
-      "startFrame": 59352,
-      "endFrame": 59532
+      "startFrame": 50481,
+      "endFrame": 50643
     },
     {
       "line": 319,
       "chapter": 12,
       "text": "Úsalos como lentes, no como leyes.",
-      "startFrame": 59540,
-      "endFrame": 59617
+      "startFrame": 50650,
+      "endFrame": 50715
     },
     {
       "line": 320,
       "chapter": 12,
       "text": "En resumen: el consejo exagera lo que ya eres. Filtra todo por quién eres tú, y recuerda que aprender sin actuar es procrastinar con buenas intenciones.",
-      "startFrame": 59638,
-      "endFrame": 59981
+      "startFrame": 50736,
+      "endFrame": 51007
     },
     {
       "line": 321,
       "chapter": 13,
       "text": "CAPÍTULO 13. EL PLAN DE CUATRO SEMANAS.",
-      "startFrame": 60019,
-      "endFrame": 60107
+      "startFrame": 51043,
+      "endFrame": 51118
     },
     {
       "line": 322,
       "chapter": 13,
       "text": "Todo lo anterior se convierte en un plan de cuatro semanas.",
-      "startFrame": 60134,
-      "endFrame": 60267
+      "startFrame": 51145,
+      "endFrame": 51246
     },
     {
       "line": 323,
       "chapter": 13,
       "text": "La regla general: por cada episodio visto, una acción concreta.",
-      "startFrame": 60274,
-      "endFrame": 60416
+      "startFrame": 51253,
+      "endFrame": 51364
     },
     {
       "line": 324,
       "chapter": 13,
       "text": "Semana uno: fundamentos, exposición y claridad.",
-      "startFrame": 60423,
-      "endFrame": 60529
+      "startFrame": 51372,
+      "endFrame": 51462
     },
     {
       "line": 325,
       "chapter": 13,
       "text": "Episodios 1115 de Lyubomirsky y 1096 de Manson.",
-      "startFrame": 60536,
-      "endFrame": 60642
+      "startFrame": 51469,
+      "endFrame": 51595
     },
     {
       "line": 326,
       "chapter": 13,
       "text": "Hábito diario: worry time a las siete de la tarde, veinte minutos, en libreta.",
-      "startFrame": 60649,
-      "endFrame": 60825
+      "startFrame": 51602,
+      "endFrame": 51729
     },
     {
       "line": 327,
       "chapter": 13,
       "text": "Acciones: escribe tu jerarquía de exposición social, diez situaciones, sin muletas.",
-      "startFrame": 60832,
-      "endFrame": 61019
+      "startFrame": 51736,
+      "endFrame": 51882
     },
     {
       "line": 328,
       "chapter": 13,
       "text": "Inicia una conversación con un desconocido.",
-      "startFrame": 61026,
-      "endFrame": 61123
+      "startFrame": 51889,
+      "endFrame": 51970
     },
     {
       "line": 329,
       "chapter": 13,
       "text": "Semana dos: comunicación, escuchar y validar.",
-      "startFrame": 61130,
-      "endFrame": 61231
+      "startFrame": 51978,
+      "endFrame": 52059
     },
     {
       "line": 330,
       "chapter": 13,
       "text": "Episodios 909 de Duhigg y 1093 de Fisher.",
-      "startFrame": 61239,
-      "endFrame": 61331
+      "startFrame": 52066,
+      "endFrame": 52189
     },
     {
       "line": 331,
       "chapter": 13,
       "text": "Hábito diario: body still, mind active, veinte minutos sin móvil.",
-      "startFrame": 61339,
-      "endFrame": 61485
+      "startFrame": 52196,
+      "endFrame": 52306
     },
     {
       "line": 332,
       "chapter": 13,
       "text": "Acciones: practica looping en dos reuniones, valida antes de arreglar en dos conversaciones, celebra con entusiasmo una buena noticia ajena, y elimina dos muletillas debilitantes de tu español profesional.",
-      "startFrame": 61493,
-      "endFrame": 61954
+      "startFrame": 52313,
+      "endFrame": 52680
     },
     {
       "line": 333,
       "chapter": 13,
       "text": "Semana tres: límites y verdad.",
-      "startFrame": 61962,
-      "endFrame": 62030
+      "startFrame": 52688,
+      "endFrame": 52748
     },
     {
       "line": 334,
       "chapter": 13,
       "text": "Episodios 540 de Destiny y 1092 de Coffman.",
-      "startFrame": 62037,
-      "endFrame": 62134
+      "startFrame": 52755,
+      "endFrame": 52878
     },
     {
       "line": 335,
       "chapter": 13,
       "text": "Hábito diario: ¿qué querría mi yo de mañana?, pausa de cinco segundos antes de responder con ira.",
-      "startFrame": 62141,
-      "endFrame": 62359
+      "startFrame": 52886,
+      "endFrame": 53048
     },
     {
       "line": 336,
       "chapter": 13,
       "text": "Acciones: aplica la regla de las tres quejas, anota la primera y la segunda irritación, y a la tercera confronta con evidencia concreta y calma.",
-      "startFrame": 62367,
-      "endFrame": 62691
+      "startFrame": 53056,
+      "endFrame": 53309
     },
     {
       "line": 337,
       "chapter": 13,
       "text": "Aplica el test de claridad a una situación confusa, y da claridad tú en una donde la estés evitando.",
-      "startFrame": 62699,
-      "endFrame": 62924
+      "startFrame": 53317,
+      "endFrame": 53499
     },
     {
       "line": 338,
       "chapter": 13,
       "text": "Practica Start With the No al dar una mala noticia en el trabajo.",
-      "startFrame": 62932,
-      "endFrame": 63078
+      "startFrame": 53506,
+      "endFrame": 53619
     },
     {
       "line": 339,
       "chapter": 13,
       "text": "Y haz un ataque a la vergüenza versión cubana.",
-      "startFrame": 63086,
-      "endFrame": 63190
+      "startFrame": 53627,
+      "endFrame": 53710
     },
     {
       "line": 340,
       "chapter": 13,
       "text": "Semana cuatro: integración, actuar, medir, decidir.",
-      "startFrame": 63197,
-      "endFrame": 63312
+      "startFrame": 53718,
+      "endFrame": 53811
     },
     {
       "line": 341,
       "chapter": 13,
       "text": "Episodios 1050 y 274 de Robertson.",
-      "startFrame": 63319,
-      "endFrame": 63396
+      "startFrame": 53819,
+      "endFrame": 53934
     },
     {
       "line": 342,
       "chapter": 13,
       "text": "Hábito diario: consolida los dos hábitos que más te sirvieron, y descarta el resto sin culpa.",
-      "startFrame": 63403,
-      "endFrame": 63612
+      "startFrame": 53942,
+      "endFrame": 54110
     },
     {
       "line": 343,
       "chapter": 13,
       "text": "Aplica Play It Out a una acción que llevas posponiendo por miedo: imagina el peor escenario en detalle, pregunta y luego qué, y actúa.",
-      "startFrame": 63620,
-      "endFrame": 63922
+      "startFrame": 54117,
+      "endFrame": 54344
     },
     {
       "line": 344,
       "chapter": 13,
       "text": "Y escribe una página: qué mentalidad voy a mantener.",
-      "startFrame": 63929,
-      "endFrame": 64046
+      "startFrame": 54351,
+      "endFrame": 54441
     },
     {
       "line": 345,
       "chapter": 13,
       "text": "No una lista de consejos: tres a cinco frases en primera persona, en tu voz, basadas en lo que probaste estas cuatro semanas.",
-      "startFrame": 64054,
-      "endFrame": 64335
+      "startFrame": 54449,
+      "endFrame": 54674
     },
     {
       "line": 346,
       "chapter": 13,
       "text": "Esa página vale más que este video entero.",
-      "startFrame": 64343,
-      "endFrame": 64438
+      "startFrame": 54681,
+      "endFrame": 54760
     },
     {
       "line": 347,
       "chapter": 13,
       "text": "Y decide si sigues con la segunda fase o paras aquí: parar también es válido.",
-      "startFrame": 64445,
-      "endFrame": 64618
+      "startFrame": 54768,
+      "endFrame": 54904
     },
     {
       "line": 348,
       "chapter": 13,
       "text": "El objetivo no es ver treinta episodios, es actuar mejor.",
-      "startFrame": 64626,
-      "endFrame": 64754
+      "startFrame": 54911,
+      "endFrame": 55018
     },
     {
       "line": 349,
       "chapter": 13,
       "text": "Los hábitos permanentes, si funcionan, son los de estas cuatro semanas: worry time, exposición semanal, la pregunta de tu yo de mañana, looping, Start With the No, y el test de claridad.",
-      "startFrame": 64762,
-      "endFrame": 65181
+      "startFrame": 55026,
+      "endFrame": 55338
     },
     {
       "line": 350,
       "chapter": 13,
       "text": "En resumen: cuatro semanas, dos episodios por semana, un hábito nuevo por semana, y una acción por cada episodio. Sin acción, no cuenta como avance.",
-      "startFrame": 65202,
-      "endFrame": 65535
+      "startFrame": 55359,
+      "endFrame": 55621
     },
     {
       "line": 351,
       "chapter": 14,
       "text": "CAPÍTULO 14. CIERRE.",
-      "startFrame": 65569,
-      "endFrame": 65614
+      "startFrame": 55657,
+      "endFrame": 55708
     },
     {
       "line": 352,
       "chapter": 14,
       "text": "Llegamos al final, y es momento de recapitular las nueve ideas de la síntesis.",
-      "startFrame": 65641,
-      "endFrame": 65816
+      "startFrame": 55735,
+      "endFrame": 55875
     },
     {
       "line": 353,
       "chapter": 14,
       "text": "Primera: la no-necesidad es el principio unificador.",
-      "startFrame": 65824,
-      "endFrame": 65941
+      "startFrame": 55882,
+      "endFrame": 55980
     },
     {
       "line": 354,
       "chapter": 14,
       "text": "Que tu opinión sobre ti pese más que la reacción ajena.",
-      "startFrame": 65948,
-      "endFrame": 66072
+      "startFrame": 55987,
+      "endFrame": 56083
     },
     {
       "line": 355,
       "chapter": 14,
       "text": "Segunda: la confianza es evidencia, no afirmación.",
-      "startFrame": 66079,
-      "endFrame": 66191
+      "startFrame": 56091,
+      "endFrame": 56183
     },
     {
       "line": 356,
       "chapter": 14,
       "text": "Tercera: la exposición vence a la evitación.",
-      "startFrame": 66199,
-      "endFrame": 66298
+      "startFrame": 56190,
+      "endFrame": 56271
     },
     {
       "line": 357,
       "chapter": 14,
       "text": "Cuarta: la conexión es el mecanismo de la felicidad.",
-      "startFrame": 66305,
-      "endFrame": 66422
+      "startFrame": 56278,
+      "endFrame": 56376
     },
     {
       "line": 358,
       "chapter": 14,
       "text": "Quinta: el desprecio destruye, la validación construye.",
-      "startFrame": 66429,
-      "endFrame": 66553
+      "startFrame": 56383,
+      "endFrame": 56485
     },
     {
       "line": 359,
       "chapter": 14,
       "text": "Sexta: la vulnerabilidad bien dosificada acerca, la performance aleja.",
-      "startFrame": 66560,
-      "endFrame": 66717
+      "startFrame": 56493,
+      "endFrame": 56626
     },
     {
       "line": 360,
       "chapter": 14,
       "text": "Séptima: la claridad es una habilidad, no un rasgo.",
-      "startFrame": 66725,
-      "endFrame": 66840
+      "startFrame": 56633,
+      "endFrame": 56723
     },
     {
       "line": 361,
       "chapter": 14,
       "text": "Octava: el consejo debe filtrarse por quién eres.",
-      "startFrame": 66847,
-      "endFrame": 66957
+      "startFrame": 56731,
+      "endFrame": 56819
     },
     {
       "line": 362,
       "chapter": 14,
       "text": "Y novena: lo que no sostienen los datos.",
-      "startFrame": 66965,
-      "endFrame": 67055
+      "startFrame": 56827,
+      "endFrame": 56896
     },
     {
       "line": 363,
       "chapter": 14,
       "text": "Que el físico sea destino, que el ochenta veinte describa el mundo, que la psicología oscura funcione a largo plazo, que la felicidad se compre, o que leer más te haga mejor.",
-      "startFrame": 67062,
-      "endFrame": 67453
+      "startFrame": 56904,
+      "endFrame": 57192
     },
     {
       "line": 364,
       "chapter": 14,
       "text": "Ahora te toca a ti.",
-      "startFrame": 67461,
-      "endFrame": 67504
+      "startFrame": 57199,
+      "endFrame": 57240
     },
     {
       "line": 365,
       "chapter": 14,
       "text": "Escribe tu página: qué mentalidad voy a mantener.",
-      "startFrame": 67511,
-      "endFrame": 67621
+      "startFrame": 57247,
+      "endFrame": 57336
     },
     {
       "line": 366,
       "chapter": 14,
       "text": "Tres a cinco frases en primera persona, en tu voz, basadas en lo que probaste, no en lo que escuchaste.",
-      "startFrame": 67629,
-      "endFrame": 67861
+      "startFrame": 57344,
+      "endFrame": 57525
     },
     {
       "line": 367,
       "chapter": 14,
       "text": "Esa página es el verdadero final de este video.",
-      "startFrame": 67868,
-      "endFrame": 67974
+      "startFrame": 57532,
+      "endFrame": 57620
     },
     {
       "line": 368,
       "chapter": 14,
       "text": "Y si solo vieras tres episodios del podcast, que sean estos: el 1115, Lyubomirsky, sobre conexión y acción social; el 1096, Manson, sobre no-necesidad y aprender como procrastinación; y el 1050, Robertson, sobre ansiedad y exposición.",
-      "startFrame": 67981,
-      "endFrame": 68507
+      "startFrame": 57628,
+      "endFrame": 58101
     },
     {
       "line": 369,
       "chapter": 14,
       "text": "Con esos tres y el plan de cuatro semanas tienes el ochenta por ciento del valor de los treinta.",
-      "startFrame": 68515,
-      "endFrame": 68731
+      "startFrame": 58109,
+      "endFrame": 58269
     },
     {
       "line": 370,
       "chapter": 14,
       "text": "No hay nada más que añadir.",
-      "startFrame": 68738,
-      "endFrame": 68799
+      "startFrame": 58276,
+      "endFrame": 58324
     },
     {
       "line": 371,
       "chapter": 14,
       "text": "Una acción por capítulo, y la próxima vez que sientas el impulso de consumir otro video como este, pregúntate: ¿qué estoy evitando hacer mientras lo veo?",
-      "startFrame": 68806,
-      "endFrame": 69150
+      "startFrame": 58332,
+      "endFrame": 58602
     },
     {
       "line": 372,
       "chapter": 14,
       "text": "Éxito es haber actuado.",
-      "startFrame": 69157,
-      "endFrame": 69209
+      "startFrame": 58610,
+      "endFrame": 58657
     },
     {
       "line": 373,
       "chapter": 14,
       "text": "Nos vemos en la práctica.",
-      "startFrame": 69216,
-      "endFrame": 69272
+      "startFrame": 58665,
+      "endFrame": 58713
     }
   ],
   "chapters": [
@@ -2661,88 +2672,88 @@
       "title": "La ansiedad se cura actuando",
       "shortTitle": "Ansiedad",
       "startFrame": 11299,
-      "endFrame": 16669,
-      "real": false
+      "endFrame": 15700,
+      "real": true
     },
     {
       "number": 5,
       "title": "Conversar mejor",
       "shortTitle": "Conversar",
-      "startFrame": 16669,
-      "endFrame": 21949,
-      "real": false
+      "startFrame": 15700,
+      "endFrame": 19955,
+      "real": true
     },
     {
       "number": 6,
       "title": "Sentirse amado y conectar",
       "shortTitle": "Conectar",
-      "startFrame": 21949,
-      "endFrame": 26569,
-      "real": false
+      "startFrame": 19955,
+      "endFrame": 23663,
+      "real": true
     },
     {
       "number": 7,
       "title": "Relaciones sin mitos",
       "shortTitle": "Sin mitos",
-      "startFrame": 26569,
-      "endFrame": 34099,
-      "real": false
+      "startFrame": 23663,
+      "endFrame": 29774,
+      "real": true
     },
     {
       "number": 8,
       "title": "La manosfera y el criterio",
       "shortTitle": "Manosfera",
-      "startFrame": 34099,
-      "endFrame": 39379,
-      "real": false
+      "startFrame": 29774,
+      "endFrame": 34152,
+      "real": true
     },
     {
       "number": 9,
       "title": "Mentalidad y claridad",
       "shortTitle": "Mentalidad",
-      "startFrame": 39379,
-      "endFrame": 44569,
-      "real": false
+      "startFrame": 34152,
+      "endFrame": 38368,
+      "real": true
     },
     {
       "number": 10,
       "title": "El filtro crítico",
       "shortTitle": "Filtro crítico",
-      "startFrame": 44569,
-      "endFrame": 49819,
-      "real": false
+      "startFrame": 38368,
+      "endFrame": 42672,
+      "real": true
     },
     {
       "number": 11,
       "title": "Traducción cubana",
       "shortTitle": "Traducción cubana",
-      "startFrame": 49819,
-      "endFrame": 55069,
-      "real": false
+      "startFrame": 42672,
+      "endFrame": 46975,
+      "real": true
     },
     {
       "number": 12,
       "title": "La advertencia maestra",
       "shortTitle": "Advertencia",
-      "startFrame": 55069,
-      "endFrame": 60019,
-      "real": false
+      "startFrame": 46975,
+      "endFrame": 51043,
+      "real": true
     },
     {
       "number": 13,
       "title": "El plan de 4 semanas",
       "shortTitle": "Plan 4 semanas",
-      "startFrame": 60019,
-      "endFrame": 65569,
-      "real": false
+      "startFrame": 51043,
+      "endFrame": 55657,
+      "real": true
     },
     {
       "number": 14,
       "title": "Cierre: las 9 ideas y tu página",
       "shortTitle": "Cierre",
-      "startFrame": 65569,
-      "endFrame": 69319,
-      "real": false
+      "startFrame": 55657,
+      "endFrame": 58758,
+      "real": true
     }
   ],
   "scenes": [
@@ -3115,8 +3126,8 @@
       "toLine": 78,
       "type": "title-card",
       "startFrame": 11299,
-      "endFrame": 11418,
-      "durationFrames": 119
+      "endFrame": 11412,
+      "durationFrames": 113
     },
     {
       "chapter": 4,
@@ -3133,9 +3144,9 @@
       ],
       "toLine": 84,
       "type": "data-strip",
-      "startFrame": 11418,
-      "endFrame": 12564,
-      "durationFrames": 1146
+      "startFrame": 11412,
+      "endFrame": 12345,
+      "durationFrames": 933
     },
     {
       "chapter": 4,
@@ -3143,9 +3154,9 @@
       "text": "La evitación es la raíz del problema.",
       "toLine": 86,
       "type": "big-statement",
-      "startFrame": 12564,
-      "endFrame": 12904,
-      "durationFrames": 340
+      "startFrame": 12345,
+      "endFrame": 12626,
+      "durationFrames": 281
     },
     {
       "caption": "Jerarquía de diez peldaños, de menor a mayor dificultad",
@@ -3154,9 +3165,9 @@
       "img": "ill-ch04.png",
       "toLine": 88,
       "type": "illustration",
-      "startFrame": 12904,
-      "endFrame": 13326,
-      "durationFrames": 422
+      "startFrame": 12626,
+      "endFrame": 12987,
+      "durationFrames": 361
     },
     {
       "chapter": 4,
@@ -3166,9 +3177,9 @@
       "title": "Jerarquía de exposición",
       "toLine": 91,
       "type": "diagram",
-      "startFrame": 13326,
-      "endFrame": 13834,
-      "durationFrames": 508
+      "startFrame": 12987,
+      "endFrame": 13399,
+      "durationFrames": 412
     },
     {
       "chapter": 4,
@@ -3177,9 +3188,9 @@
       "text": "Pospón la preocupación: revísala a las 19:00, 20 minutos.",
       "toLine": 96,
       "type": "big-statement",
-      "startFrame": 13834,
-      "endFrame": 14626,
-      "durationFrames": 792
+      "startFrame": 13399,
+      "endFrame": 14030,
+      "durationFrames": 631
     },
     {
       "chapter": 4,
@@ -3187,9 +3198,9 @@
       "text": "La vergüenza pasa en treinta segundos.",
       "toLine": 100,
       "type": "big-statement",
-      "startFrame": 14626,
-      "endFrame": 15271,
-      "durationFrames": 645
+      "startFrame": 14030,
+      "endFrame": 14559,
+      "durationFrames": 529
     },
     {
       "chapter": 4,
@@ -3197,9 +3208,9 @@
       "text": "Premeditatio malorum: imagina lo malo en detalle, antes de que ocurra.",
       "toLine": 102,
       "type": "big-statement",
-      "startFrame": 15271,
-      "endFrame": 15681,
-      "durationFrames": 410
+      "startFrame": 14559,
+      "endFrame": 14881,
+      "durationFrames": 322
     },
     {
       "chapter": 4,
@@ -3208,9 +3219,9 @@
       "text": "La ansiedad es miedo sin enfocar.",
       "toLine": 104,
       "type": "big-statement",
-      "startFrame": 15681,
-      "endFrame": 15997,
-      "durationFrames": 316
+      "startFrame": 14881,
+      "endFrame": 15169,
+      "durationFrames": 288
     },
     {
       "chapter": 4,
@@ -3218,9 +3229,9 @@
       "text": "¿Qué estás evitando, y qué te está costando esa evitación?",
       "toLine": 105,
       "type": "question",
-      "startFrame": 15997,
-      "endFrame": 16303,
-      "durationFrames": 306
+      "startFrame": 15169,
+      "endFrame": 15399,
+      "durationFrames": 230
     },
     {
       "chapter": 4,
@@ -3228,9 +3239,9 @@
       "text": "La exposición vence a la evitación. Jerarquía de diez peldaños, un peldaño por semana, sin muletas. La ansiedad no se piensa: se actúa.",
       "toLine": 106,
       "type": "summary-card",
-      "startFrame": 16303,
-      "endFrame": 16669,
-      "durationFrames": 366
+      "startFrame": 15399,
+      "endFrame": 15700,
+      "durationFrames": 301
     },
     {
       "chapter": 5,
@@ -3239,8 +3250,8 @@
       "title": "Conversar mejor",
       "toLine": 107,
       "type": "title-card",
-      "startFrame": 16669,
-      "endFrame": 16759,
+      "startFrame": 15700,
+      "endFrame": 15790,
       "durationFrames": 90
     },
     {
@@ -3250,9 +3261,9 @@
       "img": "ill-ch05.png",
       "toLine": 109,
       "type": "illustration",
-      "startFrame": 16759,
-      "endFrame": 17165,
-      "durationFrames": 406
+      "startFrame": 15790,
+      "endFrame": 16118,
+      "durationFrames": 328
     },
     {
       "chapter": 5,
@@ -3262,9 +3273,9 @@
       "title": "Looping: el bucle de comprensión",
       "toLine": 113,
       "type": "diagram",
-      "startFrame": 17165,
-      "endFrame": 17916,
-      "durationFrames": 751
+      "startFrame": 16118,
+      "endFrame": 16715,
+      "durationFrames": 597
     },
     {
       "chapter": 5,
@@ -3280,9 +3291,9 @@
       "rightTitle": "Preguntas factuales",
       "toLine": 116,
       "type": "two-col",
-      "startFrame": 17916,
-      "endFrame": 18377,
-      "durationFrames": 461
+      "startFrame": 16715,
+      "endFrame": 17089,
+      "durationFrames": 374
     },
     {
       "chapter": 5,
@@ -3292,9 +3303,9 @@
       "title": "Diagnostica el tipo de conversación",
       "toLine": 119,
       "type": "diagram",
-      "startFrame": 18377,
-      "endFrame": 18922,
-      "durationFrames": 545
+      "startFrame": 17089,
+      "endFrame": 17532,
+      "durationFrames": 443
     },
     {
       "chapter": 5,
@@ -3302,9 +3313,9 @@
       "text": "La gente recuerda cómo la hiciste sentir, no lo brillante que fuiste.",
       "toLine": 122,
       "type": "big-statement",
-      "startFrame": 18922,
-      "endFrame": 19538,
-      "durationFrames": 616
+      "startFrame": 17532,
+      "endFrame": 18009,
+      "durationFrames": 477
     },
     {
       "chapter": 5,
@@ -3316,9 +3327,9 @@
       "title": "Conversaciones difíciles — Fisher, #1093",
       "toLine": 127,
       "type": "list",
-      "startFrame": 19538,
-      "endFrame": 20433,
-      "durationFrames": 895
+      "startFrame": 18009,
+      "endFrame": 18740,
+      "durationFrames": 731
     },
     {
       "chapter": 5,
@@ -3330,9 +3341,9 @@
       "title": "Fisher, #1093",
       "toLine": 132,
       "type": "list",
-      "startFrame": 20433,
-      "endFrame": 21154,
-      "durationFrames": 721
+      "startFrame": 18740,
+      "endFrame": 19313,
+      "durationFrames": 573
     },
     {
       "chapter": 5,
@@ -3354,9 +3365,9 @@
       "title": "Pasivo, agresivo, asertivo",
       "toLine": 134,
       "type": "table",
-      "startFrame": 21154,
-      "endFrame": 21571,
-      "durationFrames": 417
+      "startFrame": 19313,
+      "endFrame": 19648,
+      "durationFrames": 335
     },
     {
       "chapter": 5,
@@ -3364,9 +3375,9 @@
       "text": "Escucha con looping, pregunta cómo y por qué, diagnostica la conversación antes de responder, y sé asertivo: respeto a ambos, a ti y al otro.",
       "toLine": 135,
       "type": "summary-card",
-      "startFrame": 21571,
-      "endFrame": 21949,
-      "durationFrames": 378
+      "startFrame": 19648,
+      "endFrame": 19955,
+      "durationFrames": 307
     },
     {
       "chapter": 6,
@@ -3375,9 +3386,9 @@
       "title": "Sentirse amado y conectar",
       "toLine": 136,
       "type": "title-card",
-      "startFrame": 21949,
-      "endFrame": 22062,
-      "durationFrames": 113
+      "startFrame": 19955,
+      "endFrame": 20060,
+      "durationFrames": 105
     },
     {
       "caption": "Todas funcionan por lo mismo: hacen sentir más conectado y amado. — Lyubomirsky, #1115",
@@ -3386,9 +3397,9 @@
       "img": "ill-ch06.png",
       "toLine": 139,
       "type": "illustration",
-      "startFrame": 22062,
-      "endFrame": 22719,
-      "durationFrames": 657
+      "startFrame": 20060,
+      "endFrame": 20606,
+      "durationFrames": 546
     },
     {
       "chapter": 6,
@@ -3404,9 +3415,9 @@
       "rightTitle": "Ser conocido",
       "toLine": 142,
       "type": "two-col",
-      "startFrame": 22719,
-      "endFrame": 23174,
-      "durationFrames": 455
+      "startFrame": 20606,
+      "endFrame": 20975,
+      "durationFrames": 369
     },
     {
       "chapter": 6,
@@ -3414,9 +3425,9 @@
       "text": "Valida antes de arreglar.",
       "toLine": 146,
       "type": "big-statement",
-      "startFrame": 23174,
-      "endFrame": 23691,
-      "durationFrames": 517
+      "startFrame": 20975,
+      "endFrame": 21398,
+      "durationFrames": 423
     },
     {
       "chapter": 6,
@@ -3425,9 +3436,9 @@
       "text": "Cómo reaccionas a las buenas noticias ajenas predice la duración de la relación.",
       "toLine": 150,
       "type": "big-statement",
-      "startFrame": 23691,
-      "endFrame": 24260,
-      "durationFrames": 569
+      "startFrame": 21398,
+      "endFrame": 21857,
+      "durationFrames": 459
     },
     {
       "chapter": 6,
@@ -3436,9 +3447,9 @@
       "text": "Una semana actuando sociable produjo los mayores efectos jamás encontrados. También en introvertidos.",
       "toLine": 156,
       "type": "big-statement",
-      "startFrame": 24260,
-      "endFrame": 25542,
-      "durationFrames": 1282
+      "startFrame": 21857,
+      "endFrame": 22857,
+      "durationFrames": 1000
     },
     {
       "chapter": 6,
@@ -3446,9 +3457,9 @@
       "text": "Mostrarte vulnerable hace, en promedio, que te quieran más.",
       "toLine": 159,
       "type": "big-statement",
-      "startFrame": 25542,
-      "endFrame": 26161,
-      "durationFrames": 619
+      "startFrame": 22857,
+      "endFrame": 23326,
+      "durationFrames": 469
     },
     {
       "chapter": 6,
@@ -3456,9 +3467,9 @@
       "text": "Sentirse amado viene de ser conocido, no de ser admirado. Valida antes de arreglar, celebra las buenas noticias ajenas, y prueba una semana extrovertida.",
       "toLine": 160,
       "type": "summary-card",
-      "startFrame": 26161,
-      "endFrame": 26569,
-      "durationFrames": 408
+      "startFrame": 23326,
+      "endFrame": 23663,
+      "durationFrames": 337
     },
     {
       "chapter": 7,
@@ -3467,9 +3478,9 @@
       "title": "Relaciones sin mitos",
       "toLine": 161,
       "type": "title-card",
-      "startFrame": 26569,
-      "endFrame": 26670,
-      "durationFrames": 101
+      "startFrame": 23663,
+      "endFrame": 23760,
+      "durationFrames": 97
     },
     {
       "chapter": 7,
@@ -3479,9 +3490,9 @@
       "title": "Anatomía de un mito",
       "toLine": 167,
       "type": "diagram",
-      "startFrame": 26670,
-      "endFrame": 27963,
-      "durationFrames": 1293
+      "startFrame": 23760,
+      "endFrame": 24771,
+      "durationFrames": 1011
     },
     {
       "chapter": 7,
@@ -3498,9 +3509,9 @@
       ],
       "toLine": 171,
       "type": "data-strip",
-      "startFrame": 27963,
-      "endFrame": 28969,
-      "durationFrames": 1006
+      "startFrame": 24771,
+      "endFrame": 25560,
+      "durationFrames": 789
     },
     {
       "chapter": 7,
@@ -3509,9 +3520,9 @@
       "text": "El 80/20 como cifra es un meme, no una medición.",
       "toLine": 174,
       "type": "big-statement",
-      "startFrame": 28969,
-      "endFrame": 29658,
-      "durationFrames": 689
+      "startFrame": 25560,
+      "endFrame": 26140,
+      "durationFrames": 580
     },
     {
       "chapter": 7,
@@ -3520,9 +3531,9 @@
       "text": "Preferencia revelada: ~13–15% de grasa corporal, no el 10% del culto al gimnasio.",
       "toLine": 177,
       "type": "big-statement",
-      "startFrame": 29658,
-      "endFrame": 30546,
-      "durationFrames": 888
+      "startFrame": 26140,
+      "endFrame": 26890,
+      "durationFrames": 750
     },
     {
       "chapter": 7,
@@ -3531,9 +3542,9 @@
       "text": "Observa lo que la gente hace, no lo que dice que quiere.",
       "toLine": 179,
       "type": "big-statement",
-      "startFrame": 30546,
-      "endFrame": 30990,
-      "durationFrames": 444
+      "startFrame": 26890,
+      "endFrame": 27230,
+      "durationFrames": 340
     },
     {
       "chapter": 7,
@@ -3543,9 +3554,9 @@
       "title": "La prueba de claridad",
       "toLine": 183,
       "type": "diagram",
-      "startFrame": 30990,
-      "endFrame": 31850,
-      "durationFrames": 860
+      "startFrame": 27230,
+      "endFrame": 27942,
+      "durationFrames": 712
     },
     {
       "chapter": 7,
@@ -3555,9 +3566,9 @@
       "title": "Las cuatro etapas del enamoramiento",
       "toLine": 185,
       "type": "diagram",
-      "startFrame": 31850,
-      "endFrame": 32249,
-      "durationFrames": 399
+      "startFrame": 27942,
+      "endFrame": 28262,
+      "durationFrames": 320
     },
     {
       "chapter": 7,
@@ -3566,9 +3577,9 @@
       "title": "Las cifras no son fiables",
       "toLine": 187,
       "type": "warning-card",
-      "startFrame": 32249,
-      "endFrame": 32646,
-      "durationFrames": 397
+      "startFrame": 28262,
+      "endFrame": 28586,
+      "durationFrames": 324
     },
     {
       "chapter": 7,
@@ -3587,9 +3598,9 @@
       "rightTitle": "Validación construye",
       "toLine": 191,
       "type": "two-col",
-      "startFrame": 32646,
-      "endFrame": 33413,
-      "durationFrames": 767
+      "startFrame": 28586,
+      "endFrame": 29232,
+      "durationFrames": 646
     },
     {
       "chapter": 7,
@@ -3597,9 +3608,9 @@
       "text": "¿Qué creencia sobre la atracción estás usando como excusa para no actuar?",
       "toLine": 192,
       "type": "question",
-      "startFrame": 33413,
-      "endFrame": 33675,
-      "durationFrames": 262
+      "startFrame": 29232,
+      "endFrame": 29436,
+      "durationFrames": 204
     },
     {
       "chapter": 7,
@@ -3607,9 +3618,9 @@
       "text": "El ochenta veinte es un mito, el físico importa menos de lo que crees, la falta de claridad es la señal, y el desprecio destruye lo que la validación construye.",
       "toLine": 193,
       "type": "summary-card",
-      "startFrame": 33675,
-      "endFrame": 34099,
-      "durationFrames": 424
+      "startFrame": 29436,
+      "endFrame": 29774,
+      "durationFrames": 338
     },
     {
       "chapter": 8,
@@ -3618,9 +3629,9 @@
       "title": "La manosfera y el criterio",
       "toLine": 194,
       "type": "title-card",
-      "startFrame": 34099,
-      "endFrame": 34214,
-      "durationFrames": 115
+      "startFrame": 29774,
+      "endFrame": 29878,
+      "durationFrames": 104
     },
     {
       "chapter": 8,
@@ -3628,9 +3639,9 @@
       "text": "La manosfera describe problemas reales, pero su análisis es adversarial y suma cero.",
       "toLine": 197,
       "type": "big-statement",
-      "startFrame": 34214,
-      "endFrame": 34894,
-      "durationFrames": 680
+      "startFrame": 29878,
+      "endFrame": 30445,
+      "durationFrames": 567
     },
     {
       "chapter": 8,
@@ -3643,9 +3654,9 @@
       "title": "Las tres olas — Destiny, #540",
       "toLine": 203,
       "type": "list",
-      "startFrame": 34894,
-      "endFrame": 36216,
-      "durationFrames": 1322
+      "startFrame": 30445,
+      "endFrame": 31486,
+      "durationFrames": 1041
     },
     {
       "chapter": 8,
@@ -3654,9 +3665,9 @@
       "text": "Las descripciones suelen ser acertadas, pero el análisis es venenoso.",
       "toLine": 205,
       "type": "big-statement",
-      "startFrame": 36216,
-      "endFrame": 36668,
-      "durationFrames": 452
+      "startFrame": 31486,
+      "endFrame": 31851,
+      "durationFrames": 365
     },
     {
       "author": "Jordan Peterson",
@@ -3666,9 +3677,9 @@
       "text": "El pickup es psicopatía guionizada: practicar manipulación sin integrarla entrena psicopatía real.",
       "toLine": 207,
       "type": "quote",
-      "startFrame": 36668,
-      "endFrame": 37111,
-      "durationFrames": 443
+      "startFrame": 31851,
+      "endFrame": 32236,
+      "durationFrames": 385
     },
     {
       "author": "Mark Manson",
@@ -3678,9 +3689,9 @@
       "text": "Como ganar un concurso de halterofilia con un exoesqueleto oculto: simula atractivo sin construirlo.",
       "toLine": 208,
       "type": "quote",
-      "startFrame": 37111,
-      "endFrame": 37441,
-      "durationFrames": 330
+      "startFrame": 32236,
+      "endFrame": 32528,
+      "durationFrames": 292
     },
     {
       "chapter": 8,
@@ -3688,9 +3699,9 @@
       "text": "Las amistades femeninas son emocionalmente satisfactorias; las masculinas, superficiales.",
       "toLine": 210,
       "type": "big-statement",
-      "startFrame": 37441,
-      "endFrame": 37860,
-      "durationFrames": 419
+      "startFrame": 32528,
+      "endFrame": 32900,
+      "durationFrames": 372
     },
     {
       "chapter": 8,
@@ -3699,9 +3710,9 @@
       "text": "Dentro de tres años, mirando atrás, ¿qué decisión me habría gustado tomar hoy?",
       "toLine": 213,
       "type": "big-statement",
-      "startFrame": 37860,
-      "endFrame": 38478,
-      "durationFrames": 618
+      "startFrame": 32900,
+      "endFrame": 33394,
+      "durationFrames": 494
     },
     {
       "chapter": 8,
@@ -3710,9 +3721,9 @@
       "text": "Os necesitamos.",
       "toLine": 216,
       "type": "big-statement",
-      "startFrame": 38478,
-      "endFrame": 38958,
-      "durationFrames": 480
+      "startFrame": 33394,
+      "endFrame": 33807,
+      "durationFrames": 413
     },
     {
       "chapter": 8,
@@ -3720,9 +3731,9 @@
       "text": "La manosfera describe problemas reales con análisis venenoso. Quédate con lo verdadero, desecha el marco adversarial, y recuerda: os necesitamos, no pobrecitos.",
       "toLine": 217,
       "type": "summary-card",
-      "startFrame": 38958,
-      "endFrame": 39379,
-      "durationFrames": 421
+      "startFrame": 33807,
+      "endFrame": 34152,
+      "durationFrames": 345
     },
     {
       "chapter": 9,
@@ -3731,9 +3742,9 @@
       "title": "Mentalidad y claridad",
       "toLine": 218,
       "type": "title-card",
-      "startFrame": 39379,
-      "endFrame": 39483,
-      "durationFrames": 104
+      "startFrame": 34152,
+      "endFrame": 34250,
+      "durationFrames": 98
     },
     {
       "chapter": 9,
@@ -3742,9 +3753,9 @@
       "text": "Las Meditaciones son un diario privado, no un tratado.",
       "toLine": 221,
       "type": "big-statement",
-      "startFrame": 39483,
-      "endFrame": 40254,
-      "durationFrames": 771
+      "startFrame": 34250,
+      "endFrame": 34889,
+      "durationFrames": 639
     },
     {
       "chapter": 9,
@@ -3753,9 +3764,9 @@
       "text": "¿Qué querría mi yo de mañana que hiciera ahora?",
       "toLine": 224,
       "type": "big-statement",
-      "startFrame": 40254,
-      "endFrame": 40698,
-      "durationFrames": 444
+      "startFrame": 34889,
+      "endFrame": 35231,
+      "durationFrames": 342
     },
     {
       "chapter": 9,
@@ -3763,9 +3774,9 @@
       "text": "Describe los hechos en lenguaje llano y sin adornos.",
       "toLine": 227,
       "type": "big-statement",
-      "startFrame": 40698,
-      "endFrame": 41185,
-      "durationFrames": 487
+      "startFrame": 35231,
+      "endFrame": 35612,
+      "durationFrames": 381
     },
     {
       "chapter": 9,
@@ -3773,9 +3784,9 @@
       "text": "El estoicismo real siente todo y elige la respuesta.",
       "toLine": 229,
       "type": "big-statement",
-      "startFrame": 41185,
-      "endFrame": 41651,
-      "durationFrames": 466
+      "startFrame": 35612,
+      "endFrame": 35988,
+      "durationFrames": 376
     },
     {
       "chapter": 9,
@@ -3785,9 +3796,9 @@
       "title": "¿En qué juego juegas?",
       "toLine": 234,
       "type": "diagram",
-      "startFrame": 41651,
-      "endFrame": 42663,
-      "durationFrames": 1012
+      "startFrame": 35988,
+      "endFrame": 36820,
+      "durationFrames": 832
     },
     {
       "chapter": 9,
@@ -3796,9 +3807,9 @@
       "text": "Body still, mind active: 20 minutos diarios de pensamiento deliberado en quietud.",
       "toLine": 238,
       "type": "big-statement",
-      "startFrame": 42663,
-      "endFrame": 43271,
-      "durationFrames": 608
+      "startFrame": 36820,
+      "endFrame": 37314,
+      "durationFrames": 494
     },
     {
       "author": "Mark Manson",
@@ -3808,9 +3819,9 @@
       "text": "No estás estresado por hacer demasiado, sino por hacer demasiado poco de lo que te importa.",
       "toLine": 239,
       "type": "quote",
-      "startFrame": 43271,
-      "endFrame": 43635,
-      "durationFrames": 364
+      "startFrame": 37314,
+      "endFrame": 37643,
+      "durationFrames": 329
     },
     {
       "chapter": 9,
@@ -3818,9 +3829,9 @@
       "text": "Por cada hora de contenido, una acción concreta.",
       "toLine": 241,
       "type": "big-statement",
-      "startFrame": 43635,
-      "endFrame": 44158,
-      "durationFrames": 523
+      "startFrame": 37643,
+      "endFrame": 38053,
+      "durationFrames": 410
     },
     {
       "chapter": 9,
@@ -3828,9 +3839,9 @@
       "text": "Pregunta qué querría tu yo de mañana, describe los hechos en llano, juega al juego de crear y no al de parecer, y piensa veinte minutos al día en quietud.",
       "toLine": 242,
       "type": "summary-card",
-      "startFrame": 44158,
-      "endFrame": 44569,
-      "durationFrames": 411
+      "startFrame": 38053,
+      "endFrame": 38368,
+      "durationFrames": 315
     },
     {
       "chapter": 10,
@@ -3839,9 +3850,9 @@
       "title": "El filtro crítico",
       "toLine": 243,
       "type": "title-card",
-      "startFrame": 44569,
-      "endFrame": 44666,
-      "durationFrames": 97
+      "startFrame": 38368,
+      "endFrame": 38460,
+      "durationFrames": 92
     },
     {
       "chapter": 10,
@@ -3856,9 +3867,9 @@
       "title": "Lo sólido — puedes citarlo con confianza",
       "toLine": 251,
       "type": "list",
-      "startFrame": 44666,
-      "endFrame": 45721,
-      "durationFrames": 1055
+      "startFrame": 38460,
+      "endFrame": 39288,
+      "durationFrames": 828
     },
     {
       "chapter": 10,
@@ -3867,9 +3878,9 @@
       "text": "La hipótesis de sedación es broscience declarada por el propio Williamson.",
       "toLine": 254,
       "type": "big-statement",
-      "startFrame": 45721,
-      "endFrame": 46361,
-      "durationFrames": 640
+      "startFrame": 39288,
+      "endFrame": 39831,
+      "durationFrames": 543
     },
     {
       "chapter": 10,
@@ -3878,9 +3889,9 @@
       "title": "NO CITAR",
       "toLine": 259,
       "type": "warning-card",
-      "startFrame": 46361,
-      "endFrame": 47775,
-      "durationFrames": 1414
+      "startFrame": 39831,
+      "endFrame": 41011,
+      "durationFrames": 1180
     },
     {
       "chapter": 10,
@@ -3888,9 +3899,9 @@
       "text": "Estudio con nombre, año y revista, o no es un dato.",
       "toLine": 262,
       "type": "big-statement",
-      "startFrame": 47775,
-      "endFrame": 48398,
-      "durationFrames": 623
+      "startFrame": 41011,
+      "endFrame": 41495,
+      "durationFrames": 484
     },
     {
       "chapter": 10,
@@ -3903,9 +3914,9 @@
       "title": "Los vacíos: lo que el podcast no dice",
       "toLine": 265,
       "type": "list",
-      "startFrame": 48398,
-      "endFrame": 48985,
-      "durationFrames": 587
+      "startFrame": 41495,
+      "endFrame": 41987,
+      "durationFrames": 492
     },
     {
       "chapter": 10,
@@ -3913,9 +3924,9 @@
       "text": "Juzga el episodio, no el titular.",
       "toLine": 267,
       "type": "big-statement",
-      "startFrame": 48985,
-      "endFrame": 49378,
-      "durationFrames": 393
+      "startFrame": 41987,
+      "endFrame": 42306,
+      "durationFrames": 319
     },
     {
       "chapter": 10,
@@ -3923,9 +3934,9 @@
       "text": "Estudio con nombre, año y revista, o no es un dato. Lo sólido es la psicología clínica y social clásica; lo especulativo casi siempre empieza por esto evolucionó para.",
       "toLine": 268,
       "type": "summary-card",
-      "startFrame": 49378,
-      "endFrame": 49819,
-      "durationFrames": 441
+      "startFrame": 42306,
+      "endFrame": 42672,
+      "durationFrames": 366
     },
     {
       "chapter": 11,
@@ -3934,9 +3945,9 @@
       "title": "Traducción cubana",
       "toLine": 269,
       "type": "title-card",
-      "startFrame": 49819,
-      "endFrame": 49916,
-      "durationFrames": 97
+      "startFrame": 42672,
+      "endFrame": 42761,
+      "durationFrames": 89
     },
     {
       "chapter": 11,
@@ -3944,9 +3955,9 @@
       "text": "Sin aplicaciones, el juego es otro, y mejor.",
       "toLine": 274,
       "type": "big-statement",
-      "startFrame": 49916,
-      "endFrame": 50967,
-      "durationFrames": 1051
+      "startFrame": 42761,
+      "endFrame": 43602,
+      "durationFrames": 841
     },
     {
       "chapter": 11,
@@ -3954,9 +3965,9 @@
       "text": "Cuba conserva los terceros espacios que el podcast echa de menos.",
       "toLine": 277,
       "type": "big-statement",
-      "startFrame": 50967,
-      "endFrame": 51614,
-      "durationFrames": 647
+      "startFrame": 43602,
+      "endFrame": 44116,
+      "durationFrames": 514
     },
     {
       "chapter": 11,
@@ -3964,9 +3975,9 @@
       "text": "La fricción ya sobra: elige en qué dificultad inviertes tu energía escasa.",
       "toLine": 280,
       "type": "big-statement",
-      "startFrame": 51614,
-      "endFrame": 52146,
-      "durationFrames": 532
+      "startFrame": 44116,
+      "endFrame": 44547,
+      "durationFrames": 431
     },
     {
       "chapter": 11,
@@ -3974,9 +3985,9 @@
       "text": "Redes densas: distancia gradual, no ruptura escenificada.",
       "toLine": 283,
       "type": "big-statement",
-      "startFrame": 52146,
-      "endFrame": 52684,
-      "durationFrames": 538
+      "startFrame": 44547,
+      "endFrame": 44988,
+      "durationFrames": 441
     },
     {
       "chapter": 11,
@@ -3984,9 +3995,9 @@
       "text": "Sin terapia accesible, las técnicas autoaplicables son el plan A.",
       "toLine": 286,
       "type": "big-statement",
-      "startFrame": 52684,
-      "endFrame": 53326,
-      "durationFrames": 642
+      "startFrame": 44988,
+      "endFrame": 45504,
+      "durationFrames": 516
     },
     {
       "author": "Chris Williamson",
@@ -3996,9 +4007,9 @@
       "text": "Ya eres rico si más dinero no cambiaría tu tiempo.",
       "toLine": 288,
       "type": "quote",
-      "startFrame": 53326,
-      "endFrame": 53613,
-      "durationFrames": 287
+      "startFrame": 45504,
+      "endFrame": 45760,
+      "durationFrames": 256
     },
     {
       "author": "Jordan Peterson",
@@ -4008,9 +4019,9 @@
       "text": "Eres el único grupo de control con tus talentos, limitaciones y tragedias exactos.",
       "toLine": 290,
       "type": "quote",
-      "startFrame": 53613,
-      "endFrame": 54153,
-      "durationFrames": 540
+      "startFrame": 45760,
+      "endFrame": 46222,
+      "durationFrames": 462
     },
     {
       "chapter": 11,
@@ -4018,9 +4029,9 @@
       "text": "Competencia práctica más dulzura, sin pose.",
       "toLine": 293,
       "type": "big-statement",
-      "startFrame": 54153,
-      "endFrame": 54644,
-      "durationFrames": 491
+      "startFrame": 46222,
+      "endFrame": 46623,
+      "durationFrames": 401
     },
     {
       "chapter": 11,
@@ -4028,9 +4039,9 @@
       "text": "Cuba conserva lo que el podcast echa de menos: terceros espacios, reputación verificable y conversación real. Úsalos deliberadamente, y compara solo con tu ayer.",
       "toLine": 294,
       "type": "summary-card",
-      "startFrame": 54644,
-      "endFrame": 55069,
-      "durationFrames": 425
+      "startFrame": 46623,
+      "endFrame": 46975,
+      "durationFrames": 352
     },
     {
       "chapter": 12,
@@ -4039,9 +4050,9 @@
       "title": "La advertencia maestra",
       "toLine": 295,
       "type": "title-card",
-      "startFrame": 55069,
-      "endFrame": 55177,
-      "durationFrames": 108
+      "startFrame": 46975,
+      "endFrame": 47078,
+      "durationFrames": 103
     },
     {
       "chapter": 12,
@@ -4050,9 +4061,9 @@
       "text": "El consejo no esculpe: exagera lo que ya eres.",
       "toLine": 301,
       "type": "big-statement",
-      "startFrame": 55177,
-      "endFrame": 56285,
-      "durationFrames": 1108
+      "startFrame": 47078,
+      "endFrame": 47997,
+      "durationFrames": 919
     },
     {
       "chapter": 12,
@@ -4060,9 +4071,9 @@
       "text": "¿Me está diciendo que haga MÁS de algo que ya hago en exceso?",
       "toLine": 305,
       "type": "big-statement",
-      "startFrame": 56285,
-      "endFrame": 57103,
-      "durationFrames": 818
+      "startFrame": 47997,
+      "endFrame": 48661,
+      "durationFrames": 664
     },
     {
       "caption": "Aprender es la forma favorita de procrastinar de la gente lista. — Manson, #1096",
@@ -4071,9 +4082,9 @@
       "img": "ill-ch12.png",
       "toLine": 308,
       "type": "illustration",
-      "startFrame": 57103,
-      "endFrame": 57802,
-      "durationFrames": 699
+      "startFrame": 48661,
+      "endFrame": 49231,
+      "durationFrames": 570
     },
     {
       "chapter": 12,
@@ -4081,9 +4092,9 @@
       "text": "La verdadera fortaleza es saber cuándo devolver las cargas que no te pertenecen.",
       "toLine": 311,
       "type": "big-statement",
-      "startFrame": 57802,
-      "endFrame": 58339,
-      "durationFrames": 537
+      "startFrame": 49231,
+      "endFrame": 49674,
+      "durationFrames": 443
     },
     {
       "chapter": 12,
@@ -4093,9 +4104,9 @@
       "title": "La ilusión input-output",
       "toLine": 314,
       "type": "diagram",
-      "startFrame": 58339,
-      "endFrame": 58759,
-      "durationFrames": 420
+      "startFrame": 49674,
+      "endFrame": 50025,
+      "durationFrames": 351
     },
     {
       "chapter": 12,
@@ -4104,9 +4115,9 @@
       "text": "La procrastinación no es pereza: es miedo.",
       "toLine": 317,
       "type": "big-statement",
-      "startFrame": 58759,
-      "endFrame": 59352,
-      "durationFrames": 593
+      "startFrame": 50025,
+      "endFrame": 50481,
+      "durationFrames": 456
     },
     {
       "chapter": 12,
@@ -4115,9 +4126,9 @@
       "title": "Lentes, no leyes",
       "toLine": 318,
       "type": "warning-card",
-      "startFrame": 59352,
-      "endFrame": 59540,
-      "durationFrames": 188
+      "startFrame": 50481,
+      "endFrame": 50650,
+      "durationFrames": 169
     },
     {
       "chapter": 12,
@@ -4125,9 +4136,9 @@
       "text": "¿Qué consejo de este video te está diciendo que hagas MÁS de algo que ya haces en exceso?",
       "toLine": 319,
       "type": "question",
-      "startFrame": 59540,
-      "endFrame": 59638,
-      "durationFrames": 98
+      "startFrame": 50650,
+      "endFrame": 50736,
+      "durationFrames": 86
     },
     {
       "chapter": 12,
@@ -4135,9 +4146,9 @@
       "text": "El consejo exagera lo que ya eres. Filtra todo por quién eres tú, y recuerda que aprender sin actuar es procrastinar con buenas intenciones.",
       "toLine": 320,
       "type": "summary-card",
-      "startFrame": 59638,
-      "endFrame": 60019,
-      "durationFrames": 381
+      "startFrame": 50736,
+      "endFrame": 51043,
+      "durationFrames": 307
     },
     {
       "chapter": 13,
@@ -4146,9 +4157,9 @@
       "title": "El plan de 4 semanas",
       "toLine": 321,
       "type": "title-card",
-      "startFrame": 60019,
-      "endFrame": 60134,
-      "durationFrames": 115
+      "startFrame": 51043,
+      "endFrame": 51145,
+      "durationFrames": 102
     },
     {
       "chapter": 13,
@@ -4156,9 +4167,9 @@
       "text": "Por cada episodio visto, una acción concreta.",
       "toLine": 323,
       "type": "big-statement",
-      "startFrame": 60134,
-      "endFrame": 60423,
-      "durationFrames": 289
+      "startFrame": 51145,
+      "endFrame": 51372,
+      "durationFrames": 227
     },
     {
       "chapter": 13,
@@ -4180,9 +4191,9 @@
       "title": "Semana 1: fundamentos, exposición y claridad",
       "toLine": 328,
       "type": "table",
-      "startFrame": 60423,
-      "endFrame": 61130,
-      "durationFrames": 707
+      "startFrame": 51372,
+      "endFrame": 51978,
+      "durationFrames": 606
     },
     {
       "chapter": 13,
@@ -4204,9 +4215,9 @@
       "title": "Semana 2: comunicación, escuchar y validar",
       "toLine": 332,
       "type": "table",
-      "startFrame": 61130,
-      "endFrame": 61962,
-      "durationFrames": 832
+      "startFrame": 51978,
+      "endFrame": 52688,
+      "durationFrames": 710
     },
     {
       "chapter": 13,
@@ -4232,9 +4243,9 @@
       "title": "Semana 3: límites y verdad",
       "toLine": 339,
       "type": "table",
-      "startFrame": 61962,
-      "endFrame": 63197,
-      "durationFrames": 1235
+      "startFrame": 52688,
+      "endFrame": 53718,
+      "durationFrames": 1030
     },
     {
       "chapter": 13,
@@ -4256,9 +4267,9 @@
       "title": "Semana 4: integración, actuar, medir, decidir",
       "toLine": 343,
       "type": "table",
-      "startFrame": 63197,
-      "endFrame": 63929,
-      "durationFrames": 732
+      "startFrame": 53718,
+      "endFrame": 54351,
+      "durationFrames": 633
     },
     {
       "chapter": 13,
@@ -4266,9 +4277,9 @@
       "text": "Escribe tu página: qué mentalidad voy a mantener.",
       "toLine": 346,
       "type": "big-statement",
-      "startFrame": 63929,
-      "endFrame": 64445,
-      "durationFrames": 516
+      "startFrame": 54351,
+      "endFrame": 54768,
+      "durationFrames": 417
     },
     {
       "chapter": 13,
@@ -4283,9 +4294,9 @@
       "title": "Hábitos permanentes (si funcionan)",
       "toLine": 349,
       "type": "list",
-      "startFrame": 64445,
-      "endFrame": 65202,
-      "durationFrames": 757
+      "startFrame": 54768,
+      "endFrame": 55359,
+      "durationFrames": 591
     },
     {
       "chapter": 13,
@@ -4293,9 +4304,9 @@
       "text": "Cuatro semanas, dos episodios por semana, un hábito nuevo por semana, y una acción por cada episodio. Sin acción, no cuenta como avance.",
       "toLine": 350,
       "type": "summary-card",
-      "startFrame": 65202,
-      "endFrame": 65569,
-      "durationFrames": 367
+      "startFrame": 55359,
+      "endFrame": 55657,
+      "durationFrames": 298
     },
     {
       "chapter": 14,
@@ -4304,9 +4315,9 @@
       "title": "Cierre: las 9 ideas y tu página",
       "toLine": 351,
       "type": "title-card",
-      "startFrame": 65569,
-      "endFrame": 65641,
-      "durationFrames": 72
+      "startFrame": 55657,
+      "endFrame": 55735,
+      "durationFrames": 78
     },
     {
       "chapter": 14,
@@ -4320,9 +4331,9 @@
       "title": "Las 9 ideas de la síntesis",
       "toLine": 357,
       "type": "list",
-      "startFrame": 65641,
-      "endFrame": 66429,
-      "durationFrames": 788
+      "startFrame": 55735,
+      "endFrame": 56383,
+      "durationFrames": 648
     },
     {
       "chapter": 14,
@@ -4337,9 +4348,9 @@
       "title": "Las 9 ideas de la síntesis",
       "toLine": 363,
       "type": "list",
-      "startFrame": 66429,
-      "endFrame": 67461,
-      "durationFrames": 1032
+      "startFrame": 56383,
+      "endFrame": 57199,
+      "durationFrames": 816
     },
     {
       "chapter": 14,
@@ -4347,9 +4358,9 @@
       "text": "Escribe tu página: qué mentalidad voy a mantener.",
       "toLine": 367,
       "type": "big-statement",
-      "startFrame": 67461,
-      "endFrame": 67981,
-      "durationFrames": 520
+      "startFrame": 57199,
+      "endFrame": 57628,
+      "durationFrames": 429
     },
     {
       "chapter": 14,
@@ -4363,18 +4374,18 @@
       "title": "Si solo vieras 3 episodios",
       "toLine": 369,
       "type": "list",
-      "startFrame": 67981,
-      "endFrame": 68738,
-      "durationFrames": 757
+      "startFrame": 57628,
+      "endFrame": 58276,
+      "durationFrames": 648
     },
     {
       "chapter": 14,
       "fromLine": 370,
       "toLine": 371,
       "type": "chapters-map",
-      "startFrame": 68738,
-      "endFrame": 69157,
-      "durationFrames": 419
+      "startFrame": 58276,
+      "endFrame": 58610,
+      "durationFrames": 334
     },
     {
       "chapter": 14,
@@ -4382,9 +4393,9 @@
       "text": "Éxito es haber actuado.",
       "toLine": 373,
       "type": "big-statement",
-      "startFrame": 69157,
-      "endFrame": 69319,
-      "durationFrames": 162
+      "startFrame": 58610,
+      "endFrame": 58758,
+      "durationFrames": 148
     }
   ]
 }

@@ -1,0 +1,219 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.545,
+  "total_duration": 153.809,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 13. EL PLAN DE CUATRO SEMANAS.",
+      "start": 0.0,
+      "end": 2.508,
+      "duration": 2.508
+    },
+    {
+      "index": 1,
+      "text": "Todo lo anterior se convierte en un plan de cuatro semanas.",
+      "start": 3.408,
+      "end": 6.754,
+      "duration": 3.346
+    },
+    {
+      "index": 2,
+      "text": "La regla general: por cada episodio visto, una acción concreta.",
+      "start": 7.004,
+      "end": 10.7,
+      "duration": 3.697
+    },
+    {
+      "index": 3,
+      "text": "Semana uno: fundamentos, exposición y claridad.",
+      "start": 10.95,
+      "end": 13.955,
+      "duration": 3.004
+    },
+    {
+      "index": 4,
+      "text": "Episodios 1115 de Lyubomirsky y 1096 de Manson.",
+      "start": 14.205,
+      "end": 18.389,
+      "duration": 4.184
+    },
+    {
+      "index": 5,
+      "text": "Hábito diario: worry time a las siete de la tarde, veinte minutos, en libreta.",
+      "start": 18.639,
+      "end": 22.863,
+      "duration": 4.224
+    },
+    {
+      "index": 6,
+      "text": "Acciones: escribe tu jerarquía de exposición social, diez situaciones, sin muletas.",
+      "start": 23.113,
+      "end": 27.961,
+      "duration": 4.848
+    },
+    {
+      "index": 7,
+      "text": "Inicia una conversación con un desconocido.",
+      "start": 28.211,
+      "end": 30.906,
+      "duration": 2.696
+    },
+    {
+      "index": 8,
+      "text": "Semana dos: comunicación, escuchar y validar.",
+      "start": 31.156,
+      "end": 33.861,
+      "duration": 2.705
+    },
+    {
+      "index": 9,
+      "text": "Episodios 909 de Duhigg y 1093 de Fisher.",
+      "start": 34.111,
+      "end": 38.19,
+      "duration": 4.079
+    },
+    {
+      "index": 10,
+      "text": "Hábito diario: body still, mind active, veinte minutos sin móvil.",
+      "start": 38.44,
+      "end": 42.098,
+      "duration": 3.658
+    },
+    {
+      "index": 11,
+      "text": "Acciones: practica looping en dos reuniones, valida antes de arreglar en dos conversaciones, celebra con entusiasmo una buena noticia ajena, y elimina dos muletillas debilitantes de tu español profesional.",
+      "start": 42.348,
+      "end": 54.583,
+      "duration": 12.235
+    },
+    {
+      "index": 12,
+      "text": "Semana tres: límites y verdad.",
+      "start": 54.833,
+      "end": 56.818,
+      "duration": 1.984
+    },
+    {
+      "index": 13,
+      "text": "Episodios 540 de Destiny y 1092 de Coffman.",
+      "start": 57.068,
+      "end": 61.177,
+      "duration": 4.109
+    },
+    {
+      "index": 14,
+      "text": "Hábito diario: ¿qué querría mi yo de mañana?, pausa de cinco segundos antes de responder con ira.",
+      "start": 61.427,
+      "end": 66.844,
+      "duration": 5.418
+    },
+    {
+      "index": 15,
+      "text": "Acciones: aplica la regla de las tres quejas, anota la primera y la segunda irritación, y a la tercera confronta con evidencia concreta y calma.",
+      "start": 67.094,
+      "end": 75.537,
+      "duration": 8.442
+    },
+    {
+      "index": 16,
+      "text": "Aplica el test de claridad a una situación confusa, y da claridad tú en una donde la estés evitando.",
+      "start": 75.787,
+      "end": 81.859,
+      "duration": 6.072
+    },
+    {
+      "index": 17,
+      "text": "Practica Start With the No al dar una mala noticia en el trabajo.",
+      "start": 82.109,
+      "end": 85.879,
+      "duration": 3.771
+    },
+    {
+      "index": 18,
+      "text": "Y haz un ataque a la vergüenza versión cubana.",
+      "start": 86.129,
+      "end": 88.9,
+      "duration": 2.77
+    },
+    {
+      "index": 19,
+      "text": "Semana cuatro: integración, actuar, medir, decidir.",
+      "start": 89.15,
+      "end": 92.272,
+      "duration": 3.122
+    },
+    {
+      "index": 20,
+      "text": "Episodios 1050 y 274 de Robertson.",
+      "start": 92.522,
+      "end": 96.375,
+      "duration": 3.854
+    },
+    {
+      "index": 21,
+      "text": "Hábito diario: consolida los dos hábitos que más te sirvieron, y descarta el resto sin culpa.",
+      "start": 96.625,
+      "end": 102.224,
+      "duration": 5.599
+    },
+    {
+      "index": 22,
+      "text": "Aplica Play It Out a una acción que llevas posponiendo por miedo: imagina el peor escenario en detalle, pregunta y luego qué, y actúa.",
+      "start": 102.474,
+      "end": 110.021,
+      "duration": 7.547
+    },
+    {
+      "index": 23,
+      "text": "Y escribe una página: qué mentalidad voy a mantener.",
+      "start": 110.271,
+      "end": 113.279,
+      "duration": 3.009
+    },
+    {
+      "index": 24,
+      "text": "No una lista de consejos: tres a cinco frases en primera persona, en tu voz, basadas en lo que probaste estas cuatro semanas.",
+      "start": 113.529,
+      "end": 121.019,
+      "duration": 7.49
+    },
+    {
+      "index": 25,
+      "text": "Esa página vale más que este video entero.",
+      "start": 121.269,
+      "end": 123.915,
+      "duration": 2.646
+    },
+    {
+      "index": 26,
+      "text": "Y decide si sigues con la segunda fase o paras aquí: parar también es válido.",
+      "start": 124.165,
+      "end": 128.688,
+      "duration": 4.522
+    },
+    {
+      "index": 27,
+      "text": "El objetivo no es ver treinta episodios, es actuar mejor.",
+      "start": 128.938,
+      "end": 132.516,
+      "duration": 3.579
+    },
+    {
+      "index": 28,
+      "text": "Los hábitos permanentes, si funcionan, son los de estas cuatro semanas: worry time, exposición semanal, la pregunta de tu yo de mañana, looping, Start With the No, y el test de claridad.",
+      "start": 132.766,
+      "end": 143.15,
+      "duration": 10.383
+    },
+    {
+      "index": 29,
+      "text": "En resumen: cuatro semanas, dos episodios por semana, un hábito nuevo por semana, y una acción por cada episodio. Sin acción, no cuenta como avance.",
+      "start": 143.85,
+      "end": 152.609,
+      "duration": 8.76
+    }
+  ]
+}
