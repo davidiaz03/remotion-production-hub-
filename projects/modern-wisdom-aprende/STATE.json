@@ -10,7 +10,7 @@
   "completed": [],
   "pending": [],
   "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
-  "updatedAt": "2026-11-19T22:16:36.700Z",
+  "updatedAt": "2026-11-19T22:20:08.044Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -197,12 +197,13 @@
       "qa": {
         "status": "done",
         "startedAt": "2026-11-19T22:16:36.674Z",
-        "updatedAt": "2026-11-19T22:16:36.674Z",
+        "updatedAt": "2026-11-19T22:20:08.044Z",
         "artifacts": [
           "reports/technical-qa.json",
-          "out/modern-wisdom-aprende-MASTER.mp4"
+          "out/modern-wisdom-aprende-MASTER.mp4",
+          "out/modern-wisdom-aprende-360p.mp4"
         ],
-        "note": "-15.7 LUFS, TP -1.5 dBTP"
+        "note": "Corrección: qa-media marcó failed solo por la resolución 640x360 del downscale deliberado; todos los gates sustantivos en verde en máster y 360p."
       },
       "delivery": {
         "status": "pending",
@@ -1709,6 +1710,21 @@
           "reports/technical-qa.json",
           "out/modern-wisdom-aprende-MASTER.mp4"
         ]
+      },
+      {
+        "at": "2026-11-19T22:19:44.543Z",
+        "phase": "qa",
+        "event": "QA técnico failed — modern-wisdom-aprende-360p.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/modern-wisdom-aprende-360p.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T22:19:52.641Z",
+        "phase": "qa",
+        "event": "done",
+        "artifacts": []
       }
     ]
   }
