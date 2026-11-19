@@ -76,7 +76,7 @@ import sys
 import tempfile
 from datetime import datetime
 
-from PIL import ImageFont
+from PIL import Image, ImageChops, ImageFont, ImageColor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -191,15 +191,132 @@ def fit_text(text, max_w, max_h, start_size):
     return 16, wrap_for_width(text, 16, max_w)
 
 
-def drawtext_filter(text, size, y_expr, tmpdir, tag):
-    """drawtext con el texto en archivo (evita problemas de escape)."""
+def drawtext_filter(text, size, y_expr, tmpdir, tag, pill=False):
+    """drawtext con el texto en archivo (evita problemas de escape).
+
+    Con pill=True, una caja negra semitransparente detrás del texto
+    (legibilidad sobre fondos claros).
+    """
     path = os.path.join(tmpdir, f'text-{tag}.txt')
     with open(path, 'w', encoding='utf-8') as f:
         f.write(text)
     border = max(2, size // 14)
-    return (f"drawtext=textfile='{path}':fontfile='{FONT}':fontsize={size}:"
+    filt = (f"drawtext=textfile='{path}':fontfile='{FONT}':fontsize={size}:"
             f"fontcolor=white:borderw={border}:bordercolor=black:"
             f"x=(w-text_w)/2:y={y_expr}")
+    if pill:
+        filt += f":box=1:boxcolor=black@0.45:boxborderw={max(8, size // 3)}"
+    return filt
+
+
+def parse_bg_color(name):
+    """Color de fondo (nombre ffmpeg/PIL o #hex) -> (r, g, b)."""
+    try:
+        return ImageColor.getrgb(name)
+    except ValueError:
+        return (0, 0, 0)
+
+
+def extract_frame(clip, t, out_path, width=None):
+    """Un fotograma del clip en out_path (opcionalmente escalado)."""
+    cmd = ['ffmpeg', '-y', '-v', 'error', '-ss', str(t), '-i', clip,
+           '-frames:v', '1']
+    if width:
+        cmd += ['-vf', f'scale={width}:-2']
+    cmd.append(out_path)
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    return r.returncode == 0 and os.path.exists(out_path)
+
+
+def is_screen_green(px):
+    """¿Píxel (r, g, b) de verde de chroma (saturado, no hierba)?"""
+    r, g, b = px
+    return g > 140 and g - r > 50 and g - b > 50
+
+
+def looks_green_screen(clip, dur):
+    """¿Los bordes del clip son mayoritariamente verde de chroma?
+
+    Dos fotogramas (25% y 75%): si en alguno más del 40% de la banda
+    exterior es verde saturado, es una plantilla green screen.
+    """
+    tmp = tempfile.mkdtemp(prefix='meme-green-')
+    try:
+        for frac in (0.25, 0.75):
+            frame = os.path.join(tmp, f'g{int(frac * 100)}.jpg')
+            if not extract_frame(clip, max(0.05, dur * frac), frame, 320):
+                continue
+            im = Image.open(frame).convert('RGB')
+            w, h = im.size
+            band = max(2, int(min(w, h) * 0.06))
+            border = []
+            for x in range(w):
+                for y in list(range(band)) + list(range(h - band, h)):
+                    border.append(im.getpixel((x, y)))
+            for y in range(band, h - band):
+                for x in list(range(band)) + list(range(w - band, w)):
+                    border.append(im.getpixel((x, y)))
+            green = sum(1 for p in border if is_screen_green(p))
+            if border and green / len(border) > 0.4:
+                return True
+    finally:
+        import shutil
+        shutil.rmtree(tmp, ignore_errors=True)
+    return False
+
+
+def content_bbox(clip, bg_rgb, dur, fractions=(0.1, 0.3, 0.5, 0.7, 0.9)):
+    """Bbox (x, y, w, h) del contenido no-fondo de un clip con fondo sólido.
+
+    Une las cajas de varios fotogramas. Devuelve None si el contenido
+    llena casi todo el fotograma (no hay recorte útil) o si no se puede
+    medir. Con esto, un WASTED (letras en una banda fina sobre negro)
+    se recorta a las letras y llena el formato en vez de dejar vacío.
+    """
+    info = probe(clip)
+    iw, ih = info['width'], info['height']
+    if not iw or not ih:
+        return None
+    tmp = tempfile.mkdtemp(prefix='meme-bbox-')
+    try:
+        boxes = []
+        scaled_h = None
+        for i, frac in enumerate(fractions):
+            frame = os.path.join(tmp, f'b{i}.png')
+            if not extract_frame(clip, max(0.05, dur * frac), frame, 320):
+                continue
+            im = Image.open(frame).convert('RGB')
+            scaled_h = im.size[1]
+            bg = Image.new('RGB', im.size, bg_rgb)
+            diff = ImageChops.difference(im, bg).convert('L')
+            mask = diff.point(lambda v: 255 if v > 30 else 0)
+            b = mask.getbbox()
+            if b:
+                boxes.append(b)
+        if not boxes or not scaled_h:
+            return None
+        x0 = min(b[0] for b in boxes)
+        y0 = min(b[1] for b in boxes)
+        x1 = max(b[2] for b in boxes)
+        y1 = max(b[3] for b in boxes)
+        # Volver a la resolución real (los fotogramas son de 320 px).
+        sw = iw / 320.0
+        sh = ih / scaled_h
+        x0, x1 = int(x0 * sw), int(x1 * sw)
+        y0, y1 = int(y0 * sh), int(y1 * sh)
+        pad_x, pad_y = int(iw * 0.04), int(ih * 0.04)
+        x0, y0 = max(0, x0 - pad_x), max(0, y0 - pad_y)
+        x1, y1 = min(iw, x1 + pad_x), min(ih, y1 + pad_y)
+        # Par (yuv420p) y dentro del fotograma.
+        x0, y0 = x0 // 2 * 2, y0 // 2 * 2
+        x1, y1 = min(iw, x1 // 2 * 2 + 2), min(ih, y1 // 2 * 2 + 2)
+        if (x1 - x0) * (y1 - y0) > 0.92 * iw * ih:
+            return None
+        return (x0, y0, x1 - x0, y1 - y0)
+    finally:
+        import shutil
+        shutil.rmtree(tmp, ignore_errors=True)
+    return None
 
 
 # ------------------------------------------------------------------- música
@@ -291,6 +408,14 @@ def main():
                          'y componer sobre un fondo sólido')
     ap.add_argument('--chroma-bg', default='black',
                     help='color de fondo con --chroma-key (def. black)')
+    ap.add_argument('--allow-green', action='store_true',
+                    help='no activar el chroma-key automático aunque la '
+                         'plantilla sea green screen')
+    ap.add_argument('--text-bg', choices=['auto', 'on', 'off'],
+                    default='auto',
+                    help='píldora oscura tras el texto: auto (solo si el '
+                         'fondo tras el texto es claro), on, off '
+                         '(def. auto)')
     ap.add_argument('--top', help='texto superior')
     ap.add_argument('--bottom', help='texto inferior')
     ap.add_argument('--pov', help='texto POV (se antepone «POV: »)')
@@ -333,6 +458,7 @@ def main():
         return 0
 
     # --- Resolver la base ---
+    vt_green = False  # la plantilla de vídeo del catálogo es green screen
     if args.input:
         base = os.path.expanduser(args.input)
         if not os.path.exists(base):
@@ -359,13 +485,34 @@ def main():
         if not os.path.exists(base):
             sys.exit(f"falta el clip de la plantilla: {base}")
         name = t['slug']
+        vt_green = bool(t.get('green_screen'))
     else:
         ap.error('falta --input, --template o --video-template')
+
+    # --- Guarda green screen: una plantilla green screen sin --chroma-key
+    # saldría con el fondo verde entero (pasó con Messi y el 6-7, 19-nov).
+    # Se activa el chroma automáticamente y se avisa; --allow-green lo evita.
+    if not args.chroma_key and not args.allow_green and not is_image(base):
+        if vt_green:
+            args.chroma_key = True
+            print(f"nota: '{name}' es green screen; activando --chroma-key "
+                  f"automáticamente (usa --allow-green para conservar el verde)",
+                  file=sys.stderr)
+        elif args.input:
+            idur = probe(base)['duration'] or 5
+            if looks_green_screen(base, idur):
+                args.chroma_key = True
+                print('nota: el clip parece green screen (bordes verdes); '
+                      'activando --chroma-key automáticamente '
+                      '(usa --allow-green para conservar el verde)',
+                      file=sys.stderr)
 
     # --- Chroma key (pre-paso): las plantillas green screen se componen
     # sobre un fondo sólido antes de entrar en la cadena normal. Se hace
     # en un pase aparte para no complicar el filtergraph principal.
+    # Despill + suavizado del alfa para no dejar halo verde en los bordes.
     key_tmpdir = None
+    content_crop = None  # (x, y, w, h) del contenido no-fondo, si recorta
     if args.chroma_key:
         if is_image(base):
             ap.error('--chroma-key solo tiene sentido con un clip de vídeo')
@@ -378,13 +525,23 @@ def main():
              '-f', 'lavfi', '-i',
              f"color=c={args.chroma_bg}:s={kinfo['width']}x{kinfo['height']}:d={kdur}",
              '-filter_complex',
-             '[0:v]chromakey=0x00FF00:0.12:0.15,'
-             'despill=type=green:mix=0.5:expand=0[fg];'
-             '[1:v][fg]overlay=0:0[v]',
+             '[0:v]chromakey=0x00FF00:0.12:0.18,'
+             'despill=type=green:mix=0.65:expand=1,'
+             'format=yuva420p,split=2[fg][fga];'
+             '[fga]alphaextract,boxblur=1:1[al];'
+             '[fg][al]alphamerge[fgf];'
+             '[1:v][fgf]overlay=0:0[v]',
              '-map', '[v]', '-map', '0:a?',
              '-c:v', 'libx264', '-crf', '20', '-pix_fmt', 'yuv420p',
              '-c:a', 'copy', '-shortest', keyed])
         base = keyed
+        # Recorte al contenido: el sujeto llena el formato en vez de
+        # flotar en un mar de fondo sólido (el caso del WASTED).
+        content_crop = content_bbox(base, parse_bg_color(args.chroma_bg), kdur)
+        if content_crop:
+            print(f"nota: recorte al contenido "
+                  f"{content_crop[2]}x{content_crop[3]} (sin el fondo vacío)",
+                  file=sys.stderr)
 
     still = is_image(base)
     info = probe(base)
@@ -429,7 +586,7 @@ def main():
         if not (0 < args.music_volume <= 1):
             sys.exit('--music-volume debe estar entre 0 y 1')
 
-    # --- Caras (antes de colocar los textos) ---
+    # --- Caras + fotograma de muestra (antes de colocar los textos) ---
     face_box = None
     if args.face_box:
         try:
@@ -438,45 +595,172 @@ def main():
         except (ValueError, AssertionError):
             ap.error('--face-box necesita x,y,w,h')
     faces_out = []  # caras en coordenadas de salida
+    sample_img = None  # fotograma de muestra (PIL) para la píldora
     tmpdir = tempfile.mkdtemp(prefix='meme-video-')
     try:
-        if not args.no_face_check and (args.top or args.bottom or args.pov):
+        need_sample = bool(args.top or args.bottom or args.pov or args.caption)
+        faces = None
+        iw, ih = info['width'], info['height']
+        if need_sample:
             if still:
-                iw, ih = info['width'], info['height']
-                faces = detect_faces(base, face_box)
+                faces = None if args.no_face_check else detect_faces(base, face_box)
+                try:
+                    sample_img = Image.open(base).convert('RGB')
+                except OSError:
+                    sample_img = None
             else:
-                iw, ih = info['width'], info['height']
-                t_frame = min(1.0, max(0.05, dur / 2))
-                frame = os.path.join(tmpdir, 'frame.jpg')
-                r = subprocess.run(['ffmpeg', '-y', '-v', 'error',
-                                    '-ss', str(t_frame), '-i', base,
-                                    '-frames:v', '1', frame],
-                                   capture_output=True, text=True)
-                faces = (detect_faces(frame, face_box)
-                         if r.returncode == 0 else None)
-            if faces is None:
+                # Varias muestras: el sujeto se mueve durante el clip
+                # (el bebé 6-7 se acerca a cámara); la unión de las
+                # caras de 3 fotogramas cubre todo el clip.
+                frame_times = sorted({max(0.05, dur * f)
+                                      for f in (0.1, 0.5, 0.9)})
+                faces = []
+                any_detection = False
+                for i, tf in enumerate(frame_times):
+                    frame = os.path.join(tmpdir, f'frame{i}.jpg')
+                    if not extract_frame(base, tf, frame):
+                        continue
+                    if sample_img is None or i == 1:
+                        try:
+                            sample_img = Image.open(frame).convert('RGB')
+                        except OSError:
+                            pass
+                    if args.no_face_check:
+                        continue
+                    det = detect_faces(frame, face_box)
+                    if det is not None:
+                        any_detection = True
+                        faces.extend(det)
+                if args.no_face_check or not any_detection:
+                    faces = None
+            if faces is None and not args.no_face_check:
                 print('nota: sin detección de caras (falta el venv del hub '
                       'con cv2); el texto se coloca sin chequeo',
                       file=sys.stderr)
-            elif faces and iw and ih:
-                # Mapeo cover (igual que scale+crop del filtro).
-                s = max(tw / iw, th / ih)
-                ox, oy = (tw - iw * s) / 2, (th - ih * s) / 2
-                for (x, y, w, h) in faces:
-                    faces_out.append(face_rect(
-                        (x * s + ox, y * s + oy, w * s, h * s)))
+
+        # Tamaño efectivo tras el recorte al contenido (chroma).
+        eff_w, eff_h = iw, ih
+        crop_ox, crop_oy = 0, 0
+        if content_crop:
+            crop_ox, crop_oy, eff_w, eff_h = content_crop
+        faces_src = []  # caras en coords del fotograma efectivo
+        if faces:
+            for (x, y, w, h) in faces:
+                faces_src.append((x - crop_ox, y - crop_oy, w, h))
+
+        # --- Encuadre: con cara, recorte centrado en ella; sin cara,
+        # fondo difuminado (nunca bandas negras muertas ni recorte ciego).
+        zoom_still = still and args.zoom
+        if args.format == 'original' or zoom_still or not eff_w or not eff_h:
+            # Cover centrado (el de siempre); en zoompan el encuadre lo
+            # hace el zoom y esto solo sirve para mapear las caras.
+            s = max(tw / eff_w, th / eff_h) if eff_w and eff_h else 1
+            sw = max(tw, int(eff_w * s + 0.5) // 2 * 2)
+            sh = max(th, int(eff_h * s + 0.5) // 2 * 2)
+            framing = {'mode': 'cover', 's': s, 'sw': sw, 'sh': sh,
+                       'cx': max(0, (sw - tw) // 2),
+                       'cy': max(0, (sh - th) // 2)}
+        elif faces_src:
+            # Cara principal = la mayor; el recorte se centra en ella.
+            px, py, pw, ph = max(faces_src, key=lambda b: b[2] * b[3])
+            s = max(tw / eff_w, th / eff_h)
+            sw = max(tw, int(eff_w * s + 0.5) // 2 * 2)
+            sh = max(th, int(eff_h * s + 0.5) // 2 * 2)
+            fcx, fcy = (px + pw / 2) * s, (py + ph / 2) * s
+            cx = int(min(max(fcx - tw / 2, 0), max(0, sw - tw))) // 2 * 2
+            cy = int(min(max(fcy - th / 2, 0), max(0, sh - th))) // 2 * 2
+            framing = {'mode': 'cover', 's': s, 'sw': sw, 'sh': sh,
+                       'cx': cx, 'cy': cy, 'face_centered': True}
+        else:
+            s = min(tw / eff_w, th / eff_h)
+            fw = max(2, int(eff_w * s) // 2 * 2)
+            fh = max(2, int(eff_h * s) // 2 * 2)
+            framing = {'mode': 'blur', 's': s, 'fw': fw, 'fh': fh,
+                       'ox': (tw - fw) // 2, 'oy': (th - fh) // 2}
+
+        def src_to_out(x, y):
+            """Fuente efectiva -> salida, según el encuadre."""
+            if framing['mode'] == 'cover':
+                return (x * framing['s'] - framing['cx'],
+                        y * framing['s'] - framing['cy'])
+            return (x * framing['s'] + framing['ox'],
+                    y * framing['s'] + framing['oy'])
+
+        def out_to_src(x, y):
+            """Salida -> fuente efectiva, según el encuadre."""
+            if framing['mode'] == 'cover':
+                return ((x + framing['cx']) / framing['s'],
+                        (y + framing['cy']) / framing['s'])
+            return ((x - framing['ox']) / framing['s'],
+                    (y - framing['oy']) / framing['s'])
+
+        def bg_out_to_src(x, y):
+            """Salida -> fuente para el FONDO tras el texto: en modo blur
+            el fondo es una copia cover centrada; en cover, el recorte."""
+            if framing['mode'] == 'cover':
+                return out_to_src(x, y)
+            s = max(tw / eff_w, th / eff_h)
+            return ((x - (tw - eff_w * s) / 2) / s,
+                    (y - (th - eff_h * s) / 2) / s)
+
+        def bg_luminance(rect):
+            """Luminancia media (0-255) del fondo tras un rect de salida,
+            medida en el fotograma de muestra. None sin muestra."""
+            if sample_img is None:
+                return None
+            x0, y0, x1, y1 = rect
+            sx0, sy0 = bg_out_to_src(x0, y0)
+            sx1, sy1 = bg_out_to_src(x1, y1)
+            sx0, sy0 = sx0 + crop_ox, sy0 + crop_oy
+            sx1, sy1 = sx1 + crop_ox, sy1 + crop_oy
+            iw0, ih0 = sample_img.size
+            sx0, sy0 = max(0, int(sx0)), max(0, int(sy0))
+            sx1, sy1 = min(iw0, int(sx1)), min(ih0, int(sy1))
+            if sx1 <= sx0 or sy1 <= sy0:
+                return None
+            region = sample_img.crop((sx0, sy0, sx1, sy1)).convert('L')
+            px = list(region.getdata())
+            mean = sum(px) / len(px)
+            if framing['mode'] == 'blur':
+                # El fondo difuminado se oscurece (eq brightness -0.4),
+                # pero solo donde el texto cae fuera del sujeto: sobre
+                # el sujeto el fondo es el clip sin oscurecer.
+                fx0, fy0 = framing['ox'], framing['oy']
+                fx1, fy1 = fx0 + framing['fw'], fy0 + framing['fh']
+                cxm, cym = (x0 + x1) / 2, (y0 + y1) / 2
+                if not (fx0 <= cxm <= fx1 and fy0 <= cym <= fy1):
+                    mean = max(0, mean - 100)
+            return mean
+
+        for (x, y, w, h) in faces_src:
+            ox0, oy0 = src_to_out(x, y)
+            ox1, oy1 = src_to_out(x + w, y + h)
+            faces_out.append(face_rect((ox0, oy0, ox1 - ox0, oy1 - oy0)))
 
         # --- Cadena de filtros de vídeo (hasta el texto) ---
         vf = []
-        if still and args.zoom:
+        if content_crop:
+            cx0, cy0, cw, ch = content_crop
+            vf.append(f'crop={cw}:{ch}:{cx0}:{cy0}')
+        if zoom_still:
             # Zoom lento sobre la imagen (zoompan), sale ya al tamaño destino.
             frames = max(1, int(dur * FPS))
             vf.append(
                 f"zoompan=z='min(zoom+0.0012,1.25)':d={frames}:"
                 f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={tw}x{th}:fps={FPS}")
+        elif framing['mode'] == 'blur':
+            # Fondo difuminado: copia borrosa y oscurecida detrás del
+            # sujeto escalado para encajar (sin bandas negras).
+            vf.append(
+                f"split=2[bg][fg];"
+                f"[bg]scale={tw}:{th}:force_original_aspect_ratio=increase,"
+                f"crop={tw}:{th},gblur=sigma=30,"
+                f"eq=brightness=-0.4:saturation=0.8[bgf];"
+                f"[fg]scale={framing['fw']}:{framing['fh']}[fgf];"
+                f"[bgf][fgf]overlay={framing['ox']}:{framing['oy']}")
         else:
-            vf.append(f'scale={tw}:{th}:force_original_aspect_ratio=increase,'
-                      f'crop={tw}:{th}')
+            vf.append(f"scale={framing['sw']}:{framing['sh']},"
+                      f"crop={tw}:{th}:{framing['cx']}:{framing['cy']}")
         if args.speed != 1.0 and not still:
             # En imágenes la velocidad ya está en la duración (-t / zoompan);
             # aplicar setpts aquí la duplicaría.
@@ -496,18 +780,18 @@ def main():
                 f"y='(in_h-{th})/2+{sh}*cos(2*PI*29*t)*{g}'")
         vf.append(f'fps={FPS},format=yuv420p')
 
-        # --- Textos: calcular rects, chequear caras, desplazar si hace falta ---
+        # --- Textos: calcular rects, chequear caras, desplazar/achicar ---
         max_w = int(tw * 0.92)
-        # specs: (tag, texto, size, lines, y_expr, rect)
+        # specs: [tag, texto, size, lines, kind_final, pill]
         specs = []
 
-        def text_rect(y_expr, size, lines):
+        def text_rect(kind, size, lines):
             h_txt = len(lines) * size * 1.15
-            if y_expr == 'top':
+            if kind == 'top':
                 return (int(tw * 0.04), 40, int(tw * 0.96), 40 + h_txt)
-            if y_expr == 'pov':
+            if kind == 'pov':
                 return (int(tw * 0.04), 60, int(tw * 0.96), 60 + h_txt)
-            if y_expr == 'bottom':
+            if kind == 'bottom':
                 return (int(tw * 0.04), th - 40 - h_txt, int(tw * 0.96), th - 40)
             return None
 
@@ -518,44 +802,65 @@ def main():
         def overlaps_face(rect):
             return any(rects_overlap(rect, f, pad=8) for f in faces_out)
 
+        raw = []
         if args.pov:
-            text = f"POV: {args.pov}"
-            size, lines = fit_text(text, max_w, int(th * 0.2), int(tw * 0.075))
-            specs.append(['pov', text, size, lines, 'pov'])
+            raw.append(('pov', f"POV: {args.pov}", int(th * 0.2), int(tw * 0.075)))
         if args.top:
-            size, lines = fit_text(args.top, max_w, int(th * 0.22), int(tw * 0.085))
-            specs.append(['top', args.top, size, lines, 'top'])
+            raw.append(('top', args.top, int(th * 0.22), int(tw * 0.085)))
         if args.bottom:
-            size, lines = fit_text(args.bottom, max_w, int(th * 0.22), int(tw * 0.085))
-            specs.append(['bottom', args.bottom, size, lines, 'bottom'])
+            raw.append(('bottom', args.bottom, int(th * 0.22), int(tw * 0.085)))
 
-        if faces_out:
-            # Solo se desplaza si hay un único texto arriba/abajo y el lado
-            # opuesto está libre; con varios textos solo se avisa.
-            for s in specs:
-                rect = text_rect(s[4], s[2], s[3])
-                if rect and overlaps_face(rect):
-                    if len(specs) == 1 and s[0] in ('top', 'pov'):
-                        alt = text_rect('bottom', s[2], s[3])
-                        if not overlaps_face(alt):
-                            s[4] = 'bottom'
-                            print(f"aviso: el texto {s[0]} tapaba una cara; "
-                                  f"movido abajo", file=sys.stderr)
-                            continue
-                    if len(specs) == 1 and s[0] == 'bottom':
-                        alt = text_rect('top', s[2], s[3])
-                        if not overlaps_face(alt):
-                            s[4] = 'top'
-                            print("aviso: el texto inferior tapaba una cara; "
-                                  "movido arriba", file=sys.stderr)
-                            continue
-                    print(f"aviso: el texto {s[0]} tapa una cara; "
-                          f"verificar a ojo", file=sys.stderr)
+        for kind, text, max_h, start in raw:
+            size, lines = fit_text(text, max_w, max_h, start)
+            place_kind = kind
+            note = None
+            if faces_out:
+                # Lado opuesto y luego achicar; con varios textos, cada
+                # uno se queda en su lado (no se cruzan).
+                other = 'bottom' if kind in ('top', 'pov') else 'top'
+                sides = [kind] if len(raw) > 1 else [kind, other]
+                placed = False
+                for scale in (1.0, 0.8, 0.64, 0.5):
+                    if scale < 1.0:
+                        s2, l2 = fit_text(text, max_w, max_h,
+                                          max(16, int(start * scale)))
+                    else:
+                        s2, l2 = size, lines
+                    for side in sides:
+                        if not overlaps_face(text_rect(side, s2, l2)):
+                            if side != kind or scale < 1.0:
+                                cambios = []
+                                if side != kind:
+                                    cambios.append('movido ' + ('abajo' if side == 'bottom'
+                                                                else 'arriba'))
+                                if scale < 1.0:
+                                    cambios.append(f'achicado al {int(scale * 100)}%')
+                                note = (f"aviso: el texto {kind} tapaba una cara; "
+                                        + ', '.join(cambios))
+                            place_kind, size, lines = side, s2, l2
+                            placed = True
+                            break
+                    if placed:
+                        break
+                if not placed:
+                    note = (f"aviso: el texto {kind} tapa una cara; "
+                            f"verificar a ojo")
+            if note:
+                print(note, file=sys.stderr)
+            # Píldora de legibilidad: en auto, solo si el fondo tras el
+            # texto es claro (luminancia > 140).
+            pill = False
+            if args.text_bg == 'on':
+                pill = True
+            elif args.text_bg == 'auto':
+                lum = bg_luminance(text_rect(place_kind, size, lines))
+                pill = lum is not None and lum > 140
+            specs.append([kind, text, size, lines, place_kind, pill])
 
-        for tag, text, size, lines, kind in specs:
+        for tag, text, size, lines, kind, pill in specs:
             vf.append(drawtext_filter('\n'.join(lines), size,
                                       y_expr_of(kind, size, lines),
-                                      tmpdir, tag))
+                                      tmpdir, tag, pill=pill))
         if args.caption:
             bar_h = int(th * 0.11)
             size, lines = fit_text(args.caption, max_w, int(bar_h * 0.75),

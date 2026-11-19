@@ -471,3 +471,169 @@ test('SFX de memes: los 18 nuevos existen y suenan', async () => {
 		assert.ok(parseFloat(stdout) > 0.1, `${f}: duración ${stdout}`);
 	}
 });
+
+// --- Nuevas (mejora de calidad del pipeline, 19-nov-2026) ---
+
+test('cajas: Two Buttons pone cada texto en su botón y respeta la cara', async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'two-buttons.jpg');
+	await memePy(['--template', 'two-buttons',
+		'--texts', 'FELICITAR EL DÍA DEL HOMBRE|FINGIR QUE NO EXISTE|LA SOCIEDAD EL 19 DE NOVIEMBRE',
+		'--out', out]);
+	assert.ok(existsSync(out));
+	// La cara del tipo (panel inferior, centro) debe quedar idéntica a
+	// la plantilla (solo ruido de recompresión JPEG); el botón izquierdo
+	// debe cambiar mucho (texto negro encima). Antes de las cajas, los
+	// textos apilados tapaban toda la imagen y la cara.
+	const tpl = path.join(MEMES, 'templates', 'images', 'two-buttons.jpg');
+	const { stdout } = await execFileAsync('python3', ['-c',
+		`from PIL import Image
+t = Image.open('${tpl}').convert('RGB')
+o = Image.open('${out}').convert('RGB')
+w, h = t.size
+def meandiff(box):
+    a = t.crop(box); b = o.crop(box)
+    pa, pb = list(a.getdata()), list(b.getdata())
+    return sum(abs(x[0]-y[0])+abs(x[1]-y[1])+abs(x[2]-y[2]) for x, y in zip(pa, pb)) / (len(pa)*3)
+print(f"{meandiff((int(w*0.35), int(h*0.55), int(w*0.65), int(h*0.80))):.2f}")
+print(f"{meandiff((int(w*0.06), int(h*0.05), int(w*0.47), int(h*0.35))):.2f}")`]);
+	const [cara, boton] = stdout.trim().split('\n').map(Number);
+	assert.ok(cara < 5, `la cara cambió ${cara} (texto encima)`);
+	assert.ok(boton > 15, `el botón no cambió ${boton} (texto ausente)`);
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('cajas: Woman Yelling no solapa los dos textos', async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'yelling.jpg');
+	await memePy(['--template', 'woman-yelling-at-cat',
+		'--texts', '¡FELIZ DÍA DE LA MUJER! ¡FLORES! ¡REGALOS! ¡CADENAS DE WHATSAPP!|feliz día del hombre supongo',
+		'--out', out]);
+	assert.ok(existsSync(out));
+	// Texto negro en cada mitad de la banda blanca y nada en la columna
+	// central que las separa (antes se superponían en el centro).
+	const { stdout } = await execFileAsync('python3', ['-c',
+		`from PIL import Image
+im = Image.open('${out}').convert('L')
+w, h = im.size
+def dark(box):
+    return sum(1 for v in im.crop(box).getdata() if v < 100)
+print(dark((int(w*0.02), int(h*0.02), int(w*0.48), int(h*0.19))))
+print(dark((int(w*0.52), int(h*0.02), int(w*0.98), int(h*0.19))))
+print(dark((int(w*0.48), int(h*0.02), int(w*0.52), int(h*0.19))))`]);
+	const [izq, der, gap] = stdout.trim().split('\n').map(Number);
+	assert.ok(izq > 100, `sin texto en la mitad izquierda (${izq} px oscuros)`);
+	assert.ok(der > 100, `sin texto en la mitad derecha (${der} px oscuros)`);
+	assert.equal(gap, 0, `los textos invaden la separación (${gap} px oscuros)`);
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('vídeo: el texto se achica cuando las caras bloquean ambos lados', { timeout: 120000 }, async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'achicado.mp4');
+	// Cara sintética gigante que tapa arriba y abajo a tamaño completo:
+	// solo cabe el texto al 50% arriba.
+	const { stderr } = await memeVideoPy(['--template', 'two-buttons',
+		'--top', 'OPCIÓN A', '--duration', '3',
+		'--face-box', '100,50,400,830', '--out', out]);
+	assert.ok(existsSync(out));
+	assert.match(stderr, /achicado al 50%/);
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('vídeo: fondo difuminado en cuadrado (sin bandas negras)', { timeout: 180000 }, async () => {
+	const dir = tmp();
+	// Mecanismo: clip sintético colorido -> las esquinas no son negras.
+	const clip = await makeToneClip(dir);
+	const out = path.join(dir, 'blur.mp4');
+	await memeVideoPy(['--input', clip, '--format', 'square', '--out', out]);
+	assert.ok(existsSync(out));
+	const frame = path.join(dir, 'blur.png');
+	await execFileAsync('ffmpeg', ['-y', '-v', 'error',
+		'-ss', '3', '-i', out, '-frames:v', '1', frame]);
+	const { stdout } = await execFileAsync('python3', ['-c',
+		`from PIL import Image
+im = Image.open('${frame}').convert('L')
+px = list(im.crop((0, 0, 100, 100)).getdata())
+print(f"{sum(px)/len(px):.1f}")`]);
+	const corner = parseFloat(stdout.trim());
+	assert.ok(corner > 20, `esquina superior negra (${corner})`);
+	// Caso real: el Wasted cuadrado tiene resplandor difuminado abajo
+	// (antes: bandas negras muertas arriba y abajo).
+	const out2 = path.join(dir, 'wasted.mp4');
+	await memeVideoPy(['--video-template', 'gta-wasted',
+		'--format', 'square', '--out', out2]);
+	const frame2 = path.join(dir, 'wasted.png');
+	await execFileAsync('ffmpeg', ['-y', '-v', 'error',
+		'-ss', '3.5', '-i', out2, '-frames:v', '1', frame2]);
+	const { stdout: s2 } = await execFileAsync('python3', ['-c',
+		`from PIL import Image
+im = Image.open('${frame2}').convert('L')
+w, h = im.size
+px = list(im.crop((0, 715, w, h)).getdata())
+print(f"{100*sum(1 for v in px if v > 15)/len(px):.1f}")`]);
+	const glow = parseFloat(s2.trim());
+	assert.ok(glow > 10, `banda inferior sin resplandor (${glow}%)`);
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('vídeo: guarda green-screen activa el chroma y no deja verde', { timeout: 180000 }, async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'messi.mp4');
+	const { stderr } = await memeVideoPy(['--video-template', 'messi-que-miras-bobo',
+		'--format', 'vertical', '--top', 'PRUEBA', '--out', out]);
+	assert.ok(existsSync(out));
+	assert.match(stderr, /activando --chroma-key automáticamente/);
+	const frame = path.join(dir, 'messi.png');
+	await execFileAsync('ffmpeg', ['-y', '-v', 'error',
+		'-ss', '4.5', '-i', out, '-frames:v', '1', frame]);
+	const { stdout } = await execFileAsync('python3', ['-c',
+		`from PIL import Image
+im = Image.open('${frame}').convert('RGB')
+px = list(im.getdata())
+g = sum(1 for r, gg, b in px if gg > 100 and gg > r*1.4 and gg > b*1.4)
+print(f"{100*g/len(px):.3f}")`]);
+	const green = parseFloat(stdout.trim());
+	assert.ok(green < 0.5, `residuo verde: ${green}%`);
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('vídeo: la guarda no dispara con un clip que no es green screen', { timeout: 120000 }, async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'homer.mp4');
+	const { stderr } = await memeVideoPy(['--video-template', 'homer-disappears-bushes',
+		'--format', 'vertical', '--top', 'PRUEBA', '--out', out]);
+	assert.ok(existsSync(out));
+	assert.doesNotMatch(stderr, /activando --chroma-key automáticamente/);
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('vídeo: píldora de legibilidad en fondo claro (auto)', { timeout: 120000 }, async () => {
+	const dir = tmp();
+	const photo = path.join(dir, 'claro.png');
+	await execFileAsync('python3', ['-c',
+		`from PIL import Image; Image.new('RGB', (1080, 1080), (240, 240, 235)).save('${photo}')`]);
+	async function bandMean(out) {
+		const frame = `${out}.png`;
+		await execFileAsync('ffmpeg', ['-y', '-v', 'error',
+			'-ss', '1', '-i', out, '-frames:v', '1', frame]);
+		const { stdout } = await execFileAsync('python3', ['-c',
+			`from PIL import Image
+im = Image.open('${frame}').convert('L')
+px = list(im.crop((150, 40, 930, 260)).getdata())
+print(f"{sum(px)/len(px):.1f}")`]);
+		return parseFloat(stdout.trim());
+	}
+	const auto = path.join(dir, 'auto.mp4');
+	await memeVideoPy(['--input', photo, '--format', 'square',
+		'--duration', '2', '--top', 'TEXTO SOBRE FONDO CLARO', '--out', auto]);
+	const off = path.join(dir, 'off.mp4');
+	await memeVideoPy(['--input', photo, '--format', 'square',
+		'--duration', '2', '--top', 'TEXTO SOBRE FONDO CLARO',
+		'--text-bg', 'off', '--out', off]);
+	const mAuto = await bandMean(auto);
+	const mOff = await bandMean(off);
+	assert.ok(mAuto < mOff - 20,
+		`la píldora no oscureció el fondo (auto ${mAuto} vs off ${mOff})`);
+	rmSync(dir, { recursive: true, force: true });
+});

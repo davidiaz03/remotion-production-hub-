@@ -8,12 +8,13 @@ Modos:
       --top "DORMIR 8 HORAS" \\
       --bottom "QUEDARME DESPIERTO PENSANDO EN QUE LOS PECES NO SABEN QUE ESTÁN MOJADOS"
 
-  # 2b. Texto a la derecha de cada panel (plantillas tipo Drake, con la
-  #     imagen a la izquierda y el hueco a la derecha):
-  python3 meme.py --template drake-hotline-bling --texts "DORMIR 8 HORAS|..." \\
-      --boxes-dir v --text-region right
+  # 2b. Texto en las cajas de la plantilla (Drake: paneles derechos;
+  #     Distracted Boyfriend: una etiqueta sobre cada personaje).
+  #     Las cajas están medidas en templates/boxes.json; sin cajas, el
+  #     reparto apilado de siempre (--boxes-dir v|h --text-region ...).
+  python3 meme.py --template drake-hotline-bling --texts "DORMIR 8 HORAS|..."
   python3 meme.py --template distracted-boyfriend \\
-      --texts "MI NOVIA|YO|EL WIFI DEL VECINO" --boxes-dir h
+      --texts "MI NOVIA|YO|EL WIFI DEL VECINO"
 
   # 3. Sobre una foto propia:
   python3 meme.py --image ~/fotos/gato.jpg --top "YO" --bottom "A LAS 3 AM"
@@ -54,6 +55,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 CATALOG = os.path.join(ROOT, 'templates', 'catalog.json')
+BOXES = os.path.join(ROOT, 'templates', 'boxes.json')
 IMAGES = os.path.join(ROOT, 'templates', 'images')
 FONT = os.path.join(ROOT, 'assets', 'fonts', 'ArchivoBlack-Regular.ttf')
 FACE_FRAME = os.path.join(HERE, 'face-frame.py')
@@ -72,6 +74,20 @@ NAME_COLORS = ['#E91E63', '#2196F3', '#4CAF50', '#FF9800', '#9C27B0', '#009688']
 def load_catalog():
     with open(CATALOG, encoding='utf-8') as f:
         return json.load(f)['templates']
+
+
+def load_boxes():
+    """Cajas de texto por plantilla (templates/boxes.json).
+
+    Devuelve {slug: [caja, ...]} con cada caja = {box: [x0,y0,x1,y1]
+    normalizado, fill, stroke, valign, label}. Si el archivo no existe
+    o está roto, devuelve {} y todo sigue con el reparto apilado.
+    """
+    try:
+        with open(BOXES, encoding='utf-8') as f:
+            return json.load(f).get('templates', {})
+    except (OSError, ValueError):
+        return {}
 
 
 def detect_faces(image_path, face_box=None):
@@ -145,19 +161,21 @@ def _stroke(size):
     return max(1, size // 12)
 
 
-def fit_font(draw, text, max_w, max_h, start_size, font_path=FONT):
+def fit_font(draw, text, max_w, max_h, start_size, font_path=FONT, stroke=True):
     """Mayor tamaño de fuente con el que el texto (envuelto) cabe en max_w x max_h.
 
     Cuenta el borde (stroke) en ancho y alto, y verifica que NINGUNA línea
     se salga del ancho: una palabra sola más ancha que max_w no se puede
     envolver, así que hay que achicar la fuente hasta que quepa. Sin esta
     comprobación el texto se salía del panel (p. ej. «ACORDARSE» en Drake
-    llegaba a 5 px del borde derecho, 19-nov-2026).
+    llegaba a 5 px del borde derecho, 19-nov-2026). Con stroke=False
+    (texto negro sobre fondo claro, p. ej. las cajas de Drake) no hay
+    borde que contar.
     """
     size = start_size
     while size > 8:
         font = ImageFont.truetype(font_path, size)
-        sw = _stroke(size)
+        sw = _stroke(size) if stroke else 0
         lines = wrap(draw, text, font, max_w - 2 * sw)
         widths = [draw.textlength(ln, font=font) + 2 * sw for ln in lines]
         heights = [draw.textbbox((0, 0), ln, font=font, stroke_width=sw)[3]
@@ -170,15 +188,24 @@ def fit_font(draw, text, max_w, max_h, start_size, font_path=FONT):
     return font, wrap(draw, text, font, max_w)
 
 
-def draw_block(draw, lines, font, box, fill='white', stroke=True):
-    """Dibuja líneas centradas dentro de box = (x0, y0, x1, y1)."""
+def draw_block(draw, lines, font, box, fill='white', stroke=True,
+               valign='center'):
+    """Dibuja líneas centradas horizontalmente dentro de box = (x0, y0, x1, y1).
+
+    valign: 'top' (pegado arriba), 'center' o 'bottom' (pegado abajo).
+    """
     x0, y0, x1, y1 = box
     sw = _stroke(font.size) if stroke else 0
     line_h = [draw.textbbox((0, 0), ln, font=font, stroke_width=sw)[3]
               for ln in lines]
     gap = int(font.size * 0.15)
     total = sum(line_h) + gap * (len(lines) - 1)
-    y = y0 + (y1 - y0 - total) // 2
+    if valign == 'top':
+        y = y0
+    elif valign == 'bottom':
+        y = y1 - total
+    else:
+        y = y0 + (y1 - y0 - total) // 2
     for ln, h in zip(lines, line_h):
         w = draw.textlength(ln, font=font)
         x = x0 + (x1 - x0 - w) // 2
@@ -420,31 +447,60 @@ def main():
 
     if args.texts:
         parts = [p.strip() for p in args.texts.split('|') if p.strip()]
-        n = len(parts)
-        rx0, rx1 = pad, w - pad
-        if args.boxes_dir == 'v' and args.text_region == 'right':
-            rx0 = w // 2
-        elif args.boxes_dir == 'v' and args.text_region == 'left':
-            rx1 = w // 2
-        for i, part in enumerate(parts):
-            if args.boxes_dir == 'v':
-                box = (rx0, h * i // n + pad // 2, rx1, h * (i + 1) // n - pad // 2)
-                start = min(int((rx1 - rx0) * 0.16), int((h // n) * 0.45))
-            else:
-                box = (w * i // n + pad // 2, pad, w * (i + 1) // n - pad // 2, h - pad)
-                start = min(int((w // n) * 0.16), int(h * 0.09))
-            # Margen interior: el texto nunca toca el borde del panel
-            # (con el ajuste viejo llegaba a 5 px del borde, 19-nov-2026).
-            inset = max(8, int((box[2] - box[0]) * 0.04))
-            box = (box[0] + inset, box[1], box[2] - inset, box[3])
-            if faces and overlaps_face(box):
-                print(f'aviso: el texto del panel {i + 1} tapa una cara; '
-                      f'verificar a ojo', file=sys.stderr)
-            font, lines = fit_font(draw, part, box[2] - box[0], box[3] - box[1], start)
-            draw_block(draw, lines, font, box)
+        # Cajas medidas por plantilla (Two Buttons, Drake, …): cada texto
+        # va a su caja, con su color y alineación. Sin cajas, el reparto
+        # apilado de siempre.
+        boxes = load_boxes().get(name, {}).get('boxes') if not args.image else None
+        if boxes:
+            if len(parts) > len(boxes):
+                print(f'aviso: {name} tiene {len(boxes)} cajas; '
+                      f'se ignoran {len(parts) - len(boxes)} textos de más',
+                      file=sys.stderr)
+            for part, spec in zip(parts, boxes):
+                bx0, by0, bx1, by1 = spec['box']
+                box = (int(bx0 * w), int(by0 * h), int(bx1 * w), int(by1 * h))
+                # Margen interior: el texto nunca toca el borde de la caja.
+                inset = max(4, int((box[2] - box[0]) * 0.04))
+                box = (box[0] + inset, box[1], box[2] - inset, box[3])
+                fill = spec.get('fill', 'white')
+                use_stroke = spec.get('stroke', True)
+                valign = spec.get('valign', 'center')
+                start = min(int((box[2] - box[0]) * 0.16),
+                            int((box[3] - box[1]) * 0.45))
+                font, lines = fit_font(draw, part, box[2] - box[0],
+                                       box[3] - box[1], start,
+                                       stroke=use_stroke)
+                draw_block(draw, lines, font, box, fill=fill,
+                           stroke=use_stroke, valign=valign)
+            # Las cajas se midieron a mano para su plantilla: no se
+            # desplazan por caras (p. ej. el texto de Anakin va sobre
+            # la frente por diseño del formato).
+        else:
+            n = len(parts)
+            rx0, rx1 = pad, w - pad
+            if args.boxes_dir == 'v' and args.text_region == 'right':
+                rx0 = w // 2
+            elif args.boxes_dir == 'v' and args.text_region == 'left':
+                rx1 = w // 2
+            for i, part in enumerate(parts):
+                if args.boxes_dir == 'v':
+                    box = (rx0, h * i // n + pad // 2, rx1, h * (i + 1) // n - pad // 2)
+                    start = min(int((rx1 - rx0) * 0.16), int((h // n) * 0.45))
+                else:
+                    box = (w * i // n + pad // 2, pad, w * (i + 1) // n - pad // 2, h - pad)
+                    start = min(int((w // n) * 0.16), int(h * 0.09))
+                # Margen interior: el texto nunca toca el borde del panel
+                # (con el ajuste viejo llegaba a 5 px del borde, 19-nov-2026).
+                inset = max(8, int((box[2] - box[0]) * 0.04))
+                box = (box[0] + inset, box[1], box[2] - inset, box[3])
+                if faces and overlaps_face(box):
+                    print(f'aviso: el texto del panel {i + 1} tapa una cara; '
+                          f'verificar a ojo', file=sys.stderr)
+                font, lines = fit_font(draw, part, box[2] - box[0], box[3] - box[1], start)
+                draw_block(draw, lines, font, box)
     else:
         # Calcular primero ambos textos; colocar después (permite desplazar).
-        jobs = []  # (kind, text, font, lines, height)
+        jobs = []  # (kind, text, font, lines)
         if args.top:
             font, lines = fit_font(draw, args.top, max_text_w, int(h * 0.32), int(w * 0.09))
             jobs.append(['top', args.top, font, lines])
@@ -452,40 +508,71 @@ def main():
             font, lines = fit_font(draw, args.bottom, max_text_w, int(h * 0.32), int(w * 0.09))
             jobs.append(['bottom', args.bottom, font, lines])
 
-        def job_rect(kind, font, lines):
-            # Mismo centrado vertical que draw_block usa al dibujar.
+        def block_h(font, lines):
             heights = [draw.textbbox((0, 0), ln, font=font)[3] for ln in lines]
-            total = sum(heights) + int(font.size * 0.15) * (len(lines) - 1)
-            if kind == 'top':
-                y0, y1 = pad, int(h * 0.34)
-            else:
-                y0, y1 = int(h * 0.66), h - pad
-            y_start = y0 + (y1 - y0 - total) // 2
-            return (pad, y_start, w - pad, y_start + total)
+            return sum(heights) + int(font.size * 0.15) * (len(lines) - 1)
 
-        if faces and len(jobs) == 1:
-            kind, _, font, lines = jobs[0]
-            if overlaps_face(job_rect(kind, font, lines)):
-                other = 'bottom' if kind == 'top' else 'top'
-                if not overlaps_face(job_rect(other, font, lines)):
-                    jobs[0][0] = other
-                    print(f"aviso: el texto {kind} tapaba una cara; "
-                          f"movido {'abajo' if other == 'bottom' else 'arriba'}",
-                          file=sys.stderr)
-                else:
-                    print(f'aviso: el texto {kind} tapa una cara; '
-                          f'verificar a ojo', file=sys.stderr)
-        elif faces:
-            for kind, _, font, lines in jobs:
-                if overlaps_face(job_rect(kind, font, lines)):
-                    print(f'aviso: el texto {kind} tapa una cara; '
-                          f'verificar a ojo', file=sys.stderr)
+        def band(kind):
+            return (pad, int(h * 0.34)) if kind == 'top' else (int(h * 0.66), h - pad)
 
-        for kind, _, font, lines in jobs:
-            if kind == 'top':
-                draw_block(draw, lines, font, (pad, pad, w - pad, int(h * 0.34)))
+        def job_rect(kind, font, lines, valign='center'):
+            y0, y1 = band(kind)
+            total = block_h(font, lines)
+            if valign == 'top':
+                ys = y0
+            elif valign == 'bottom':
+                ys = y1 - total
             else:
-                draw_block(draw, lines, font, (pad, int(h * 0.66), w - pad, h - pad))
+                ys = y0 + (y1 - y0 - total) // 2
+            return (pad, ys, w - pad, ys + total)
+
+        def place(kind, text, font, lines):
+            """Colocación que no tape caras: lado opuesto, desplazar
+            dentro de la banda o achicar, en ese orden. Devuelve
+            (kind, font, lines, valign, nota). Con dos textos, cada
+            uno se queda en su lado (no se cruzan)."""
+            if not faces:
+                return kind, font, lines, 'center', None
+            other = 'bottom' if kind == 'top' else 'top'
+            sides = [kind] if len(jobs) > 1 else [kind, other]
+            attempts = [(s, 'center', 1.0) for s in sides]
+            attempts += [(s, va, 1.0) for s in sides for va in ('top', 'bottom')]
+            attempts += [(s, va, sc) for sc in (0.8, 0.64, 0.5)
+                         for s in sides for va in ('center', 'top', 'bottom')]
+            fitted = {1.0: (font, lines)}
+            for side, va, scale in attempts:
+                if scale not in fitted:
+                    fitted[scale] = fit_font(
+                        draw, text, max_text_w, int(h * 0.32),
+                        max(8, int(font.size * scale)))
+                f2, l2 = fitted[scale]
+                if overlaps_face(job_rect(side, f2, l2, va)):
+                    continue
+                if (side, va, scale) == (kind, 'center', 1.0):
+                    return kind, font, lines, 'center', None
+                cambios = []
+                if side != kind:
+                    cambios.append('movido ' + ('abajo' if side == 'bottom'
+                                                else 'arriba'))
+                if va != 'center':
+                    cambios.append('desplazado dentro de la banda')
+                if scale < 1.0:
+                    cambios.append(f'achicado al {int(scale * 100)}%')
+                return side, f2, l2, va, \
+                    f'aviso: el texto {kind} tapaba una cara; ' + ', '.join(cambios)
+            return kind, font, lines, 'center', \
+                f'aviso: el texto {kind} tapa una cara; verificar a ojo'
+
+        placed = []
+        for kind, text, font, lines in jobs:
+            side, f2, l2, va, note = place(kind, text, font, lines)
+            if note:
+                print(note, file=sys.stderr)
+            placed.append((side, f2, l2, va))
+
+        for kind, font, lines, va in placed:
+            y0, y1 = band(kind)
+            draw_block(draw, lines, font, (pad, y0, w - pad, y1), valign=va)
 
     if args.caption:
         if faces:

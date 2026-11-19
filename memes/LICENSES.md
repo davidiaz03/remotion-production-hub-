@@ -61,8 +61,8 @@ El trombón triste reproduce la frase musical estándar de 4 notas
 descendentes (Sib–La–Lab–Sol), un cliché musical sin grabación ajena.
 
 **No incluidos**: «bruh» (voz de una grabación con copyright), el sonido
-de error de Windows y el ping de Discord (sonidos de marca). `error-chime`
-y `ping` son equivalentes genéricos del SFX Kit.
+de error de Windows y el ping de Discord (sonidos de marca). `error`
+(`error-chime.wav`) y `ping` son equivalentes genéricos del SFX Kit.
 
 ## Música (`assets/music/`)
 

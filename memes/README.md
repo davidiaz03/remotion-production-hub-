@@ -20,11 +20,11 @@ python3 scripts/meme.py --template one-does-not-simply \
 
 # Texto por panel (Drake: imagen a la izquierda, texto a la derecha)
 python3 scripts/meme.py --template drake-hotline-bling \
-    --texts "DORMIR 8 HORAS|PENSAR EN PECES" --boxes-dir v --text-region right
+    --texts "DORMIR 8 HORAS|PENSAR EN PECES"
 
 # Etiquetas lado a lado (Distracted Boyfriend)
 python3 scripts/meme.py --template distracted-boyfriend \
-    --texts "EL WIFI|YO|MI NOVIA" --boxes-dir h
+    --texts "EL WIFI|YO|MI NOVIA"
 
 # Sobre una foto propia (+ pie en barra inferior)
 python3 scripts/meme.py --image ~/fotos/gato.jpg --top "YO" --bottom "A LAS 3 AM"
@@ -45,6 +45,23 @@ python3 scripts/meme.py --template disaster-girl --top "YO" --deep-fry
 Salida por defecto: `memes/out/<base>-<fecha-hora>.jpg`. Con `--png`, PNG.
 Texto blanco con borde negro en Archivo Black (sustituta libre de Impact),
 tamaño ajustado automáticamente.
+
+### Cajas de texto por plantilla
+
+`--texts` mapea cada texto a una caja medida sobre la plantilla real
+(`templates/boxes.json`, coordenadas normalizadas 0–1): cada texto va
+DENTRO de su zona — los botones de Two Buttons, los paneles derechos de
+Drake, la banda blanca de Woman Yelling at Cat — con su color (negro
+sobre superficies claras) y su alineación vertical. Textos de más se
+ignoran con un aviso. Las 12 plantillas con cajas: two-buttons,
+uno-draw-25-cards, left-exit-12-off-ramp, change-my-mind,
+distracted-boyfriend, drake-hotline-bling, woman-yelling-at-cat,
+always-has-been, anakin-padme-4-panel, batman-slapping-robin,
+bernie-i-am-once-again-asking-for-your-support, mocking-spongebob.
+Las plantillas SIN cajas usan el reparto apilado de siempre
+(`--boxes-dir v|h`, `--text-region left|right|full`). Las cajas se
+midieron a mano para su plantilla y no se desplazan por caras (el
+texto de Anakin va sobre la frente por diseño del formato).
 
 ## Meme de vídeo — `scripts/meme-video.py`
 
@@ -248,8 +265,16 @@ biblioteca de la app. Lo que está sonando en memes ahora (investigado
 (`scripts/face-frame.py`, YuNet del content hub) y:
 
 - **avisan** por stderr si un texto o la barra del caption tapa una cara;
-- **desplazan el texto** arriba↔abajo cuando hay un solo texto y el lado
-  opuesto está libre.
+- **desplazan el texto** al lado opuesto cuando hay un solo texto y el
+  lado opuesto está libre (con varios textos, cada uno se queda en su
+  lado para no cruzarse);
+- **achican el texto** (80/64/50%) cuando ni siquiera el lado opuesto
+  está libre.
+
+En vídeo, la detección muestrea 3 fotogramas (10%, 50% y 90% del clip)
+y une las caras: el sujeto se mueve durante el clip y un solo
+fotograma no basta (el bebé 6-7 se acerca a cámara). En imagen, un
+solo fotograma, que es la imagen misma.
 
 `--no-face-check` lo desactiva; `--face-box x,y,w,h` fuerza una cara
 sintética (para pruebas). **Limitación conocida de YuNet**: inestable
@@ -258,6 +283,41 @@ de waiting-skeleton) y puede fallar con caras pequeñas o de perfil—; la
 verificación visual final es obligatoria. La detección tarda ~1 s por
 imagen y necesita el venv del hub (único con cv2); sin él, el generador
 avisa y sigue sin chequeo.
+
+### Encuadre de vídeo: sin bandas negras
+
+Para salidas cuadrada/vertical, `meme-video.py` ya no recorta a ciegas
+ni deja bandas negras muertas. La estrategia depende del clip:
+
+- **Con cara detectada**: recorte cover centrado en la cara principal
+  (la mayor), para que el sujeto llene el formato sin mutilarlo.
+- **Sin cara**: fondo difuminado — una copia del clip escalada a cover,
+  borrosa (sigma 30) y oscurecida, detrás del sujeto escalado para
+  encajar. El Wasted cuadrado, por ejemplo, queda con un resplandor
+  rojo difuminado en vez de vacío negro.
+- **Tras chroma-key**: además se recorta al contenido no-fondo (la
+  unión de las cajas de contenido de 5 fotogramas, con 4% de margen),
+  para que el sujeto no flote en un mar de fondo sólido.
+- **Formato `original` y zoom sobre imagen**: cover centrado, como antes.
+
+### Píldora de legibilidad (`--text-bg`)
+
+El texto sobre vídeo lleva, por defecto, una píldora semitransparente
+oscura (`black@0.45`) detrás **solo cuando el fondo tras el texto es
+claro**: se mide la luminancia media del fondo en el fotograma de
+muestra y se activa por encima de 140. `--text-bg on` la fuerza siempre;
+`--text-bg off` la quita siempre. Sobre fondo oscuro no aparece, para
+no ensuciar el meme.
+
+### Guarda green screen y chroma mejorado
+
+Si la plantilla del catálogo es green screen —o, en un `--input` sin
+catálogo, los bordes del clip son mayoritariamente verdes (más del 40%
+de píxeles verde saturado en 2 fotogramas)— y se renderiza sin
+`--chroma-key`, el chroma se activa automáticamente y se avisa por
+stderr. `--allow-green` lo evita (para conservar el verde a propósito). El chroma lleva despill
+(`mix=0.65`, `expand=1`) y suavizado del alfa (boxblur 1:1 sobre el
+canal alfa) para no dejar halo verde en los bordes.
 
 ## Vía IA
 
@@ -355,7 +415,7 @@ memes/
 ## Pruebas
 
 ```bash
-node --test tests/meme-ecosystem.test.mjs   # 27 pruebas (imagen + vídeo + música + caras + catálogo + plantillas de vídeo)
+node --test tests/meme-ecosystem.test.mjs   # 34 pruebas (imagen + vídeo + música + caras + catálogo + plantillas de vídeo + cajas + guarda + píldora)
 ```
 
 ## Pendiente
@@ -363,14 +423,40 @@ node --test tests/meme-ecosystem.test.mjs   # 27 pruebas (imagen + vídeo + mús
 - **Vídeo con IA automatizado**: bloqueado por pago (ver receta arriba).
   Pollinations vídeo necesita recarga (~$0,05/clip de 5 s); la API de Veo
   necesita facturación de Google Cloud. La vía gratis es Flow web.
-- **Caras en vídeo**: la detección se hace sobre la imagen base; en un
-  clip con movimiento, la cara puede moverse después del fotograma
-  analizado. Para clips, la verificación visual sigue siendo obligatoria.
+- **Caras en vídeo**: la detección muestrea 3 fotogramas (10/50/90%
+  del clip) y une las caras, pero entre muestras la cara puede moverse;
+  la verificación visual sigue siendo obligatoria. El chequeo tampoco
+  tiene en cuenta el zoom del punch: en el pico (~0,5 s) la cara crece
+  y puede rozar el texto (en el demo del Día del Hombre, el llorando
+  toca la frente en el pico; ojos y boca quedan visibles).
 - **9 plantillas sin URL limpia** (19-nov-2026): This Is Fine, Surprised
   Pikachu, Bernie «Once Again Asking», Jesse Pinkman, Lupin Escape, «Yo
   en noviembre» (zorro), «Dame Hombro», «¿Y si sí?» y «I Got So Mad»
   (formato de frase, no de vídeo). El refresh las detectará si aparecen
   con vídeo directo en las fuentes.
+
+## Cerrado el 19-nov-2026 (mejora de calidad del pipeline)
+
+- ✅ **Cajas de texto por plantilla** (`templates/boxes.json`, 12
+  plantillas medidas a mano): `--texts` coloca cada texto dentro de su
+  zona — botones de Two Buttons, paneles de Drake, banda de Woman
+  Yelling — con su color y alineación. Sin cajas, reparto apilado.
+- ✅ **Texto que no tapa caras**: desplazamiento al lado opuesto y
+  achicado (80/64/50%) en imagen y vídeo; en vídeo, muestreo de caras
+  en 3 fotogramas (el bebé 6-7 se acerca a cámara).
+- ✅ **Encuadre de vídeo sin bandas negras**: recorte cover centrado
+  en la cara principal, o fondo difuminado (borroso + oscurecido) sin
+  cara; recorte al contenido tras chroma-key (el WASTED cuadrado ya
+  no tiene vacío negro).
+- ✅ **Píldora de legibilidad** (`--text-bg auto|on|off`): respaldo
+  oscuro tras el texto solo cuando el fondo es claro (luminancia > 140).
+- ✅ **Guarda green screen**: chroma-key automático con aviso si la
+  plantilla es green screen o los bordes son verdes; `--allow-green`
+  lo evita. Chroma con despill y suavizado del alfa (sin halo verde).
+- ✅ **Nombres de SFX corregidos en docs** (los reales del CLI:
+  `fail`, `sting`, `censor`, `buzzer`, `error`…).
+- ✅ **Tanda del Día del Hombre re-renderizada** con el pipeline
+  mejorado (mismos textos): 12–17 estáticos y 18–21 vídeos.
 
 ## Cerrado el 19-nov-2026 (banco de vídeo + SFX)
 
@@ -382,7 +468,7 @@ node --test tests/meme-ecosystem.test.mjs   # 27 pruebas (imagen + vídeo + mús
   `meme-video.py`, `--chroma-key` para las 19 green screen, catálogo con
   origen/uso/punch_at, `refresh-video-templates.py` (KYM + MemeScreens).
 - ✅ **18 SFX de memes nuevos** (15 del SFX Kit CC0 del hub + 3
-  sintetizados con ffmpeg: sad trombone, censor beep, wrong buzzer;
+  sintetizados con ffmpeg: `sad-trombone`, `censor`, `buzzer`;
   verificados por FFT). Total: 24 nombres en `meme-video.py`.
 - ✅ Sonidos virales nov-2026 documentados solo por nombre (sin
   descargar música comercial con copyright).
