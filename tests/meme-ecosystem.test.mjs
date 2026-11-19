@@ -107,6 +107,25 @@ test('imagen: plantilla con región derecha (Drake)', async () => {
 	rmSync(dir, { recursive: true, force: true });
 });
 
+test('imagen: el texto de panel nunca toca el borde (regresión 19-nov-2026)', async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'drake-overflow.jpg');
+	await memePy(['--template', 'drake-hotline-bling',
+		'--texts', 'ACORDARSE DEL DÍA DEL HOMBRE|FELICITAR EL 8 DE MARZO',
+		'--boxes-dir', 'v', '--text-region', 'right', '--out', out]);
+	// La mitad derecha de Drake es fondo blanco: ningún píxel oscuro
+	// (trazo del texto) puede aparecer a menos de 12 px del borde derecho.
+	// Antes del arreglo, «ACORDARSE» llegaba a 5 px del borde.
+	const { stdout } = await execFileAsync('python3', ['-c',
+		`from PIL import Image
+img = Image.open('${out}').convert('L')
+w, h = img.size
+px = img.load()
+print(sum(1 for x in range(w - 12, w) for y in range(h) if px[x, y] < 100))`]);
+	assert.equal(stdout.trim(), '0');
+	rmSync(dir, { recursive: true, force: true });
+});
+
 test('imagen: cajas horizontales (Distracted Boyfriend)', async () => {
 	const dir = tmp();
 	const out = path.join(dir, 'bf.jpg');

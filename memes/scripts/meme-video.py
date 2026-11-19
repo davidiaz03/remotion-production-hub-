@@ -139,11 +139,19 @@ def wrap_for_width(text, font_size, max_w):
 
 
 def fit_text(text, max_w, max_h, start_size):
-    """Tamaño y líneas con las que el texto cabe en max_w x max_h."""
+    """Tamaño y líneas con las que el texto cabe en max_w x max_h.
+
+    Verifica ancho (con borde) y alto: una palabra sola más ancha que
+    max_w no se puede envolver, así que hay que achicar hasta que quepa.
+    Mismo fallo que en meme.py (texto pegado al borde, 19-nov-2026).
+    """
     size = start_size
     while size > 16:
-        lines = wrap_for_width(text, size, max_w)
-        if len(lines) * size * 1.15 <= max_h:
+        border = max(2, size // 14)
+        lines = wrap_for_width(text, size, max_w - 2 * border)
+        font = ImageFont.truetype(FONT, size)
+        widest = max(font.getlength(ln) + 2 * border for ln in lines)
+        if widest <= max_w and len(lines) * size * 1.15 <= max_h:
             return size, lines
         size -= 4
     return 16, wrap_for_width(text, 16, max_w)

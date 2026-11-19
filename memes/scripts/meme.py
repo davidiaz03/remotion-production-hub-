@@ -141,15 +141,29 @@ def wrap(draw, text, font, max_w):
     return lines or ['']
 
 
+def _stroke(size):
+    return max(1, size // 12)
+
+
 def fit_font(draw, text, max_w, max_h, start_size, font_path=FONT):
-    """Mayor tamaño de fuente con el que el texto (envuelto) cabe en max_w x max_h."""
+    """Mayor tamaño de fuente con el que el texto (envuelto) cabe en max_w x max_h.
+
+    Cuenta el borde (stroke) en ancho y alto, y verifica que NINGUNA línea
+    se salga del ancho: una palabra sola más ancha que max_w no se puede
+    envolver, así que hay que achicar la fuente hasta que quepa. Sin esta
+    comprobación el texto se salía del panel (p. ej. «ACORDARSE» en Drake
+    llegaba a 5 px del borde derecho, 19-nov-2026).
+    """
     size = start_size
     while size > 8:
         font = ImageFont.truetype(font_path, size)
-        lines = wrap(draw, text, font, max_w)
-        heights = [draw.textbbox((0, 0), ln, font=font)[3] for ln in lines]
-        total_h = sum(heights) + int(size * 0.15) * (len(lines) - 1)
-        if total_h <= max_h:
+        sw = _stroke(size)
+        lines = wrap(draw, text, font, max_w - 2 * sw)
+        widths = [draw.textlength(ln, font=font) + 2 * sw for ln in lines]
+        heights = [draw.textbbox((0, 0), ln, font=font, stroke_width=sw)[3]
+                   for ln in lines]
+        total_h = sum(heights) + int(size * 0.15) * (len(lines) - 1) + 2 * sw
+        if total_h <= max_h and max(widths) <= max_w:
             return font, lines
         size -= 2
     font = ImageFont.truetype(font_path, 8)
@@ -159,8 +173,9 @@ def fit_font(draw, text, max_w, max_h, start_size, font_path=FONT):
 def draw_block(draw, lines, font, box, fill='white', stroke=True):
     """Dibuja líneas centradas dentro de box = (x0, y0, x1, y1)."""
     x0, y0, x1, y1 = box
-    sw = max(1, font.size // 12) if stroke else 0
-    line_h = [draw.textbbox((0, 0), ln, font=font)[3] for ln in lines]
+    sw = _stroke(font.size) if stroke else 0
+    line_h = [draw.textbbox((0, 0), ln, font=font, stroke_width=sw)[3]
+              for ln in lines]
     gap = int(font.size * 0.15)
     total = sum(line_h) + gap * (len(lines) - 1)
     y = y0 + (y1 - y0 - total) // 2
@@ -418,6 +433,10 @@ def main():
             else:
                 box = (w * i // n + pad // 2, pad, w * (i + 1) // n - pad // 2, h - pad)
                 start = min(int((w // n) * 0.16), int(h * 0.09))
+            # Margen interior: el texto nunca toca el borde del panel
+            # (con el ajuste viejo llegaba a 5 px del borde, 19-nov-2026).
+            inset = max(8, int((box[2] - box[0]) * 0.04))
+            box = (box[0] + inset, box[1], box[2] - inset, box[3])
             if faces and overlaps_face(box):
                 print(f'aviso: el texto del panel {i + 1} tapa una cara; '
                       f'verificar a ojo', file=sys.stderr)
