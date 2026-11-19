@@ -4,18 +4,21 @@
   "title": "Martí-Fidel: leer, pensar",
   "objective": "Martí-Fidel: leer, pensar",
   "phase": "done",
-  "compositionId": "MainReelV22",
+  "compositionId": "MainReelV25",
   "latestSnapshot": null,
   "approvedRevision": "V2.2",
   "completed": [
     "V1.5: módulo permanente audit-audio.py + cortes acústicos + Rubber Band + cama de tono de sala + ducking corregido (bombeo 20,1->9,1 dB) + karaoke con corrección acústica; auditoría 0 FAIL (V1.4.1: 34 FAIL); QA full passed (-15,0 LUFS, TP -1,9); máster definitivo",
     "V1.5.1 (definitiva): parche +4dB en 7.40-7.90s sobre audio del máster V1.5; QA full passed (-15.1 LUFS, TP -1.9); 1/188 ventanas bajo -32 dBFS (solo pausa dramática Ganamos, intencional); entrega final con enlaces Muse",
     "V2.1 (18-nov-2026): auditoría de oficio vs. 5 reels 2026 + mejoras visuales sobre V2 (mismo guion/tesis/mezcla): motivo «el manuscrito» (tarjetas de papel procedural con regla de margen roja + folio), retrato Martí LoC 1890 en S6, portada La Revista Ilustrada ene-1891 en S2, deriva cinematográfica en retratos y mapa, grano + viñeta globales, 5 fundidos de 12 f; QA full passed (-15,8 LUFS, TP -2,3, 0 advertencias); auditoría audio 0 FAIL (9 PASS, 135 WARN benignos); sin parche de máster (ventana 7,50 s en -31,5 dBFS)",
-    "V2.2 (18-nov-2026): visuales V2.1 + VOZ REAL de la locutora (9 líneas, todas aprobadas de oído por el usuario; los 'errores' de L1/L8 eran falsos positivos de ASR — lección 18-nov). Audio editado para encajar en el montaje sin re-temporizar el vídeo (cortes en pausas + atempo 1.05x L3 y 1.03x L9); 5 SFX re-sincronizados a onsets reales; mezcla PASS_REAL -15.8 LUFS. QA full passed (0 adv.); auditoría 0 FAIL (131 WARN, 9 PASS). Máster 19.796.494 B / ligera 3.002.943 B."
+    "V2.2 (18-nov-2026): visuales V2.1 + VOZ REAL de la locutora (9 líneas, todas aprobadas de oído por el usuario; los 'errores' de L1/L8 eran falsos positivos de ASR — lección 18-nov). Audio editado para encajar en el montaje sin re-temporizar el vídeo (cortes en pausas + atempo 1.05x L3 y 1.03x L9); 5 SFX re-sincronizados a onsets reales; mezcla PASS_REAL -15.8 LUFS. QA full passed (0 adv.); auditoría 0 FAIL (131 WARN, 9 PASS). Máster 19.796.494 B / ligera 3.002.943 B.",
+    "V2.3 (18-nov-2026): corrección del microcorte de voz oído por el usuario en L2 «del recuento» (pausa 0,22→0,42 s) + 5 pausas más (L1, L3×3, L9), todas ≥0,25 s (regla nueva permanente); 9 reveals re-sincronizados (errores 0,68–1,10 s → ≤0,05 s); deriva A/V del render por tramos (+57 ms/frontera) compensada con atempo 1,0082 (residual ±0,02 s). QA full passed (0 adv.); auditoría 0 FAIL (67 WARN). Máster 19.788.148 B / ligera 2.994.114 B.",
+    "V2.4 (18-nov-2026): solo audio, mismo vídeo V2.3. VO reconstruida con crossfades de igual potencia (7 empalmes sin hueco); 3 SFX movidos +80 ms (boom «pensar.» 37,13 · pop «Leer.» 43,25 · boom «Pensar.» 44,51); máster sin atempo (mezcla fresca 1:1, lag constante +5 ms). QA full passed (0 adv.); auditoría 0 FAIL (66 WARN, 13 PASS), sección (i) entera en PASS. Máster 19.794.215 B / ligera 3.019.861 B.",
+    "V2.5 (19-nov-2026): tarjeta de gancho de Suleris «Los que se separaron de la mayoría son los que están olvidando su historia.» (motivo «el manuscrito», sin voz, f1135–1225, 3,0 s) entre S7 y S8; reel 1537 f = 51,23 s. L8/L9 desplazados +3,0 s; SFX re-temporizados (boom S8 40,81 · pop «condenado» 43,38 · pop «Leer.» 46,25 · boom «Pensar.» 47,51 · sting 48,2); boom «pensar.» 37,13 NO se mueve (anclado a L7, antes del punto de inserción). Chunks 01–07 reutilizados de V2.3; chunks 08–11 re-renderizados. QA full passed (0 adv.); auditoría 0 FAIL (65 WARN, 13 PASS), sección (i) entera en PASS; correlación mezcla↔máster +5,0 ms constante en 6 puntos. Máster 21.103.604 B / ligera 3.185.576 B."
   ],
   "pending": [],
   "nextTask": "Juicio creativo del usuario + visto bueno de Suleris; leer términos comerciales de Flow Music y etiqueta IA de Meta al publicar",
-  "updatedAt": "2026-11-19T00:58:36.925Z",
+  "updatedAt": "2026-11-19T06:30:59.811Z",
   "pipeline": {
     "phases": {
       "assets": {
@@ -65,15 +68,15 @@
       "render": {
         "status": "done",
         "startedAt": "2026-11-17T21:49:34.377Z",
-        "updatedAt": "2026-11-18T22:55:33.188Z",
+        "updatedAt": "2026-11-19T06:26:17.765Z",
         "artifacts": [
           "out/marti-fidel-chunks.mp4",
           "out/marti-fidel-v2-chunks.mp4",
           "out/chunks-v2"
         ],
-        "note": "out/marti-fidel-v2.3-chunks.mp4",
+        "note": "out/marti-fidel-v2.5-chunks.mp4",
         "chunks": {
-          "total": 10,
+          "total": 11,
           "done": 11,
           "completed": [
             "out/chunks/chunk_01.mp4",
@@ -88,17 +91,17 @@
             "out/chunks/chunk_10.mp4",
             "out/chunks/chunk_11.mp4"
           ],
-          "framesDone": 1447,
-          "framesTotal": 1447,
+          "framesDone": 1537,
+          "framesTotal": 1537,
           "percent": 100,
           "chunkSize": 150,
-          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 0-1446 --chunk 150 --resume --out out/chunks-v23 --concat-out out/marti-fidel-v2.3-chunks.mp4"
+          "resumeCommand": "node scripts/render-chunks.mjs marti-fidel --frames 0-1536 --chunk 150 --resume --out out/chunks-v25 --concat-out out/marti-fidel-v2.5-chunks.mp4"
         }
       },
       "qa": {
         "status": "done",
         "startedAt": "2026-11-17T21:58:07.817Z",
-        "updatedAt": "2026-11-19T00:58:36.837Z",
+        "updatedAt": "2026-11-19T06:30:59.811Z",
         "artifacts": [
           "reports/technical-qa.json",
           "out/marti-fidel_MASTER.mp4",
@@ -110,7 +113,8 @@
           "out/marti-fidel-v2.1_MASTER.mp4",
           "out/marti-fidel-v2.2_MASTER.mp4",
           "out/marti-fidel-v2.3_MASTER.mp4",
-          "out/marti-fidel-v2.4_MASTER.mp4"
+          "out/marti-fidel-v2.4_MASTER.mp4",
+          "out/marti-fidel-v2.5_MASTER.mp4"
         ],
         "note": "-16 LUFS, TP -2 dBTP"
       },
@@ -1774,6 +1778,115 @@
         "artifacts": [
           "reports/technical-qa.json",
           "out/marti-fidel-v2.4_MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:23:11.342Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-1536 en 11 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-19T06:23:12.751Z",
+        "phase": "render",
+        "event": "Tramo 1/11 verificado (chunk_01.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_01.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:23:13.791Z",
+        "phase": "render",
+        "event": "Tramo 2/11 verificado (chunk_02.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_02.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:23:14.875Z",
+        "phase": "render",
+        "event": "Tramo 3/11 verificado (chunk_03.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_03.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:23:16.046Z",
+        "phase": "render",
+        "event": "Tramo 4/11 verificado (chunk_04.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_04.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:23:17.427Z",
+        "phase": "render",
+        "event": "Tramo 5/11 verificado (chunk_05.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_05.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:23:19.130Z",
+        "phase": "render",
+        "event": "Tramo 6/11 verificado (chunk_06.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_06.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:23:20.346Z",
+        "phase": "render",
+        "event": "Tramo 7/11 verificado (chunk_07.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_07.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:24:13.846Z",
+        "phase": "render",
+        "event": "Tramo 8/11 verificado (chunk_08.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_08.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:25:01.514Z",
+        "phase": "render",
+        "event": "Tramo 9/11 verificado (chunk_09.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_09.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:25:46.714Z",
+        "phase": "render",
+        "event": "Tramo 10/11 verificado (chunk_10.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_10.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:26:05.727Z",
+        "phase": "render",
+        "event": "Tramo 11/11 verificado (chunk_11.mp4)",
+        "artifacts": [
+          "out/chunks/chunk_11.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-19T06:26:17.765Z",
+        "phase": "render",
+        "event": "Render completo: 11 tramos concatenados (out/marti-fidel-v2.5-chunks.mp4)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-19T06:30:59.811Z",
+        "phase": "qa",
+        "event": "QA técnico passed — marti-fidel-v2.5_MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/marti-fidel-v2.5_MASTER.mp4"
         ]
       }
     ]

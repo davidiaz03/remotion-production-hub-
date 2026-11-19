@@ -1479,3 +1479,80 @@ en la mezcla + huecos de fundido de ~10 ms en los empalmes internos.
   Alineación en máster 0,044 s de media (V2.3: 0,064 s). Los 66 WARN
   son el patrón benigno conocido (56 captions cortos, 7 Whisper en
   máster, 2 fusiones «Y»/«EN» en L7, 1 bombeo de ducking 12,4 dB).
+
+### Entrega V2.5 (19-nov-2026, madrugada — TARJETA DE GANCHO DE SULERIS)
+Suleris vio la V2.4 («quedó muchísimo mejor, está casi lista») y pide
+una frase de gancho que deje claro que los que están olvidando su
+historia son los países latinoamericanos que votaron en contra y se
+separaron de la mayoría, enlazando la apertura con Martí y Fidel
+(transcripción y decisión en
+`research/feedback-suleris-2026-11-19.md`). La frase elegida, con sus
+propias palabras: **«Los que se separaron de la mayoría son los que
+están olvidando su historia.»**
+- **Tarjeta de texto** con el motivo «el manuscrito» (papel envejecido
+  procedural a pantalla completa, regla roja a borde, folio
+  «MARTÍ-FIDEL · 2026»), **SIN voz** — la locutora no puede grabar
+  una línea 10 esta noche. La frase queda lista aquí por si el
+  usuario la quiere con voz después. 4 líneas reveladas escalonadas
+  (l1 0–10 f, l2 15–25 f, l3 30–40 f, l4 50–58 f), «OLVIDANDO SU
+  HISTORIA.» en rojo. Componente `HookCardScene` en
+  `src/VideoV25.tsx`; composición `MainReelV25`, 1537 f = 51,23 s.
+- **Ubicación:** entre S7 (Fidel) y S8 (tesis), f1135–1225 (90 f =
+  3,0 s) + fundido de 12 f; punto de inserción en audio 37,836 s.
+  La pausa silenciosa de 3,43 s antes de la tesis es intencional
+  (respira antes del golpe): la auditoría la clasifica «dramática,
+  entre-líneas», no como defecto. La cama musical continúa bajo la
+  tarjeta; el ducking no produce nada raro (f_duck_pump_max 12,4 dB,
+  mismo que V2.4; 0 ventanas bajo el suelo).
+- **Desplazamientos (+3,0 s tras el punto de inserción):** slots de
+  VO L8 37,836→40,836 y L9 43,069→46,069 (manifiesto
+  `vo-real-manifest-v25.json`); reveals de S8 y karaoke de L8/L9
+  (`src/captions-real25.ts`); SFX: boom de entrada a S8
+  37,81→40,81 · pop «condenado» 40,38→43,38 · pop «Leer.»
+  43,25→46,25 · boom «Pensar.» 44,51→47,51 · sting 45,2→48,2.
+  **El boom «pensar.» 37,13 NO se mueve:** está anclado a la última
+  palabra de L7, ANTES del punto de inserción; moverlo lo dejaría
+  sonando en medio de la tarjeta muda (el encargo inicial lo listaba
+  para desplazar, pero era un error — corregido con evidencia).
+  VIDEO_EVENTS corregidos a los tiempos V2.3 reales derivados de
+  fotograma (en V2.4 el builder conservaba tiempos V2.2).
+  Scrim del logo extendido a la ventana de la tarjeta (f1135–1237,
+  papel claro); fade-out del logo f1436–1446; grano f0–1446.
+- **Vídeo:** chunks 01–07 (f0–1049) reutilizados de `out/chunks-v23/`
+  (idénticos por construcción: el fotograma a 20,0 s es el mismo que
+  en V2.4); chunks 08–11 re-renderizados; concat
+  `out/marti-fidel-v2.5-chunks.mp4` 1537/1537 f.
+  OJO: al muxear la mezcla fresca NO usar `-shortest` — la mezcla
+  mide 51,23 s y el vídeo 51,36 s (deriva de timestamps del contenedor
+  por tramos), y `-shortest` recortó 9 fotogramas en el primer
+  intento. Sin `-shortest`: 1537 f intactos.
+- **Máster SIN atempo** (misma razón que V2.4: mezcla fresca 1:1 con
+  la línea de tiempo). Verificado por correlación mezcla↔máster en
+  6 puntos (2/12/22/32/42/48 s): lag constante +5,0 ms (priming AAC),
+  corr 0,994–0,999, sin deriva progresiva.
+- Máster `out/marti-fidel-v2.5_MASTER.mp4`: 21.103.604 B, SHA-256
+  `9c1c8528711449265e421061924e5a8ad081e3053c093e1476b0e617d116cbaa`,
+  1080×1920, 1537 f, −16,0 LUFS, TP −2,0 dBTP.
+- Ligera `out/marti-fidel-v2.5_LIGERO.mp4`: 3.185.576 B, SHA-256
+  `ff18a00f22d839a2a7622941332fc2a06feb67ad22096ce44e5f6beb0203020d`,
+  720×1280, 1537 f, −16,0 LUFS, TP −1,8 dBTP.
+- Mezcla `public/audio/real25/mix-v2.5.wav` (PASS_REAL, −15,9 LUFS,
+  TP −1,5, SHA-256 `1a281ac1…22dda3c`).
+- QA full: **passed, 0 advertencias, 0 fallos** (1537/1537 f; deriva
+  de duración 0,172 s, la conocida del render por tramos; sin
+  intervalos de silencio ni de negro).
+- Auditoría de audio (`reports/audio-audit-v2.5`): **0 FAIL, 65 WARN,
+  13 PASS, 41 INFO**. Sección (i) entera en PASS: (i1) empalmes
+  limpios, (i2) sin dips en palabras, (i4) 16/16 segmentos contiguos,
+  (i5) 0 enmascaramientos. (c) 0 cortes/empalmes/palabras exprimidas/
+  pausas en mal estado · (e) 12 pausas, todas diseñadas · (f) 0
+  ventanas bajo el suelo · alineación acústica media 0,057 s (máx
+  0,091) · alineación en máster 0,041 s (V2.4: 0,044 s). Los 65 WARN
+  son el patrón benigno conocido (56 captions cortos, 6 Whisper en
+  máster, 2 fusiones «Y»/«EN» en L7, 1 bombeo de ducking 12,4 dB).
+- Verificación visual del máster (fotogramas en `audit-frames/v25/`):
+  tarjeta completa a 40,5 s (4 líneas, última en rojo, scrim del logo
+  sobre el papel), reveal escalonado a 39,5 s (l1–l3), tesis a 42,0 s
+  y 47,6 s («LEER.» + «PENSAR.» en fundido + CTA), sting a 50,0 s,
+  sin regresión pre-inserción a 20,0 s. La tesis sigue SIN atribución
+  en pantalla. Mapa y hechos verificados intactos.
