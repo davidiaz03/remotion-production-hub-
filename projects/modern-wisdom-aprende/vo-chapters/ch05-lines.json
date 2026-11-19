@@ -1,0 +1,212 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.598,
+  "total_duration": 141.837,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 5. CONVERSAR MEJOR.",
+      "start": 0.0,
+      "end": 2.084,
+      "duration": 2.084
+    },
+    {
+      "index": 1,
+      "text": "La comunicación es una habilidad aprendible, no un talento innato.",
+      "start": 2.984,
+      "end": 6.781,
+      "duration": 3.796
+    },
+    {
+      "index": 2,
+      "text": "Esa es la tesis de Charles Duhigg en el episodio 909, el más denso en tácticas por hora de todo el material.",
+      "start": 7.031,
+      "end": 13.691,
+      "duration": 6.66
+    },
+    {
+      "index": 3,
+      "text": "Su técnica central es el looping, el bucle de comprensión.",
+      "start": 13.941,
+      "end": 17.369,
+      "duration": 3.429
+    },
+    {
+      "index": 4,
+      "text": "Parafrasea lo que el otro dijo y confirma: ¿es eso lo que quieres decir?",
+      "start": 17.619,
+      "end": 21.708,
+      "duration": 4.089
+    },
+    {
+      "index": 5,
+      "text": "Repite hasta que la otra persona se sienta comprendida.",
+      "start": 21.958,
+      "end": 25.205,
+      "duration": 3.247
+    },
+    {
+      "index": 6,
+      "text": "Úsalo como principio, no como guion: en una conversación cubana, el looping formal puede sonar artificial si lo aplicas como un libreto.",
+      "start": 25.455,
+      "end": 33.578,
+      "duration": 8.122
+    },
+    {
+      "index": 7,
+      "text": "Segunda herramienta: las preguntas profundas, las que empiezan por cómo y por qué.",
+      "start": 33.828,
+      "end": 38.524,
+      "duration": 4.697
+    },
+    {
+      "index": 8,
+      "text": "Preguntar por valores, emociones y experiencias genera conexión.",
+      "start": 38.774,
+      "end": 42.781,
+      "duration": 4.007
+    },
+    {
+      "index": 9,
+      "text": "Las preguntas factuales la mantienen superficial.",
+      "start": 43.031,
+      "end": 46.063,
+      "duration": 3.032
+    },
+    {
+      "index": 10,
+      "text": "Tercera: diagnosticar el tipo de conversación antes de responder.",
+      "start": 46.313,
+      "end": 50.143,
+      "duration": 3.829
+    },
+    {
+      "index": 11,
+      "text": "Toda conversación es práctica, resolver algo, emocional, ser escuchado, o social, pertenecer.",
+      "start": 50.393,
+      "end": 55.888,
+      "duration": 5.496
+    },
+    {
+      "index": 12,
+      "text": "El error clásico es responder con soluciones a una conversación emocional.",
+      "start": 56.138,
+      "end": 60.809,
+      "duration": 4.67
+    },
+    {
+      "index": 13,
+      "text": "Cuarta: el carisma inverso.",
+      "start": 61.059,
+      "end": 62.769,
+      "duration": 1.71
+    },
+    {
+      "index": 14,
+      "text": "Duhigg cuenta la anécdota de la madre de Winston Churchill: Disraeli la hizo sentir la mujer más interesante del mundo; Gladstone, que él era el hombre más interesante.",
+      "start": 63.019,
+      "end": 72.54,
+      "duration": 9.521
+    },
+    {
+      "index": 15,
+      "text": "La gente recuerda cómo la hiciste sentir, no lo brillante que fuiste.",
+      "start": 72.79,
+      "end": 76.718,
+      "duration": 3.929
+    },
+    {
+      "index": 16,
+      "text": "Pasemos a las conversaciones difíciles, con Jefferson Fisher, abogado litigante, en el episodio 1093.",
+      "start": 76.968,
+      "end": 83.762,
+      "duration": 6.794
+    },
+    {
+      "index": 17,
+      "text": "Su primera herramienta es Start With the No, empezar con el no.",
+      "start": 84.012,
+      "end": 87.433,
+      "duration": 3.421
+    },
+    {
+      "index": 18,
+      "text": "Para dar una mala noticia, encabeza con la noticia dura, y luego gratitud y amabilidad.",
+      "start": 87.683,
+      "end": 93.057,
+      "duration": 5.374
+    },
+    {
+      "index": 19,
+      "text": "Segunda: en vez de discutir eso no es lo que dije, pregunta: ¿qué escuchaste?",
+      "start": 93.307,
+      "end": 97.503,
+      "duration": 4.197
+    },
+    {
+      "index": 20,
+      "text": "Desactiva la defensiva y revela el malentendido real.",
+      "start": 97.753,
+      "end": 101.089,
+      "duration": 3.336
+    },
+    {
+      "index": 21,
+      "text": "Tercera: elimina las frases que te hacen sonar débil.",
+      "start": 101.339,
+      "end": 104.381,
+      "duration": 3.042
+    },
+    {
+      "index": 22,
+      "text": "En español: perdona que te moleste, igual estoy equivocado pero, no sé, digo yo.",
+      "start": 104.631,
+      "end": 109.202,
+      "duration": 4.571
+    },
+    {
+      "index": 23,
+      "text": "Cuarta: el silencio.",
+      "start": 109.452,
+      "end": 110.792,
+      "duration": 1.341
+    },
+    {
+      "index": 24,
+      "text": "Fisher dice que los mentirosos aman las refutaciones y odian el silencio.",
+      "start": 111.042,
+      "end": 115.359,
+      "duration": 4.317
+    },
+    {
+      "index": 25,
+      "text": "Ante una mentira o una provocación, el silencio es más potente que la réplica.",
+      "start": 115.609,
+      "end": 120.183,
+      "duration": 4.574
+    },
+    {
+      "index": 26,
+      "text": "Y la definición que lo resume todo: pasivo es no respetarte a ti, agresivo es no respetar al otro, asertivo es respetar a ambos.",
+      "start": 120.433,
+      "end": 128.085,
+      "duration": 7.652
+    },
+    {
+      "index": 27,
+      "text": "La calma, dice Fisher, es el esfuerzo, no el grito.",
+      "start": 128.335,
+      "end": 131.339,
+      "duration": 3.004
+    },
+    {
+      "index": 28,
+      "text": "En resumen: escucha con looping, pregunta cómo y por qué, diagnostica la conversación antes de responder, y sé asertivo: respeto a ambos, a ti y al otro.",
+      "start": 131.589,
+      "end": 140.637,
+      "duration": 9.048
+    }
+  ]
+}

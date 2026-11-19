@@ -1,0 +1,184 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.623,
+  "total_duration": 123.606,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 6. SENTIRSE AMADO Y CONECTAR.",
+      "start": 0.0,
+      "end": 2.609,
+      "duration": 2.609
+    },
+    {
+      "index": 1,
+      "text": "La invitada con mayor peso académico de todo el material es Sonja Lyubomirsky, en el episodio 1115.",
+      "start": 3.509,
+      "end": 10.032,
+      "duration": 6.524
+    },
+    {
+      "index": 2,
+      "text": "Lleva veintiocho años haciendo intervenciones de felicidad: gratitud, amabilidad, sociabilidad.",
+      "start": 10.282,
+      "end": 16.078,
+      "duration": 5.795
+    },
+    {
+      "index": 3,
+      "text": "Su conclusión: todas funcionan por lo mismo, porque hacen sentir más conectado y amado.",
+      "start": 16.328,
+      "end": 21.462,
+      "duration": 5.134
+    },
+    {
+      "index": 4,
+      "text": "Y su distinción central es esta: ser admirado no es ser amado.",
+      "start": 21.712,
+      "end": 25.671,
+      "duration": 3.959
+    },
+    {
+      "index": 5,
+      "text": "La clave para sentirse amado es ser conocido.",
+      "start": 25.921,
+      "end": 28.791,
+      "duration": 2.871
+    },
+    {
+      "index": 6,
+      "text": "Si escondes tus debilidades, siempre dudarás: si me conociera de verdad, ¿me querría?",
+      "start": 29.041,
+      "end": 33.745,
+      "duration": 4.704
+    },
+    {
+      "index": 7,
+      "text": "Tres herramientas concretas, todas gratuitas y presenciales.",
+      "start": 33.995,
+      "end": 37.594,
+      "duration": 3.599
+    },
+    {
+      "index": 8,
+      "text": "Primera: valida antes de arreglar.",
+      "start": 37.844,
+      "end": 39.921,
+      "duration": 2.077
+    },
+    {
+      "index": 9,
+      "text": "Cuando alguien te cuenta un problema, primero valida: eso debe ser tan doloroso.",
+      "start": 40.171,
+      "end": 44.918,
+      "duration": 4.746
+    },
+    {
+      "index": 10,
+      "text": "Los consejos, después, y solo si se piden.",
+      "start": 45.168,
+      "end": 47.847,
+      "duration": 2.68
+    },
+    {
+      "index": 11,
+      "text": "Segunda: cómo reaccionas a las buenas noticias ajenas predice la duración de la relación.",
+      "start": 48.097,
+      "end": 53.375,
+      "duration": 5.278
+    },
+    {
+      "index": 12,
+      "text": "Celebrar con entusiasmo genuino es lo protector.",
+      "start": 53.625,
+      "end": 56.584,
+      "duration": 2.959
+    },
+    {
+      "index": 13,
+      "text": "La envidia o la amenaza lo corroen.",
+      "start": 56.834,
+      "end": 58.987,
+      "duration": 2.153
+    },
+    {
+      "index": 14,
+      "text": "Esto tiene respaldo fuerte, en los estudios de Gable y sus colegas.",
+      "start": 59.237,
+      "end": 63.138,
+      "duration": 3.901
+    },
+    {
+      "index": 15,
+      "text": "Tercera: el experimento más potente medido en todo el material.",
+      "start": 63.388,
+      "end": 67.0,
+      "duration": 3.612
+    },
+    {
+      "index": 16,
+      "text": "Margolis y Lyubomirsky pidieron a introvertidos y extrovertidos que actuaran más sociables durante una semana.",
+      "start": 67.25,
+      "end": 73.745,
+      "duration": 6.496
+    },
+    {
+      "index": 17,
+      "text": "Lyubomirsky dice que produjo los mayores efectos jamás encontrados en cualquiera de sus intervenciones.",
+      "start": 73.995,
+      "end": 80.317,
+      "duration": 6.321
+    },
+    {
+      "index": 18,
+      "text": "Y el mito de que los introvertidos se agotan socializando no se sostiene: también ellos mejoraron.",
+      "start": 80.567,
+      "end": 86.066,
+      "duration": 5.499
+    },
+    {
+      "index": 19,
+      "text": "Es un experimento publicado, con efectos grandes pero de corto plazo: una semana.",
+      "start": 86.316,
+      "end": 91.09,
+      "duration": 4.775
+    },
+    {
+      "index": 20,
+      "text": "Cuba es un entorno ideal para probarlo: la gente habla en la cola, en la guagua, en el barrio.",
+      "start": 91.34,
+      "end": 96.486,
+      "duration": 5.146
+    },
+    {
+      "index": 21,
+      "text": "Una nota más: la paradoja de la vulnerabilidad.",
+      "start": 96.736,
+      "end": 99.589,
+      "duration": 2.853
+    },
+    {
+      "index": 22,
+      "text": "Creemos que mostrarnos vulnerables hará que nos quieran menos, y en promedio hace que nos quieran más.",
+      "start": 99.839,
+      "end": 105.143,
+      "duration": 5.304
+    },
+    {
+      "index": 23,
+      "text": "El efecto pratfall, que lo respalda parcialmente, tiene réplicas mixtas, así que tómalo como tendencia, no como ley.",
+      "start": 105.393,
+      "end": 112.109,
+      "duration": 6.716
+    },
+    {
+      "index": 24,
+      "text": "En resumen: sentirse amado viene de ser conocido, no de ser admirado. Valida antes de arreglar, celebra las buenas noticias ajenas, y prueba una semana extrovertida.",
+      "start": 112.359,
+      "end": 122.406,
+      "duration": 10.047
+    }
+  ]
+}

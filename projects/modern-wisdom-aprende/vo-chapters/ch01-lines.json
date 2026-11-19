@@ -1,0 +1,128 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.668,
+  "total_duration": 97.554,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 1. EL PODCAST EN DOS MINUTOS.",
+      "start": 0.0,
+      "end": 2.636,
+      "duration": 2.636
+    },
+    {
+      "index": 1,
+      "text": "Modern Wisdom es el podcast de Chris Williamson.",
+      "start": 3.536,
+      "end": 6.51,
+      "duration": 2.974
+    },
+    {
+      "index": 2,
+      "text": "Williamson es inglés, ex concursante de Love Island en 2015, ex promotor de discotecas y graduado en empresariales.",
+      "start": 6.76,
+      "end": 13.982,
+      "duration": 7.223
+    },
+    {
+      "index": 3,
+      "text": "Su canal de YouTube tiene unos cuatro millones y medio de suscriptores.",
+      "start": 14.232,
+      "end": 18.308,
+      "duration": 4.076
+    },
+    {
+      "index": 4,
+      "text": "El podcast lleva desde 2018, con casi mil doscientos episodios.",
+      "start": 18.558,
+      "end": 23.157,
+      "duration": 4.599
+    },
+    {
+      "index": 5,
+      "text": "Cada episodio es una entrevista larga, de unas dos horas, y algunos superan las tres.",
+      "start": 23.407,
+      "end": 28.431,
+      "duration": 5.024
+    },
+    {
+      "index": 6,
+      "text": "Según el propio episodio 1034, fue el octavo podcast más grande del mundo según Spotify Wrapped 2025.",
+      "start": 28.681,
+      "end": 36.927,
+      "duration": 8.246
+    },
+    {
+      "index": 7,
+      "text": "Su fortaleza como entrevistador es real: lee el libro del invitado y pregunta como lo haría un lector atento.",
+      "start": 37.177,
+      "end": 43.674,
+      "duration": 6.497
+    },
+    {
+      "index": 8,
+      "text": "Su debilidad también es real, y tienes que conocerla desde el principio.",
+      "start": 43.924,
+      "end": 48.02,
+      "duration": 4.096
+    },
+    {
+      "index": 9,
+      "text": "Williamson no es científico, y rara vez contradice a un invitado con datos.",
+      "start": 48.27,
+      "end": 52.749,
+      "duration": 4.478
+    },
+    {
+      "index": 10,
+      "text": "A veces cita cifras de memoria que no se sostienen, y ya verás ejemplos concretos en el capítulo diez.",
+      "start": 52.999,
+      "end": 59.047,
+      "duration": 6.049
+    },
+    {
+      "index": 11,
+      "text": "El programa, además, iguala a todos los invitados: un investigador con veintiocho años de ensayos controlados ocupa el mismo sillón que un coach sin una sola publicación revisada.",
+      "start": 59.297,
+      "end": 70.043,
+      "duration": 10.746
+    },
+    {
+      "index": 12,
+      "text": "La distinción tienes que hacerla tú.",
+      "start": 70.293,
+      "end": 72.399,
+      "duration": 2.106
+    },
+    {
+      "index": 13,
+      "text": "Por eso el filtro es este: quédate con lo conductual y gratuito.",
+      "start": 72.649,
+      "end": 76.373,
+      "duration": 3.724
+    },
+    {
+      "index": 14,
+      "text": "Desecha lo que requiera comprar algo, lo que dependa de aplicaciones de citas y lo que te haga sentir peor contigo mismo.",
+      "start": 76.623,
+      "end": 83.793,
+      "duration": 7.17
+    },
+    {
+      "index": 15,
+      "text": "Sin ese filtro, es ruido con acento británico.",
+      "start": 84.043,
+      "end": 86.84,
+      "duration": 2.797
+    },
+    {
+      "index": 16,
+      "text": "En resumen: Modern Wisdom es una biblioteca de marcos mentales y algunas herramientas excelentes, no una autoridad científica. El filtro lo pones tú.",
+      "start": 87.54,
+      "end": 96.354,
+      "duration": 8.815
+    }
+  ]
+}

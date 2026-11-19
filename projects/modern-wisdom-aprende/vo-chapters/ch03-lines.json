@@ -1,0 +1,163 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.701,
+  "total_duration": 112.565,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 3. LA CONFIANZA ES EVIDENCIA.",
+      "start": 0.0,
+      "end": 2.599,
+      "duration": 2.599
+    },
+    {
+      "index": 1,
+      "text": "La segunda idea que más se repite en el podcast es esta: la confianza no se afirma, se acumula.",
+      "start": 3.499,
+      "end": 9.217,
+      "duration": 5.718
+    },
+    {
+      "index": 2,
+      "text": "David Goggins, en el episodio 577, la llama una pila de pruebas innegables.",
+      "start": 9.467,
+      "end": 15.117,
+      "duration": 5.65
+    },
+    {
+      "index": 3,
+      "text": "Detrás de esa frase hay ciencia sólida.",
+      "start": 15.367,
+      "end": 17.789,
+      "duration": 2.422
+    },
+    {
+      "index": 4,
+      "text": "El psicólogo Albert Bandura demostró que la autoeficacia, la creencia de que puedes hacer algo, se construye sobre todo por experiencia de dominio.",
+      "start": 18.039,
+      "end": 26.484,
+      "duration": 8.446
+    },
+    {
+      "index": 5,
+      "text": "Es decir: por haberlo hecho ya, no por habértelo repetido.",
+      "start": 26.734,
+      "end": 30.005,
+      "duration": 3.271
+    },
+    {
+      "index": 6,
+      "text": "Cada acción completada es un depósito en esa pila.",
+      "start": 30.255,
+      "end": 33.327,
+      "duration": 3.072
+    },
+    {
+      "index": 7,
+      "text": "Cada evitación es un retiro.",
+      "start": 33.577,
+      "end": 35.436,
+      "duration": 1.859
+    },
+    {
+      "index": 8,
+      "text": "Manson, en el episodio 1096, añade una distinción importante: la confianza de estado y la confianza de rasgo.",
+      "start": 35.686,
+      "end": 43.103,
+      "duration": 7.417
+    },
+    {
+      "index": 9,
+      "text": "La de estado es temporal: te sientes seguro en un momento concreto.",
+      "start": 43.353,
+      "end": 47.225,
+      "duration": 3.872
+    },
+    {
+      "index": 10,
+      "text": "La de rasgo es profunda, y solo se construye viviendo cosas que no salieron como planeabas, y sobreviviendo.",
+      "start": 47.475,
+      "end": 53.896,
+      "duration": 6.421
+    },
+    {
+      "index": 11,
+      "text": "Goggins aporta una herramienta concreta, la teoría de la decisión de un segundo.",
+      "start": 54.146,
+      "end": 58.891,
+      "duration": 4.745
+    },
+    {
+      "index": 12,
+      "text": "Un evento de ciento treinta horas se gana o se pierde en segundos aislados, en los que el dolor dispara el pánico.",
+      "start": 59.141,
+      "end": 65.487,
+      "duration": 6.346
+    },
+    {
+      "index": 13,
+      "text": "El fallo casi nunca viene del conjunto.",
+      "start": 65.737,
+      "end": 68.209,
+      "duration": 2.472
+    },
+    {
+      "index": 14,
+      "text": "Viene de perder un segundo concreto, ese en el que ibas a rendirte.",
+      "start": 68.459,
+      "end": 72.237,
+      "duration": 3.778
+    },
+    {
+      "index": 15,
+      "text": "La unidad real de cambio no es ser disciplinado en general.",
+      "start": 72.487,
+      "end": 75.823,
+      "duration": 3.336
+    },
+    {
+      "index": 16,
+      "text": "Es ganar ese segundo.",
+      "start": 76.073,
+      "end": 77.533,
+      "duration": 1.46
+    },
+    {
+      "index": 17,
+      "text": "Y aquí va una advertencia que el propio material exige: no copies la dosis de Goggins.",
+      "start": 77.783,
+      "end": 82.809,
+      "duration": 5.025
+    },
+    {
+      "index": 18,
+      "text": "Las ultras de doscientas cuarenta millas y los entrenamientos extremos son imprudentes con la alimentación, el descanso y el acceso médico que tienes en Cuba.",
+      "start": 83.059,
+      "end": 92.406,
+      "duration": 9.347
+    },
+    {
+      "index": 19,
+      "text": "Copia el principio, no la escala.",
+      "start": 92.656,
+      "end": 94.565,
+      "duration": 1.91
+    },
+    {
+      "index": 20,
+      "text": "Por último, Williamson, en el episodio 816, deja una idea sobre la inseguridad: úsala como encendedor, no como motor.",
+      "start": 94.815,
+      "end": 102.768,
+      "duration": 7.953
+    },
+    {
+      "index": 21,
+      "text": "En resumen: la confianza es una pila de pruebas innegables que se acumula actuando. Gana el segundo decisivo, y no copies la dosis de nadie.",
+      "start": 103.018,
+      "end": 111.365,
+      "duration": 8.347
+    }
+  ]
+}

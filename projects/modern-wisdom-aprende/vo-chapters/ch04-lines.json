@@ -1,0 +1,212 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.569,
+  "total_duration": 146.689,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 4. LA ANSIEDAD SE CURA ACTUANDO.",
+      "start": 0.0,
+      "end": 2.873,
+      "duration": 2.873
+    },
+    {
+      "index": 1,
+      "text": "Este capítulo es el que más respaldo científico tiene de todo el video.",
+      "start": 3.773,
+      "end": 8.018,
+      "duration": 4.246
+    },
+    {
+      "index": 2,
+      "text": "Su fuente principal es Donald Robertson, psicoterapeuta cognitivo-conductual, en el episodio 1050.",
+      "start": 8.268,
+      "end": 14.642,
+      "duration": 6.374
+    },
+    {
+      "index": 3,
+      "text": "La tesis es simple: la ansiedad se trata con herramientas concretas, no con insight.",
+      "start": 14.892,
+      "end": 19.701,
+      "duration": 4.809
+    },
+    {
+      "index": 4,
+      "text": "Y la herramienta central es la terapia de exposición.",
+      "start": 19.951,
+      "end": 22.998,
+      "duration": 3.047
+    },
+    {
+      "index": 5,
+      "text": "Lleva más de setenta años usándose en terapia cognitivo-conductual, con metaanálisis amplios detrás.",
+      "start": 23.248,
+      "end": 29.5,
+      "duration": 6.252
+    },
+    {
+      "index": 6,
+      "text": "Es probablemente el tratamiento más fiable que existe para fobias y ansiedad social.",
+      "start": 29.75,
+      "end": 34.615,
+      "duration": 4.865
+    },
+    {
+      "index": 7,
+      "text": "La lógica es esta: la evitación es la raíz del problema.",
+      "start": 34.865,
+      "end": 38.457,
+      "duration": 3.592
+    },
+    {
+      "index": 8,
+      "text": "Evitar lo que da ansiedad impide que te habitúes, y tu vida se va encogiendo poco a poco.",
+      "start": 38.707,
+      "end": 43.979,
+      "duration": 5.272
+    },
+    {
+      "index": 9,
+      "text": "Robertson y Spencer Greenberg, en el episodio 1161, dan el mismo protocolo.",
+      "start": 44.229,
+      "end": 49.649,
+      "duration": 5.421
+    },
+    {
+      "index": 10,
+      "text": "Primero, escribe una jerarquía de miedos: diez situaciones sociales ordenadas de menor a mayor dificultad.",
+      "start": 49.899,
+      "end": 56.012,
+      "duration": 6.113
+    },
+    {
+      "index": 11,
+      "text": "Segundo, sube un peldaño por semana, sin conductas de seguridad.",
+      "start": 56.262,
+      "end": 59.991,
+      "duration": 3.728
+    },
+    {
+      "index": 12,
+      "text": "Las conductas de seguridad son las muletas: mirar el móvil, evitar el contacto visual, ensayar cada frase.",
+      "start": 60.241,
+      "end": 66.79,
+      "duration": 6.549
+    },
+    {
+      "index": 13,
+      "text": "Si usas muletas, no aprendes que no pasa nada.",
+      "start": 67.04,
+      "end": 69.762,
+      "duration": 2.722
+    },
+    {
+      "index": 14,
+      "text": "Tercero, la posposición de la preocupación.",
+      "start": 70.012,
+      "end": 72.64,
+      "duration": 2.628
+    },
+    {
+      "index": 15,
+      "text": "Anota la preocupación y revísala en un horario fijo, por ejemplo a las siete de la tarde, durante veinte minutos.",
+      "start": 72.89,
+      "end": 79.368,
+      "duration": 6.479
+    },
+    {
+      "index": 16,
+      "text": "Fuera de esa hora, la preocupación se pospone por escrito.",
+      "start": 79.618,
+      "end": 82.991,
+      "duration": 3.373
+    },
+    {
+      "index": 17,
+      "text": "Según Robertson, esto puede reducir la preocupación a la mitad en un par de semanas.",
+      "start": 83.241,
+      "end": 88.142,
+      "duration": 4.901
+    },
+    {
+      "index": 18,
+      "text": "Es evidencia moderada, no una promesa.",
+      "start": 88.392,
+      "end": 90.77,
+      "duration": 2.379
+    },
+    {
+      "index": 19,
+      "text": "Cuarto, los ataques a la vergüenza.",
+      "start": 91.02,
+      "end": 93.175,
+      "duration": 2.154
+    },
+    {
+      "index": 20,
+      "text": "Haz deliberadamente algo levemente vergonzoso en público para aprender que la vergüenza no mata.",
+      "start": 93.425,
+      "end": 99.324,
+      "duration": 5.899
+    },
+    {
+      "index": 21,
+      "text": "La versión cubana: pedir algo en voz alta, hacer una pregunta tonta en clase.",
+      "start": 99.574,
+      "end": 104.122,
+      "duration": 4.548
+    },
+    {
+      "index": 22,
+      "text": "El objetivo es aprender que la vergüenza pasa en treinta segundos.",
+      "start": 104.372,
+      "end": 108.4,
+      "duration": 4.028
+    },
+    {
+      "index": 23,
+      "text": "Quinto, la premeditatio malorum, imaginar lo malo que puede pasar, en detalle, antes de que ocurra.",
+      "start": 108.65,
+      "end": 114.361,
+      "duration": 5.71
+    },
+    {
+      "index": 24,
+      "text": "Es una exposición mental, y reduce el impacto cuando lo malo llega de verdad.",
+      "start": 114.611,
+      "end": 119.164,
+      "duration": 4.554
+    },
+    {
+      "index": 25,
+      "text": "Una última herramienta, de Arthur Brooks en el episodio 931: convertir la ansiedad en miedo concreto.",
+      "start": 119.414,
+      "end": 126.336,
+      "duration": 6.922
+    },
+    {
+      "index": 26,
+      "text": "La ansiedad es miedo sin enfocar.",
+      "start": 126.586,
+      "end": 128.745,
+      "duration": 2.159
+    },
+    {
+      "index": 27,
+      "text": "Escribe cinco cosas que te causan ansiedad y pregúntate: ¿qué es lo peor que puede pasar? ¿Qué tan probable es? ¿Qué haría si pasara?",
+      "start": 128.995,
+      "end": 136.405,
+      "duration": 7.41
+    },
+    {
+      "index": 28,
+      "text": "En resumen: la exposición vence a la evitación. Jerarquía de diez peldaños, un peldaño por semana, sin muletas. La ansiedad no se piensa: se actúa.",
+      "start": 136.655,
+      "end": 145.489,
+      "duration": 8.835
+    }
+  ]
+}

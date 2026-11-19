@@ -1,0 +1,191 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.627,
+  "total_duration": 143.459,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 10. EL FILTRO CRÍTICO.",
+      "start": 0.0,
+      "end": 2.159,
+      "duration": 2.159
+    },
+    {
+      "index": 1,
+      "text": "Este capítulo es el filtro con el que debes escuchar todo lo anterior.",
+      "start": 3.059,
+      "end": 7.189,
+      "duration": 4.13
+    },
+    {
+      "index": 2,
+      "text": "Primero, qué es sólido.",
+      "start": 7.439,
+      "end": 8.778,
+      "duration": 1.339
+    },
+    {
+      "index": 3,
+      "text": "La terapia de exposición, con setenta años de evidencia.",
+      "start": 9.028,
+      "end": 12.375,
+      "duration": 3.347
+    },
+    {
+      "index": 4,
+      "text": "El desprecio como predictor de divorcio, con décadas de observación de Gottman.",
+      "start": 12.625,
+      "end": 17.129,
+      "duration": 4.504
+    },
+    {
+      "index": 5,
+      "text": "La autoeficacia de Bandura.",
+      "start": 17.379,
+      "end": 18.991,
+      "duration": 1.612
+    },
+    {
+      "index": 6,
+      "text": "Las intervenciones de felicidad de Lyubomirsky, con veintiocho años de ensayos controlados.",
+      "start": 19.241,
+      "end": 24.314,
+      "duration": 5.074
+    },
+    {
+      "index": 7,
+      "text": "Las preferencias declaradas frente a las reveladas, de Eastwick.",
+      "start": 24.564,
+      "end": 28.023,
+      "duration": 3.458
+    },
+    {
+      "index": 8,
+      "text": "Eso puedes citarlo con confianza.",
+      "start": 28.273,
+      "end": 30.427,
+      "duration": 2.155
+    },
+    {
+      "index": 9,
+      "text": "Segundo, qué es broscience, especulación o mito.",
+      "start": 30.677,
+      "end": 33.552,
+      "duration": 2.875
+    },
+    {
+      "index": 10,
+      "text": "La hipótesis de sedación, que el porno y los videojuegos serían una válvula de escape del celibato masculino, es broscience declarada por el propio Chris Williamson en el episodio 586.",
+      "start": 33.802,
+      "end": 45.726,
+      "duration": 11.924
+    },
+    {
+      "index": 11,
+      "text": "El ochenta veinte, ya lo viste, es un mito.",
+      "start": 45.976,
+      "end": 48.506,
+      "duration": 2.53
+    },
+    {
+      "index": 12,
+      "text": "Y hay cifras concretas que no debes citar jamás como datos, aunque las oigas en el podcast.",
+      "start": 48.756,
+      "end": 54.018,
+      "duration": 5.262
+    },
+    {
+      "index": 13,
+      "text": "La cifra sobre control de impulsos atribuida a Kathryn Paige Harden en el episodio 540 no se pudo verificar, y la atribución es dudosa.",
+      "start": 54.268,
+      "end": 63.089,
+      "duration": 8.821
+    },
+    {
+      "index": 14,
+      "text": "Las cifras de limerencia y autosabotaje del episodio 1092 no tienen fuente rastreable.",
+      "start": 63.339,
+      "end": 69.136,
+      "duration": 5.797
+    },
+    {
+      "index": 15,
+      "text": "La afirmación de que Gottman predice el divorcio con más del noventa por ciento de precisión es controvertida, y no se ha replicado con esa exactitud fuera de su laboratorio.",
+      "start": 69.386,
+      "end": 79.606,
+      "duration": 10.221
+    },
+    {
+      "index": 16,
+      "text": "Y un término de la descripción del episodio 1034, Anorexic Hermit Crab, que ninguna fuente define: no inventes una definición.",
+      "start": 79.856,
+      "end": 87.859,
+      "duration": 8.003
+    },
+    {
+      "index": 17,
+      "text": "La regla práctica es esta: si el estudio tiene nombre, año y revista, es verificable.",
+      "start": 88.109,
+      "end": 93.307,
+      "duration": 5.197
+    },
+    {
+      "index": 18,
+      "text": "Si el invitado dice hay un estudio que, sin más, es rumor con corbata.",
+      "start": 93.557,
+      "end": 97.452,
+      "duration": 3.896
+    },
+    {
+      "index": 19,
+      "text": "Y cuando un invitado dice esto evolucionó para, pregúntate si hay un test directo o solo una historia coherente.",
+      "start": 97.702,
+      "end": 103.976,
+      "duration": 6.273
+    },
+    {
+      "index": 20,
+      "text": "Tercero, los vacíos: lo que el podcast no dice.",
+      "start": 104.226,
+      "end": 107.149,
+      "duration": 2.923
+    },
+    {
+      "index": 21,
+      "text": "Casi nada sobre relaciones fuera del mundo occidental rico, nada sobre Cuba o América Latina, y poco sobre salud mental clínica seria, donde Robertson es la excepción.",
+      "start": 107.399,
+      "end": 117.652,
+      "duration": 10.253
+    },
+    {
+      "index": 22,
+      "text": "La traducción cultural es tarea tuya.",
+      "start": 117.902,
+      "end": 120.381,
+      "duration": 2.479
+    },
+    {
+      "index": 23,
+      "text": "Y un último sesgo: los títulos se retitulan para el algoritmo, y varios episodios tienen una hora útil dentro de tres de metraje.",
+      "start": 120.631,
+      "end": 128.254,
+      "duration": 7.622
+    },
+    {
+      "index": 24,
+      "text": "Juzga el episodio, no el titular.",
+      "start": 128.504,
+      "end": 130.563,
+      "duration": 2.059
+    },
+    {
+      "index": 25,
+      "text": "En resumen: estudio con nombre, año y revista, o no es un dato. Lo sólido es la psicología clínica y social clásica; lo especulativo casi siempre empieza por esto evolucionó para.",
+      "start": 131.263,
+      "end": 142.259,
+      "duration": 10.996
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "modern-wisdom-aprende",
+  "title": "Modern Wisdom: aprender",
+  "objective": "Modern Wisdom: aprender",
+  "phase": "editing",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [],
+  "pending": [],
+  "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
+  "updatedAt": "2026-11-19T13:53:51.225Z",
+  "pipeline": {
+    "phases": {
+      "assets": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "vo": {
+        "status": "done",
+        "startedAt": "2026-11-19T13:53:51.212Z",
+        "updatedAt": "2026-11-19T13:53:51.212Z",
+        "artifacts": [
+          "public/audio/voice-test/em_alex.wav",
+          "public/audio/voice-test/em_santa.wav",
+          "voice-music-test.md"
+        ],
+        "note": ""
+      },
+      "captions": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "mix": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "render": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": "",
+        "chunks": {
+          "total": 0,
+          "done": 0,
+          "completed": [],
+          "framesDone": 0,
+          "framesTotal": 0,
+          "percent": 0,
+          "chunkSize": 150,
+          "resumeCommand": ""
+        }
+      },
+      "qa": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-19T13:53:51.212Z",
+        "phase": "vo",
+        "event": "Prueba de voz Kokoro: em_alex elegida (0 errores reales, ~23 s audio/min); música Flow local descartada",
+        "artifacts": [
+          "public/audio/voice-test/em_alex.wav",
+          "public/audio/voice-test/em_santa.wav",
+          "voice-music-test.md"
+        ]
+      }
+    ]
+  }
+}

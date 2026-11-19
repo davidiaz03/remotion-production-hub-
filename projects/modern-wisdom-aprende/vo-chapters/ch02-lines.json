@@ -1,0 +1,135 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.72,
+  "total_duration": 89.976,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 2. LA IDEA CENTRAL: LA NO-NECESIDAD.",
+      "start": 0.0,
+      "end": 2.928,
+      "duration": 2.928
+    },
+    {
+      "index": 1,
+      "text": "Casi todos los episodios de este podcast repiten una sola idea central.",
+      "start": 3.828,
+      "end": 8.353,
+      "duration": 4.525
+    },
+    {
+      "index": 2,
+      "text": "Esa idea es la no-necesidad.",
+      "start": 8.603,
+      "end": 10.557,
+      "duration": 1.954
+    },
+    {
+      "index": 3,
+      "text": "Mark Manson la formula en el episodio 1096 como una teoría unificada del atractivo.",
+      "start": 10.807,
+      "end": 16.549,
+      "duration": 5.742
+    },
+    {
+      "index": 4,
+      "text": "La definición es esta: la necesidad ocurre cuando pones más prioridad en lo que otros piensan de ti que en lo que tú piensas de ti.",
+      "start": 16.799,
+      "end": 24.192,
+      "duration": 7.393
+    },
+    {
+      "index": 5,
+      "text": "Dicho al revés: no necesitar es que tu opinión sobre ti pese más que la reacción ajena.",
+      "start": 24.442,
+      "end": 29.502,
+      "duration": 5.06
+    },
+    {
+      "index": 6,
+      "text": "Esto no es indiferencia, y no es frialdad.",
+      "start": 29.752,
+      "end": 32.286,
+      "duration": 2.534
+    },
+    {
+      "index": 7,
+      "text": "Es que la acción nazca de tus valores, no de la búsqueda de validación.",
+      "start": 32.536,
+      "end": 36.265,
+      "duration": 3.729
+    },
+    {
+      "index": 8,
+      "text": "Esta idea no es nueva para ti.",
+      "start": 36.515,
+      "end": 38.369,
+      "duration": 1.855
+    },
+    {
+      "index": 9,
+      "text": "Es el marco teórico de algo que ya practicas: tu métrica de éxito es haber actuado, no la reacción del otro.",
+      "start": 38.619,
+      "end": 44.816,
+      "duration": 6.197
+    },
+    {
+      "index": 10,
+      "text": "Si le hablas a la compañera del curso de inglés, el éxito es haberle hablado.",
+      "start": 45.066,
+      "end": 49.267,
+      "duration": 4.201
+    },
+    {
+      "index": 11,
+      "text": "Su respuesta no es tu nota.",
+      "start": 49.517,
+      "end": 51.302,
+      "duration": 1.785
+    },
+    {
+      "index": 12,
+      "text": "Naval Ravikant, en el episodio 922, dice lo mismo con otras palabras: la autoestima es la reputación que tienes contigo mismo.",
+      "start": 51.552,
+      "end": 60.148,
+      "duration": 8.596
+    },
+    {
+      "index": 13,
+      "text": "Se construye viviendo según tu código y cumpliendo lo que te prometes, no recogiendo aplausos.",
+      "start": 60.398,
+      "end": 66.023,
+      "duration": 5.626
+    },
+    {
+      "index": 14,
+      "text": "Y una consecuencia práctica: la no-necesidad no se finge.",
+      "start": 66.273,
+      "end": 69.853,
+      "duration": 3.58
+    },
+    {
+      "index": 15,
+      "text": "Si actúas con desapego como una técnica para gustar más, eso sigue siendo necesidad, solo que disfrazada.",
+      "start": 70.103,
+      "end": 76.452,
+      "duration": 6.348
+    },
+    {
+      "index": 16,
+      "text": "La prueba es simple: si nadie te viera, ¿harías lo mismo?",
+      "start": 76.702,
+      "end": 79.898,
+      "duration": 3.196
+    },
+    {
+      "index": 17,
+      "text": "En resumen: la no-necesidad es que tu opinión sobre ti pese más que la reacción ajena. Éxito es haber actuado, no lo que el otro haga después.",
+      "start": 80.598,
+      "end": 88.776,
+      "duration": 8.179
+    }
+  ]
+}

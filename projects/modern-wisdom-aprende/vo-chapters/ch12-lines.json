@@ -1,0 +1,191 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.698,
+  "total_duration": 135.587,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 12. LA ADVERTENCIA MAESTRA.",
+      "start": 0.0,
+      "end": 2.548,
+      "duration": 2.548
+    },
+    {
+      "index": 1,
+      "text": "Este capítulo es una advertencia contra el propio material de este video.",
+      "start": 3.448,
+      "end": 7.89,
+      "duration": 4.443
+    },
+    {
+      "index": 2,
+      "text": "Y es la más importante.",
+      "start": 8.14,
+      "end": 9.727,
+      "duration": 1.587
+    },
+    {
+      "index": 3,
+      "text": "Williamson, en el episodio 1034, describe a los advice hyper-responders, los hiper-respondedores de consejos.",
+      "start": 9.977,
+      "end": 17.102,
+      "duration": 7.124
+    },
+    {
+      "index": 4,
+      "text": "El consejo no esculpe: exagera lo que ya eres.",
+      "start": 17.352,
+      "end": 20.16,
+      "duration": 2.808
+    },
+    {
+      "index": 5,
+      "text": "No seas insistente con las mujeres vuelve aún más tímidos a los hombres ansiosos y concienzudos, mientras los que invaden límites no hacen caso.",
+      "start": 20.41,
+      "end": 28.881,
+      "duration": 8.471
+    },
+    {
+      "index": 6,
+      "text": "Trabaja más duro lo devora el sobreexigido inseguro, y el vago pasa de largo.",
+      "start": 29.131,
+      "end": 33.802,
+      "duration": 4.671
+    },
+    {
+      "index": 7,
+      "text": "Tú eres concienzudo, autoexigente y gran consumidor de consejos.",
+      "start": 34.052,
+      "end": 38.125,
+      "duration": 4.072
+    },
+    {
+      "index": 8,
+      "text": "Eres el perfil exacto del hiper-respondedor.",
+      "start": 38.375,
+      "end": 41.045,
+      "duration": 2.671
+    },
+    {
+      "index": 9,
+      "text": "Cada consejo de este video debe pasar el filtro: ¿me está diciendo que haga más de algo que ya hago en exceso?",
+      "start": 41.295,
+      "end": 47.642,
+      "duration": 6.347
+    },
+    {
+      "index": 10,
+      "text": "Si la respuesta es sí, el consejo que probablemente necesitas es el opuesto: descansa, publica imperfecto, deja algo sin optimizar.",
+      "start": 47.892,
+      "end": 55.946,
+      "duration": 8.054
+    },
+    {
+      "index": 11,
+      "text": "Segunda advertencia, de Manson en el episodio 1096: aprender es la forma favorita de procrastinar de la gente lista.",
+      "start": 56.196,
+      "end": 63.818,
+      "duration": 7.622
+    },
+    {
+      "index": 12,
+      "text": "Aprender se siente seguro y se siente como progreso, y pospone el riesgo de hacer la cosa de verdad.",
+      "start": 64.068,
+      "end": 69.823,
+      "duration": 5.755
+    },
+    {
+      "index": 13,
+      "text": "Si lo ves entero y no actúas, no aprendiste: te entretuviste con buenas intenciones.",
+      "start": 70.073,
+      "end": 74.949,
+      "duration": 4.876
+    },
+    {
+      "index": 14,
+      "text": "Tercera: el Complejo de Atlas, también del episodio 1034.",
+      "start": 75.199,
+      "end": 79.271,
+      "duration": 4.072
+    },
+    {
+      "index": 15,
+      "text": "Asumir la responsabilidad de las emociones y los errores de los demás para mantener la paz.",
+      "start": 79.521,
+      "end": 84.725,
+      "duration": 5.204
+    },
+    {
+      "index": 16,
+      "text": "La verdadera fortaleza es saber cuándo devolver las cargas que no te pertenecen.",
+      "start": 84.975,
+      "end": 89.703,
+      "duration": 4.729
+    },
+    {
+      "index": 17,
+      "text": "Cuarta: la ilusión input-output.",
+      "start": 89.953,
+      "end": 92.04,
+      "duration": 2.087
+    },
+    {
+      "index": 18,
+      "text": "Los inputs son el esfuerzo, los outputs son el trabajo hecho, y los outcomes son los resultados reales.",
+      "start": 92.29,
+      "end": 98.413,
+      "duration": 6.123
+    },
+    {
+      "index": 19,
+      "text": "Solo los outcomes miden efectividad real.",
+      "start": 98.663,
+      "end": 101.417,
+      "duration": 2.754
+    },
+    {
+      "index": 20,
+      "text": "Y una última, para quitarte un peso: sentir ansiedad antes de hablar con alguien no es vergonzoso.",
+      "start": 101.667,
+      "end": 107.362,
+      "duration": 5.695
+    },
+    {
+      "index": 21,
+      "text": "Y la procrastinación, dice Williamson, no es pereza: es miedo.",
+      "start": 107.612,
+      "end": 111.183,
+      "duration": 3.57
+    },
+    {
+      "index": 22,
+      "text": "Cuando pospones algo, la pregunta no es por qué soy tan vago, sino a qué le tengo miedo aquí.",
+      "start": 111.433,
+      "end": 116.603,
+      "duration": 5.171
+    },
+    {
+      "index": 23,
+      "text": "Recuerda que estos marcos del episodio 1034 son frameworks de autor, no ciencia.",
+      "start": 116.853,
+      "end": 122.253,
+      "duration": 5.399
+    },
+    {
+      "index": 24,
+      "text": "Úsalos como lentes, no como leyes.",
+      "start": 122.503,
+      "end": 124.662,
+      "duration": 2.159
+    },
+    {
+      "index": 25,
+      "text": "En resumen: el consejo exagera lo que ya eres. Filtra todo por quién eres tú, y recuerda que aprender sin actuar es procrastinar con buenas intenciones.",
+      "start": 125.362,
+      "end": 134.387,
+      "duration": 9.025
+    }
+  ]
+}

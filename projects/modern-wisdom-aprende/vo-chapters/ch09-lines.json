@@ -1,0 +1,184 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.661,
+  "total_duration": 140.542,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 9. MENTALIDAD Y CLARIDAD.",
+      "start": 0.0,
+      "end": 2.359,
+      "duration": 2.359
+    },
+    {
+      "index": 1,
+      "text": "Este capítulo recoge el estoicismo práctico y las ideas de mentalidad que sí sostienen los datos.",
+      "start": 3.259,
+      "end": 8.959,
+      "duration": 5.7
+    },
+    {
+      "index": 2,
+      "text": "Empieza con Marco Aurelio, en la voz de Donald Robertson, episodio 274.",
+      "start": 9.209,
+      "end": 14.705,
+      "duration": 5.496
+    },
+    {
+      "index": 3,
+      "text": "Marco Aurelio no era un filósofo de torre de marfil: era un emperador en guerra, con insomnio, ira y duelo, y sus Meditaciones son un diario privado, no un tratado.",
+      "start": 14.955,
+      "end": 24.325,
+      "duration": 9.37
+    },
+    {
+      "index": 4,
+      "text": "Su herramienta más práctica para ti es una pregunta de cinco segundos.",
+      "start": 24.575,
+      "end": 28.579,
+      "duration": 4.003
+    },
+    {
+      "index": 5,
+      "text": "Ante la ira, pregúntate: ¿qué querría mi yo de mañana que hiciera ahora?",
+      "start": 28.829,
+      "end": 32.776,
+      "duration": 3.947
+    },
+    {
+      "index": 6,
+      "text": "Úsala antes de responder con ira en WhatsApp.",
+      "start": 33.026,
+      "end": 35.73,
+      "duration": 2.705
+    },
+    {
+      "index": 7,
+      "text": "Segunda herramienta: la re-descripción llana.",
+      "start": 35.98,
+      "end": 38.553,
+      "duration": 2.573
+    },
+    {
+      "index": 8,
+      "text": "Ante la retórica inflamada, describe los hechos en lenguaje llano y sin adornos.",
+      "start": 38.803,
+      "end": 43.529,
+      "duration": 4.726
+    },
+    {
+      "index": 9,
+      "text": "Es exactamente tu regla de verificación para el radar social, con nombre estoico.",
+      "start": 43.779,
+      "end": 48.432,
+      "duration": 4.653
+    },
+    {
+      "index": 10,
+      "text": "Y el estoicismo no es resignación: el fatalismo, eso de que estaba destinado a ser, es una forma de rendirse.",
+      "start": 48.682,
+      "end": 55.255,
+      "duration": 6.573
+    },
+    {
+      "index": 11,
+      "text": "Los estoicos no eran robots sin humor: el estoicismo real siente todo y elige la respuesta.",
+      "start": 55.505,
+      "end": 60.954,
+      "duration": 5.449
+    },
+    {
+      "index": 12,
+      "text": "Pasemos a Naval Ravikant, en el episodio 922.",
+      "start": 61.204,
+      "end": 64.971,
+      "duration": 3.767
+    },
+    {
+      "index": 13,
+      "text": "Su distinción central: los juegos de estatus son suma cero, y los juegos de creación son suma positiva.",
+      "start": 65.221,
+      "end": 71.393,
+      "duration": 6.172
+    },
+    {
+      "index": 14,
+      "text": "Elige en qué juego juegas.",
+      "start": 71.643,
+      "end": 73.305,
+      "duration": 1.663
+    },
+    {
+      "index": 15,
+      "text": "En un entorno de escasez y comparación constante, elegir el juego de crear en vez del juego de parecer es una decisión de salud mental.",
+      "start": 73.555,
+      "end": 81.44,
+      "duration": 7.885
+    },
+    {
+      "index": 16,
+      "text": "Naval añade que la atención, no el tiempo, es la moneda real de la vida: cada hora de scroll es una decisión de gasto real.",
+      "start": 81.69,
+      "end": 88.669,
+      "duration": 6.979
+    },
+    {
+      "index": 17,
+      "text": "De Andrew Huberman, en el episodio 700, quédate con una práctica gratuita: body still, mind active.",
+      "start": 88.919,
+      "end": 95.147,
+      "duration": 6.228
+    },
+    {
+      "index": 18,
+      "text": "Veinte minutos diarios de pensamiento deliberado en quietud.",
+      "start": 95.397,
+      "end": 98.805,
+      "duration": 3.408
+    },
+    {
+      "index": 19,
+      "text": "Sin estímulos, sin móvil, solo pensar.",
+      "start": 99.055,
+      "end": 101.263,
+      "duration": 2.208
+    },
+    {
+      "index": 20,
+      "text": "Es gratis, no necesita tecnología, y es perfecto para Cuba.",
+      "start": 101.513,
+      "end": 105.163,
+      "duration": 3.65
+    },
+    {
+      "index": 21,
+      "text": "Y de Manson, en el episodio 961, una frase para revisar tu semana: no estás estresado por hacer demasiado, sino por hacer demasiado poco de lo que te importa.",
+      "start": 105.413,
+      "end": 116.109,
+      "duration": 10.696
+    },
+    {
+      "index": 22,
+      "text": "Y una advertencia de Robertson: hay quien tiene una biblioteca enorme de autoayuda y cero mejora, porque leer sobre el cambio sustituye al cambio.",
+      "start": 116.359,
+      "end": 124.843,
+      "duration": 8.484
+    },
+    {
+      "index": 23,
+      "text": "La regla que ya conoces: por cada hora de contenido, una acción concreta.",
+      "start": 125.093,
+      "end": 129.339,
+      "duration": 4.245
+    },
+    {
+      "index": 24,
+      "text": "En resumen: pregunta qué querría tu yo de mañana, describe los hechos en llano, juega al juego de crear y no al de parecer, y piensa veinte minutos al día en quietud.",
+      "start": 130.039,
+      "end": 139.342,
+      "duration": 9.304
+    }
+  ]
+}

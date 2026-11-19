@@ -2,8 +2,12 @@
 
 **Proyecto:** `modern-wisdom-aprende` · **Rama:** `work/modern-wisdom-aprende`
 **Tipo:** video didáctico largo PERSONAL (no para publicar, no del Memorial).
-**Plantilla:** motion-reel (explainer animado, módulo `shared/motion/`).
-Flujo completo: skill `motion_graphics_reels`.
+**Formato: HORIZONTAL 1920×1080, 30 fps** (cambio pedido por el usuario el
+19-nov-2026: aspecto profesional de video didáctico, no de reel; se verá en el
+móvil en horizontal). La plantilla motion-reel es vertical: la composición se
+adapta a 16:9 sobre los módulos compartidos (`shared/captions/`,
+`shared/motion/`), aprovechando el ancho para diagramas más amplios y tarjetas
+con más aire. Flujo completo: skill `motion_graphics_reels`.
 
 ## Brief
 
@@ -35,10 +39,12 @@ Flujo completo: skill `motion_graphics_reels`.
 - **Fotos/video reales y su procedencia:** ninguno. Video 100% gráfico: tarjetas,
   diagramas simples e ilustraciones generadas. No se usan fotos del podcast ni de
   los invitados.
-- **Música:** cama tenue opcional solo en apertura y cierre (Flow: revisar catálogo
-  antes de generar; o MusicGen por acto). El cuerpo del video va sin música o con
-  cama casi inaudible: es material de estudio, la voz manda. Sin SFX de reel viral;
-  como mucho, un pulso suave en los cambios de capítulo.
+- **Música:** cama SUTIL y baja durante todo el video (MusicGen, prompt calmado:
+  piano suave + pads cálidos, sin batería, sin voces, sin subidas dramáticas;
+  la biblioteca Flow local no tiene cama adecuada — solo cues dramáticos del
+  Memorial). Stem a −16 LUFS, ducking bajo la VO. Es material de estudio: la voz
+  manda. Sin SFX de reel viral; como mucho, un pulso suave en los cambios de
+  capítulo.
 - **Carpeta de Drive de entrega:** PENDIENTE (definir al montar; proyecto personal,
   no del Memorial).
 
@@ -48,9 +54,10 @@ Flujo completo: skill `motion_graphics_reels`.
   degradados llamativos, sin resplandor emocional de reel. El fondo no compite con
   el texto.
 - **Texto:** hueso `#F2EDE4` para el texto principal; gris cálido `#A8A099` para el
-  texto secundario (fuentes de episodios, notas). Tipografía grande y legible:
-  titulares ≥90 px, cuerpo de tarjeta ≥54 px, nada por debajo de 44 px a 1920.
-  Máximo 2–3 líneas por tarjeta; una idea por tarjeta.
+  texto secundario (fuentes de episodios, notas). Tipografía grande y legible
+  en 1080 de alto: titulares ≥64 px, cuerpo de tarjeta ≥36 px, nada por debajo
+  de 28 px. Máximo 2–3 líneas por tarjeta; una idea por tarjeta. En el móvil
+  en horizontal el texto debe seguir siendo legible sin acercar el teléfono.
 - **UN solo color de acento:** ámbar sobrio `#F0A832`. Un solo significado: «esto es
   lo importante» (palabra clave, capítulo activo en la barra de progreso, sello
   MITO/NO CITAR, fila destacada de una tabla). Todo lo demás es neutro.
@@ -62,10 +69,11 @@ Flujo completo: skill `motion_graphics_reels`.
 - **Diagramas simples:** líneas y nodos en hueso/gris, con el nodo clave en ámbar.
   Sin 3D, sin sombras duras. Ejemplos: jerarquía de 10 peldaños, input → output →
   outcome, estatus vs. creación, looping en 3 pasos, anatomía del mito 80/20.
-- **Karaoke:** subtítulo superior palabra a palabra (TopKaraoke), líneas ≤8
-  palabras, palabra activa en blanco, palabra clave con recuadro ámbar (1 por
-  frase como mucho). Ritmo pausado: la imagen cambia por bloque de ideas
-  (~10–15 s), no por frase.
+- **Karaoke:** subtítulo INFERIOR centrado palabra a palabra (BottomKaraoke),
+  líneas más largas que en vertical (hasta ~12 palabras por línea), palabra
+  activa en blanco con pop, palabra clave con recuadro ámbar (1 por frase como
+  mucho). Ritmo pausado: la imagen cambia por bloque de ideas (~10–15 s), no
+  por frase.
 - **SIN logo ni marca del Memorial.** Sin marca de agua. Sin CTA final, sin
   «suscríbete», sin sting de cierre. El video termina en pantalla limpia con la
   métrica: «Éxito es haber actuado.»
@@ -79,7 +87,7 @@ Repetir palabra por palabra en cada imagen; solo cambia el sujeto.
 Flat 3D illustration, soft studio lighting, smooth matte surfaces,
 rounded shapes, warm dark palette: deep charcoal background, bone-white
 subjects, single amber accent #F0A832, clean background, no text,
-no watermark, vertical 9:16 composition, centered subject with empty
+no watermark, horizontal 16:9 composition, centered subject with empty
 space around it.
 ```
 
@@ -91,14 +99,14 @@ un póster, no un video. Nunca presentar una ilustración como foto real.
 
 ## Ilustraciones de capítulo (6, sujeto literal)
 
-| # | Capítulo | Sujeto (literal a la VO) |
-|---|---|---|
-| 1 | 2 · No-necesidad | A balance scale: on one pan, a calm person standing; on the other pan, many small reaction faces. The person weighs more. |
-| 2 | 3 · Confianza | A stack of stone blocks forming a staircase; a person stepping up one step. |
-| 3 | 4 · Ansiedad | A staircase of ten steps climbing a hill; a person standing on the first step. |
-| 4 | 5 · Conversar | Two people sitting face to face; one speaks while the other listens attentively; a circular arrow looping between them. |
-| 5 | 6 · Conectar | Two cups of coffee on a table; two people laughing together beside it. |
-| 6 | 12 · Advertencia | A person surrounded by tall piles of unread books, looking at a clock; beside them, an open door with warm light. |
+| # | Capítulo | Sujeto (literal a la VO) | Seed final | Verificación visual |
+|---|---|---|---|---|
+| 1 | 2 · No-necesidad | Seesaw tilted: person on the low end, pile of tiny faces on the high end (la persona pesa más). | 347 | ✓ OK. Tres intentos fallidos antes (seeds 42, 142, 243): Flux nivelaba la balanza o dibujaba geometría incoherente. La formulación «playground seesaw» con el extremo izquierdo tocando el suelo por fin inclinó la balanza correctamente. |
+| 2 | 3 · Confianza | A stack of stone blocks forming a staircase; a person stepping up one step. | 43 | ✓ OK (verificada por el agente padre: limpia, literal, en paleta). |
+| 3 | 4 · Ansiedad | A staircase of ten steps climbing a hill; a person standing on the first step. | 44 | ✓ OK con matiz: la persona quedó en lo ALTO de la escalera, no en el primer peldaño. La idea (escalera de 10 peldaños) es literal; la posición no invierte la idea. Se monta así. |
+| 4 | 5 · Conversar | Two people sitting face to face; one speaks while the other listens attentively; a circular arrow looping between them. | 45 | ✓ OK: dos figuras frente a frente con flecha circular naranja entre ellas. |
+| 5 | 6 · Conectar | Two cups of coffee on a table; two faceless bone-white figures sitting together beside it, leaning toward each other warmly. | 246 | ✓ OK. Seed 46: texto «F0AA932» en la mesa + estilo 2D. Seed 146: bonita y literal pero con caras detalladas estilo Pixar, rompiendo el estilo bloqueado (figuras hueso sin rostro). Seed 246: dos figuras sin rostro inclinadas la una hacia la otra, dos tazas, en estilo con las demás. |
+| 6 | 12 · Advertencia | A person surrounded by tall piles of unread books, looking at a clock; beside them, an open door with warm light. | 47 | ✓ OK: pilas de libros, reloj en la pared, puerta abierta con luz cálida. |
 
 Los capítulos 7, 8, 10, 11 y 13 usan diagramas y tablas, no ilustración.
 Capítulos 0, 1, 9 y 14 usan tarjetas tipográficas.

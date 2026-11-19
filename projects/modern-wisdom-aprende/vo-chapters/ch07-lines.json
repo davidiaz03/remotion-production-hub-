@@ -1,0 +1,240 @@
+{
+  "sample_rate": 24000,
+  "voice": "em_alex",
+  "speed": 0.95,
+  "peak": 0.584,
+  "total_duration": 203.694,
+  "lines": [
+    {
+      "index": 0,
+      "text": "CAPÍTULO 7. RELACIONES SIN MITOS.",
+      "start": 0.0,
+      "end": 2.333,
+      "duration": 2.333
+    },
+    {
+      "index": 1,
+      "text": "Este capítulo desmonta creencias, y es el más largo porque hay mucho que desmontar.",
+      "start": 3.233,
+      "end": 7.963,
+      "duration": 4.73
+    },
+    {
+      "index": 2,
+      "text": "Empieza por el mito más citado en el entorno de este podcast: el ochenta veinte.",
+      "start": 8.213,
+      "end": 12.81,
+      "duration": 4.597
+    },
+    {
+      "index": 3,
+      "text": "La idea de que el veinte por ciento de los hombres acapara al ochenta por ciento de las mujeres.",
+      "start": 13.06,
+      "end": 18.161,
+      "duration": 5.101
+    },
+    {
+      "index": 4,
+      "text": "El origen real es un post de Medium de 2015 que aplicó el principio de Pareto a un modelo de likes de Tinder.",
+      "start": 18.411,
+      "end": 25.165,
+      "duration": 6.755
+    },
+    {
+      "index": 5,
+      "text": "Se basó en veintisiete mujeres que chatearon con un perfil masculino falso, sin encuestar a ningún hombre.",
+      "start": 25.415,
+      "end": 31.514,
+      "duration": 6.099
+    },
+    {
+      "index": 6,
+      "text": "Y las cifras exactas del post describían likes, no citas, no sexo, no relaciones.",
+      "start": 31.764,
+      "end": 36.686,
+      "duration": 4.922
+    },
+    {
+      "index": 7,
+      "text": "¿Qué sí es real? La desigualdad de atención en las aplicaciones existe y es grande.",
+      "start": 36.936,
+      "end": 41.608,
+      "duration": 4.672
+    },
+    {
+      "index": 8,
+      "text": "Hinge, en 2017, encontró que la mitad de los likes fue a parar a alrededor del quince por ciento de los hombres.",
+      "start": 41.858,
+      "end": 48.633,
+      "duration": 6.775
+    },
+    {
+      "index": 9,
+      "text": "Lo que no se sostiene es el salto de likes concentrados a relaciones concentradas.",
+      "start": 48.883,
+      "end": 53.719,
+      "duration": 4.836
+    },
+    {
+      "index": 10,
+      "text": "En la encuesta nacional estadounidense de crecimiento familiar, la mediana de parejas sexuales en el último año es una, tanto para hombres como para mujeres.",
+      "start": 53.969,
+      "end": 62.994,
+      "duration": 9.026
+    },
+    {
+      "index": 11,
+      "text": "El ochenta veinte como cifra es un meme, no una medición.",
+      "start": 63.244,
+      "end": 66.452,
+      "duration": 3.208
+    },
+    {
+      "index": 12,
+      "text": "Y el propio episodio 1133, la mesa redonda sobre atracción femenina, lo desmonta.",
+      "start": 66.702,
+      "end": 72.526,
+      "duration": 5.824
+    },
+    {
+      "index": 13,
+      "text": "Lo mismo pasa con el Chad: los números de parejas sexuales son estables en ambos sexos, y el monopolio es un invento de estadísticas sesgadas de aplicaciones.",
+      "start": 72.776,
+      "end": 82.301,
+      "duration": 9.524
+    },
+    {
+      "index": 14,
+      "text": "Sobre el físico, dos datos que desactivan inseguridades.",
+      "start": 82.551,
+      "end": 85.926,
+      "duration": 3.375
+    },
+    {
+      "index": 15,
+      "text": "Primero, según el episodio 1031, la preferencia revelada de las mujeres está alrededor del trece al quince por ciento de grasa corporal, no el diez por ciento del culto al gimnasio.",
+      "start": 86.176,
+      "end": 97.281,
+      "duration": 11.105
+    },
+    {
+      "index": 16,
+      "text": "Y un matiz: la competencia por el físico es sobre todo entre hombres; el episodio 1133 lo llama mogging, señalización de estatus ante otros hombres.",
+      "start": 97.531,
+      "end": 107.327,
+      "duration": 9.796
+    },
+    {
+      "index": 17,
+      "text": "Eastwick demostró, con respaldo fuerte, que las diferencias sexuales de las encuestas se reducen mucho cuando se mide la conducta real.",
+      "start": 107.577,
+      "end": 115.441,
+      "duration": 7.864
+    },
+    {
+      "index": 18,
+      "text": "Observa lo que la gente hace, no lo que dice que quiere.",
+      "start": 115.691,
+      "end": 118.663,
+      "duration": 2.971
+    },
+    {
+      "index": 19,
+      "text": "Mercedes Coffman, en el episodio 1092, propone un estándar de oro con tres partes: disponibilidad, capacidad y madurez.",
+      "start": 118.913,
+      "end": 126.691,
+      "duration": 7.779
+    },
+    {
+      "index": 20,
+      "text": "Y su herramienta central es la prueba de claridad: un hombre genuinamente interesado da claridad incluso en sus días más ocupados.",
+      "start": 126.941,
+      "end": 134.692,
+      "duration": 7.751
+    },
+    {
+      "index": 21,
+      "text": "La falta de claridad es la señal.",
+      "start": 134.942,
+      "end": 137.147,
+      "duration": 2.205
+    },
+    {
+      "index": 22,
+      "text": "Esto vale en espejo: da claridad tú también, en vez de mantener a alguien en confusión.",
+      "start": 137.397,
+      "end": 142.375,
+      "duration": 4.979
+    },
+    {
+      "index": 23,
+      "text": "Coffman distingue además la limerencia del amor.",
+      "start": 142.625,
+      "end": 145.574,
+      "duration": 2.948
+    },
+    {
+      "index": 24,
+      "text": "La limerencia es una fijación emocional alimentada por la incertidumbre, con pensamientos intrusivos y ansia de validación.",
+      "start": 145.824,
+      "end": 153.06,
+      "duration": 7.236
+    },
+    {
+      "index": 25,
+      "text": "Ojo: las cifras de prevalencia que se citan en ese episodio no pudieron verificarse, así que no las repito aquí como datos.",
+      "start": 153.31,
+      "end": 160.661,
+      "duration": 7.351
+    },
+    {
+      "index": 26,
+      "text": "El concepto es útil, las cifras no son fiables.",
+      "start": 160.911,
+      "end": 163.837,
+      "duration": 2.926
+    },
+    {
+      "index": 27,
+      "text": "Y cierro con lo que destruye y lo que construye una relación.",
+      "start": 164.087,
+      "end": 167.647,
+      "duration": 3.561
+    },
+    {
+      "index": 28,
+      "text": "Arthur Brooks, en el episodio 931, recoge el hallazgo de Gottman, con décadas de observación detrás: el desprecio destruye los matrimonios.",
+      "start": 167.897,
+      "end": 177.123,
+      "duration": 9.226
+    },
+    {
+      "index": 29,
+      "text": "El desprecio es ira más asco: poner los ojos en blanco, el sarcasmo, la descalificación.",
+      "start": 177.373,
+      "end": 182.747,
+      "duration": 5.374
+    },
+    {
+      "index": 30,
+      "text": "Es más dañino que la ira o el conflicto.",
+      "start": 182.997,
+      "end": 185.375,
+      "duration": 2.378
+    },
+    {
+      "index": 31,
+      "text": "Su inverso es lo que sostiene las relaciones largas: validación, celebrar las buenas noticias, contacto y mirada.",
+      "start": 185.625,
+      "end": 192.198,
+      "duration": 6.572
+    },
+    {
+      "index": 32,
+      "text": "En resumen: el ochenta veinte es un mito, el físico importa menos de lo que crees, la falta de claridad es la señal, y el desprecio destruye lo que la validación construye.",
+      "start": 192.448,
+      "end": 202.494,
+      "duration": 10.047
+    }
+  ]
+}
