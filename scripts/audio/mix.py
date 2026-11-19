@@ -160,8 +160,10 @@ def main() -> int:
         p.error("--music y --section son excluyentes")
     if not a.music and not a.section:
         p.error("falta la música: --music o al menos un --section")
-    if a.seconds < 2 or a.seconds > 1800:
-        p.error("seconds fuera de rango (2-1800)")
+    # Límite 3600 s (1 h): el guardarraíl original (1800 s) era para reels;
+    # el video didáctico modern-wisdom-aprende (1961,6 s) lo superó.
+    if a.seconds < 2 or a.seconds > 3600:
+        p.error("seconds fuera de rango (2-3600)")
     for f in [a.voice, a.music] + [s[0] for s in a.section] + [s[0] for s in a.sfx]:
         if f and not os.path.isfile(f):
             p.error(f"falta el archivo {f}")

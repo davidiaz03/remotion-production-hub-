@@ -1,0 +1,4 @@
+[
+{"name": "bed-B", "prompt": "calm ambient documentary underscore, soft piano and warm synth pads, slow tempo, gentle, unobtrusive background music for narration, no drums, no vocals, no dramatic swells, even dynamics throughout", "generate": 60, "start": 0.0, "end": 60.0},
+{"name": "bed-C", "prompt": "calm ambient documentary underscore, soft piano and warm synth pads, slow tempo, gentle, unobtrusive background music for narration, no drums, no vocals, no dramatic swells, even dynamics throughout", "generate": 60, "start": 60.0, "end": 120.0}
+]
