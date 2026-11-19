@@ -1,9 +1,12 @@
 # Tendencias de memes — qué funciona hoy (nov 2026)
 
-Resumen de la investigación en redes y web, refrescado el **18-nov-2026**
-(búsqueda web + IG/FB/Threads). Dónde re-chequear: **Know Your Meme**
-(knowyourmeme.com), **Imgflip trending** (imgflip.com/memes),
-**ppl.studio/viral-formats**, **Virlo** (virlo.ai/reels).
+Resumen de la investigación en redes y web, refrescado el **19-nov-2026**
+(búsqueda web + Know Your Meme trending + MemeScreens). Dónde
+re-chequear: **Know Your Meme** (knowyourmeme.com/trending), **Imgflip
+trending** (imgflip.com/memes), **MemeScreens** (memescreens.com),
+**Virlo** (virlo.ai/reels). Nota: ppl.studio/viral-formats se probó el
+19-nov-2026 y no devuelve nada útil; TikTok Creative Center no muestra
+audio en tendencia sin cuenta de empresa.
 
 ## Panorama
 
@@ -24,6 +27,41 @@ Resumen de la investigación en redes y web, refrescado el **18-nov-2026**
   contenido: parece un hilo de chat, un edit de fandom, una confesión,
   un chiste de nicho. El producto (o el chiste) es el remate, no el
   decorado.
+
+## Novedades del 19-nov-2026 (banco de plantillas de vídeo)
+
+Investigación + descargas del 19-nov: **27 plantillas de vídeo reales**
+en `video-templates/` (ver catálogo). Formatos en pico ahora mismo:
+
+- **«Talk To Me» Doja Cat** — baile en loop de Doja Cat con «Like That»
+  (sped-up); en pico nov-2026. Caption arriba; el baile ES el chiste.
+- **Tung Tung Tung Sahur** — brainrot italiano vivo: tronco con bate de
+  béisbol; trailers falsos con «THE LAST SAHUR» (DJ Tralalero Tralala).
+- **Primetime TV Pattinson** — Robert Pattinson mirando el televisor;
+  la pantalla es verde para insertar contenido (lo que estás viendo).
+- **«6-7» (Six Seven)** — niño gritando «6-7» con «Doot Doot (6 7)» de
+  Skrilla; en pico nov-2026.
+- **«I Got So Mad»** — formato de FRASE, no de vídeo: «I got so mad I
+  [acción absurda]». Sin clip en el banco por diseño.
+- **En español/LatAm**: «Dame Hombro» (baile de hombros, Bulin 47,
+  Kevin Wai — sonido, no clip), «Yo en noviembre» (zorro; sin clip
+  limpio), «¿Y si sí?» (sin clip limpio), «Rechazame» (Prince Royce,
+  bachata para sketches).
+- **Veredictos de vigencia**: Sigma ✅ vivo; Chill Guy ✅ vivo; Italian
+  brainrot ✅ vivo; Skibidi Toilet ⚠️ muerto como formato (quedó como
+  referencia cultural); Hawk Tuah ❌ muerto.
+- **Sin URL limpia** (revisadas 19-nov, no entraron en el banco): This
+  Is Fine, Surprised Pikachu, Bernie «Once Again Asking», Jesse
+  Pinkman, Lupin Escape, «Yo en noviembre» (zorro), «Dame Hombro»,
+  «¿Y si sí?» y «I Got So Mad». Solo se añaden clips limpios sin marca
+  de agua: original limpio o nada.
+- **Sonidos en tendencia** (solo por nombre, sin descargar — copyright):
+  ver la tabla en el README § «Sonidos en tendencia». Lo nuevo del
+  19-nov: Paper Moon Static (Marnie Cusk, Nº 1 TikTok), «You're Under
+  Arrest» (ILLIT), «Housewife» (Tate McRae), «Dixie (PHONK)» (K7K7),
+  «Saxophones Getting Louder – Sped Up» (AntonioVivald), «Noite de
+  Esmeralda» (funk/phonk brasileño), «BbY WOW» (Karol G, Judeline,
+  Rusowsky).
 
 ## Novedades del 18-nov-2026
 
@@ -87,6 +125,8 @@ Resumen de la investigación en redes y web, refrescado el **18-nov-2026**
 | Imagen absurda con IA (Pollinations) | ✅ | `gen-absurd.py --prompt "…"` |
 | Reacción (clip + caption) | ✅ | `meme-video.py --input clip.mp4 --caption "…"` |
 | Silent face caption | ✅ | `meme-video.py --input clip-quieto.mp4 --caption "…"` |
+| Plantillas de vídeo reales (27) | ✅ (19-nov) | `meme-video.py --video-template <slug>` / `--list-video-templates` |
+| Green screen (19 de 27) | ✅ (19-nov) | `meme-video.py --video-template <slug> --chroma-key` |
 | Vídeo meme con IA (Veo/Omni) | 📝 receta | Ver README § «Vídeo meme con IA» (Pollinations vídeo = pago; Flow web = gratis) |
 
 ## La ola de 2026: vídeo con IA
@@ -101,8 +141,12 @@ freeze, música— se hace aquí con `meme-video.py`.
 ## Mantenimiento de tendencias
 
 - **Plantillas de imagen**: `refresh-templates.py` (Imgflip top 100).
-- **Formatos de vídeo**: revisar cada cierto tiempo contra Know Your Meme,
-  Imgflip trending, ppl.studio/viral-formats y Virlo, y actualizar esta
-  tabla y los generadores. Los formatos de vídeo no se actualizan solos.
+- **Plantillas de vídeo**: `refresh-video-templates.py` (KYM trending +
+  MemeScreens; dry-run por defecto, `--apply` descarga y añade).
+- **Formatos de vídeo**: revisar cada cierto tiempo contra Know Your Meme
+  trending, MemeScreens, Imgflip trending y Virlo, y actualizar esta
+  tabla y los generadores. Los formatos de vídeo no se actualizan solos:
+  el refresh añade clips, pero origen/uso/caption los completa un humano.
 - **Historial**: primera versión 18-nov-2026 (mañana); refresco
-  18-nov-2026 (mediodía) — este documento.
+  18-nov-2026 (mediodía); banco de vídeo + refresco 19-nov-2026 — este
+  documento.

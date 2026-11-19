@@ -32,12 +32,24 @@ Uso:
   # Reacción: clip corto + caption:
   python3 meme-video.py --input reaccion.mp4 --caption "yo viendo el grupo a las 2 AM"
 
+  # Desde una plantilla de vídeo real del catálogo:
+  python3 meme-video.py --video-template dicaprio-pointing \\
+      --top "CUANDO VES EL MEME ANTES QUE TUS AMIGOS" --punch-at 0.7 \\
+      --sfx vine-boom --freeze-end 2
+
+  # Plantilla green screen compuesta sobre fondo negro:
+  python3 meme-video.py --video-template coffin-dance --chroma-key \\
+      --top "YO" --punch-at 1 --sfx vine-boom
+
   # Cuadrado, más rápido:
   python3 meme-video.py --input clip.mp4 --top "..." --format square --speed 1.5
 
-SFX incluidos (en ../assets/sfx/):
-  boing, slam, pop, zoom (CC0, SFX Kit de Wyzowl)
-  airhorn, scratch (sintetizados aquí con ffmpeg, CC0; ver synth-sfx.py)
+SFX incluidos (en ../assets/sfx/, todos CC0):
+  boing, slam, pop, zoom (SFX Kit de Wyzowl)
+  airhorn, scratch, sad-trombone, censor, buzzer (sintetizados aquí
+  con ffmpeg; ver synth-sfx.py)
+  vine-boom, metal-pipe, sting, fail, error, ping, applause, riser,
+  bonk, bass-drop, glitch, deflate, coin, thunder, alarm (SFX Kit)
   ... o una ruta a cualquier .wav/.mp3 con --sfx.
 
 Música (en ../assets/music/, ver music.json):
@@ -74,6 +86,8 @@ FONT = os.path.join(ROOT, 'assets', 'fonts', 'ArchivoBlack-Regular.ttf')
 SFX_DIR = os.path.join(ROOT, 'assets', 'sfx')
 MUSIC_DIR = os.path.join(ROOT, 'assets', 'music')
 MUSIC_CATALOG = os.path.join(MUSIC_DIR, 'music.json')
+VIDEO_CATALOG = os.path.join(ROOT, 'video-templates', 'catalog.json')
+VIDEO_CLIPS = os.path.join(ROOT, 'video-templates', 'clips')
 FACE_FRAME = os.path.join(HERE, 'face-frame.py')
 VENV_PYTHON = os.path.expanduser('~/workspace/remotion-hub/.venv/bin/python')
 OUT_DIR = os.path.join(ROOT, 'out')
@@ -85,6 +99,26 @@ SFX = {
     'zoom': 'move-zoom-in.wav',
     'airhorn': 'airhorn.wav',
     'scratch': 'record-scratch.wav',
+    # Clásicos de memes (19-nov-2026): del SFX Kit CC0 del hub, salvo
+    # los tres últimos, sintetizados aquí (ver synth-sfx.py).
+    'vine-boom': 'vine-boom.wav',
+    'metal-pipe': 'metal-pipe.wav',
+    'sting': 'dramatic-sting.wav',
+    'fail': 'fail-womp.wav',
+    'error': 'error-chime.wav',
+    'ping': 'ping.wav',
+    'applause': 'applause.wav',
+    'riser': 'riser.wav',
+    'bonk': 'bonk.wav',
+    'bass-drop': 'bass-drop.wav',
+    'glitch': 'glitch.wav',
+    'deflate': 'deflate.wav',
+    'coin': 'coin.wav',
+    'thunder': 'thunder.wav',
+    'alarm': 'alarm.wav',
+    'sad-trombone': 'sad-trombone.wav',
+    'censor': 'censor-beep.wav',
+    'buzzer': 'wrong-buzzer.wav',
 }
 
 FORMATS = {'vertical': (1080, 1920), 'square': (1080, 1080)}
@@ -178,6 +212,21 @@ def load_music_catalog():
         return {}
 
 
+def load_video_templates():
+    """Plantillas de vídeo del catálogo (lista de dicts)."""
+    if not os.path.exists(VIDEO_CATALOG):
+        sys.exit(f'no existe el catálogo de vídeo: {VIDEO_CATALOG}')
+    with open(VIDEO_CATALOG, encoding='utf-8') as f:
+        return json.load(f)['templates']
+
+
+def list_video_templates(templates):
+    print(f"{'slug':28} {'dur':>6}  nombre / uso")
+    for t in templates:
+        dur = f"{t.get('duration', 0):.1f}s"
+        print(f"{t['slug']:28} {dur:>6}  {t['name']} — {t.get('use', '')}")
+
+
 def resolve_music(name):
     """Nombre del catálogo, archivo en assets/music/ o ruta. None si no existe."""
     catalog = load_music_catalog()
@@ -234,6 +283,14 @@ def main():
     ap = argparse.ArgumentParser(description='Generador de memes de vídeo')
     ap.add_argument('--input', help='clip (.mp4/.mov/…) o imagen de base')
     ap.add_argument('--template', help='plantilla como imagen base (slug o id)')
+    ap.add_argument('--video-template', help='clip del catálogo de vídeo (slug)')
+    ap.add_argument('--list-video-templates', action='store_true',
+                    help='listar las plantillas de vídeo y salir')
+    ap.add_argument('--chroma-key', action='store_true',
+                    help='quitar el fondo verde (plantillas green screen) '
+                         'y componer sobre un fondo sólido')
+    ap.add_argument('--chroma-bg', default='black',
+                    help='color de fondo con --chroma-key (def. black)')
     ap.add_argument('--top', help='texto superior')
     ap.add_argument('--bottom', help='texto inferior')
     ap.add_argument('--pov', help='texto POV (se antepone «POV: »)')
@@ -250,7 +307,8 @@ def main():
                     help='escala máxima del punch (def. 1.35)')
     ap.add_argument('--shake', type=float, default=6,
                     help='amplitud del shake en px durante el punch (def. 6)')
-    ap.add_argument('--sfx', help='SFX en el golpe: boing|slam|pop|zoom|airhorn|scratch o ruta')
+    ap.add_argument('--sfx', help='SFX en el golpe: nombre del catálogo '
+                    '(boing, vine-boom, sad-trombone…; ver README) o ruta')
     ap.add_argument('--sfx-at', type=float,
                     help='segundo del SFX (def.: el del punch, o 0)')
     ap.add_argument('--freeze-end', type=float, default=0,
@@ -270,6 +328,10 @@ def main():
     ap.add_argument('--out', help='archivo de salida')
     args = ap.parse_args()
 
+    if args.list_video_templates:
+        list_video_templates(load_video_templates())
+        return 0
+
     # --- Resolver la base ---
     if args.input:
         base = os.path.expanduser(args.input)
@@ -286,8 +348,43 @@ def main():
             sys.exit(f"plantilla no encontrada: {args.template}")
         base = os.path.join(IMAGES, os.path.basename(t['file']))
         name = t['slug']
+    elif args.video_template:
+        templates = load_video_templates()
+        t = next((x for x in templates if x['slug'] == args.video_template),
+                 None)
+        if not t:
+            sys.exit(f"plantilla de vídeo no encontrada: {args.video_template} "
+                     f"(usa --list-video-templates)")
+        base = os.path.join(VIDEO_CLIPS, os.path.basename(t['file']))
+        if not os.path.exists(base):
+            sys.exit(f"falta el clip de la plantilla: {base}")
+        name = t['slug']
     else:
-        ap.error('falta --input o --template')
+        ap.error('falta --input, --template o --video-template')
+
+    # --- Chroma key (pre-paso): las plantillas green screen se componen
+    # sobre un fondo sólido antes de entrar en la cadena normal. Se hace
+    # en un pase aparte para no complicar el filtergraph principal.
+    key_tmpdir = None
+    if args.chroma_key:
+        if is_image(base):
+            ap.error('--chroma-key solo tiene sentido con un clip de vídeo')
+        key_tmpdir = tempfile.mkdtemp(prefix='meme-chroma-')
+        keyed = os.path.join(key_tmpdir, 'keyed.mp4')
+        kinfo = probe(base)
+        kdur = kinfo['duration'] or args.duration
+        run(['ffmpeg', '-y', '-v', 'error',
+             '-i', base,
+             '-f', 'lavfi', '-i',
+             f"color=c={args.chroma_bg}:s={kinfo['width']}x{kinfo['height']}:d={kdur}",
+             '-filter_complex',
+             '[0:v]chromakey=0x00FF00:0.12:0.15,'
+             'despill=type=green:mix=0.5:expand=0[fg];'
+             '[1:v][fg]overlay=0:0[v]',
+             '-map', '[v]', '-map', '0:a?',
+             '-c:v', 'libx264', '-crf', '20', '-pix_fmt', 'yuv420p',
+             '-c:a', 'copy', '-shortest', keyed])
+        base = keyed
 
     still = is_image(base)
     info = probe(base)
@@ -610,6 +707,8 @@ def main():
     finally:
         import shutil
         shutil.rmtree(tmpdir, ignore_errors=True)
+        if key_tmpdir:
+            shutil.rmtree(key_tmpdir, ignore_errors=True)
 
     out_info = probe(out)
     print(out)

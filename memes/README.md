@@ -98,6 +98,9 @@ de reacción: el golpe, el silencio, la cara congelada.
 
 ### SFX incluidos (CC0, en `assets/sfx/`)
 
+24 efectos, todos de uso libre: del SFX Kit CC0 del hub o sintetizados
+aquí con ffmpeg (`scripts/synth-sfx.py`, reproducible).
+
 | Nombre | Archivo | Uso |
 | --- | --- | --- |
 | `boing` | move-spring.wav | golpe cómico, resorte |
@@ -106,12 +109,33 @@ de reacción: el golpe, el silencio, la cara congelada.
 | `zoom` | move-zoom-in.wav | acompañar el punch |
 | `airhorn` | airhorn.wav | bocina de aire (sintetizada) |
 | `scratch` | record-scratch.wav | rayadura de vinilo (sintetizada) |
+| `vine-boom` | vine-boom.wav | el boom grave del remate (Vine) |
+| `metal-pipe` | metal-pipe.wav | golpe de metal, tubo que cae |
+| `sting` | dramatic-sting.wav | sting dramático, revelación |
+| `fail` | fail-womp.wav | «womp», fracaso con gracia |
+| `error` | error-chime.wav | chime de error (genérico, no Windows) |
+| `ping` | ping.wav | ping de mensaje entrante (genérico) |
+| `applause` | applause.wav | aplausos, ironía o triunfo |
+| `riser` | riser.wav | subida de tensión antes del golpe |
+| `bonk` | bonk.wav | golpe hueco, «bonk» |
+| `bass-drop` | bass-drop.wav | patada de bajo 808 |
+| `glitch` | glitch.wav | glitch digital, corte raro |
+| `deflate` | deflate.wav | globo que se desinfla, decepción |
+| `coin` | coin.wav | moneda que cae, dinero |
+| `thunder` | thunder.wav | trueno, dramatismo |
+| `alarm` | alarm.wav | alarma de dos tonos, alerta |
+| `sad-trombone` | sad-trombone.wav | trombón triste «wah wah wah» (sintetizado) |
+| `censor` | censor-beep.wav | pitido de censura (sintetizado) |
+| `buzzer` | wrong-buzzer.wav | zumbador de respuesta incorrecta (sintetizado) |
 
-La bocina y la rayadura son **sintetizadas con ffmpeg**
-(`scripts/synth-sfx.py`, reproducible): no se encontró nada limpio y con
-licencia clara en Wikimedia Commons ni en SoundBible, y Freesound/Zapsplat
-exigen cuenta. Son CC0 por construcción. Puedes soltar tus propios
-WAV/MP3 en `assets/sfx/` y referenciarlos por nombre o ruta con `--sfx`.
+Los 5 sintetizados son **CC0 por construcción**: no se encontró nada
+limpio y con licencia clara en Wikimedia Commons ni en SoundBible, y
+Freesound/Zapsplat exigen cuenta. Puedes soltar tus propios WAV/MP3 en
+`assets/sfx/` y referenciarlos por nombre o ruta con `--sfx`.
+
+**No incluidos a propósito**: «bruh» (voz de una grabación con copyright),
+el sonido de error de Windows y el ping de Discord (sonidos de marca).
+`error` y `ping` son equivalentes genéricos del SFX Kit.
 
 ### Música (cama musical, en `assets/music/`)
 
@@ -139,6 +163,84 @@ Alberto—, se descarga el WAV y se guarda en
 `catalogue.md`; desde ahí, copiar el MP3 a `assets/music/` y añadir la
 entrada a `music.json`. Elegir pistas cortas y con carácter: un meme
 necesita 5–15 s de cama reconocible, no una sinfonía.
+
+### Plantillas de vídeo reales — `--video-template`
+
+27 clips virales con movimiento (no imágenes animadas), descargados
+limpios y sin marca de agua, en `video-templates/clips/` con catálogo
+en `video-templates/catalog.json` (origen, uso, consejo de caption,
+segundo sugerido para el punch, tendencia). Ver la lista:
+
+```bash
+python3 scripts/meme-video.py --list-video-templates
+python3 scripts/meme-video.py --video-template dicaprio-pointing \
+    --top "CUANDO VES EL MEME ANTES QUE TUS AMIGOS" --punch-at 0.7 \
+    --sfx vine-boom --freeze-end 2
+```
+
+**Green screen**: 19 de las 27 son green screen (fondo verde para
+componer). Dos formas de usarlas:
+
+- **En CapCut o tu editor**: arrastra el clip sobre tu vídeo y quita
+  el verde con la herramienta de chroma key de la app.
+- **Aquí mismo, con `--chroma-key`**: quita el verde y compone sobre
+  un fondo sólido (negro por defecto, `--chroma-bg` para otro color),
+  y encima van los captions, el punch y el SFX de siempre:
+
+```bash
+python3 scripts/meme-video.py --video-template coffin-dance --chroma-key \
+    --top "YO" --punch-at 1 --sfx vine-boom
+```
+
+Las 8 que NO son green screen (se usan tal cual): `chill-guy`,
+`giga-chad`, `homer-disappears-bushes`, `primetime-tv-pattinson` (solo
+la pantalla del televisor es verde, para insertar contenido),
+`spongebob-1-hour-later`, `spongebob-a-few-moments-later`,
+`woman-yelling-at-cat`, `explosion`.
+
+El catálogo marca cada clip con `green_screen: true/false` y el campo
+`punch_at` con el segundo sugerido para el golpe. Las plantillas en
+pico en nov-2026: `talk-to-me-doja`, `tung-tung-tung-sahur`,
+`primetime-tv-pattinson`, `six-seven-67-kid`. Licencias: ver
+`LICENSES.md` (uso personal transformativo, como las de imagen).
+
+**Refresco semanal** (las tendencias cambian rápido):
+
+```bash
+python3 scripts/refresh-video-templates.py            # dry-run: qué hay nuevo
+python3 scripts/refresh-video-templates.py --apply    # descarga y añade (máx. 10)
+```
+
+Consulta Know Your Meme trending y la portada de MemeScreens, compara
+con el catálogo e informa de candidatos nuevos. Con `--apply`, los de
+MemeScreens se descargan y se añaden con `trend: 'nuevo'` y los campos
+de uso pendientes de revisar por un humano (hay que ver el clip a ojo
+y completar origen/uso antes de usarlo); los de KYM casi nunca traen
+vídeo directo y se informan para revisarlos a mano.
+
+### Sonidos en tendencia (nov-2026) — solo por nombre
+
+La música comercial con copyright **no se descarga ni se guarda** en el
+ecosistema: se añade en TikTok/Reels/CapCut al publicar, desde la
+biblioteca de la app. Lo que está sonando en memes ahora (investigado
+19-nov-2026; ver `TRENDS.md` para el contexto de cada uno):
+
+| Sonido | Artista | Uso |
+| --- | --- | --- |
+| Paper Moon Static | Marnie Cusk | Nº 1 TikTok; edits dreamy, reveals |
+| You're Under Arrest | ILLIT | Challenge de baile «arresto» |
+| My Moon My Man | niki (cover de Feist) | Soft launch de pareja |
+| Time | Pink Floyd | «Same Spot, Years Apart», nostalgia |
+| Doja | Central Cee | Cortes rápidos, drops, edits |
+| Rechazame | Prince Royce | Bachata, sketches en español |
+| Dame Hombro | Bulin 47, Kevin Wai | Baile de hombros (2 M+ vídeos) |
+| Like That (sped-up) | Doja Cat ft. Gucci Mane | Sonido de «Talk To Me Doja» |
+| Doot Doot (6 7) | Skrilla | Sonido del meme «6-7» |
+| Dixie (PHONK) | K7K7 | Phonk; edits sigma/gym |
+| Housewife | Tate McRae | Reveals de outfit/trabajo |
+| Saxophones Getting Louder (sped up) | AntonioVivald | Escalada absurda, reveals |
+| THE LAST SAHUR | DJ Tralalero Tralala | Tráilers falsos de Tung Tung Sahur |
+| Noite de Esmeralda | funk/phonk brasileño | Montajes de anime, edits funk/phonk |
 
 ### El texto no tapa las caras
 
@@ -222,8 +324,13 @@ Nota: el `.gitignore` raíz excluye binarios; las imágenes nuevas que
 descargue el refresh hay que añadirlas con `git add -f` (precedente del
 content hub).
 
-Los formatos de vídeo se revisan contra Know Your Meme, Imgflip trending y
-ppl.studio/viral-formats — ver `TRENDS.md`.
+Las **plantillas de vídeo** (27 clips) viven en `video-templates/clips/`
+con catálogo en `video-templates/catalog.json` y se refrescan con
+`scripts/refresh-video-templates.py` (ver la sección «Plantillas de
+vídeo reales» más arriba). Los formatos de vídeo se revisan contra
+Know Your Meme trending y la portada de MemeScreens — ver `TRENDS.md`
+(ppl.studio/viral-formats se probó el 19-nov-2026 y no devuelve nada
+útil, así que no se usa).
 
 ## Estructura
 
@@ -233,12 +340,14 @@ memes/
   TRENDS.md            qué funciona hoy (nov 2026) y dónde re-chequear
   LICENSES.md          licencias de plantillas, fuente, SFX, música e IA
   templates/           biblioteca Imgflip (images/ + catalog.json + contact-sheet.jpg)
+  video-templates/     27 clips virales (clips/*.mp4 + catalog.json)
   assets/fonts/        Archivo Black (OFL)
-  assets/sfx/          6 SFX CC0 para el golpe (2 sintetizados)
+  assets/sfx/          24 SFX CC0 para el golpe (5 sintetizados)
   assets/music/        7 pistas de cama musical (music.json)
   assets/ai/           imágenes absurdas generadas (vacío; gen-absurd.py)
   scripts/             meme.py, meme-video.py, gen-absurd.py, face-frame.py,
-                       synth-sfx.py, refresh-templates.py, contact-sheet.py
+                       synth-sfx.py, refresh-templates.py,
+                       refresh-video-templates.py, contact-sheet.py
   examples/            demos de prueba (imagen, texto, vídeo, IA)
   out/                 salidas (ignorado por git)
 ```
@@ -246,7 +355,7 @@ memes/
 ## Pruebas
 
 ```bash
-node --test tests/meme-ecosystem.test.mjs   # 21 pruebas (imagen + vídeo + música + caras + catálogo)
+node --test tests/meme-ecosystem.test.mjs   # 27 pruebas (imagen + vídeo + música + caras + catálogo + plantillas de vídeo)
 ```
 
 ## Pendiente
@@ -257,6 +366,26 @@ node --test tests/meme-ecosystem.test.mjs   # 21 pruebas (imagen + vídeo + mús
 - **Caras en vídeo**: la detección se hace sobre la imagen base; en un
   clip con movimiento, la cara puede moverse después del fotograma
   analizado. Para clips, la verificación visual sigue siendo obligatoria.
+- **9 plantillas sin URL limpia** (19-nov-2026): This Is Fine, Surprised
+  Pikachu, Bernie «Once Again Asking», Jesse Pinkman, Lupin Escape, «Yo
+  en noviembre» (zorro), «Dame Hombro», «¿Y si sí?» y «I Got So Mad»
+  (formato de frase, no de vídeo). El refresh las detectará si aparecen
+  con vídeo directo en las fuentes.
+
+## Cerrado el 19-nov-2026 (banco de vídeo + SFX)
+
+- ✅ **Desbordamiento de texto corregido**: `fit_font`/`fit_text` ahora
+  verifican ancho (con stroke) y alto; margen interior del 4% en paneles;
+  prueba de regresión con chequeo de píxeles.
+- ✅ **Banco de 27 plantillas de vídeo reales** (58 MB, todos verificados
+  a ojo): `--video-template` y `--list-video-templates` en
+  `meme-video.py`, `--chroma-key` para las 19 green screen, catálogo con
+  origen/uso/punch_at, `refresh-video-templates.py` (KYM + MemeScreens).
+- ✅ **18 SFX de memes nuevos** (15 del SFX Kit CC0 del hub + 3
+  sintetizados con ffmpeg: sad trombone, censor beep, wrong buzzer;
+  verificados por FFT). Total: 24 nombres en `meme-video.py`.
+- ✅ Sonidos virales nov-2026 documentados solo por nombre (sin
+  descargar música comercial con copyright).
 
 ## Cerrado el 18-nov-2026 (auditoría v1.1)
 

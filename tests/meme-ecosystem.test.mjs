@@ -226,7 +226,8 @@ test('vídeo: POV cuadrado con velocidad', { timeout: 120000 }, async () => {
 });
 
 test('scripts de soporte: --help', async () => {
-	for (const s of ['gen-absurd.py', 'refresh-templates.py', 'contact-sheet.py']) {
+	for (const s of ['gen-absurd.py', 'refresh-templates.py',
+		'refresh-video-templates.py', 'contact-sheet.py']) {
 		const { stdout } = await execFileAsync('python3',
 			[path.join(SCRIPTS, s), '--help']);
 		assert.ok(stdout.length > 50, `${s}: --help vacío`);
@@ -375,4 +376,98 @@ test('vídeo: aviso de cara con --face-box', { timeout: 120000 }, async () => {
 	assert.ok(existsSync(out));
 	assert.match(stderr, /tapaba una cara; movido abajo/);
 	rmSync(dir, { recursive: true, force: true });
+});
+
+// --- Nuevas (banco de plantillas de vídeo, 19-nov-2026) ---
+
+test('vídeo: --list-video-templates funciona', async () => {
+	const { stdout } = await memeVideoPy(['--list-video-templates']);
+	assert.match(stdout, /dicaprio-pointing/);
+	assert.match(stdout, /coffin-dance/);
+	assert.match(stdout, /tung-tung-tung-sahur/);
+});
+
+test('vídeo: catálogo válido, con archivos y ffprobe', async () => {
+	const catalog = JSON.parse(readFileSync(
+		path.join(MEMES, 'video-templates', 'catalog.json'), 'utf8'));
+	assert.ok(catalog.count >= 20, `solo ${catalog.count} plantillas`);
+	assert.equal(catalog.templates.length, catalog.count);
+	const slugs = [];
+	for (const t of catalog.templates) {
+		for (const k of ['slug', 'name', 'file', 'url', 'source', 'origin',
+			'use', 'caption_tip', 'duration', 'width', 'height',
+			'green_screen', 'trend', 'added']) {
+			assert.ok(t[k] !== undefined, `${t.slug}: falta ${k}`);
+		}
+		slugs.push(t.slug);
+		const p = path.join(MEMES, 'video-templates', t.file);
+		assert.ok(existsSync(p), `${t.slug}: falta ${t.file}`);
+		const { stdout } = await execFileAsync('ffprobe', ['-v', 'error',
+			'-select_streams', 'v:0',
+			'-show_entries', 'stream=width,height',
+			'-show_entries', 'format=duration', '-of', 'json', p]);
+		const d = JSON.parse(stdout);
+		assert.ok(d.streams.length === 1, `${t.slug}: sin pista de vídeo`);
+		assert.equal(d.streams[0].width, t.width, `${t.slug}: ancho`);
+		assert.equal(d.streams[0].height, t.height, `${t.slug}: alto`);
+		assert.ok(Math.abs(parseFloat(d.format.duration) - t.duration) < 0.1,
+			`${t.slug}: duración ${d.format.duration} vs ${t.duration}`);
+	}
+	assert.equal(new Set(slugs).size, slugs.length, 'slugs duplicados');
+	assert.ok(slugs.includes('el-risitas'));
+	assert.ok(slugs.includes('messi-que-miras-bobo'));
+});
+
+test('vídeo: render con --video-template', { timeout: 120000 }, async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'plantilla.mp4');
+	await memeVideoPy(['--video-template', 'dicaprio-pointing',
+		'--top', 'CUANDO VES EL MEME ANTES', '--punch-at', '0.7',
+		'--sfx', 'vine-boom', '--freeze-end', '1', '--out', out]);
+	assert.ok(existsSync(out));
+	const info = await probe(out);
+	assert.deepEqual([info.width, info.height], [1080, 1920]);
+	// Clip 1,43 s + freeze 1 s.
+	assert.ok(Math.abs(info.duration - 2.43) < 0.2,
+		`duración ${info.duration}`);
+	assert.ok(info.hasAudio, 'falta la pista de audio (SFX)');
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('vídeo: --chroma-key quita el fondo verde', { timeout: 120000 }, async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'chroma.mp4');
+	await memeVideoPy(['--video-template', 'michael-rosen-nice',
+		'--chroma-key', '--top', 'PRUEBA', '--out', out]);
+	assert.ok(existsSync(out));
+	// La esquina superior izquierda era verde puro; con el key sobre
+	// fondo negro debe quedar oscura (sin dominante verde).
+	const frame = path.join(dir, 'frame.png');
+	await execFileAsync('ffmpeg', ['-y', '-v', 'error',
+		'-ss', '1', '-i', out, '-frames:v', '1', frame]);
+	const { stdout } = await execFileAsync('python3', ['-c',
+		`from PIL import Image
+im = Image.open('${frame}').convert('RGB')
+px = [im.getpixel((x, y)) for x in range(0, 200, 20) for y in range(200, 400, 20)]
+g = sum(p[1] for p in px) / len(px)
+r = sum(p[0] for p in px) / len(px)
+print(f'{r:.0f},{g:.0f}')`]);
+	const [r, g] = stdout.trim().split(',').map(Number);
+	assert.ok(g < 60, `esquina sigue verde: R=${r} G=${g}`);
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('SFX de memes: los 18 nuevos existen y suenan', async () => {
+	const sfx = ['vine-boom.wav', 'metal-pipe.wav', 'dramatic-sting.wav',
+		'fail-womp.wav', 'error-chime.wav', 'ping.wav', 'applause.wav',
+		'riser.wav', 'bonk.wav', 'bass-drop.wav', 'glitch.wav',
+		'deflate.wav', 'coin.wav', 'thunder.wav', 'alarm.wav',
+		'sad-trombone.wav', 'censor-beep.wav', 'wrong-buzzer.wav'];
+	for (const f of sfx) {
+		const p = path.join(MEMES, 'assets', 'sfx', f);
+		assert.ok(existsSync(p), `falta ${f}`);
+		const { stdout } = await execFileAsync('ffprobe', ['-v', 'error',
+			'-show_entries', 'format=duration', '-of', 'csv=p=0', p]);
+		assert.ok(parseFloat(stdout) > 0.1, `${f}: duración ${stdout}`);
+	}
 });
