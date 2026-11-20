@@ -31,9 +31,15 @@ Para un proyecto expresamente seleccionado, lee `PROJECTS.json`, `projects/<id>/
 Separa claramente comprobaciones estáticas, pruebas en Codespaces, renders de Actions, revisión humana y comprobación de subida a Drive. Si no ejecutaste un paso, di **pendiente**, no «completado».
 
 ## Auditoría de audio — obligatoria antes de entregar (17-nov-2026)
-**Ningún reel se entrega sin pasar `scripts/audio/audit-audio.py`.** El módulo audita guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes, empalmes, palabras truncadas), artefactos de time-stretch, mapa de silencios, música y ducking, máster (loudness/TP, alineación karaoke/onsets acústicos) y espectrogramas. Veredicto FAIL = no entregar. Las mediciones anteriores (RMS global, silencedetect, escaneo de clics por umbral) NO detectaban lo que el oído sí capta (microcortes, pausas inesperadas, frases incompletas) — por eso existe este módulo. Ver `scripts/audio/README.md` § «Auditoría de audio» y el docstring del script (lecciones codificadas: alimiter `level=false`, sesgo de Whisper sobre la mezcla, BottomKaraoke solo lee `s`).
+**Ningún reel se entrega sin pasar `scripts/audio/audit-audio.py`.** El módulo audita guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes, empalmes, palabras truncadas), artefactos de time-stretch, mapa de silencios, música y ducking, máster (loudness/TP, alineación karaoke/onsets acústicos) y espectrogramas, el check (g) de agujeros en el máster (FAIL si
+hay rachas ≥15 ms bajo −50 dBFS donde la mezcla es fuerte) y la
+sección (i) de microcortes de voz (`microcut.py`). Veredicto FAIL =
+no entregar. Las mediciones anteriores (RMS global, silencedetect, escaneo de clics por umbral) NO detectaban lo que el oído sí capta (microcortes, pausas inesperadas, frases incompletas) — por eso existe este módulo. Ver `scripts/audio/README.md` § «Auditoría de audio» y el docstring del script (lecciones codificadas: alimiter `level=false`, sesgo de Whisper sobre la mezcla, BottomKaraoke solo lee `s`).
 
 ## Deriva A/V por tramos y atempo — medir sobre el audio que se procesa (20-nov-2026)
+**Obsoleto para renders nuevos:** con tramos PCM no hay deriva ni
+atempo (ver § siguiente). Esta sección solo vale para la vía AAC de
+compatibilidad (`--audio-codec aac`).
 El render por tramos añade ~55 ms de audio por frontera (priming AAC). La
 compensación con `atempo` en `master.py` debe medirse sobre **la misma vía
 de audio que master.py procesará**: el concat `-c copy` de `render-chunks`
