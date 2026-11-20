@@ -1556,3 +1556,394 @@ están olvidando su historia.»**
   y 47,6 s («LEER.» + «PENSAR.» en fundido + CTA), sting a 50,0 s,
   sin regresión pre-inserción a 20,0 s. La tesis sigue SIN atribución
   en pantalla. Mapa y hechos verificados intactos.
+
+## V3 (19-nov-2026) — REENFOQUE: LA RUPTURA DEL CARIBE (rama `work/marti-fidel-v3`)
+
+**BORRADOR DE TRABAJO — guion PROVISIONAL.** El usuario está
+consultando el guion V3 con la directora (Suleris) la noche del
+19-nov; los cambios, si los hay, se aplican sobre esta base ANTES de
+cerrar la edición. El máster final espera en todo caso a la VO real
+de Adriana Y a la confirmación del guion. Esta sección documenta la
+previsualización con VO Kokoro del guion actual de 8 líneas.
+Pipeline re-ejecutable línea por línea: `vo-script-v3.json`
+(guion + pausas) → `gen-vo-kokoro.py` → `vo-captions-v3.json`
+→ `transcribe-vo.py` → `src/captions-v3.ts` → `mix-v3.sh` →
+`src/VideoV3.tsx` → `render-chunks.mjs` → `master.py` →
+`audit-v3.sh`. Un cambio de texto en una línea solo exige
+regenerar VO/captions/mezcla y re-temporizar los reveals anclados
+a esa línea; las escenas y los assets no se tocan.
+
+### Por qué V3 (2ª ronda de feedback de Suleris + objeción de Adriana)
+Suleris vio la V2.5 y advirtió que la secuencia se podía
+malinterpretar y sacar de contexto: el «19» y el marco
+mayoría/minoría invitan a «19 de 33 no es la mayoría» (abstenerse
+≠ separarse; algunos ni siquiera estaban; Venezuela no votó por
+suspensión art. 19, no por decisión política). Pidió a Adriana
+que analizara qué gancho añadir para que el mensaje sea contundente
+y no se pueda retorcer, anclado en lo que dijeron Martí y Fidel, y
+autorizó cambiar la secuencia del guion (transcripción completa en
+`research/feedback-suleris-2026-11-19.md`).
+Adriana objetó, con razón, el primer gancho propuesto (la confesión
+de Browne): no es la idea central del reel, es evidencia de la
+presión, no la espina. **Nuevo gancho: la ruptura del Caribe** (la
+expresión más nítida del retroceso, que SÍ es la idea central).
+Browne vuelve a su papel de evidencia a mitad del reel (redacción
+V2). La tarjeta V2.5 («Los que se separaron de la mayoría…») y el
+«19 GOBIERNOS» están ELIMINADOS: el número 19, «diecinueve
+gobiernos» y el desglose 6-7-6 NO aparecen en ningún sitio de V3
+(voz, pantalla ni mapa). El mapa antiguo (`map-red/yellow/gray.png`,
+con el desglose 6-7-6) NO se usa en V3.
+
+### Guion V3 revisado (8 líneas; manda el mensaje del padre, 19-nov 20:35 + corrección L2 20:42)
+1. Por primera vez en treinta y tres años, el Caribe dejó de votar unido.
+2. Martí lo vio venir en 1891. *(corregido 20:42: «En 1891, Martí ya
+   lo había advertido.» repetía la fórmula de L5 «ya lo había
+   dicho»; las dos citas no son redundantes en contenido — una es la
+   llamada a la unidad, la otra la razón — solo el marco se repetía)*
+3. Es la hora del recuento, y de la marcha unida.
+4. Y un primer ministro lo contó en la radio: Washington lo llamó para que cambiara su voto.
+5. Martí ya lo había dicho: ¡los árboles se han de poner en fila, para que no pase el gigante de las siete leguas!
+6. Y en 2005, Fidel advirtió: No es lo mismo estar desinformado que haber perdido la capacidad de pensar.
+7. Cuando un pueblo olvida su historia, está condenado a volverla a vivir.
+8. Leer. Pensar.
+
+### VO de previsualización (Kokoro ef_dora, UN worker, --threads 2)
+`public/audio/v3/vo-preview-v3.wav` — 37,31 s, pico 0,739.
+Tiempos medidos (`vo-lines.json`): L1 0,00–4,03 · L2 4,62–7,48 ·
+L3 7,88–10,31 · L4 10,91–15,78 · L5 16,48–22,34 · L6 23,54–29,81 ·
+L7 31,01–34,95 · L8 36,45–37,31. Pausas: 0,6 / 0,4 / 0,6 / 0,7 /
+1,2 / 1,2 / 1,5 / 0,0 s. Kokoro es determinista: al cambiar L2 solo
+se desplazaron las líneas posteriores (−0,53 s); L1 y L3–L8
+conservan su duración exacta.
+Karaoke (`src/captions-v3.ts`, `public/audio/v3/captions.json`):
+26 chunks, 102 captions, 100 palabras Whisper. Solo las líneas
+HABLADAS llevan karaoke en pantalla (L1, L2 y L4 hasta que entra la
+tarjeta de Browne); las citas (L3, L5, L6), la tesis (L7) y L8 van
+como texto estático — mismo patrón V1/V2. La ventana B (L4) trunca
+los chunks 3–4 y usa la línea VACÍA en 13,46 s («WASHINGTON») para
+apagar el karaoke mientras la tarjeta muestra la cita completa.
+
+### Mapa del Caribe (nuevo asset)
+`research/map-build-caribbean.py` (Natural Earth 50m,
+bbox lon −92..−56 / lat 6..30, render 2800→1400 LANCZOS):
+`public/img/map-caribbean-base.png` + `public/img/map-caribbean-tt.png`
+(Trinidad y Tobago ÚNICO resaltado, en rojo Memorial).
+Centroide T&T (anillo mayor, isla de Trinidad — el primer render lo
+puso en Tobago): canvas (1192,9, 1140,0), en `src/mapDots.ts` como
+`CARIBBEAN_TT`. Verificado visualmente (`research/map-caribbean-check.jpg`):
+Cuba, Jamaica, La Española, Puerto Rico, arco de las Antillas
+Menores, Centroamérica y norte de Sudamérica correctos.
+
+### Composición MainReelV3 (`src/VideoV3.tsx`, 1255 f = 41,83 s)
+- S1 gancho mapa (f0–139): «33 AÑOS DE UNIDAD» desde f0 (P1) +
+  sello «ROTOS» al decirse «dejó» (f87) + T&T en rojo + punto
+  pulsante + overlay «TRINIDAD Y TOBAGO / PRIMER VOTO EN CONTRA
+  DEL CARICOM». El resplandor ámbar de la unidad muere con la
+  ruptura; anillo pulsante sobre el arco al decirse «CARIBE» (f77).
+- S2 1891 (f139–236): retrato Martí Jamaica + banda «1891»; folio
+  al decirse «1891.» (local f40).
+- S3 recuento (f252→f236–327): Temple Hall + cita estática;
+  l2 al decirse «Y» (local f35); inset de La Revista Ilustrada.
+- S4 evidencia Browne (f327–494): micrófono de radio + onda sonora
+  animada (28 barras deterministas) + tarjeta con la cita completa
+  al decirse «WASHINGTON» (local f77), atribución Gaston Browne ·
+  Primer Ministro de Antigua y Barbuda · Radio · 9 nov 2026 · CMC.
+  SIN el contador «19 GOBIERNOS».
+- S5 árboles en fila (f494–706): siete árboles procedurales
+  dispersos que se deslizan hasta formar una línea recta mientras
+  la voz dice «se han de poner en fila» (local f53–93), pulso de
+  encaje en «FILA,» + línea de suelo que se traza. Cita en tarjeta.
+  BUG ENCONTRADO EN EL STILL f600: los árboles se posicionaban con
+  coordenadas de pantalla dentro de la banda (top 950, left 56) y
+  caían fuera del fotograma; corregido a coordenadas relativas a
+  la banda (top = GROUND_Y − 950 − 190, left = TREE_CX − 116).
+- S6 Fidel + interrupt (f706–930): CORTE DURO desde los árboles
+  (sin disolución) + flash blanco 6 f + whip del retrato +
+  slam del chip «2005» (el cliff P3; cae en ~23,5 s, justo antes
+  de la ventana 25–35 s de la guía — aceptable, la frontera la
+  marca el inicio de L6). Retrato `fidel-mats-1959-cropped.jpg`
+  (V2.5); «2005» y chip bajados para no tapar la boca de Fidel.
+  Tarjeta al decirse «NO» (local f76).
+- S7 tesis (f930–1164): layout V2.5 (papel oscuro + resplandor);
+  l1 f4, l2 f19 («OLVIDA»), l3 f69 («CONDENADO»), l4 f107
+  («VIVIR.»), «LEER.» f164, «PENSAR.» f172, CTA f185. SIN
+  atribución a Martí (la tesis la formula el reel; tampoco se
+  firma «— Suleris», vetado por ella).
+- S8 sting (f1164–1255): `sting-black-2x.mp4` (V1.5/V2.5).
+  Disoluciones de 12 f entre escenas EXCEPTO S5→S6 (interrupt)
+  y S7→S8 (sting). Logo completo blanco/transparente desde f0,
+  fade-out f1154–1164; scrim suave en S2/S3 (f139–327) y S5
+  (f494–706). Grano f0–1164.
+- Lección de assets: V2.5 NO tiene `fidel-loc-portrait.jpg` ni
+  `marti-ojos.jpg` (nombres inventados en el primer borrador de
+  VideoV3.tsx; los stills f850/f1130 fallaron con 404). Fidel es
+  `fidel-mats-1959-cropped.jpg` y la tesis usa
+  `paper-manuscript-dark.png`. Verificar SIEMPRE los nombres
+  contra `public/img/` antes de renderizar.
+
+### Mezcla V3 (`mix-v3.sh`)
+VO Kokoro + cama `calm-documentary-a` de la biblioteca
+(`bed-loop.py`, 41,83 s, −16,01 LUFS; la más pareja de las tres:
+rango RMS 19,6 dB frente a 31,6/76,2 dB de -b/-c) + 21 SFX
+re-temporizados (boom «ROTOS» 2,90 · whooshes en cada transición
+· pop tarjeta Browne 13,54 · whoosh árboles 18,22 · land «FILA,»
+19,64 · boom «GIGANTE» 21,08 · boom fuerte interrupt 23,53 ·
+pops/booms +80 ms tras el onset en las 9 palabras-clave
+«RECUENTO» 8,56 · «MARCHA» 9,60 · «WASHINGTON» 13,54 · «FILA,»
+19,64 · «GIGANTE» 21,08 · «PENSAR.» 29,42 · «CONDENADO» 33,38 ·
+«LEER.» 36,53 · «PENSAR.» 36,80 · sting 38,80). Ducking V1.5,
+música 0,38.
+Mezcla `public/audio/v3/mix-v3.wav`: **PASS_REAL, −16,0 LUFS,
+TP −1,5**. NOTA: las tres camas de la biblioteca son piano/pads
+calmos; V2.5 usaba stems tensos de Flow (Shadows/Weight). Cambiar
+el stem en el final es barato (re-mezcla + re-máster, sin
+re-render de vídeo) — decisión pendiente del usuario.
+(Lección auditoría V3: los 5 SFX que iban EXACTO en el onset
+(8,48/9,52/13,46/19,56/21,00) enterraban el ataque de palabras de
+onset blando — check (i5), +15…+34 dB en los primeros 30 ms —;
+se desplazaron +80 ms como los otros 4. La mezcla se rehízo y el
+render se repitió entero porque el render incrusta la mezcla.)
+
+### Hallazgos de redes aplicados a V3 (19-nov-2026, noche)
+Estudio EditorOP sobre 75 reels documentales breakout de oct-2026
+(mediana 1,2M vistas) + social.search del nicho cubano
+(`research/social-trends-v3-2026-11-19.md`). Ninguno toca el guion.
+Los 7 aplicados ANTES del render de previsualización (el primer
+render se detuvo en 2/9 chunks y se relanzó con los cambios):
+1. **Gancho:** fecha «28 OCT 2026» en la apertura + Trinidad y
+   Tobago en rojo en el PRIMER SEGUNDO (f0–30; el punto luminoso
+   en f24) — el primer cuadro se lee como still en silencio. El
+   sello «ROTOS» + chip siguen en «dejó» (f87).
+2. **Mapa animado:** zoom 0,92→1,12 desde el Caribe general +
+   barrido de luz secuencial (el resplandor ámbar viaja de las
+   Antillas Mayores al arco, f0–77, estilo @map_sody).
+3. **Citas ≥3 s:** tarjeta del recuento entra en f0 (3,03 s en
+   pantalla); l3 de los árboles en «PASE» (f124, cita completa
+   2,95 s); Browne 3,01 s; Fidel tarjeta 4,95 s (reveal
+   progresivo); tesis completa 4,24 s, sin karaoke encima. La
+   tesis conserva el tratamiento de papel oscuro de V2.5 (no es
+   una cita: no lleva folio ni atribución).
+4. **Cortes en la palabra + Ken Burns:** la banda «1891» cae EN
+   la palabra «1891.» (local f40, folio f48); la onda de radio
+   «sube» al decirse «primer ministro» (local f15–25); push lento
+   añadido al papel de la tesis (1→1,04). Los retratos ya tenían
+   push + deriva.
+5. **Etiqueta de fuente** en el mapa: «FUENTE: ONU · ACTA
+   A/81/PV.28» (escudo de credibilidad ante la objeción de
+   Suleris; la tarjeta de Browne ya llevaba su atribución).
+   En la segunda pasada (investigación visual) se fusionó con
+   el sello de fecha y lugar: «ONU, NUEVA YORK / 28 OCT 2026 ·
+   ACTA A/81/PV.28».
+6. **La música CAE A SILENCIO en la tesis L7** (31,01–36,45 s,
+   rampas de 0,5 s; voz sola) y vuelve en «Leer. Pensar.» —
+   `scripts/audio/dip-bed.py` (nuevo, reutilizable) + `mix-v3.sh`
+   mezcla la cama con el dip (`music-bed-dipped.wav`). Verificado
+   por RMS: −18,1 dB antes, silencio digital en L7, música de
+   vuelta en L8.
+7. **CTA:** «GUARDA ESTE DATO» (estrategia V1), sin tocar la VO.
+Lo que NO cambia: karaoke híbrido con clave en rojo; duración
+~41 s (rango IG observado 24–43 s); gancho de afirmación.
+GUARDA DE COSTO CERO: ninguna ilustración generada de Martí o
+Fidel — archivo + documentos + mapas reales.
+
+### Investigación visual aplicada a V3 (19-nov-2026, noche)
+15 vídeos vistos en YouTube, Instagram y TikTok (Facebook
+bloqueado); 13 archivos en `research/visual-resources/` (8 en
+`referencia/`, 5 en `usable/`). Segunda pasada: el render de
+previsualización ya estaba hecho (9/9 chunks) y se detuvo el
+tercer render en 3/9 chunks para plegar los cambios.
+1. **CASCADA — el mapa se rompe país por país:** los 7 países
+   caribeños que rompieron la unidad se vuelven rojos uno por
+   uno, oeste → este, en rampas de 18 f (~0,6 s): T&T f0–30
+   (existía), Jamaica f36–54, Haití f54–72, Rep. Dominicana
+   f72–90, Antigua f90–108, Dominica f108–126, Santa Lucía
+   f126–139. ADAPTACIÓN: la cadencia literal (uno cada 2–3 s)
+   no cabe en el gancho de 4,63 s (7 países serían 14–21 s).
+   TODOS en el mismo rojo Memorial, SIN distinción entre en
+   contra / abstención / ausencia y SIN contadores: la ruptura
+   es cualitativa, no un recuento — eso es exactamente lo que
+   Suleris quiso sacar de la V3. Los 7 (acta A/81/PV.28,
+   STRATEGY.md §7.1): T&T en contra; Jamaica, Haití, Rep.
+   Dominicana abstenciones; Antigua, Dominica, Santa Lucía
+   ausentes por decisión. Guyana NO se anima: es Sudamérica
+   continental (el marco es el Caribe geográfico, 14 miembros
+   de la ONU); su polígono ni siquiera entra en el viewport.
+   Implementación: `map-build-caribbean.py` extendido (un
+   overlay por país, misma proyección; centroides del anillo
+   mayor en `map-caribbean-dots.json`); puntos luminosos solo
+   en las tres islas pequeñas (Antigua, Dominica, Santa Lucía
+   — los rellenos son de ~5–15 px; las grandes se leen solas).
+   Verificado en composite `map-caribbean-cascade-check.jpg`
+   y en stills f60/f100/f120. El mapa político de la CIA
+   (usable, dominio público) NO se usó para recolorear: el
+   vector GeoJSON es preciso por país; recolorear un raster
+   exigiría enmascarar a mano.
+2. **Citas como tarjeta + foto de archivo debajo** (modelo:
+   reel Malcolm X/Fidel de @cubasinbloqueo, 28,4K vistas):
+   S3/S5 ya tenían tarjeta con regla roja + retrato de
+   archivo + sin karaoke en el beat; el cambio real es S6:
+   foto de Fidel en la Asamblea General de la ONU, 1960
+   (dominio público, Library of Congress,
+   `public/img/fidel-onu-1960.jpg`, 2460×3672, gris;
+   objectPosition 55% 50% — Fidel queda centrado y su cara
+   libre del chip «2005» y de la tarjeta, verificado en f850).
+   El retrato de Martí usable (226×296 px) NO se usó: los
+   assets V2 ya tienen retratos mejores (`marti-loc-half.jpg`,
+   3110×3934). El salón de la ONU 2024 (CC BY-SA 4.0) NO se
+   usó: Suleris prohibió abrir con la Asamblea. El PDF de
+   Wikisource es TEXTO, no facsímil de 1891: no se presenta
+   como imagen de época.
+3. **Sello de fecha y lugar en cada plano de archivo** (modelo:
+   @nmasunivision): S1 fusionado al pie del mapa («ONU, NUEVA
+   YORK / 28 OCT 2026 · ACTA A/81/PV.28», 24 px, una línea);
+   S2 «LA HABANA / 1891» chip superior izquierdo (verificado
+   f200); S6 «ONU, NUEVA YORK / 1960» mismo tratamiento
+   (verificado f850; la foto ES de 1960, la cita de 2005 — el
+   folio de la tarjeta fecha la cita, no la foto). S5 ya lleva
+   el folio «NUESTRA AMÉRICA · 1891»: no se duplica. Ninguna
+   imagen de la Asamblea de la ONU (restricción de Suleris:
+   los sellos son solo texto).
+4. **Karaoke + Ken Burns:** ya estaba en todos los retratos
+   (push 1→1,06/1,08 + deriva); verificado, no reconstruido.
+   El karaoke sigue con clave en ROJO (marca), no amarillo.
+5. **Pantalla partida:** OMITIDA — la S4 ya separa visual
+   (micrófono + onda, 2/3 superiores) de texto (tarjeta,
+   tercio inferior); invertirla chocaría con el karaoke y no
+   gana nada.
+6. **«17 EN CONTRA»: NO APLICADO** (decisión editorial del
+   padre): las cifras de voto son exactamente lo que Suleris
+   quiso sacar de la V3; las fuentes vistas además discrepan
+   (USA EN VIVO 130-17-25 vs Canal Caribe 136-9-30; nuestra
+   cifra está verificada en el acta pero NO va en el reel).
+   El principio («prueba en el primer fotograma») se aplica
+   con el sello «28 OCT 2026» + T&T en rojo en 0–1 s.
+7. **Cita + corrección como cierre: NO APLICADO** — exigiría
+   cambiar el guion, congelado pendiente de Suleris; queda
+   anotada para el pie de foto de la publicación.
+
+### Auditoría de audio V3 — saga (19-nov-2026, noche)
+**Corrida 1: FAIL — 58 FAIL.** Causa de 46: `audit-v3.sh` no
+pasaba `--transcription-edited` y la auditoría auto-descubrió
+el archivo V2 obsoleto (`public/audio/vo-editada-transcripcion.json`)
+y comparó los captions V3 contra tiempos V2 (mediana −9,82 s).
+La alineación del MÁSTER estaba bien todo el tiempo (mediana
+−0,18 s, máx 0,40 s — nivel WARN, sesgo conocido de Whisper
+de ~+0,2 s en mezclas). LECCIÓN: `audit-audio.py` auto-descubre
+por defecto; los scripts de auditoría de cada versión deben
+pasar rutas explícitas.
+**Correcciones aplicadas:** transcripción fresca de la VO V3
+(faster-whisper small; `vo-preview-v3-transcripcion.json`, 100
+palabras, match 0,98); 4 finales de caption corregidos con las
+medidas acústicas de la propia auditoría (AÑOS, 2,10→2,28 ·
+1891. 7,12→7,42 · 2005, 24,28→24,57 · PENSAR. L8 37,04→37,31);
+predicción `vo-editada-prediccion-v3.json` (desviación máx
+0,495 s < umbral 0,5 s); edit-plan `edit-plan-v3.json` (8
+líneas, 12 segmentos, factor 1,0 — la VO Kokoro no se editó);
+transcripción corregida
+(`vo-preview-v3-transcripcion-corregida.json`: 8 bordes
+reemplazados por la predicción donde la desviación >0,08 s).
+**Corrida 2: FAIL — 11 FAIL.** (c)/(i2)/(i4) ESPURIOS (orig ==
+editada: mismo archivo Kokoro; los checks comparan audio
+idéntico a través de una alineación ruidosa — verificado por
+RMS: «Es» 7,82–7,90 es silencio digital hasta ~7,89; «Martí»
+16,70–16,78 estable −25 dB sin ceros exactos; la «pausa
+original» de 0,42 s de «2005,»→«Fidel» es el final temprano de
+Whisper, la pausa real es 0,22 s, natural de Kokoro, nunca
+editada — exenta por la regla). (i5) REAL: 5 SFX colocados
+EXACTAMENTE en onsets de palabra enterraban los primeros 30 ms
+de ataques suaves (W, f, g); los 4 SFX ya a +80 ms NO fueron
+señalados. **Fix:** los 5 SFX +80 ms (8,48→8,56 · 9,52→9,60 ·
+13,46→13,54 · 19,56→19,64 · 21,00→21,08) en `mix-v3.sh` y
+`audit-v3.sh`; los 9 SFX ligados a palabra quedan todos a +80 ms.
+**Corrida 3: FAIL — 17 FAIL.** REGRESIÓN PROPIA, no del audio:
+un bloque de comentarios metido DENTRO de la invocación
+continuada con `\` en `audit-v3.sh` cortó la lista de argumentos
+(en bash, la línea `# ...` tras un `\` termina el comando y el
+resto se ejecuta como comando — verificado con un script de
+prueba: `end: command not found`, exit 127, enmascarado por el
+`| tail`). Python corrió solo hasta `--voice-edited`: sin
+`--transcription/--edit-plan/--sfx` → trampa V2 otra vez (11 (e)
+sin plan + 5 (g) contra la V2, incluida la palabra «pero», que
+no existe en el guion V3). **Fix:** comentarios fuera de la
+invocación (advertencia añadida al script).
+**Corrida 4: FAIL — 3 FAIL** (el script ya pasaba todo): (g)
+silencio diseñado + (i2) «Es» @ 7.865 + (i4) segmento 0. La (c)
+ya era PASS («VO íntegra»).
+**Corrida 5: FAIL — 3 FAIL.** La (i2) persistió tras corregir
+el borde de «Es» en la transcripción corregida (7.82→7.88, el
+onset medido por RMS: silencio digital hasta 7.875, voz desde
+7.880). Causa raíz (leída en `microcut.word_dips`): la
+PREDICCIÓN también tenía «Es» en 7.82 (tiempo Whisper, no
+acústico) y el segmento L3 del plan empieza en 7.88 — los
+primeros 60 ms del span caían en el hueco entre segmentos,
+donde la envolvente original es NaN y el detector comparaba
+silencio (editada) contra voz (original, por el fallback) →
+dip falso de 154 dB. Solo «Es» disparaba: es la única palabra
+de inicio de línea cuyo borde Whisper cae a <90 ms del onset
+real (los demás inicios están a >0,15 s y el desplazamiento
+de ±30 ms no alcanza la voz).
+**Corrida 6 (FINAL): FAIL — 2 FAIL, 115 WARN, 9 PASS, 25 INFO.**
+Tras corregir «Es» también en la predicción (7.82→7.88), la
+(i2) se limpió. Quedan 2 FAIL, NINGUNO un defecto real:
+- **(g) silencio en el máster** (1,56 s, 34,99–36,55 s): el
+  silencio DISEÑADO (dip + pausa L7→L8), consecuencia directa
+  de la dirección aprobada (la música vuelve solo en «Leer.
+  Pensar.»). Se mantiene el diseño; el fix de una línea existe
+  (terminar el dip en 34,95 en vez de 36,45) si el padre
+  prefiere cero FAIL. No se «juega» con un piso de −40 dB.
+- **(i4) segmento 0, salto de lag 20 ms, corr mediana 1,00:**
+  FALSO POSITIVO demostrable — orig == edited (el mismo
+  archivo Kokoro sin editar, factor 1,0), así que el segmento
+  ES contiguo por construcción; corr 1,00 prueba el match
+  perfecto; el salto de 20 ms es un alias de periodo de pitch
+  en una vocal periódica (el propio docstring del check lo
+  contempla). No se puede arreglar en el audio ni en los
+  inputs; solo debilitando el umbral de la herramienta
+  compartida (15 ms), que es jugar con el examen — no se hace.
+WARN que queda: (f) bombeo del ducking 9,3 dB dentro de una
+frase (umbral 6,0) — mismo ducking que V2.5, WARN no FAIL.
+
+### Entrega V3 — BORRADOR (19-nov-2026, noche; rama `work/marti-fidel-v3`)
+Previsualización con VO Kokoro (guion PROVISIONAL pendiente de
+Suleris; la VO real de Adriana se sincroniza al recibirla). NO
+es una entrega final.
+- **Vídeo:** 1255 f = 41,83 s (41,979 s en el contenedor por la
+  deriva conocida del render por tramos, +0,146 s, igual que
+  V2.5), 1080×1920, 30 fps. Render por tramos 9/9 chunks ✓
+  (el primer render se detuvo en 2/9 para plegar los hallazgos
+  de redes; el tercero en 3/9 para plegar la investigación
+  visual; el cuarto se interrumpió a los 39 s por un reinicio
+  del runtime — 0 chunks — y se relanzó limpio).
+- **Máster:** `out/marti-fidel-v3_MASTER.mp4` (18.428.878 B),
+  1255 f, −16,10 LUFS, TP −2,00 dBTP. **Ligera:**
+  `out/marti-fidel-v3_LIGERO.mp4` (2.674.845 B), 1255 f,
+  −16,10 LUFS, TP −2,00 dBTP. Sin atempo (mezcla fresca; la
+  deriva A/V progresiva de V2.3 no aplica).
+- **QA técnico (full): PASSED** — 1255/1255 f, 0 warnings, 0
+  failures, sin intervalos negros, sin silencio inicial/final.
+  El único intervalo de silencio (34,99–36,55 s) es el aire
+  muerto diseñado. SHA-256 del máster:
+  `911cef47a958f3aa71854ea35716b068b8b6cc5308de46f98f3ed5c7b1f641cf`.
+- **Verificación visual:** las 8 escenas verificadas en stills
+  (f15/f60/f100/f120 gancho y cascada, f200 S2, f300 S3, f460
+  S4, f600/f630 S5, f850 S6, f1130 S7, f1170/f1200/f1240 S8 del
+  máster). Logotipo completo blanco/transparente desde el
+  fotograma 0; logotipo de cierre completo sobre negro.
+- **Auditoría de audio (corrida 6, final): 2 FAIL, 115 WARN,
+  9 PASS, 25 INFO** — los 2 FAIL explicados con evidencia
+  (ver saga arriba): (g) silencio diseñado + (i4) falso
+  positivo de alias de pitch. Ningún defecto real de audio.
+- **Mezcla:** `mix-v3.wav` PASS_REAL, −16,0 LUFS, TP −1,5;
+  VO Kokoro ef_dora 37,31 s + cama calm-documentary-a con dip
+  en L7 + 21 SFX (los 9 ligados a palabra a +80 ms del onset).
+- **El «19» no aparece en ningún sitio** (ni voz, ni texto,
+  ni mapa): la cascada es cualitativa (7 países, mismo rojo,
+  sin contadores, sin distinguir en contra/abstención/
+  ausencia); tampoco hay «17» ni desglose 6-7-6. La tesis L7
+  no lleva atribución a Martí.
+- **Pendiente para el final:** confirmación del guion por
+  Suleris; VO real de Adriana (re-sincronizar karaoke, reveals
+  y SFX línea por línea — el pipeline es re-ejecutable);
+  decisión sobre la cama musical (la actual es piano/pads
+  calmo; V2.5 usaba stems tensos de Flow — cambiar el stem es
+  re-mezclar + re-masterizar, sin re-renderizar vídeo).
