@@ -2007,3 +2007,75 @@ St. Vincent, Suriname) votaron a favor: 7+7=14.
 - Los PNG del mapa (`public/img/map-caribbean-*.png`) no
   están en git (`**/public/*` ignorado); la fuente es
   `research/map-build-caribbean.py` + `research/assets/`.
+
+### Tres arreglos de auditoría V3 (20-nov-2026, noche)
+
+El padre auditó la previsualización corregida y pidió 3
+arreglos; el usuario ordenó aplicarlos («Aplica los 3 arreglos
+ahora»). Solo S3/S5; guion, VO, música, mapa y duración (1255 f)
+intactos.
+
+1. **S5 — chip «MARTÍ YA LO HABÍA DICHO:» fuera de la cara.**
+   El chip (top 860) cruzaba boca y barbilla del retrato en
+   inicio, medio y fin de la escena (cara y≈200–870; el push
+   1→1,08 la sube ~40–60 px hacia el final). Se bajó a la zona
+   del pecho (top 900; 30 px libres bajo la barbilla en el
+   peor fotograma) y la pila inferior bajó 70 px para mantener
+   huecos de 50 px entre elementos (banda de árboles top
+   950→1020, `GROUND_Y` 1170→1240, tarjeta top 1240→1310;
+   los árboles conservan su posición relativa dentro de la
+   banda). Subirlo sobre la cabeza no servía: el logo completo
+   del Memorial ocupa la esquina superior derecha y el chip
+   centrado (~870 px) chocaría con él. Verificado en stills
+   del máster `out/check-v3-fixes/f510/f600/f660.png`: cara
+   libre en los 3 puntos.
+2. **S3 — cita del recuento: YA estaba cumplida, SIN cambio.**
+   La premisa del encargo (la 2ª línea se revela a ~10,3 s)
+   confunde el fin de la línea hablada L3 (10,31 s) con el
+   inicio de «Y». La línea 2 se revela con
+   `clamp01(f, 35, 43)` (local f35 = global 271 = 9,03 s),
+   exactamente cuando la VO dice «Y» («RECUENTO,» termina a
+   las 9,02 s según `captions.json`). La cita completa es
+   visible ~9,30→10,90 s ≈ 1,6 s, que ya alcanza el objetivo
+   de ~1,5 s. Cambiar el revelado a ~9,5 s lo haría MÁS
+   tarde, no antes. Evidencia: still f300 del máster (10,0 s)
+   con la cita completa y RECUENTO en rojo. S3 no se tocó;
+   los tramos 02–03 no necesitaron re-render.
+3. **S5 — tarjeta de los árboles: 5 líneas, sin «NO»
+   huérfano.** El reparto sugerido de 4 líneas NO cabe:
+   «PONER EN FILA, PARA QUE NO» mide 882,2 px en Archivo
+   Black 52 px y el ancho útil de la tarjeta es 866 px
+   (968 − 44 − 58) — seguiría envolviendo y reproduciendo el
+   huérfano. Reparto aplicado (texto intacto, mismos tiempos
+   de revelado l1 f53 / l2 f93 / l3 f124): «¡LOS ÁRBOLES SE
+   HAN DE» / «PONER EN FILA,» / «PARA QUE NO» / «PASE EL
+   GIGANTE» / «DE LAS SIETE LEGUAS!» (línea más larga
+   790,5 px). La tarjeta ya renderizaba 5 líneas visuales por
+   el envolvimiento, así que su altura no cambió. Resaltados
+   rojos intactos (FILA, GIGANTE). Verificado en f660 del
+   máster.
+- **Re-render parcial:** tramos 04–05 (f450–749, S5 entera)
+  con `render-chunks.mjs --resume`; tramos 01–03 y 06–09
+  intactos (SHAs originales en el manifest regenerado);
+  concat 1255/1255 f. Audio sin tocar (misma mezcla).
+- **Máster nuevo:** `out/marti-fidel-v3_MASTER.mp4`
+  (18.680.352 B), 1255 f, −16,10 LUFS, TP −2,00 dBTP.
+  **Ligera:** `out/marti-fidel-v3_LIGERO.mp4` (2.733.415 B),
+  1255 f, mismos niveles. SHA-256 del máster:
+  `61c205c4f1cf7413c10cc4d617d1d3623c29eece417c70df6e7f7af5bb3d455b`.
+- **QA full: PASSED** (1255/1255 f, 0 warnings, 0 failures;
+  único silencio el aire muerto diseñado 34,99–36,55 s).
+  **Auditoría de audio: 2 FAIL, 115 WARN, 9 PASS, 25 INFO**
+  — idénticos a la corrida 6 (los 2 FAIL son los explicados:
+  (g) silencio diseñado + (i4) falso positivo de alias de
+  pitch, corr 1,00). Ningún defecto real de audio.
+- **Sin «19»:** grep al código renderizable de V3
+  (`VideoV3.tsx` + `captions-v3.ts`, el import real):
+  ningún «19» ni «diecinueve» en texto en pantalla ni en el
+  guion hablado. Los únicos «diecinueve» del repo están en
+  archivos legacy que V3 no usa (`captions.ts` de V1/V2,
+  comentarios de `VideoV2`/`VideoV25`). «1891» y «2005» son
+  años, no contadores.
+- Respaldo del build anterior (máster, ligera, concat,
+  chunks 04–05) en `/tmp/v3-backup-pre-fixes/` (SHA del
+  máster anterior verificado: `81e47eda…afc594`).

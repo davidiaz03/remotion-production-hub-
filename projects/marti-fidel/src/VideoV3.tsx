@@ -1103,6 +1103,15 @@ const EvidenceScene: React.FC = () => {
 // «FILA,»), con un pulso de «encaje» al llegar «FILA,» y la línea
 // de suelo que se traza bajo ellos. La cita va en tarjeta
 // (sin karaoke). Reutiliza el retrato medio de Martí de V2.5.
+// FIX AUDITORÍA (20-nov-2026): el chip «MARTÍ YA LO HABÍA
+// DICHO:» cruzaba la boca/barbilla del retrato (top 860). Se baja
+// a la zona del pecho (top 900, 30 px libres bajo la barbilla en
+// el peor fotograma) y la pila inferior (banda de árboles +
+// tarjeta) baja 70 px para mantener los huecos (50 px entre
+// elementos). La cita se reparte en 5 líneas explícitas (ver
+// abajo): «PONER EN FILA, PARA QUE NO» mide 882 px a 52 px y NO
+// cabe en los 866 px útiles de la tarjeta — el salto sugerido de
+// 4 líneas reproduciría el «NO» huérfano.
 // ================================================================
 const TREE_COLORS = ['#2F4A2B', '#3A5A33', '#26401F'];
 const TREE_DX = [-60, 45, -75, 30, 65, -40, 50];
@@ -1110,7 +1119,7 @@ const TREE_DY = [10, -8, 14, 0, -12, 8, -6];
 const TREE_ROT = [-6, 4, -5, 3, 6, -4, 5];
 const TREE_SCALE = [0.9, 1.06, 0.86, 1.12, 0.94, 1.03, 0.88];
 const TREE_CX = [130, 265, 400, 535, 670, 805, 940];
-const GROUND_Y = 1170;
+const GROUND_Y = 1240;
 
 const Tree: React.FC<{i: number; frame: number}> = ({i, frame}) => {
 	// La fila se forma entre f53 («¡LOS») y f93 («FILA,»).
@@ -1137,7 +1146,7 @@ const Tree: React.FC<{i: number; frame: number}> = ({i, frame}) => {
 			style={{
 				position: 'absolute',
 				left: TREE_CX[i] - 116 + dx,
-				top: GROUND_Y - 950 - 190 + dy,
+				top: GROUND_Y - 1020 - 190 + dy,
 				width: 120,
 				height: 190,
 				transform: `rotate(${rot}deg) scale(${scale * lock})`,
@@ -1242,11 +1251,13 @@ const TreesScene: React.FC = () => {
 						'linear-gradient(180deg, rgba(23,18,8,0.10) 0%, rgba(23,18,8,0.10) 45%, rgba(23,18,8,0.92) 78%, rgba(23,18,8,0.97) 100%)',
 				}}
 			/>
-			{/* Chip «MARTÍ YA LO HABÍA DICHO:» */}
+			{/* Chip «MARTÍ YA LO HABÍA DICHO:» — sobre el pecho, bajo
+			    la barbilla (fix auditoría 20-nov: en top 860 tapaba
+			    boca y barbilla; la pila inferior baja 70 px). */}
 			<div
 				style={{
 					position: 'absolute',
-					top: 860,
+					top: 900,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -1272,7 +1283,7 @@ const TreesScene: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 950,
+					top: 1020,
 					left: 56,
 					right: 56,
 					height: 240,
@@ -1288,7 +1299,7 @@ const TreesScene: React.FC = () => {
 				<div
 					style={{
 						position: 'absolute',
-						top: GROUND_Y - 950,
+						top: GROUND_Y - 1020,
 						left: 44,
 						width: 880,
 						height: 4,
@@ -1299,7 +1310,7 @@ const TreesScene: React.FC = () => {
 				/>
 			</div>
 			<PaperCard
-				top={1240}
+				top={1310}
 				folio="NUESTRA AMÉRICA · 1891"
 				opacity={cardIn}
 				rise={cardRise}
@@ -1315,9 +1326,9 @@ const TreesScene: React.FC = () => {
 				>
 					<div style={{opacity: l1}}>«¡LOS ÁRBOLES SE HAN DE</div>
 					<div style={{opacity: l2}}>
-						PONER EN <span style={{color: MEMORIAL_RED}}>FILA,</span> PARA QUE
-						NO
+						PONER EN <span style={{color: MEMORIAL_RED}}>FILA,</span>
 					</div>
+					<div style={{opacity: l2}}>PARA QUE NO</div>
 					<div style={{opacity: l3}}>
 						PASE EL <span style={{color: MEMORIAL_RED}}>GIGANTE</span>
 					</div>
