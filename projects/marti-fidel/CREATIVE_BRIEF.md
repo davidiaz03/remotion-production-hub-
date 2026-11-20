@@ -2079,3 +2079,40 @@ intactos.
 - Respaldo del build anterior (máster, ligera, concat,
   chunks 04–05) en `/tmp/v3-backup-pre-fixes/` (SHA del
   máster anterior verificado: `81e47eda…afc594`).
+
+---
+
+# V4 — ESTRATEGIA VISUAL NUEVA (20-nov-2026)
+
+Encargo del usuario: repensar la estrategia para que el video quede más bonito, más
+inmersivo, con más recursos visuales y más profesional. Documento completo:
+`projects/marti-fidel/research/ESTRATEGIA-VISUAL-V4.md` (fuera del repo).
+
+**Concepto: «El archivo cobra vida».** Tres mundos visuales según los tres
+movimientos del guion V4.3: EL PRESENTE (L1–L4, azul noche, mapa vivo, datos),
+EL ARCHIVO (L5–L7, papel y tinta, calma de ensayo), EL ESPEJO (L8–L11, pared de
+pantallas con estática → negro y tesis manuscrita → árboles y logo).
+
+**El salto respecto a V3:** cámara en movimiento en todas las escenas (push-ins,
+parallax por capas, vuelo de mapa); profundidad (foto + grano + viñeta + luz);
+más archivo real (caza en curso: Martí en alta resolución, Fidel 2004–2006,
+retrato oficial de Browne, tablero de votación ONU, micrófono de radio, textura de
+papel, banderas de los 7 CARICOM — todo con licencia verificada, nada de IA para
+Martí/Fidel); gráficos con sentido narrativo (los países se separan y derivan, los
+árboles crecen en secuencia, las pantallas se apagan una a una, la tesis se escribe
+a mano); sistema tipográfico de tres voces (DATO mono, VOZ karaoke Archivo Black
+con clave en rojo, CITA serif); arco de color azul → sepia → negro → rojo;
+diseño de sonido (bed tranquilo de ensayo + SFX con propósito); la interrupción se
+mueve a L8 (la pared de pantallas rompe la calma del archivo cuando el guion habla
+del mecanismo que interrumpe el pensamiento).
+
+**Escaleta:** 11 escenas, una por línea, cada una con 2–3 latidos internos (cambio
+visual cada ~2 s, patrón EditorOP). Ver el documento de estrategia para la tabla
+completa.
+
+**Dependencias:** (1) VO real — el usuario dice tenerla; la bandeja de Drive
+(«Videos oficiales») está vacía, verificado 20-nov 16:59; pendiente que envíe el
+archivo. Al recibirla, verificar que la L8 grabada es la de V4.3 (tercera persona).
+(2) Caza de recursos en curso. (3) Build en `VideoV4.tsx` nueva; V3 intacta.
+(4) `audit-audio.py` obligatorio antes de entregar. (5) La edición final sigue
+bloqueada hasta la confirmación de Suleris sobre la V4.3.
