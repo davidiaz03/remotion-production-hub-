@@ -53,8 +53,11 @@ import {CARIBBEAN_TT, CARIBBEAN_BREAK} from './mapDots';
 // Pexels (S2/S3/S5), 7 banderas CARICOM en SVG (cascada S1).
 // Único recurso IA: bosque lejano con niebla (S10/S11, fondo
 // atmosférico tras la fila; Pollinations Flux, seed 7,
-// public/img/v4/ai/forest-silhouette-mist.jpg). Nada de IA en
-// personas ni en archivo: Martí, Fidel y Browne son solo reales.
+// public/img/v4/ai/forest-silhouette-mist.jpg) + las tres palmas
+// reales pictóricas de S5/S10/S11 (Pollinations Flux, seeds 11,
+// 23 y 37, recortadas con rembg; public/img/v4/ai/palma-real-
+// {a,b,c}.png). Nada de IA en personas ni en archivo: Martí,
+// Fidel y Browne son solo reales.
 // V3 queda intacta en src/VideoV3.tsx (composición MainReelV3).
 // ================================================================
 
@@ -299,9 +302,10 @@ const GrainVignette: React.FC = () => {
 
 // ---------- marca de agua (logotipo COMPLETO, blanco/transparente) ----------
 // 115 px, arriba derecha, desde el fotograma 0, fade de salida
-// antes del sting (2022–2032). Nunca solo la estrella. Scrim
-// radial suave (NO placa) solo en las escenas claras de papel
-// (S2/S3, S5) y en S7.
+// antes del sting (2022–2032). Nunca solo la estrella. Velo
+// radial MUY ligero (apenas legibilidad, nunca manchón ni placa)
+// solo en las escenas claras de papel (S2/S3, S5) y en S7
+// (pulido final 20-nov: 0,65/0,45 → 0,38/0,20, radio reducido).
 const LogoInner: React.FC = () => {
 	const frame = useCurrentFrame();
 	const fadeOut = interpolate(frame, [2016, 2026], [1, 0], {
@@ -323,7 +327,7 @@ const LogoInner: React.FC = () => {
 					width: 260,
 					height: 340,
 					background:
-						'radial-gradient(ellipse 50% 50% at 50% 44%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0) 85%)',
+						'radial-gradient(ellipse 42% 42% at 50% 44%, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0) 80%)',
 					opacity: scrimOp,
 				}}
 			/>
@@ -428,10 +432,26 @@ const LINES_C: KaraokeLine[] = shiftLines(
 	capSegmentsToLines(CAPTIONS.slice(5, 6)),
 	S6_START / FPS,
 );
-const LINES_D: KaraokeLine[] = shiftLines(
+const LINES_D_RAW: KaraokeLine[] = shiftLines(
 	capSegmentsToLines(CAPTIONS.slice(7, 8)),
 	S8_START / FPS,
 );
+const LINES_D: KaraokeLine[] = [
+	...LINES_D_RAW.slice(0, 2),
+	// Línea vacía mientras el título glitch «REFLEJOS CONDICIONADOS»
+	// está en pantalla (local f80–131): el título HACE de texto para
+	// esas palabras (nunca texto doble; patrón V3 de LINES_B).
+	// «REFLEJOS» se dice a los 47,52 s (local f80); «MUCHOS» a los
+	// 49,22 s (local f131), cuando el karaoke vuelve. La ventana cubre
+	// hasta f131 (no solo hasta f116, fin de «CONDICIONADOS:») porque
+	// BottomKaraoke mantiene la línea activa hasta que empieza la
+	// siguiente: sin la línea vacía, el chunk 2 seguiría visible en
+	// la pausa f116–131 bajo el título. El fundido del título
+	// (f140–148) coincide solo con el chunk 3 («MUCHOS…»), palabras
+	// distintas: no hay duplicado.
+	{words: [{t: '', s: 47.52 - S8_START / FPS, e: 49.22 - S8_START / FPS}]},
+	...LINES_D_RAW.slice(2),
+];
 const LINES_E1: KaraokeLine[] = shiftLines(
 	capSegmentsToLines(CAPTIONS.slice(9, 10)),
 	S10_START / FPS,
@@ -490,16 +510,33 @@ const Soundwave: React.FC<{frame: number; top: number}> = ({frame, top}) => {
 	);
 };
 
-// ---------- árbol que CRECE (S5) / árbol a toda altura (S10/S11) ----------
-// Tronco + copa de tres círculos (motivo V3), escalable por altura.
-// Cada árbol tiene su propia altura (fila natural, no seto): las
-// copas se tocan levemente sin fundirse en una pared. growAt/
-// growDur: crecimiento scaleY desde el suelo; sway: balanceo
-// lento determinista. Sombra de suelo para dar profundidad.
-const TREE_COLORS = ['#2F4A2B', '#3A5A33', '#26401F'];
+// ---------- palmas reales que CRECEN (S5) / a toda altura (S10/S11) ----------
+// Fila de PALMAS REALES (Roystonea regia, el árbol cubano por
+// excelencia; encaja con Martí y «Nuestra América»): tres
+// ilustraciones pictóricas estilo grabado botánico, en la paleta
+// sepia del mundo Archivo, generadas con Pollinations Flux
+// (scripts/gen-illustration.py; seeds 11, 23 y 37) y recortadas
+// con rembg a PNG con alfa (public/img/v4/ai/palma-real-{a,b,c}.
+// png). Variedad por variante (i%3), espejo (i impar) y altura/
+// brillo por índice: 7 palmas sin dos iguales. La vía (1) de foto
+// real CC0 se intentó y se descartó: no se encontró ninguna fila
+// lateral de palmas con licencia libre (solo avenidas en
+// perspectiva, postales antiguas o fotos con marca de agua).
+// El crecimiento en secuencia SE MANTIENE (es lo que vende la
+// cita): revelado por máscara (clip-path desde el suelo) + leve
+// escala vertical desde la base — la palma BROTA del suelo,
+// tronco primero y copa al final — con balanceo lento
+// determinista. `tone` noche oscurece y enfría la palma para
+// S10/S11 (el mismo arte, otro mundo).
+const PALM_VARIANTS = [
+	{file: 'img/v4/ai/palma-real-a.png', aspect: 631 / 1194},
+	{file: 'img/v4/ai/palma-real-b.png', aspect: 648 / 1114},
+	{file: 'img/v4/ai/palma-real-c.png', aspect: 595 / 1153},
+] as const;
+const PALM_BRIGHT = [1.0, 0.94, 1.05, 0.97, 1.02, 0.95, 1.0];
 const TREE_CX = [110, 250, 390, 540, 690, 830, 970];
 const TREE_H = [0.9, 1.02, 0.86, 1.08, 0.94, 1.0, 0.88];
-const GrowingTree: React.FC<{
+const GrowingPalm: React.FC<{
 	i: number;
 	x: number;
 	groundY: number;
@@ -508,7 +545,18 @@ const GrowingTree: React.FC<{
 	growDur: number;
 	frame: number;
 	sway?: boolean;
-}> = ({i, x, groundY, height, growAt, growDur, frame, sway = false}) => {
+	tone?: 'paper' | 'night';
+}> = ({
+	i,
+	x,
+	groundY,
+	height,
+	growAt,
+	growDur,
+	frame,
+	sway = false,
+	tone = 'paper',
+}) => {
 	const p = interpolate(frame, [growAt, growAt + growDur], [0, 1], {
 		easing: Easing.out(Easing.cubic),
 		extrapolateLeft: 'clamp',
@@ -516,11 +564,14 @@ const GrowingTree: React.FC<{
 	});
 	const inOp = clamp01(frame, growAt, growAt + 6);
 	const rot = sway ? Math.sin(frame / 45 + i * 1.3) * 1.6 : 0;
-	const color = TREE_COLORS[i % TREE_COLORS.length];
+	const v = PALM_VARIANTS[i % PALM_VARIANTS.length];
+	const flip = i % 2 === 1 ? -1 : 1;
 	const h = height * (TREE_H[i] ?? 1);
-	const w = h * 0.42;
-	const trunkW = Math.max(10, h * 0.045);
-	const trunkH = h * 0.42;
+	const w = h * v.aspect;
+	const filter =
+		tone === 'night'
+			? 'brightness(0.52) saturate(0.85) hue-rotate(-6deg)'
+			: `brightness(${PALM_BRIGHT[i] ?? 1}) saturate(1.05)`;
 	return (
 		<div
 			style={{
@@ -531,13 +582,13 @@ const GrowingTree: React.FC<{
 				height: h,
 			}}
 		>
-			{/* Sombra de suelo (no crece con el árbol). */}
+			{/* Sombra de suelo bajo el tronco (no crece con la palma). */}
 			<div
 				style={{
 					position: 'absolute',
-					left: -w * 0.05,
+					left: w * 0.32,
 					bottom: -8,
-					width: w * 1.1,
+					width: w * 0.36,
 					height: 14,
 					borderRadius: '50%',
 					background: 'rgba(0,0,0,0.35)',
@@ -548,60 +599,109 @@ const GrowingTree: React.FC<{
 				style={{
 					position: 'absolute',
 					inset: 0,
-					transform: `rotate(${rot}deg) scaleY(${Math.max(p, 0.001)})`,
+					// Revelado por máscara desde el suelo: la palma
+					// brota (tronco primero, copa al final).
+					clipPath: `inset(${(1 - p) * 100}% 0 0 0)`,
+					transform: `rotate(${rot}deg) scaleY(${0.92 + 0.08 * p}) scaleX(${flip})`,
 					transformOrigin: '50% 100%',
 					opacity: inOp,
 				}}
 			>
-				<div
-					style={{
-						position: 'absolute',
-						left: (w - trunkW) / 2,
-						bottom: 0,
-						width: trunkW,
-						height: trunkH,
-						background: '#3A2E1F',
-						borderRadius: 4,
-					}}
-				/>
-				<div
-					style={{
-						position: 'absolute',
-						left: w * 0.02,
-						top: h * 0.14,
-						width: h * 0.3,
-						height: h * 0.3,
-						borderRadius: '50%',
-						background: color,
-					}}
-				/>
-				<div
-					style={{
-						position: 'absolute',
-						left: w * 0.28,
-						top: h * 0.02,
-						width: h * 0.32,
-						height: h * 0.32,
-						borderRadius: '50%',
-						background: color,
-						filter: 'brightness(1.15)',
-					}}
-				/>
-				<div
-					style={{
-						position: 'absolute',
-						left: w * 0.14,
-						top: h * 0.3,
-						width: h * 0.3,
-						height: h * 0.3,
-						borderRadius: '50%',
-						background: color,
-						filter: 'brightness(0.85)',
-					}}
+				<Img
+					src={staticFile(v.file)}
+					style={{width: '100%', height: '100%', filter}}
 				/>
 			</div>
 		</div>
 	);
+};
+
+// ---------- fila de palmas de fondo (profundidad, S5/S10/S11) ----------
+// Las mismas palmas, más pequeñas, oscuras y difuminadas,
+// desplazadas medio paso para asomar entre las del primer plano.
+// Ya está plantada cuando la fila principal crece (aparece en
+// fundido, no en secuencia): la profundidad la da la perspectiva
+// aérea (tamaño + desenfoque + oscuridad), no una segunda línea
+// de suelo — el mundo Archivo es un friso plano.
+const PalmBackdropRow: React.FC<{
+	groundY: number;
+	height: number;
+	frame: number;
+	revealAt: number;
+	tone: 'paper' | 'night';
+}> = ({groundY, height, frame, revealAt, tone}) => {
+	const op = clamp01(frame, revealAt, revealAt + 18) * 0.55;
+	return (
+		<div style={{position: 'absolute', inset: 0, opacity: op}}>
+			{[0, 1, 2, 3, 4, 5, 6].map((i) => {
+				const v = PALM_VARIANTS[(i + 1) % PALM_VARIANTS.length];
+				const h = height * (TREE_H[(i + 2) % 7] ?? 1);
+				const w = h * v.aspect;
+				const x = TREE_CX[i] + 70;
+				const flip = i % 2 === 0 ? -1 : 1;
+				const filter =
+					tone === 'night'
+						? 'brightness(0.38) saturate(0.8) blur(2px)'
+						: 'brightness(0.62) saturate(0.9) blur(2px)';
+				return (
+					<div
+						key={i}
+						style={{
+							position: 'absolute',
+							left: x - w / 2,
+							top: groundY - h,
+							width: w,
+							height: h,
+							transform: `scaleX(${flip})`,
+						}}
+					>
+						<Img
+							src={staticFile(v.file)}
+							style={{width: '100%', height: '100%', filter}}
+						/>
+					</div>
+				);
+			})}
+		</div>
+	);
+};
+
+// ---------- polvo dorado flotando entre las palmas (S5) ----------
+// El elemento vivo quieto de la escena: motas que suben despacio
+// con vaivén lateral y se desvanecen al reiniciar el ciclo
+// (sin saltos visibles). Posiciones deterministas.
+const DustMotes: React.FC<{frame: number; top: number; bottom: number}> = ({
+	frame,
+	top,
+	bottom,
+}) => {
+	const motes = [];
+	for (let i = 0; i < 12; i++) {
+		const x0 = 60 + rnd(i * 3 + 1) * 960;
+		const y0 = top + rnd(i * 5 + 2) * (bottom - top);
+		const size = 3 + rnd(i * 7 + 3) * 4;
+		const speed = 0.12 + rnd(i * 11 + 5) * 0.22;
+		const rise = (frame * speed + i * 37) % 130;
+		const fade = clamp01(rise, 0, 15) * (1 - clamp01(rise, 115, 130));
+		const wob = Math.sin(frame / 28 + i * 2.1) * 12;
+		motes.push(
+			<div
+				key={i}
+				style={{
+					position: 'absolute',
+					left: x0 + wob,
+					top: y0 - rise,
+					width: size,
+					height: size,
+					borderRadius: '50%',
+					background: 'rgba(255,224,150,0.55)',
+					boxShadow: '0 0 8px rgba(255,224,150,0.5)',
+					opacity: (0.35 + 0.3 * rnd(i * 13 + 7)) * fade,
+				}}
+			/>,
+		);
+	}
+	return <>{motes}</>;
 };
 
 // ================================================================
@@ -613,9 +713,9 @@ const GrowingTree: React.FC<{
 // centroide: la bandera viaja con el país al derivar.
 // El chip «CARICOM · 33 AÑOS UNIDO» se QUIEBRA al decirse «DEJÓ»
 // (local f112) con el sello «ROTOS». SEGUNDO TIEMPO (f126–140):
-// el mapa retrocede y se atenúa al 18% y el tablero ONU toma el
+// el mapa retrocede y se atenúa al 30% y el tablero ONU toma el
 // escenario como foto central (nunca foto sobre mapa: cada recurso
-// tiene su tiempo). La cámara vuela (zoom 0,92→1,22 acelerando)
+// tiene su tiempo). La cámara vuela (zoom 1,0→1,3 acelerando)
 // y el zoom CONTINÚA durante el morfo a S2:
 // el mapa SE CONVIERTE en papel (S2 entra con wipe circular desde
 // el punto del arco). Sin contadores, sin el «19».
@@ -684,20 +784,21 @@ const HookMapScene: React.FC = () => {
 	});
 	// Cámara viva: vuelo que ACELERA hacia el morfo (el zoom sigue
 	// durante el solape con S2: el mapa se convierte en papel).
-	const mapScale = interpolate(f, [0, 167, 179], [0.92, 1.12, 1.22], {
+	const mapScale = interpolate(f, [0, 167, 179], [1.0, 1.2, 1.3], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
 	// Segundo tiempo (f126–140): el mapa RETROCEDE y se atenúa a
 	// fondo (la foto ONU toma el escenario; nunca foto sobre mapa).
-	const recede = interpolate(f, [126, 140], [1, 0.88], {
+	// El fondo queda al 40%: llena el tercio medio tras la foto.
+	const recede = interpolate(f, [126, 140], [1, 0.96], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	const mapOp = 1 - 0.82 * clamp01(f, 126, 140);
+	const mapOp = 1 - 0.6 * clamp01(f, 126, 140);
 	// En el segundo tiempo, la cascada (rellenos rojos, banderas)
 	// y los puntos se desvanecen del todo: solo queda la base del
-	// mapa al 18% como atmósfera, sin banderas fantasma.
+	// mapa al 40% como atmósfera, sin banderas fantasma.
 	const beat2Out = 1 - clamp01(f, 126, 140);
 	const mapDrift = drift(f, 179, -8, 5);
 	// Overlay ONU: entra al final (f128), tras decirse «UNIDO.»
@@ -716,7 +817,9 @@ const HookMapScene: React.FC = () => {
 				style={{
 					position: 'absolute',
 					inset: 0,
-					transform: `scale(${mapScale * recede}) translate(${mapDrift.x}px, ${mapDrift.y}px)`,
+					// +150 px en Y: el mapa baja para cerrar el hueco
+					// a media altura entre el mapa y el karaoke.
+					transform: `scale(${mapScale * recede}) translate(${mapDrift.x}px, ${mapDrift.y + 150}px)`,
 					transformOrigin: '850px 560px',
 					opacity: mapOp,
 				}}
@@ -968,16 +1071,16 @@ const HookMapScene: React.FC = () => {
 				</span>
 			</div>
 			{/* SEGUNDO TIEMPO: la foto ONU toma el escenario (f128–140)
-			mientras el mapa retrocede y se atenúa al 18% (fondo).
+			mientras el mapa retrocede y se atenúa al 40% (fondo).
 			Nunca foto sobre mapa: cada recurso tiene su tiempo.
 			La foto es apaisada: se muestra entera, sin recorte. */}
 			<div
 				style={{
 					position: 'absolute',
 					top: 620,
-					left: 70,
-					right: 70,
-					height: 478,
+					left: 16,
+					right: 16,
+					height: 524,
 					borderRadius: 12,
 					overflow: 'hidden',
 					background: '#000000',
@@ -991,7 +1094,7 @@ const HookMapScene: React.FC = () => {
 					src={staticFile('img/v4/onu-votacion-28oct2026-unphoto.jpg')}
 					style={{
 						width: '100%',
-						height: 427,
+						height: 474,
 						objectFit: 'cover',
 						objectPosition: '50% 50%',
 						display: 'block',
@@ -1019,7 +1122,8 @@ const HookMapScene: React.FC = () => {
 // ================================================================
 // S2 — 1891 (167–269 f · 5,57–8,97 s, local 0–114)
 // MORFO S1→S2: el papel entra con un wipe circular que nace en
-// el punto del arco caribeño (877, 665) mientras el zoom del mapa
+// el punto del arco caribeño (878, 788 — Dominica, tras el
+// desplazamiento +110 px del mapa) mientras el zoom del mapa
 // sigue acelerando debajo: el mapa SE CONVIERTE en papel.
 // Retrato clásico de Martí (1220×2035) con parallax y push-in;
 // «1891» en serif gigante al decirse «1891.» (local f44).
@@ -1062,7 +1166,7 @@ const Year1891Scene: React.FC = () => {
 		<AbsoluteFill
 			style={{
 				background: SEPIA_BG,
-				clipPath: `circle(${wipeR}px at 877px 665px)`,
+				clipPath: `circle(${wipeR}px at 878px 860px)`,
 			}}
 		>
 			<Img
@@ -1177,7 +1281,7 @@ const Year1891Scene: React.FC = () => {
 						borderRadius: 6,
 					}}
 				>
-					NUESTRA AMÉRICA · LA REVISTA ILUSTRADA · 1891
+					NUESTRA AMÉRICA · LA REVISTA ILUSTRADA
 				</span>
 			</div>
 		</AbsoluteFill>
@@ -1187,10 +1291,13 @@ const Year1891Scene: React.FC = () => {
 // ================================================================
 // S3 — CITA 1, EL RECUENTO (269–382 f · 8,97–12,73 s, local 0–125)
 // Tarjeta de cita sobre papel beige, revelado en tinta línea a
-// línea (l1 f2, l2 al decirse «Y», f53). Retrato ovalado de Martí
-// (México 1894) en esquina + portada de La Revista Ilustrada
-// como segundo documento: collage de archivo con profundidad.
-// Cámara casi quieta (la pausa solemne) pero VIVA: push lento,
+// línea (l1 f2, l2 al decirse «Y», f53). La portada de La Revista
+// Ilustrada es la PROTAGONISTA (grande, centro del cuadro, con
+// push-in propio); el retrato ovalado de Martí (México 1894) la
+// apoya desde la esquina superior izquierda, solapando su esquina.
+// El HILO ROJO une los tres elementos: la regla roja de la tarjeta
+// se extiende hacia arriba (con punto pulsante) hasta el retrato.
+// Cámara VIVA: push lento del papel + push-in de la portada +
 // barrido de luz cálida y retrato que respira. Sin karaoke.
 // ================================================================
 const RecuentoScene: React.FC = () => {
@@ -1211,6 +1318,11 @@ const RecuentoScene: React.FC = () => {
 		extrapolateRight: 'clamp',
 	});
 	const docIn = clamp01(f, 14, 24);
+	// Push-in propio de la portada (la protagonista se acerca).
+	const docPush = interpolate(f, [0, 125], [1, 1.06], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
 	const cardIn = clamp01(f, 0, 8);
 	const cardRise = interpolate(f, [0, 12], [24, 0], {
 		easing: Easing.out(Easing.cubic),
@@ -1251,15 +1363,38 @@ const RecuentoScene: React.FC = () => {
 						'linear-gradient(180deg, rgba(23,18,8,0.15) 0%, rgba(23,18,8,0.05) 50%, rgba(23,18,8,0.35) 100%)',
 				}}
 			/>
-			{/* Retrato ovalado (México 1894), esquina superior IZQUIERDA
-			(la derecha la ocupa la marca de agua: nunca texto ni logo
-			sobre el retrato). */}
+			{/* La Revista Ilustrada (1891), PROTAGONISTA: grande, centro
+			del cuadro, con push-in propio (el documento que contiene
+			el ensayo manda en la escena). */}
+			<div
+				style={{
+					position: 'absolute',
+					top: 330,
+					left: 290,
+					width: 480,
+					opacity: docIn,
+					transform: `rotate(2deg) scale(${docPush})`,
+					transformOrigin: '50% 40%',
+					background: '#F5F0E6',
+					padding: 10,
+					boxShadow: '0 16px 40px rgba(0,0,0,0.55)',
+				}}
+			>
+				<Img
+					src={staticFile('img/revista-ilustrada-1891.jpg')}
+					style={{width: '100%', display: 'block'}}
+				/>
+			</div>
+			{/* Retrato ovalado (México 1894), apoyo en la esquina
+			superior IZQUIERDA (la derecha la ocupa la marca de agua:
+			nunca texto ni logo sobre el retrato). Solapa la esquina
+			de la portada: los dos documentos se tocan. */}
 			<div
 				style={{
 					position: 'absolute',
 					top: 150,
 					left: 90,
-					width: 310,
+					width: 260,
 					opacity: portraitIn,
 					transform: `rotate(-2deg) scale(${portraitScale})`,
 					background: '#F5F0E6',
@@ -1271,32 +1406,54 @@ const RecuentoScene: React.FC = () => {
 					src={staticFile('img/v4/marti-retrato-mexico-1894.jpg')}
 					style={{
 						width: '100%',
-						height: 380,
+						height: 320,
 						objectFit: 'cover',
 						objectPosition: '50% 28%',
 						display: 'block',
 					}}
 				/>
 			</div>
-			{/* La Revista Ilustrada (1891), segundo documento. */}
+			{/* El hilo rojo une retrato → portada → tarjeta: la regla
+			roja de la tarjeta se extiende hacia arriba hasta la base
+			del retrato (misma x que la regla, 78), con punto pulsante
+			en el extremo (mismo ciclo de 45 f que la tarjeta). */}
 			<div
 				style={{
 					position: 'absolute',
-					top: 620,
-					left: 760,
-					width: 230,
-					opacity: docIn,
-					transform: 'rotate(3deg)',
-					background: '#F5F0E6',
-					padding: 10,
-					boxShadow: '0 16px 40px rgba(0,0,0,0.55)',
+					left: 78,
+					top: 490,
+					width: 8,
+					height: 660,
+					background: MEMORIAL_RED,
+					opacity: 0.55 * docIn,
 				}}
-			>
-				<Img
-					src={staticFile('img/revista-ilustrada-1891.jpg')}
-					style={{width: '100%', display: 'block'}}
-				/>
-			</div>
+			/>
+			<div
+				style={{
+					position: 'absolute',
+					left: 75,
+					top: 482,
+					width: 14,
+					height: 14,
+					borderRadius: '50%',
+					border: `3px solid ${MEMORIAL_RED}`,
+					transform: `scale(${redPulse(f).ringScale})`,
+					opacity: redPulse(f).ringOp * docIn,
+				}}
+			/>
+			<div
+				style={{
+					position: 'absolute',
+					left: 77,
+					top: 484,
+					width: 10,
+					height: 10,
+					borderRadius: '50%',
+					background: MEMORIAL_RED,
+					boxShadow: RED_HALO(redPulse(f).glow),
+					opacity: docIn,
+				}}
+			/>
 			<PaperCard
 				top={1150}
 				folio="NUESTRA AMÉRICA · 1891"
@@ -1392,7 +1549,8 @@ const EvidenceScene: React.FC = () => {
 						'linear-gradient(180deg, rgba(10,20,32,0.55) 0%, rgba(10,20,32,0.25) 45%, rgba(10,20,32,0.92) 85%, rgba(10,20,32,0.97) 100%)',
 				}}
 			/>
-			{/* Bug EN VIVO + fecha de la emisión (voz DATO). */}
+			{/* Bug EN VIVO (voz DATO). La fecha vive solo en la
+			tarjeta-chyron (sin duplicar). */}
 			<div
 				style={{
 					position: 'absolute',
@@ -1425,18 +1583,6 @@ const EvidenceScene: React.FC = () => {
 					>
 						EN VIVO
 					</span>
-				</div>
-				<div
-					style={{
-						fontFamily: MONO,
-						fontSize: 22,
-						fontWeight: 700,
-						letterSpacing: 3,
-						color: '#FFFFFF',
-						opacity: 0.85,
-					}}
-				>
-					RADIO · 9 NOV 2026
 				</div>
 			</div>
 			{/* La radio está «en el aire»: onda sonora animada. */}
@@ -1522,7 +1668,7 @@ const EvidenceScene: React.FC = () => {
 								marginTop: 8,
 							}}
 						>
-							RADIO · 9 NOV 2026 · CMC
+							RADIO · 9 NOV 2026
 						</div>
 					</div>
 				</div>
@@ -1532,12 +1678,14 @@ const EvidenceScene: React.FC = () => {
 };
 
 // ================================================================
-// S5 — LOS ÁRBOLES CRECEN (562–768 f · 18,73–25,60 s, local 0–218)
-// La metáfora de Martí ANIMADA: siete árboles CRECEN en secuencia
-// de izquierda a derecha al ritmo de la cita (f67–f139), con
-// travelling lateral lento y la línea de suelo que se traza bajo
-// ellos. La cita va en tarjeta serif (sin karaoke). Fondo sepia
-// con luz cálida.
+// S5 — LAS PALMAS CRECEN (562–768 f · 18,73–25,60 s, local 0–218)
+// La metáfora de Martí ANIMADA: siete PALMAS REALES crecen en
+// secuencia de izquierda a derecha al ritmo de la cita (f67–
+// f139), brotando del suelo por revelado de máscara, con
+// travelling lateral lento, fila de fondo en parallax (0,4×),
+// barrido de luz cálida entre las hojas y polvo dorado flotando.
+// La línea de suelo se traza bajo ellas. La cita va en tarjeta
+// serif (sin karaoke). Fondo sepia con luz cálida.
 // ================================================================
 const TreesScene: React.FC = () => {
 	const f = useCurrentFrame();
@@ -1561,6 +1709,12 @@ const TreesScene: React.FC = () => {
 	const l4 = clamp01(f, 151, 159);
 	// Travelling lateral siguiendo el crecimiento.
 	const travelX = interpolate(f, [0, 218], [-24, 24], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+	// Barrido de luz cálida entre las hojas (de izquierda a
+	// derecha, una sola pasada lenta en toda la escena).
+	const sweepX = interpolate(f, [0, 218], [-320, 1240], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
@@ -1592,7 +1746,7 @@ const TreesScene: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 240,
+					top: 310,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -1612,10 +1766,26 @@ const TreesScene: React.FC = () => {
 						boxShadow: RED_HALO(redPulse(f).glow),
 					}}
 				>
-					MARTÍ YA LO HABÍA DICHO:
+					YA LO HABÍA DICHO MARTÍ:
 				</span>
 			</div>
-			{/* Banda de los árboles: crecen en secuencia, travelling. */}
+			{/* Fila de fondo en parallax (0,4× del travelling). */}
+			<div
+				style={{
+					position: 'absolute',
+					inset: 0,
+					transform: `translateX(${travelX * 0.4}px)`,
+				}}
+			>
+				<PalmBackdropRow
+					groundY={1200}
+					height={430}
+					frame={f}
+					revealAt={40}
+					tone="paper"
+				/>
+			</div>
+			{/* Banda de las palmas: crecen en secuencia, travelling. */}
 			<div
 				style={{
 					position: 'absolute',
@@ -1624,15 +1794,16 @@ const TreesScene: React.FC = () => {
 				}}
 			>
 				{[0, 1, 2, 3, 4, 5, 6].map((i) => (
-					<GrowingTree
+					<GrowingPalm
 						key={i}
 						i={i}
 						x={TREE_CX[i]}
 						groundY={1200}
-						height={500}
+						height={660}
 						growAt={67 + i * 12}
 						growDur={26}
 						frame={f}
+						sway
 					/>
 				))}
 				<div
@@ -1648,6 +1819,21 @@ const TreesScene: React.FC = () => {
 					}}
 				/>
 			</div>
+			{/* Barrido de luz cálida entre las hojas. */}
+			<div
+				style={{
+					position: 'absolute',
+					left: sweepX,
+					top: 470,
+					width: 260,
+					height: 780,
+					background:
+						'linear-gradient(90deg, rgba(255,230,160,0) 0%, rgba(255,230,160,0.10) 50%, rgba(255,230,160,0) 100%)',
+					transform: 'skewX(-18deg)',
+					pointerEvents: 'none',
+				}}
+			/>
+			<DustMotes frame={f} top={500} bottom={1200} />
 			<PaperCard
 				top={1300}
 				folio="NUESTRA AMÉRICA · 1891"
@@ -1681,26 +1867,33 @@ const TreesScene: React.FC = () => {
 
 // ================================================================
 // S6 — EL GIGANTE (768–1063 f · 25,60–35,43 s, local 0–307)
-// Mapa de Nuestra América con RETROCESO de cámara: del Caribe al
-// continente entero. EE. UU. (fuera del marco, al norte) se
-// señala con el resplandor rojo del hilo + punto pulsante sobre
-// Florida + etiqueta DATO; su sombra roja se extiende sobre el
-// continente al decirse «AMENAZA CON EXTENDER SU DOMINIO»
-// (f190–274). Karaoke L6 abajo.
+// Mapa de Nuestra América CON EE. UU. VISIBLE (map-latam-usa.png,
+// Natural Earth 50m, bbox lon −125..−55 / lat −60..50: el EE. UU.
+// continental completo; map-base.png NO lo contenía y el chip
+// señalaba fuera de cuadro). Retroceso de cámara suave; el
+// resplandor rojo del hilo EMANA de Florida como un resplandor
+// RADIAL que crece al decirse «GIGANTE» (f28) y «ESTADOS UNIDOS»
+// (f148) y se extiende al decirse «AMENAZA CON EXTENDER SU
+// DOMINIO» (f190–274): filo difuminado, nunca borde duro. Las
+// etiquetas DATO van pegadas al resplandor: «ESTADOS UNIDOS» sobre
+// el punto, «PODERÍO ECONÓMICO Y MILITAR» justo bajo él con línea
+// guía, «NUESTRA AMÉRICA» en el Pacífico con guía a la costa del
+// Perú. Karaoke L6 abajo.
 // ================================================================
-const LATAM_LEFT = 60;
-const LATAM_TOP = 150;
-const LATAM_SIZE = 960;
-// Florida en pantalla (canvas LatAm 1400: lon −81,5, lat 28 →
-/// 628, 77).
-const US_X = LATAM_LEFT + (628 / 1400) * LATAM_SIZE;
-const US_Y = LATAM_TOP + (77 / 1400) * LATAM_SIZE;
+const LATAM_LEFT = 80;
+const LATAM_TOP = 90;
+const LATAM_W = 920;
+const LATAM_H = 1446;
+// Canvas del mapa nuevo: 1400×2200 (20 px/grado, lon −125..−55 /
+// lat −60..50). Florida (lon −81,5, lat 28) → canvas (870, 440).
+const US_X = LATAM_LEFT + (870 / 1400) * LATAM_W;
+const US_Y = LATAM_TOP + (440 / 2200) * LATAM_H;
 
 const GiantMapScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const dissolveIn = clamp01(f, 0, 12);
-	// Retroceso: del Caribe al continente entero.
-	const mapScale = interpolate(f, [0, 307], [1.18, 0.98], {
+	// Retroceso suave (el continente entero ya se ve desde f0).
+	const mapScale = interpolate(f, [0, 307], [1.08, 0.98], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
@@ -1708,8 +1901,10 @@ const GiantMapScene: React.FC = () => {
 	// EE. UU. se enciende al decirse «GIGANTE,» (26,53 s → f28).
 	const usIn = clamp01(f, 28, 40);
 	const pulse = redPulse(f);
-	// La sombra se extiende (f190–274).
-	const washH = interpolate(f, [190, 274], [0, LATAM_SIZE], {
+	// Resplandor RADIAL que emana de Florida y crece: 140 px al
+	// decirse «GIGANTE» (f28), 520 al decirse «ESTADOS UNIDOS»
+	// (f148), 1080 al completarse «EXTENDER SU DOMINIO» (f274).
+	const glowR = interpolate(f, [28, 148, 274], [140, 520, 1080], {
 		easing: Easing.inOut(Easing.cubic),
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -1724,7 +1919,7 @@ const GiantMapScene: React.FC = () => {
 					position: 'absolute',
 					inset: 0,
 					transform: `scale(${mapScale}) translate(${mapDrift.x}px, ${mapDrift.y}px)`,
-					transformOrigin: '540px 600px',
+					transformOrigin: '540px 560px',
 				}}
 			>
 				<div
@@ -1732,58 +1927,34 @@ const GiantMapScene: React.FC = () => {
 						position: 'absolute',
 						left: LATAM_LEFT,
 						top: LATAM_TOP,
-						width: LATAM_SIZE,
-						height: LATAM_SIZE,
+						width: LATAM_W,
+						height: LATAM_H,
 					}}
 				>
 					<Img
-						src={staticFile('img/map-base.png')}
+						src={staticFile('img/map-latam-usa.png')}
 						style={{position: 'absolute', inset: 0, width: '100%', height: '100%'}}
 					/>
-					{/* Sombra roja que se extiende sobre el continente:
-					veladura suave (no bloque) con filo difuminado. */}
-					<div
-						style={{
-							position: 'absolute',
-							left: 0,
-							top: 0,
-							width: '100%',
-							height: washH,
-							overflow: 'hidden',
-						}}
-					>
-						<div
-							style={{
-								position: 'absolute',
-								left: 0,
-								top: 0,
-								width: '100%',
-								height: LATAM_SIZE,
-								background:
-									'linear-gradient(180deg, rgba(237,28,36,0.22) 0%, rgba(237,28,36,0.10) 45%, rgba(237,28,36,0) 75%)',
-							}}
-						/>
-						<div
-							style={{
-								position: 'absolute',
-								left: 0,
-								right: 0,
-								bottom: 0,
-								height: 26,
-								background:
-									'linear-gradient(180deg, rgba(237,28,36,0) 0%, rgba(237,28,36,0.55) 55%, rgba(237,28,36,0) 100%)',
-							}}
-						/>
-					</div>
 				</div>
-				{/* Resplandor rojo sobre EE. UU. (el hilo rojo). */}
+				{/* Resplandor rojo RADIAL que emana de EE. UU.: crece
+				en radio al ritmo de la voz, con filo difuminado
+				(nunca borde duro ni rectángulo). */}
 				<div
 					style={{
 						position: 'absolute',
-						left: US_X - 260,
-						top: US_Y - 160,
-						width: 520,
-						height: 320,
+						inset: 0,
+						background: `radial-gradient(circle ${glowR}px at ${US_X}px ${US_Y}px, rgba(237,28,36,0.42) 0%, rgba(237,28,36,0.18) 45%, rgba(237,28,36,0) 70%)`,
+						opacity: usIn * (0.85 + 0.15 * pulse.glow),
+					}}
+				/>
+				{/* Núcleo caliente sobre Florida (el hilo rojo). */}
+				<div
+					style={{
+						position: 'absolute',
+						left: US_X - 280,
+						top: US_Y - 170,
+						width: 560,
+						height: 340,
 						background:
 							'radial-gradient(ellipse, rgba(237,28,36,0.55) 0%, rgba(237,28,36,0) 70%)',
 						opacity: usIn * (0.55 + 0.35 * pulse.glow),
@@ -1794,88 +1965,118 @@ const GiantMapScene: React.FC = () => {
 				<div
 					style={{
 						position: 'absolute',
-						top: 140,
-						left: 340,
-						width: 300,
+						top: 300,
+						left: US_X,
+						transform: 'translateX(-50%)',
 						textAlign: 'center',
 						background: 'rgba(6,12,20,0.72)',
 						border: `1px solid ${MEMORIAL_RED}`,
 						borderRadius: 6,
-						padding: '10px 0',
+						padding: '10px 22px',
 						fontFamily: MONO,
 						fontSize: 24,
 						fontWeight: 700,
 						letterSpacing: 3,
 						color: '#FFFFFF',
+						whiteSpace: 'nowrap',
 						opacity: usIn,
 						boxShadow: RED_HALO(pulse.glow),
 					}}
 				>
 					ESTADOS UNIDOS
 				</div>
-			</div>
-			{/* Etiquetas DATO bajo el mapa. */}
-			<div
-				style={{
-					position: 'absolute',
-					top: 1160,
-					left: 60,
-					display: 'flex',
-					alignItems: 'center',
-					gap: 14,
-					opacity: tag1In,
-				}}
-			>
+				{/* PODERÍO pegado al resplandor, justo bajo el punto,
+				con línea guía corta desde el punto. */}
 				<div
 					style={{
-						width: 16,
-						height: 16,
+						position: 'absolute',
+						left: US_X - 1,
+						top: 404,
+						width: 2,
+						height: 28,
 						background: MEMORIAL_RED,
+						opacity: 0.8 * tag1In,
+					}}
+				/>
+				<div
+					style={{
+						position: 'absolute',
+						top: 432,
+						left: US_X,
+						transform: 'translateX(-50%)',
+						display: 'flex',
+						alignItems: 'center',
+						gap: 12,
+						background: 'rgba(6,12,20,0.72)',
+						border: `1px solid ${MEMORIAL_RED}`,
+						borderRadius: 6,
+						padding: '10px 20px',
+						fontFamily: MONO,
+						fontSize: 24,
+						fontWeight: 700,
+						letterSpacing: 2,
+						color: '#FFFFFF',
+						whiteSpace: 'nowrap',
+						opacity: tag1In,
 						boxShadow: RED_HALO(pulse.glow),
 					}}
-				/>
-				<span
-					style={{
-						fontFamily: MONO,
-						fontSize: 26,
-						fontWeight: 700,
-						letterSpacing: 2,
-						color: '#FFFFFF',
-					}}
 				>
+					<div
+						style={{
+							width: 14,
+							height: 14,
+							background: MEMORIAL_RED,
+							flexShrink: 0,
+						}}
+					/>
 					PODERÍO ECONÓMICO Y MILITAR
-				</span>
-			</div>
-			<div
-				style={{
-					position: 'absolute',
-					top: 1235,
-					left: 60,
-					display: 'flex',
-					alignItems: 'center',
-					gap: 14,
-					opacity: tag2In,
-				}}
-			>
+				</div>
+				{/* NUESTRA AMÉRICA en el Pacífico (agua libre al oeste
+				del Perú), con guía a la costa peruana. */}
 				<div
 					style={{
-						width: 16,
-						height: 16,
-						borderRadius: '50%',
-						border: `3px solid ${MEMORIAL_RED}`,
-					}}
-				/>
-				<span
-					style={{
-						fontFamily: MONO,
-						fontSize: 26,
-						fontWeight: 700,
-						letterSpacing: 2,
-						color: '#FFFFFF',
+						position: 'absolute',
+						top: 925,
+						left: 250,
+						display: 'flex',
+						alignItems: 'center',
+						gap: 14,
+						opacity: tag2In,
 					}}
 				>
-					NUESTRA AMÉRICA
-				</span>
+					<div
+						style={{
+							width: 16,
+							height: 16,
+							borderRadius: '50%',
+							border: `3px solid ${MEMORIAL_RED}`,
+						}}
+					/>
+					<span
+						style={{
+							fontFamily: MONO,
+							fontSize: 26,
+							fontWeight: 700,
+							letterSpacing: 2,
+							color: '#FFFFFF',
+						}}
+					>
+						NUESTRA AMÉRICA
+					</span>
+				</div>
+				<div
+					style={{
+						position: 'absolute',
+						left: 520,
+						top: 944,
+						width: 189,
+						height: 2,
+						background: MEMORIAL_RED,
+						opacity: 0.65 * tag2In,
+						transform: 'rotate(-11.3deg)',
+						transformOrigin: '0 50%',
+					}}
+				/>
 			</div>
 		</AbsoluteFill>
 	);
@@ -1919,7 +2120,11 @@ const FidelScene: React.FC = () => {
 	const l1 = clamp01(f, 137, 145);
 	const l2 = clamp01(f, 168, 176);
 	const l3 = clamp01(f, 214, 222);
-	const l4 = clamp01(f, 253, 261);
+	// l4 arranca al decirse «de» (43,63 s → f246) y resuelve en 5 f:
+	// la cita queda completa y uniforme 1 s antes de que la cortina
+	// tape la tarjeta (f281); antes resolvía en f261, casi sobre el
+	// morfo, y en f1320 se veía desvanecida.
+	const l4 = clamp01(f, 246, 251);
 	// Cortina negra del morfo duro (f274–282).
 	const curtainH = interpolate(f, [274, 282], [0, 1920], {
 		easing: Easing.in(Easing.cubic),
@@ -2015,7 +2220,7 @@ const FidelScene: React.FC = () => {
 			</div>
 			<PaperCard
 				top={1180}
-				folio="CIEN HORAS CON FIDEL · 2005"
+				folio="CIEN HORAS CON FIDEL"
 				opacity={cardIn}
 				rise={cardRise}
 				redPulse
@@ -2073,23 +2278,244 @@ const FidelScene: React.FC = () => {
 // ================================================================
 // S8 — LA INTERRUPCIÓN (1345–1590 f · 44,83–53,00 s, local 0–257)
 // MORFO DURO desde S7: las pantallas entran de golpe con glitch
-// y estática (flash f0–6, sin disolución suave). Pared de 9
-// pantallas con estática viva y temblor de cámara; «REFLEJOS
-// CONDICIONADOS» con glitch RGB (f80–140); las pantallas se
-// apagan una a una con colapso CRT (f131–211) mientras «dejan de
-// pensar». MORFO S8→S9: la última pantalla muere en f211–217 y
+// y estática (flash f0–6, sin disolución suave). Pared de 5
+// TELEVISORES que se leen como tales al primer vistazo (bisel,
+// brillo de cristal, LED): un protagonista central grande y 4
+// satélites, llenando el cuadro en vertical (y 250–1500, hasta
+// la zona del karaoke; sin medio cuadro muerto). El protagonista
+// arranca en y 250 para que el logotipo del Memorial (y 54–~230)
+// no tape NADA de ninguna pantalla: ni su bug «EN VIVO»
+// (y ~298), ni el ticker, ni el presentador. TODOS emiten LO
+// MISMO — el mismo presentador, el mismo ticker «ÚLTIMA HORA»,
+// el mismo bug «EN VIVO» —: eso es «repiten» en imagen. La
+// estática es solo una capa encima, no el contenido. «REFLEJOS
+// CONDICIONADOS» con glitch RGB (f80–140) cruza el televisor
+// protagonista a la altura del pecho del presentador; el karaoke
+// se suprime en f80–131 con una línea vacía en LINES_D (el
+// título HACE de texto; nunca texto doble). Los televisores se
+// apagan uno a uno con colapso CRT (satélites f131–179,
+// protagonista f195–200, el último en morir) mientras «dejan de
+// pensar». MORFO S8→S9: la última pantalla muere en f195–200 y
 // el negro resultante ES el fondo de la tesis (sin corte).
 // Karaoke L8 abajo.
 // ================================================================
-const SCREEN_COLS = [40, 380, 720];
-const SCREEN_ROWS = [200, 640, 1080];
-const SCREEN_W = 320;
-const SCREEN_H = 400;
+const TVS = [
+	{x: 80, y: 895, w: 450, h: 290, offAt: 131, hero: false},
+	{x: 550, y: 895, w: 450, h: 290, offAt: 147, hero: false},
+	{x: 80, y: 1210, w: 450, h: 290, offAt: 163, hero: false},
+	{x: 550, y: 1210, w: 450, h: 290, offAt: 179, hero: false},
+	{x: 80, y: 250, w: 920, h: 620, offAt: 195, hero: true},
+] as const;
 
-const Screen: React.FC<{i: number; frame: number}> = ({i, frame}) => {
-	const col = i % 3;
-	const row = Math.floor(i / 3);
-	const offAt = 131 + i * 10;
+// El MISMO noticiero en todas las pantallas: silueta de
+// presentador (cabeza + hombros + camisa + corbata roja), mesa
+// de estudio, ticker rojo «ÚLTIMA HORA» y bug «EN VIVO». Todo
+// en porcentajes para que el contenido sea idéntico a cualquier
+// tamaño: la única diferencia entre pantallas es la fase de la
+// estática y el parpadeo.
+const Broadcast: React.FC<{w: number; h: number; frame: number; seed: number}> = ({
+	w,
+	h,
+	frame,
+	seed,
+}) => {
+	const tile = (Math.floor(frame / 2) + seed * 3) % 8;
+	const flicker = 0.75 + 0.25 * rnd(Math.floor(frame / 3) * 10 + seed);
+	const tick = Math.max(13, Math.round(w * 0.032));
+	const bug = Math.max(10, Math.round(w * 0.021));
+	return (
+		<div
+			style={{
+				position: 'absolute',
+				inset: 0,
+				background: '#0E1626',
+				overflow: 'hidden',
+			}}
+		>
+			{/* Estudio: degradado azul noche + focos azul y rojo. */}
+			<div
+				style={{
+					position: 'absolute',
+					inset: 0,
+					background:
+						'radial-gradient(ellipse 90% 70% at 20% 0%, rgba(70,110,180,0.55) 0%, rgba(70,110,180,0) 60%), radial-gradient(ellipse 70% 60% at 85% 10%, rgba(237,28,36,0.28) 0%, rgba(237,28,36,0) 55%), linear-gradient(180deg, #1B2A4A 0%, #0E1626 55%, #0A0F1E 100%)',
+				}}
+			/>
+			{/* Mesa del estudio. */}
+			<div
+				style={{
+					position: 'absolute',
+					left: 0,
+					right: 0,
+					bottom: '11%',
+					height: '12%',
+					background: 'linear-gradient(180deg, #3A2C1C 0%, #171008 100%)',
+					borderTop: '2px solid rgba(245,179,1,0.5)',
+				}}
+			/>
+			{/* Presentador: hombros + cabeza + camisa + corbata. */}
+			<div
+				style={{
+					position: 'absolute',
+					left: '50%',
+					bottom: '20%',
+					width: '44%',
+					height: '36%',
+					transform: 'translateX(-50%)',
+					background: '#16110D',
+					borderRadius: '50% 50% 8% 8% / 55% 55% 8% 8%',
+				}}
+			/>
+			<div
+				style={{
+					position: 'absolute',
+					left: '50%',
+					bottom: '47%',
+					width: '17%',
+					aspectRatio: '1',
+					transform: 'translateX(-50%)',
+					background: '#1D1712',
+					borderRadius: '50%',
+					boxShadow:
+						'inset -4px -6px 10px rgba(0,0,0,0.6), inset 4px 4px 8px rgba(120,160,220,0.25)',
+				}}
+			/>
+			<div
+				style={{
+					position: 'absolute',
+					left: '50%',
+					bottom: '38%',
+					width: '10%',
+					height: '9%',
+					transform: 'translateX(-50%)',
+					background: '#E8E4DA',
+					clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
+				}}
+			/>
+			<div
+				style={{
+					position: 'absolute',
+					left: '50%',
+					bottom: '24%',
+					width: '4.5%',
+					height: '15%',
+					transform: 'translateX(-50%)',
+					background: MEMORIAL_RED,
+					clipPath: 'polygon(50% 0, 100% 12%, 78% 100%, 22% 100%, 0 12%)',
+				}}
+			/>
+			{/* Ticker rojo. */}
+			<div
+				style={{
+					position: 'absolute',
+					left: 0,
+					right: 0,
+					bottom: 0,
+					height: '11%',
+					background: MEMORIAL_RED,
+					display: 'flex',
+					alignItems: 'center',
+					paddingLeft: '4%',
+					gap: 8,
+				}}
+			>
+				<div
+					style={{
+						width: tick * 0.5,
+						height: tick * 0.5,
+						borderRadius: '50%',
+						background: '#FFFFFF',
+						flexShrink: 0,
+					}}
+				/>
+				<span
+					style={{
+						fontFamily: ARCHIVO,
+						fontSize: tick,
+						letterSpacing: 1,
+						color: '#FFFFFF',
+						whiteSpace: 'nowrap',
+					}}
+				>
+					ÚLTIMA HORA
+				</span>
+			</div>
+			{/* Bug EN VIVO. */}
+			<div
+				style={{
+					position: 'absolute',
+					top: '6%',
+					right: '5%',
+					background: 'rgba(237,28,36,0.92)',
+					borderRadius: 4,
+					padding: `${bug * 0.25}px ${bug * 0.5}px`,
+					display: 'flex',
+					alignItems: 'center',
+					gap: bug * 0.35,
+				}}
+			>
+				<div
+					style={{
+						width: bug * 0.45,
+						height: bug * 0.45,
+						borderRadius: '50%',
+						background: '#FFFFFF',
+					}}
+				/>
+				<span
+					style={{
+						fontFamily: ARCHIVO,
+						fontSize: bug,
+						letterSpacing: 1,
+						color: '#FFFFFF',
+					}}
+				>
+					EN VIVO
+				</span>
+			</div>
+			{/* Estática viva (capa, no contenido) + scanlines. */}
+			<Img
+				src={staticFile(`img/grain/grain-${tile}.png`)}
+				style={{
+					position: 'absolute',
+					inset: 0,
+					width: '100%',
+					height: '100%',
+					objectFit: 'cover',
+					opacity: 0.16 * flicker,
+				}}
+			/>
+			<div
+				style={{
+					position: 'absolute',
+					inset: 0,
+					background:
+						'repeating-linear-gradient(0deg, rgba(0,0,0,0.28) 0px, rgba(0,0,0,0.28) 2px, transparent 2px, transparent 6px)',
+				}}
+			/>
+			{/* Brillo de cristal: lo que hace que se lea como pantalla. */}
+			<div
+				style={{
+					position: 'absolute',
+					inset: 0,
+					background:
+						'linear-gradient(115deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.03) 28%, transparent 45%)',
+				}}
+			/>
+		</div>
+	);
+};
+
+const TV: React.FC<{
+	x: number;
+	y: number;
+	w: number;
+	h: number;
+	offAt: number;
+	hero: boolean;
+	frame: number;
+	seed: number;
+}> = ({x, y, w, h, offAt, hero, frame, seed}) => {
 	const off = frame >= offAt;
 	// Colapso CRT: la imagen se aplasta a una línea en 5 f.
 	const collapse = off
@@ -2110,84 +2536,80 @@ const Screen: React.FC<{i: number; frame: number}> = ({i, frame}) => {
 				extrapolateRight: 'clamp',
 		  })
 		: 0;
-	// Estática viva: el grano cambia cada 2 f (determinista).
-	const tile = (Math.floor(frame / 2) + i * 3) % 8;
-	const flicker = 0.75 + 0.25 * rnd(Math.floor(frame / 3) * 10 + i);
+	const bezel = hero ? 12 : 9;
 	return (
 		<div
 			style={{
 				position: 'absolute',
-				left: SCREEN_COLS[col],
-				top: SCREEN_ROWS[row],
-				width: SCREEN_W,
-				height: SCREEN_H,
-				background: '#0A0A0A',
-				border: '3px solid #222222',
-				overflow: 'hidden',
+				left: x,
+				top: y,
+				width: w,
+				height: h,
+				background: 'linear-gradient(180deg, #1E1E1E 0%, #0C0C0C 100%)',
+				border: '1px solid #2A2A2A',
+				borderRadius: hero ? 14 : 10,
+				padding: bezel,
+				boxShadow:
+					'0 14px 34px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.09)',
 			}}
 		>
 			<div
 				style={{
-					position: 'absolute',
-					inset: 0,
-					transform: `scaleY(${collapse})`,
-					opacity: off && frame > offAt + 5 ? 0 : flicker,
+					position: 'relative',
+					width: '100%',
+					height: '100%',
+					background: '#000000',
+					overflow: 'hidden',
+					borderRadius: hero ? 6 : 4,
 				}}
 			>
-				<Img
-					src={staticFile(`img/grain/grain-${tile}.png`)}
+				<div
 					style={{
-						width: '100%',
-						height: '100%',
-						objectFit: 'cover',
-						opacity: 0.55,
+						position: 'absolute',
+						inset: 0,
+						transform: `scaleY(${collapse})`,
+						opacity: off && frame > offAt + 5 ? 0 : 1,
+					}}
+				>
+					<Broadcast
+						w={w - bezel * 2}
+						h={h - bezel * 2}
+						frame={frame}
+						seed={seed}
+					/>
+				</div>
+				{/* Flash del colapso CRT. */}
+				<div
+					style={{
+						position: 'absolute',
+						inset: 0,
+						background: '#FFFFFF',
+						opacity: flash,
 					}}
 				/>
-				{/* Barras de color de señal (algunas pantallas). */}
-				{i % 3 === 0 && (
-					<div
-						style={{
-							position: 'absolute',
-							left: 0,
-							right: 0,
-							top: '38%',
-							height: '24%',
-							display: 'flex',
-							opacity: 0.5,
-						}}
-					>
-						<div style={{flex: 1, background: MEMORIAL_RED}} />
-						<div style={{flex: 1, background: '#FFFFFF'}} />
-						<div style={{flex: 1, background: '#22D3EE'}} />
-					</div>
-				)}
-				{/* Scanlines. */}
+				{/* Resplandor residual que muere. */}
 				<div
 					style={{
 						position: 'absolute',
 						inset: 0,
 						background:
-							'repeating-linear-gradient(0deg, rgba(0,0,0,0.35) 0px, rgba(0,0,0,0.35) 2px, transparent 2px, transparent 6px)',
+							'radial-gradient(ellipse at 50% 50%, rgba(180,200,255,0.5) 0%, rgba(180,200,255,0) 70%)',
+						opacity: afterglow,
 					}}
 				/>
 			</div>
-			{/* Flash del colapso CRT. */}
+			{/* LED de encendido (muere con la pantalla). */}
 			<div
 				style={{
 					position: 'absolute',
-					inset: 0,
-					background: '#FFFFFF',
-					opacity: flash,
-				}}
-			/>
-			{/* Resplandor residual que muere. */}
-			<div
-				style={{
-					position: 'absolute',
-					inset: 0,
-					background:
-						'radial-gradient(ellipse at 50% 50%, rgba(180,200,255,0.5) 0%, rgba(180,200,255,0) 70%)',
-					opacity: afterglow,
+					right: bezel + 2,
+					bottom: 3,
+					width: 7,
+					height: 7,
+					borderRadius: '50%',
+					background: MEMORIAL_RED,
+					opacity: off ? 0.15 : 0.95,
+					boxShadow: off ? 'none' : '0 0 8px rgba(237,28,36,0.9)',
 				}}
 			/>
 		</div>
@@ -2229,8 +2651,8 @@ const ScreensScene: React.FC = () => {
 					transform: `scale(${wallScale}) translate(${tx}px, ${ty}px)`,
 				}}
 			>
-				{[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-					<Screen key={i} i={i} frame={f} />
+				{TVS.map((t, i) => (
+					<TV key={i} {...t} frame={f} seed={i} />
 				))}
 			</div>
 			{/* Flash de entrada: estática a pantalla completa. */}
@@ -2245,11 +2667,13 @@ const ScreensScene: React.FC = () => {
 					opacity: flashOp,
 				}}
 			/>
-			{/* Glitch RGB sobre la pared de pantallas. */}
+			{/* Glitch RGB sobre el televisor protagonista: el título
+			interrumpe el noticiero a la altura del pecho del
+			presentador (la cara queda visible encima). */}
 			<div
 				style={{
 					position: 'absolute',
-					top: 790,
+					top: 600,
 					left: 0,
 					right: 0,
 					textAlign: 'center',
@@ -2393,9 +2817,9 @@ const ThesisScene: React.FC = () => {
 					style={{
 						position: 'absolute',
 						left: 90,
-						top: 660 + li * 140,
+						top: 660 + li * 162,
 						width: 900,
-						height: 170,
+						height: 195,
 						background:
 							'radial-gradient(ellipse, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 70%)',
 						opacity: lineGlow(li),
@@ -2406,12 +2830,12 @@ const ThesisScene: React.FC = () => {
 				style={{
 					position: 'absolute',
 					top: 660,
-					left: 70,
-					right: 70,
+					left: 30,
+					right: 30,
 					textAlign: 'center',
 					fontFamily: HAND,
 					fontWeight: 700,
-					fontSize: 88,
+					fontSize: 102,
 					lineHeight: 1.59,
 					color: '#FFFFFF',
 				}}
@@ -2436,7 +2860,7 @@ const ThesisScene: React.FC = () => {
 										opacity: op,
 										transform: `scale(${sc}) rotate(${rot}deg)`,
 										color: w.kw ? MEMORIAL_RED : '#FFFFFF',
-										marginRight: 20,
+										marginRight: 12,
 										textShadow: w.kw
 											? RED_HALO(redPulse(f).glow)
 											: '0 0 18px rgba(255,255,255,0.25)',
@@ -2453,9 +2877,9 @@ const ThesisScene: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 1090,
-					left: 240,
-					width: 600,
+					top: 1168,
+					left: 220,
+					width: 640,
 					height: 5,
 					background: MEMORIAL_RED,
 					borderRadius: 3,
@@ -2469,16 +2893,16 @@ const ThesisScene: React.FC = () => {
 };
 
 // ---------- bosque lejano con niebla (S10/S11, IA) ----------
-// ÚNICO recurso generado con IA en V4 (Pollinations Flux, seed 7,
+// Recurso generado con IA en V4 (Pollinations Flux, seed 7,
 // scripts/gen-illustration.py; guardado en public/img/v4/ai/).
 // Silueta de bosque de fronda redonda con niebla: la atmósfera
-// y la profundidad que los árboles programáticos no pueden dar.
-// El gráfico programático sostiene los árboles (crecen, se
-// balancean); la IA solo da el fondo lejano. Sin personas, sin
-// texto, sin nada que parezca foto de archivo. Se funde por
-// arriba y por abajo (máscara) y asciende a mitad de velocidad
-// que la fila (parallax 0,5×): continuidad S10→S11 garantizada
-// porque ambas escenas comparten riseY (-70 al corte).
+// y la profundidad que la fila de palmas no puede dar sola.
+// Las palmas (también IA, pictóricas) sostienen el primer plano
+// (crecen, se balancean); la IA solo da fondo y vegetación. Sin
+// personas, sin texto, sin nada que parezca foto de archivo. Se
+// funde por arriba y por abajo (máscara) y asciende a mitad de
+// velocidad que la fila (parallax 0,5×): continuidad S10→S11
+// garantizada porque ambas escenas comparten riseY (-70 al corte).
 const ForestBackdrop: React.FC<{riseY: number; frame: number}> = ({
 	riseY,
 	frame,
@@ -2510,11 +2934,14 @@ const ForestBackdrop: React.FC<{riseY: number; frame: number}> = ({
 
 // ================================================================
 // S10 — LEER. PENSAR. (1724–1916 f · 57,47–63,87 s, local 0–204)
-// Los árboles regresan A TODA ALTURA tras el negro de la tesis,
-// con ascenso lento de cámara por la fila. Las dos afirmaciones
-// son el karaoke L10 en grande y centrado (bottom 1160, 76 px):
-// un solo texto, sin duplicar. El resplandor rojo del horizonte
-// crece hacia la llamarada del cierre.
+// Las palmas regresan A TODA ALTURA tras el negro de la tesis,
+// brotando del suelo al arrancar la escena, con ascenso lento de
+// cámara por la fila y fila de fondo en parallax. Las dos
+// afirmaciones son el karaoke L10 en grande, ABAJO en la posición
+// base (bottom 235, 76 px, como S11): un solo texto, sin duplicar.
+// La fila se planta en groundY 1450 (no 1520) para que el karaoke
+// a dos líneas no choque con los troncos. El resplandor rojo
+// del horizonte crece hacia la llamarada del cierre.
 // ================================================================
 const AffirmationScene: React.FC = () => {
 	const f = useCurrentFrame();
@@ -2569,27 +2996,57 @@ const AffirmationScene: React.FC = () => {
 				style={{
 					position: 'absolute',
 					inset: 0,
+					transform: `translateY(${riseY * 0.5}px)`,
+				}}
+			>
+				<PalmBackdropRow
+					groundY={1450}
+					height={420}
+					frame={f}
+					revealAt={0}
+					tone="night"
+				/>
+				{/* Línea de suelo de la fila de fondo: viaja con ella
+				(parallax 0,5×) para que sus bases no floten bajo la
+				línea principal al ascender la cámara. */}
+				<div
+					style={{
+						position: 'absolute',
+						top: 1450,
+						left: 60,
+						width: 960,
+						height: 3,
+						background: '#2A3A24',
+						opacity: 0.5,
+					}}
+				/>
+			</div>
+			<div
+				style={{
+					position: 'absolute',
+					inset: 0,
 					transform: `translateY(${riseY}px) scale(${riseScale})`,
 					transformOrigin: '50% 80%',
 				}}
 			>
 				{[0, 1, 2, 3, 4, 5, 6].map((i) => (
-					<GrowingTree
+					<GrowingPalm
 						key={i}
 						i={i}
 						x={TREE_CX[i]}
-						groundY={1520}
+						groundY={1450}
 						height={640}
 						growAt={0}
 						growDur={24}
 						frame={f}
 						sway
+						tone="night"
 					/>
 				))}
 				<div
 					style={{
 						position: 'absolute',
-						top: 1520,
+						top: 1450,
 						left: 60,
 						width: 960,
 						height: 4,
@@ -2604,7 +3061,7 @@ const AffirmationScene: React.FC = () => {
 
 // ================================================================
 // S11 — EL GRITO + CIERRE (1916–2077 f · 63,87–69,23 s, local 0–161)
-// El grito con la fila de árboles y la LLAMARADA ROJA del hilo
+// El grito con la fila de palmas y la LLAMARADA ROJA del hilo
 // (el mismo rojo de T&T, ahora a toda pantalla). Push-in final.
 // A local f110 entra el sting del logo (Sequence aparte, a 2x
 // para que la animación completa quepa en la cola de 1,5 s) con
@@ -2627,6 +3084,10 @@ const GritoScene: React.FC = () => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	// Las palmas crecen un poco más durante el grito (640→700 en
+	// los primeros 90 f): llenan algo más el tercio superior sin
+	// salto en el corte con S10 (arrancan en 640, como allí).
+	const palmH = 640 + 60 * clamp01(f, 0, 90);
 	const flareScale = interpolate(f, [0, 161], [1, 1.45], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -2656,27 +3117,57 @@ const GritoScene: React.FC = () => {
 				style={{
 					position: 'absolute',
 					inset: 0,
+					transform: `translateY(${riseY * 0.5}px)`,
+				}}
+			>
+				<PalmBackdropRow
+					groundY={1450}
+					height={420}
+					frame={f}
+					revealAt={0}
+					tone="night"
+				/>
+				{/* Línea de suelo de la fila de fondo: viaja con ella
+				(parallax 0,5×) para que sus bases no floten bajo la
+				línea principal al ascender la cámara. */}
+				<div
+					style={{
+						position: 'absolute',
+						top: 1450,
+						left: 60,
+						width: 960,
+						height: 3,
+						background: '#2A3A24',
+						opacity: 0.5,
+					}}
+				/>
+			</div>
+			<div
+				style={{
+					position: 'absolute',
+					inset: 0,
 					transform: `translateY(${riseY}px) scale(${riseScale})`,
 					transformOrigin: '50% 80%',
 				}}
 			>
 				{[0, 1, 2, 3, 4, 5, 6].map((i) => (
-					<GrowingTree
+					<GrowingPalm
 						key={i}
 						i={i}
 						x={TREE_CX[i]}
-						groundY={1520}
-						height={640}
+						groundY={1450}
+						height={palmH}
 						growAt={0}
 						growDur={1}
 						frame={f}
 						sway
+						tone="night"
 					/>
 				))}
 				<div
 					style={{
 						position: 'absolute',
-						top: 1520,
+						top: 1450,
 						left: 60,
 						width: 960,
 						height: 4,
@@ -2766,7 +3257,7 @@ const StingScene: React.FC = () => {
 // ================================================================
 // COMPOSICIÓN PRINCIPAL — MainReelV4 (2077 f = 69,23 s)
 // S1 mapa (0–167) · S2 1891 (167–269) · S3 recuento (269–382) ·
-// S4 Browne (382–562) · S5 árboles (562–768) · S6 gigante
+// S4 Browne (382–562) · S5 palmas (562–768) · S6 gigante
 // (768–1063) · S7 Fidel (1063–1345) · S8 pantallas (1345–1590) ·
 // S9 tesis (1590–1724) · S10 leer/pensar (1724–1916) · S11 grito
 // (1916–2077) · sting (2026–2077).
@@ -2816,7 +3307,7 @@ export const MainReelV4: React.FC = () => {
 				<StingScene />
 			</Sequence>
 			{/* Karaoke: A (L1–L2) · B (L4 truncada) · C (L6) · D (L8) ·
-			    E1 (L10 grande y centrada) · E2 (L11). */}
+			    E1 (L10 grande, abajo como S11) · E2 (L11). */}
 			<Sequence from={0} durationInFrames={269} name="Karaoke A (L1-L2)">
 				<BottomKaraoke lines={LINES_A} />
 			</Sequence>
@@ -2832,7 +3323,7 @@ export const MainReelV4: React.FC = () => {
 			<Sequence from={S10_START} durationInFrames={192} name="Karaoke E1 (L10)">
 				<BottomKaraoke
 					lines={LINES_E1}
-					bottom={1160}
+					bottom={235}
 					size={76}
 					longSize={64}
 					longThreshold={28}
