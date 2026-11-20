@@ -118,3 +118,31 @@ Lo que añade la V4.2 respecto a su guion: el gancho (L1, ruptura del Caribe —
 motivo de actualidad que hace que la gente se quede) y la evidencia (L4, Browne en
 la radio — el hecho más compartible del reel), más el material de edición (mapa,
 fecha, tarjetas de evidencia, etiquetas de fuente).
+
+## Audio de Suleris (20-nov ~16:40, reenviado por el usuario)
+
+Acepta el punto de partida (gancho de los 33 años, Martí, la llamada de Washington)
+pero señala un riesgo en la L8: «repiten por nosotros, y dejamos de pensar» está en
+primera persona del plural — incluye al que habla, al Memorial y a quien ve el reel,
+y da por hecho que todo el mundo sigue a esos medios. Un contrario puede recortar
+esa frase y sacarla de contexto. Pide revisar las dos versiones buscando los puntos
+donde el mensaje se puede tergiversar: en la batalla digital no se le puede dar
+herramientas al enemigo.
+
+Auditoría (ambas versiones, línea por línea):
+
+| Línea | Riesgo | Veredicto |
+|---|---|---|
+| V4.2 L1 «el Caribe dejó de votar unido» | «El Caribe no es un bloque» | Bajo, defendible. El dato es CARICOM; la tarjeta en pantalla debe decir CARICOM. |
+| V4.2 L4 «Washington lo llamó para que cambiara su voto» | «Browne no dijo eso» | Medio, defendible. Está en radio (9-nov-2026); la tarjeta debe llevar nombre, medio y fecha. |
+| V4.2 L6 «amenaza con extender su dominio» | Es interpretación, no dato | Bajo. Enmarcada como advertencia de Martí; línea editorial, no hecho falsable. |
+| V4.2 L8 «repiten por nosotros, y dejamos de pensar» | Recorte: «el Memorial admite que dejamos de pensar» | **Alto. CORREGIDO en V4.3** (tercera persona, «muchos»). |
+| V4.2 L9 tesis | Sacarla de contexto | Bajo. Genérica, sin atribución ni pueblo nombrado; el contexto del reel la protege. |
+| V4.2 L10 «nos ve como su patio trasero» | Ninguno | Sin riesgo. El «nos» es objeto de la mirada del imperio, no autoacusación. |
+| Guion de Suleris L6 «muchos caen en esa incapacidad» | Ninguno | **Sin riesgo: su propio borrador ya usaba «muchos».** El «nosotros» de V4.1/V4.2 venía de su frase de feedback («repiten por nosotros»), no de su guion. |
+
+Respuesta (V4.3): L8 pasa a «Hoy los medios del imperio crean reflejos condicionados:
+muchos repiten lo que oyen y dejan de pensar.» El mecanismo queda intacto; la
+acusación ya no incluye a quien la dice ni a quien la escucha. VO ~58 s, video ~60 s.
+Regla que queda: **ninguna acusación del reel se formula en primera persona del
+plural.**
