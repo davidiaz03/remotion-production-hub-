@@ -43,5 +43,23 @@ los tramos con `--chunks-dir` y re-decodifica el AAC, descarta el priming
 Regla: medir la deriva sobre el concat y pasar ese archivo exacto a
 `master.py` con `--input`. Verificado en V4 (Martí-Fidel): residual ±21 ms.
 
+## Tramos AAC: agujeros de frontera — usar PCM (20-nov-2026, V4.1)
+El AAC por tramos no solo deriva: **inyecta un agujero de 34–55 ms
+(hasta silencio digital, −126 a −180 dBFS) en CADA frontera** — 13 en
+el máster V4 de marti-fidel, 8 sobre voz, que el usuario oía como
+microcortes. El `atempo` NO los crea (ya están en el concat
+pre-atempo; el atempo solo los difumina) y sus propios artefactos
+WSOLA son 5 ms / ≤14 dB (rubberband similar, 3 vs 6). Solución raíz:
+`render-chunks.mjs` usa `--audio-codec pcm-16` por defecto (tramos y
+concat `.mkv`; Remotion exige mkv/mov para h264+PCM): concat exacto
+a la muestra (deriva 0 ms, corr 1,0000, diff RMS −96 dBFS en 3
+tramos de prueba) y `master.py --clean-audio` (sin trim, atempo ni
+boost). La auditoría (g) ahora escanea el máster a 1 ms buscando
+agujeros (FAIL si hay) y la (i2) se corrigió: la mediana del original
+se toma sobre el tramo de la palabra, no sobre la ventana con
+márgenes de ±60 ms (ese sesgo marcaba 3 dips fantasma en «EL» L6).
+No usar AAC para renders nuevos (`--audio-codec aac` solo existe
+por compatibilidad).
+
 ## Al cerrar
 Actualiza el historial editorial y siguiente acción, guarda la fuente en Git, comprueba SHA remoto y notifica rama, commit y revisión. Detén Codespaces para reducir consumo gratuito.

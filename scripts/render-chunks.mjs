@@ -11,8 +11,8 @@
  *   node scripts/render-chunks.mjs <proyecto>
  *     [--composition MainReel] [--frames 0-1439] [--chunk 150]
  *     [--concurrency 2] [--timeout 120000] [--crf 19]
- *     [--out out/chunks] [--concat-out out/<proyecto>-chunks.mp4]
- *     [--resume] [--no-concat]
+ *     [--out out/chunks] [--concat-out out/<proyecto>-chunks.mkv]
+ *     [--audio-codec pcm-16] [--resume] [--no-concat]
  *
  * - Cada tramo se renderiza con el CLI directo de Remotion y se verifica
  *   con ffprobe (nb_read_frames exacto); un tramo que falle aborta.
@@ -22,6 +22,17 @@
  * - El audio va muxado por Remotion en cada tramo (igual que en el flujo
  *   manual de Marabana V1.3 / motion-demo); el máster final se compone
  *   con scripts/audio/master.py como siempre.
+ * - AUDIO PCM POR DEFECTO (V4.1, 20-nov-2026): con AAC, cada frontera
+ *   de tramo inyectaba ~55 ms de deriva (priming+padding) Y un agujero
+ *   de 34-55 ms hasta silencio digital en el máster (13 agujeros en
+ *   marti-fidel V4, medidos; el usuario los oía como microcortes).
+ *   Con `--audio-codec pcm-16` el concat es exacto a la muestra
+ *   (deriva 0 ms, corr 1,0000, diff RMS -96 dBFS en 3 tramos de
+ *   prueba) y master.py ya NO necesita --atempo ni --trim-start ni
+ *   --boost (usar --clean-audio). Remotion exige .mkv/.mov para
+ *   h264+pcm-16, así que los tramos y el concat son .mkv.
+ *   `--audio-codec aac` restaura el comportamiento anterior (.mp4)
+ *   con sus agujeros de frontera: solo para compatibilidad.
  * - Tamaño de tramo: 150 f es el defecto (probado en motion-demo, Fase
  *   A). Marabana V1.3 usó 240 f con concurrencia 1 por OOM en Chromium
  *   (ver projects/marabana-v1/render-chunks.sh): si un render muere por
@@ -62,10 +73,15 @@ if (!Number.isInteger(chunkSize) || chunkSize < 1) {
 const concurrency = String(opts.concurrency ?? 2);
 const timeout = String(opts.timeout ?? 120000);
 const crf = String(opts.crf ?? data.crf ?? 19);
+// Audio PCM por defecto (V4.1): AAC inyecta ~55 ms de deriva y un
+// agujero de 34-55 ms por frontera (ver cabecera). Remotion exige
+// .mkv/.mov para h264+pcm-16 (y para opus/vorbis); aac/mp3 van en .mp4.
+const audioCodec = String(opts['audio-codec'] ?? 'pcm-16');
+const chunkExt = audioCodec === 'aac' || audioCodec === 'mp3' ? 'mp4' : 'mkv';
 const outDir = path.resolve(home, String(opts['out'] ?? 'out/chunks'));
 const concatOut = path.resolve(
 	home,
-	String(opts['concat-out'] ?? `out/${projectId}-chunks.mp4`),
+	String(opts['concat-out'] ?? `out/${projectId}-chunks.${chunkExt}`),
 );
 const resume = opts.resume === true || opts.resume === 'true';
 const doConcat = opts['no-concat'] !== true && opts['no-concat'] !== 'true';
@@ -109,6 +125,9 @@ const resumeParts = [
 if (opts.composition) resumeParts.push(`--composition ${compositionId}`);
 if (concurrency !== '2') resumeParts.push(`--concurrency ${concurrency}`);
 if (timeout !== '120000') resumeParts.push(`--timeout ${timeout}`);
+if (opts['audio-codec']) {
+	resumeParts.push(`--audio-codec ${audioCodec}`);
+}
 if (opts.out) resumeParts.push(`--out ${opts.out}`);
 if (opts['concat-out']) resumeParts.push(`--concat-out ${opts['concat-out']}`);
 const resumeCommand = resumeParts.join(' ');
@@ -184,7 +203,7 @@ const chunks = [];
 for (let from = start; from <= end; from += chunkSize) {
 	const to = Math.min(from + chunkSize - 1, end);
 	const idx = chunks.length + 1;
-	const name = `chunk_${String(idx).padStart(2, '0')}.mp4`;
+	const name = `chunk_${String(idx).padStart(2, '0')}.${chunkExt}`;
 	const file = path.join(outDir, name);
 	const expected = to - from + 1;
 	if (resume && existsSync(file)) {
@@ -216,6 +235,8 @@ for (let from = start; from <= end; from += chunkSize) {
 			'yuv420p',
 			'--crf',
 			crf,
+			'--audio-codec',
+			audioCodec,
 			'--frames',
 			`${from}-${to}`,
 			'--concurrency',
@@ -305,6 +326,7 @@ const manifest = {
 	concurrency: Number(concurrency),
 	timeoutMs: Number(timeout),
 	crf: Number(crf),
+	audioCodec,
 	chunks,
 	totalFrames,
 	concat,

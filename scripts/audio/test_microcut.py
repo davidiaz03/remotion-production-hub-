@@ -149,6 +149,33 @@ class TestWordDips(unittest.TestCase):
         self.assertEqual(mc.word_dips(ed, orig_c, SR, words,
                                       words, tmap), [])
 
+    def test_short_word_silent_margins_gain_not_flagged(self):
+        """Palabra corta (120 ms) con márgenes silenciosos y
+        ganancia constante entre editada y original: SIN dips.
+
+        Regresión V4.1 (caso «EL» L6): la mediana del original se
+        calculaba sobre la ventana con márgenes de ±60 ms, que en
+        palabras cortas dominan la mediana y sesgaban d ~-13 dB,
+        marcando 3 FAIL espurios donde la editada era el crudo +
+        7,4 dB constantes. La mediana debe tomarse sobre el tramo
+        de la palabra (envolvente mapeada). El fixture reproduce
+        la geometría real: el span de Whisper adelanta 40 ms al
+        onset acústico y la vocal tiene rugosidad glotal (sin el
+        transitorio de onset, la racha sesgada supera 80 ms y el
+        tope de duración la oculta)."""
+        t = np.arange(int(0.08 * SR)) / SR
+        word = (voiced(0.08)
+                * (0.55 + 0.45 * np.sin(2 * np.pi * 120 * t))
+                * 3.0).astype(np.float32)
+        orig = np.concatenate([room(int(0.5 * SR)),
+                               room(int(0.04 * SR)), word,
+                               room(int(0.5 * SR))])
+        words = [{"w": "EL", "s": 0.5, "e": 0.62}]
+        tmap = [(0.0, len(orig) / SR, 0.0, 1.0)]
+        ed = (orig * 10 ** (7.4 / 20)).astype(np.float32)
+        self.assertEqual(mc.word_dips(ed, orig, SR, words,
+                                      words, tmap), [])
+
 
 # ---------------- (i1) calidad de empalme ----------------
 

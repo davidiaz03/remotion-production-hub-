@@ -1270,10 +1270,130 @@ def ducking_gain_curve(bed: np.ndarray, voice: np.ndarray, sr: int,
     return np.array(g)
 
 
+def _envelope_lag_curve(env_ref, env_test, win_s=2.0, step_s=2.0,
+                          search_s=1.0, min_corr=0.8):
+    """Lag test-vs-ref por ventanas (s): [(t_centro, lag_s, corr)].
+
+    Solo ventanas fiables (corr >= min_corr): las que cruzan una
+    frontera de tramo AAC no correlacionan (el salto de lag parte
+    la ventana) y se descartan; el lag se interpola entre las
+    vecinas fiables.
+    """
+    win = int(win_s / 0.005)
+    step = int(step_s / 0.005)
+    span = int(search_s / 0.005)
+    out = []
+    for c in range(0, len(env_ref) - win, step):
+        seg_r = env_ref[c:c + win]
+        if float(np.std(seg_r)) < 1e-6:
+            continue
+        best_c, best_l = -2.0, 0
+        for lag in range(-span, span + 1):
+            j0 = c + lag
+            if j0 < 0 or j0 + win > len(env_test):
+                continue
+            seg_t = env_test[j0:j0 + win]
+            if float(np.std(seg_t)) < 1e-6:
+                continue
+            cc = float(np.corrcoef(seg_r, seg_t)[0, 1])
+            if not math.isnan(cc) and cc > best_c:
+                best_c, best_l = cc, lag
+        if best_c >= min_corr:
+            out.append((c * 0.005, best_l * 0.005, best_c))
+    return out
+
+
+def check_g_master_holes(rep: Report, master_audio, mix, sr: int):
+    """(g) Agujeros de frontera en el máster (V4.1, 20-nov-2026).
+
+    El render por tramos con AAC inyectaba un agujero de 34-55 ms
+    (hasta silencio digital) en cada frontera de tramo: 13 en el
+    máster V4 de marti-fidel, que el usuario oía como microcortes y
+    que la auditoría NO cazaba (el detector de silencios exige
+    >=0,3 s y la (i2) solo mira la VO). Este check escanea el máster
+    a 1 ms: rachas >=15 ms por debajo de -50 dBFS. Cada candidata
+    se contrasta con la mezcla EN EL MISMO MOMENTO ACÚSTICO (curva
+    de lag por correlación de envolventes, para absorber la deriva
+    residual de la vía AAC antigua): si la mezcla ahí tiene voz o
+    música (mediana >-30 dBFS en el tramo del agujero), el agujero
+    es un defecto; si la mezcla también está en silencio (pausa
+    entre palabras con la cama en silencio, como la tesis L9), no.
+    Se excluyen los primeros 0,5 s (arranque) y los últimos 1,5 s
+    (fade de salida). Con tramos PCM no debe haber ninguno.
+    """
+    if mix is None:
+        rep.add("g", "INFO", "sin mezcla: no se buscan agujeros de "
+                "frontera en el máster")
+        return
+    dur = len(master_audio) / sr
+    win = int(0.001 * sr)
+    n = len(master_audio) // win
+    env_m = 20 * np.log10(np.maximum(
+        np.sqrt((master_audio[:n * win].reshape(n, win).astype(
+            np.float64) ** 2).mean(axis=1)), 1e-9))
+    nm = len(mix) // win
+    env_x = 20 * np.log10(np.maximum(
+        np.sqrt((mix[:nm * win].reshape(nm, win).astype(
+            np.float64) ** 2).mean(axis=1)), 1e-9))
+    # Curva de lag máster-vs-mezcla (envolventes a 5 ms).
+    w5 = int(0.005 * sr)
+    n5 = len(master_audio) // w5
+    e5_m = 20 * np.log10(np.maximum(
+        np.sqrt((master_audio[:n5 * w5].reshape(n5, w5).astype(
+            np.float64) ** 2).mean(axis=1)), 1e-9))
+    n5x = len(mix) // w5
+    e5_x = 20 * np.log10(np.maximum(
+        np.sqrt((mix[:n5x * w5].reshape(n5x, w5).astype(
+            np.float64) ** 2).mean(axis=1)), 1e-9))
+    lag_pts = _envelope_lag_curve(e5_x, e5_m)
+    i0 = int(0.5 * 1000)
+    i1 = max(i0, int((dur - 1.5) * 1000))
+    holes = []
+    k = i0
+    while k < min(i1, n):
+        if env_m[k] < -50.0:
+            j = k
+            while j + 1 < min(i1, n) and env_m[j + 1] < -50.0:
+                j += 1
+            if (j - k + 1) >= 15:
+                t = (k + j) / 2 / 1000
+                dur_ms = j - k + 1
+                if lag_pts:
+                    ts = np.array([p[0] for p in lag_pts])
+                    ls = np.array([p[1] for p in lag_pts])
+                    lag = float(np.interp(t, ts, ls))
+                else:
+                    lag = 0.0
+                t_mix = t + lag
+                lo = max(0, int((t_mix - dur_ms / 2000 - 0.03) * 1000))
+                hi = min(nm, int((t_mix + dur_ms / 2000 + 0.03) * 1000))
+                mix_med = (float(np.median(env_x[lo:hi]))
+                           if hi > lo else -120.0)
+                holes.append((t, dur_ms,
+                              float(env_m[k:j + 1].min()), mix_med))
+            k = j + 1
+        else:
+            k += 1
+    real = [h for h in holes if h[3] > -30.0]
+    rep.metrics["g_master_holes"] = len(real)
+    for t, ms, mn, mx in real[:10]:
+        rep.add("g", "FAIL",
+                f"agujero en el máster @ {t:.3f}s: {ms} ms por debajo "
+                f"de -50 dBFS (mín {mn:.0f} dBFS) con la mezcla a "
+                f"{mx:.0f} dBFS — frontera de tramo AAC",
+                t=t)
+    if len(real) > 10:
+        rep.add("g", "FAIL",
+                f"... y {len(real) - 10} agujeros más en el máster")
+    if not real:
+        rep.add("g", "PASS", "sin agujeros de frontera en el máster "
+                "(escaneo a 1 ms)")
+
+
 def check_g_master(rep: Report, master_path: str, captions: list,
                    edited_vo_words: list, pred_words: list,
                    edited_vo, sr: int, expected_frames: int,
-                   do_whisper: bool, model: str):
+                   do_whisper: bool, model: str, mix=None):
     """(g) Máster: loudness/TP, silencios, onset, alineación karaoke/voz.
 
     La alineación autoritativa es captions vs ONSETS ACÚSTICOS de la
@@ -1328,6 +1448,9 @@ def check_g_master(rep: Report, master_path: str, captions: list,
             onset = k * 0.01
             break
     rep.metrics["g_first_audio_s"] = onset
+    # Agujeros de frontera (V4.1): el AAC por tramos los inyecta y
+    # el detector de silencios (>=0,3 s) no los ve.
+    check_g_master_holes(rep, master_audio, mix, sr)
     # Alineación karaoke vs voz del máster (Whisper) y vs VO limpia.
     # 1) Fallo de transcripción: Whisper vs predicción analítica.
     if edited_vo_words and pred_words \
@@ -1731,7 +1854,7 @@ def main() -> int:
         check_g_master(rep, master_p, captions, edited_words,
                        pred_words, edited_vo, SR,
                        a.expected_frames, not a.no_whisper,
-                       a.whisper_model)
+                       a.whisper_model, mix=mix)
     else:
         rep.add("g", "INFO", "falta el máster o captions.json")
     # (h) espectrogramas

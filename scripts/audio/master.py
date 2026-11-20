@@ -35,6 +35,18 @@ Uso:
   .venv/bin/python scripts/audio/master.py --input render.mp4 \\
       --out-master out/MASTER.mp4 --out-light out/LIGERO.mp4 --no-trim
 
+Audio PCM (V4.1, 20-nov-2026): desde que render-chunks.mjs usa
+--audio-codec pcm-16 por defecto, el concat de tramos es exacto a la
+muestra (deriva 0 ms, sin agujeros de frontera) y el máster NO
+necesita ni recorte inicial (no hay priming AAC), ni atempo (no hay
+deriva), ni realce de arranque (no hay fade-in del AAC): usar
+--clean-audio (equivale a --no-trim --no-boost, sin --atempo).
+Con tramos AAC antiguos (.mp4) la receta V1.3 sigue vigente (trim
+0,04 + atempo medido + boost), PERO el máster resultante conserva
+los agujeros de frontera de 34-55 ms que el AAC inyecta en cada
+tramo (13 en marti-fidel V4, medidos 20-nov-2026): no usar AAC para
+renders nuevos.
+
 Verifica al final: fotogramas del máster (ffprobe) y sonoridad/true peak
 (ebur128) de ambas salidas; escribe un informe JSON junto al máster.
 
@@ -98,7 +110,8 @@ def main() -> int:
     src = p.add_mutually_exclusive_group(required=True)
     src.add_argument("--input", help="Video renderizado (un solo archivo)")
     src.add_argument("--chunks-dir",
-                     help="Carpeta con chunk_*.mp4 (render por tramos)")
+                     help="Carpeta con chunk_*.mp4 o chunk_*.mkv "
+                     "(render por tramos)")
     p.add_argument("--out-master", required=True)
     p.add_argument("--out-light", required=True)
     p.add_argument("--report", help="Informe JSON (por defecto <máster>.json)")
@@ -120,6 +133,12 @@ def main() -> int:
                    help="Sin recorte de 40 ms (render de un solo pase)")
     p.add_argument("--no-boost", action="store_true",
                    help="Sin realce de arranque")
+    p.add_argument("--clean-audio", action="store_true",
+                   help="Audio sin priming AAC (tramos PCM de "
+                   "render-chunks o mezcla fresca): sin recorte "
+                   "inicial ni realce de arranque; no combinar con "
+                   "--atempo distinto de 1.0 (no hay deriva que "
+                   "compensar)")
     p.add_argument("--light-crf", type=int, default=DEFAULT_LIGHT_CRF)
     p.add_argument("--light-width", type=int, default=DEFAULT_LIGHT_WIDTH)
     p.add_argument("--force", action="store_true")
@@ -128,6 +147,12 @@ def main() -> int:
     if a.no_trim:
         a.trim_start = 0.0
     if a.no_boost:
+        a.boost_db = 0.0
+    if a.clean_audio:
+        if a.atempo != 1.0:
+            p.error("--clean-audio no admite --atempo distinto de 1.0 "
+                    "(con audio PCM no hay deriva que compensar)")
+        a.trim_start = 0.0
         a.boost_db = 0.0
     for out in (a.out_master, a.out_light):
         if os.path.exists(out) and not a.force:
@@ -138,9 +163,11 @@ def main() -> int:
     # Entrada: concat de chunks o archivo único.
     concat_list = None
     if a.chunks_dir:
-        chunks = sorted(glob.glob(os.path.join(a.chunks_dir, "chunk_*.mp4")))
+        chunks = sorted(
+            glob.glob(os.path.join(a.chunks_dir, "chunk_*.mp4"))
+            + glob.glob(os.path.join(a.chunks_dir, "chunk_*.mkv")))
         if not chunks:
-            p.error(f"sin chunk_*.mp4 en {a.chunks_dir}")
+            p.error(f"sin chunk_*.mp4 ni chunk_*.mkv en {a.chunks_dir}")
         concat_list = os.path.join(a.chunks_dir, "list.txt")
         with open(concat_list, "w", encoding="utf-8") as f:
             for c in chunks:
@@ -197,6 +224,7 @@ def main() -> int:
     res: dict = {"master": a.out_master, "light": a.out_light,
                  "limiter": a.limiter, "trim_start": a.trim_start,
                  "atempo": a.atempo, "boost_db": a.boost_db,
+                 "clean_audio": a.clean_audio,
                  "audio": "present" if input_has_audio else "absent"}
     for key, path in (("master", a.out_master), ("light", a.out_light)):
         pr = probe(path)
