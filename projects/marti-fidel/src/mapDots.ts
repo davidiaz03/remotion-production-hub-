@@ -12,26 +12,32 @@ export const MAP_DOTS: Record<string, {x: number; y: number}> = {
   "Antigua and Barb.": {x: 912.7, y: 245.0},
 };
 
-// V3 (19-nov-2026): centroide de Trinidad y Tobago en el canvas del
-// mapa del Caribe (1400×1400, research/map-build-caribbean.py,
-// Natural Earth 50m, bbox lon −92..−56 / lat 6..30). Centroide del
-// anillo mayor (isla de Trinidad, no Tobago). Usado por
-// VideoV3.tsx (HookMapScene).
-export const CARIBBEAN_TT = {x: 1192.9, y: 1140.0};
+// V3 (19-nov-2026; viewport ampliado 20-nov-2026): centroide de
+// Trinidad y Tobago en el canvas del mapa del Caribe (1400×1400,
+// research/map-build-caribbean.py, Natural Earth 50m, bbox lon
+// −92..−56 / lat 0..30 — lat 0, no 6, para incluir a Guyana entera).
+// Centroide del anillo mayor (isla de Trinidad, no Tobago). Usado
+// por VideoV3.tsx (HookMapScene).
+export const CARIBBEAN_TT = {x: 1192.9, y: 912.0};
 
-// V3 cascada (19-nov-2026 noche, investigación visual #1): los 7
-// países caribeños que rompieron la unidad de 33 años (acta
-// A/81/PV.28; STRATEGY.md §7.1). Centroide del anillo mayor en el
-// canvas Caribe 1400. Los puntos luminosos solo marcan las tres
-// islas pequeñas (Antigua, Dominica, Santa Lucía); Jamaica, Haití
-// y Rep. Dominicana se leen por el relleno rojo.
+// V3 cascada (19-nov-2026 noche, investigación visual #1;
+// CORREGIDA 20-nov-2026): los 7 miembros del CARICOM que rompieron
+// la unanimidad del bloque (33 años; acta A/81/PV.28; STRATEGY.md
+// §7.1). Centroide del anillo mayor en el canvas Caribe 1400. Los
+// puntos luminosos solo marcan las tres islas pequeñas (Antigua,
+// Dominica, Santa Lucía); Jamaica, Haití y Guyana se leen por el
+// relleno rojo. CORRECCIÓN 20-nov: la primera versión incluía a
+// Rep. Dominicana (NO es CARICOM — es CARIFORUM) y omitía a Guyana
+// (SÍ es CARICOM, abstención). Los 7 correctos: T&T (en contra),
+// Jamaica, Haití, Guyana (abstenciones), Antigua, Dominica,
+// Santa Lucía (ausentes). 7+7=14 (los otros 7 CARICOM votaron a favor).
 export const CARIBBEAN_BREAK = {
-	'Jamaica': {x: 572.5, y: 693.2},
-	'Haiti': {x: 749.6, y: 653.0},
-	'Dominican Rep.': {x: 835.9, y: 651.9},
-	'Antigua and Barb.': {x: 1175.9, y: 754.1},
-	'Dominica': {x: 1191.5, y: 849.5},
-	'Saint Lucia': {x: 1206.8, y: 938.5},
+	'Jamaica': {x: 572.5, y: 554.6},
+	'Haiti': {x: 749.6, y: 522.4},
+	'Guyana': {x: 1290.4, y: 1195.9},
+	'Antigua and Barb.': {x: 1175.9, y: 603.3},
+	'Dominica': {x: 1191.5, y: 679.6},
+	'Saint Lucia': {x: 1206.8, y: 750.8},
 };
 
 // V1.2 (auditoría densa, fix 3): desplazamientos de VISUALIZACIÓN de los

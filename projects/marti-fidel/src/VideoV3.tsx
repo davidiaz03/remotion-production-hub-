@@ -289,9 +289,16 @@ const LogoInner: React.FC = () => {
 // pulsante marca el Caribe al decirse «CARIBE» (f77).
 // Investigación visual V3 #1 (19-nov-2026 noche): CASCADA — los
 // otros 6 países que rompieron la unidad se vuelven rojos uno por
-// uno, oeste -> este (Jamaica f36, Haití f54, Rep. Dominicana f72,
-// Antigua f90, Dominica f108, Santa Lucía f126), TODOS en el mismo
-// rojo, sin distinguir en contra / abstención / ausencia.
+// uno, oeste -> este (Jamaica f36, Haití f54, Antigua f72, Dominica
+// f90, Santa Lucía f108, Guyana f126 — la más oriental, última),
+// TODOS en el mismo rojo, sin distinguir en contra / abstención /
+// ausencia. CORRECCIÓN 20-nov-2026: la primera versión ponía a Rep.
+// Dominicana en f72 y omitía a Guyana — ERRÓNEO: la unanimidad rota
+// es la del BLOQUE CARICOM; Rep. Dominicana NO es CARICOM (es
+// CARIFORUM) y Guyana SÍ (abstención). El viewport del mapa se
+// amplió al sur (lat [0,30]) para incluir a Guyana entera
+// (map-build-caribbean.py; los centroides de mapDots.ts son los
+// del canvas nuevo).
 // ================================================================
 const MAP_LEFT = 60;
 const MAP_TOP = 200;
@@ -372,23 +379,29 @@ const HookMapScene: React.FC = () => {
 	// serían 14–21 s); la cascada rápida es la adaptación. Todos
 	// en el MISMO rojo, sin distinguir en contra / abstención /
 	// ausencia y sin contadores (prohibición del «19»).
+	// Orden (20-nov-2026, corregido — marco CARICOM, acta
+	// A/81/PV.28): Jamaica, Haití, Antigua, Dominica, Santa
+	// Lucía, Guyana (la más oriental, última). Rep. Dominicana
+	// NO está en la cascada (no es CARICOM).
 	const jmIn = clamp01(f, 36, 54);
 	const htIn = clamp01(f, 54, 72);
-	const doIn = clamp01(f, 72, 90);
-	const agIn = clamp01(f, 90, 108);
-	const dmIn = clamp01(f, 108, 126);
-	const lcIn = clamp01(f, 126, 139);
+	const agIn = clamp01(f, 72, 90);
+	const dmIn = clamp01(f, 90, 108);
+	const lcIn = clamp01(f, 108, 126);
+	const gyIn = clamp01(f, 126, 139);
 	// «ROTOS» + chip: al decirse «dejó» (local f87).
 	const breakIn = clamp01(f, 87, 93);
 	const breakScale = popIn(f, 87, 10);
 	// Barrido de luz secuencial estilo @map_sody: el resplandor
 	// viaja de las Antillas Mayores al arco (f0-77) y muere con
-	// la ruptura (f60-87). Hallazgo redes V3 #2.
-	const sweepX = interpolate(f, [0, 77], [500, 900], {
+	// la ruptura (f60-87). Hallazgo redes V3 #2. Trayectoria
+	// recalculada 20-nov-2026 con el viewport lat [0,30]
+	// (Jamaica en pantalla ~(453,580), arco ~(877,665)).
+	const sweepX = interpolate(f, [0, 77], [450, 880], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	const sweepY = interpolate(f, [0, 77], [450, 600], {
+	const sweepY = interpolate(f, [0, 77], [580, 660], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
@@ -469,16 +482,6 @@ const HookMapScene: React.FC = () => {
 						}}
 					/>
 					<Img
-						src={staticFile('img/map-caribbean-do.png')}
-						style={{
-							position: 'absolute',
-							inset: 0,
-							width: '100%',
-							height: '100%',
-							opacity: doIn,
-						}}
-					/>
-					<Img
 						src={staticFile('img/map-caribbean-ag.png')}
 						style={{
 							position: 'absolute',
@@ -508,6 +511,16 @@ const HookMapScene: React.FC = () => {
 							opacity: lcIn,
 						}}
 					/>
+					<Img
+						src={staticFile('img/map-caribbean-gy.png')}
+						style={{
+							position: 'absolute',
+							inset: 0,
+							width: '100%',
+							height: '100%',
+							opacity: gyIn,
+						}}
+					/>
 				</div>
 				{/* Barrido de luz: las islas «se encienden» en secuencia */}
 				<div
@@ -522,13 +535,15 @@ const HookMapScene: React.FC = () => {
 						opacity: glowOp,
 					}}
 				/>
-				{/* Anillo pulsante sobre el arco («CARIBE», f77) */}
+				{/* Anillo pulsante sobre el arco («CARIBE», f77) —
+				centro recalculado 20-nov-2026 con el viewport lat
+				[0,30] (arco en pantalla ~(877,665)). */}
 				{f >= 77 && (
 					<div
 						style={{
 							position: 'absolute',
-							left: 917 - 60,
-							top: 577 - 60,
+							left: 877 - 60,
+							top: 665 - 60,
 							width: 120,
 							height: 120,
 							borderRadius: '50%',
@@ -546,26 +561,30 @@ const HookMapScene: React.FC = () => {
 					appearAt={24}
 					frame={f}
 				/>
-				{/* Puntos en las islas pequeñas de la cascada */}
+				{/* Puntos en las islas pequeñas de la cascada
+				(appearAt = inicio de su rampa; corregido 20-nov:
+				Antigua f72, Dominica f90, Santa Lucía f108).
+				Guyana no lleva punto: es continental y se lee por
+				el relleno, como Jamaica y Haití. */}
 				<MapDot
 					x={AG_X}
 					y={AG_Y}
 					color={MEMORIAL_RED}
-					appearAt={90}
+					appearAt={72}
 					frame={f}
 				/>
 				<MapDot
 					x={DM_X}
 					y={DM_Y}
 					color={MEMORIAL_RED}
-					appearAt={108}
+					appearAt={90}
 					frame={f}
 				/>
 				<MapDot
 					x={LC_X}
 					y={LC_Y}
 					color={MEMORIAL_RED}
-					appearAt={126}
+					appearAt={108}
 					frame={f}
 				/>
 			</div>

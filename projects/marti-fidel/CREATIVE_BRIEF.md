@@ -1947,3 +1947,63 @@ es una entrega final.
   decisión sobre la cama musical (la actual es piano/pads
   calmo; V2.5 usaba stems tensos de Flow — cambiar el stem es
   re-mezclar + re-masterizar, sin re-renderizar vídeo).
+
+### Corrección factual V3 — cascada CARICOM (20-nov-2026)
+
+El padre verificó la cascada S1 contra el acta oficial
+A/81/PV.28 (STRATEGY.md §7.1) y encontró un país mal: la
+cascada mostraba T&T, Jamaica, Haití, **Rep. Dominicana**,
+Antigua, Dominica, Santa Lucía. **Rep. Dominicana NO es
+miembro del CARICOM** (es CARIFORUM) y **Guyana SÍ lo es**
+(abstención) — y la «unanimidad caribeña de 33 años» es la
+del **bloque CARICOM**, no la del Caribe geográfico (el
+argumento que usó la primera versión de la cascada para
+omitir a Guyana era erróneo). Los 7 correctos: T&T (en
+contra), Jamaica, Haití, Guyana (abstenciones), Antigua,
+Dominica, Santa Lucía (ausentes por decisión). Los otros 7
+CARICOM (Bahamas, Barbados, Belize, Grenada, St. Kitts,
+St. Vincent, Suriname) votaron a favor: 7+7=14.
+
+- **Mapa regenerado** (`research/map-build-caribbean.py`):
+  viewport ampliado al sur, lat [0,30] (antes [6,30]), para
+  incluir a Guyana entera; overlay `do` sustituido por `gy`.
+  El encuadre NO se rompió: las islas quedan ~20 % más
+  compactas en vertical, la costa norte de Sudamérica
+  (Colombia, Venezuela, Suriname, Guayana Francesa) da
+  contexto al pie, y Guyana se ve entera en rojo en la
+  esquina inferior derecha. Sin callout: no hizo falta.
+- **Cascada corregida** (`src/VideoV3.tsx`, `src/mapDots.ts`):
+  T&T (0–30 f), Jamaica (36–54), Haití (54–72), Antigua
+  (72–90), Dominica (90–108), Santa Lucía (108–126), Guyana
+  (126–139, la más oriental, última). Misma estructura de
+  rampas (~0,6 s por país). Puntos luminosos re-temporizados
+  (Antigua f72, Dominica f90, Santa Lucía f108); Guyana no
+  lleva punto (continental, se lee por el relleno, como
+  Jamaica y Haití). Barrido de luz y anillo «CARIBE»
+  recalculados al viewport nuevo; cámara y encuadre
+  (MAP_TOP, transformOrigin) sin cambios.
+- **Verificación por píxeles** en 9 stills
+  (`out/check-v3-cascade/f0–f139.png`): los 7 países
+  correctos se vuelven rojos exactamente en su rampa y en
+  orden; **Rep. Dominicana mide 0,00 de rojo en los 9
+  fotogramas**; Guyana 1,00 al final. Un falso positivo
+  inicial en Santa Lucía/f81 (0,08) era el anillo ámbar
+  «CARIBE», no rojo — confirmado con discriminador de tono.
+- **Re-render parcial:** tramos 01–02 (f 0–299) con
+  `render-chunks.mjs --no-concat`; concat 9/9 verificado
+  (1255/1255 f); manifest regenerado (tramos 03–09 con sus
+  SHAs originales). Audio sin tocar (misma mezcla).
+- **Máster nuevo:** `out/marti-fidel-v3_MASTER.mp4`
+  (18.453.555 B), 1255 f, −16,10 LUFS, TP −2,00 dBTP.
+  **Ligera:** `out/marti-fidel-v3_LIGERO.mp4` (2.693.186 B),
+  1255 f, mismos niveles. SHA-256 del máster:
+  `81e47eda656d17ee9c40decab685313d9cbd172df8c184c8d460d7087dafc594`.
+- **QA full: PASSED** (1255/1255 f, 0 warnings, 0 failures;
+  único silencio el aire muerto diseñado 34,99–36,55 s).
+  **Auditoría de audio: 2 FAIL, 115 WARN, 9 PASS, 25 INFO**
+  — idénticos a la corrida 6 (los 2 FAIL son los explicados:
+  (g) silencio diseñado + (i4) falso positivo de alias de
+  pitch, corr 1,00). Ningún defecto real de audio.
+- Los PNG del mapa (`public/img/map-caribbean-*.png`) no
+  están en git (`**/public/*` ignorado); la fuente es
+  `research/map-build-caribbean.py` + `research/assets/`.
