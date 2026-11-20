@@ -1103,5 +1103,11 @@
     ]
    ]
   }
- ]
+ ],
+ "aprobacion_usuario": {
+  "fecha": "2026-11-20 17:14",
+  "por": "usuario (oído)",
+  "resultado": "Las 4 líneas INCIERTO (L5, L6, L9, L10) escuchadas de oído: SIN errores. Las 11 líneas APROBADAS. Sin regrabaciones.",
+  "fuente": "research/vo-v43/informe-verificacion-v43.json -> verificacion_de_oido"
+ }
 }
