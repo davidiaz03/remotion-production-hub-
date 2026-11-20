@@ -1,0 +1,1107 @@
+{
+ "version": "V4",
+ "voice": "Adriana (real, 11 líneas .aac)",
+ "video": {
+  "duration_s": 69.23333333333333,
+  "frames": 2077,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920
+ },
+ "vo": {
+  "lead_s": 0.25,
+  "gaps_s": [
+   0.4,
+   0.4,
+   0.5,
+   0.45,
+   0.45,
+   0.5,
+   0.45,
+   1.0,
+   0.45,
+   0.4
+  ],
+  "end_s": 67.731,
+  "path": "/home/hatch/workspace/remotion-hub/repo/projects/marti-fidel/public/audio/v4/vo-real-v4.wav",
+  "raw_path": "/home/hatch/workspace/remotion-hub/repo/projects/marti-fidel/public/audio/v4/vo-real-v4-raw.wav",
+  "sha256": "d3d5f463627498b9f9d76f60fc6296193bc2150dd3f548290f3bbbb5cf2c2393",
+  "peak": 0.7943
+ },
+ "lines": [
+  {
+   "linea": 1,
+   "file": "01.wav",
+   "text": "Por primera vez en treinta y tres años, el Caribe dejó de votar unido.",
+   "head": 1.0,
+   "tail": 5.92,
+   "speech_span": [
+    1.08,
+    5.6
+   ],
+   "start": 0.25,
+   "end": 5.17,
+   "out_dur": 4.92,
+   "lufs": -17.3,
+   "true_peak": -2.0,
+   "sha256": "74d8ec3b45da5006c33f0cbd43fec4ffdf68e6c0ba34adbea03bd22f5e537fc9",
+   "words": [
+    [
+     "Por",
+     1.08,
+     1.76
+    ],
+    [
+     "primera",
+     1.76,
+     2.08
+    ],
+    [
+     "vez",
+     2.08,
+     2.38
+    ],
+    [
+     "en",
+     2.38,
+     2.58
+    ],
+    [
+     "treinta",
+     2.58,
+     2.798
+    ],
+    [
+     "y",
+     2.798,
+     2.882
+    ],
+    [
+     "tres",
+     2.882,
+     3.1
+    ],
+    [
+     "años,",
+     3.1,
+     3.56
+    ],
+    [
+     "el",
+     4.08,
+     4.14
+    ],
+    [
+     "Caribe",
+     4.14,
+     4.5
+    ],
+    [
+     "dejó",
+     4.5,
+     4.86
+    ],
+    [
+     "de",
+     4.86,
+     4.92
+    ],
+    [
+     "votar",
+     4.92,
+     5.24
+    ],
+    [
+     "unido.",
+     5.24,
+     5.89
+    ]
+   ]
+  },
+  {
+   "linea": 2,
+   "file": "02.wav",
+   "text": "Martí lo vio venir en 1891.",
+   "head": 1.28,
+   "tail": 4.28,
+   "speech_span": [
+    1.36,
+    3.88
+   ],
+   "start": 5.57,
+   "end": 8.57,
+   "out_dur": 3.0,
+   "lufs": -17.6,
+   "true_peak": -2.6,
+   "sha256": "c4d5fc99f63cf64cb6544db1e289be69a5cd33629dcbd2f7fcfde564581da045",
+   "words": [
+    [
+     "Martí",
+     1.36,
+     2.0
+    ],
+    [
+     "lo",
+     2.0,
+     2.12
+    ],
+    [
+     "vio",
+     2.12,
+     2.24
+    ],
+    [
+     "venir",
+     2.24,
+     2.56
+    ],
+    [
+     "en",
+     2.56,
+     2.74
+    ],
+    [
+     "1891.",
+     2.74,
+     4.25
+    ]
+   ]
+  },
+  {
+   "linea": 3,
+   "file": "03.wav",
+   "text": "Es la hora del recuento, y de la marcha unida.",
+   "head": 2.72,
+   "tail": 5.98,
+   "speech_span": [
+    2.8,
+    5.9
+   ],
+   "start": 8.97,
+   "end": 12.231,
+   "out_dur": 3.26,
+   "lufs": -17.9,
+   "true_peak": -2.0,
+   "sha256": "48ecedc4b1851c9aa1cf7ab77df486e27231bcf7c810101f46579af768760f26",
+   "words": [
+    [
+     "Es",
+     2.8,
+     3.36
+    ],
+    [
+     "la",
+     3.36,
+     3.58
+    ],
+    [
+     "hora",
+     3.58,
+     3.72
+    ],
+    [
+     "del",
+     3.72,
+     3.9
+    ],
+    [
+     "recuento,",
+     3.9,
+     4.48
+    ],
+    [
+     "y",
+     4.48,
+     4.98
+    ],
+    [
+     "de",
+     4.98,
+     5.08
+    ],
+    [
+     "la",
+     5.08,
+     5.2
+    ],
+    [
+     "marcha",
+     5.2,
+     5.56
+    ],
+    [
+     "unida.",
+     5.56,
+     5.9
+    ]
+   ]
+  },
+  {
+   "linea": 4,
+   "file": "04.wav",
+   "text": "Un primer ministro lo contó en la radio: Washington lo llamó para que cambiara su voto.",
+   "head": 1.64,
+   "tail": 7.2,
+   "speech_span": [
+    1.72,
+    7.12
+   ],
+   "start": 12.73,
+   "end": 18.29,
+   "out_dur": 5.56,
+   "lufs": -18.2,
+   "true_peak": -2.0,
+   "sha256": "59ff859178b643cf0021d5612b3689b2fb18536587bebde6e7847337a8698405",
+   "words": [
+    [
+     "Un",
+     1.72,
+     2.38
+    ],
+    [
+     "primer",
+     2.38,
+     2.68
+    ],
+    [
+     "ministro",
+     2.68,
+     3.2
+    ],
+    [
+     "lo",
+     3.2,
+     3.36
+    ],
+    [
+     "contó",
+     3.36,
+     3.62
+    ],
+    [
+     "en",
+     3.62,
+     3.7
+    ],
+    [
+     "la",
+     3.7,
+     3.78
+    ],
+    [
+     "radio:",
+     3.78,
+     4.14
+    ],
+    [
+     "Washington",
+     4.62,
+     5.22
+    ],
+    [
+     "lo",
+     5.22,
+     5.58
+    ],
+    [
+     "llamó",
+     5.58,
+     5.88
+    ],
+    [
+     "para",
+     5.88,
+     6.06
+    ],
+    [
+     "que",
+     6.06,
+     6.18
+    ],
+    [
+     "cambiara",
+     6.18,
+     6.56
+    ],
+    [
+     "su",
+     6.56,
+     6.76
+    ],
+    [
+     "voto.",
+     6.76,
+     7.12
+    ]
+   ]
+  },
+  {
+   "linea": 5,
+   "file": "05.wav",
+   "text": "Ya lo había dicho Martí: ¡los árboles se han de poner en fila, para que no pase el gigante de las siete leguas!",
+   "head": 1.88,
+   "tail": 8.3,
+   "speech_span": [
+    1.96,
+    8.22
+   ],
+   "start": 18.74,
+   "end": 25.161,
+   "out_dur": 6.421,
+   "lufs": -19.2,
+   "true_peak": -2.0,
+   "sha256": "35c578817ce7baa55dd959e13b5f1f975a6ad242a2a96de8841212eed9343c0c",
+   "words": [
+    [
+     "Ya",
+     1.96,
+     2.4
+    ],
+    [
+     "lo",
+     2.4,
+     2.54
+    ],
+    [
+     "había",
+     2.54,
+     2.74
+    ],
+    [
+     "dicho",
+     2.74,
+     2.98
+    ],
+    [
+     "Martí:",
+     2.98,
+     3.46
+    ],
+    [
+     "¡los",
+     4.1,
+     4.22
+    ],
+    [
+     "árboles",
+     4.22,
+     4.56
+    ],
+    [
+     "se",
+     4.56,
+     4.8
+    ],
+    [
+     "han",
+     4.8,
+     4.88
+    ],
+    [
+     "de",
+     4.88,
+     4.98
+    ],
+    [
+     "poner",
+     4.98,
+     5.16
+    ],
+    [
+     "en",
+     5.16,
+     5.38
+    ],
+    [
+     "fila,",
+     5.38,
+     5.8
+    ],
+    [
+     "para",
+     5.8,
+     6.24
+    ],
+    [
+     "que",
+     6.24,
+     6.38
+    ],
+    [
+     "no",
+     6.38,
+     6.5
+    ],
+    [
+     "pase",
+     6.5,
+     6.72
+    ],
+    [
+     "el",
+     6.72,
+     6.9
+    ],
+    [
+     "gigante",
+     6.9,
+     7.26
+    ],
+    [
+     "de",
+     7.26,
+     7.36
+    ],
+    [
+     "las",
+     7.36,
+     7.5
+    ],
+    [
+     "siete",
+     7.5,
+     7.72
+    ],
+    [
+     "leguas!",
+     7.72,
+     8.22
+    ]
+   ]
+  },
+  {
+   "linea": 6,
+   "file": "06.wav",
+   "text": "El gigante, advirtió Martí, es el poderío económico y militar de Estados Unidos, que amenaza con extender su dominio sobre Nuestra América.",
+   "head": 0.88,
+   "tail": 10.2,
+   "speech_span": [
+    0.96,
+    10.0
+   ],
+   "start": 25.611,
+   "end": 34.931,
+   "out_dur": 9.32,
+   "lufs": -19.1,
+   "true_peak": -2.0,
+   "sha256": "25868563bf945bb100fcd11af4085152c24101861143cdf429eaa09a9ebdbad9",
+   "words": [
+    [
+     "El",
+     0.96,
+     1.8
+    ],
+    [
+     "gigante,",
+     1.8,
+     2.52
+    ],
+    [
+     "advirtió",
+     2.64,
+     3.26
+    ],
+    [
+     "Martí,",
+     3.26,
+     3.64
+    ],
+    [
+     "es",
+     4.14,
+     4.24
+    ],
+    [
+     "el",
+     4.24,
+     4.36
+    ],
+    [
+     "poderío",
+     4.36,
+     4.78
+    ],
+    [
+     "económico",
+     4.78,
+     5.28
+    ],
+    [
+     "y",
+     5.28,
+     5.32
+    ],
+    [
+     "militar",
+     5.32,
+     5.66
+    ],
+    [
+     "de",
+     5.66,
+     5.8
+    ],
+    [
+     "Estados",
+     5.8,
+     6.06
+    ],
+    [
+     "Unidos,",
+     6.06,
+     6.52
+    ],
+    [
+     "que",
+     6.52,
+     7.22
+    ],
+    [
+     "amenaza",
+     7.22,
+     7.74
+    ],
+    [
+     "con",
+     7.74,
+     7.94
+    ],
+    [
+     "extender",
+     7.94,
+     8.42
+    ],
+    [
+     "su",
+     8.42,
+     8.62
+    ],
+    [
+     "dominio",
+     8.62,
+     9.06
+    ],
+    [
+     "sobre",
+     9.06,
+     9.32
+    ],
+    [
+     "Nuestra",
+     9.32,
+     9.58
+    ],
+    [
+     "América.",
+     9.58,
+     10.0
+    ]
+   ]
+  },
+  {
+   "linea": 7,
+   "file": "07.wav",
+   "text": "En 2005, Fidel lo dijo con una claridad que estremece: No es lo mismo estar desinformado que haber perdido la capacidad de pensar.",
+   "head": 1.44,
+   "tail": 10.4,
+   "speech_span": [
+    1.52,
+    10.16
+   ],
+   "start": 35.431,
+   "end": 44.389,
+   "out_dur": 8.958,
+   "lufs": -18.3,
+   "true_peak": -2.0,
+   "sha256": "74daacbb3f745c9d6dcc3aa32199ad911b556523d692c15e069ccbe415ab5366",
+   "words": [
+    [
+     "En",
+     1.52,
+     2.08
+    ],
+    [
+     "2005,",
+     2.08,
+     2.64
+    ],
+    [
+     "Fidel",
+     3.04,
+     3.38
+    ],
+    [
+     "lo",
+     3.38,
+     3.6
+    ],
+    [
+     "dijo",
+     3.6,
+     3.8
+    ],
+    [
+     "con",
+     3.8,
+     4.0
+    ],
+    [
+     "una",
+     4.0,
+     4.22
+    ],
+    [
+     "claridad",
+     4.22,
+     4.66
+    ],
+    [
+     "que",
+     4.66,
+     4.86
+    ],
+    [
+     "estremece:",
+     4.86,
+     5.44
+    ],
+    [
+     "No",
+     6.02,
+     6.26
+    ],
+    [
+     "es",
+     6.26,
+     6.36
+    ],
+    [
+     "lo",
+     6.36,
+     6.48
+    ],
+    [
+     "mismo",
+     6.48,
+     6.76
+    ],
+    [
+     "estar",
+     6.76,
+     7.04
+    ],
+    [
+     "desinformado",
+     7.04,
+     7.96
+    ],
+    [
+     "que",
+     7.96,
+     8.42
+    ],
+    [
+     "haber",
+     8.42,
+     8.56
+    ],
+    [
+     "perdido",
+     8.56,
+     9.08
+    ],
+    [
+     "la",
+     9.08,
+     9.18
+    ],
+    [
+     "capacidad",
+     9.18,
+     9.64
+    ],
+    [
+     "de",
+     9.64,
+     9.88
+    ],
+    [
+     "pensar.",
+     9.88,
+     10.37
+    ]
+   ]
+  },
+  {
+   "linea": 8,
+   "file": "08.wav",
+   "text": "Hoy los medios del imperio crean reflejos condicionados: muchos repiten lo que oyen y dejan de pensar.",
+   "head": 0.96,
+   "tail": 8.13,
+   "speech_span": [
+    1.04,
+    7.92
+   ],
+   "start": 44.84,
+   "end": 52.011,
+   "out_dur": 7.171,
+   "lufs": -19.0,
+   "true_peak": -2.0,
+   "sha256": "7170f35b184bb0c402cff255b1d17640923e7e73d14069ab4656c40613f78d7e",
+   "words": [
+    [
+     "Hoy",
+     1.04,
+     1.8
+    ],
+    [
+     "los",
+     1.8,
+     1.96
+    ],
+    [
+     "medios",
+     1.96,
+     2.34
+    ],
+    [
+     "del",
+     2.34,
+     2.58
+    ],
+    [
+     "imperio",
+     2.58,
+     3.16
+    ],
+    [
+     "crean",
+     3.16,
+     3.64
+    ],
+    [
+     "reflejos",
+     3.64,
+     4.02
+    ],
+    [
+     "condicionados:",
+     4.02,
+     4.84
+    ],
+    [
+     "muchos",
+     5.34,
+     5.72
+    ],
+    [
+     "repiten",
+     5.72,
+     6.2
+    ],
+    [
+     "lo",
+     6.2,
+     6.34
+    ],
+    [
+     "que",
+     6.34,
+     6.48
+    ],
+    [
+     "oyen",
+     6.48,
+     6.88
+    ],
+    [
+     "y",
+     6.88,
+     7.18
+    ],
+    [
+     "dejan",
+     7.18,
+     7.46
+    ],
+    [
+     "de",
+     7.46,
+     7.6
+    ],
+    [
+     "pensar.",
+     7.6,
+     8.1
+    ]
+   ]
+  },
+  {
+   "linea": 9,
+   "file": "09.wav",
+   "text": "Cuando un pueblo olvida su historia, está condenado a volverla a vivir.",
+   "head": 0.82,
+   "tail": 4.83,
+   "speech_span": [
+    0.9,
+    4.58
+   ],
+   "start": 53.011,
+   "end": 57.022,
+   "out_dur": 4.011,
+   "lufs": -17.6,
+   "true_peak": -2.0,
+   "sha256": "5e4f9bad446dda2f01ff04f59d4bdbfc99d21ca9f61ca474350ad4df6d119a11",
+   "words": [
+    [
+     "Cuando",
+     0.9,
+     1.5
+    ],
+    [
+     "un",
+     1.5,
+     1.74
+    ],
+    [
+     "pueblo",
+     1.74,
+     1.86
+    ],
+    [
+     "olvida",
+     1.86,
+     2.22
+    ],
+    [
+     "su",
+     2.22,
+     2.4
+    ],
+    [
+     "historia,",
+     2.4,
+     2.86
+    ],
+    [
+     "está",
+     3.14,
+     3.44
+    ],
+    [
+     "condenado",
+     3.44,
+     3.96
+    ],
+    [
+     "a",
+     3.92,
+     4.0
+    ],
+    [
+     "volverla",
+     3.96,
+     4.42
+    ],
+    [
+     "a",
+     4.42,
+     4.46
+    ],
+    [
+     "vivir.",
+     4.46,
+     4.8
+    ]
+   ]
+  },
+  {
+   "linea": 10,
+   "file": "10.wav",
+   "text": "Leer para no olvidar. Pensar para no arrodillarse ante ese imperio que nos ve como su patio trasero.",
+   "head": 1.46,
+   "tail": 7.44,
+   "speech_span": [
+    1.54,
+    7.36
+   ],
+   "start": 57.472,
+   "end": 63.451,
+   "out_dur": 5.979,
+   "lufs": -19.7,
+   "true_peak": -2.0,
+   "sha256": "1cd94eec2681ba3c4655c2d2fc2e65f903ed0ad14456e0c6cd033445c852586c",
+   "words": [
+    [
+     "Leer",
+     1.54,
+     1.98
+    ],
+    [
+     "para",
+     1.98,
+     2.2
+    ],
+    [
+     "no",
+     2.2,
+     2.36
+    ],
+    [
+     "olvidar.",
+     2.36,
+     2.9
+    ],
+    [
+     "Pensar",
+     3.6,
+     4.04
+    ],
+    [
+     "para",
+     4.04,
+     4.3
+    ],
+    [
+     "no",
+     4.3,
+     4.44
+    ],
+    [
+     "arrodillarse",
+     4.44,
+     5.06
+    ],
+    [
+     "ante",
+     5.06,
+     5.28
+    ],
+    [
+     "ese",
+     5.28,
+     5.42
+    ],
+    [
+     "imperio",
+     5.42,
+     5.88
+    ],
+    [
+     "que",
+     5.88,
+     5.98
+    ],
+    [
+     "nos",
+     5.98,
+     6.08
+    ],
+    [
+     "ve",
+     6.08,
+     6.28
+    ],
+    [
+     "como",
+     6.28,
+     6.44
+    ],
+    [
+     "su",
+     6.44,
+     6.6
+    ],
+    [
+     "patio",
+     6.6,
+     6.8
+    ],
+    [
+     "trasero.",
+     6.8,
+     7.36
+    ]
+   ]
+  },
+  {
+   "linea": 11,
+   "file": "11.wav",
+   "text": "¡Que no pase el gigante! ¡Que los árboles se pongan en fila!",
+   "head": 0.52,
+   "tail": 4.4,
+   "speech_span": [
+    0.6,
+    4.32
+   ],
+   "start": 63.851,
+   "end": 67.731,
+   "out_dur": 3.88,
+   "lufs": -18.1,
+   "true_peak": -2.0,
+   "sha256": "07f4dbe44f82b4dc2e27a3cd059d88705bf6fe7e7a4541cc44f3d43c8d91d40c",
+   "words": [
+    [
+     "¡Que",
+     0.6,
+     1.14
+    ],
+    [
+     "no",
+     1.14,
+     1.26
+    ],
+    [
+     "pase",
+     1.26,
+     1.48
+    ],
+    [
+     "el",
+     1.48,
+     1.68
+    ],
+    [
+     "gigante!",
+     1.68,
+     2.12
+    ],
+    [
+     "¡Que",
+     2.12,
+     2.74
+    ],
+    [
+     "los",
+     2.74,
+     2.88
+    ],
+    [
+     "árboles",
+     2.88,
+     3.28
+    ],
+    [
+     "se",
+     3.28,
+     3.48
+    ],
+    [
+     "pongan",
+     3.48,
+     3.8
+    ],
+    [
+     "en",
+     3.8,
+     3.92
+    ],
+    [
+     "fila!",
+     3.92,
+     4.32
+    ]
+   ]
+  }
+ ]
+}
