@@ -250,10 +250,14 @@ verificaba era (b)/(g), no la mezcla):
 
 ## Pendiente
 
-- Verificación visual por render de los 8 fotogramas V5.1 (ver
-  § Pieza 1): bloqueada por el candado compartido (el agente de
-  render está en un render completo del reel, ~1 h+ desde las
-  ~02:55). Todo preparado en `/tmp/v51-render-test` +
-  `/tmp/hsv5-audio/run-stills.sh`; la verificación numérica
-  (auditoría 0 FAIL) ya está cerrada y la cadena de importes está
-  verificada por grep.
+- Verificación visual por render de los 8 fotogramas V5.1: CERRADA
+  POR EL COORDINADOR (21-nov-2026, integración hub-speed-v5). El
+  andamiaje preparado (`/tmp/v51-render-test` + `/tmp/hsv5-audio/`)
+  fue borrado por la limpieza del entorno de `/tmp`; se re-preparó
+  desde cero (captions re-generados con `align-captions.py`,
+  `--verify` PASS, UN 12,810 → 13,370 s) y se renderizaron 2 stills
+  decisivos con `remotion still` (worktree desechable, candado con
+  propiedad): a 12,9 s (f387) la V5.1 NO muestra «UN» (la V5 sí, el
+  adelanto de 0,56 s) y a 13,4 s (f402) ambas lo muestran sobre la
+  escena de radio. La re-temporización se ve correctamente en el
+  render. Stills en `/tmp/v51-stills-out/` (efímeros).
