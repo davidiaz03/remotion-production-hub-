@@ -16,7 +16,7 @@
       "draft": {
         "status": "done",
         "startedAt": "2026-11-21T05:09:40.051Z",
-        "updatedAt": "2026-11-21T11:54:51.873Z",
+        "updatedAt": "2026-11-21T12:18:01.362Z",
         "artifacts": [
           "stat-73-barbados.png",
           "stat-73-barbados-light.jpg"
@@ -26,7 +26,7 @@
       "review": {
         "status": "in_progress",
         "startedAt": "2026-11-21T05:09:40.056Z",
-        "updatedAt": "2026-11-21T11:54:51.878Z",
+        "updatedAt": "2026-11-21T12:18:01.363Z",
         "artifacts": [],
         "note": "Borrador listo para revisión visual"
       },
@@ -63,6 +63,24 @@
       },
       {
         "at": "2026-11-21T11:54:51.873Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "stat-73-barbados.png",
+          "stat-73-barbados-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T12:16:26.657Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "stat-73-barbados.png",
+          "stat-73-barbados-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T12:18:01.362Z",
         "phase": "draft",
         "event": "Borrador renderizado (1 imagen(es))",
         "artifacts": [

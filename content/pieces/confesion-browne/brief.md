@@ -13,3 +13,4 @@
 |---|---|---|---|
 | 21-nov-2026 | v1 | Borrador inicial (verificación v2) | |
 | 21-nov-2026 | v3 | Reenfoque: pierde «última hora» → sello «LA CONFESIÓN»; foto de Browne en banda; slug renombrado a `confesion-browne` | |
+| 21-nov-2026 | v4 | Fuente acortada (sin la fecha, que ya está en la banda roja): ya no se corta «9-nov-2026» al final de línea | |

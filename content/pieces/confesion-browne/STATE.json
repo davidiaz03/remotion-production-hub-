@@ -16,7 +16,7 @@
       "draft": {
         "status": "done",
         "startedAt": "2026-11-21T05:10:09.158Z",
-        "updatedAt": "2026-11-21T12:02:40.684Z",
+        "updatedAt": "2026-11-21T12:17:07.682Z",
         "artifacts": [
           "ultima-hora-browne.png",
           "ultima-hora-browne-light.jpg",
@@ -28,7 +28,7 @@
       "review": {
         "status": "in_progress",
         "startedAt": "2026-11-21T05:10:09.161Z",
-        "updatedAt": "2026-11-21T12:02:40.685Z",
+        "updatedAt": "2026-11-21T12:17:07.683Z",
         "artifacts": [],
         "note": "Borrador listo para revisión visual"
       },
@@ -83,6 +83,15 @@
       },
       {
         "at": "2026-11-21T12:02:40.684Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "confesion-browne.png",
+          "confesion-browne-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T12:17:07.682Z",
         "phase": "draft",
         "event": "Borrador renderizado (1 imagen(es))",
         "artifacts": [

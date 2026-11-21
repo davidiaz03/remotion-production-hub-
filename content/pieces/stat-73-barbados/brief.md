@@ -13,3 +13,4 @@
 |---|---|---|---|
 | 21-nov-2026 | v1 | Borrador inicial (verificación v2) | |
 | 21-nov-2026 | v3 | Foto de fondo: mar de Barbados (Pexels) con velo plano | |
+| 21-nov-2026 | v4 | Velo viñeta (`veil: "vignette"`): la foto respira en los bordes, centro oscuro para la cifra; kicker y pie con más contraste | |

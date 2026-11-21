@@ -18,3 +18,4 @@
 |---|---|---|---|
 | 21-nov-2026 | v1 | Borrador inicial (constructor) | |
 | 21-nov-2026 | v3 | Foto protagonista por lámina (UN Web TV + Commons) + gráfico de barras en «El contraste» | |
+| 21-nov-2026 | v4 | Gráfico: la cifra de la fila destacada (130) va en rojo, atada a su barra; barras de 48 px | |

@@ -8,7 +8,7 @@
   - 1980: el 11-sep el diplomático Félix García Rodríguez es asesinado en Queens, Nueva York, por Omega 7. Fuente: Cubadebate 11-sep-2025; EcuRed.
   - 2026: el 28-oct la ONU aprueba la resolución contra el bloqueo 130-17-25. Fuente: ONU Noticias 28-oct-2026.
 - **Copy:** título «Fechas que no se olvidan».
-- **Imagen:** v3: miniaturas por hecho — 1976 mar de Barbados (Pexels), 2026 foto oficial UN Photo de la votación; 1974 y 1980 conservan el marcador rojo. Ver `ASSETS.md`.
+- **Imagen:** v4: miniaturas 300×180 en los 4 hechos — 1974 Embajada de Cuba en Lima (Commons, CC BY-SA 4.0; sede actual, no la de 1974), 1976 mar de Barbados (Pexels), 1980 exterior de la sede ONU (Commons, CC BY-SA 2.0), 2026 foto oficial UN Photo de la votación (con `image_fit: contain`, tableros completos). Ver `ASSETS.md`.
 - **Revisión:** (¿quién aprueba? ¿qué cambiaron en cada vuelta?)
 
 ## Registro de revisiones
@@ -17,3 +17,4 @@
 |---|---|---|---|
 | 21-nov-2026 | v1 | Borrador inicial (verificación v2) | |
 | 21-nov-2026 | v3 | Miniaturas en 1976 (mar de Barbados) y 2026 (UN Photo); 1974 y 1980 con marcador | |
+| 21-nov-2026 | v4 | Miniaturas 300×180 en los 4 hechos (Lima 1974, ONU exterior 1980); 2026 con `image_fit: contain` (tableros completos); texto 1974 recortado a 3 líneas | |
