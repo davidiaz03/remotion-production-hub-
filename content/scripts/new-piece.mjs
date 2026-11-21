@@ -2,7 +2,7 @@
 /**
  * Crea una pieza nueva de contenido estático.
  *
- *   node content/scripts/new-piece.mjs <slug> --template <post|story|carousel|infographic|thumbnail|quote> [--title "..."]
+ *   node content/scripts/new-piece.mjs <slug> --template <post|story|carousel|infographic|thumbnail|quote|breaking|stat|cover|timeline> [--title "..."]
  *
  * Crea pieces/<slug>/ con:
  *   brief.md    — encargo: objetivo, hechos verificados, copy, revisión
@@ -23,7 +23,7 @@ const SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
 
 function usage() {
 	console.error('Uso: new-piece.mjs <slug> --template <nombre> [--title "..."]');
-	console.error('Plantillas: post, story, carousel, infographic, thumbnail, quote');
+	console.error('Plantillas: post, story, carousel, infographic, thumbnail, quote, breaking, stat, cover, timeline');
 	process.exit(1);
 }
 

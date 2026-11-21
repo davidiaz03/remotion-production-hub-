@@ -22,7 +22,7 @@ import { promisify } from 'node:util';
 const execFileAsync = promisify(execFile);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = path.join(ROOT, 'content');
-const TEMPLATES = ['post', 'story', 'carousel', 'infographic', 'thumbnail', 'quote'];
+const TEMPLATES = ['post', 'story', 'carousel', 'infographic', 'thumbnail', 'quote', 'breaking', 'stat', 'cover', 'timeline'];
 
 function pngSize(file) {
 	const b = readFileSync(file);
@@ -64,6 +64,10 @@ test('plantillas: meta, HTML y ejemplo válidos', () => {
 		assert.ok(meta.fields && Object.keys(meta.fields).length > 0, `${t}: sin campos documentados`);
 		const html = readFileSync(path.join(dir, 'template.html'), 'utf8');
 		assert.ok(html.includes('assets/base.css'), `${t}: no enlaza base.css`);
+		// Toda plantilla usa el logo COMPLETO ({{logo:...}}); nunca solo la estrella.
+		assert.ok(html.includes('{{logo:color}}') || html.includes('{{logo:white}}'), `${t}: no usa el logo completo`);
+		// Sin hex sueltos de marca fuera de base.css: los colores vienen de tokens/base.css.
+		assert.ok(!html.includes('#ED1C24'), `${t}: hex de marca suelto en la plantilla (usa var(--red))`);
 		const data = JSON.parse(readFileSync(path.join(dir, 'data.example.json'), 'utf8'));
 		assert.equal(typeof data, 'object', `${t}: ejemplo inválido`);
 		if (meta.multi) {
@@ -404,6 +408,148 @@ Image.new('RGB', (1000, 1500), (30, 30, 30)).save('${path.join(dir, 'retrato.png
 		const check = JSON.parse(res.stdout);
 		assert.ok(!check.warnings.some((w) => w.includes('zona de texto')),
 			`la cara acolchada sigue en zona de texto: ${check.warnings.join(' | ')}`);
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});
+
+test('constructor de carrusel: Markdown → data.json con reparto y validación', async () => {
+	const { parseMarkdown, parseBullets, buildCarouselData, validateCarousel } =
+		await import('../content/scripts/build-carousel.mjs');
+	const md = `# La ONU contra el bloqueo por trigésimo cuarto año
+La Asamblea General aprobó la resolución cubana el 28 de octubre de 2026.
+
+## El voto
+130 países dijeron no al *bloqueo*
+La resolución se aprobó con 130 votos a favor, 17 en contra y 25 abstenciones.
+- @globe 172 de 193 Estados miembros votaron
+- @scale Es la 34.ª resolución consecutiva desde 1992
+
+## La presión
+Washington presionó y no logró *derrotar* la resolución
+El secretario de Estado repartió un memorando para que los países dejaran de votar a favor.
+
+## El contexto
+El bloqueo cumple más de *60 años*
+El embargo unilateral de Estados Unidos rige desde 1960.
+
+---
+Memorial de la Denuncia
+`;
+	const parsed = parseMarkdown(md);
+	assert.equal(parsed.title, 'La ONU contra el bloqueo por trigésimo cuarto año');
+	assert.equal(parsed.slides.length, 3);
+	assert.equal(parsed.slides[0].kicker, 'El voto');
+	assert.equal(parsed.slides[0].headline, '130 países dijeron no al *bloqueo*');
+	assert.equal(parsed.slides[0].items.length, 2);
+	assert.equal(parsed.slides[0].items[0].icon, 'globe');
+	assert.equal(parsed.slides[0].items[1].icon, 'scale');
+	assert.equal(parsed.cta, 'Memorial de la Denuncia');
+	const data = buildCarouselData({ ...parsed, format: '4:5' });
+	assert.equal(data.pages.length, 5, 'portada + 3 láminas + cierre');
+	assert.equal(data.format, '4:5');
+	const { errors, warnings } = validateCarousel(data);
+	assert.deepEqual(errors, []);
+	assert.deepEqual(warnings, []);
+	// Viñetas: una por línea, kicker con |, comentarios ignorados.
+	const slides = parseBullets('# comentario\nEl voto | 130 países dijeron no\nWashington presionó sin éxito\n');
+	assert.equal(slides.length, 2);
+	assert.deepEqual(slides[0], { kicker: 'El voto', headline: '130 países dijeron no' });
+	assert.equal(slides[1].kicker, 'El dato');
+	// Violaciones: titular de portada >15 palabras y lámina densa.
+	const bad = buildCarouselData({
+		title: 'uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis',
+		subtitle: '', cta: '', format: '4:5',
+		slides: [
+			{ kicker: 'A', headline: 'Titular corto', body: 'Cuerpo corto.' },
+			{ kicker: 'B', headline: 'Titular corto', body: 'Cuerpo corto.' },
+			{ kicker: 'C', headline: 'uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis',
+			  body: 'uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis diecisiete dieciocho diecinueve veinte veintiuno veintidós veintitrés veinticuatro veinticinco veintiséis veintisiete veintiocho veintinueve treinta treinta y uno' },
+		],
+	});
+	const v = validateCarousel(bad);
+	assert.ok(v.errors.some((e) => e.startsWith('portada:')), v.errors.join(' | '));
+	assert.ok(v.errors.some((e) => e.includes('titular con 16 palabras')), v.errors.join(' | '));
+	// Muy pocas láminas: error (mejor otro formato).
+	const few = buildCarouselData({ title: 'Título de portada corto', subtitle: '', cta: '', format: '4:5',
+		slides: [{ kicker: 'A', headline: 'Solo una lámina' }] });
+	assert.ok(validateCarousel(few).errors.some((e) => e.includes('mínimo 3')), validateCarousel(few).errors.join(' | '));
+	// Markdown sin título o sin láminas: error claro.
+	assert.throws(() => parseMarkdown('## Solo kicker\nTitular\n'), /título de portada/);
+	assert.throws(() => parseMarkdown('# Solo título\n'), /no hay láminas/);
+});
+
+test('chequeo de marca: logo en HTML, titulares y rojo en PNG sintético', async () => {
+	const { countLogos, checkCopy, MIN_RED_FRACTION } = await import('../content/scripts/brand-check.mjs');
+	assert.equal(countLogos('<img class="brand-logo" src="assets/logo-color.png">'), 1);
+	assert.equal(countLogos('<div class="x">sin logo</div>'), 0);
+	// La clase en el CSS inline NO cuenta como aparición del logo.
+	assert.equal(countLogos('<style>.brand-logo { height: 120px; }</style><img class="brand-logo" src="x">'), 1);
+	assert.equal(countLogos('<img class="brand-logo" src="a"><img class="brand-logo" src="b">'), 2);
+	assert.deepEqual(checkCopy({ title: 'Titular corto de portada' }, 'breaking'), []);
+	assert.ok(checkCopy({ headline: 'uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis' }, 'breaking').length > 0);
+	assert.ok(checkCopy({ events: [{ year: '1976', text: 'uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis diecisiete dieciocho diecinueve veinte veintiuno veintidós veintitrés veinticuatro veinticinco veintiséis' }] }, 'timeline').length > 0);
+	// Rojo de marca: PNG negro puro -> 0%; PNG con franja roja -> supera el umbral.
+	const dir = mkdtempSync(path.join(tmpdir(), 'content-hub-test-'));
+	try {
+		const black = path.join(dir, 'black.png');
+		const red = path.join(dir, 'red.png');
+		await execFileAsync('python3', ['-c', `
+from PIL import Image
+Image.new('RGB', (200, 200), (0, 0, 0)).save('${black}')
+im = Image.new('RGB', (200, 200), (0, 0, 0))
+for x in range(200):
+    for y in range(20):
+        im.putpixel((x, y), (237, 28, 36))
+im.save('${red}')
+`]);
+		const script = path.join(CONTENT, 'scripts', 'brand-pixels.py');
+		const outBlack = JSON.parse((await execFileAsync('python3', [script, black, '--json'])).stdout);
+		assert.equal(outBlack.red_fraction, 0);
+		const outRed = JSON.parse((await execFileAsync('python3', [script, red, '--json'])).stdout);
+		assert.ok(outRed.red_fraction > MIN_RED_FRACTION, `franja roja del 10%: ${outRed.red_fraction}`);
+		assert.ok(outRed.red_fraction > 0.09 && outRed.red_fraction < 0.11, `fracción esperada ~0.10: ${outRed.red_fraction}`);
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});
+
+test('render de ejemplo (breaking): PNG 1080x1080 + JPG ligero + logo en HTML', async () => {
+	const dir = mkdtempSync(path.join(tmpdir(), 'content-hub-test-'));
+	try {
+		const outDir = path.join(dir, 'out');
+		await execFileAsync(process.execPath, [
+			path.join(CONTENT, 'scripts', 'render.mjs'),
+			'--template', 'breaking',
+			'--data', path.join(CONTENT, 'templates', 'breaking', 'data.example.json'),
+			'--out', outDir, '--name', 'breaking-test',
+		], { cwd: ROOT, timeout: 180000 });
+		const png = path.join(outDir, 'breaking-test.png');
+		const jpg = path.join(outDir, 'breaking-test-light.jpg');
+		assert.ok(existsSync(png), 'falta el PNG máster');
+		assert.ok(existsSync(jpg), 'falta el JPG ligero');
+		assert.deepEqual(pngSize(png), { width: 1080, height: 1080 });
+		const html = readFileSync(path.join(outDir, 'breaking-test.html'), 'utf8');
+		assert.ok(html.includes('ÚLTIMA HORA'), 'falta el sello ÚLTIMA HORA');
+		assert.ok(html.includes('<span class="hl">por 34.º año consecutivo</span>'), 'falta el resaltado {{hl:}}');
+		const { countLogos } = await import('../content/scripts/brand-check.mjs');
+		assert.equal(countLogos(html), 1, 'el logo completo debe aparecer exactamente una vez');
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});
+
+test('galería: índice con las 10 plantillas y aviso si falta el render', async () => {
+	const { buildGallery, listTemplates } = await import('../content/scripts/gallery.mjs');
+	assert.equal(listTemplates().length, 10);
+	const dir = mkdtempSync(path.join(tmpdir(), 'content-hub-test-'));
+	try {
+		// Sin renders: todas marcadas como «Sin render», sin romperse.
+		const html = buildGallery({ examplesDir: dir });
+		for (const t of listTemplates()) {
+			assert.ok(html.includes(`id="${t}"`), `falta la tarjeta ${t}`);
+		}
+		assert.ok(html.includes('Sin render'), 'sin renders debe avisar, no romperse');
 	} finally {
 		rmSync(dir, { recursive: true, force: true });
 	}

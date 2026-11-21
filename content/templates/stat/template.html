@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+  .page { background: var(--black); color: var(--white); }
+  .head { position: absolute; top: 64px; left: 72px; right: 72px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid #2A2A2A; padding-bottom: 22px; }
+  .kicker { font-size: 28px; }
+  .head .brand-logo { height: 120px; width: auto; }
+  .center { position: absolute; left: 72px; right: 72px; top: 220px; bottom: 240px;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center; }
+  /* La cifra protagonista: gigante, en rojo de marca. Máx. ~6 caracteres. */
+  .value { font-family: var(--font-display); font-weight: 800; color: var(--red);
+    font-size: 380px; line-height: 0.9; letter-spacing: -0.01em; }
+  .label { margin-top: 24px; font-family: var(--font-display); font-weight: 700;
+    text-transform: uppercase; font-size: 52px; line-height: 1.1; max-width: 860px; }
+  .context { margin-top: 26px; font-size: 32px; line-height: 1.45; color: #C9C9C9;
+    max-width: 820px; }
+  .footer { position: absolute; left: 72px; right: 72px; bottom: 0; height: 170px;
+    border-top: 1px solid #2A2A2A; display: flex; align-items: center;
+    justify-content: space-between; }
+  .footer .source { font-size: 24px; color: var(--gray); max-width: 640px; }
+  .footer .web { font-family: var(--font-display); font-weight: 600; font-size: 28px;
+    letter-spacing: 0.06em; color: var(--white); }
+</style>
+</head>
+<body>
+<div class="page grain">
+  <div class="head">
+    <div class="kicker">{{kicker}}</div>
+    {{logo:color}}
+  </div>
+  <div class="center">
+    <div class="value">{{value}}</div>
+    <div class="label">{{label}}</div>
+    {{#if context}}<div class="context">{{context}}</div>{{/if}}
+  </div>
+  <div class="footer">
+    {{#if source}}<div class="source">Fuente: {{source}}</div>{{/if}}
+    <div class="web">cubadenuncia.cu</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+  .page { background: var(--black); color: var(--white); }
+  /* El logo, a la izquierda, dimensionado por alto (vertical 573:907). */
+  .logo-zone { position: absolute; left: 120px; top: 120px; bottom: 260px;
+    display: flex; align-items: center; }
+  .logo-zone .brand-logo { height: 560px; width: auto; }
+  .divider { position: absolute; left: 560px; top: 180px; bottom: 300px;
+    width: 10px; background: var(--red); }
+  /* Contenido centrado en la zona segura (Facebook recorta los lados en móvil). */
+  .main { position: absolute; left: 640px; right: 160px; top: 180px; bottom: 280px;
+    display: flex; flex-direction: column; justify-content: center; }
+  .kicker { font-size: 34px; }
+  .title { margin-top: 28px; font-family: var(--font-display); font-weight: 800;
+    text-transform: uppercase; font-size: 150px; line-height: 0.95; }
+  .subtitle { margin-top: 30px; font-size: 40px; line-height: 1.4; color: #C9C9C9;
+    max-width: 1000px; }
+  .bottom { position: absolute; left: 0; right: 0; bottom: 0; height: 170px;
+    border-top: 1px solid #2A2A2A; display: flex; align-items: center;
+    padding: 0 120px; }
+  .bottom .web { font-family: var(--font-display); font-weight: 700; font-size: 40px;
+    letter-spacing: 0.06em; }
+  .bottom .address { margin-left: auto; font-size: 28px; color: var(--gray);
+    text-align: right; max-width: 1100px; }
+</style>
+</head>
+<body>
+<div class="page grain halftone">
+  <div class="logo-zone">{{logo:color}}</div>
+  <div class="divider"></div>
+  <div class="main">
+    {{#if kicker}}<div class="kicker">{{kicker}}</div>{{/if}}
+    <div class="title">{{hl:title}}</div>
+    {{#if subtitle}}<div class="subtitle">{{subtitle}}</div>{{/if}}
+  </div>
+  <div class="bottom">
+    <div class="web">{{#if web}}{{web}}{{/if}}{{#if !web}}cubadenuncia.cu{{/if}}</div>
+    {{#if address}}<div class="address">{{address}}</div>{{/if}}
+  </div>
+</div>
+</body>
+</html>

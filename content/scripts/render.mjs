@@ -5,7 +5,8 @@
  *   node content/scripts/render.mjs --template post --data data.json --out out/
  *   node content/scripts/render.mjs --piece <slug>            # usa pieces/<slug>/
  *   node content/scripts/render.mjs --example <plantilla>     # ejemplo de la plantilla
- *   node content/scripts/render.mjs --all-examples            # los 6 ejemplos
+ *   node content/scripts/render.mjs --all-examples            # los 10 ejemplos
+ *   node content/scripts/render.mjs --all-pieces              # todas las piezas de pieces/
  *
  * Cada render produce en --out: <nombre>.png (máster), <nombre>-light.jpg
  * (ligero para el móvil) y <nombre>.html (intermedio, para depurar).
@@ -28,7 +29,7 @@ import { checkCarousel } from './density.mjs';
 const execFileAsync = promisify(execFile);
 const CONTENT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const IMAGE_KEYS = new Set(['image', 'background', 'photo', 'cover', 'portrait', 'cutout']);
-const TEMPLATES = ['post', 'story', 'carousel', 'infographic', 'thumbnail', 'quote'];
+const TEMPLATES = ['post', 'story', 'carousel', 'infographic', 'thumbnail', 'quote', 'breaking', 'stat', 'cover', 'timeline'];
 
 function parseArgs(argv) {
 	const out = {};
@@ -46,7 +47,7 @@ function parseArgs(argv) {
 function usage() {
 	console.error('Uso: render.mjs --template <t> --data <json> --out <dir> [--name <base>]');
 	console.error('     render.mjs --piece <slug> [--name <base>]');
-	console.error('     render.mjs --example <plantilla> | --all-examples');
+	console.error('     render.mjs --example <plantilla> | --all-examples | --all-pieces');
 	process.exit(1);
 }
 
@@ -160,6 +161,20 @@ async function main() {
 		for (const t of TEMPLATES) {
 			jobs.push({ template: t, dataFile: path.join(CONTENT, 'templates', t, 'data.example.json'), outDir: path.join(CONTENT, 'examples', 'out', t), name: t });
 		}
+	} else if (args['all-pieces']) {
+		// Generación por lotes (v2): todas las piezas con STATE.json, en
+		// orden alfabético; una pieza con error no detiene las demás.
+		const piecesDir = path.join(CONTENT, 'pieces');
+		const slugs = existsSync(piecesDir)
+			? readdirSync(piecesDir).filter((s) => existsSync(path.join(piecesDir, s, 'STATE.json'))).sort()
+			: [];
+		if (slugs.length === 0) console.log('No hay piezas en pieces/.');
+		for (const slug of slugs) {
+			const pieceDir = path.join(piecesDir, slug);
+			const state = readState(pieceDir);
+			if (!state) { console.warn(`  ! ${slug}: sin STATE.json, se salta`); continue; }
+			jobs.push({ template: args.template ?? state.template, dataFile: path.join(pieceDir, 'data.json'), outDir: path.join(pieceDir, 'out'), name: slug, pieceDir, state });
+		}
 	} else if (args.example) {
 		const t = args.example;
 		jobs.push({ template: t, dataFile: path.join(CONTENT, 'templates', t, 'data.example.json'), outDir: path.join(CONTENT, 'examples', 'out', t), name: t });
@@ -174,34 +189,48 @@ async function main() {
 	} else {
 		usage();
 	}
+	const batch = Boolean(args['all-examples'] || args['all-pieces']);
+	let failed = 0;
 	for (const job of jobs) {
-		if (!existsSync(job.dataFile)) throw new Error(`Data no encontrada: ${job.dataFile}`);
-		console.log(`Render: ${job.template} → ${job.outDir}`);
-		const tpl = loadTemplate(job.template);
-		const data = JSON.parse(readFileSync(job.dataFile, 'utf8'));
-		data.__dir = path.dirname(job.dataFile);
-		// Guardarraíles de densidad (no bloquean; el QA decide).
-		if (job.template === 'carousel') {
-			for (const w of checkCarousel(data)) console.warn(`  ! densidad: ${w}`);
-		}
-		const artifacts = [];
-		if (tpl.meta.multi && Array.isArray(data.pages) && data.pages.length > 0) {
-			for (let i = 0; i < data.pages.length; i++) {
-				const pageData = { ...data, ...data.pages[i], _index: i + 1, _total: data.pages.length, _first: i === 0, _last: i === data.pages.length - 1, _middle: i > 0 && i < data.pages.length - 1 };
-				const pageName = `${job.name}-p${String(i + 1).padStart(2, '0')}`;
-				const r = await renderOne({ tpl, data: pageData, outDir: job.outDir, name: pageName, waitMs });
-				artifacts.push(path.relative(job.outDir, r.png), path.relative(job.outDir, r.light));
-			}
-		} else {
-			const r = await renderOne({ tpl, data, outDir: job.outDir, name: job.name, waitMs });
-			artifacts.push(path.relative(job.outDir, r.png), path.relative(job.outDir, r.light));
-		}
-		if (job.pieceDir) {
-			recordMilestone(job.pieceDir, 'draft', `Borrador renderizado (${artifacts.length / 2} imagen(es))`, { artifacts, status: 'done' });
-			setPhase(job.pieceDir, 'review', 'in_progress', { note: 'Borrador listo para revisión visual' });
+		try {
+			await renderJob(job, waitMs);
+		} catch (err) {
+			// En lotes, una pieza con error no detiene las demás.
+			if (!batch) throw err;
+			failed++;
+			console.error(`  ✗ ${job.name}: ${err.message}`);
 		}
 	}
-	console.log('Render completo.');
+	console.log(failed ? `Render completo con ${failed} error(es).` : 'Render completo.');
+	if (failed) process.exit(1);
+}
+
+async function renderJob(job, waitMs) {
+	if (!existsSync(job.dataFile)) throw new Error(`Data no encontrada: ${job.dataFile}`);
+	console.log(`Render: ${job.template} → ${job.outDir}`);
+	const tpl = loadTemplate(job.template);
+	const data = JSON.parse(readFileSync(job.dataFile, 'utf8'));
+	data.__dir = path.dirname(job.dataFile);
+	// Guardarraíles de densidad (no bloquean; el QA decide).
+	if (job.template === 'carousel') {
+		for (const w of checkCarousel(data)) console.warn(`  ! densidad: ${w}`);
+	}
+	const artifacts = [];
+	if (tpl.meta.multi && Array.isArray(data.pages) && data.pages.length > 0) {
+		for (let i = 0; i < data.pages.length; i++) {
+			const pageData = { ...data, ...data.pages[i], _index: i + 1, _total: data.pages.length, _first: i === 0, _last: i === data.pages.length - 1, _middle: i > 0 && i < data.pages.length - 1 };
+			const pageName = `${job.name}-p${String(i + 1).padStart(2, '0')}`;
+			const r = await renderOne({ tpl, data: pageData, outDir: job.outDir, name: pageName, waitMs });
+			artifacts.push(path.relative(job.outDir, r.png), path.relative(job.outDir, r.light));
+		}
+	} else {
+		const r = await renderOne({ tpl, data, outDir: job.outDir, name: job.name, waitMs });
+		artifacts.push(path.relative(job.outDir, r.png), path.relative(job.outDir, r.light));
+	}
+	if (job.pieceDir) {
+		recordMilestone(job.pieceDir, 'draft', `Borrador renderizado (${artifacts.length / 2} imagen(es))`, { artifacts, status: 'done' });
+		setPhase(job.pieceDir, 'review', 'in_progress', { note: 'Borrador listo para revisión visual' });
+	}
 }
 
 main().catch((err) => { console.error(`ERROR: ${err.message}`); process.exit(1); });
