@@ -430,6 +430,7 @@ con los casos del 18-nov: `python3 scripts/audio/verify-vo-lines.py
 --self-test` (9/9).
 | `diarize.py` | **Separar voces (16-nov-2026):** quién habla cuándo, con sherpa-onnx 2.0.1 (segmentación pyannote-3.0 + embedding 3D-Speaker ERes2Net, ONNX, 100 % local, sin cuenta ni token). `--speakers 2` para el diálogo de las dos presentadoras del Memorial. Modelos en `<hub>/.sherpa-models/` (46 MB). Salida JSON con segmentos {start, end, speaker}. |
 | `scan-bed.py` | **Escaneo de camas generadas (21-nov-2026, REGLA PERMANENTE):** faster-whisper small + VAD sobre una cama «instrumental» antes de usarla; detecta texturas vocales fantasma (Whisper las transcribe como frases). Salida JSON + PASS/FAIL (código 0/1). Ver § «Escaneo de camas». |
+| `select-bed-window.py` | **Selección automática de ventana de cama (21-nov-2026, hub-speed-v5):** dada una pista y una duración objetivo, elige la mejor ventana (sin voz VAD, sin agujeros, arco calmado con leve crecimiento al cierre) a partir de UN solo escaneo Whisper + curva RMS. Salida JSON con ranking completo; código 0/1/2. Ver § «Selección de ventana de cama». |
 | `thesis-pad.py` | **Pad grave tenido (21-nov-2026, V5 marti-fidel):** sustituye un tramo de cama por un pad grave en bucle (pasaje de la propia cama, lowpass, nivel calibrado) con crossfades de igual potencia. Reemplaza al silencio total de `dip-bed.py` cuando el silencio se siente como agujero. |
 | `ramp-bed.py` | **Rampa de ganancia (21-nov-2026, V5 marti-fidel):** subida lineal en dB (0 → +N dB) entre dos tiempos, constante después; el audio previo queda bit a bit idéntico. Para recuperar una coda descendente hacia el nivel de la meseta al llegar al cierre. |
 
@@ -463,6 +464,55 @@ por la comunidad de Amara.org» y «Música» sobre música limpia
 decodificación NO es determinista entre corridas** (el texto
 alucinado varía): lo estable es el veredicto, nunca citar el texto
 de un segmento como evidencia.
+
+## Selección de ventana de cama (`select-bed-window.py`) — hub-speed-v5, 21-nov-2026
+
+No elegir la ventana de una cama a mano: el selector la elige
+automáticamente. La ventana V4.1 (72-141,23 s) se eligió a mano y
+empezaba dentro de la zona contaminada 60-88 s; la V5 tuvo que
+moverla a mano a 88-157,23 s. Este script automatiza esa decisión.
+
+```bash
+~/workspace/.stt-env/bin/python scripts/audio/select-bed-window.py \
+  --in projects/marti-fidel/public/audio/flow-documentary-underscore.mp3 \
+  --duration 69.23 --out /tmp/select.json
+# ELEGIDA: 88.00-157.23 s (91,7 pt) — código 0
+# (código 1 = ninguna ventana pasa; 2 = error)
+```
+
+**Diseño eficiente — un solo escaneo:** la pista se decodifica UNA
+vez a WAV 16 kHz mono; ese WAV alimenta una sola pasada Whisper
+(faster-whisper small, con VAD + sin VAD de registro, igual que
+`scan-bed.py`) sobre TODA la pista y la curva RMS por segundo. Las
+ventanas candidatas (paso `--step`, defecto 1 s) se puntúan a partir
+de ese escaneo — nunca un Whisper por ventana. El informe JSON
+guarda el escaneo completo y `--scan-json` lo reutiliza para
+re-puntuar con otros parámetros sin gastar CPU. El escaneo Whisper
+toma el candado compartido `/tmp/hub-speed-v5-render.lock`
+(`--no-lock` lo omite); la puntuación no lo necesita.
+
+**Rechazo duro:** voz VAD (segmento VOICE que solape la ventana
+≥1,0 s — el solape mínimo existe porque la frase 80,69-88,49 s
+termina 0,49 s dentro de la ventana V5 y esa ventana escanea
+limpia) o agujero (un bin de 1 s >14 dB bajo la mediana de la
+ventana). **Puntuación (base 100):** ataque inicial, inicio fuerte,
+crecimiento al cierre (medianas de 10 s, robustas ante un respiro
+de frase suelto), respiro profundo 8-14 dB, voz sin VAD (−30 pt,
+de registro, no rechaza salvo `--strict`), UNCERTAIN (−10 pt).
+**Desempate:** entre las aceptadas a <3 pt de la mejor, gana la
+más temprana.
+
+Verificación (pista Flow, objetivo 69,23 s): con el escaneo real
+completo elige **89,00-158,23 s (92,0 pt)**, equivalente a la
+ventana V5 (88-157,23 s); rechaza la 72-141,23 s (V4.1) por voz
+VAD y la 0-69,23 s por el agujero de −44,9 dBFS a los 10 s (y
+voz 60-68,28 s); con `--duration 170` ninguna ventana pasa
+(código 1). Tiempo sobre la pista completa: ~11 min de pared
+(Whisper 2 pasadas ~2-3 min + espera del candado compartido);
+re-puntuar con `--scan-json`: 2,2 s. Tests:
+`test_select_bed_window.py` (22 tests). Ver
+`docs/HUB-SPEED-V5-BED.md` (mediciones completas y texto para
+`AGENTS.md`).
 
 ## Pad de tesis (`thesis-pad.py`) — V5 marti-fidel, 21-nov-2026
 

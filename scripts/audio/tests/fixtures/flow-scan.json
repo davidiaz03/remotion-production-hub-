@@ -1,0 +1,18 @@
+{
+  "source": "Calibracion 21-nov-2026 (scan-bed.py sobre la pista Flow): VAD da la frase fantasma 80,69-88,49 s (nsp 0,224); sin VAD da 'Suscribete' 60-62 s (nsp 0,106) y la alucinacion Amara.org sobre musica limpia. Segmentos sintetizados con esos valores para la regresion (el texto exacto de Whisper NO es determinista entre corridas; lo estable es la clase y el nsp).",
+  "passes": {
+    "vad": [{"start": 80.69, "end": 88.49, "start_abs": 80.69, "end_abs": 88.49,
+             "text": "frase fantasma (texto no determinista)", "no_speech_prob": 0.224,
+             "avg_logprob": -0.5, "class": "VOICE",
+             "reason": "palabras reales, no_speech_prob 0.224"}],
+    "raw": [{"start": 60.0, "end": 62.0, "start_abs": 60.0, "end_abs": 62.0,
+             "text": "Suscribete", "no_speech_prob": 0.106,
+             "avg_logprob": -0.5, "class": "VOICE",
+             "reason": "palabras reales, no_speech_prob 0.106"},
+            {"start": 100.0, "end": 105.0, "start_abs": 100.0, "end_abs": 105.0,
+             "text": "Subtitulos realizados por la comunidad de Amara.org",
+             "no_speech_prob": 0.65, "avg_logprob": -0.5,
+             "class": "HALLUCINATION",
+             "reason": "patron conocido de alucinacion"}]
+  }
+}
