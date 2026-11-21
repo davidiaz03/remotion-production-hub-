@@ -309,5 +309,45 @@ class TestIntegrationV41(unittest.TestCase):
         self.assertEqual(flags, {})
 
 
+@unittest.skipUnless(cv2, "cv2 solo existe en el venv del hub")
+class TestReportIdentity(unittest.TestCase):
+    """El informe lleva identidad para la puerta de render (hub-v6).
+
+    `render-chunks.mjs` exige `project` (y `composition` en modo
+    --stills) + `generatedAt` para saber si el informe es de este
+    proyecto y si sigue fresco. Sin estos campos la puerta no puede
+    distinguir un informe viejo de otro proyecto.
+    """
+
+    def test_frames_dir_report_has_identity(self):
+        import json
+        import tempfile
+        from datetime import datetime
+
+        with tempfile.TemporaryDirectory() as tmp:
+            frames = os.path.join(tmp, "frames")
+            os.makedirs(frames)
+            cv2.imwrite(os.path.join(frames, "f001.jpg"), paper_frame())
+            manifest = os.path.join(tmp, "scenes.json")
+            with open(manifest, "w", encoding="utf-8") as f:
+                json.dump({"project": "gate-proj", "fps": 30,
+                           "scenes": [{"name": "S1", "start": 0,
+                                       "end": 89}]}, f)
+            out = os.path.join(tmp, "preflight.json")
+            rc = vp.main(["--frames-dir", frames, "--manifest", manifest,
+                          "--skip-faces", "--out", out])
+            self.assertEqual(rc, 0)
+            with open(out, encoding="utf-8") as f:
+                report = json.load(f)
+            self.assertEqual(report["reportVersion"], 1)
+            self.assertEqual(report["project"], "gate-proj")
+            self.assertIsNone(report["composition"])  # modo frames-dir
+            self.assertEqual(report["manifest"], manifest)
+            # generatedAt: ISO válido y reciente (esta misma corrida).
+            gen = datetime.fromisoformat(report["generatedAt"])
+            self.assertLess((datetime.now(gen.tzinfo) - gen).total_seconds(),
+                            300)
+
+
 if __name__ == "__main__":
     unittest.main()

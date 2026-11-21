@@ -14,7 +14,16 @@
  *     [--out out/chunks] [--concat-out out/<proyecto>-chunks.mkv]
  *     [--audio-codec pcm-16] [--resume] [--no-concat]
  *     [--video-only] [--scale 1] [--x264-preset medium] [--draft]
+ *     [--skip-preflight] [--preflight-report out/preflight.json]
  *
+ * - PUERTA DEL PRE-VUELO (hub-v6): el render exige un informe de
+ *   pre-vuelo PASS y fresco (`out/preflight.json`, ver
+ *   scripts/preflight-gate.mjs). Sin informe, con bloqueantes o
+ *   caducado (cambió el layout después del pre-vuelo), el render se
+ *   niega con código 2 ANTES de gastar cómputo. `--skip-preflight`
+ *   salta la puerta (queda en el resumeCommand; solo para iteración
+ *   rápida consciente, nunca para un máster). `--preflight-report`
+ *   apunta a un informe en otra ruta.
  * - Cada tramo se renderiza con el CLI directo de Remotion y se verifica
  *   con ffprobe (nb_read_frames exacto); un tramo que falle aborta.
  * - --resume salta los tramos ya renderizados y verificados.
@@ -92,6 +101,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {ROOT, loadProject, parseArgs, requireFile} from './lib.mjs';
+import {checkPreflightGate, defaultReportPath} from './preflight-gate.mjs';
 import {recordMilestone, setPhase, updateRender} from './state.mjs';
 
 const {pos, opts} = parseArgs(process.argv.slice(2));
@@ -163,6 +173,42 @@ const concatOut = path.resolve(
 );
 const resume = opts.resume === true || opts.resume === 'true';
 const doConcat = opts['no-concat'] !== true && opts['no-concat'] !== 'true';
+
+// --- Puerta del pre-vuelo (hub-v6) ----------------------------------
+// Antes de gastar cómputo o tocar STATE: el render exige un informe
+// de pre-vuelo PASS y fresco. La puerta se comprueba ANTES de
+// mkdirSync/outDir para que un render bloqueado no deje rastro.
+const skipPreflight =
+	opts['skip-preflight'] === true || opts['skip-preflight'] === 'true';
+if (!skipPreflight) {
+	const gate = checkPreflightGate({
+		home,
+		projectId,
+		compositionId,
+		reportPath: opts['preflight-report']
+			? path.resolve(home, String(opts['preflight-report']))
+			: defaultReportPath(home),
+	});
+	if (!gate.ok) {
+		console.error(
+			`[preflight] RENDER BLOQUEADO (${gate.reason}): ${gate.detail}`,
+		);
+		console.error(
+			`[preflight] Corre el pre-vuelo y repite:\n` +
+				`  ~/workspace/remotion-hub/.venv/bin/python scripts/visual-preflight.py --stills --project ${projectId} ` +
+				`--manifest projects/${projectId}/preflight-scenes.json --out projects/${projectId}/out/preflight.json`,
+		);
+		console.error(
+			'[preflight] O salta la puerta (solo iteración rápida, nunca un máster): --skip-preflight',
+		);
+		process.exit(2);
+	}
+	console.log(`[preflight] puerta OK: ${gate.detail}`);
+} else {
+	console.warn(
+		'[preflight] AVISO: puerta del pre-vuelo saltada con --skip-preflight (el render no ha pasado la revisión de layout)',
+	);
+}
 mkdirSync(outDir, {recursive: true});
 mkdirSync(path.dirname(concatOut), {recursive: true});
 
@@ -215,6 +261,10 @@ if (opts['x264-preset'] !== undefined) {
 }
 if (opts.out) resumeParts.push(`--out ${opts.out}`);
 if (opts['concat-out']) resumeParts.push(`--concat-out ${opts['concat-out']}`);
+if (skipPreflight) resumeParts.push('--skip-preflight');
+if (opts['preflight-report']) {
+	resumeParts.push(`--preflight-report ${opts['preflight-report']}`);
+}
 const resumeCommand = resumeParts.join(' ');
 const totalChunks = Math.ceil((end - start + 1) / chunkSize);
 const totalFramesPlanned = end - start + 1;

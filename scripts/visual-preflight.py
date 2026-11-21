@@ -95,6 +95,7 @@ import subprocess
 import sys
 import time
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 # ---------------------------------------------------------------- constantes
@@ -672,6 +673,21 @@ def main(argv=None):
     repo_root = (Path(args.repo_root) if args.repo_root else
                  Path(__file__).resolve().parent.parent)
 
+    # Identidad del informe (hub-v6: la puerta de render-chunks la
+    # exige para saber de qué proyecto/composición es el informe y
+    # cuándo se generó). En modo --frames-dir no hay composición que
+    # declarar: el informe vale para auditar, la puerta solo lo acepta
+    # si el proyecto coincide (o no lo declara).
+    report_project = args.project or manifest.get("project")
+    report_composition = None
+    if args.stills:
+        try:
+            pj = json.loads((repo_root / "projects" / args.project
+                             / "project.json").read_text())
+            report_composition = pj.get("compositionId")
+        except (OSError, ValueError, KeyError):
+            report_composition = None
+
     # --- obtener los fotogramas ---
     items = []  # (nombre, escena, path)
     if args.stills:
@@ -746,6 +762,11 @@ def main(argv=None):
             seen.add(r["scene"])
 
     report = {
+        "reportVersion": 1,
+        "project": report_project,
+        "composition": report_composition,
+        "manifest": str(args.manifest),
+        "generatedAt": datetime.now(timezone.utc).isoformat(),
         "frames": len(results),
         "scenes": n_scenes,
         "flagged_frames": len(flagged),
