@@ -16,7 +16,7 @@
       "draft": {
         "status": "done",
         "startedAt": "2026-11-21T05:09:23.568Z",
-        "updatedAt": "2026-11-21T05:09:23.568Z",
+        "updatedAt": "2026-11-21T12:01:37.603Z",
         "artifacts": [
           "onu-bloqueo-2026-p01.png",
           "onu-bloqueo-2026-p01-light.jpg",
@@ -38,7 +38,7 @@
       "review": {
         "status": "in_progress",
         "startedAt": "2026-11-21T05:09:23.641Z",
-        "updatedAt": "2026-11-21T05:09:23.641Z",
+        "updatedAt": "2026-11-21T12:01:37.611Z",
         "artifacts": [],
         "note": "Borrador listo para revisión visual"
       },
@@ -66,6 +66,69 @@
       },
       {
         "at": "2026-11-21T05:09:23.568Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (7 imagen(es))",
+        "artifacts": [
+          "onu-bloqueo-2026-p01.png",
+          "onu-bloqueo-2026-p01-light.jpg",
+          "onu-bloqueo-2026-p02.png",
+          "onu-bloqueo-2026-p02-light.jpg",
+          "onu-bloqueo-2026-p03.png",
+          "onu-bloqueo-2026-p03-light.jpg",
+          "onu-bloqueo-2026-p04.png",
+          "onu-bloqueo-2026-p04-light.jpg",
+          "onu-bloqueo-2026-p05.png",
+          "onu-bloqueo-2026-p05-light.jpg",
+          "onu-bloqueo-2026-p06.png",
+          "onu-bloqueo-2026-p06-light.jpg",
+          "onu-bloqueo-2026-p07.png",
+          "onu-bloqueo-2026-p07-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T11:54:08.683Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (7 imagen(es))",
+        "artifacts": [
+          "onu-bloqueo-2026-p01.png",
+          "onu-bloqueo-2026-p01-light.jpg",
+          "onu-bloqueo-2026-p02.png",
+          "onu-bloqueo-2026-p02-light.jpg",
+          "onu-bloqueo-2026-p03.png",
+          "onu-bloqueo-2026-p03-light.jpg",
+          "onu-bloqueo-2026-p04.png",
+          "onu-bloqueo-2026-p04-light.jpg",
+          "onu-bloqueo-2026-p05.png",
+          "onu-bloqueo-2026-p05-light.jpg",
+          "onu-bloqueo-2026-p06.png",
+          "onu-bloqueo-2026-p06-light.jpg",
+          "onu-bloqueo-2026-p07.png",
+          "onu-bloqueo-2026-p07-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T11:59:24.791Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (7 imagen(es))",
+        "artifacts": [
+          "onu-bloqueo-2026-p01.png",
+          "onu-bloqueo-2026-p01-light.jpg",
+          "onu-bloqueo-2026-p02.png",
+          "onu-bloqueo-2026-p02-light.jpg",
+          "onu-bloqueo-2026-p03.png",
+          "onu-bloqueo-2026-p03-light.jpg",
+          "onu-bloqueo-2026-p04.png",
+          "onu-bloqueo-2026-p04-light.jpg",
+          "onu-bloqueo-2026-p05.png",
+          "onu-bloqueo-2026-p05-light.jpg",
+          "onu-bloqueo-2026-p06.png",
+          "onu-bloqueo-2026-p06-light.jpg",
+          "onu-bloqueo-2026-p07.png",
+          "onu-bloqueo-2026-p07-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T12:01:37.603Z",
         "phase": "draft",
         "event": "Borrador renderizado (7 imagen(es))",
         "artifacts": [

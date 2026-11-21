@@ -1,6 +1,6 @@
 {
   "schema": "content-hub.state/v1",
-  "slug": "ultima-hora-browne",
+  "slug": "confesion-browne",
   "template": "breaking",
   "title": "Un primer ministro contó la llamada de Washington",
   "createdAt": "2026-11-21T05:01:08.374Z",
@@ -16,17 +16,19 @@
       "draft": {
         "status": "done",
         "startedAt": "2026-11-21T05:10:09.158Z",
-        "updatedAt": "2026-11-21T05:10:09.158Z",
+        "updatedAt": "2026-11-21T12:02:40.684Z",
         "artifacts": [
           "ultima-hora-browne.png",
-          "ultima-hora-browne-light.jpg"
+          "ultima-hora-browne-light.jpg",
+          "confesion-browne.png",
+          "confesion-browne-light.jpg"
         ],
         "note": ""
       },
       "review": {
         "status": "in_progress",
         "startedAt": "2026-11-21T05:10:09.161Z",
-        "updatedAt": "2026-11-21T05:10:09.161Z",
+        "updatedAt": "2026-11-21T12:02:40.685Z",
         "artifacts": [],
         "note": "Borrador listo para revisión visual"
       },
@@ -59,6 +61,33 @@
         "artifacts": [
           "ultima-hora-browne.png",
           "ultima-hora-browne-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T11:54:30.191Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "confesion-browne.png",
+          "confesion-browne-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T11:59:46.389Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "confesion-browne.png",
+          "confesion-browne-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T12:02:40.684Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "confesion-browne.png",
+          "confesion-browne-light.jpg"
         ]
       }
     ]

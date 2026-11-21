@@ -16,7 +16,7 @@
       "draft": {
         "status": "done",
         "startedAt": "2026-11-21T05:09:45.475Z",
-        "updatedAt": "2026-11-21T05:16:15.915Z",
+        "updatedAt": "2026-11-21T12:00:29.241Z",
         "artifacts": [
           "timeline-memoria.png",
           "timeline-memoria-light.jpg"
@@ -26,7 +26,7 @@
       "review": {
         "status": "in_progress",
         "startedAt": "2026-11-21T05:09:45.476Z",
-        "updatedAt": "2026-11-21T05:16:15.936Z",
+        "updatedAt": "2026-11-21T12:00:29.242Z",
         "artifacts": [],
         "note": "Borrador listo para revisión visual"
       },
@@ -63,6 +63,24 @@
       },
       {
         "at": "2026-11-21T05:16:15.915Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "timeline-memoria.png",
+          "timeline-memoria-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T11:55:34.595Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "timeline-memoria.png",
+          "timeline-memoria-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T12:00:29.241Z",
         "phase": "draft",
         "event": "Borrador renderizado (1 imagen(es))",
         "artifacts": [

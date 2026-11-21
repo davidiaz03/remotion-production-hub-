@@ -9,7 +9,7 @@
   - **La confesión — Un primer ministro contó la llamada de Washington**: Gaston Browne (Antigua y Barbuda) confesó en radio el 9-nov-2026 que Washington lo llamó para que cambiara su voto. Fuente: confesión en radio 9-nov-2026 (verificada en la investigación del reel Martí-Fidel).
   - **El contexto — El bloqueo cumple más de 60 años**: embargo unilateral desde 1960; la ONU señala que agrava la crisis energética y humanitaria. Fuente: ONU Noticias 28-oct-2026.
 - **Copy:** titular de portada «La ONU contra el bloqueo por 34.º año» (8 palabras).
-- **Imagen:** sin fotos (diseño puro)
+- **Imagen:** v3: foto protagonista por lámina — portada salón ONU, voto (tableros), presión (Bruno en banda), contraste (gráfico de barras 165 vs 130), confesión (Browne en banda), contexto (Fidel 1960). Ver `ASSETS.md`.
 - **Revisión:** (¿quién aprueba? ¿qué cambiaron en cada vuelta?)
 
 ## Registro de revisiones
@@ -17,3 +17,4 @@
 | Fecha | Versión | Cambio | Aprobado por |
 |---|---|---|---|
 | 21-nov-2026 | v1 | Borrador inicial (constructor) | |
+| 21-nov-2026 | v3 | Foto protagonista por lámina (UN Web TV + Commons) + gráfico de barras en «El contraste» | |

@@ -16,6 +16,12 @@ Uso:
   # Una pieza entera (usa la geometría de la plantilla y el formato de data.json)
   face-frame.py --piece trump-cuba-noviembre [--format 4:5] [--apply] [--json]
 
+Una lámina con `"face_check": false` en data.json se omite del chequeo
+(solo para planos generales sin retrato: un tablero de votación con
+público de fondo hace fallar el detector en falso con caras diminutas
+de fondo). La omisión es explícita por lámina y la revisión visual del
+PNG sigue siendo obligatoria.
+
 Requiere el venv del hub (cv2 5.x; el python3 del sistema no tiene cv2):
   ~/workspace/remotion-hub/.venv/bin/python content/scripts/face-frame.py ...
 
@@ -401,6 +407,14 @@ def piece_mode(args):
             continue
         if page.get("image_layout") not in (None, "background"):
             continue  # band/side no ponen texto sobre la foto
+        if page.get("face_check") is False:
+            # Plano general sin retrato (p. ej. tablero de votación con
+            # público de fondo): el detector caza caras diminutas de fondo
+            # y falla en falso. La omisión es explícita por lámina y la
+            # revisión visual del PNG sigue siendo obligatoria.
+            results.append({"page": i + 1,
+                            "skipped": "face_check: false — plano general sin retrato"})
+            continue
         img_path = piece_dir / image
         current = parse_position(page.get("image_position"))
         result = analyse_image(img_path, (cw, ch), geo["text_top"],

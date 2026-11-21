@@ -56,7 +56,9 @@ async function checkFaces(slug, format) {
 	], { cwd: path.resolve(CONTENT, '..') });
 	const report = JSON.parse(stdout);
 	const warnings = (report.pages ?? []).flatMap((p) => (p.warnings ?? []).map((w) => `lámina ${p.page}: ${w}`));
-	return classifyFaceWarnings(warnings);
+	const skipped = (report.pages ?? []).filter((p) => p.skipped)
+		.map((p) => `lámina ${p.page}: chequeo de caras omitido (${p.skipped})`);
+	return { ...classifyFaceWarnings(warnings), skipped };
 }
 
 async function main() {
@@ -109,8 +111,9 @@ async function main() {
 		} else {
 			try {
 				const res = await checkFaces(slug, data.format ?? 'square');
-				if (res.skipped) console.log(`  ! caras: ${res.skipped}`);
+				if (res.skipped && typeof res.skipped === 'string') console.log(`  ! caras: ${res.skipped}`);
 				else {
+					for (const s of (res.skipped ?? [])) console.log(`  ! caras: ${s}`);
 					for (const w of res.infos) console.log(`  ! caras: ${w}`);
 					if (res.failures.length > 0) {
 						failed = true;

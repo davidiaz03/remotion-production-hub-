@@ -3,6 +3,7 @@
 	"subtitle": "La Asamblea General aprobó la resolución cubana el 28 de octubre de 2026.",
 	"cta": "La denuncia continúa",
 	"format": "4:5",
+	"cover_image": "img/un-hall-wide-vert.jpg",
 	"pages": [
 		{},
 		{
@@ -18,12 +19,20 @@
 				}
 			],
 			"headline": "130 países dijeron no al *bloqueo*",
-			"body": "La resolución se aprobó con 130 votos a favor, 17 en contra y 25 abstenciones."
+			"body": "La resolución se aprobó con 130 votos a favor, 17 en contra y 25 abstenciones.",
+			"image": "img/un-voteboard-result-vert.jpg",
+			"image_position": "50% 0%",
+			"face_check": false,
+			"image_credit": "UN Web TV / Naciones Unidas"
 		},
 		{
 			"kicker": "La presión",
 			"headline": "Washington presionó y no logró *derrotarla*",
-			"body": "Estados Unidos presionó a las cancillerías para que dejaran de votar a favor. Consiguió 17 votos en contra, incluido el suyo."
+			"body": "Estados Unidos presionó a las cancillerías para que dejaran de votar a favor. Consiguió 17 votos en contra, incluido el suyo.",
+			"image": "img/un-bruno-podium.jpg",
+			"image_layout": "band",
+			"image_position": "44% 30%",
+			"image_credit": "UN Web TV / Naciones Unidas"
 		},
 		{
 			"kicker": "El contraste",
@@ -33,18 +42,29 @@
 					"text": "10 países de la Unión Europea se abstuvieron"
 				}
 			],
-			"headline": "En 2025 fueron *165 votos* a favor",
-			"body": "El año pasado la resolución obtuvo 165 votos a favor, 7 en contra y 12 abstenciones. La presión restó 35 apoyos."
+			"headline": "La presión restó *35 apoyos* en un año",
+			"bars": [
+				{ "label": "2025", "value": "165", "pct": 85 },
+				{ "label": "2026", "value": "130", "pct": 67, "highlight": true }
+			],
+			"body": "Diez países pasaron al voto en contra y trece a la abstención."
 		},
 		{
 			"kicker": "La confesión",
 			"headline": "Un primer ministro contó la *llamada* de Washington",
-			"body": "Gaston Browne, primer ministro de Antigua y Barbuda, confesó en radio que Washington lo llamó para que cambiara su voto."
+			"body": "Gaston Browne, primer ministro de Antigua y Barbuda, confesó en radio que Washington lo llamó para que cambiara su voto.",
+			"image": "img/browne-cumbre-2015.jpg",
+			"image_layout": "band",
+			"image_position": "63% 50%",
+			"image_credit": "Cumbre Panamá / VII Cumbre de las Américas (CC BY 3.0)"
 		},
 		{
 			"kicker": "El contexto",
 			"headline": "El bloqueo cumple más de *60 años*",
-			"body": "El embargo unilateral de Estados Unidos rige desde 1960 y hoy agrava la crisis energética y humanitaria de la isla."
+			"body": "El embargo unilateral de Estados Unidos rige desde 1960 y hoy agrava la crisis energética y humanitaria de la isla.",
+			"image": "img/fidel-onu-1960.jpg",
+			"image_position": "50% 20%",
+			"image_credit": "Warren K. Leffler / Library of Congress (dominio público)"
 		},
 		{}
 	]

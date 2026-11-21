@@ -16,7 +16,7 @@ El render es compartido: `node content/scripts/render.mjs --example <plantilla>`
 |---|---|---|---|
 | `post` | 1080×1080 | Post cuadrado FB/IG | Titular ≤ 60 car.; cuerpo ≤ 280 car. |
 | `story` | 1080×1920 | Story vertical | Titular ≤ 45 car.; cuerpo ≤ 220 car. |
-| `carousel` | 1080×1080 ×N (variante 4:5: 1080×1350) | Carrusel (portada + contenido + cierre) | 3–6 páginas; 2–3 ítems por página; foto opcional por lámina (ver abajo); densidad: titular ≤15, cuerpo ≤30, total ≤50 palabras |
+| `carousel` | 1080×1080 ×N (variante 4:5: 1080×1350) | Carrusel (portada + contenido + cierre) | 3–6 páginas; 2–3 ítems por página; foto opcional por lámina (ver abajo); portada con foto (`cover_image`) y gráfico de barras (`bars`) en v3; densidad: titular ≤15, cuerpo ≤30, total ≤50 palabras |
 | `infographic` | 1080×1350 | Infografía 4:5 | 2–4 cifras; fuente obligatoria |
 | `thumbnail` | 1080×1920 | Portada/miniatura de reel | Titular ≤ 30 car.; acento ≤ 20 car. |
 | `quote` | 1080×1080 | Tarjeta de cita | Cita ≤ 200 car., textual y con fuente |
@@ -25,10 +25,10 @@ El render es compartido: `node content/scripts/render.mjs --example <plantilla>`
 
 | Plantilla | Tamaño | Uso | Límites clave |
 |---|---|---|---|
-| `breaking` | 1080×1080 (variante 4:5: 1080×1350) | Última hora: banda roja, titular grande, fecha y fuente | Titular 8–15 palabras; cuerpo ≤ 35 palabras; fuente obligatoria; sin foto |
-| `stat` | 1080×1080 | Tarjeta de un solo dato: cifra gigante en rojo | Cifra máx. ~6 caracteres; etiqueta ≤ 10 palabras; contexto ≤ 30 palabras; fuente obligatoria |
-| `cover` | 1920×1080 | Portada apaisada 16:9 (Facebook/YouTube) | Título ≤ 10 palabras; subtítulo ≤ 20 palabras; contenido clave centrado (FB recorta los lados en móvil) |
-| `timeline` | 1080×1350 | Línea de tiempo: 3–4 hechos fechados | Texto por hecho ≤ 25 palabras; fuente obligatoria |
+| `breaking` | 1080×1080 (variante 4:5: 1080×1350) | Última hora: banda roja, titular grande, fecha y fuente | Titular 8–15 palabras; cuerpo ≤ 35 palabras; fuente obligatoria; foto opcional (`image`: fondo con velo o `image_layout: "band"`; banda = copy corto) |
+| `stat` | 1080×1080 | Tarjeta de un solo dato: cifra gigante en rojo | Cifra máx. ~6 caracteres; etiqueta ≤ 10 palabras; contexto ≤ 30 palabras; fuente obligatoria; foto opcional de fondo (`image`, velo plano) |
+| `cover` | 1920×1080 | Portada apaisada 16:9 (Facebook/YouTube) | Título ≤ 10 palabras; subtítulo ≤ 20 palabras; contenido clave centrado (FB recorta los lados en móvil); foto opcional de fondo (`image`, degradado horizontal) |
+| `timeline` | 1080×1350 | Línea de tiempo: 3–4 hechos fechados | Texto por hecho ≤ 25 palabras; fuente obligatoria; miniatura opcional por hecho (`image`) |
 
 Ver ejemplos renderizados de las 10 en la galería:
 `node content/scripts/render.mjs --all-examples && node content/scripts/gallery.mjs`
@@ -54,6 +54,9 @@ Las páginas de contenido del carrusel admiten foto (campos por página en
 | `image_position` | Encuadre CSS, p. ej. `50% 25%`. Por defecto `50% 30%`. Calcular con `scripts/face-frame.py` (ver abajo); ajustar tras el QA visual si hace falta. |
 | `image_credit` | Crédito corto, p. ej. `Foto: Autor (CC BY 4.0)`. **Por defecto NO se imprime en la lámina**: el crédito va en el pie de la publicación (regla de investigación Instagram). Se imprime solo con `show_credit: true`. La atribución completa va siempre en `ASSETS.md` y en el pie. |
 | `show_credit` | Si es `true`, imprime `image_credit` en el pie de la lámina. Por defecto `false`. |
+| `face_check` | `false` omite el chequeo de caras en esa lámina (solo planos generales sin retrato; la revisión visual sigue siendo obligatoria). |
+| `cover_image` (v3, a nivel de pieza) | Foto de portada a sangre completa con velo fuerte; el titular va sobre la mitad inferior. `cover_position` fija el encuadre. Sin `cover_image`, la portada es solo de diseño. |
+| `bars` (v3, por página) | Gráfico de barras para comparar cifras en una lámina SIN foto: `[{label, value, pct, highlight?}]`. Los `pct` se calculan en `data.json` sobre una escala honesta (p. ej. % de los 193 Estados miembros); la barra con `highlight: true` va en rojo. La lámina se centra verticalmente. |
 
 ### Cara libre (regla universal)
 

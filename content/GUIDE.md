@@ -15,10 +15,10 @@ manda en Canva; la imagen protagonista manda en generación**.
 | Story de anuncio | Plantilla de código (`story`) | Imagen generada/foto | Rápida, con identidad estricta |
 | Miniatura de reel | Plantilla de código (`thumbnail`) | Foto del reel, recorte rembg | Titular gigante legible en el feed; la cara/objeto recortado encima |
 | Tarjeta de cita | Plantilla de código (`quote`) | — | La cita debe ser textual; nunca dejar que una IA la reescriba |
-| Última hora / reacción a una noticia | Plantilla de código (`breaking`) | — | Banda roja + titular + fecha/fuente; sin foto, para salir rápido |
-| Un solo dato o cifra | Plantilla de código (`stat`) | — | Una cifra protagonista gigante; la infografía es para 2–4 cifras |
-| Portada 16:9 (Facebook/YouTube) | Plantilla de código (`cover`) | — | Único formato apaisado del hub; contenido clave centrado |
-| Línea de tiempo (3–4 hechos) | Plantilla de código (`timeline`) | — | Año en rojo + hecho + fuente; para la memoria histórica del museo |
+| Última hora / reacción a una noticia | Plantilla de código (`breaking`) | Foto real (`image`, fondo o banda) | Banda roja + titular + fecha/fuente; la foto va de fondo con velo o en banda bajo la roja (v3) |
+| Un solo dato o cifra | Plantilla de código (`stat`) | Foto real (`image`) | Una cifra protagonista gigante; la infografía es para 2–4 cifras; la foto va de fondo con velo plano (v3) |
+| Portada 16:9 (Facebook/YouTube) | Plantilla de código (`cover`) | Foto real (`image`) | Único formato apaisado del hub; contenido clave centrado; la foto va de fondo con degradado horizontal (v3) |
+| Línea de tiempo (3–4 hechos) | Plantilla de código (`timeline`) | Foto real por hecho (`image`) | Año en rojo + hecho + fuente; para la memoria histórica del museo; cada hecho admite miniatura (v3) |
 | Carrusel desde un texto | **Constructor** (`build-carousel.mjs`) | — | Titular + viñetas/Markdown → pieza completa con densidad validada |
 | Post que el usuario quiere retocar en el teléfono | **Canva** (`create-design`) | — | La editabilidad manda sobre el control |
 | Presentación / deck | **Canva** (`create-design` con `outline`) | — | El código no compite en decks multipágina editables |
@@ -26,6 +26,44 @@ manda en Canva; la imagen protagonista manda en generación**.
 | Imagen protagonista o estilo exacto | **Gemini Pro** (cuenta del usuario) | Pollinations si basta una ilustración | Gemini Pro da más control de estilo; Pollinations es la ruta automática |
 | Ilustración decorativa / fondo | **Pollinations** (`scripts/gen-image.py`) | Duotono de marca | Rápida, sin marca, reproducible con seed fija |
 | Foto de archivo real | **Foto real** (Drive / archivo del Memorial) | Duotono o recorte | Nunca generar una foto que se presente como archivo real |
+
+## v3 — foto protagonista y gráficos (21-nov-2026)
+
+El usuario vio las 5 piezas v2 y las consideró «muy básicas»: casi solo
+tipografía sobre negro. La v3 hace la foto protagonista de primera clase
+en las 5 plantillas (rama `work/content-hub-v3-2026-11-21`):
+
+- **Carrusel**: portada con foto (`cover_image` a nivel de pieza, con
+  velo fuerte) y gráfico de barras por lámina (`bars`: `[{label, value,
+  pct, highlight?}]`, escala honesta calculada en `data.json` — p. ej. %
+  de los 193 Estados miembros — y la barra destacada en rojo). La lámina
+  con gráfico se centra verticalmente (`with-bars`). En 4:5, la banda
+  mide 680 px (la foto ocupa medio lienzo) y el texto de fondo arranca
+  en y=780.
+- **Breaking / stat / cover**: campo `image` de fondo con velo
+  (gradiente en breaking, plano 0.82 en stat, horizontal en cover).
+  Breaking admite además `image_layout: "band"` (foto en banda bajo la
+  roja, texto debajo sin solaparse) para retratos que no caben como
+  fondo; la banda exige copy corto (titular ≤2 líneas, cuerpo ≤2
+  líneas) y con retrato ajustado se prefiere el formato 4:5 (banda de
+  480 px, cabe la cara entera).
+- **Timeline**: cada hecho admite `image` (miniatura 260×150 a la
+  derecha del texto); los hechos sin foto conservan el marcador rojo.
+- **`face_check: false`** por lámina omite el chequeo de caras (solo
+  para planos generales sin retrato, p. ej. un tablero con público de
+  fondo: el detector caza caras diminutas y el QA falla en falso). La
+  revisión visual del PNG sigue siendo obligatoria.
+- **La pieza de Browne perdió la etiqueta «última hora»**: la confesión
+  es del 9-nov-2026, hace 12 días; el sello es «LA CONFESIÓN» y el slug
+  pasó de `ultima-hora-browne` a `confesion-browne`. No resucitar la
+  etiqueta: una «última hora» de hace 12 días no es última hora.
+- **Lección CSS (bug latente de la v2)**: `format-45`, `with-photo`,
+  `layout-band` y `layout-side` van en el MISMO elemento (el div
+  `.page`); los selectores 4:5 deben ser compuestos
+  (`.format-45.layout-band .photo`), sin combinador descendiente. Con
+  espacio (`.format-45 .layout-band .photo`) la regla no casa nunca y
+  la variante 4:5 hereda los valores cuadrados — la suite lo comprueba
+  (test «selectores 4:5 compuestos»).
 
 ## Reglas de imágenes (importantes)
 
