@@ -553,14 +553,20 @@ step('chapters', [`out/${projectId}-chapters.txt`, `out/${projectId}-chapters.js
 }, {inputs: [timelineJson, 'chapters.json']});
 
 step('qa', ['reports/technical-qa-master.json', 'reports/technical-qa-360p.json'], (heavy) => {
+	// La pantalla final de 90 f deja ~3 s de silencio intencional:
+	// el umbral por defecto de qa-media (1 s) la rechazaría. 3,5 s
+	// cubre la cola a 30 fps con margen; configurable por proyecto.
+	const trailingMax = String(cfg.qa?.trailingSilenceMax ?? 3.5);
 	run(process.execPath, [path.join(ROOT, 'scripts/qa-media.mjs'),
 		'--project', projectId, '--file', P(masterMp4), '--mode', 'full',
+		'--trailing-silence-max', trailingMax,
 		'--report', 'technical-qa-master.json'], 'qa-media master', home, heavy);
 	const isVertical = data.height > data.width;
 	const expect = isVertical ? '360x640' : '640x360';
 	run(process.execPath, [path.join(ROOT, 'scripts/qa-media.mjs'),
 		'--project', projectId, '--file', P(`out/${projectId}-360p.mp4`),
 		'--mode', 'full', '--expect', expect,
+		'--trailing-silence-max', trailingMax,
 		'--report', 'technical-qa-360p.json'], 'qa-media 360p', home, heavy);
 	if (cfg.qa?.audit) {
 		const seconds = voDuration();

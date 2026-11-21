@@ -74,6 +74,11 @@ if(!Number.isFinite(duration)||duration<=0||durationDriftSeconds>0.5)
 // V1.3 -14,28 LUFS / -1,99 dBTP; V1.2 -14,02 / -1,76; referente Maxi Rubio
 // -14,33 LUFS. Un gate en -16 rechazaría nuestro mejor máster (auditoría R4).
 let integratedLufs=null,truePeakDbtp=null,leadingSilenceSeconds=0,trailingSilenceSeconds=0;const silenceIntervals=[];
+// --trailing-silence-max <s>: silencio final tolerado (por defecto 1 s).
+// Los videos largos terminan con una pantalla final de 90 f (3 s de
+// silencio intencional): el pipeline longform pasa 3,5 s.
+const trailingSilenceMax=opts['trailing-silence-max']?Number(opts['trailing-silence-max']):1;
+if(!Number.isFinite(trailingSilenceMax)||trailingSilenceMax<0)throw Error('--trailing-silence-max debe ser un número ≥ 0');
 if(mode==='full'&&aud){
  const summ=analysis.stderr.slice(analysis.stderr.lastIndexOf('Summary:'));
  const num=(k)=>{const m=summ.match(new RegExp(k+'\\s*:\\s*([-+\\d.]+)'));return m?+m[1]:null};
@@ -87,7 +92,7 @@ if(mode==='full'&&aud){
  const lead=silenceIntervals.find(s=>s.start<0.1);if(lead)leadingSilenceSeconds=lead.duration;
  const trail=[...silenceIntervals].reverse().find(s=>Math.abs(s.end-duration)<0.1);if(trail)trailingSilenceSeconds=trail.duration;
  if(leadingSilenceSeconds>0.5)failures.push(`Leading silence ${leadingSilenceSeconds}s > 0.5s (el gancho debe arrancar a pleno nivel)`);
- if(trailingSilenceSeconds>1)failures.push(`Trailing silence ${trailingSilenceSeconds}s > 1s`);
+ if(trailingSilenceSeconds>trailingSilenceMax)failures.push(`Trailing silence ${trailingSilenceSeconds}s > ${trailingSilenceMax}s`);
 }
 // El manifiesto de assets puede no existir (motion-demo no lo tiene):
 // sin esta guarda el QA se caía con ENOENT después de hacer todas las
@@ -124,7 +129,7 @@ if(mode!=='full'){
   console.error(`STATE: registro fallido (${e.message}) — marca manual: node scripts/state.mjs ${project} phase qa ${qaStatus==='passed'?'done':'failed'} --artifact reports/technical-qa.json --artifact out/${path.basename(file)}`);
  }
 }
-const report={engine:'remotion-required-at-render',project,mode,file:path.basename(file),sha256:await sha256(file),gitSha:process.env.SOURCE_SHA||process.env.GITHUB_SHA||'local',revision:process.env.RENDER_REVISION||'unversioned',packageLockSha256:createHash('sha256').update(readFileSync(path.resolve(home,'../../package-lock.json'))).digest('hex'),assetManifestSha256,fps,width:vid.width,height:vid.height,actualFrames,expectedFrames,durationSeconds:duration,expectedDurationSeconds,durationDriftSeconds,hasAudio:!!aud,integratedLufs,truePeakDbtp,leadingSilenceSeconds,trailingSilenceSeconds,silenceIntervals,decodeOkay:analysis.status===0,blackIntervals,technicalStatus:failures.length?'failed':'passed',visualStatus:'PENDING_HUMAN_REVIEW',warnings,failures,contactSheet:existsSync(montage)?'contact-sheet.jpg':null,stateRecorded};
+const report={engine:'remotion-required-at-render',project,mode,file:path.basename(file),sha256:await sha256(file),gitSha:process.env.SOURCE_SHA||process.env.GITHUB_SHA||'local',revision:process.env.RENDER_REVISION||'unversioned',packageLockSha256:createHash('sha256').update(readFileSync(path.resolve(home,'../../package-lock.json'))).digest('hex'),assetManifestSha256,fps,width:vid.width,height:vid.height,actualFrames,expectedFrames,durationSeconds:duration,expectedDurationSeconds,durationDriftSeconds,hasAudio:!!aud,integratedLufs,truePeakDbtp,leadingSilenceSeconds,trailingSilenceSeconds,trailingSilenceMax:mode==='full'&&aud?trailingSilenceMax:undefined,silenceIntervals,decodeOkay:analysis.status===0,blackIntervals,technicalStatus:failures.length?'failed':'passed',visualStatus:'PENDING_HUMAN_REVIEW',warnings,failures,contactSheet:existsSync(montage)?'contact-sheet.jpg':null,stateRecorded};
 writeFileSync(path.join(reports,reportName),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report));
 if(failures.length)process.exitCode=1;

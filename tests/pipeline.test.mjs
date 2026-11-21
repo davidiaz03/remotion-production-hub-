@@ -95,6 +95,7 @@ test('pipeline: --dry-run completo lista los pasos nuevos', () => {
 		assert.match(r.stdout, /--lock/);
 		assert.match(r.stdout, /visual-preflight\.py/);
 		assert.match(r.stdout, /--manifest/);
+		assert.match(r.stdout, /--trailing-silence-max/);
 		assert.match(r.stdout, /PIPELINE_OK/);
 	} finally {
 		rmSync(HOME, {recursive: true, force: true});

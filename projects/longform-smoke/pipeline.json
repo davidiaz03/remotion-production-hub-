@@ -1,1 +1,60 @@
-{"_comment":"Pipeline de longform-smoke: prueba E2E del orquestador v2 (longform-v2-2026-11-21). Pre-vuelo activado (manifiesto derivado de la timeline); auditoría de audio activada.","align":{},"captions":{"out":"src/captions.ts","outJson":"src/captions.json","script":"vo-captions.json","threads":2},"chapters":{},"encode":{"crf360":24,"crf720":21,"preset":"medium"},"master":{"gainDb":0,"noLight":true},"mix":{"duckRatio":5,"duckRelease":180,"duckThreshold":0.08,"musicVolume":0.38,"targetLufs":-14.5},"music":{"beds":["calm-documentary-a"],"targetLufs":-16,"xfade":3.0},"preflight":{"args":[],"enabled":true,"manifest":"preflight-scenes.json"},"qa":{"audit":true,"auditArgs":[],"tag":"smoke"},"render":{"audioCodec":"pcm-16","chunk":900,"concurrency":2,"crf":19,"lock":true,"videoOnly":true},"timeline":{"script":"scripts/build-timeline.mjs"},"voice":{"manifest":"vo-manifest.json","seconds":0}}
+{
+  "_comment": "Pipeline de longform-smoke: prueba E2E del orquestador v2 (longform-v2-2026-11-21). Pre-vuelo activado (manifiesto derivado de la timeline); auditoría de audio activada.",
+  "align": {},
+  "captions": {
+    "out": "src/captions.ts",
+    "outJson": "src/captions.json",
+    "script": "vo-captions.json",
+    "threads": 2
+  },
+  "chapters": {},
+  "encode": {
+    "crf360": 24,
+    "crf720": 21,
+    "preset": "medium"
+  },
+  "master": {
+    "gainDb": 0,
+    "noLight": true
+  },
+  "mix": {
+    "duckRatio": 5,
+    "duckRelease": 180,
+    "duckThreshold": 0.08,
+    "musicVolume": 0.38,
+    "targetLufs": -14.5
+  },
+  "music": {
+    "beds": [
+      "calm-documentary-a"
+    ],
+    "targetLufs": -16,
+    "xfade": 3.0
+  },
+  "preflight": {
+    "args": [],
+    "enabled": true,
+    "manifest": "preflight-scenes.json"
+  },
+  "qa": {
+    "audit": true,
+    "auditArgs": [],
+    "tag": "smoke",
+    "trailingSilenceMax": 3.5
+  },
+  "render": {
+    "audioCodec": "pcm-16",
+    "chunk": 900,
+    "concurrency": 2,
+    "crf": 19,
+    "lock": true,
+    "videoOnly": true
+  },
+  "timeline": {
+    "script": "scripts/build-timeline.mjs"
+  },
+  "voice": {
+    "manifest": "vo-manifest.json",
+    "seconds": 0
+  }
+}
