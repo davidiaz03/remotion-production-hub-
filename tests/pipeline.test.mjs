@@ -22,6 +22,7 @@ function fixtureProject() {
 		captions: {script: 'vo-captions.json'},
 		music: {beds: ['calm-documentary-a']},
 		mix: {},
+		preflight: {enabled: true},
 		render: {},
 		master: {},
 		encode: {},
@@ -61,6 +62,40 @@ test('pipeline: sin pipeline.json falla con mensaje claro', () => {
 		const r = runPipeline(['--dry-run']);
 		assert.notEqual(r.status, 0);
 		assert.match(r.stderr + r.stdout, /pipeline\.json/);
+	} finally {
+		rmSync(HOME, {recursive: true, force: true});
+	}
+});
+
+test('pipeline: --estimate imprime la estimación por fase y sale', () => {
+	fixtureProject();
+	try {
+		const r = runPipeline(['--estimate']);
+		assert.equal(r.status, 0, r.stderr);
+		assert.match(r.stdout, /Estimación del pipeline/);
+		assert.match(r.stdout, /vo\s+.*min|vo\s+\d+ s/);
+		assert.match(r.stdout, /render/);
+		assert.match(r.stdout, /TOTAL:/);
+		assert.doesNotMatch(r.stdout, /PIPELINE_OK/);
+	} finally {
+		rmSync(HOME, {recursive: true, force: true});
+	}
+});
+
+test('pipeline: --dry-run completo lista los pasos nuevos', () => {
+	fixtureProject();
+	try {
+		const r = runPipeline(['--dry-run']);
+		assert.equal(r.status, 0, r.stderr);
+		assert.match(r.stdout, /align-captions\.py/);
+		assert.match(r.stdout, /build-timeline\.mjs/);
+		assert.match(r.stdout, /chapters\.mjs/);
+		assert.match(r.stdout, /render-chunks\.mjs/);
+		assert.match(r.stdout, /--video-only/);
+		assert.match(r.stdout, /--lock/);
+		assert.match(r.stdout, /visual-preflight\.py/);
+		assert.match(r.stdout, /--manifest/);
+		assert.match(r.stdout, /PIPELINE_OK/);
 	} finally {
 		rmSync(HOME, {recursive: true, force: true});
 	}
