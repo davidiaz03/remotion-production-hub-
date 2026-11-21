@@ -4,13 +4,13 @@
     "mode": "manifest"
   },
   "audioRequired": true,
-  "compositionId": "MainReelV6",
+  "compositionId": "MainReelV61",
   "crf": 19,
   "drivePath": "Remotion Production/projects/marti-fidel",
-  "durationInFrames": 2077,
+  "durationInFrames": 2137,
   "fps": 30,
   "height": 1920,
   "id": "marti-fidel",
-  "title": "Martí-Fidel: leer, pensar (V4)",
+  "title": "Martí-Fidel: leer, pensar (V6.1)",
   "width": 1080
 }
