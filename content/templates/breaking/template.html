@@ -5,6 +5,15 @@
 <link rel="stylesheet" href="assets/base.css">
 <style>
   .page { background: var(--black); color: var(--white); }
+  /* Foto de fondo (v3, opcional): la foto es la protagonista; la banda
+     roja queda encima y el titular va sobre un velo fuerte. Sin image,
+     la tarjeta renderiza como antes (retrocompatible). */
+  .with-photo.grain::after { display: none; }
+  .photo { position: absolute; inset: 0; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover;
+    object-position: 50% 30%; display: block; }
+  .with-photo .photo::after { content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.72) 60%, rgba(0,0,0,0.88) 85%, rgba(0,0,0,0.92) 100%); }
   /* Banda roja superior con el sello de urgencia. */
   .alert-band { position: absolute; top: 0; left: 0; right: 0; height: 150px;
     background: var(--red); display: flex; align-items: center;
@@ -34,7 +43,8 @@
 </style>
 </head>
 <body>
-<div class="page grain{{#if _format45}} format-45{{/if}}">
+<div class="page grain{{#if _format45}} format-45{{/if}}{{#if image}} with-photo{{/if}}">
+  {{#if image}}<div class="photo"><img src="{{image}}"{{#if image_position}} style="object-position: {{image_position}}"{{/if}} alt=""></div>{{/if}}
   <div class="alert-band">
     <span class="icon">{{icon:siren}}</span>
     <div class="kicker">{{#if kicker}}{{kicker}}{{/if}}{{#if !kicker}}ÚLTIMA HORA{{/if}}</div>

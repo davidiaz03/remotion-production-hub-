@@ -28,7 +28,7 @@ import { checkCarousel } from './density.mjs';
 
 const execFileAsync = promisify(execFile);
 const CONTENT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const IMAGE_KEYS = new Set(['image', 'background', 'photo', 'cover', 'portrait', 'cutout']);
+const IMAGE_KEYS = new Set(['image', 'background', 'photo', 'cover', 'cover_image', 'portrait', 'cutout']);
 const TEMPLATES = ['post', 'story', 'carousel', 'infographic', 'thumbnail', 'quote', 'breaking', 'stat', 'cover', 'timeline'];
 
 function parseArgs(argv) {

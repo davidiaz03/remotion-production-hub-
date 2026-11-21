@@ -7,6 +7,26 @@
   .page { background: var(--black); color: var(--white); }
   .page.cover { background: var(--black); }
   .page.closing { background: var(--red); color: var(--white); }
+  /* Foto de portada (v3, opcional): la foto es la protagonista; el
+     titular va sobre un velo fuerte en la mitad inferior. Sin
+     cover_image, la portada renderiza como antes (retrocompatible). */
+  .cover.with-cover-photo.grain::after { display: none; }
+  .cover.with-cover-photo .photo::after { content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.72) 62%, rgba(0,0,0,0.90) 82%, rgba(0,0,0,0.94) 100%); }
+  /* Gráfico de barras (v3, opcional): comparación de dos o más cifras
+     en una lámina sin foto. Los anchos (pct) se calculan en data.json
+     sobre una escala honesta (p. ej. % de los 193 Estados miembros);
+     la barra destacada (highlight) va en rojo de marca. */
+  .bars { margin-top: 34px; }
+  .bar-row { margin-bottom: 26px; }
+  .bar-label { font-family: var(--font-display); font-weight: 700;
+    font-size: 34px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: #E8E8E8; display: flex; justify-content: space-between;
+    align-items: baseline; }
+  .bar-label b { font-weight: 800; font-size: 52px; color: var(--white); }
+  .bar-track { height: 26px; background: #2A2A2A; margin-top: 10px; }
+  .bar-fill { height: 100%; background: var(--gray); }
+  .bar-fill.hot { background: var(--red); }
   /* Portada */
   .cover-top { position: absolute; top: 72px; left: 72px; right: 72px;
     display: flex; justify-content: space-between; align-items: center; }
@@ -108,7 +128,8 @@
 </head>
 <body>
 {{#if _first}}
-<div class="page cover grain{{#if _format45}} format-45{{/if}}">
+<div class="page cover grain{{#if _format45}} format-45{{/if}}{{#if cover_image}} with-cover-photo{{/if}}">
+  {{#if cover_image}}<div class="photo"><img src="{{cover_image}}"{{#if cover_position}} style="object-position: {{cover_position}}"{{/if}} alt=""></div>{{/if}}
   <div class="cover-top">
     {{logo:color}}
     <div class="pages">{{_total}} LÁMINAS</div>
@@ -138,6 +159,9 @@
   </div>
   <div class="body-wrap">
     <div class="headline">{{hl:headline}}</div>
+    {{#if bars}}<div class="bars">
+      {{#each bars}}<div class="bar-row"><div class="bar-label"><span>{{label}}</span><b>{{value}}</b></div><div class="bar-track"><div class="bar-fill{{#if highlight}} hot{{/if}}" style="width: {{pct}}%"></div></div></div>{{/each}}
+    </div>{{/if}}
     {{#if body}}<div class="body">{{body}}</div>{{/if}}
     {{#if items}}<div class="items">
       {{#each items}}<div class="item"><span class="icon">{{icon:icon}}</span><div class="text">{{text}}</div></div>{{/each}}

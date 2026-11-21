@@ -5,6 +5,17 @@
 <link rel="stylesheet" href="assets/base.css">
 <style>
   .page { background: var(--black); color: var(--white); }
+  /* Foto de fondo (v3, opcional): a sangre completa con degradado
+     horizontal — oscuro a la izquierda (zona del logo y el título) y
+     más abierto a la derecha, donde la foto respira. Sin image, la
+     portada renderiza como antes (retrocompatible). */
+  .with-photo.grain::after { display: none; }
+  .with-photo.halftone::before { display: none; }
+  .photo { position: absolute; inset: 0; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover;
+    object-position: 50% 50%; display: block; }
+  .with-photo .photo::after { content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.90) 40%, rgba(0,0,0,0.72) 70%, rgba(0,0,0,0.58) 100%); }
   /* El logo, a la izquierda, dimensionado por alto (vertical 573:907). */
   .logo-zone { position: absolute; left: 120px; top: 120px; bottom: 260px;
     display: flex; align-items: center; }
@@ -29,7 +40,8 @@
 </style>
 </head>
 <body>
-<div class="page grain halftone">
+<div class="page grain halftone{{#if image}} with-photo{{/if}}">
+  {{#if image}}<div class="photo"><img src="{{image}}"{{#if image_position}} style="object-position: {{image_position}}"{{/if}} alt=""></div>{{/if}}
   <div class="logo-zone">{{logo:color}}</div>
   <div class="divider"></div>
   <div class="main">

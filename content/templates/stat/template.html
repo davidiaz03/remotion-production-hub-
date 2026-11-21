@@ -5,6 +5,15 @@
 <link rel="stylesheet" href="assets/base.css">
 <style>
   .page { background: var(--black); color: var(--white); }
+  /* Foto de fondo (v3, opcional): velo plano fuerte para que la cifra
+     gigante en rojo siga siendo legible. Sin image, la tarjeta
+     renderiza como antes (retrocompatible). */
+  .with-photo.grain::after { display: none; }
+  .photo { position: absolute; inset: 0; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover;
+    object-position: 50% 50%; display: block; }
+  .with-photo .photo::after { content: ''; position: absolute; inset: 0;
+    background: rgba(0,0,0,0.82); }
   .head { position: absolute; top: 64px; left: 72px; right: 72px;
     display: flex; justify-content: space-between; align-items: center;
     border-bottom: 1px solid #2A2A2A; padding-bottom: 22px; }
@@ -29,7 +38,8 @@
 </style>
 </head>
 <body>
-<div class="page grain">
+<div class="page grain{{#if image}} with-photo{{/if}}">
+  {{#if image}}<div class="photo"><img src="{{image}}"{{#if image_position}} style="object-position: {{image_position}}"{{/if}} alt=""></div>{{/if}}
   <div class="head">
     <div class="kicker">{{kicker}}</div>
     {{logo:color}}
