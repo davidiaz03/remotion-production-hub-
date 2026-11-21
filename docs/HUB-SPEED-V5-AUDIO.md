@@ -70,15 +70,47 @@ sobre la VO real y se rechazaron con evidencia:
 al milisegundo con `acoustic_span(-50)` en los 17 captions tras
 silencio de V5. Se conserva `rise_onset` como utilidad de contraste.
 
-**Verificación render (PENDIENTE — corrida en curso al redactar):**
-captions V5.1 re-temporizados en un worktree de prueba desechable
-(`/tmp/v51-render-test`, rama `tmp/v51-render-test`), 8 fotogramas
-de `renderStill` en los 4 adelantos reales (MARTÍ f172/f177, UN
-f393/f401, EL f774/f777, ¡QUE f1925/f1933). El fotograma
-discriminador está entre el inicio viejo del caption y el onset
-acústico (en V5 muestra la palabra = el bug; en V5.1-test no debe
-mostrarla todavía); el fotograma de onset debe mostrarla destacada.
-Es verificación, NO entrega: no existe ninguna V5.1 para el usuario.
+**Verificación render — PENDIENTE (candado compartido).** La
+verificación numérica (0 FAIL acústico, desvío máx 0,02 s) está
+cerrada; la confirmación visual por render quedó pendiente porque
+el agente de render tomó el candado compartido a las 02:20 para
+una secuencia de pruebas de tramos y a las ~02:55 inició un render
+completo del reel (`--frames 0-2076 --chunk 150`, ~1 h+). Todo
+queda preparado para correrlo en cuanto el candado se libere:
+
+- Worktree desechable `/tmp/v51-render-test` (rama
+  `tmp/v51-render-test`, desde esta rama @17ab141) con
+  `src/captions-v41.ts` sustituido por la versión re-temporizada
+  (modificación sin commitear, a descartar) y symlinks
+  `node_modules` → `repo/node_modules` y
+  `projects/marti-fidel/public` → `repo/projects/marti-fidel/public`.
+- Script `/tmp/hsv5-audio/render-stills-v51.mjs`: bundle una vez +
+  8 `renderStill` de `MainReelV5` a `/tmp/hsv5-audio/stills-v51/`
+  (MARTÍ f172/f177, UN f393/f401, EL f774/f777, ¡QUE f1925/f1933).
+- Lanzador con candado `/tmp/hsv5-audio/run-stills.sh` (espera el
+  candado, activa el entorno y corre el script).
+- Fotogramas V5 de comparación ya extraídos en
+  `/tmp/hsv5-audio/frames-v5-cmp/` (mismos 8 fotogramas del máster).
+- Criterio: el fotograma discriminador está entre el inicio viejo
+  del caption y el onset acústico (en V5 muestra la palabra = el
+  bug; en V5.1-test NO debe mostrarla todavía); el fotograma de
+  onset debe mostrarla destacada.
+- Cadena de importes verificada por grep (sin render):
+  `Root.tsx` → `MainReelV5` (`VideoV5.tsx`) →
+  `import {CAPTIONS} from './captions-v41'` — exactamente el
+  archivo sustituido en el worktree de prueba, así que el render
+  leerá los tiempos re-temporizados. (Detalle: `CAPTIONS_B` en
+  VideoV5.tsx usa `CAPTIONS[3].chunks[2].words[0].s` como fin de
+  la ventana de apagado de L4; al re-temporizarse WASHINGTON a
+  15,94 s, ese fin se mueve en consecuencia — comportamiento
+  coherente, a confirmar en el still f401/f393 no aplica: L4 no
+  tiene still discriminador porque su karaoke está apagado ahí.)
+
+Al correr el render: verificar los 8 stills contra
+`frames-v5-cmp/`, actualizar esta sección y borrar el worktree
+desechable (`git worktree remove /tmp/v51-render-test` + borrar la
+rama `tmp/v51-render-test`). Es verificación, NO entrega: no
+existe ninguna V5.1 para el usuario.
 
 ## Pieza 2 — Backlog de la auditoría de audio (V1.5 → V1.6)
 
@@ -211,12 +243,17 @@ verificaba era (b)/(g), no la mezcla):
 - `17ab141` — Audio (hub-speed-v5): backlog de la auditoría V1.6
   (`scripts/audio/audit-audio.py`, `projects/marti-fidel/research/karaoke-map-v5.json`,
   `scripts/audio/test_align_audit.py`).
-- _(docs)_ — este documento + `scripts/audio/README.md`.
+- `75649de` — Audio (hub-speed-v5): documentación de las dos piezas
+  (este documento + `scripts/audio/README.md`).
+- _(pendiente)_ — actualización de este documento con el estado
+  final de la verificación por render.
 
 ## Pendiente
 
-- Cerrar la tabla de la auditoría completa (corridas `v5-hsv5` y
-  `v51-hsv5` en curso al redactar; la expectativa ya está verificada
-  por los tests de integración).
-- Verificación por render de los 8 fotogramas V5.1 (pendiente del
-  candado compartido; la auditoría completa va primero).
+- Verificación visual por render de los 8 fotogramas V5.1 (ver
+  § Pieza 1): bloqueada por el candado compartido (el agente de
+  render está en un render completo del reel, ~1 h+ desde las
+  ~02:55). Todo preparado en `/tmp/v51-render-test` +
+  `/tmp/hsv5-audio/run-stills.sh`; la verificación numérica
+  (auditoría 0 FAIL) ya está cerrada y la cadena de importes está
+  verificada por grep.
