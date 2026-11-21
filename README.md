@@ -22,6 +22,7 @@ El usuario puede dar un concepto muy corto y sus archivos. **ChatGPT debe invest
 - [Persistencia y aprobación](docs/PERSISTENCE.md)
 - [Drive, credenciales y entrega](docs/DRIVE.md)
 - [Componentes compartidos](docs/COMPONENTS.md)
+- [Hub v6: andamiaje, puerta de pre-vuelo, presets y ganchos](docs/HUB-V6.md)
 
 ## Lo probado al 2026-10-10
 

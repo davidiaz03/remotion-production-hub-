@@ -149,6 +149,19 @@ SSIM ≥ 0,98 contra la referencia. Ver `docs/HUB-SPEED-V5-RENDER.md`.
   `research/karaoke-map.json` (`card_lines`, `handwritten_lines`,
   `blank_windows`) para que (b)/(g) no marquen FAIL espurios. Sin
   mapa, se supone que todo es karaoke.
+- Pausa puenteada (hub-v6, 21-nov-2026): Whisper a veces termina la
+  palabra anterior tarde Y empieza esta pronto, así que el inicio
+  cae dentro de la cola de la palabra anterior y el criterio de
+  silencio previo no dispara (caso real E2E: «MARTÍ» a 3,66 s con
+  la voz real en 4,12 s; la primera corrida decía VERIFY PASS con
+  un error de 0,46 s sin detectar). `align-captions.py` tiene
+  segunda oportunidad (`envelope.onset_after_silence`: primer
+  ataque tras una racha de silencio ≥0,15 s, dentro del fin de la
+  palabra); el informe marca los casos con `bridged: true`.
+- `--json-out` (hub-v6): al alinear un `.ts`, exportar también el
+  JSON plano HubCaption (`--json-out research/captions.json`), el
+  que lee `audit-audio.py`; sin él, el JSON queda con los tiempos
+  pre-alineación y la auditoría audita otros captions.
 - (c) §4 usa umbrales relativos al pico de línea (pico−32 dB,
   loud = max(pico−12 dB, −28 dBFS)): la ganancia por línea ya no
   sesga la medida de pausas. La regla de pausa no cambia: ninguna
@@ -172,6 +185,28 @@ Límites conocidos (ver docs/HUB-SPEED-V5-PREFLIGHT.md): el masthead
 tapado de f011 (layout relativo entre dos elementos) NO lo detecta
 ningún chequeo por píxeles — la revisión humana de los flags + 1
 fotograma limpio por escena sigue siendo obligatoria.
+
+**Puerta cableada en código (hub-v6, 21-nov-2026):** `render-chunks.mjs`
+exige un informe de pre-vuelo válido ANTES de renderizar (también en
+`--draft`): sin informe, con bloqueantes, de otro proyecto/composición
+o caducado (algún input de layout cambió después del pre-vuelo), el
+render se bloquea con código 2 y el comando exacto para repetir el
+pre-vuelo. `--skip-preflight` salta la puerta (solo iteración rápida,
+nunca un máster) y queda registrado en `resumeCommand`. Los captions
+no caducan el informe (cambiar un tiempo no mueve el layout); `src/`,
+`shared/`, `project.json`, `preflight-scenes.json` e imágenes de
+`public/` sí. Implementación: `scripts/preflight-gate.mjs` (pura,
+testeable); el informe lleva `reportVersion`, `project`,
+`composition` y `generatedAt`.
+
+## Andamiaje de reel nuevo (hub-v6, 21-nov-2026)
+`node scripts/new-reel.mjs <slug> --title "..." --script GUION.md --vo vo.wav [--platform instagram-reels] [--karaoke classic|pill] [--key-words a,b] [--handle @x] [--captions caps.json | --timings estimate]` crea el proyecto completo: `src/Video.tsx` (1 escena por línea del guion como tarjeta de storyboard sobre degradados de marca, VO, karaoke cableado, `ClosingCard` de 2,5 s, guía de zonas seguras con `debugSafeZones`), `src/captions.ts` (Whisper + alineación al guion por defecto; `--captions` acepta un JSON CapSegment[]; `--timings estimate` reparte uniforme y lo marca ESTIMADO), `research/edit-plan.json`, `research/hooks.json` (variante 0 = primera línea), `preflight-scenes.json`, `GUION.md` y `RUNBOOK.md` con los comandos exactos del flujo (alinear → pre-vuelo → borrador → ganchos → máster → auditoría). Duración = VO + 75 f de cierre. Nunca sobrescribe un proyecto existente. La transcripción de VO de un solo archivo vive en `scripts/audio/transcribe-vo-file.py` (el `transcribe-vo.py` clásico cubre solo VO por líneas con `vo-lines.json`).
+
+## Presets por plataforma, tarjeta de cierre y karaoke píldora (hub-v6, 21-nov-2026)
+`shared/platforms.ts`: presets `instagram-reels`, `facebook-reels`, `tiktok`, `youtube-shorts` (todos 1080×1920) con zona segura de anuncios (números publicados), zona orgánica medida, tamaño de caption, duración máxima/recomendada y corte de alcance. `shared/SafeZoneOverlay.tsx`: guía visual de estudio (solo con `show=true`). `shared/ClosingCard.tsx`: tarjeta de cierre reutilizable (logotipo completo, título, regla roja, subtítulo, píldora del handle; `sequenceFrames` controla el fade de salida). `BottomKaraoke` acepta `variant="pill"` (palabra actual en píldora roja) además de `classic` (por defecto, sin cambios). Regla: el karaoke va dentro de una `Sequence` que termina donde empieza el cierre — BottomKaraoke es pegajoso y sin ella el último chunk queda visible sobre la tarjeta de cierre.
+
+## Probador de ganchos (hub-v6, 21-nov-2026)
+`node scripts/hook-test.mjs <proyecto> [--seconds 3] [--variants 0,1] [--out out/hooks] [--scale 0.5] [--dry-run]` renderiza los primeros N segundos por variante de `research/hooks.json` (540p, CRF 23, veryfast) en `out/hooks/variant-NN.mp4` + `index.json`. La composición debe leer la prop `hookVariant` (el esqueleto de `new-reel` ya lo hace); si no la menciona, se niega salvo `--force`. No adquiere el candado de render: quien lo llama envuelve con `flock` + `render-lock.sh` como cualquier render.
 
 ## Candado de render: solo el creador lo borra (21-nov-2026, hub-speed-v5)
 El candado compartido /tmp/hub-speed-v5-render.lock protege los

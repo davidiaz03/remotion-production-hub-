@@ -58,6 +58,14 @@ trap render_lock_release EXIT
 render_lock_release
 ```
 
+OJO (hub-v6, 21-nov-2026): `flock -c '...'` ejecuta con `/bin/sh`
+(dash), donde `source` NO existe: dentro de un `flock -c` hay que
+usar `. scripts/render-lock.sh` (punto POSIX). Con `source`, el
+acquire falla en silencio («not found» en stderr, que el `&&` ni
+siquiera ve porque `source` no es el último comando) y el render
+corre SIN candado — le pasó al render E2E de hub-v6 (sin daño: el
+flock pesado sí serializaba con los demás trabajadores).
+
 ## Auditoría de los usuarios actuales del candado (21-nov-2026)
 
 | Usuario | Veredicto |
