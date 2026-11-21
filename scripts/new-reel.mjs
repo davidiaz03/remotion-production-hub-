@@ -477,7 +477,11 @@ ${useLogo ? `\t\t\t<BrandFrame logo="${logoArg}" />\n` : ''}\t\t\t{SCENES.map((s
 \t\t\t<Sequence from={CLOSING_FROM} durationInFrames={CLOSING_DUR} name="CLOSING">
 \t\t\t\t<ClosingCard title="${escTs(title)}"${subtitle ? ` subtitle="${escTs(subtitle)}"` : ''}${handle ? ` handle="${escTs(handle)}"` : ''}${useLogo ? ` logo="${logoArg}"` : ''} sequenceFrames={CLOSING_DUR} />
 \t\t\t</Sequence>
-\t\t\t<BottomKaraoke lines={lines} size={preset.caption.size} longSize={preset.caption.longSize} bottom={${bottomProp}} variant="${karaokeVariant}" />
+\t\t\t{/* Karaoke solo durante la VO: BottomKaraoke es pegajoso y sin
+\t\t\testa Sequence el último chunk queda visible sobre el cierre. */}
+\t\t\t<Sequence from={0} durationInFrames={CLOSING_FROM} name="KARAOKE">
+\t\t\t\t<BottomKaraoke lines={lines} size={preset.caption.size} longSize={preset.caption.longSize} bottom={${bottomProp}} variant="${karaokeVariant}" />
+\t\t\t</Sequence>
 \t\t\t<SafeZoneOverlay platform={PLATFORM} show={debugSafeZones} />
 \t\t</AbsoluteFill>
 \t);
@@ -552,12 +556,36 @@ de cada una:
 node scripts/hook-test.mjs ${slug} --seconds 3
 \`\`\`
 
-## 6. Máster
+## 6. Máster (render completo + mezcla + auditoría)
 
-Mezcla de audio con \`scripts/audio/master.py\` (VO + cama escaneada con
-\`scan-bed.py\` y ventana elegida con \`select-bed-window.py\`), render
-completo con \`render-chunks.mjs --video-only --resume\` y auditoría con
-\`scripts/audio/audit-audio.py\` antes de entregar.
+Render vídeo-solo (la mezcla se hace en el máster, no en los tramos):
+
+\`\`\`bash
+flock /tmp/noche-ecosistemas-heavy.lock -c 'source scripts/render-lock.sh && render_lock_acquire && node scripts/render-chunks.mjs ${slug} --video-only --resume; render_lock_release'
+\`\`\`
+
+Mezcla: VO + cama (la cama, escaneada con \`scan-bed.py\` y con
+ventana elegida con \`select-bed-window.py\`; sin cama, \`--mix\` puede
+ser la VO sola). Máster + ligera:
+
+\`\`\`bash
+~/workspace/remotion-hub/.venv/bin/python scripts/audio/master.py \
+  --chunks-dir projects/${slug}/out/chunks \
+  --mix projects/${slug}/public/audio/mix.wav \
+  --out-master projects/${slug}/out/MASTER.mp4 \
+  --out-light projects/${slug}/out/LIGERO.mp4 \
+  --report projects/${slug}/research/master-report.json
+\`\`\`
+
+Auditoría de audio (obligatoria antes de entregar):
+
+\`\`\`bash
+~/workspace/remotion-hub/.venv/bin/python scripts/audio/audit-audio.py \
+  --project projects/${slug} \
+  --master projects/${slug}/out/MASTER.mp4 \
+  --captions projects/${slug}/research/captions.json \
+  --out-dir projects/${slug}/reports
+\`\`\`
 `;
 writeFileSync(path.join(home, 'RUNBOOK.md'), runbook);
 

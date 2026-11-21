@@ -287,6 +287,30 @@ class TestAlignCaptions(unittest.TestCase):
         self.assertEqual(ch["end"], 1.5)
         self.assertEqual(data2[0]["start"], 0.1)  # slot sin tocar
 
+    def test_flat_json_export(self):
+        """--json-out: el JSON plano sale de los captions CORREGIDOS
+        (no de los de Whisper) y marca el fin de chunk."""
+        a = self._long_pause_voice()
+        data = [{"id": 1, "start": 0.1, "frames": 10,
+                 "chunks": [{"start": 0.8, "end": 1.5,
+                             "words": [{"t": "DOS", "s": 0.8, "e": 1.5,
+                                        "kw": False}]}]}]
+        ts = "export const CAPTIONS = " + json.dumps(data) + ";\n"
+        with tempfile.TemporaryDirectory() as td:
+            p = os.path.join(td, "c.ts")
+            open(p, "w").write(ts)
+            fmt, data, _raw = ac.load_captions(p)
+            flat = ac.flatten_words(data, fmt)
+            ac.align(flat, a, SR)
+            out = os.path.join(td, "caps.json")
+            ac.write_flat_json(out, data)
+            got = json.load(open(out))
+        self.assertEqual(len(got), 1)
+        self.assertEqual(got[0]["text"], "DOS")
+        self.assertAlmostEqual(got[0]["startMs"], 1100, delta=20)
+        self.assertEqual(got[0]["endMs"], 1500)
+        self.assertTrue(got[0]["pageBreakAfter"])
+
 
 # ---------------- mapa karaoke ----------------
 

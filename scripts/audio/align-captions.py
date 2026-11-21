@@ -262,6 +262,33 @@ def write_captions(path: str, fmt: str, data, raw_ts: str = None):
     open(path, "w", encoding="utf-8").write(new)
 
 
+def write_flat_json(path: str, data):
+    """Captions TS (corregidos) -> JSON plano HubCaption (el que lee
+    la auditoría: [{text, startMs, endMs, timestampMs, ...}]).
+
+    Sin esto, `research/captions.json` (generado por transcribe-vo)
+    queda con los tiempos PRE-alineación y la auditoría audita unos
+    captions distintos de los que renderiza el karaoke. La última
+    palabra de cada chunk lleva `pageBreakAfter: true` (igual que
+    transcribe-vo-file.py).
+    """
+    out = []
+    for seg in data:
+        for ch in seg["chunks"]:
+            words = ch["words"]
+            for i, w in enumerate(words):
+                item = {"text": w["t"],
+                        "startMs": int(round(w["s"] * 1000)),
+                        "endMs": int(round(w["e"] * 1000)),
+                        "timestampMs": int(round(w["s"] * 1000)),
+                        "confidence": None}
+                if i == len(words) - 1:
+                    item["pageBreakAfter"] = True
+                out.append(item)
+    json.dump(out, open(path, "w", encoding="utf-8"),
+              ensure_ascii=False, indent=1)
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--voice", required=True, help="VO (WAV)")
@@ -271,6 +298,10 @@ def main() -> int:
     p.add_argument("--out-format", choices=["json", "ts"],
                    help="formato de salida (por defecto, el de entrada)")
     p.add_argument("--report", help="informe JSON de desvíos")
+    p.add_argument("--json-out",
+                   help="además de --out, escribir los captions "
+                   "corregidos en JSON plano HubCaption (el que lee "
+                   "audit-audio.py); solo con entrada .ts")
     p.add_argument("--verify", action="store_true",
                    help="re-medir tras corregir y fallar si algún "
                    "desvío supera SYNC_MAX_S (0,15 s)")
@@ -328,6 +359,13 @@ def main() -> int:
     if not a.dry_run:
         write_captions(a.out, fmt, data, raw_ts)
         print(f"captions corregidos: {a.out}")
+    if a.json_out:
+        if fmt != "ts":
+            raise SystemExit("--json-out solo tiene sentido con "
+                             "entrada .ts (la JSON ya es plana)")
+        if not a.dry_run:
+            write_flat_json(a.json_out, data)
+            print(f"captions JSON: {a.json_out}")
     if a.verify and n_bad_after:
         print(f"VERIFY FAIL: {n_bad_after} desvíos sobre {SYNC_MAX_S}s",
               file=sys.stderr)

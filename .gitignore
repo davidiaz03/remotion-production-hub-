@@ -1,4 +1,7 @@
 node_modules/
+# Enlace simbólico en worktrees (el patrón con / solo cubre directorios
+# reales; el symlink a node_modules del repo principal también se ignora).
+node_modules
 .cache/
 *.log
 **/out/
