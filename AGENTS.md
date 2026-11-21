@@ -83,5 +83,108 @@ limpia: alucinación conocida, NO voz). Veredicto FAIL = elegir otra
 ventana o generar otra pista; nunca mezclar una cama FAIL.
 Ver `scripts/audio/README.md` § «Escaneo de camas».
 
+## Selección automática de ventana de cama (21-nov-2026, hub-speed-v5)
+**No elegir la ventana de una cama a mano: usar
+`scripts/audio/select-bed-window.py --in <pista> --duration <s>`.**
+El selector escanea la pista UNA sola vez (Whisper + VAD sobre
+toda la pista + curva RMS por segundo) y puntúa las ventanas
+candidatas a partir de ese escaneo: rechaza las que solapan voz
+VAD (≥1 s) o tienen un agujero (>14 dB bajo la mediana) y elige
+la mejor por arco (inicio calmado, leve crecimiento al cierre,
+sin agujeros), con desempate a la más temprana entre las que
+están a <3 pt de la mejor. Código 0 = ventana elegida, 1 =
+ninguna ventana pasa (elegir otra pista), 2 = error. Verificado
+sobre la pista Flow: elige 89-158,23 s (equivalente a la ventana
+V5, 88-157,23 s) y rechaza la 72-141,23 s (V4.1, voz) y la
+0-69,23 s (agujero -44,9 dBFS + voz 60-68,28 s).
+Ver `scripts/audio/README.md` § «Selección de ventana de cama» y
+`docs/HUB-SPEED-V5-BED.md`.
+
+## Tramos vídeo-solo + mezcla en el máster (21-nov-2026, hub-speed-v5)
+Renderizar tramos SIN audio (`render-chunks.mjs --video-only`: audio a
+PCM-16 separado con `--separate-audio-to` y descartado; NO usar `--muted`,
+que produce píxeles distintos) y muxar la mezcla en el ensamblado
+(`master.py --mix <wav>`). Con `--mix` la cadena es limpia por defecto
+(sin trim/boost/atempo); la mezcla mono se duplica a estéreo a −3,01
+dB/canal como hace Remotion. Un cambio de mezcla ya NO re-renderiza el
+vídeo: solo el máster (~2 min). `--gain-db` reproduce el paso +0,6 dB de
+V5 (no documentado en su momento). Nunca mezclar en un mismo concat
+tramos de distintos productores/contenedores (timebases distintas →
+fotogramas perdidos que ffprobe no detecta).
+
+## Tramos incrementales (21-nov-2026, hub-speed-v5)
+`render-chunks.mjs --resume` salta los tramos cuyo `inputHash` (código +
+assets referenciados + captions del tramo + parámetros, en
+`manifest.json`) no cambió. Un cambio de caption re-renderiza solo los
+tramos que muestran esa palabra (karaoke pegajoso: [s, s siguiente)).
+En modo vídeo-solo los audios no entran en el hash (un cambio de mezcla
+no invalida vídeo). El hash de assets cubre solo los assets
+referenciados por el código (`staticFile`, globs de plantillas y
+literales de ruta): añadir archivos no referenciados a `public/` no
+invalida tramos.
+
+## Modo borrador (21-nov-2026, hub-speed-v5)
+`render-chunks.mjs --draft` (540p, veryfast, CRF 23, vídeo-solo, sale a
+`out/chunks-draft`) + `master.py --mix <wav> --draft`. Solo para revisión
+creativa, sin auditoría; nunca para entregar.
+
+## No-determinismo del render (21-nov-2026, hallazgo)
+El render NO reproduce fotogramas bit-idénticos entre corridas en escenas
+con gradientes/blends apilados (±1 nivel, PSNR ~44–55 dB, SSIM ≥0,985,
+sub-visual): dos renders del MISMO comando difieren. La identidad bit a
+bit NO es criterio válido para verificar re-renders; usar PSNR ≥ 40 dB /
+SSIM ≥ 0,98 contra la referencia. Ver `docs/HUB-SPEED-V5-RENDER.md`.
+
+## Alineación acústica de captions (hub-speed-v5, 21-nov-2026)
+- Los tiempos de palabra de faster-whisper adelantan los bordes tras
+  pausa (mediana −0,21 s, hasta −0,56 s): el karaoke muestra la
+  primera palabra de cada línea antes de oírse. ANTES de renderizar,
+  re-temporizar con `scripts/audio/align-captions.py --voice <vo.wav>
+  --captions <captions.json|ts> --out <out> --verify`: corrige solo
+  los inicios tras silencio desde los onsets acústicos (envolvente
+  10 ms, umbral −50 dBFS, `envelope.py`). Verificado en marti-fidel
+  V5: desvío máx 0,56 → 0,049 s; sobre el umbral 9 → 0.
+- La auditoría V1.6 conoce el mapa karaoke: cada proyecto con líneas
+  en tarjeta/manuscrita o ventanas de karaoke apagado DEBE tener un
+  `research/karaoke-map.json` (`card_lines`, `handwritten_lines`,
+  `blank_windows`) para que (b)/(g) no marquen FAIL espurios. Sin
+  mapa, se supone que todo es karaoke.
+- (c) §4 usa umbrales relativos al pico de línea (pico−32 dB,
+  loud = max(pico−12 dB, −28 dBFS)): la ganancia por línea ya no
+  sesga la medida de pausas. La regla de pausa no cambia: ninguna
+  pausa natural <0,25 s ni pérdida >50%.
+- (c) §2: un paso de empalme <0,02 (−34 dBFS) es INFO (inaudible
+  bajo la cama), no FAIL. La «alineación clean» de (g) es
+  coherencia captions↔transcripción, no sincronía: la única
+  alineación autoritativa es la acústica.
+
+## Pre-vuelo visual — obligatorio antes del render completo (21-nov-2026, hub-speed-v5)
+**Ningún reel se renderiza entero sin pasar `scripts/visual-preflight.py
+--stills`.** En la V4.1 de marti-fidel, el fotograma muerto de S5 (f020)
+y el punto de «EN VIVO» recortado (f016) solo se vieron DESPUÉS de ~14
+min de render + máster; el pre-vuelo los caza en 1 still por escena
+antes de renderizar. Chequeos: fotograma muerto (AVISO), elemento
+recortado por el borde (AVISO), texto sobre cara (BLOQUEANTE), imagen
+duplicada entre escenas (BLOQUEANTE), logotipo ausente (BLOQUEANTE).
+Salida 1 = hay bloqueantes: corregir el layout y repetir el pre-vuelo.
+El manifiesto de escenas vive en el proyecto (`preflight-scenes.json`).
+Límites conocidos (ver docs/HUB-SPEED-V5-PREFLIGHT.md): el masthead
+tapado de f011 (layout relativo entre dos elementos) NO lo detecta
+ningún chequeo por píxeles — la revisión humana de los flags + 1
+fotograma limpio por escena sigue siendo obligatoria.
+
+## Candado de render: solo el creador lo borra (21-nov-2026, hub-speed-v5)
+El candado compartido /tmp/hub-speed-v5-render.lock protege los
+renders en una caja de 1,5 CPU. REGLA: solo el proceso que creó el
+candado puede borrarlo. El incidente V6 (20-nov, 23:17-23:40) lo
+demostró: un trap EXIT incondicional en run-stills.sh borró el
+candado del render V6 mientras otro proceso esperaba. Usar siempre
+`scripts/render-lock.sh` (propiedad por PID: acquire escribe $$ en
+$LOCK/pid; release solo borra si coincide; el trap solo se instala
+tras adquirir) o las clases Python equivalentes (Lock de
+select-bed-window.py, acquire/release de visual-preflight.py).
+Nunca `trap 'rmdir ...' EXIT` sin comprobar la propiedad. Candado
+rancio: PID muerto o >7200 s sin PID.
+
 ## Al cerrar
 Actualiza el historial editorial y siguiente acción, guarda la fuente en Git, comprueba SHA remoto y notifica rama, commit y revisión. Detén Codespaces para reducir consumo gratuito.
