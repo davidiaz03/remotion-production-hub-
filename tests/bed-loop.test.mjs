@@ -4,10 +4,11 @@ import {spawnSync} from 'node:child_process';
 import {existsSync, mkdtempSync, rmSync} from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {ROOT} from '../scripts/lib.mjs';
+import {HUB, ROOT} from '../scripts/lib.mjs';
 
 // bed-loop.py necesita numpy: vale el venv del hub (o HUB_PY).
-const PYTHON = process.env.HUB_PY || path.join(ROOT, '..', '.venv/bin/python');
+// HUB resuelve el hub real también desde worktrees (lib.mjs).
+const PYTHON = process.env.HUB_PY || path.join(HUB, '.venv/bin/python');
 const BED_LOOP = path.join(ROOT, 'scripts/audio/bed-loop.py');
 
 function available(t) {
