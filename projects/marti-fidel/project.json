@@ -4,7 +4,7 @@
     "mode": "manifest"
   },
   "audioRequired": true,
-  "compositionId": "MainReelV5",
+  "compositionId": "MainReelV6",
   "crf": 19,
   "drivePath": "Remotion Production/projects/marti-fidel",
   "durationInFrames": 2077,
