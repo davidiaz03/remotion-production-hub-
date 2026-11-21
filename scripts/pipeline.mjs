@@ -373,9 +373,11 @@ if (estimateOnly || dryRun) {
 step('vo', [], (heavy) => {
 	// vo-batch.py salta solo los capítulos ya hechos; sin artefactos
 	// declarados, este paso siempre se ejecuta (barato si no hay nada
-	// que hacer: no carga el modelo).
-	run(VENV_PY, [path.join(ROOT, 'scripts/audio/vo-batch.py'),
-		'--manifest', voManifest, '--root', home], 'vo-batch', home, heavy);
+	// que hacer: no carga el modelo). Con --force global, regenera.
+	const args = [path.join(ROOT, 'scripts/audio/vo-batch.py'),
+		'--manifest', voManifest, '--root', home];
+	if (force) args.push('--force');
+	run(VENV_PY, args, 'vo-batch', home, heavy);
 }, {heavy: true});
 
 step('merge', [voFull, voLines], () => {
@@ -390,8 +392,13 @@ step('captions', [captionsTs, captionsJson, `out/${projectId}.srt`], (heavy) => 
 		'--script', P(cfg.captions?.script ?? 'vo-captions.json'),
 		'--out', P(captionsTs),
 		'--out-json', P(captionsJson),
-		'--threads', String(cfg.captions?.threads ?? 2)];
-	if (force) args.push('--force');
+		'--threads', String(cfg.captions?.threads ?? 2),
+		// --force siempre: el paso solo corre cuando los artefactos
+		// faltan o están rancios (frescura); la herramienta rechaza
+		// sobrescribir sin él y la frescura del pipeline es el único
+		// mecanismo de salto. Misma regla en music, mix, master y
+		// encode.
+		'--force'];
 	run(STT_PY, args, 'transcribe-vo', home, heavy);
 	run(process.execPath, [path.join(ROOT, 'scripts/export-srt.mjs'), projectId], 'export-srt');
 }, {inputs: [voFull, voLines], heavy: true});
@@ -441,8 +448,8 @@ step('music', [musicBed], () => {
 	args.push('--seconds', String(seconds),
 		'--xfade', String(cfg.music?.xfade ?? 3.0),
 		'--target-lufs', String(cfg.music?.targetLufs ?? -16),
-		'--out', P(musicBed));
-	if (force) args.push('--force');
+		'--out', P(musicBed),
+		'--force'); // ver captions: la frescura del pipeline manda
 	run(VENV_PY, args, 'bed-loop');
 }, {inputs: [voFull]});
 
@@ -458,7 +465,7 @@ step('mix', [mixWav], () => {
 		'--duck-ratio', String(m.duckRatio ?? 5),
 		'--duck-release', String(m.duckRelease ?? 180)];
 	if (m.musicVolume !== undefined) args.push('--music-volume', String(m.musicVolume));
-	if (force) args.push('--force');
+	args.push('--force'); // ver captions: la frescura del pipeline manda
 	run(SYS_PY, args, 'mix');
 }, {inputs: [voFull, musicBed]});
 
@@ -550,7 +557,7 @@ step('master', [masterMp4], (heavy) => {
 		if (m.lightPreset) args.push('--light-preset', String(m.lightPreset));
 	}
 	if (m.gainDb) args.push('--gain-db', String(m.gainDb));
-	if (force) args.push('--force');
+	args.push('--force'); // ver captions: la frescura del pipeline manda
 	run(VENV_PY, args, 'master', home, heavy);
 }, {inputs: [chunksFile, mixWav], heavy: true});
 
