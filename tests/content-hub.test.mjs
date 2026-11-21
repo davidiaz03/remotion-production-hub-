@@ -560,6 +560,142 @@ test('clasificación de avisos de caras: solo la cara en zona de texto es fallo'
 	assert.equal(r.failures.length, 1);
 });
 
+test('carrusel v3: portada con foto (cover_image) + gráfico de barras', async () => {
+	const dir = mkdtempSync(path.join(tmpdir(), 'content-hub-test-'));
+	try {
+		await execFileAsync('python3', ['-c', `
+from PIL import Image
+im = Image.new('RGB', (800, 1000))
+for x in range(800):
+    for y in range(1000):
+        im.putpixel((x, y), ((x * 255) // 800, 40, (y * 255) // 1000))
+im.save('${path.join(dir, 'foto.png')}')
+`]);
+		const data = {
+			title: 'Prueba v3', subtitle: 'Portada con foto y barras.',
+			cta: 'Cierre de prueba', format: '4:5',
+			cover_image: 'foto.png', cover_position: '50% 25%',
+			pages: [
+				{},
+				{ kicker: 'El contraste', headline: 'La presión restó *35 apoyos*',
+				  bars: [
+					{ label: '2025', value: '165', pct: 85 },
+					{ label: '2026', value: '130', pct: 67, highlight: true },
+				  ],
+				  body: 'La presión restó 35 apoyos en un año.' },
+				{ kicker: 'Sin foto', headline: 'Lámina de texto', body: 'Texto.' },
+				{},
+			],
+		};
+		const dataFile = path.join(dir, 'data.json');
+		writeFileSync(dataFile, JSON.stringify(data));
+		const outDir = path.join(dir, 'out');
+		await execFileAsync(process.execPath, [
+			path.join(CONTENT, 'scripts', 'render.mjs'),
+			'--template', 'carousel',
+			'--data', dataFile,
+			'--out', outDir, '--name', 'carrusel-v3',
+		], { cwd: ROOT, timeout: 300000 });
+		for (let i = 1; i <= 4; i++) {
+			const png = path.join(outDir, `carrusel-v3-p0${i}.png`);
+			assert.ok(existsSync(png), `falta la lámina ${i}`);
+			assert.deepEqual(pngSize(png), { width: 1080, height: 1350 }, `lámina ${i} con tamaño incorrecto`);
+		}
+		// Portada: foto a sangre completa con la clase y el encuadre.
+		const htmlCover = readFileSync(path.join(outDir, 'carrusel-v3-p01.html'), 'utf8');
+		assert.ok(htmlCover.includes('with-cover-photo'), 'falta la clase with-cover-photo en la portada');
+		assert.ok(htmlCover.includes('class="photo"'), 'falta el div de foto en la portada');
+		assert.ok(htmlCover.includes('object-position: 50% 25%'), 'falta el encuadre cover_position');
+		// Lámina de barras: dos barras, la destacada en rojo, anchos honestos.
+		const htmlBars = readFileSync(path.join(outDir, 'carrusel-v3-p02.html'), 'utf8');
+		assert.ok(htmlBars.includes('bar-fill hot'), 'falta la barra destacada (hot)');
+		assert.ok(htmlBars.includes('width: 85%'), 'falta el ancho 85% (2025)');
+		assert.ok(htmlBars.includes('width: 67%'), 'falta el ancho 67% (2026)');
+		assert.ok(htmlBars.includes('>165<') && htmlBars.includes('>130<'), 'faltan los valores de las barras');
+		// La lámina sin bars no tiene gráfico (el campo es por página).
+		// (Se comprueba el marcado, no 'bar-fill': la clase existe en el
+		// CSS de la plantilla y aparece en el HTML de todas las láminas.)
+		const htmlPlain = readFileSync(path.join(outDir, 'carrusel-v3-p03.html'), 'utf8');
+		assert.ok(!htmlPlain.includes('class="bars"'), 'la lámina sin bars renderizó un gráfico');
+		assert.ok(!htmlPlain.includes('class="bar-row"'), 'la lámina sin bars renderizó filas de barras');
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});
+
+test('plantillas v3: foto de fondo en breaking/stat/cover + miniaturas en timeline', async () => {
+	const dir = mkdtempSync(path.join(tmpdir(), 'content-hub-test-'));
+	try {
+		await execFileAsync('python3', ['-c', `
+from PIL import Image
+im = Image.new('RGB', (800, 1000))
+for x in range(800):
+    for y in range(1000):
+        im.putpixel((x, y), ((x * 255) // 800, 40, (y * 255) // 1000))
+im.save('${path.join(dir, 'foto.png')}')
+`]);
+		const cases = [
+			{ template: 'breaking', name: 'breaking-v3', size: { width: 1080, height: 1080 },
+			  data: { kicker: 'LA CONFESIÓN', headline: 'Un primer ministro *lo contó* en la radio',
+				body: 'Washington lo llamó para que cambiara su voto.', date: '9 de noviembre de 2026',
+				source: 'Radio · Antigua y Barbuda', image: 'foto.png', image_position: '50% 20%' } },
+			{ template: 'breaking', name: 'breaking-band', size: { width: 1080, height: 1080 },
+			  data: { kicker: 'LA CONFESIÓN', headline: 'Un primer ministro *lo contó* en la radio',
+				body: 'Washington lo llamó para que cambiara su voto.', date: '9 de noviembre de 2026',
+				source: 'Radio · Antigua y Barbuda', image: 'foto.png', image_layout: 'band' } },
+			{ template: 'stat', name: 'stat-v3', size: { width: 1080, height: 1080 },
+			  data: { kicker: 'El crimen en una cifra', value: '73', label: 'personas murieron',
+				context: 'El 6 de octubre de 1976, el vuelo CU-455 fue destruido en pleno vuelo.',
+				source: 'Archivo del Memorial', image: 'foto.png' } },
+			{ template: 'cover', name: 'cover-v3', size: { width: 1920, height: 1080 },
+			  data: { kicker: 'Museo histórico', title: 'Memorial de la *Denuncia*',
+				subtitle: 'La memoria de las víctimas del terrorismo contra Cuba.',
+				address: 'Ave 5ta, Miramar, La Habana', image: 'foto.png' } },
+			{ template: 'timeline', name: 'timeline-v3', size: { width: 1080, height: 1350 },
+			  data: { title: 'Fechas que *no se olvidan*', subtitle: 'Cuatro fechas.',
+				source: 'Archivo del Memorial',
+				events: [
+					{ year: '1974', title: 'Libro bomba en Lima', text: 'El 4 de febrero estalla un libro bomba en la Embajada de Cuba en Lima.' },
+					{ year: '1976', title: 'Crimen de Barbados', text: 'El 6 de octubre, el vuelo CU-455 es destruido en pleno vuelo.', image: 'foto.png' },
+					{ year: '1980', title: 'Asesinado Félix García', text: 'El 11 de septiembre, el diplomático cubano ante la ONU es asesinado en Queens.' },
+					{ year: '2026', title: 'La ONU vota', text: 'El 28 de octubre, 130 países apoyan la resolución cubana.', image: 'foto.png' },
+				] } },
+		];
+		for (const c of cases) {
+			const dataFile = path.join(dir, `${c.name}.json`);
+			writeFileSync(dataFile, JSON.stringify(c.data));
+			const outDir = path.join(dir, c.name);
+			await execFileAsync(process.execPath, [
+				path.join(CONTENT, 'scripts', 'render.mjs'),
+				'--template', c.template,
+				'--data', dataFile,
+				'--out', outDir, '--name', c.name,
+			], { cwd: ROOT, timeout: 180000 });
+			const png = path.join(outDir, `${c.name}.png`);
+			assert.ok(existsSync(png), `falta el PNG de ${c.template}`);
+			assert.deepEqual(pngSize(png), c.size, `${c.template} con tamaño incorrecto`);
+			const html = readFileSync(path.join(outDir, `${c.name}.html`), 'utf8');
+			if (c.template === 'timeline') {
+				// Dos hechos con miniatura, dos sin ella.
+				assert.ok(html.includes('has-thumb'), 'falta la clase has-thumb en el hecho con foto');
+				assert.equal((html.match(/class="thumb"/g) ?? []).length, 2, 'deben ser exactamente 2 miniaturas');
+				assert.equal((html.match(/class="event has-thumb"/g) ?? []).length, 2, 'deben ser exactamente 2 hechos con foto');
+			} else {
+				assert.ok(html.includes('with-photo'), `falta la clase with-photo en ${c.template}`);
+				assert.ok(html.includes('class="photo"'), `falta el div de foto en ${c.template}`);
+			}
+			if (c.name === 'breaking-band') {
+				assert.ok(html.includes('layout-band'), 'falta la clase layout-band en la variante de banda');
+			}
+			// El logo completo aparece exactamente una vez en cada plantilla.
+			const { countLogos } = await import('../content/scripts/brand-check.mjs');
+			assert.equal(countLogos(html), 1, `${c.template}: el logo completo debe aparecer exactamente una vez`);
+		}
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});
+
 test('galería: índice con las 10 plantillas y aviso si falta el render', async () => {
 	const { buildGallery, listTemplates } = await import('../content/scripts/gallery.mjs');
 	assert.equal(listTemplates().length, 10);
