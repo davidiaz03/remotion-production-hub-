@@ -487,6 +487,9 @@ test('cajas: Two Buttons pone cada texto en su botón y respeta la cara', async 
 	// debe cambiar mucho (texto negro encima). Antes de las cajas, los
 	// textos apilados tapaban toda la imagen y la cara.
 	const tpl = path.join(MEMES, 'templates', 'images', 'two-buttons.jpg');
+	const boxes = JSON.parse(readFileSync(
+		path.join(MEMES, 'templates', 'boxes.json'), 'utf8'));
+	const left = boxes.templates['two-buttons'].boxes[0].box;
 	const { stdout } = await execFileAsync('python3', ['-c',
 		`from PIL import Image
 t = Image.open('${tpl}').convert('RGB')
@@ -496,8 +499,9 @@ def meandiff(box):
     a = t.crop(box); b = o.crop(box)
     pa, pb = list(a.getdata()), list(b.getdata())
     return sum(abs(x[0]-y[0])+abs(x[1]-y[1])+abs(x[2]-y[2]) for x, y in zip(pa, pb)) / (len(pa)*3)
+bx = ${JSON.stringify(left)}
 print(f"{meandiff((int(w*0.35), int(h*0.55), int(w*0.65), int(h*0.80))):.2f}")
-print(f"{meandiff((int(w*0.06), int(h*0.05), int(w*0.47), int(h*0.35))):.2f}")`]);
+print(f"{meandiff((int(bx[0]*w), int(bx[1]*h), int(bx[2]*w), int(bx[3]*h))):.2f}")`]);
 	const [cara, boton] = stdout.trim().split('\n').map(Number);
 	assert.ok(cara < 5, `la cara cambió ${cara} (texto encima)`);
 	assert.ok(boton > 15, `el botón no cambió ${boton} (texto ausente)`);
@@ -842,6 +846,67 @@ for bx in boxes:
 	for (const [i, n] of stdout.trim().split('\n').map(Number).entries()) {
 		assert.ok(n > 50, `pizarra ${i + 1} sin texto (${n} px oscuros)`);
 	}
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('cajas: las cajas de Two Buttons caen sobre la cara blanca', async () => {
+	// Guarda la medición por píxeles (21-nov-2026): las esquinas (con
+	// margen) de cada caja de botón deben ser cara blanca, no pared azul
+	// ni botón rojo. Las cajas viejas cubrían el rectángulo del botón y
+	// los textos largos se salían a la pared.
+	const boxes = JSON.parse(readFileSync(
+		path.join(MEMES, 'templates', 'boxes.json'), 'utf8'));
+	const tb = boxes.templates['two-buttons'].boxes.slice(0, 2);
+	const tpl = path.join(MEMES, 'templates', 'images', 'two-buttons.jpg');
+	const { stdout } = await execFileAsync('python3', ['-c',
+		`from PIL import Image
+im = Image.open('${tpl}').convert('L')
+w, h = im.size
+boxes = ${JSON.stringify(tb.map((s) => s.box))}
+for bx in boxes:
+    x0, y0, x1, y1 = bx
+    mx, my = (x1-x0)*0.08, (y1-y0)*0.12
+    pts = [(x0+mx, y0+my), (x1-mx, y0+my), (x0+mx, y1-my), (x1-mx, y1-my)]
+    print(min(im.getpixel((int(px*w), int(py*h))) for px, py in pts))`]);
+	for (const [i, v] of stdout.trim().split('\n').map(Number).entries()) {
+		assert.ok(v > 200, `caja ${i + 1}: esquina con luminancia ${v} (no es blanco)`);
+	}
+});
+
+test('cajas: Two Buttons con textos largos queda sobre blanco (puente noticias, 21-nov-2026)', async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'two-buttons-largo.jpg');
+	await memePy(['--template', 'two-buttons',
+		'--texts', 'CELEBRAR QUE LA IA RESOLVIÓ RIEMANN|ESPERAR LA VERIFICACIÓN INDEPENDIENTE',
+		'--out', out]);
+	assert.ok(existsSync(out));
+	// Todo píxel oscuro añadido en el panel superior debe caer sobre
+	// blanco de la plantilla (cara del botón), no sobre la pared azul ni
+	// el botón rojo. Con las cajas viejas, estos mismos textos se salían.
+	// Umbral de «añadido» en 60, no en 100: el texto es negro casi puro
+	// y el ruido JPEG mueve píxeles grises de 100-101 a 98-99 (74 px
+	// falsos en la primera versión de esta prueba).
+	const tpl = path.join(MEMES, 'templates', 'images', 'two-buttons.jpg');
+	const { stdout } = await execFileAsync('python3', ['-c',
+		`from PIL import Image
+t = Image.open('${tpl}').convert('L')
+o = Image.open('${out}').convert('L')
+w, h = t.size
+tp, op = list(t.getdata()), list(o.getdata())
+added = onwhite = 0
+for y in range(int(h*0.45)):
+    for x in range(w):
+        i = y*w + x
+        if op[i] < 60 and tp[i] >= 100:
+            added += 1
+            if tp[i] > 200: onwhite += 1
+print(added)
+print(onwhite)`]);
+	const [added, onwhite] = stdout.trim().split('\n').map(Number);
+	assert.ok(added > 500, `sin texto en los botones (${added} px)`);
+	assert.ok(onwhite / added > 0.99,
+		`texto fuera del blanco: ${added - onwhite}/${added} px sobre azul/rojo`);
+
 	rmSync(dir, { recursive: true, force: true });
 });
 
