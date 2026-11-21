@@ -40,6 +40,15 @@ export type BottomKaraokeProps = {
   outlinePx?: number;
   /** Margen lateral. */
   sideMargin?: number;
+  /**
+   * Estilo del karaoke (hub-v6): 'classic' es el probado (palabra
+   * clave en rojo, resto en blanco, contorno negro); 'pill' pone a
+   * la palabra ACTUAL en una píldora roja con texto blanco (el
+   * estilo de moda en Reels/TikTok 2025-26) y deja el resto como
+   * en 'classic'. Por defecto 'classic': ningún proyecto existente
+   * cambia.
+   */
+  variant?: 'classic' | 'pill';
 };
 
 /**
@@ -70,6 +79,7 @@ export const BottomKaraoke: React.FC<BottomKaraokeProps> = ({
   color = '#FFFFFF',
   outlinePx = 3,
   sideMargin = 40,
+  variant = 'classic',
 }) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -124,12 +134,27 @@ export const BottomKaraoke: React.FC<BottomKaraokeProps> = ({
               key={i}
               style={{
                 visibility: revealed ? 'visible' : 'hidden',
-                color: w.kw ? keywordColor : color,
+                color:
+                  variant === 'pill' && isCurrent
+                    ? '#FFFFFF'
+                    : w.kw
+                      ? keywordColor
+                      : color,
                 display: 'inline-block',
                 transform: `scale(${pop})`,
                 transformOrigin: '0% 50%',
                 margin: '0 12px',
-                textShadow: textOutline(outlinePx),
+                textShadow:
+                  variant === 'pill' && isCurrent
+                    ? '0 4px 14px rgba(0,0,0,0.5)'
+                    : textOutline(outlinePx),
+                ...(variant === 'pill' && isCurrent
+                  ? {
+                      backgroundColor: keywordColor,
+                      padding: '2px 20px',
+                      borderRadius: 20,
+                    }
+                  : {}),
               }}
             >
               {w.t}
