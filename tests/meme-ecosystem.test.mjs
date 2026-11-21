@@ -227,7 +227,8 @@ test('vídeo: POV cuadrado con velocidad', { timeout: 120000 }, async () => {
 
 test('scripts de soporte: --help', async () => {
 	for (const s of ['gen-absurd.py', 'refresh-templates.py',
-		'refresh-video-templates.py', 'contact-sheet.py']) {
+		'refresh-video-templates.py', 'contact-sheet.py',
+		'meme-ideas.py', 'meme-pack.py']) {
 		const { stdout } = await execFileAsync('python3',
 			[path.join(SCRIPTS, s), '--help']);
 		assert.ok(stdout.length > 50, `${s}: --help vacío`);
@@ -635,5 +636,227 @@ print(f"{sum(px)/len(px):.1f}")`]);
 	const mOff = await bandMean(off);
 	assert.ok(mAuto < mOff - 20,
 		`la píldora no oscureció el fondo (auto ${mAuto} vs off ${mOff})`);
+	rmSync(dir, { recursive: true, force: true });
+});
+
+// --- Nuevas (meme v2: cajas x22, roles, ideas, packs, cómic, fuentes, draft, 21-nov-2026) ---
+
+test('cajas: 22 plantillas, válidas y con plantillas reales', () => {
+	const boxes = JSON.parse(readFileSync(
+		path.join(MEMES, 'templates', 'boxes.json'), 'utf8'));
+	const catalog = JSON.parse(readFileSync(
+		path.join(MEMES, 'templates', 'catalog.json'), 'utf8'));
+	const slugs = new Set(catalog.templates.map((t) => t.slug));
+	const names = Object.keys(boxes.templates);
+	assert.ok(names.length >= 22, `solo ${names.length} plantillas con cajas`);
+	for (const slug of names) {
+		assert.ok(slugs.has(slug), `${slug}: no está en el catálogo`);
+		for (const spec of boxes.templates[slug].boxes) {
+			const [x0, y0, x1, y1] = spec.box;
+			assert.ok(0 <= x0 && x0 < x1 && x1 <= 1, `${slug}: x inválida ${spec.box}`);
+			assert.ok(0 <= y0 && y0 < y1 && y1 <= 1, `${slug}: y inválida ${spec.box}`);
+		}
+	}
+});
+
+test('roles: válidos, con plantillas reales y patrones con {T}', () => {
+	const roles = JSON.parse(readFileSync(
+		path.join(MEMES, 'templates', 'roles.json'), 'utf8'));
+	const catalog = JSON.parse(readFileSync(
+		path.join(MEMES, 'templates', 'catalog.json'), 'utf8'));
+	const slugs = new Set(catalog.templates.map((t) => t.slug));
+	const video = JSON.parse(readFileSync(
+		path.join(MEMES, 'video-templates', 'catalog.json'), 'utf8'));
+	const vslugs = new Set(video.templates.map((t) => t.slug));
+	assert.ok(Object.keys(roles.roles).length >= 10, 'pocos roles de imagen');
+	assert.ok(Object.keys(roles.video_roles).length >= 3, 'pocos roles de vídeo');
+	for (const [role, spec] of Object.entries(roles.roles)) {
+		assert.ok(spec.templates.length > 0, `${role}: sin plantillas`);
+		for (const s of spec.templates) {
+			assert.ok(slugs.has(s), `${role}: plantilla inexistente ${s}`);
+		}
+		assert.ok(spec.patterns.length > 0, `${role}: sin patrones`);
+		for (const p of spec.patterns) {
+			const texts = Array.isArray(p) ? p : p.texts;
+			assert.ok(texts.length > 0, `${role}: patrón vacío`);
+			assert.ok(texts.some((t) => t.includes('{T}') || t.includes('{TMAY}')),
+				`${role}: patrón sin {T}/{TMAY}: ${texts}`);
+			if (!Array.isArray(p)) {
+				for (const s of p.templates) {
+					assert.ok(spec.templates.includes(s),
+						`${role}: patrón restringido a ${s}, fuera del rol`);
+				}
+			}
+		}
+	}
+	for (const [role, spec] of Object.entries(roles.video_roles)) {
+		for (const s of spec.templates) {
+			assert.ok(vslugs.has(s), `${role}: plantilla de vídeo inexistente ${s}`);
+		}
+	}
+});
+
+test('meme.py --list --role filtra por estructura', async () => {
+	const { stdout } = await memePy(['--list', '--role', 'escalada']);
+	assert.match(stdout, /expanding-brain/);
+	assert.doesNotMatch(stdout, /drake-hotline-bling/);
+	const { stdout: roles } = await memePy(['--list-roles']);
+	assert.match(roles, /escalada:/);
+	assert.match(roles, /rechazo:/);
+});
+
+async function memeIdeasPy(args, cwd) {
+	return execFileAsync('python3', [path.join(SCRIPTS, 'meme-ideas.py'), ...args], { cwd });
+}
+
+async function memePackPy(args, cwd) {
+	return execFileAsync('python3', [path.join(SCRIPTS, 'meme-pack.py'), ...args], { cwd });
+}
+
+test('ideas: deterministas, sin duplicados y con plantillas reales', async () => {
+	const dir = tmp();
+	const a = path.join(dir, 'a.json');
+	const b = path.join(dir, 'b.json');
+	await memeIdeasPy(['el apagón', '--n', '12', '--json', a]);
+	await memeIdeasPy(['el apagón', '--n', '12', '--json', b]);
+	assert.equal(readFileSync(a, 'utf8'), readFileSync(b, 'utf8'),
+		'mismo tema, distintas ideas (no determinista)');
+	const pack = JSON.parse(readFileSync(a, 'utf8'));
+	assert.equal(pack.items.length, 12);
+	const catalog = JSON.parse(readFileSync(
+		path.join(MEMES, 'templates', 'catalog.json'), 'utf8'));
+	const slugs = new Set(catalog.templates.map((t) => t.slug));
+	const video = JSON.parse(readFileSync(
+		path.join(MEMES, 'video-templates', 'catalog.json'), 'utf8'));
+	const vslugs = new Set(video.templates.map((t) => t.slug));
+	const combos = new Set();
+	for (const it of pack.items) {
+		if (it.type === 'image') {
+			assert.ok(slugs.has(it.template), `plantilla inexistente ${it.template}`);
+		} else {
+			assert.ok(vslugs.has(it.video_template),
+				`plantilla de vídeo inexistente ${it.video_template}`);
+		}
+		const key = JSON.stringify(it);
+		assert.ok(!combos.has(key), `idea duplicada: ${key}`);
+		combos.add(key);
+	}
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('ideas: contracción «de el» -> «del» (regresión 21-nov-2026)', async () => {
+	const { stdout } = await memeIdeasPy(['el apagón', '--n', '8']);
+	assert.doesNotMatch(stdout, /DE EL APAGÓN/);
+	assert.doesNotMatch(stdout, /ERAL PLAN/);
+});
+
+test('pack: dry-run muestra los comandos sin renderizar', async () => {
+	const dir = tmp();
+	const manifest = path.join(dir, 'pack.json');
+	writeFileSync(manifest, JSON.stringify({
+		name: 'prueba',
+		items: [
+			{ type: 'image', template: 'drake-hotline-bling', texts: ['A', 'B'] },
+			{ type: 'video', video_template: 'gta-wasted', top: 'FAIL', punch_at: 3, sfx: 'fail' },
+		],
+	}));
+	const { stdout } = await memePackPy([manifest, '--dry-run',
+		'--out-dir', path.join(dir, 'out')]);
+	assert.match(stdout, /drake-hotline-bling/);
+	assert.match(stdout, /gta-wasted/);
+	assert.match(stdout, /--sfx fail/);
+	assert.ok(!existsSync(path.join(dir, 'out')),
+		'el dry-run no debe crear la carpeta de salida');
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('pack: render real de 2 piezas + manifiesto + hoja de contacto', async () => {
+	const dir = tmp();
+	const manifest = path.join(dir, 'pack.json');
+	writeFileSync(manifest, JSON.stringify({
+		name: 'prueba',
+		items: [
+			{ type: 'image', template: 'two-buttons', texts: ['A', 'B', 'YO'] },
+			{ type: 'text', text: 'chiste de prueba' },
+		],
+	}));
+	const outDir = path.join(dir, 'out');
+	const { stdout } = await memePackPy([manifest, '--out-dir', outDir, '--sheet']);
+	assert.match(stdout, /2 OK, 0 fallos/);
+	assert.ok(existsSync(path.join(outDir, '01-two-buttons.jpg')));
+	assert.ok(existsSync(path.join(outDir, '02-text.jpg')));
+	assert.ok(existsSync(path.join(outDir, 'sheet.jpg')));
+	const summary = JSON.parse(readFileSync(
+		path.join(outDir, 'pack-manifest.json'), 'utf8'));
+	assert.equal(summary.results.length, 2);
+	assert.ok(summary.results.every((r) => r.status === 'ok'));
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('imagen: tira cómica vertical (2 plantillas + panel de texto)', async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'comic.jpg');
+	await memePy(['--comic', 'waiting-skeleton|disaster-girl|texto:FIN',
+		'--texts', 'LA ESPERA|EL DESASTRE|EL FINAL', '--out', out]);
+	assert.ok(existsSync(out));
+	const { width, height } = jpegSize(out);
+	assert.equal(width, 1080);
+	assert.ok(height > 2100, `tira demasiado baja: ${height}`);
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('imagen: fuente anton renderiza y difiere de archivo-black', async () => {
+	const dir = tmp();
+	const a = path.join(dir, 'anton.jpg');
+	const b = path.join(dir, 'archivo.jpg');
+	const args = ['--template', 'drake-hotline-bling',
+		'--texts', 'DORMIR 8 HORAS|PENSAR EN PECES'];
+	await memePy([...args, '--font', 'anton', '--out', a]);
+	await memePy([...args, '--out', b]);
+	assert.ok(existsSync(a));
+	assert.notEqual(readFileSync(a).toString('base64'),
+		readFileSync(b).toString('base64'));
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('cajas: Gru pone cada texto en su pizarra', async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'gru.jpg');
+	await memePy(['--template', 'gru-s-plan',
+		'--texts', 'PASO UNO|PASO DOS|PASO TRES|PASO CUATRO', '--out', out]);
+	assert.ok(existsSync(out));
+	// Cada pizarra es azul claro: debe haber píxeles oscuros (texto
+	// negro) dentro de cada una de las 4 cajas medidas.
+	const boxes = JSON.parse(readFileSync(
+		path.join(MEMES, 'templates', 'boxes.json'), 'utf8'));
+	const gru = boxes.templates['gru-s-plan'].boxes;
+	assert.equal(gru.length, 4);
+	const { stdout } = await execFileAsync('python3', ['-c',
+		`from PIL import Image
+im = Image.open('${out}').convert('L')
+w, h = im.size
+boxes = ${JSON.stringify(gru.map((s) => s.box))}
+for bx in boxes:
+    x0, y0, x1, y1 = int(bx[0]*w), int(bx[1]*h), int(bx[2]*w), int(bx[3]*h)
+    print(sum(1 for v in im.crop((x0, y0, x1, y1)).getdata() if v < 100))`]);
+	for (const [i, n] of stdout.trim().split('\n').map(Number).entries()) {
+		assert.ok(n > 50, `pizarra ${i + 1} sin texto (${n} px oscuros)`);
+	}
+	rmSync(dir, { recursive: true, force: true });
+});
+
+test('vídeo: --draft a mitad de resolución con fuente anton', { timeout: 180000 }, async () => {
+	const dir = tmp();
+	const out = path.join(dir, 'draft.mp4');
+	await memeVideoPy(['--video-template', 'dicaprio-pointing',
+		'--top', 'CUANDO VES EL MEME ANTES', '--punch-at', '0.7',
+		'--sfx', 'vine-boom', '--freeze-end', '1',
+		'--draft', '--font', 'anton', '--out', out]);
+	assert.ok(existsSync(out));
+	const info = await probe(out);
+	assert.deepEqual([info.width, info.height], [540, 960]);
+	assert.ok(Math.abs(info.duration - 2.43) < 0.2,
+		`duración ${info.duration}`);
+	assert.ok(info.hasAudio, 'falta la pista de audio (SFX)');
 	rmSync(dir, { recursive: true, force: true });
 });

@@ -28,11 +28,17 @@ entrada del catálogo (`video-templates/catalog.json`) conserva su URL de
 origen y su URL de archivo. Si una plantilla se usa fuera de este contexto
 personal, corresponde revisar su licencia.
 
-## Fuente (`assets/fonts/ArchivoBlack-Regular.ttf`)
+## Fuentes (`assets/fonts/`)
 
 Archivo Black, Copyright 2017 The Archivo Black Project Authors.
 **SIL Open Font License 1.1** — libre para usar, modificar y redistribuir.
 Sustituta de Impact (tipografía propietaria, no incluida).
+
+Anton, Copyright 2011 The Anton Project Authors
+(https://github.com/googlefonts/anton). **SIL Open Font License 1.1**.
+
+Bangers, Copyright 2011 The Bangers Project Authors
+(https://github.com/googlefonts/bangers). **SIL Open Font License 1.1**.
 
 ## SFX (`assets/sfx/`)
 

@@ -9,7 +9,58 @@ ambos. **Uso personal, no del Memorial: sin logo ni marca institucional.**
 ```bash
 cd memes
 python3 scripts/meme.py --list            # ver las 100 plantillas
+python3 scripts/meme-ideas.py "el apagón" # 8 ideas con plantilla y textos
 ```
+
+## Del tema al pack — `scripts/meme-ideas.py` + `scripts/meme-pack.py`
+
+Un tema → un pack completo de memes en dos comandos (antes, las tandas
+de 33 piezas se hacían a mano, una a una):
+
+```bash
+# 1. Ideas: tema -> plantillas sugeridas + textos (borradores editables)
+python3 scripts/meme-ideas.py "el apagón" --n 8 --json pack-apagon.json
+
+# 2. Pack: renderiza todo el manifiesto en serie, con hoja de contacto
+python3 scripts/meme-pack.py pack-apagon.json --sheet
+# -> out/pack-el-apagon-<fecha>/01-....jpg ... 08-....mp4 + sheet.jpg
+```
+
+El manifiesto JSON se edita a mano antes de renderizar (cambiar textos,
+quitar piezas, añadir una tira cómica o un chat falso). Cada pieza es un
+objeto con `type` (`image`, `video`, `text`, `comic`, `chat`, `grid`) y
+las mismas opciones de `meme.py`/`meme-video.py` en snake_case
+(`video_template`, `punch_at`, `sfx`, `freeze_end`, `font`, `draft`…).
+Opciones útiles: `--dry-run` (ver los comandos sin renderizar),
+`--skip-video`, `--only 2,5` (re-renderizar piezas), `--sheet` (hoja de
+contacto con todas las salidas; de los vídeos, el fotograma central),
+`--flock RUTA` (los vídeos se envuelven en flock para no chocar con
+otros trabajos pesados).
+
+Las ideas son **deterministas** (mismo tema, mismas ideas) salvo que se
+pase `--seed N` para otra tirada. Los patrones de texto viven en
+`templates/roles.json` y se editan sin tocar código: `{T}` es el tema en
+minúsculas y `{TMAY}` en mayúsculas. El generador nunca repite la misma
+combinación plantilla+textos en un pack, prefiere plantillas con cajas
+medidas y contrae «de el» → «del» para no soltar «HABLAR DE EL APAGÓN».
+
+## Estructuras de chiste — `templates/roles.json`
+
+Cada plantilla pertenece a un rol según el chiste que cuenta (rechazo,
+dilema, escalada, plan, diálogo, etiqueta, reacción, espera, teoría…;
+16 roles de imagen y 5 de vídeo). Para descubrir plantillas por
+estructura en vez de por nombre:
+
+```bash
+python3 scripts/meme.py --list-roles              # los 16 roles + plantillas
+python3 scripts/meme.py --list --role escalada    # expanding-brain, clown-…
+```
+
+Los roles alimentan al generador de ideas: cada rol trae patrones de
+texto con huecos para el tema. Un patrón puede restringirse a ciertas
+plantillas del rol (`{"texts": […], "templates": […]}`) cuando solo
+encaja en una (p. ej. «X / X POR TODAS PARTES» solo vale en
+x-x-everywhere).
 
 ## Meme de imagen — `scripts/meme.py`
 
@@ -38,13 +89,30 @@ python3 scripts/meme.py --grid a.jpg,b.jpg,c.jpg,d.jpg --texts "LUNES|MARTES|MI�
 # Chat falso (yo: = derecha/verde; otro nombre = izquierda/blanco)
 python3 scripts/meme.py --fake-chat "yo: oye viste el meme|María: cuál|yo: el del pez"
 
+# Tira cómica vertical (paneles apilados con pie cada uno; los paneles
+# se separan con | para que el texto pueda llevar comas)
+python3 scripts/meme.py --comic "waiting-skeleton|disaster-girl|texto:Y ASÍ, OTRO DÍA MÁS" \
+    --texts "LA ESPERA|EL DESASTRE|EL FINAL"
+# Cada panel es un slug de plantilla, una ruta de imagen o "texto:..."
+# para un panel de solo texto. Las imágenes se ajustan ENTERAS en el
+# panel (contain sobre blanco): con cover, una plantilla vertical como
+# waiting-skeleton perdía la cabeza y los pies.
+
+# Otra fuente (Anton condensada para textos largos, Bangers de cómic)
+python3 scripts/meme.py --template drake-hotline-bling \
+    --texts "DORMIR 8 HORAS|PENSAR EN PECES" --font anton
+
 # Deep-fry (imagen frita, estilo dank) — combina con cualquier modo
 python3 scripts/meme.py --template disaster-girl --top "YO" --deep-fry
 ```
 
 Salida por defecto: `memes/out/<base>-<fecha-hora>.jpg`. Con `--png`, PNG.
 Texto blanco con borde negro en Archivo Black (sustituta libre de Impact),
-tamaño ajustado automáticamente.
+tamaño ajustado automáticamente. Con `--font` se cambia la fuente de todo
+el meme: `archivo-black` (la clásica, por defecto), `anton` (condensada,
+para textos largos que no caben) o `bangers` (de cómic, para chistes
+absurdos); también vale la ruta a cualquier `.ttf`. Las tres son SIL OFL
+1.1, en `assets/fonts/`. `--font` existe también en `meme-video.py`.
 
 ### Cajas de texto por plantilla
 
@@ -53,11 +121,15 @@ tamaño ajustado automáticamente.
 DENTRO de su zona — los botones de Two Buttons, los paneles derechos de
 Drake, la banda blanca de Woman Yelling at Cat — con su color (negro
 sobre superficies claras) y su alineación vertical. Textos de más se
-ignoran con un aviso. Las 12 plantillas con cajas: two-buttons,
-uno-draw-25-cards, left-exit-12-off-ramp, change-my-mind,
-distracted-boyfriend, drake-hotline-bling, woman-yelling-at-cat,
-always-has-been, anakin-padme-4-panel, batman-slapping-robin,
-bernie-i-am-once-again-asking-for-your-support, mocking-spongebob.
+ignoran con un aviso. Las 22 plantillas con cajas (12 medidas el
+19-nov-2026 + 10 el 21-nov-2026): two-buttons, uno-draw-25-cards,
+left-exit-12-off-ramp, change-my-mind, distracted-boyfriend,
+drake-hotline-bling, woman-yelling-at-cat, always-has-been,
+anakin-padme-4-panel, batman-slapping-robin,
+bernie-i-am-once-again-asking-for-your-support, mocking-spongebob,
+expanding-brain, gru-s-plan, buff-doge-vs-cheems,
+boardroom-meeting-suggestion, running-away-balloon, x-x-everywhere,
+waiting-skeleton, one-does-not-simply, disaster-girl, ancient-aliens.
 Las plantillas SIN cajas usan el reparto apilado de siempre
 (`--boxes-dir v|h`, `--text-region left|right|full`). Las cajas se
 midieron a mano para su plantilla y no se desplazan por caras (el
@@ -99,13 +171,19 @@ python3 scripts/meme-video.py --input reaccion.mp4 --caption "yo viendo el grupo
 
 # Cuadrado y más rápido
 python3 scripts/meme-video.py --input clip.mp4 --top "..." --format square --speed 1.5
+
+# Borrador rápido: mitad de resolución (540p) y preset veryfast,
+# para iterar antes del render final a 1080p
+python3 scripts/meme-video.py --video-template dicaprio-pointing \
+    --top "CUANDO VES EL MEME ANTES" --draft --font anton
 ```
 
 Opciones clave: `--format vertical|square|original`, `--duration` (solo para
 imagen base), `--punch-at` (segundo del golpe), `--punch-scale` (def. 1.35),
 `--shake` (def. 6 px), `--sfx-at` (si el SFX no va en el punch), `--speed`,
 `--freeze-at` + `--freeze-dur` (def. 1,5 s), `--music` + `--music-volume`
-(def. 0,25).
+(def. 0,25), `--draft` (borrador 540p rápido), `--font` (archivo-black,
+anton, bangers o ruta a un .ttf).
 
 **Freeze a mitad de clip**: al congelar, el audio original se pausa con la
 imagen (silencio durante el freeze) y retoma después; la música de fondo
@@ -183,7 +261,7 @@ necesita 5–15 s de cama reconocible, no una sinfonía.
 
 ### Plantillas de vídeo reales — `--video-template`
 
-27 clips virales con movimiento (no imágenes animadas), descargados
+33 clips virales con movimiento (no imágenes animadas), descargados
 limpios y sin marca de agua, en `video-templates/clips/` con catálogo
 en `video-templates/catalog.json` (origen, uso, consejo de caption,
 segundo sugerido para el punch, tendencia). Ver la lista:
@@ -195,7 +273,7 @@ python3 scripts/meme-video.py --video-template dicaprio-pointing \
     --sfx vine-boom --freeze-end 2
 ```
 
-**Green screen**: 19 de las 27 son green screen (fondo verde para
+**Green screen**: 22 de las 33 son green screen (fondo verde para
 componer). Dos formas de usarlas:
 
 - **En CapCut o tu editor**: arrastra el clip sobre tu vídeo y quita
@@ -209,11 +287,13 @@ python3 scripts/meme-video.py --video-template coffin-dance --chroma-key \
     --top "YO" --punch-at 1 --sfx vine-boom
 ```
 
-Las 8 que NO son green screen (se usan tal cual): `chill-guy`,
+Las 11 que NO son green screen (se usan tal cual): `chill-guy`,
 `giga-chad`, `homer-disappears-bushes`, `primetime-tv-pattinson` (solo
 la pantalla del televisor es verde, para insertar contenido),
 `spongebob-1-hour-later`, `spongebob-a-few-moments-later`,
-`woman-yelling-at-cat`, `explosion`.
+`woman-yelling-at-cat`, `explosion`, `2000-thousand-years-later`,
+`a-few-minutes-later-spongebob` (tarjetas reales, no chroma) y
+`cristiano-ronaldo-siuuu` (metraje real de estadio).
 
 El catálogo marca cada clip con `green_screen: true/false` y el campo
 `punch_at` con el segundo sugerido para el golpe. Las plantillas en
@@ -226,6 +306,7 @@ pico en nov-2026: `talk-to-me-doja`, `tung-tung-tung-sahur`,
 ```bash
 python3 scripts/refresh-video-templates.py            # dry-run: qué hay nuevo
 python3 scripts/refresh-video-templates.py --apply    # descarga y añade (máx. 10)
+python3 scripts/refresh-video-templates.py --apply --only cat-crying,hasbulla-eating-and-staring
 ```
 
 Consulta Know Your Meme trending y la portada de MemeScreens, compara
@@ -233,7 +314,12 @@ con el catálogo e informa de candidatos nuevos. Con `--apply`, los de
 MemeScreens se descargan y se añaden con `trend: 'nuevo'` y los campos
 de uso pendientes de revisar por un humano (hay que ver el clip a ojo
 y completar origen/uso antes de usarlo); los de KYM casi nunca traen
-vídeo directo y se informan para revisarlos a mano.
+vídeo directo y se informan para revisarlos a mano. Con `--only` se
+eligen los slugs a descargar en vez de los primeros en orden
+alfabético (que suelen ser relleno). La detección de green screen se
+hace midiendo los píxeles del borde del clip, no la página web: el
+heurístico viejo («green» en el HTML) marcó como green screen tarjetas
+que no lo son (las de Bob Esponja y el SIUUU de Cristiano, 21-nov-2026).
 
 ### Sonidos en tendencia (nov-2026) — solo por nombre
 
@@ -384,7 +470,7 @@ Nota: el `.gitignore` raíz excluye binarios; las imágenes nuevas que
 descargue el refresh hay que añadirlas con `git add -f` (precedente del
 content hub).
 
-Las **plantillas de vídeo** (27 clips) viven en `video-templates/clips/`
+Las **plantillas de vídeo** (33 clips) viven en `video-templates/clips/`
 con catálogo en `video-templates/catalog.json` y se refrescan con
 `scripts/refresh-video-templates.py` (ver la sección «Plantillas de
 vídeo reales» más arriba). Los formatos de vídeo se revisan contra
@@ -399,23 +485,27 @@ memes/
   README.md            este archivo
   TRENDS.md            qué funciona hoy (nov 2026) y dónde re-chequear
   LICENSES.md          licencias de plantillas, fuente, SFX, música e IA
-  templates/           biblioteca Imgflip (images/ + catalog.json + contact-sheet.jpg)
-  video-templates/     27 clips virales (clips/*.mp4 + catalog.json)
-  assets/fonts/        Archivo Black (OFL)
+  templates/           biblioteca Imgflip (images/ + catalog.json +
+                       boxes.json con 22 plantillas medidas +
+                       roles.json con 16 roles de imagen y 5 de vídeo +
+                       contact-sheet.jpg)
+  video-templates/     33 clips virales (clips/*.mp4 + catalog.json)
+  assets/fonts/        Archivo Black, Anton, Bangers (todas OFL)
   assets/sfx/          24 SFX CC0 para el golpe (5 sintetizados)
   assets/music/        7 pistas de cama musical (music.json)
   assets/ai/           imágenes absurdas generadas (vacío; gen-absurd.py)
-  scripts/             meme.py, meme-video.py, gen-absurd.py, face-frame.py,
-                       synth-sfx.py, refresh-templates.py,
-                       refresh-video-templates.py, contact-sheet.py
-  examples/            demos de prueba (imagen, texto, vídeo, IA)
+  scripts/             meme.py, meme-video.py, meme-ideas.py, meme-pack.py,
+                       gen-absurd.py, face-frame.py, synth-sfx.py,
+                       refresh-templates.py, refresh-video-templates.py,
+                       contact-sheet.py
+  examples/            demos de prueba (imagen, texto, vídeo, IA, pack v2)
   out/                 salidas (ignorado por git)
 ```
 
 ## Pruebas
 
 ```bash
-node --test tests/meme-ecosystem.test.mjs   # 34 pruebas (imagen + vídeo + música + caras + catálogo + plantillas de vídeo + cajas + guarda + píldora)
+node --test tests/meme-ecosystem.test.mjs   # 45 pruebas (imagen + vídeo + música + caras + catálogo + plantillas de vídeo + cajas + guarda + píldora + roles + ideas + packs + cómic + fuentes + draft)
 ```
 
 ## Pendiente
@@ -434,6 +524,49 @@ node --test tests/meme-ecosystem.test.mjs   # 34 pruebas (imagen + vídeo + mús
   en noviembre» (zorro), «Dame Hombro», «¿Y si sí?» y «I Got So Mad»
   (formato de frase, no de vídeo). El refresh las detectará si aparecen
   con vídeo directo en las fuentes.
+- **78 plantillas de imagen sin cajas medidas**: las 22 con cajas cubren
+  las más usadas; el resto usa el reparto apilado. Medir más es trabajo
+  manual (ver la imagen, anotar las cajas, verificar renderizando).
+- **Carrusel de Instagram** (varias láminas 4:5 en un post): no
+  implementado; la tira cómica (`--comic`) cubre el formato vertical
+  apilado pero no láminas separadas.
+- **Ideas desde noticias**: el generador de ideas parte de un tema
+  escrito a mano; no lee el feed ni TRENDS.md para proponer temas.
+
+## Cerrado el 21-nov-2026 (meme v2 — noche de ecosistemas)
+
+- ✅ **Generador de ideas** (`scripts/meme-ideas.py`): tema → ideas
+  con plantilla sugerida + textos, deterministas, sin duplicados, con
+  roles de chiste (`templates/roles.json`, 16 de imagen + 5 de vídeo)
+  y patrones editables con {T}/{TMAY}.
+- ✅ **Render por lotes** (`scripts/meme-pack.py`): un manifiesto JSON
+  → el pack completo en un comando (imagen, vídeo, texto, cómic, chat,
+  rejilla), con `--dry-run`, `--only`, `--skip-video`, `--sheet` (hoja
+  de contacto) y `pack-manifest.json` con el estado de cada pieza.
+  Verificado con un pack real de 8 piezas sobre «el apagón» (8/8 OK).
+- ✅ **10 plantillas más con cajas medidas** (22 en total): expanding-brain,
+  gru-s-plan, buff-doge-vs-cheems, boardroom-meeting-suggestion,
+  running-away-balloon, x-x-everywhere, waiting-skeleton,
+  one-does-not-simply, disaster-girl, ancient-aliens. Verificadas
+  renderizando y mirando cada una (boardroom y running-away-balloon
+  necesitaron corrección tras la primera verificación).
+- ✅ **Tira cómica vertical** (`--comic`): paneles apilados con pie
+  cada uno (plantilla, foto o panel de texto); las imágenes se ajustan
+  enteras en el panel (contain), no recortadas.
+- ✅ **3 fuentes** (`--font` en imagen y vídeo): Archivo Black (def.),
+  Anton (condensada) y Bangers (cómic), todas OFL.
+- ✅ **Borrador rápido de vídeo** (`--draft`): 540p + preset veryfast
+  para iterar antes del render final.
+- ✅ **6 plantillas de vídeo nuevas** (33 en total): cat-crying,
+  michael-rosen-screaming, hasbulla-eating-and-staring (green screen),
+  2000-thousand-years-later, a-few-minutes-later-spongebob y
+  cristiano-ronaldo-siuuu (no green screen). Revisadas a ojo con
+  origen/uso/punch_at completos. `refresh-video-templates.py` ahora
+  acepta `--only` (elegir slugs) y detecta green screen midiendo los
+  píxeles del clip, no la página web.
+- ✅ **11 pruebas nuevas** (45 en total): cajas, roles, ideas
+  (determinismo, duplicados, contracción), pack (dry-run y real),
+  cómic, fuentes, Gru por píxeles, draft.
 
 ## Cerrado el 19-nov-2026 (mejora de calidad del pipeline)
 
