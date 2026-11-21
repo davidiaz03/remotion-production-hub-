@@ -72,19 +72,22 @@ const HEAVY_STEPS = new Set(['vo', 'captions', 'preflight', 'render', 'master', 
 // audioS = segundos de VO; frames = fotogramas a renderizar; chars =
 // caracteres del guion de VO. Cada tasa anota su fuente.
 export const RATES = {
-	voRtf: 1.6, // Kokoro 1 proceso/2 hilos, RTF 1,57 medido 19-nov
+	voRtf: 1.6, // Kokoro 1 proceso/2 hilos, RTF 1,57 medido 19-nov (MW, 162 min). El smoke midió 0,75, pero se mantiene 1,6: conservador para videos largos bajo carga sostenida.
 	voLoadS: 40, // carga del modelo (~30 s) + arranque
 	charsPerAudioS: 15.45, // MW: 30.262 car -> 1.958,6 s de audio
-	captionsPerAudioS: 0.3, // Whisper small int8, ~0,15-0,3x (SPEED §5)
-	alignPerAudioS: 0.05, // envolvente numpy, sin Whisper
-	musicFixedS: 90, // bed-loop + 2 pases loudnorm sobre la salida
-	mixFixedS: 60, // numpy + loudnorm sobre la mezcla
-	preflightPerSceneS: 20, // 1 still por escena (Chromium + análisis)
-	renderPerFrameS: 0.08, // tramos 900 f: 72 s/900 f medidos 19-nov
-	masterPerAudioS: 0.15, // copia de video + encode AAC
-	encodePerAudioS: 0.66, // 720p CRF21 0,42x + 360p CRF24 0,24x
-	qaPerAudioS: 0.18, // qa-media un pase: 363 s / 1.959 s medidos
-	auditFixedS: 180, // audit-audio sobre video largo (~2-3 min)
+	captionsPerAudioS: 0.3, // Whisper small int8, ~0,15-0,3x (SPEED §5); smoke: 37 s/113 s = 0,33x
+	alignPerAudioS: 0.02, // envolvente numpy, sin Whisper; smoke: 2 s/113 s
+	musicFixedS: 15, // bed-loop: base de arranque + loudnorm
+	musicPerAudioS: 0.05, // bed-loop escala con la salida; smoke: 5 s/116 s
+	mixFixedS: 10, // mix.py: base de arranque
+	mixPerAudioS: 0.06, // mix.py escala con la duración; smoke: 6,7 s/113 s
+	preflightPerSceneS: 20, // 1 still por escena (Chromium + análisis); smoke: 198 s/16 escenas = 12,4 s (se mantiene 20: margen para escenas con diagramas)
+	renderPerFrameS: 0.08, // tramos 900 f: 72 s/900 f medidos 19-nov; smoke: 267 s/3483 f = 0,077
+	masterPerAudioS: 0.66, // máster: encode x264 1080p + loudnorm; smoke: 76 s de cómputo puro/116 s (antes 0,15: subestimaba 4x)
+	encodePerAudioS: 0.66, // 720p CRF21 0,42x + 360p CRF24 0,24x; smoke: 75 s/113 s = 0,66x
+	qaPerAudioS: 0.34, // qa-media, DOS pases (máster + 360p); smoke: 30 s + 9 s / 116 s
+	auditFixedS: 60, // audit-audio: base (cargas + checks sin Whisper)
+	auditPerAudioS: 0.3, // audit-audio: Whisper sobre el máster; coherente con QA total MW (19 min)
 };
 
 export function estimateSteps({audioS, frames, chars, scenes, audit}) {
@@ -95,14 +98,14 @@ export function estimateSteps({audioS, frames, chars, scenes, audit}) {
 		captions: Math.round(voAudioS * RATES.captionsPerAudioS + 30),
 		align: Math.round(voAudioS * RATES.alignPerAudioS + 10),
 		timeline: 10,
-		music: RATES.musicFixedS,
-		mix: RATES.mixFixedS,
+		music: Math.round(RATES.musicFixedS + voAudioS * RATES.musicPerAudioS),
+		mix: Math.round(RATES.mixFixedS + voAudioS * RATES.mixPerAudioS),
 		preflight: Math.round((scenes ?? 10) * RATES.preflightPerSceneS),
 		render: Math.round(frames * RATES.renderPerFrameS),
 		master: Math.round(voAudioS * RATES.masterPerAudioS + 30),
 		encode: Math.round(voAudioS * RATES.encodePerAudioS),
 		chapters: 5,
-		qa: Math.round(voAudioS * RATES.qaPerAudioS + 120 + (audit ? RATES.auditFixedS : 0)),
+		qa: Math.round(voAudioS * RATES.qaPerAudioS + 120 + (audit ? RATES.auditFixedS + voAudioS * RATES.auditPerAudioS : 0)),
 	};
 	return est;
 }
@@ -298,6 +301,20 @@ function voDuration() {
 	return Number(cfg.voice?.seconds ?? 0);
 }
 
+// Duración del VIDEO (totalFrames/fps de la timeline, con la cola de
+// la pantalla final). La cama y la mezcla deben cubrir el video entero,
+// no solo la voz: con la duración de la VO, los últimos 3 s (pantalla
+// final) quedaban en silencio digital y la auditoría (g) los marcaba
+// como defecto. Sin timeline todavía (p. ej. --from music en un
+// proyecto nuevo), se usa la duración de la VO.
+function videoSeconds() {
+	try {
+		const tl = JSON.parse(readFileSync(P(timelineJson), 'utf8'));
+		if (tl.totalFrames && data.fps) return tl.totalFrames / Number(data.fps);
+	} catch { /* sin timeline: fallback a la VO */ }
+	return voDuration();
+}
+
 // Caracteres del guion de VO (para estimar antes de sintetizar).
 function voChars() {
 	try {
@@ -348,7 +365,7 @@ if (estimateOnly || dryRun) {
 		console.log(`  ${n.padEnd(10)} ${formatDuration(estimates[n] ?? 0)}`);
 	}
 	console.log(`  TOTAL: ${formatDuration(total)}`);
-	console.log('Tasas medidas: docs/SPEED-2026-11-19.md (VO RTF 1,6; render 0,08 s/f a 900 f; QA 0,18x; encodes 0,66x).');
+	console.log('Tasas medidas: docs/SPEED-2026-11-19.md + docs/LONGFORM-V2-2026-11-21.md §5 (VO RTF 1,6; render 0,08 s/f a 900 f; máster 0,66x; QA 0,34x + auditoría 0,3x; encodes 0,66x).');
 	if (estimateOnly) process.exit(0);
 	console.log('(dry-run: no se ejecuta nada)\n');
 }
@@ -419,8 +436,8 @@ step('music', [musicBed], () => {
 	if (!beds.length) throw Error('pipeline.json: music.beds vacío (elige camas de la biblioteca o importa una con scripts/audio/bed-import.py)');
 	const args = [path.join(ROOT, 'scripts/audio/bed-loop.py')];
 	for (const b of beds) args.push('--bed', String(b));
-	const seconds = voDuration();
-	if (!seconds) throw Error('no se pudo medir la duración de la VO para la cama musical');
+	const seconds = videoSeconds();
+	if (!seconds) throw Error('no se pudo medir la duración del video para la cama musical');
 	args.push('--seconds', String(seconds),
 		'--xfade', String(cfg.music?.xfade ?? 3.0),
 		'--target-lufs', String(cfg.music?.targetLufs ?? -16),
@@ -431,8 +448,8 @@ step('music', [musicBed], () => {
 
 step('mix', [mixWav], () => {
 	const m = cfg.mix ?? {};
-	const seconds = voDuration();
-	if (!seconds) throw Error('no se pudo medir la duración de la VO para la mezcla');
+	const seconds = videoSeconds();
+	if (!seconds) throw Error('no se pudo medir la duración del video para la mezcla');
 	const args = [path.join(ROOT, 'scripts/audio/mix.py'),
 		'--voice', P(voFull), '--music', P(musicBed),
 		'--seconds', String(seconds), '--out', P(mixWav),
@@ -543,8 +560,13 @@ step('encode', [`out/${projectId}-720p.mp4`, `out/${projectId}-360p.mp4`], (heav
 		'--master', P(masterMp4),
 		'--preset', String(e.preset ?? 'medium'),
 		'--crf720', String(e.crf720 ?? 21),
-		'--crf360', String(e.crf360 ?? 24)];
-	if (force) args.push('--force');
+		'--crf360', String(e.crf360 ?? 24),
+		// El paso solo corre cuando los artefactos faltan o están
+		// rancios (frescura contra el máster); encode-delivery
+		// salta si los archivos existen, así que sin --force un
+		// máster nuevo dejaría encodes viejos. La frescura del
+		// pipeline es el mecanismo de salto, no el de la herramienta.
+		'--force'];
 	run(process.execPath, args, 'encode-delivery', home, heavy);
 }, {inputs: [masterMp4], heavy: true});
 
@@ -569,9 +591,14 @@ step('qa', ['reports/technical-qa-master.json', 'reports/technical-qa-360p.json'
 		'--trailing-silence-max', trailingMax,
 		'--report', 'technical-qa-360p.json'], 'qa-media 360p', home, heavy);
 	if (cfg.qa?.audit) {
-		const seconds = voDuration();
+		const seconds = videoSeconds();
 		const args = [path.join(ROOT, 'scripts/audio/audit-audio.py'),
-			'--project', projectId, '--tag', String(cfg.qa.tag ?? 'v1'),
+			// audit-audio.py espera --project como RUTA del proyecto
+			// (p. ej. projects/marti-fidel), no el id: con el id y
+			// cwd=proyecto escribía en longform-smoke/reports/ (ruta
+			// duplicada). Ruta absoluta + --out-dir explícito.
+			'--project', home, '--tag', String(cfg.qa.tag ?? 'v1'),
+			'--out-dir', P('reports'),
 			'--master', P(masterMp4), '--mix', P(mixWav),
 			'--voice-edited', P(voFull), '--captions', P(captionsJson),
 			'--vo-lines', P(voLines), '--seconds', String(seconds),

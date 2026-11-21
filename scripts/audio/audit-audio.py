@@ -1265,6 +1265,17 @@ def check_e_silences(rep: Report, edited_vo, sr: int, plan: dict,
                                  segs[0]["edited_start"], "entre-líneas"))
             for gs, ge in ln.get("merged_gaps", []):
                 designed.append((gs, ge, "fusión"))
+    else:
+        # Sin plan de edición (p. ej. video largo TTS): los huecos
+        # entre líneas de VO son las pausas diseñadas (pause_after
+        # del guion). Las pausas DENTRO de una línea son prosodia de
+        # esa línea: se sintetizó (o grabó) de una pieza, sin cortes
+        # dentro de la línea, así que no se pueden adjudicar como
+        # defecto sin plan — se informan, no se fallan (ver abajo).
+        for i in range(len(vo_lines) - 1):
+            s0, e0 = vo_lines[i].get("end"), vo_lines[i + 1].get("start")
+            if s0 is not None and e0 is not None and e0 > s0:
+                designed.append((s0, e0, "entre-líneas"))
     n_unexp = 0
     total_dur = len(edited_vo) / sr
     for s, e, d in sil:
@@ -1301,6 +1312,16 @@ def check_e_silences(rep: Report, edited_vo, sr: int, plan: dict,
             tag = "dramática" if dramatic else "diseñada"
             rep.add("e", "INFO",
                     f"pausa {d:.2f}s @ {s:.2f}-{e:.2f}s ({tag}, {hit})",
+                    t=s)
+        elif plan is None and any(
+                (dl.get("start") is not None and dl.get("start") <= s
+                 and s <= dl["end"]) for dl in vo_lines):
+            # Sin plan: la pausa cae DENTRO de una línea (prosodia de
+            # la síntesis/locución, p. ej. tras dos puntos o en una
+            # frontera de cláusula). No hay corte que adjudicar.
+            rep.add("e", "INFO",
+                    f"pausa {d:.2f}s @ {s:.2f}-{e:.2f}s (prosódica "
+                    f"intra-línea, sin plan de edición)",
                     t=s)
         else:
             n_unexp += 1
