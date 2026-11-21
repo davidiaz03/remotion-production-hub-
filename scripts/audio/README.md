@@ -36,7 +36,10 @@ sobre el ritmo, antes de fijar la escaleta.
 | `gen-vo-kokoro.py` | **VO de previsualización recomendada (Fase B, R6):** Kokoro-82M (Apache-2.0), voces ES `em_alex` (defecto), `em_santa`, `ef_dora`. Misma interfaz que Piper (JSON de guion → WAV 24 kHz + `vo-lines.json`). Determinista (empalmar es seguro). ~0,3x tiempo real en esta VM (~3 min para 48 s de VO). Modelo en `../.hf-cache`; requiere espeak-ng (apt, .deb en `../debs/`). |
 | `beats.py` | **Detección de beats/onsets (Fase B, R16):** aubio 0.4.9 → JSON con BPM, beats y onsets en segundos y en fotogramas (`--fps 30`). Coloca cortes y transiciones sobre el ritmo de la música. Ojo: recorta los beats fantasma de los WAV de Flow (la carátula mjpeg confunde a aubio, +5 s). |
 | `transcribe-vo.py` | Alinea faster-whisper word_timestamps con el guion → `captions.ts` (formato CapSegment) y, con `--out-json`, HubCaption[] para `shared/captions`. |
-| `audit-audio.py` | **Auditoría completa de audio (17-nov-2026, V1.5 marti-fidel):** guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes con clasificación por armonicidad, empalmes, palabras exprimidas), artefactos de time-stretch, mapa de silencios, música y ducking (suelo RMS, crossfade, recuperación, bombeo), máster (loudness/TP, alineación karaoke/onsets acústicos), espectrogramas, microcortes de voz (sección (i), 18-nov-2026) y agujeros en el máster (check (g), 20-nov-2026, V4.1). Informe JSON + Markdown. **OBLIGATORIO antes de entregar cualquier reel: ningún reel se entrega sin pasar este módulo.** |
+| `audit-audio.py` | **Auditoría completa de audio (17-nov-2026, V1.6 hub-speed-v5):** guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes con clasificación por armonicidad, empalmes, palabras exprimidas), artefactos de time-stretch, mapa de silencios, música y ducking (suelo RMS, crossfade, recuperación, bombeo), máster (loudness/TP, alineación karaoke/onsets acústicos), espectrogramas, microcortes de voz (sección (i), 18-nov-2026) y agujeros en el máster (check (g), 20-nov-2026, V4.1). V1.6: mapa karaoke (`--karaoke-map`: distingue líneas en tarjeta/manuscrita), pausas con umbrales relativos al pico de línea (c) §4, suelo de audibilidad en empalmes (c) §2 y onsets por envolvente (g). Informe JSON + Markdown. **OBLIGATORIO antes de entregar cualquier reel: ningún reel se entrega sin pasar este módulo.** |
+| `envelope.py` | **Onsets por envolvente (hub-speed-v5, 21-nov-2026):** envolvente RMS vectorizada (rejilla absoluta 10 ms), `envelope_onset` (umbral −50 dBFS + racha de 2 ventanas: el método vindicado en la adjudicación V5), `rise_onset` (máxima subida, solo como contraste) y `line_peak_db` (p95 por línea, base de los umbrales relativos de (c) §4). Compartido por `align-captions.py` y `audit-audio.py`. |
+| `align-captions.py` | **Re-temporización de captions desde onsets acústicos (hub-speed-v5, 21-nov-2026):** corrige los inicios de palabra tras silencio (Whisper los adelanta ~0,2 s de mediana, hasta 0,56 s) moviendo solo `s`/`startMs` (+ el `start` del chunk en TS). Entrada JSON o TS de Remotion; `--verify` falla si algún desvío supera 0,15 s. Ver § «Alineación acústica de captions». |
+| `test_align_audit.py` | Suite de `align-captions.py` + `envelope.py` + auditoría V1.6 (24 tests): onsets sintéticos (blip rechazado, palabra quieta, rise vs first), alineación JSON/TS, mapa karaoke (hueco en tarjeta = INFO, en karaoke = FAIL), pausas relativas (ganancia +12 dB, respiro fuerte que no puentea) y suelo de empalme + 5 de integración V5 (los 9 desvíos, (b)/(g) con el mapa y con captions re-temporizados; se saltan sin los audios V5). |
 | `microcut.py` | **Detector de microcortes de voz a nivel de forma de onda (18-nov-2026, sección (i) de la auditoría):** calidad de empalme, dips dentro de palabras (editada vs original), pausas recortadas, contigüidad de segmentos y SFX que entierran ataques de palabra. CLI propia + `detect_all()` para tests y auditoría. (i2) corregida 20-nov-2026 (V4.1): la mediana del original se toma sobre el tramo de la palabra, no sobre la ventana con márgenes. |
 | `vo_build.py` | **Construcción de VO sin microcortes (18-nov-2026):** sustituye el patrón `edit_line` + `fade_edges` (fundido de salida + fundido de entrada, que deja un hueco de ~10 ms a −85 dBFS) por crossfades de igual potencia, cortes ajustados a cruces por cero, validación contra los timestamps de Whisper (nunca recortar dentro de una palabra, margen 30 ms) y suelo de pausa (regla 18-nov: ≥0,25 s y ≤50% de pérdida). |
 | `test_microcut.py` | Suite de `microcut.py` + `vo_build.py` (29 tests): microcortes sintéticos inyectados (huecos de 5/10/20/30/50 ms, empalme brusco, pausa exprimida, segmento mal mapeado, SFX sobre onset) + casos reales V2.2/V2.3/baseline (se saltan si faltan los audios, que son salidas de build no versionadas; los edit-plan y predicciones están vendorizados en `tests/fixtures/`) + regresión V4.1 de (i4) sobre el audio real. |
@@ -98,6 +101,99 @@ Lecciones codificadas (verificadas 17-nov-2026, reel marti-fidel):
   de la música (V2.3 @ 9,25 s: mezcla −38,2 dBFS con la cama a
   −45,2 dBFS), no un hueco de mezcla: INFO, no FAIL. FAIL solo si
   la cama está sobre el suelo y la mezcla cae.
+- **Mapa karaoke (21-nov-2026, V1.6, checks (b)/(g)):** la auditoría
+  analiza el archivo de captions, no lo que se renderiza: en V5
+  marcaba 6 FAIL espurios en líneas que van en tarjeta (L3/L5/L7),
+  manuscrita (L9) o en ventanas de karaoke apagado (L4 desde
+  «WASHINGTON» 15,71 s, L8 47,52–49,22 s). El mapa
+  (`--karaoke-map research/karaoke-map.json`, o
+  `research/karaoke-map-v5.json` para marti-fidel V5) le dice qué
+  se renderiza como karaoke: los huecos y desvíos en líneas sin
+  karaoke son INFO. Sin mapa, se supone que TODO es karaoke
+  (comportamiento histórico). El mapa se escribe a mano desde la
+  composición (VideoV5.tsx ~l.382: comentario de ventanas A–E2).
+- **Pausas con umbrales relativos (21-nov-2026, V1.6, check (c)
+  §4):** la ganancia por línea sesgaba la medida absoluta de
+  pausas (L6 original 7,7 dB más quieta que la editada: la pausa
+  MARTÍ,→ES medía 0,50 s en el original y 0,42 s en la editada
+  con −40 dB fijos). Ahora `voiced_span` usa umbrales relativos
+  al pico (p95) de cada línea en cada audio: thresh = pico−32 dB,
+  loud = max(pico−12 dB, −28 dBFS). El suelo absoluto −28 dB en la
+  rama loud es imprescindible: sin él, un respiro fuerte (−28,1
+  dB, armonicidad 0,11) en el original quieto se rescata como voz
+  y la pausa QUE→HABER (L7) colapsa de 0,46 s a 0 s. Validado en
+  V5: la pausa L9 HISTORIA,→ESTÁ sigue midiendo 0,26 s en
+  original y editada (pérdida 0%) y los 15 pares evaluados no
+  cambian de veredicto.
+- **Suelo de audibilidad en empalmes (21-nov-2026, V1.6, check (c)
+  §2):** en silencio, el baseline de tono de sala es tan bajo que
+  cualquier paso supera el ratio 3×. Un paso < 0,02 (−34 dBFS) es
+  inaudible en la mezcla (la cama está ≥ −32 dBFS RMS por (f) y lo
+  enmascara): INFO, no FAIL (caso V5 @ 5,17 s: paso 0,0098 en una
+  pausa diseñada, (i1) limpio). Los clics reales (≥0,02) siguen
+  siendo FAIL.
+- **La «alineación clean» es coherencia, no sincronía
+  (21-nov-2026, V1.6, check (g)):** compara los captions contra
+  los tiempos de palabra de los que derivan; un 0,000 s ahí no
+  prueba que el karaoke coincida con lo que se oye. La única
+  alineación autoritativa es la acústica (onsets de la VO). El
+  informe la etiqueta como «coherencia captions↔transcripción».
+
+## Alineación acústica de captions (`align-captions.py` + `envelope.py`, hub-speed-v5, 21-nov-2026)
+
+Los tiempos de palabra de Whisper adelantan sistemáticamente los
+bordes tras pausa (mediana firmada −0,21 s; hasta −0,56 s en
+marti-fidel V5): el karaoke muestra la primera palabra de cada
+línea 0,20–0,56 s antes de oírse. `align-captions.py` corrige los
+inicios desde los onsets acústicos reales de la VO antes de
+renderizar.
+
+```bash
+.venv/bin/python scripts/audio/align-captions.py \
+  --voice projects/marti-fidel/public/audio/v41/vo-real-v41.wav \
+  --captions projects/marti-fidel/public/audio/v41/captions-v41.json \
+  --out /tmp/captions-v51.json --report /tmp/align-v51.json --verify
+# También acepta el TS de Remotion (captions-v41.ts -> captions-v51.ts).
+# Solo mueve inicios (s/startMs) y el start del chunk en TS; los fines,
+# los slots de segmento y los kw quedan intactos. --verify falla (código
+# 2) si algún desvío supera 0,15 s tras corregir.
+```
+
+Método (mismo que el auditor V5 usó para demostrar el adelanto):
+envolvente RMS en ventanas de 10 ms; solo palabras TRAS SILENCIO
+(≤ −50 dBFS en los 0,15 s previos, mismo criterio que el check (g)):
+en medio de habla continua no hay onset definible por energía y los
+tiempos de Whisper ahí no tienen el sesgo post-pausa. Solo se corrige
+si |desvío| > 0,05 s (por debajo es ruido de rejilla), acotado a
+[anterior + 0,05 s, fin propio − 0,05 s] para no romper la monotonía.
+
+Verificado en marti-fidel V5: 11 palabras corregidas (las 9 del
+hallazgo V5 — MARTÍ −0,25; ES −0,42; UN −0,56; WASHINGTON −0,23; YA
+−0,20; EL −0,22; EN −0,29; CUANDO −0,49; ¡QUE −0,48 s — más NO
+−0,13 y MUCHOS −0,13, bajo el umbral FAIL pero con el mismo sesgo);
+desvío máximo 0,56 → 0,049 s; sobre el umbral 9 → 0. Los 9 desvíos
+quedan en 0,000 s medidos contra los onsets acústicos.
+
+**Por qué el detector es umbral −50 dBFS y no otra cosa**
+(medido en la VO v41, no asumido): el backlog V4 pedía
+«envolvente/correlación en vez de umbral crudo», pero la V5
+demostró que el umbral NO era el problema (los onsets son bruscos
+y reales). Las alternativas se probaron y se rechazaron:
+- Umbral relativo al suelo local (mediana previa + 5 dB): dispara
+  en falso por la deriva del tono de sala (MARTÍ 5,60 en vez de
+  5,90; UN 12,76 en vez de 13,37). El tono de sala fluctúa ±7 dB
+  entre segmentos y el onset de «EL» es de solo +8 dB: no hay
+  margen que separe deriva de onset.
+- Puerta de armonicidad (RMS > −55 dB y harm > 0,4): el tono de
+  sala de esta grabación ES armónico (0,45–0,53 en silencio puro)
+  y dispara en falso (MARTÍ 5,72; ¡QUE 64,02); además PIERDE «UN»
+  entero.
+- Máxima subida de envolvente (`rise_onset`, correlación con un
+  escalón): encuentra el ataque MÁS FUERTE, no el primero («EL»
+  → 26,23 s, el ataque de «GIGANTE», en vez de 25,91 s).
+`envelope_onset` (umbral −50 dBFS + racha de 2 ventanas) coincide
+al milisegundo con `acoustic_span(-50)` en los 17 captions tras
+silencio de V5.
 
 ## Microcortes de voz (`microcut.py` + `vo_build.py`, 18-nov-2026)
 
