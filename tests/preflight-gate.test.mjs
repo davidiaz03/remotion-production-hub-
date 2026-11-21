@@ -33,6 +33,7 @@ function fixture() {
 	mkdirSync(path.join(home, 'src'), {recursive: true});
 	mkdirSync(path.join(home, 'public'), {recursive: true});
 	mkdirSync(path.join(home, 'out'), {recursive: true});
+	mkdirSync(path.join(home, 'shared'), {recursive: true});
 	writeFileSync(path.join(home, 'src', 'Video.tsx'), 'export {};\n');
 	writeFileSync(
 		path.join(home, 'src', 'captions-v1.ts'),
@@ -44,12 +45,14 @@ function fixture() {
 	);
 	writeFileSync(path.join(home, 'public', 'img.png'), 'fake-png');
 	writeFileSync(path.join(home, 'public', 'vo.wav'), 'fake-wav');
+	writeFileSync(path.join(home, 'shared', 'lib.ts'), 'export {};');
 	for (const f of [
 		'src/Video.tsx',
 		'src/captions-v1.ts',
 		'project.json',
 		'public/img.png',
 		'public/vo.wav',
+		'shared/lib.ts',
 	]) {
 		utimesSync(path.join(home, f), T_LAYOUT, T_LAYOUT);
 	}
@@ -80,6 +83,9 @@ const gateArgs = (home, over = {}) => ({
 	home,
 	projectId: 'gate-proj',
 	compositionId: 'MainReel',
+	// shared/ del fixture (mtimes controladas): sin esto, la puerta
+	// leería el shared/ real del repo y los tests no serían herméticos.
+	sharedDir: path.join(home, 'shared'),
 	...over,
 });
 
@@ -211,7 +217,9 @@ test('puerta: newestLayoutInput ignora captions y audios', () => {
 		const after = new Date(T_FRESH.getTime() + 60_000);
 		utimesSync(path.join(home, 'src', 'captions-v1.ts'), after, after);
 		utimesSync(path.join(home, 'public', 'vo.wav'), after, after);
-		const newest = newestLayoutInput(home);
+		const newest = newestLayoutInput(home, {
+			sharedDir: path.join(home, 'shared'),
+		});
 		assert.ok(newest);
 		// La entrada más reciente sigue siendo de T_LAYOUT (o shared/,
 		// más viejo aún): ni captions ni audio cuentan.

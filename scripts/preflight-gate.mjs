@@ -91,13 +91,16 @@ function walkNewest(dir, {skipFile = null} = {}) {
  * La entrada de layout más reciente del proyecto (o null si no hay
  * ninguna legible). Devuelve {file, mtimeMs}.
  */
-export function newestLayoutInput(home) {
+export function newestLayoutInput(
+	home,
+	{sharedDir = path.join(ROOT, 'shared')} = {},
+) {
 	const candidates = [];
 	const src = walkNewest(path.join(home, 'src'), {
 		skipFile: (_p, name) => CAPTIONS_FILE_RE.test(name),
 	});
 	if (src) candidates.push(src);
-	const shared = walkNewest(path.join(ROOT, 'shared'));
+	const shared = walkNewest(sharedDir);
 	if (shared) candidates.push(shared);
 	for (const f of ['project.json', 'preflight-scenes.json']) {
 		const p = path.join(home, f);
@@ -145,7 +148,12 @@ export function checkPreflightGate({
 	projectId,
 	compositionId,
 	reportPath,
+	sharedDir,
 }) {
+	// sharedDir inyectable para tests: sin él, la frescura dependería
+	// de las mtimes reales de shared/ y los tests dejarían de ser
+	// herméticos (fallaban al editar shared/ después de T_LAYOUT).
+	const sharedOpts = sharedDir ? {sharedDir} : {};
 	const report = reportPath ?? defaultReportPath(home);
 	if (!existsSync(report)) {
 		return {
@@ -154,7 +162,7 @@ export function checkPreflightGate({
 			detail: `sin informe de pre-vuelo en ${path.relative(process.cwd(), report) || report} (corre visual-preflight.py --stills --out ${DEFAULT_REPORT})`,
 			report: null,
 			reportTimeMs: null,
-			newestInput: newestLayoutInput(home),
+			newestInput: newestLayoutInput(home, sharedOpts),
 		};
 	}
 	let parsed;
@@ -167,7 +175,7 @@ export function checkPreflightGate({
 			detail: `informe de pre-vuelo ilegible (${report}): ${e.message}`,
 			report: null,
 			reportTimeMs: null,
-			newestInput: newestLayoutInput(home),
+			newestInput: newestLayoutInput(home, sharedOpts),
 		};
 	}
 	if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.results)) {
@@ -177,7 +185,7 @@ export function checkPreflightGate({
 			detail: `informe de pre-vuelo sin la forma esperada (${report}): falta results[]`,
 			report: parsed,
 			reportTimeMs: null,
-			newestInput: newestLayoutInput(home),
+			newestInput: newestLayoutInput(home, sharedOpts),
 		};
 	}
 	if (parsed.project && parsed.project !== projectId) {
@@ -187,7 +195,7 @@ export function checkPreflightGate({
 			detail: `el informe es del proyecto '${parsed.project}', no de '${projectId}'`,
 			report: parsed,
 			reportTimeMs: null,
-			newestInput: newestLayoutInput(home),
+			newestInput: newestLayoutInput(home, sharedOpts),
 		};
 	}
 	if (
@@ -201,7 +209,7 @@ export function checkPreflightGate({
 			detail: `el informe es de la composición '${parsed.composition}', no de '${compositionId}'`,
 			report: parsed,
 			reportTimeMs: null,
-			newestInput: newestLayoutInput(home),
+			newestInput: newestLayoutInput(home, sharedOpts),
 		};
 	}
 	if (hasBlockingFlag(parsed)) {
@@ -212,7 +220,7 @@ export function checkPreflightGate({
 			detail: `el pre-vuelo tiene ${n} fotograma(s) BLOQUEANTE(S): corrige el layout y repite el pre-vuelo`,
 			report: parsed,
 			reportTimeMs: null,
-			newestInput: newestLayoutInput(home),
+			newestInput: newestLayoutInput(home, sharedOpts),
 		};
 	}
 	// Frescura: generatedAt (si es válido) manda sobre la mtime del
@@ -222,7 +230,7 @@ export function checkPreflightGate({
 		const t = Date.parse(parsed.generatedAt);
 		if (!Number.isNaN(t)) reportTimeMs = t;
 	}
-	const newest = newestLayoutInput(home);
+	const newest = newestLayoutInput(home, sharedOpts);
 	if (newest && reportTimeMs <= newest.mtimeMs) {
 		return {
 			ok: false,

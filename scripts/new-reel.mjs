@@ -544,7 +544,7 @@ layout y repetir el pre-vuelo.
 ## 4. Borrador 540p (revisión creativa)
 
 \`\`\`bash
-flock /tmp/noche-ecosistemas-heavy.lock -c 'source scripts/render-lock.sh && render_lock_acquire && node scripts/render-chunks.mjs ${slug} --draft --resume; render_lock_release'
+flock /tmp/noche-ecosistemas-heavy.lock -c '. scripts/render-lock.sh && render_lock_acquire && node scripts/render-chunks.mjs ${slug} --draft --resume; render_lock_release'
 \`\`\`
 
 ## 5. Probar ganchos (opcional)
@@ -561,7 +561,7 @@ node scripts/hook-test.mjs ${slug} --seconds 3
 Render vídeo-solo (la mezcla se hace en el máster, no en los tramos):
 
 \`\`\`bash
-flock /tmp/noche-ecosistemas-heavy.lock -c 'source scripts/render-lock.sh && render_lock_acquire && node scripts/render-chunks.mjs ${slug} --video-only --resume; render_lock_release'
+flock /tmp/noche-ecosistemas-heavy.lock -c '. scripts/render-lock.sh && render_lock_acquire && node scripts/render-chunks.mjs ${slug} --video-only --resume; render_lock_release'
 \`\`\`
 
 Mezcla: VO + cama (la cama, escaneada con \`scan-bed.py\` y con
