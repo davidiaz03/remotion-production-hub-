@@ -24,9 +24,11 @@
     color: #E8E8E8; display: flex; justify-content: space-between;
     align-items: baseline; }
   .bar-label b { font-weight: 800; font-size: 60px; color: var(--white); }
-  .bar-track { height: 40px; background: #2A2A2A; margin-top: 12px; }
+  .bar-track { height: 48px; background: #2A2A2A; margin-top: 12px; }
   .bar-fill { height: 100%; background: var(--gray); }
   .bar-fill.hot { background: var(--red); }
+  /* v4: la cifra de la fila destacada va en rojo, atada a su barra. */
+  .bar-row.hot .bar-label b { color: var(--red); }
   /* La lámina con gráfico se centra verticalmente: el gráfico es la
      protagonista y el bloque no debe quedar colgando arriba con un
      vacío negro debajo. */
@@ -170,7 +172,7 @@
   <div class="body-wrap">
     <div class="headline">{{hl:headline}}</div>
     {{#if bars}}<div class="bars">
-      {{#each bars}}<div class="bar-row"><div class="bar-label"><span>{{label}}</span><b>{{value}}</b></div><div class="bar-track"><div class="bar-fill{{#if highlight}} hot{{/if}}" style="width: {{pct}}%"></div></div></div>{{/each}}
+      {{#each bars}}<div class="bar-row{{#if highlight}} hot{{/if}}"><div class="bar-label"><span>{{label}}</span><b>{{value}}</b></div><div class="bar-track"><div class="bar-fill{{#if highlight}} hot{{/if}}" style="width: {{pct}}%"></div></div></div>{{/each}}
     </div>{{/if}}
     {{#if body}}<div class="body">{{body}}</div>{{/if}}
     {{#if items}}<div class="items">

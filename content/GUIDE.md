@@ -65,6 +65,42 @@ en las 5 plantillas (rama `work/content-hub-v3-2026-11-21`):
   la variante 4:5 hereda los valores cuadrados — la suite lo comprueba
   (test «selectores 4:5 compuestos»).
 
+## v4 — imagen integrada y pulido de redacción (21-nov-2026)
+
+El usuario vio la v3 («Mejora, no publiques es probar el ecosistema»):
+va por buen camino, sigue iterando en fase de pruebas. La v4 empuja la
+calidad hacia tarjetas de redacción profesional (rama
+`work/content-hub-v4-2026-11-21`):
+
+- **Timeline**: los 4 hechos llevan foto (1974 Embajada de Cuba en Lima
+  y 1980 exterior de la sede ONU, ambas de Commons con licencia
+  verificada). Miniatura de 300×180 (v3: 260×150), centrada
+  verticalmente en su hecho, con marco fino y filete rojo al pie.
+  Tipografía reequilibrada (año 54, título 34, texto 25 px) para que
+  cada texto quepa en 3 líneas a 545 px; los textos largos hay que
+  recortarlos en `data.json`, no forzar el CSS. Nuevo `image_fit:
+  "contain"` por hecho: la foto entera sin recortar los laterales
+  (para fotos muy apaisadas cuyo contenido está en los bordes, p. ej.
+  los tableros de la votación ONU); las bandas negras se funden con el
+  fondo. Nuevo `image_position` por hecho.
+- **Stat**: nuevo `veil: "vignette"` (el plano 0.82 sigue siendo el
+  valor por defecto): la foto respira en los bordes y el centro queda
+  oscuro para la cifra y el texto — degradado lineal reforzado arriba
+  (kicker) y abajo (pie) + viñeta radial centrada. La tarjeta 73 lo
+  usa: el mar de Barbados por fin se ve sin que el 73 pierda
+  protagonismo.
+- **Carrusel (barras)**: la cifra de la fila destacada va en rojo
+  (`.bar-row.hot .bar-label b`), atada visualmente a su barra; barras
+  de 48 px (v3: 40 px).
+- **Breaking (dato, no plantilla)**: la fuente de la tarjeta Browne ya
+  no repite la fecha (está en la banda roja): se cortaba «9-nov-2026»
+  al final de línea.
+- **Criterio de foto de época**: la foto de la embajada es la sede
+  actual (Choquehuanca 137), no la de 1974 — la pieza no afirma que la
+  foto sea de 1974, igual que el mar de Barbados 2025 ilustra 1976.
+  Documentado en el `ASSETS.md` de la pieza, con la alternativa
+  verificada (antigua sede, sin letrero reconocible).
+
 ## Reglas de imágenes (importantes)
 
 1. **Real primero**: si existe la foto real del hecho, se usa esa. Las

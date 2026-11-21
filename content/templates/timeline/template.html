@@ -5,34 +5,42 @@
 <link rel="stylesheet" href="assets/base.css">
 <style>
   .page { background: var(--black); color: var(--white); }
-  .head { position: absolute; top: 64px; left: 72px; right: 72px; }
+  .head { position: absolute; top: 56px; left: 72px; right: 72px; }
   .kicker { font-size: 28px; }
-  .title { margin-top: 18px; font-family: var(--font-display); font-weight: 800;
-    text-transform: uppercase; font-size: 84px; line-height: 0.98; }
-  .subtitle { margin-top: 18px; font-size: 31px; line-height: 1.4; color: #C9C9C9; }
-  .events { position: absolute; left: 72px; right: 72px; top: 310px; bottom: 195px;
+  .title { margin-top: 16px; font-family: var(--font-display); font-weight: 800;
+    text-transform: uppercase; font-size: 80px; line-height: 0.98; }
+  .subtitle { margin-top: 16px; font-size: 29px; line-height: 1.4; color: #C9C9C9; }
+  .events { position: absolute; left: 72px; right: 72px; top: 290px; bottom: 178px;
     display: flex; flex-direction: column; justify-content: space-evenly; }
   /* La línea vertical une los hechos; los puntos rojos marcan cada año. */
   .events::before { content: ''; position: absolute; left: 11px; top: 24px; bottom: 24px;
     width: 4px; background: #2A2A2A; }
   .event { position: relative; padding-left: 64px; }
-  .event .dot { position: absolute; left: 0; top: 22px; width: 26px; height: 26px;
+  .event .dot { position: absolute; left: 0; top: 20px; width: 26px; height: 26px;
     border-radius: 50%; background: var(--red); }
   .event .year { font-family: var(--font-display); font-weight: 800; color: var(--red);
-    font-size: 62px; line-height: 1; }
+    font-size: 54px; line-height: 1; }
   .event .event-title { margin-top: 6px; font-family: var(--font-display);
-    font-weight: 700; text-transform: uppercase; font-size: 38px; line-height: 1.05; }
-  .event .event-text { margin-top: 6px; font-size: 28px; line-height: 1.4; color: #C9C9C9; }
-  /* Miniatura por hecho (v3, opcional): foto a la derecha del texto, con
-     marco fino. Los hechos sin image conservan el marcador rojo (el punto).
-     El texto se estrecha cuando hay miniatura. */
+    font-weight: 700; text-transform: uppercase; font-size: 34px; line-height: 1.05; }
+  .event .event-text { margin-top: 6px; font-size: 25px; line-height: 1.35; color: #C9C9C9; }
+  /* Miniatura por hecho (v3; v4: más grande y centrada): foto a la derecha
+     del texto, 300×180, con marco fino y filete rojo al pie de la imagen.
+     Los hechos sin image conservan el marcador rojo (el punto) y el texto
+     a ancho completo. El texto se estrecha cuando hay miniatura (545 px);
+     a ese ancho cada texto debe caber en 3 líneas (~115 caracteres). */
   .event.has-thumb .event-title,
-  .event.has-thumb .event-text { max-width: 580px; }
-  .event .thumb { position: absolute; right: 0; top: 6px; width: 260px;
-    height: 150px; overflow: hidden; border: 1px solid #2A2A2A; }
+  .event.has-thumb .event-text { max-width: 545px; }
+  .event .thumb { position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    width: 300px; height: 180px; overflow: hidden; border: 1px solid #2A2A2A;
+    box-shadow: inset 0 -4px 0 var(--red); }
   .event .thumb img { width: 100%; height: 100%; object-fit: cover;
     object-position: 50% 50%; display: block; }
-  .footer { position: absolute; left: 72px; right: 72px; bottom: 0; height: 170px;
+  /* image_fit: "contain" (v4): la foto entera dentro del marco, sin
+     recortar los laterales (para fotos muy apaisadas cuyo contenido
+     está en los bordes, p. ej. los tableros de la votación ONU). Las
+     bandas negras se funden con el fondo de la plantilla. */
+  .event .thumb img.fit-contain { object-fit: contain; }
+  .footer { position: absolute; left: 72px; right: 72px; bottom: 0; height: 160px;
     border-top: 1px solid #2A2A2A; display: flex; align-items: center; }
   .footer .brand-logo { height: 120px; width: auto; }
   .footer .source { margin-left: auto; text-align: right; font-size: 23px;
@@ -52,7 +60,7 @@
       <div class="year">{{year}}</div>
       <div class="event-title">{{title}}</div>
       <div class="event-text">{{text}}</div>
-      {{#if image}}<div class="thumb"><img src="{{image}}" alt=""></div>{{/if}}
+      {{#if image}}<div class="thumb"><img src="{{image}}"{{#if image_fit}} class="fit-{{image_fit}}"{{/if}}{{#if image_position}} style="object-position: {{image_position}}"{{/if}} alt=""></div>{{/if}}
     </div>{{/each}}
   </div>
   <div class="footer">

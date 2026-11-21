@@ -767,3 +767,121 @@ test('galería: índice con las 10 plantillas y aviso si falta el render', async
 		rmSync(dir, { recursive: true, force: true });
 	}
 });
+
+test('stat v4: velo viñeta (veil: "vignette") + plano por defecto', async () => {
+	const dir = mkdtempSync(path.join(tmpdir(), 'content-hub-test-'));
+	try {
+		await execFileAsync('python3', ['-c', `
+from PIL import Image
+im = Image.new('RGB', (800, 800), (30, 90, 140))
+im.save('${path.join(dir, 'foto.png')}')
+`]);
+		const base = { kicker: 'El crimen en una cifra', value: '73', label: 'personas murieron',
+			context: 'El 6 de octubre de 1976, el vuelo CU-455 fue destruido en pleno vuelo.',
+			source: 'Archivo del Memorial', image: 'foto.png' };
+		for (const [name, veil] of [['stat-vignette', 'vignette'], ['stat-flat', undefined]]) {
+			const data = { ...base };
+			if (veil) data.veil = veil;
+			const dataFile = path.join(dir, `${name}.json`);
+			writeFileSync(dataFile, JSON.stringify(data));
+			const outDir = path.join(dir, name);
+			await execFileAsync(process.execPath, [
+				path.join(CONTENT, 'scripts', 'render.mjs'),
+				'--template', 'stat',
+				'--data', dataFile,
+				'--out', outDir, '--name', name,
+			], { cwd: ROOT, timeout: 180000 });
+			const png = path.join(outDir, `${name}.png`);
+			assert.ok(existsSync(png), `falta el PNG de ${name}`);
+			assert.deepEqual(pngSize(png), { width: 1080, height: 1080 }, `${name} con tamaño incorrecto`);
+			const html = readFileSync(path.join(outDir, `${name}.html`), 'utf8');
+			// El CSS de la plantilla viaja en el HTML: comprobar el marcado
+			// (la clase en el div .page), no la mera presencia del nombre.
+			if (veil === 'vignette') {
+				assert.ok(html.includes('veil-vignette">'), 'falta la clase veil-vignette en el .page');
+			} else {
+				assert.ok(!html.includes('veil-vignette">'), 'sin veil no debe aparecer la clase viñeta');
+				assert.ok(html.includes('with-photo">'), 'sin veil la tarjeta sigue siendo with-photo');
+			}
+		}
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});
+
+test('timeline v4: 4 miniaturas 300×180 + image_fit contain', async () => {
+	// La miniatura crece de 260×150 (v3) a 300×180 (v4) y admite
+	// image_fit: "contain" para fotos muy apaisadas (tableros ONU).
+	const tpl = readFileSync(path.join(CONTENT, 'templates', 'timeline', 'template.html'), 'utf8');
+	assert.ok(tpl.includes('width: 300px'), 'la miniatura v4 debe medir 300 px de ancho');
+	assert.ok(tpl.includes('height: 180px'), 'la miniatura v4 debe medir 180 px de alto');
+	assert.ok(tpl.includes('fit-contain'), 'falta la regla fit-contain en la plantilla');
+	const dir = mkdtempSync(path.join(tmpdir(), 'content-hub-test-'));
+	try {
+		await execFileAsync('python3', ['-c', `
+from PIL import Image
+im = Image.new('RGB', (1200, 500), (40, 40, 40))
+im.save('${path.join(dir, 'foto.png')}')
+`]);
+		const data = { title: 'Fechas que *no se olvidan*', subtitle: 'Cuatro fechas.',
+			source: 'Archivo del Memorial',
+			events: [
+				{ year: '1974', title: 'Libro bomba en Lima', text: 'El 4 de febrero estalla un libro bomba en Lima.', image: 'foto.png' },
+				{ year: '1976', title: 'Crimen de Barbados', text: 'El 6 de octubre, el vuelo CU-455 es destruido.', image: 'foto.png' },
+				{ year: '1980', title: 'Asesinado Félix García', text: 'El 11 de septiembre, el diplomático es asesinado.', image: 'foto.png' },
+				{ year: '2026', title: 'La ONU vota', text: 'El 28 de octubre, 130 países apoyan la resolución.', image: 'foto.png', image_fit: 'contain' },
+			] };
+		const dataFile = path.join(dir, 'data.json');
+		writeFileSync(dataFile, JSON.stringify(data));
+		const outDir = path.join(dir, 'out');
+		await execFileAsync(process.execPath, [
+			path.join(CONTENT, 'scripts', 'render.mjs'),
+			'--template', 'timeline',
+			'--data', dataFile,
+			'--out', outDir, '--name', 'timeline-v4',
+		], { cwd: ROOT, timeout: 180000 });
+		const png = path.join(outDir, 'timeline-v4.png');
+		assert.ok(existsSync(png), 'falta el PNG de la línea de tiempo v4');
+		assert.deepEqual(pngSize(png), { width: 1080, height: 1350 }, 'línea de tiempo con tamaño incorrecto');
+		const html = readFileSync(path.join(outDir, 'timeline-v4.html'), 'utf8');
+		assert.equal((html.match(/class="thumb"/g) ?? []).length, 4, 'deben ser exactamente 4 miniaturas');
+		assert.equal((html.match(/class="event has-thumb"/g) ?? []).length, 4, 'los 4 hechos deben llevar foto');
+		assert.ok(html.includes('class="fit-contain"'), 'falta la clase fit-contain en el hecho 2026');
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});
+
+test('carrusel v4: la fila destacada tiñe su cifra de rojo', async () => {
+	const tpl = readFileSync(path.join(CONTENT, 'templates', 'carousel', 'template.html'), 'utf8');
+	assert.ok(tpl.includes('.bar-row.hot .bar-label b'), 'falta la regla que tiñe la cifra destacada');
+	const dir = mkdtempSync(path.join(tmpdir(), 'content-hub-test-'));
+	try {
+		const data = { title: 'Prueba v4', subtitle: 'Barras con cifra destacada.',
+			cta: 'Cierre', format: '4:5',
+			pages: [
+				{},
+				{ kicker: 'El contraste', headline: 'La presión restó *35 apoyos*',
+				  bars: [
+					{ label: '2025', value: '165', pct: 85 },
+					{ label: '2026', value: '130', pct: 67, highlight: true },
+				  ],
+				  body: 'La presión restó 35 apoyos en un año.' },
+				{},
+			] };
+		const dataFile = path.join(dir, 'data.json');
+		writeFileSync(dataFile, JSON.stringify(data));
+		const outDir = path.join(dir, 'out');
+		await execFileAsync(process.execPath, [
+			path.join(CONTENT, 'scripts', 'render.mjs'),
+			'--template', 'carousel',
+			'--data', dataFile,
+			'--out', outDir, '--name', 'carrusel-v4',
+		], { cwd: ROOT, timeout: 300000 });
+		const htmlBars = readFileSync(path.join(outDir, 'carrusel-v4-p02.html'), 'utf8');
+		assert.ok(htmlBars.includes('class="bar-row hot"'), 'la fila destacada debe llevar la clase hot');
+		assert.ok(htmlBars.includes('bar-fill hot'), 'la barra destacada sigue en rojo');
+	} finally {
+		rmSync(dir, { recursive: true, force: true });
+	}
+});
