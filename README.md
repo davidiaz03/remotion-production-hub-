@@ -22,6 +22,19 @@ El usuario puede dar un concepto muy corto y sus archivos. **ChatGPT debe invest
 - [Persistencia y aprobación](docs/PERSISTENCE.md)
 - [Drive, credenciales y entrega](docs/DRIVE.md)
 - [Componentes compartidos](docs/COMPONENTS.md)
+- [Video largo: orquestador, camas, capítulos](docs/LONGFORM-V2-2026-11-21.md)
+
+## Video largo (20–40 min)
+
+Un solo comando orquesta guion → VO → captions → render → máster → QA, reanudable por etapa, con estimación de tiempo:
+
+```bash
+export HUB_HEAVY_LOCK=/tmp/hub-heavy.lock  # opcional: serializa TTS/renders/Whisper con otros trabajos pesados
+node scripts/pipeline.mjs <id> --estimate  # estimar sin ejecutar nada
+node scripts/pipeline.mjs <id>             # corrida completa
+```
+
+Camas desde Flow Music con ventana pre-verificada (`scripts/audio/bed-import.py`), capítulos para YouTube (`scripts/chapters.mjs`) e informe de progreso por etapa (`reports/pipeline-progress.md`). Proyecto de prueba: `projects/longform-smoke/`. Detalles y auditoría: [docs/LONGFORM-V2-2026-11-21.md](docs/LONGFORM-V2-2026-11-21.md).
 
 ## Lo probado al 2026-10-10
 

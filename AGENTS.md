@@ -190,6 +190,32 @@ tapado de f011 (layout relativo entre dos elementos) NO lo detecta
 ningún chequeo por píxeles — la revisión humana de los flags + 1
 fotograma limpio por escena sigue siendo obligatoria.
 
+## Video largo — orquestador v2 (21-nov-2026, longform-v2)
+- Un solo comando: `node scripts/pipeline.mjs <id>` — 13 pasos (vo,
+  merge, captions, align, timeline, music, mix, preflight, render,
+  master, encode, chapters, qa), reanudable por frescura de
+  artefactos; `--estimate` proyecta el tiempo antes de correr y el
+  progreso vive en `reports/pipeline-progress.md`.
+- Pasos pesados serializados con `flock` si `HUB_HEAVY_LOCK` define
+  la ruta del candado; el render además toma el candado único de
+  render (`--lock`). Orden de adquisición siempre flock →
+  render-lock (sin inversión, sin interbloqueo).
+- Render `--video-only` + mezcla en el máster: un cambio de mezcla
+  no re-renderiza vídeo (ver § tramos vídeo-solo).
+- Align acústico ANTES de la timeline: sin él, el karaoke se
+  adelanta a la voz tras las pausas (mediana −0,21 s).
+- Pre-vuelo: si falta `preflight-scenes.json`, el pipeline lo
+  deriva de `src/timeline.json` (las escenas ya traen los límites).
+- Camas Flow: `scripts/audio/bed-import.py --in <pista> --id <id>
+  --duration 60` (ventana limpia Whisper+VAD + verificación con
+  `scan-bed.py`; nunca usar una cama sin escaneo).
+- Capítulos YouTube: `scripts/chapters.mjs <id>` (también paso
+  `chapters` del pipeline; primer capítulo en 0:00, ≥10 s entre
+  capítulos).
+- Proyecto de prueba: `projects/longform-smoke/` (guion original,
+  31 líneas / 3 capítulos, ~2 min). Doc y auditoría:
+  `docs/LONGFORM-V2-2026-11-21.md`.
+
 ## Candado de render: solo el creador lo borra (21-nov-2026, hub-speed-v5)
 El candado compartido /tmp/hub-speed-v5-render.lock protege los
 renders en una caja de 1,5 CPU. REGLA: solo el proceso que creó el
