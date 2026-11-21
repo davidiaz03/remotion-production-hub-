@@ -258,9 +258,26 @@ class TestKaraokeMap(unittest.TestCase):
         self.assertTrue(audit.is_karaoke_caption(9.05, 3, None))
 
     def _gap_case(self):
-        """Dos captions con hueco de 0,5 s CON VOZ encima.
-        Sin mapa es FAIL; con mapa y línea en tarjeta es INFO."""
+        """Dos captions con hueco de 0,5 s CON VOZ encima (voz
+        CONTINUA, sin pausa ni valle: la cola de la palabra anterior
+        llega pegada a la siguiente).
+        Sin mapa es cola/jitter (SPEED 19-nov-2026: 9 de 10 huecos
+        así en MW eran falsos positivos, no defecto); con mapa y
+        línea en tarjeta es INFO."""
         a = np.concatenate([room(int(0.1 * SR)), voiced(1.5),
+                            room(int(0.1 * SR))])
+        caps = [{"text": "A", "startMs": 100, "endMs": 500},
+                {"text": "B", "startMs": 1000, "endMs": 1400}]
+        return a, caps, []
+
+    def _early_start_case(self):
+        """Dos captions con hueco de 0,5 s donde la palabra siguiente
+        empieza 0,30 s ANTES de su caption, con un silencio limpio de
+        por medio (patrón ROBERTSON de MW, el único FAIL real de los
+        10 huecos). Esto SÍ es defecto: el karaoke se apaga en medio
+        de la frase y la palabra suena 0,30 s sin caption."""
+        a = np.concatenate([room(int(0.1 * SR)), voiced(0.4),
+                            room(int(0.2 * SR)), voiced(0.7),
                             room(int(0.1 * SR))])
         caps = [{"text": "A", "startMs": 100, "endMs": 500},
                 {"text": "B", "startMs": 1000, "endMs": 1400}]
@@ -283,7 +300,13 @@ class TestKaraokeMap(unittest.TestCase):
         self.assertEqual(len(infos), 1)
 
     def test_check_b_karaoke_gap_still_fails(self):
-        a, caps, sil = self._gap_case()
+        # Reconciliación longform-v2 (fusión speedup+v5, 21-nov-2026):
+        # el caso original (voz continua en el hueco) ya NO es FAIL
+        # bajo la adjudicación acústica de SPEED (cola pegada, no
+        # defecto atribuible al caption). El FAIL genuino que el mapa
+        # no debe tragarse es el inicio adelantado con silencio limpio
+        # (patrón ROBERTSON); ese caso va aquí.
+        a, caps, sil = self._early_start_case()
         lines = [{"start": 0.1, "end": 1.6}]
         rep = audit.Report("t")
         audit.check_b_caption_timing(rep, caps, a, SR, sil,
@@ -291,6 +314,19 @@ class TestKaraokeMap(unittest.TestCase):
         fails = [f for f in rep.findings if f["sev"] == "FAIL"]
         self.assertEqual(len(fails), 1)
         self.assertIn("CON VOZ ENCIMA", fails[0]["msg"])
+
+    def test_check_b_continuous_voice_gap_is_tail(self):
+        # Voz continua sin valle en el hueco = cola pegada (SPEED
+        # 19-nov-2026): no es defecto atribuible al caption.
+        a, caps, sil = self._gap_case()
+        lines = [{"start": 0.1, "end": 1.6}]
+        rep = audit.Report("t")
+        audit.check_b_caption_timing(rep, caps, a, SR, sil,
+                                     vo_lines=lines, kmap=None)
+        fails = [f for f in rep.findings if f["sev"] == "FAIL"]
+        self.assertEqual(fails, [], rep.findings)
+        self.assertGreaterEqual(
+            rep.metrics.get("b_gaps_tail_or_jitter", 0), 1)
 
 
 # ---------------- (c) §4: pausas relativas ----------------
