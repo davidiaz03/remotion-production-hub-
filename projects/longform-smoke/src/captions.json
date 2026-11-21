@@ -1,0 +1,2120 @@
+[
+ {
+  "text": "CAPÍTULO",
+  "startMs": 0,
+  "endMs": 460,
+  "timestampMs": 0,
+  "confidence": null
+ },
+ {
+  "text": " CERO.",
+  "startMs": 460,
+  "endMs": 1040,
+  "timestampMs": 460,
+  "confidence": null
+ },
+ {
+  "text": " APERTURA.",
+  "startMs": 1040,
+  "endMs": 1520,
+  "timestampMs": 1040,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESTE",
+  "startMs": 2516,
+  "endMs": 2700,
+  "timestampMs": 2516,
+  "confidence": null
+ },
+ {
+  "text": " VIDEO",
+  "startMs": 2700,
+  "endMs": 3080,
+  "timestampMs": 2700,
+  "confidence": null
+ },
+ {
+  "text": " DURA",
+  "startMs": 3080,
+  "endMs": 3380,
+  "timestampMs": 3080,
+  "confidence": null
+ },
+ {
+  "text": " MENOS",
+  "startMs": 3380,
+  "endMs": 3640,
+  "timestampMs": 3380,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 3640,
+  "endMs": 3860,
+  "timestampMs": 3640,
+  "confidence": null
+ },
+ {
+  "text": " TRES",
+  "startMs": 3860,
+  "endMs": 4120,
+  "timestampMs": 3860,
+  "confidence": null
+ },
+ {
+  "text": " MINUTOS,",
+  "startMs": 4120,
+  "endMs": 4520,
+  "timestampMs": 4120,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 4520,
+  "endMs": 4940,
+  "timestampMs": 4520,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 4940,
+  "endMs": 5060,
+  "timestampMs": 4940,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 5060,
+  "endMs": 5200,
+  "timestampMs": 5060,
+  "confidence": null
+ },
+ {
+  "text": " PRUEBA.",
+  "startMs": 5200,
+  "endMs": 5500,
+  "timestampMs": 5200,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UNA",
+  "startMs": 5900,
+  "endMs": 6060,
+  "timestampMs": 5900,
+  "confidence": null
+ },
+ {
+  "text": " PRUEBA",
+  "startMs": 6060,
+  "endMs": 6340,
+  "timestampMs": 6060,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 6340,
+  "endMs": 6580,
+  "timestampMs": 6340,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 6580,
+  "endMs": 6700,
+  "timestampMs": 6580,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 6700,
+  "endMs": 6820,
+  "timestampMs": 6700,
+  "confidence": null
+ },
+ {
+  "text": " VIDEO",
+  "startMs": 6820,
+  "endMs": 7120,
+  "timestampMs": 6820,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LARGO",
+  "startMs": 7120,
+  "endMs": 7500,
+  "timestampMs": 7120,
+  "confidence": null
+ },
+ {
+  "text": " PUEDE",
+  "startMs": 7500,
+  "endMs": 8020,
+  "timestampMs": 7500,
+  "confidence": null
+ },
+ {
+  "text": " CONSTRUIRSE",
+  "startMs": 8020,
+  "endMs": 8760,
+  "timestampMs": 8020,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 8760,
+  "endMs": 9020,
+  "timestampMs": 8760,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 9020,
+  "endMs": 9140,
+  "timestampMs": 9020,
+  "confidence": null
+ },
+ {
+  "text": " SOLO",
+  "startMs": 9140,
+  "endMs": 9420,
+  "timestampMs": 9140,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " COMANDO.",
+  "startMs": 9420,
+  "endMs": 9940,
+  "timestampMs": 9420,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " VOZ,",
+  "startMs": 10259,
+  "endMs": 10460,
+  "timestampMs": 10259,
+  "confidence": null
+ },
+ {
+  "text": " SUBTÍTULOS,",
+  "startMs": 10460,
+  "endMs": 11140,
+  "timestampMs": 10460,
+  "confidence": null
+ },
+ {
+  "text": " MÚSICA,",
+  "startMs": 11380,
+  "endMs": 11720,
+  "timestampMs": 11380,
+  "confidence": null
+ },
+ {
+  "text": " MONTAJE",
+  "startMs": 11920,
+  "endMs": 12280,
+  "timestampMs": 11920,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " Y",
+  "startMs": 12280,
+  "endMs": 12420,
+  "timestampMs": 12280,
+  "confidence": null
+ },
+ {
+  "text": " MÁSTER,",
+  "startMs": 12420,
+  "endMs": 12800,
+  "timestampMs": 12420,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SIN",
+  "startMs": 12800,
+  "endMs": 13160,
+  "timestampMs": 12800,
+  "confidence": null
+ },
+ {
+  "text": " TOCAR",
+  "startMs": 13160,
+  "endMs": 13440,
+  "timestampMs": 13160,
+  "confidence": null
+ },
+ {
+  "text": " NADA",
+  "startMs": 13440,
+  "endMs": 13780,
+  "timestampMs": 13440,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 13780,
+  "endMs": 13920,
+  "timestampMs": 13780,
+  "confidence": null
+ },
+ {
+  "text": " MANO.",
+  "startMs": 13920,
+  "endMs": 14180,
+  "timestampMs": 13920,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SI",
+  "startMs": 14480,
+  "endMs": 14580,
+  "timestampMs": 14480,
+  "confidence": null
+ },
+ {
+  "text": " ESTÁS",
+  "startMs": 14580,
+  "endMs": 14840,
+  "timestampMs": 14580,
+  "confidence": null
+ },
+ {
+  "text": " VIENDO",
+  "startMs": 14840,
+  "endMs": 15120,
+  "timestampMs": 14840,
+  "confidence": null
+ },
+ {
+  "text": " ESTO,",
+  "startMs": 15120,
+  "endMs": 15540,
+  "timestampMs": 15120,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 15860,
+  "endMs": 15960,
+  "timestampMs": 15860,
+  "confidence": null
+ },
+ {
+  "text": " PIPELINE",
+  "startMs": 15960,
+  "endMs": 16420,
+  "timestampMs": 15960,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " FUNCIONÓ.",
+  "startMs": 16420,
+  "endMs": 17060,
+  "timestampMs": 16420,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LO",
+  "startMs": 17320,
+  "endMs": 17420,
+  "timestampMs": 17320,
+  "confidence": null
+ },
+ {
+  "text": " PRODUJO",
+  "startMs": 17420,
+  "endMs": 17860,
+  "timestampMs": 17420,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 17860,
+  "endMs": 18040,
+  "timestampMs": 17860,
+  "confidence": null
+ },
+ {
+  "text": " ORQUESTADOR:",
+  "startMs": 18040,
+  "endMs": 18660,
+  "timestampMs": 18040,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " UN",
+  "startMs": 19000,
+  "endMs": 19160,
+  "timestampMs": 19000,
+  "confidence": null
+ },
+ {
+  "text": " SOLO",
+  "startMs": 19160,
+  "endMs": 19400,
+  "timestampMs": 19160,
+  "confidence": null
+ },
+ {
+  "text": " COMANDO,",
+  "startMs": 19400,
+  "endMs": 19940,
+  "timestampMs": 19400,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TRECE",
+  "startMs": 19940,
+  "endMs": 20260,
+  "timestampMs": 19940,
+  "confidence": null
+ },
+ {
+  "text": " PASOS.",
+  "startMs": 20260,
+  "endMs": 20860,
+  "timestampMs": 20260,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CADA",
+  "startMs": 21120,
+  "endMs": 21300,
+  "timestampMs": 21120,
+  "confidence": null
+ },
+ {
+  "text": " PASO",
+  "startMs": 21300,
+  "endMs": 21660,
+  "timestampMs": 21300,
+  "confidence": null
+ },
+ {
+  "text": " DEJA",
+  "startMs": 21660,
+  "endMs": 22000,
+  "timestampMs": 21660,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 22000,
+  "endMs": 22200,
+  "timestampMs": 22000,
+  "confidence": null
+ },
+ {
+  "text": " ARTEFACTO,",
+  "startMs": 22200,
+  "endMs": 22920,
+  "timestampMs": 22200,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 22920,
+  "endMs": 23200,
+  "timestampMs": 22920,
+  "confidence": null
+ },
+ {
+  "text": " CADA",
+  "startMs": 23200,
+  "endMs": 23420,
+  "timestampMs": 23200,
+  "confidence": null
+ },
+ {
+  "text": " ARTEFACTO",
+  "startMs": 23420,
+  "endMs": 24120,
+  "timestampMs": 23420,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " SE",
+  "startMs": 24120,
+  "endMs": 24260,
+  "timestampMs": 24120,
+  "confidence": null
+ },
+ {
+  "text": " PUEDE",
+  "startMs": 24260,
+  "endMs": 24480,
+  "timestampMs": 24260,
+  "confidence": null
+ },
+ {
+  "text": " REANUDAR.",
+  "startMs": 24480,
+  "endMs": 25080,
+  "timestampMs": 24480,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TIENE",
+  "startMs": 25340,
+  "endMs": 25580,
+  "timestampMs": 25340,
+  "confidence": null
+ },
+ {
+  "text": " TRES",
+  "startMs": 25580,
+  "endMs": 25860,
+  "timestampMs": 25580,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULOS,",
+  "startMs": 25860,
+  "endMs": 26560,
+  "timestampMs": 25860,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " COMO",
+  "startMs": 26560,
+  "endMs": 26920,
+  "timestampMs": 26560,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 26920,
+  "endMs": 27120,
+  "timestampMs": 26920,
+  "confidence": null
+ },
+ {
+  "text": " VIDEO",
+  "startMs": 27120,
+  "endMs": 27400,
+  "timestampMs": 27120,
+  "confidence": null
+ },
+ {
+  "text": " LARGO",
+  "startMs": 27400,
+  "endMs": 27780,
+  "timestampMs": 27400,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 27780,
+  "endMs": 27980,
+  "timestampMs": 27780,
+  "confidence": null
+ },
+ {
+  "text": " MINIATURA.",
+  "startMs": 27980,
+  "endMs": 28480,
+  "timestampMs": 27980,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 28820,
+  "endMs": 28940,
+  "timestampMs": 28820,
+  "confidence": null
+ },
+ {
+  "text": " REGLA",
+  "startMs": 28940,
+  "endMs": 29240,
+  "timestampMs": 28940,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 29240,
+  "endMs": 29440,
+  "timestampMs": 29240,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 29440,
+  "endMs": 29580,
+  "timestampMs": 29440,
+  "confidence": null
+ },
+ {
+  "text": " MISMA:",
+  "startMs": 29580,
+  "endMs": 29980,
+  "timestampMs": 29580,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " POR",
+  "startMs": 29980,
+  "endMs": 30440,
+  "timestampMs": 29980,
+  "confidence": null
+ },
+ {
+  "text": " CADA",
+  "startMs": 30440,
+  "endMs": 30700,
+  "timestampMs": 30440,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULO,",
+  "startMs": 30700,
+  "endMs": 31280,
+  "timestampMs": 30700,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 31280,
+  "endMs": 31580,
+  "timestampMs": 31280,
+  "confidence": null
+ },
+ {
+  "text": " ACCIÓN",
+  "startMs": 31580,
+  "endMs": 31920,
+  "timestampMs": 31580,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " CONCRETA.",
+  "startMs": 31920,
+  "endMs": 32560,
+  "timestampMs": 31920,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SIN",
+  "startMs": 32820,
+  "endMs": 32940,
+  "timestampMs": 32820,
+  "confidence": null
+ },
+ {
+  "text": " ACCIÓN,",
+  "startMs": 32940,
+  "endMs": 33400,
+  "timestampMs": 32940,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " ESTO",
+  "startMs": 33580,
+  "endMs": 33700,
+  "timestampMs": 33580,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 33700,
+  "endMs": 33880,
+  "timestampMs": 33700,
+  "confidence": null
+ },
+ {
+  "text": " ENTRETENIMIENTO,",
+  "startMs": 33880,
+  "endMs": 34680,
+  "timestampMs": 33880,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 34920,
+  "endMs": 35040,
+  "timestampMs": 34920,
+  "confidence": null
+ },
+ {
+  "text": " AVANCE.",
+  "startMs": 35040,
+  "endMs": 35420,
+  "timestampMs": 35040,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CAPÍTULO",
+  "startMs": 36240,
+  "endMs": 36740,
+  "timestampMs": 36240,
+  "confidence": null
+ },
+ {
+  "text": " UNO.",
+  "startMs": 36740,
+  "endMs": 37300,
+  "timestampMs": 36740,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 37300,
+  "endMs": 37360,
+  "timestampMs": 37300,
+  "confidence": null
+ },
+ {
+  "text": " IDEA",
+  "startMs": 37360,
+  "endMs": 37600,
+  "timestampMs": 37360,
+  "confidence": null
+ },
+ {
+  "text": " CENTRAL.",
+  "startMs": 37600,
+  "endMs": 38080,
+  "timestampMs": 37600,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UN",
+  "startMs": 39129,
+  "endMs": 39240,
+  "timestampMs": 39129,
+  "confidence": null
+ },
+ {
+  "text": " VIDEO",
+  "startMs": 39240,
+  "endMs": 39540,
+  "timestampMs": 39240,
+  "confidence": null
+ },
+ {
+  "text": " LARGO",
+  "startMs": 39540,
+  "endMs": 39920,
+  "timestampMs": 39540,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 39920,
+  "endMs": 40360,
+  "timestampMs": 39920,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 40360,
+  "endMs": 40540,
+  "timestampMs": 40360,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 40540,
+  "endMs": 40660,
+  "timestampMs": 40540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " VIDEO",
+  "startMs": 40660,
+  "endMs": 40960,
+  "timestampMs": 40660,
+  "confidence": null
+ },
+ {
+  "text": " CORTO",
+  "startMs": 40960,
+  "endMs": 41340,
+  "timestampMs": 40960,
+  "confidence": null
+ },
+ {
+  "text": " ESTIRADO.",
+  "startMs": 41340,
+  "endMs": 41820,
+  "timestampMs": 41340,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ES",
+  "startMs": 42120,
+  "endMs": 42260,
+  "timestampMs": 42120,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 42260,
+  "endMs": 42440,
+  "timestampMs": 42260,
+  "confidence": null
+ },
+ {
+  "text": " ESTRUCTURA:",
+  "startMs": 42440,
+  "endMs": 43040,
+  "timestampMs": 42440,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CAPÍTULOS",
+  "startMs": 43300,
+  "endMs": 43760,
+  "timestampMs": 43300,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " QUE",
+  "startMs": 43760,
+  "endMs": 44020,
+  "timestampMs": 43760,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 44020,
+  "endMs": 44180,
+  "timestampMs": 44020,
+  "confidence": null
+ },
+ {
+  "text": " SOSTIENEN",
+  "startMs": 44180,
+  "endMs": 44660,
+  "timestampMs": 44180,
+  "confidence": null
+ },
+ {
+  "text": " SOLOS.",
+  "startMs": 44660,
+  "endMs": 45180,
+  "timestampMs": 44660,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CADA",
+  "startMs": 45420,
+  "endMs": 45620,
+  "timestampMs": 45420,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULO",
+  "startMs": 45620,
+  "endMs": 46200,
+  "timestampMs": 45620,
+  "confidence": null
+ },
+ {
+  "text": " RESPONDE",
+  "startMs": 46200,
+  "endMs": 46840,
+  "timestampMs": 46200,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 46840,
+  "endMs": 46940,
+  "timestampMs": 46840,
+  "confidence": null
+ },
+ {
+  "text": " PREGUNTA",
+  "startMs": 46940,
+  "endMs": 47440,
+  "timestampMs": 46940,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " Y",
+  "startMs": 47440,
+  "endMs": 47740,
+  "timestampMs": 47440,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DEJA",
+  "startMs": 47740,
+  "endMs": 48020,
+  "timestampMs": 47740,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 48020,
+  "endMs": 48260,
+  "timestampMs": 48020,
+  "confidence": null
+ },
+ {
+  "text": " ACCIÓN.",
+  "startMs": 48260,
+  "endMs": 48640,
+  "timestampMs": 48260,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 48980,
+  "endMs": 49080,
+  "timestampMs": 48980,
+  "confidence": null
+ },
+ {
+  "text": " ESPECTADOR",
+  "startMs": 49080,
+  "endMs": 49660,
+  "timestampMs": 49080,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 49660,
+  "endMs": 49980,
+  "timestampMs": 49660,
+  "confidence": null
+ },
+ {
+  "text": " TIENE",
+  "startMs": 49980,
+  "endMs": 50300,
+  "timestampMs": 49980,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 50300,
+  "endMs": 50600,
+  "timestampMs": 50300,
+  "confidence": null
+ },
+ {
+  "text": " VERLO",
+  "startMs": 50600,
+  "endMs": 50980,
+  "timestampMs": 50600,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ENTERO",
+  "startMs": 50980,
+  "endMs": 51380,
+  "timestampMs": 50980,
+  "confidence": null
+ },
+ {
+  "text": " PARA",
+  "startMs": 51380,
+  "endMs": 51620,
+  "timestampMs": 51380,
+  "confidence": null
+ },
+ {
+  "text": " LLEVARSE",
+  "startMs": 51620,
+  "endMs": 52160,
+  "timestampMs": 51620,
+  "confidence": null
+ },
+ {
+  "text": " ALGO.",
+  "startMs": 52160,
+  "endMs": 52440,
+  "timestampMs": 52160,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PUEDE",
+  "startMs": 52800,
+  "endMs": 52980,
+  "timestampMs": 52800,
+  "confidence": null
+ },
+ {
+  "text": " ENTRAR",
+  "startMs": 52980,
+  "endMs": 53300,
+  "timestampMs": 52980,
+  "confidence": null
+ },
+ {
+  "text": " POR",
+  "startMs": 53300,
+  "endMs": 53580,
+  "timestampMs": 53300,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 53580,
+  "endMs": 53720,
+  "timestampMs": 53580,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULO",
+  "startMs": 53720,
+  "endMs": 54260,
+  "timestampMs": 53720,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 54260,
+  "endMs": 54560,
+  "timestampMs": 54260,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NECESITA",
+  "startMs": 54560,
+  "endMs": 54940,
+  "timestampMs": 54560,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 54940,
+  "endMs": 55280,
+  "timestampMs": 54940,
+  "confidence": null
+ },
+ {
+  "text": " SALIR",
+  "startMs": 55280,
+  "endMs": 55580,
+  "timestampMs": 55280,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 55580,
+  "endMs": 55940,
+  "timestampMs": 55580,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 55940,
+  "endMs": 56140,
+  "timestampMs": 55940,
+  "confidence": null
+ },
+ {
+  "text": " TAREA.",
+  "startMs": 56140,
+  "endMs": 56460,
+  "timestampMs": 56140,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " POR",
+  "startMs": 56870,
+  "endMs": 56980,
+  "timestampMs": 56870,
+  "confidence": null
+ },
+ {
+  "text": " ESO",
+  "startMs": 56980,
+  "endMs": 57160,
+  "timestampMs": 56980,
+  "confidence": null
+ },
+ {
+  "text": " LOS",
+  "startMs": 57160,
+  "endMs": 57320,
+  "timestampMs": 57160,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULOS",
+  "startMs": 57320,
+  "endMs": 57980,
+  "timestampMs": 57320,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " LLEVAN",
+  "startMs": 57980,
+  "endMs": 58600,
+  "timestampMs": 57980,
+  "confidence": null
+ },
+ {
+  "text": " MARCA",
+  "startMs": 58600,
+  "endMs": 58940,
+  "timestampMs": 58600,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 58940,
+  "endMs": 59140,
+  "timestampMs": 58940,
+  "confidence": null
+ },
+ {
+  "text": " TIEMPO.",
+  "startMs": 59140,
+  "endMs": 59540,
+  "timestampMs": 59140,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " POR",
+  "startMs": 59880,
+  "endMs": 60000,
+  "timestampMs": 59880,
+  "confidence": null
+ },
+ {
+  "text": " ESO",
+  "startMs": 60000,
+  "endMs": 60200,
+  "timestampMs": 60000,
+  "confidence": null
+ },
+ {
+  "text": " CADA",
+  "startMs": 60200,
+  "endMs": 60540,
+  "timestampMs": 60200,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULO",
+  "startMs": 60540,
+  "endMs": 61060,
+  "timestampMs": 60540,
+  "confidence": null
+ },
+ {
+  "text": " TERMINA",
+  "startMs": 61060,
+  "endMs": 61660,
+  "timestampMs": 61060,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 61660,
+  "endMs": 61960,
+  "timestampMs": 61660,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UNA",
+  "startMs": 61960,
+  "endMs": 62140,
+  "timestampMs": 61960,
+  "confidence": null
+ },
+ {
+  "text": " FRASE",
+  "startMs": 62140,
+  "endMs": 62520,
+  "timestampMs": 62140,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " QUE",
+  "startMs": 62520,
+  "endMs": 62720,
+  "timestampMs": 62520,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 62720,
+  "endMs": 62900,
+  "timestampMs": 62720,
+  "confidence": null
+ },
+ {
+  "text": " PUEDE",
+  "startMs": 62900,
+  "endMs": 63120,
+  "timestampMs": 62900,
+  "confidence": null
+ },
+ {
+  "text": " CITAR.",
+  "startMs": 63120,
+  "endMs": 63560,
+  "timestampMs": 63120,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 63860,
+  "endMs": 63980,
+  "timestampMs": 63860,
+  "confidence": null
+ },
+ {
+  "text": " MONTAJE",
+  "startMs": 63980,
+  "endMs": 64400,
+  "timestampMs": 63980,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " SIGUE",
+  "startMs": 64400,
+  "endMs": 64700,
+  "timestampMs": 64400,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 64700,
+  "endMs": 64840,
+  "timestampMs": 64700,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 64840,
+  "endMs": 64900,
+  "timestampMs": 64840,
+  "confidence": null
+ },
+ {
+  "text": " VOZ,",
+  "startMs": 64900,
+  "endMs": 65220,
+  "timestampMs": 64900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 65400,
+  "endMs": 65480,
+  "timestampMs": 65400,
+  "confidence": null
+ },
+ {
+  "text": " AL",
+  "startMs": 65480,
+  "endMs": 65580,
+  "timestampMs": 65480,
+  "confidence": null
+ },
+ {
+  "text": " REVÉS:",
+  "startMs": 65580,
+  "endMs": 65980,
+  "timestampMs": 65580,
+  "confidence": null
+ },
+ {
+  "text": " PRIMERO",
+  "startMs": 66300,
+  "endMs": 66620,
+  "timestampMs": 66300,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 66620,
+  "endMs": 66800,
+  "timestampMs": 66620,
+  "confidence": null
+ },
+ {
+  "text": " GRABA,",
+  "startMs": 66800,
+  "endMs": 67160,
+  "timestampMs": 66800,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LUEGO",
+  "startMs": 67280,
+  "endMs": 67480,
+  "timestampMs": 67280,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 67480,
+  "endMs": 67740,
+  "timestampMs": 67480,
+  "confidence": null
+ },
+ {
+  "text": " COLOCAN",
+  "startMs": 67740,
+  "endMs": 68180,
+  "timestampMs": 67740,
+  "confidence": null
+ },
+ {
+  "text": " LAS",
+  "startMs": 68180,
+  "endMs": 68340,
+  "timestampMs": 68180,
+  "confidence": null
+ },
+ {
+  "text": " ESCENAS.",
+  "startMs": 68340,
+  "endMs": 68780,
+  "timestampMs": 68340,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LOS",
+  "startMs": 69100,
+  "endMs": 69240,
+  "timestampMs": 69100,
+  "confidence": null
+ },
+ {
+  "text": " SUBTÍTULOS",
+  "startMs": 69240,
+  "endMs": 69760,
+  "timestampMs": 69240,
+  "confidence": null
+ },
+ {
+  "text": " KARAOKE",
+  "startMs": 69760,
+  "endMs": 70180,
+  "timestampMs": 69760,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " MARCAN",
+  "startMs": 70180,
+  "endMs": 70840,
+  "timestampMs": 70180,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 70840,
+  "endMs": 71020,
+  "timestampMs": 70840,
+  "confidence": null
+ },
+ {
+  "text": " RITMO:",
+  "startMs": 71020,
+  "endMs": 71440,
+  "timestampMs": 71020,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PALABRA",
+  "startMs": 71740,
+  "endMs": 71980,
+  "timestampMs": 71740,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 71980,
+  "endMs": 72240,
+  "timestampMs": 71980,
+  "confidence": null
+ },
+ {
+  "text": " PALABRA,",
+  "startMs": 72240,
+  "endMs": 72540,
+  "timestampMs": 72240,
+  "confidence": null
+ },
+ {
+  "text": " SIN",
+  "startMs": 72720,
+  "endMs": 72900,
+  "timestampMs": 72720,
+  "confidence": null
+ },
+ {
+  "text": " ADELANTOS.",
+  "startMs": 72900,
+  "endMs": 73520,
+  "timestampMs": 72900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 73740,
+  "endMs": 73840,
+  "timestampMs": 73740,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 73840,
+  "endMs": 73940,
+  "timestampMs": 73840,
+  "confidence": null
+ },
+ {
+  "text": " MÚSICA",
+  "startMs": 73940,
+  "endMs": 74180,
+  "timestampMs": 73940,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 74180,
+  "endMs": 74420,
+  "timestampMs": 74180,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 74420,
+  "endMs": 74560,
+  "timestampMs": 74420,
+  "confidence": null
+ },
+ {
+  "text": " CAMA,",
+  "startMs": 74560,
+  "endMs": 74880,
+  "timestampMs": 74560,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 75060,
+  "endMs": 75140,
+  "timestampMs": 75060,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 75140,
+  "endMs": 75300,
+  "timestampMs": 75140,
+  "confidence": null
+ },
+ {
+  "text": " PROTAGONISTA:",
+  "startMs": 75300,
+  "endMs": 76020,
+  "timestampMs": 75300,
+  "confidence": null
+ },
+ {
+  "text": " BAJA",
+  "startMs": 76460,
+  "endMs": 76680,
+  "timestampMs": 76460,
+  "confidence": null
+ },
+ {
+  "text": " CUANDO",
+  "startMs": 76680,
+  "endMs": 76880,
+  "timestampMs": 76680,
+  "confidence": null
+ },
+ {
+  "text": " HABLAS,",
+  "startMs": 76880,
+  "endMs": 77380,
+  "timestampMs": 76880,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " RESPIRA",
+  "startMs": 77620,
+  "endMs": 77980,
+  "timestampMs": 77620,
+  "confidence": null
+ },
+ {
+  "text": " CUANDO",
+  "startMs": 77980,
+  "endMs": 78180,
+  "timestampMs": 77980,
+  "confidence": null
+ },
+ {
+  "text": " CALLAS.",
+  "startMs": 78180,
+  "endMs": 78780,
+  "timestampMs": 78180,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 79020,
+  "endMs": 79140,
+  "timestampMs": 79020,
+  "confidence": null
+ },
+ {
+  "text": " ESTRUCTURA",
+  "startMs": 79140,
+  "endMs": 79640,
+  "timestampMs": 79140,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " ES",
+  "startMs": 79640,
+  "endMs": 79820,
+  "timestampMs": 79640,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 79820,
+  "endMs": 79940,
+  "timestampMs": 79820,
+  "confidence": null
+ },
+ {
+  "text": " CONTENIDO:",
+  "startMs": 79940,
+  "endMs": 80380,
+  "timestampMs": 79940,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SIN",
+  "startMs": 80780,
+  "endMs": 80940,
+  "timestampMs": 80780,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULOS,",
+  "startMs": 80940,
+  "endMs": 81520,
+  "timestampMs": 80940,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " HAY",
+  "startMs": 81520,
+  "endMs": 81800,
+  "timestampMs": 81520,
+  "confidence": null
+ },
+ {
+  "text": " METRAJE;",
+  "startMs": 81800,
+  "endMs": 82340,
+  "timestampMs": 81800,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 82520,
+  "endMs": 82640,
+  "timestampMs": 82520,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULOS,",
+  "startMs": 82640,
+  "endMs": 83200,
+  "timestampMs": 82640,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " HAY",
+  "startMs": 83200,
+  "endMs": 83480,
+  "timestampMs": 83200,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 83480,
+  "endMs": 83620,
+  "timestampMs": 83480,
+  "confidence": null
+ },
+ {
+  "text": " CURSO.",
+  "startMs": 83620,
+  "endMs": 83920,
+  "timestampMs": 83620,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TU",
+  "startMs": 84300,
+  "endMs": 84420,
+  "timestampMs": 84300,
+  "confidence": null
+ },
+ {
+  "text": " ACCIÓN",
+  "startMs": 84420,
+  "endMs": 84800,
+  "timestampMs": 84420,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 84800,
+  "endMs": 84960,
+  "timestampMs": 84800,
+  "confidence": null
+ },
+ {
+  "text": " ESTE",
+  "startMs": 84960,
+  "endMs": 85140,
+  "timestampMs": 84960,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULO:",
+  "startMs": 85140,
+  "endMs": 85720,
+  "timestampMs": 85140,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DIVIDE",
+  "startMs": 85720,
+  "endMs": 86260,
+  "timestampMs": 85720,
+  "confidence": null
+ },
+ {
+  "text": " TU",
+  "startMs": 86260,
+  "endMs": 86560,
+  "timestampMs": 86260,
+  "confidence": null
+ },
+ {
+  "text": " PRÓXIMO",
+  "startMs": 86560,
+  "endMs": 86860,
+  "timestampMs": 86560,
+  "confidence": null
+ },
+ {
+  "text": " TEMA",
+  "startMs": 86860,
+  "endMs": 87300,
+  "timestampMs": 86860,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 87300,
+  "endMs": 87500,
+  "timestampMs": 87300,
+  "confidence": null
+ },
+ {
+  "text": " TRES",
+  "startMs": 87500,
+  "endMs": 87680,
+  "timestampMs": 87500,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PREGUNTAS.",
+  "startMs": 87680,
+  "endMs": 88200,
+  "timestampMs": 87680,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CAPÍTULO",
+  "startMs": 89060,
+  "endMs": 89560,
+  "timestampMs": 89060,
+  "confidence": null
+ },
+ {
+  "text": " DOS.",
+  "startMs": 89560,
+  "endMs": 90140,
+  "timestampMs": 89560,
+  "confidence": null
+ },
+ {
+  "text": " CIERRE.",
+  "startMs": 90140,
+  "endMs": 90500,
+  "timestampMs": 90140,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TRES",
+  "startMs": 91400,
+  "endMs": 91600,
+  "timestampMs": 91400,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULOS,",
+  "startMs": 91600,
+  "endMs": 92200,
+  "timestampMs": 91600,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " TRES",
+  "startMs": 92460,
+  "endMs": 92580,
+  "timestampMs": 92460,
+  "confidence": null
+ },
+ {
+  "text": " IDEAS,",
+  "startMs": 92580,
+  "endMs": 93020,
+  "timestampMs": 92580,
+  "confidence": null
+ },
+ {
+  "text": " TRES",
+  "startMs": 93280,
+  "endMs": 93380,
+  "timestampMs": 93280,
+  "confidence": null
+ },
+ {
+  "text": " ACCIONES.",
+  "startMs": 93380,
+  "endMs": 93900,
+  "timestampMs": 93380,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PRIMERA:",
+  "startMs": 94260,
+  "endMs": 94660,
+  "timestampMs": 94260,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 94900,
+  "endMs": 94940,
+  "timestampMs": 94900,
+  "confidence": null
+ },
+ {
+  "text": " PIPELINE",
+  "startMs": 94940,
+  "endMs": 95320,
+  "timestampMs": 94940,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " EXISTE,",
+  "startMs": 95320,
+  "endMs": 95660,
+  "timestampMs": 95320,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 95660,
+  "endMs": 96160,
+  "timestampMs": 95660,
+  "confidence": null
+ },
+ {
+  "text": " ESTE",
+  "startMs": 96160,
+  "endMs": 96400,
+  "timestampMs": 96160,
+  "confidence": null
+ },
+ {
+  "text": " VIDEO",
+  "startMs": 96400,
+  "endMs": 96700,
+  "timestampMs": 96400,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 96700,
+  "endMs": 96900,
+  "timestampMs": 96700,
+  "confidence": null
+ },
+ {
+  "text": " SU",
+  "startMs": 96900,
+  "endMs": 97000,
+  "timestampMs": 96900,
+  "confidence": null
+ },
+ {
+  "text": " PRUEBA.",
+  "startMs": 97000,
+  "endMs": 97320,
+  "timestampMs": 97000,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SEGUNDA:",
+  "startMs": 97680,
+  "endMs": 98080,
+  "timestampMs": 97680,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 98260,
+  "endMs": 98300,
+  "timestampMs": 98260,
+  "confidence": null
+ },
+ {
+  "text": " ESTRUCTURA",
+  "startMs": 98300,
+  "endMs": 98820,
+  "timestampMs": 98300,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " MANDA;",
+  "startMs": 98820,
+  "endMs": 99340,
+  "timestampMs": 98820,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LOS",
+  "startMs": 99620,
+  "endMs": 99720,
+  "timestampMs": 99620,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULOS",
+  "startMs": 99720,
+  "endMs": 100240,
+  "timestampMs": 99720,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " SON",
+  "startMs": 100240,
+  "endMs": 100500,
+  "timestampMs": 100240,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 100500,
+  "endMs": 100660,
+  "timestampMs": 100500,
+  "confidence": null
+ },
+ {
+  "text": " CURSO.",
+  "startMs": 100660,
+  "endMs": 100980,
+  "timestampMs": 100660,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TERCERA:",
+  "startMs": 101380,
+  "endMs": 101820,
+  "timestampMs": 101380,
+  "confidence": null
+ },
+ {
+  "text": " SIN",
+  "startMs": 102040,
+  "endMs": 102120,
+  "timestampMs": 102040,
+  "confidence": null
+ },
+ {
+  "text": " ACCIÓN,",
+  "startMs": 102120,
+  "endMs": 102540,
+  "timestampMs": 102120,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " NO",
+  "startMs": 102740,
+  "endMs": 102860,
+  "timestampMs": 102740,
+  "confidence": null
+ },
+ {
+  "text": " HAY",
+  "startMs": 102860,
+  "endMs": 102980,
+  "timestampMs": 102860,
+  "confidence": null
+ },
+ {
+  "text": " AVANCE.",
+  "startMs": 102980,
+  "endMs": 103340,
+  "timestampMs": 102980,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 103760,
+  "endMs": 103860,
+  "timestampMs": 103760,
+  "confidence": null
+ },
+ {
+  "text": " PRUEBA",
+  "startMs": 103860,
+  "endMs": 104120,
+  "timestampMs": 103860,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " TERMINA",
+  "startMs": 104120,
+  "endMs": 104680,
+  "timestampMs": 104120,
+  "confidence": null
+ },
+ {
+  "text": " AQUÍ,",
+  "startMs": 104680,
+  "endMs": 105020,
+  "timestampMs": 104680,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PERO",
+  "startMs": 105320,
+  "endMs": 105400,
+  "timestampMs": 105320,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 105400,
+  "endMs": 105500,
+  "timestampMs": 105400,
+  "confidence": null
+ },
+ {
+  "text": " VIDEO",
+  "startMs": 105500,
+  "endMs": 105820,
+  "timestampMs": 105500,
+  "confidence": null
+ },
+ {
+  "text": " LARGO",
+  "startMs": 105820,
+  "endMs": 106100,
+  "timestampMs": 105820,
+  "confidence": null
+ },
+ {
+  "text": " EMPIEZA",
+  "startMs": 106100,
+  "endMs": 106480,
+  "timestampMs": 106100,
+  "confidence": null
+ },
+ {
+  "text": " AHORA.",
+  "startMs": 106480,
+  "endMs": 106940,
+  "timestampMs": 106480,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ELIGE",
+  "startMs": 107300,
+  "endMs": 107540,
+  "timestampMs": 107300,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 107540,
+  "endMs": 107680,
+  "timestampMs": 107540,
+  "confidence": null
+ },
+ {
+  "text": " TEMA,",
+  "startMs": 107680,
+  "endMs": 107960,
+  "timestampMs": 107680,
+  "confidence": null
+ },
+ {
+  "text": " DIVÍDELO",
+  "startMs": 108280,
+  "endMs": 108640,
+  "timestampMs": 108280,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 108640,
+  "endMs": 108720,
+  "timestampMs": 108640,
+  "confidence": null
+ },
+ {
+  "text": " CAPÍTULOS,",
+  "startMs": 108720,
+  "endMs": 109300,
+  "timestampMs": 108720,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 109300,
+  "endMs": 109540,
+  "timestampMs": 109300,
+  "confidence": null
+ },
+ {
+  "text": " CONSTRÚYELO.",
+  "startMs": 109540,
+  "endMs": 110220,
+  "timestampMs": 109540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " APRENDER",
+  "startMs": 110600,
+  "endMs": 111080,
+  "timestampMs": 110600,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " ES",
+  "startMs": 111080,
+  "endMs": 111300,
+  "timestampMs": 111080,
+  "confidence": null
+ },
+ {
+  "text": " ACTUAR.",
+  "startMs": 111300,
+  "endMs": 111780,
+  "timestampMs": 111300,
+  "confidence": null,
+  "pageBreakAfter": true
+ }
+]

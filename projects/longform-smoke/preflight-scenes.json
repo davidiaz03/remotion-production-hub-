@@ -1,0 +1,87 @@
+{
+  "project": "longform-smoke",
+  "fps": 30,
+  "scenes": [
+    {
+      "name": "S1-title-card",
+      "start": 0,
+      "end": 75
+    },
+    {
+      "name": "S2-big-statement",
+      "start": 75,
+      "end": 435
+    },
+    {
+      "name": "S3-data-strip",
+      "start": 435,
+      "end": 761
+    },
+    {
+      "name": "S4-chapters-map",
+      "start": 761,
+      "end": 866
+    },
+    {
+      "name": "S5-big-statement",
+      "start": 866,
+      "end": 1088
+    },
+    {
+      "name": "S6-title-card",
+      "start": 1088,
+      "end": 1174
+    },
+    {
+      "name": "S7-big-statement",
+      "start": 1174,
+      "end": 1363
+    },
+    {
+      "name": "S8-two-col",
+      "start": 1363,
+      "end": 1706
+    },
+    {
+      "name": "S9-list",
+      "start": 1706,
+      "end": 1917
+    },
+    {
+      "name": "S10-big-statement",
+      "start": 1917,
+      "end": 2214
+    },
+    {
+      "name": "S11-big-statement",
+      "start": 2214,
+      "end": 2530
+    },
+    {
+      "name": "S12-question",
+      "start": 2530,
+      "end": 2673
+    },
+    {
+      "name": "S13-title-card",
+      "start": 2673,
+      "end": 2743
+    },
+    {
+      "name": "S14-list",
+      "start": 2743,
+      "end": 3114
+    },
+    {
+      "name": "S15-big-statement",
+      "start": 3114,
+      "end": 3317
+    },
+    {
+      "name": "S16-summary-card",
+      "start": 3317,
+      "end": 3393
+    }
+  ],
+  "logo_skip_scenes": []
+}

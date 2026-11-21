@@ -11,5 +11,358 @@
   "pending": [
     "Corrida E2E del pipeline v2"
   ],
-  "nextTask": "node scripts/pipeline.mjs longform-smoke"
+  "nextTask": "node scripts/pipeline.mjs longform-smoke",
+  "pipeline": {
+    "phases": {
+      "assets": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "vo": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:19:09.647Z",
+        "updatedAt": "2026-11-21T05:31:10.555Z",
+        "artifacts": [
+          "public/audio/vo-full.wav",
+          "vo-chapters/vo-full-lines.json"
+        ],
+        "note": "merge en curso (pipeline)"
+      },
+      "captions": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:31:10.556Z",
+        "updatedAt": "2026-11-21T05:33:25.924Z",
+        "artifacts": [
+          "src/captions.ts",
+          "src/captions.json",
+          "out/longform-smoke.srt",
+          "reports/align-captions.json"
+        ],
+        "note": "align en curso (pipeline)"
+      },
+      "mix": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:33:26.051Z",
+        "updatedAt": "2026-11-21T05:56:00.780Z",
+        "artifacts": [
+          "public/audio/music-bed.wav",
+          "public/audio/mix.wav"
+        ],
+        "note": "mix en curso (pipeline)"
+      },
+      "render": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:33:25.925Z",
+        "updatedAt": "2026-11-21T05:41:22.883Z",
+        "artifacts": [
+          "src/timeline.json",
+          "reports/preflight.json",
+          "out/longform-smoke-chunks.mkv"
+        ],
+        "note": "out/longform-smoke-chunks.mkv",
+        "chunks": {
+          "total": 4,
+          "done": 4,
+          "completed": [
+            "out/chunks/chunk_01.mkv",
+            "out/chunks/chunk_02.mkv",
+            "out/chunks/chunk_03.mkv",
+            "out/chunks/chunk_04.mkv"
+          ],
+          "framesDone": 3483,
+          "framesTotal": 3483,
+          "percent": 100,
+          "chunkSize": 900,
+          "resumeCommand": "node scripts/render-chunks.mjs longform-smoke --frames 0-3482 --chunk 900 --resume --video-only --crf 19 --concat-out /home/hatch/workspace/remotion-hub/worktrees/longform-v2/projects/longform-smoke/out/longform-smoke-chunks.mkv --lock"
+        }
+      },
+      "qa": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:41:22.885Z",
+        "updatedAt": "2026-11-21T06:00:18.368Z",
+        "artifacts": [
+          "out/longform-smoke-MASTER.mp4",
+          "reports/technical-qa-master.json",
+          "reports/technical-qa-360p.json",
+          "out/longform-smoke-360p.mp4"
+        ],
+        "note": "-15.4 LUFS, TP -3.8 dBTP"
+      },
+      "delivery": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:44:16.704Z",
+        "updatedAt": "2026-11-21T05:58:35.439Z",
+        "artifacts": [
+          "out/longform-smoke-720p.mp4",
+          "out/longform-smoke-360p.mp4",
+          "out/longform-smoke-chapters.txt",
+          "out/longform-smoke-chapters.json"
+        ],
+        "note": "encode en curso (pipeline)"
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-21T05:31:10.479Z",
+        "phase": "vo",
+        "event": "vo completado por pipeline (233s)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-21T05:31:10.555Z",
+        "phase": "vo",
+        "event": "merge completado por pipeline (0s)",
+        "artifacts": [
+          "public/audio/vo-full.wav",
+          "vo-chapters/vo-full-lines.json"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:33:24.302Z",
+        "phase": "captions",
+        "event": "captions completado por pipeline (134s)",
+        "artifacts": [
+          "src/captions.ts",
+          "src/captions.json",
+          "out/longform-smoke.srt"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:33:25.924Z",
+        "phase": "captions",
+        "event": "align completado por pipeline (2s)",
+        "artifacts": [
+          "reports/align-captions.json"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:33:26.051Z",
+        "phase": "render",
+        "event": "timeline completado por pipeline (0s)",
+        "artifacts": [
+          "src/timeline.json"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:33:31.466Z",
+        "phase": "mix",
+        "event": "music completado por pipeline (5s)",
+        "artifacts": [
+          "public/audio/music-bed.wav"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:33:38.323Z",
+        "phase": "mix",
+        "event": "mix completado por pipeline (7s)",
+        "artifacts": [
+          "public/audio/mix.wav"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:36:55.996Z",
+        "phase": "render",
+        "event": "preflight completado por pipeline (198s)",
+        "artifacts": [
+          "reports/preflight.json"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:36:56.122Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-3482 en 4 tramos de 900",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-21T05:38:03.200Z",
+        "phase": "render",
+        "event": "Tramo 1/4 verificado (chunk_01.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_01.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:39:11.122Z",
+        "phase": "render",
+        "event": "Tramo 2/4 verificado (chunk_02.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_02.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:40:15.291Z",
+        "phase": "render",
+        "event": "Tramo 3/4 verificado (chunk_03.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_03.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:41:13.484Z",
+        "phase": "render",
+        "event": "Tramo 4/4 verificado (chunk_04.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_04.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:41:22.867Z",
+        "phase": "render",
+        "event": "Render completo: 4 tramos concatenados (out/longform-smoke-chunks.mkv)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-21T05:41:22.883Z",
+        "phase": "render",
+        "event": "render completado por pipeline (267s)",
+        "artifacts": [
+          "out/longform-smoke-chunks.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:44:16.703Z",
+        "phase": "qa",
+        "event": "master completado por pipeline (174s)",
+        "artifacts": [
+          "out/longform-smoke-MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:45:31.803Z",
+        "phase": "delivery",
+        "event": "encode completado por pipeline (75s)",
+        "artifacts": [
+          "out/longform-smoke-720p.mp4",
+          "out/longform-smoke-360p.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:45:31.954Z",
+        "phase": "delivery",
+        "event": "chapters completado por pipeline (0s)",
+        "artifacts": [
+          "out/longform-smoke-chapters.txt",
+          "out/longform-smoke-chapters.json"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:45:52.997Z",
+        "phase": "qa",
+        "event": "QA técnico failed — longform-smoke-MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa-master.json",
+          "out/longform-smoke-MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:49:13.465Z",
+        "phase": "delivery",
+        "event": "encode completado por pipeline (1s)",
+        "artifacts": [
+          "out/longform-smoke-720p.mp4",
+          "out/longform-smoke-360p.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:49:13.466Z",
+        "phase": "delivery",
+        "event": "chapters: artefactos ya presentes (salto)",
+        "artifacts": [
+          "out/longform-smoke-chapters.txt",
+          "out/longform-smoke-chapters.json"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:49:43.742Z",
+        "phase": "qa",
+        "event": "QA técnico passed — longform-smoke-MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa-master.json",
+          "out/longform-smoke-MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:49:52.497Z",
+        "phase": "qa",
+        "event": "QA técnico passed — longform-smoke-360p.mp4",
+        "artifacts": [
+          "reports/technical-qa-360p.json",
+          "out/longform-smoke-360p.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:55:53.983Z",
+        "phase": "mix",
+        "event": "music completado por pipeline (5s)",
+        "artifacts": [
+          "public/audio/music-bed.wav"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:56:00.780Z",
+        "phase": "mix",
+        "event": "mix completado por pipeline (7s)",
+        "artifacts": [
+          "public/audio/mix.wav"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:57:26.574Z",
+        "phase": "qa",
+        "event": "master completado por pipeline (41s)",
+        "artifacts": [
+          "out/longform-smoke-MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:58:35.437Z",
+        "phase": "delivery",
+        "event": "encode completado por pipeline (69s)",
+        "artifacts": [
+          "out/longform-smoke-720p.mp4",
+          "out/longform-smoke-360p.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:58:35.439Z",
+        "phase": "delivery",
+        "event": "chapters: artefactos ya presentes (salto)",
+        "artifacts": [
+          "out/longform-smoke-chapters.txt",
+          "out/longform-smoke-chapters.json"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:58:54.201Z",
+        "phase": "qa",
+        "event": "QA técnico passed — longform-smoke-MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa-master.json",
+          "out/longform-smoke-MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:58:57.560Z",
+        "phase": "qa",
+        "event": "QA técnico passed — longform-smoke-360p.mp4",
+        "artifacts": [
+          "reports/technical-qa-360p.json",
+          "out/longform-smoke-360p.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-21T06:00:18.368Z",
+        "phase": "qa",
+        "event": "qa completado por pipeline (103s)",
+        "artifacts": [
+          "reports/technical-qa-master.json",
+          "reports/technical-qa-360p.json"
+        ]
+      }
+    ]
+  },
+  "updatedAt": "2026-11-21T06:00:18.368Z"
 }
