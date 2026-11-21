@@ -1,0 +1,212 @@
+{
+ "version": "V3 (VO Kokoro ef_dora, previsualización; guion provisional)",
+ "total": 37.31,
+ "pad": 0.03,
+ "fade": 0.005,
+ "lines": [
+  {
+   "linea": 1,
+   "slot": 0.0,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 0.0,
+     "orig_end": 4.03,
+     "orig_word_start": 0.0,
+     "orig_word_end": 3.98,
+     "edited_start": 0.0,
+     "edited_end": 4.03,
+     "head_keep": 0.0,
+     "tail_keep": 0.05,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 2,
+   "slot": 4.62,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 4.62,
+     "orig_end": 7.48,
+     "orig_word_start": 4.56,
+     "orig_word_end": 7.42,
+     "edited_start": 4.62,
+     "edited_end": 7.48,
+     "head_keep": 0.0,
+     "tail_keep": 0.06,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 3,
+   "slot": 7.88,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 7.88,
+     "orig_end": 10.31,
+     "orig_word_start": 7.82,
+     "orig_word_end": 10.22,
+     "edited_start": 7.88,
+     "edited_end": 10.31,
+     "head_keep": 0.0,
+     "tail_keep": 0.09,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 4,
+   "slot": 10.91,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 10.91,
+     "orig_end": 13.1,
+     "orig_word_start": 10.82,
+     "orig_word_end": 12.98,
+     "edited_start": 10.91,
+     "edited_end": 13.1,
+     "head_keep": 0.0,
+     "tail_keep": 0.12,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 13.48,
+     "orig_end": 15.78,
+     "orig_word_start": 13.46,
+     "orig_word_end": 15.76,
+     "edited_start": 13.48,
+     "edited_end": 15.78,
+     "head_keep": 0.0,
+     "tail_keep": 0.02,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 5,
+   "slot": 16.48,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 16.48,
+     "orig_end": 17.85,
+     "orig_word_start": 16.484,
+     "orig_word_end": 17.7,
+     "edited_start": 16.48,
+     "edited_end": 17.85,
+     "head_keep": 0.0,
+     "tail_keep": 0.15,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 18.2,
+     "orig_end": 22.34,
+     "orig_word_start": 18.22,
+     "orig_word_end": 22.32,
+     "edited_start": 18.2,
+     "edited_end": 22.34,
+     "head_keep": 0.0,
+     "tail_keep": 0.02,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 6,
+   "slot": 23.54,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 23.54,
+     "orig_end": 25.61,
+     "orig_word_start": 23.535,
+     "orig_word_end": 25.54,
+     "edited_start": 23.54,
+     "edited_end": 25.61,
+     "head_keep": 0.0,
+     "tail_keep": 0.07,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 26.04,
+     "orig_end": 29.81,
+     "orig_word_start": 26.06,
+     "orig_word_end": 29.66,
+     "edited_start": 26.04,
+     "edited_end": 29.81,
+     "head_keep": 0.0,
+     "tail_keep": 0.15,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 7,
+   "slot": 31.01,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 31.01,
+     "orig_end": 32.82,
+     "orig_word_start": 31.014,
+     "orig_word_end": 32.72,
+     "edited_start": 31.01,
+     "edited_end": 32.82,
+     "head_keep": 0.0,
+     "tail_keep": 0.1,
+     "merged_subphrases": null
+    },
+    {
+     "orig_start": 33.08,
+     "orig_end": 34.95,
+     "orig_word_start": 33.06,
+     "orig_word_end": 34.78,
+     "edited_start": 33.08,
+     "edited_end": 34.95,
+     "head_keep": 0.0,
+     "tail_keep": 0.17,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 8,
+   "slot": 36.45,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "segs": [
+    {
+     "orig_start": 36.45,
+     "orig_end": 37.31,
+     "orig_word_start": 36.447,
+     "orig_word_end": 37.31,
+     "edited_start": 36.45,
+     "edited_end": 37.31,
+     "head_keep": 0.0,
+     "tail_keep": 0.0,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  }
+ ]
+}

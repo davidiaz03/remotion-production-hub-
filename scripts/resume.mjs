@@ -113,11 +113,23 @@ export function nextStep(root, slug, state) {
 		}
 		case 'qa': {
 			if (!masterExists(root, slug, p.qa.artifacts)) {
+				// Concat PCM (.mkv, por defecto desde V4.1) o AAC
+				// antiguo (.mp4): el audio PCM no necesita trim,
+				// atempo ni boost (--clean-audio).
+				const chunksMkv = path.join(
+					projectHome(root, slug),
+					'out',
+					`${slug}-chunks.mkv`,
+				);
+				const pcm = existsSync(chunksMkv);
+				const chunksFile = pcm
+					? `${slug}-chunks.mkv`
+					: `${slug}-chunks.mp4`;
 				return {
 					phase: 'qa',
 					description:
 						'Render terminado pero sin máster: compone máster + ligera desde el concatenado (receta V1.3) y luego pasa el gate de QA.',
-					command: `${VENV_PY} scripts/audio/master.py --input ${dir}/out/${slug}-chunks.mp4 --out-master ${dir}/out/${slug}-master.mp4 --out-light ${dir}/out/${slug}-light.mp4`,
+					command: `${VENV_PY} scripts/audio/master.py --input ${dir}/out/${chunksFile} --out-master ${dir}/out/${slug}-master.mp4 --out-light ${dir}/out/${slug}-light.mp4${pcm ? ' --clean-audio' : ''}`,
 				};
 			}
 			return {

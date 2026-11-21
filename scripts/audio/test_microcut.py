@@ -149,6 +149,33 @@ class TestWordDips(unittest.TestCase):
         self.assertEqual(mc.word_dips(ed, orig_c, SR, words,
                                       words, tmap), [])
 
+    def test_short_word_silent_margins_gain_not_flagged(self):
+        """Palabra corta (120 ms) con márgenes silenciosos y
+        ganancia constante entre editada y original: SIN dips.
+
+        Regresión V4.1 (caso «EL» L6): la mediana del original se
+        calculaba sobre la ventana con márgenes de ±60 ms, que en
+        palabras cortas dominan la mediana y sesgaban d ~-13 dB,
+        marcando 3 FAIL espurios donde la editada era el crudo +
+        7,4 dB constantes. La mediana debe tomarse sobre el tramo
+        de la palabra (envolvente mapeada). El fixture reproduce
+        la geometría real: el span de Whisper adelanta 40 ms al
+        onset acústico y la vocal tiene rugosidad glotal (sin el
+        transitorio de onset, la racha sesgada supera 80 ms y el
+        tope de duración la oculta)."""
+        t = np.arange(int(0.08 * SR)) / SR
+        word = (voiced(0.08)
+                * (0.55 + 0.45 * np.sin(2 * np.pi * 120 * t))
+                * 3.0).astype(np.float32)
+        orig = np.concatenate([room(int(0.5 * SR)),
+                               room(int(0.04 * SR)), word,
+                               room(int(0.5 * SR))])
+        words = [{"w": "EL", "s": 0.5, "e": 0.62}]
+        tmap = [(0.0, len(orig) / SR, 0.0, 1.0)]
+        ed = (orig * 10 ** (7.4 / 20)).astype(np.float32)
+        self.assertEqual(mc.word_dips(ed, orig, SR, words,
+                                      words, tmap), [])
+
 
 # ---------------- (i1) calidad de empalme ----------------
 
@@ -548,6 +575,35 @@ class TestIntegrationVoBuildL3(unittest.TestCase):
         for _a, _b, c, _d in segs[1:]:
             r = mc.splice_report(out, SR, c)
             self.assertEqual(r["verdict"], "PASS", r)
+
+
+def _v4_files_present():
+    d = os.path.join(PROJ, "public", "audio", "v4")
+    return (os.path.exists(os.path.join(d, "vo-real-v4.wav"))
+            and os.path.exists(os.path.join(d, "vo-real-v4-raw.wav")))
+
+
+@unittest.skipUnless(_v4_files_present(),
+                     "faltan los audios V4 (salidas de build)")
+class TestIntegrationV41Contiguity(unittest.TestCase):
+    def test_segment9_contiguous(self):
+        """Regresión (i4): el segmento 9 (L10, «Leer para no
+        olvidar…», 57,47–63,45 s) de marti-fidel V4.1 es un trozo
+        contiguo del original (medición directa: corr 0,96, lag
+        constante +1,1 ms en las 59 ventanas), pero el check lo
+        marcaba FAIL (corr 0,76, salto de lag 17 ms) porque la
+        ventana de búsqueda de best_lag era ±20 ms y el lag real
+        (+21,1 ms absolutos: el mapa tiene ~1 ms de error por el
+        redondeo del edit-plan a 3 decimales) quedaba fuera de
+        ella. Con ±30 ms el segmento pasa. Falla con el código
+        viejo (ventana de ±20 ms)."""
+        d = os.path.join(PROJ, "public", "audio", "v4")
+        ed = mc.load_wav_fast(os.path.join(d, "vo-real-v4.wav"))
+        og = mc.load_wav_fast(os.path.join(d, "vo-real-v4-raw.wav"))
+        res = mc.segment_contiguity(
+            ed, og, SR, [(57.473, 63.452, 75.786, 1.0)])
+        self.assertTrue(res[0]["ok"], res)
+        self.assertGreater(res[0]["median_corr"], 0.8)
 
 
 if __name__ == "__main__":

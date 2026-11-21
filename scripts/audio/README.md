@@ -30,7 +30,7 @@ sobre el ritmo, antes de fijar la escaleta.
 | Script | Qué hace |
 |---|---|
 | `mix.py` | VO + música (archivo único o secciones con crossfades) + SFX opcionales → WAV 48 kHz con ducking sidechain y loudnorm. Informe JSON con LUFS/TP medidos. |
-| `master.py` | Máster + ligera desde el render (chunks o archivo único). Copia el video (ya a CRF 19); recodifica el audio con la cadena V1.3 (recorte 40 ms, realce de arranque +6 dB/100 ms, alimiter 0.79). La ligera es de aspecto automático (720×1280 en vertical, 720×404 en horizontal); `--no-light` la omite. |
+| `master.py` | Máster + ligera desde el render (chunks o archivo único). Copia el video (ya a CRF 19); recodifica el audio con la cadena V1.3 (recorte 40 ms, realce de arranque +6 dB/100 ms, alimiter 0.79). La ligera es de aspecto automático (720×1280 en vertical, 720×404 en horizontal); `--no-light` la omite. Con tramos PCM usar `--clean-audio` (sin trim, atempo ni boost: no hay priming ni deriva que corregir). Con tramos vídeo-solo, `--mix <wav>` muxa la mezcla en el ensamblado (cadena limpia por defecto; ver § «Tramos vídeo-solo»). |
 | `gen-music.py` | Música original por secciones con MusicGen-small (CPU). Las secciones vienen de un JSON. Stem a −16 LUFS (no confundir con el objetivo del reel). **Lento: ~30 min por 60 s en esta caja** — para video largo usa primero la biblioteca de camas (ver `bed-loop.py`). |
 | `bed-loop.py` | **(19-nov-2026)** Buclea camas de la biblioteca (`~/workspace/remotion-hub/assets/music/beds/` + `registry.json`) a la duración del video, con crossfades de potencia igual y normalización a −16 LUFS. Segundos, no horas: es el recurso por defecto para la música de video largo. |
 | `vo-batch.py` | **(19-nov-2026)** Sintetiza TODOS los capítulos de VO en un solo proceso Kokoro (modelo cargado una vez, capítulos en secuencia, reanudación por capítulo). El camino para video largo: 2 workers en paralelo EMPEORAN el tiempo total en esta caja de 1,5 CPU (RTF 8-12 medido vs 1,6 en secuencia). |
@@ -39,10 +39,13 @@ sobre el ritmo, antes de fijar la escaleta.
 | `gen-vo-kokoro.py` | **VO de previsualización recomendada (Fase B, R6):** Kokoro-82M (Apache-2.0), voces ES `em_alex` (defecto), `em_santa`, `ef_dora`. Misma interfaz que Piper (JSON de guion → WAV 24 kHz + `vo-lines.json`). Determinista (empalmar es seguro). RTF ≈ 1,6 con `--threads 2` y un solo proceso (medido 19-nov-2026; con 4 hilos RTF ≈ 2,5 y con 2 workers en paralelo RTF 8-12). Modelo en `../.hf-cache`; requiere espeak-ng (apt, .deb en `../debs/`). |
 | `beats.py` | **Detección de beats/onsets (Fase B, R16):** aubio 0.4.9 → JSON con BPM, beats y onsets en segundos y en fotogramas (`--fps 30`). Coloca cortes y transiciones sobre el ritmo de la música. Ojo: recorta los beats fantasma de los WAV de Flow (la carátula mjpeg confunde a aubio, +5 s). |
 | `transcribe-vo.py` | Alinea faster-whisper word_timestamps con el guion → `captions.ts` (formato CapSegment) y, con `--out-json`, HubCaption[] para `shared/captions`. `--threads 2` (defecto). |
-| `audit-audio.py` | **Auditoría completa de audio (17-nov-2026, V1.5 marti-fidel):** guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes con clasificación por armonicidad, empalmes, palabras exprimidas), artefactos de time-stretch, mapa de silencios, música y ducking (suelo RMS, crossfade, recuperación, bombeo), máster (loudness/TP, alineación karaoke/onsets acústicos), espectrogramas y microcortes de voz (sección (i), 18-nov-2026). Informe JSON + Markdown. **OBLIGATORIO antes de entregar cualquier reel: ningún reel se entrega sin pasar este módulo.** Novedades 19-nov-2026: (b) distingue la cola de la palabra anterior en los huecos del inicio real de la palabra siguiente (valle de energía ≥10 dB + jitter 0,20 s): en MW, 9 de 10 FAIL eran falsos positivos y el décimo (ROBERTSON, 0,23 s) es real y se sigue señalando; (f) cubre TODA la duración (antes solo los primeros 47 s); los WARN/INFO repetitivos se agregan por categoría. |
-| `microcut.py` | **Detector de microcortes de voz a nivel de forma de onda (18-nov-2026, sección (i) de la auditoría):** calidad de empalme, dips dentro de palabras (editada vs original), pausas recortadas, contigüidad de segmentos y SFX que entierran ataques de palabra. CLI propia + `detect_all()` para tests y auditoría. |
+| `audit-audio.py` | **Auditoría completa de audio (17-nov-2026, V1.6 hub-speed-v5):** guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes con clasificación por armonicidad, empalmes, palabras exprimidas), artefactos de time-stretch, mapa de silencios, música y ducking (suelo RMS, crossfade, recuperación, bombeo), máster (loudness/TP, alineación karaoke/onsets acústicos), espectrogramas, microcortes de voz (sección (i), 18-nov-2026) y agujeros en el máster (check (g), 20-nov-2026, V4.1). V1.6: mapa karaoke (`--karaoke-map`: distingue líneas en tarjeta/manuscrita), pausas con umbrales relativos al pico de línea (c) §4, suelo de audibilidad en empalmes (c) §2 y onsets por envolvente (g). Novedades 19-nov-2026: (b) distingue la cola de la palabra anterior en los huecos del inicio real de la palabra siguiente (valle de energía ≥10 dB + jitter 0,20 s): en MW, 9 de 10 FAIL eran falsos positivos y el décimo (ROBERTSON, 0,23 s) es real y se sigue señalando; (f) cubre TODA la duración (antes solo los primeros 47 s); los WARN/INFO repetitivos se agregan por categoría. Informe JSON + Markdown. **OBLIGATORIO antes de entregar cualquier reel: ningún reel se entrega sin pasar este módulo.** |
+| `envelope.py` | **Onsets por envolvente (hub-speed-v5, 21-nov-2026):** envolvente RMS vectorizada (rejilla absoluta 10 ms), `envelope_onset` (umbral −50 dBFS + racha de 2 ventanas: el método vindicado en la adjudicación V5), `rise_onset` (máxima subida, solo como contraste) y `line_peak_db` (p95 por línea, base de los umbrales relativos de (c) §4). Compartido por `align-captions.py` y `audit-audio.py`. |
+| `align-captions.py` | **Re-temporización de captions desde onsets acústicos (hub-speed-v5, 21-nov-2026):** corrige los inicios de palabra tras silencio (Whisper los adelanta ~0,2 s de mediana, hasta 0,56 s) moviendo solo `s`/`startMs` (+ el `start` del chunk en TS). Entrada JSON o TS de Remotion; `--verify` falla si algún desvío supera 0,15 s. Ver § «Alineación acústica de captions». |
+| `test_align_audit.py` | Suite de `align-captions.py` + `envelope.py` + auditoría V1.6 (24 tests): onsets sintéticos (blip rechazado, palabra quieta, rise vs first), alineación JSON/TS, mapa karaoke (hueco en tarjeta = INFO, en karaoke = FAIL), pausas relativas (ganancia +12 dB, respiro fuerte que no puentea) y suelo de empalme + 5 de integración V5 (los 9 desvíos, (b)/(g) con el mapa y con captions re-temporizados; se saltan sin los audios V5). |
+| `microcut.py` | **Detector de microcortes de voz a nivel de forma de onda (18-nov-2026, sección (i) de la auditoría):** calidad de empalme, dips dentro de palabras (editada vs original), pausas recortadas, contigüidad de segmentos y SFX que entierran ataques de palabra. CLI propia + `detect_all()` para tests y auditoría. (i2) corregida 20-nov-2026 (V4.1): la mediana del original se toma sobre el tramo de la palabra, no sobre la ventana con márgenes. |
 | `vo_build.py` | **Construcción de VO sin microcortes (18-nov-2026):** sustituye el patrón `edit_line` + `fade_edges` (fundido de salida + fundido de entrada, que deja un hueco de ~10 ms a −85 dBFS) por crossfades de igual potencia, cortes ajustados a cruces por cero, validación contra los timestamps de Whisper (nunca recortar dentro de una palabra, margen 30 ms) y suelo de pausa (regla 18-nov: ≥0,25 s y ≤50% de pérdida). |
-| `test_microcut.py` | Suite de `microcut.py` + `vo_build.py` (27 tests): microcortes sintéticos inyectados (huecos de 5/10/20/30/50 ms, empalme brusco, pausa exprimida, segmento mal mapeado, SFX sobre onset) + casos reales V2.2/V2.3/baseline (se saltan si faltan los audios, que son salidas de build no versionadas; los edit-plan y predicciones están vendorizados en `tests/fixtures/`). |
+| `test_microcut.py` | Suite de `microcut.py` + `vo_build.py` (29 tests): microcortes sintéticos inyectados (huecos de 5/10/20/30/50 ms, empalme brusco, pausa exprimida, segmento mal mapeado, SFX sobre onset) + casos reales V2.2/V2.3/baseline (se saltan si faltan los audios, que son salidas de build no versionadas; los edit-plan y predicciones están vendorizados en `tests/fixtures/`) + regresión V4.1 de (i4) sobre el audio real. |
 
 ## Auditoría de audio (`audit-audio.py`)
 
@@ -101,6 +104,99 @@ Lecciones codificadas (verificadas 17-nov-2026, reel marti-fidel):
   de la música (V2.3 @ 9,25 s: mezcla −38,2 dBFS con la cama a
   −45,2 dBFS), no un hueco de mezcla: INFO, no FAIL. FAIL solo si
   la cama está sobre el suelo y la mezcla cae.
+- **Mapa karaoke (21-nov-2026, V1.6, checks (b)/(g)):** la auditoría
+  analiza el archivo de captions, no lo que se renderiza: en V5
+  marcaba 6 FAIL espurios en líneas que van en tarjeta (L3/L5/L7),
+  manuscrita (L9) o en ventanas de karaoke apagado (L4 desde
+  «WASHINGTON» 15,71 s, L8 47,52–49,22 s). El mapa
+  (`--karaoke-map research/karaoke-map.json`, o
+  `research/karaoke-map-v5.json` para marti-fidel V5) le dice qué
+  se renderiza como karaoke: los huecos y desvíos en líneas sin
+  karaoke son INFO. Sin mapa, se supone que TODO es karaoke
+  (comportamiento histórico). El mapa se escribe a mano desde la
+  composición (VideoV5.tsx ~l.382: comentario de ventanas A–E2).
+- **Pausas con umbrales relativos (21-nov-2026, V1.6, check (c)
+  §4):** la ganancia por línea sesgaba la medida absoluta de
+  pausas (L6 original 7,7 dB más quieta que la editada: la pausa
+  MARTÍ,→ES medía 0,50 s en el original y 0,42 s en la editada
+  con −40 dB fijos). Ahora `voiced_span` usa umbrales relativos
+  al pico (p95) de cada línea en cada audio: thresh = pico−32 dB,
+  loud = max(pico−12 dB, −28 dBFS). El suelo absoluto −28 dB en la
+  rama loud es imprescindible: sin él, un respiro fuerte (−28,1
+  dB, armonicidad 0,11) en el original quieto se rescata como voz
+  y la pausa QUE→HABER (L7) colapsa de 0,46 s a 0 s. Validado en
+  V5: la pausa L9 HISTORIA,→ESTÁ sigue midiendo 0,26 s en
+  original y editada (pérdida 0%) y los 15 pares evaluados no
+  cambian de veredicto.
+- **Suelo de audibilidad en empalmes (21-nov-2026, V1.6, check (c)
+  §2):** en silencio, el baseline de tono de sala es tan bajo que
+  cualquier paso supera el ratio 3×. Un paso < 0,02 (−34 dBFS) es
+  inaudible en la mezcla (la cama está ≥ −32 dBFS RMS por (f) y lo
+  enmascara): INFO, no FAIL (caso V5 @ 5,17 s: paso 0,0098 en una
+  pausa diseñada, (i1) limpio). Los clics reales (≥0,02) siguen
+  siendo FAIL.
+- **La «alineación clean» es coherencia, no sincronía
+  (21-nov-2026, V1.6, check (g)):** compara los captions contra
+  los tiempos de palabra de los que derivan; un 0,000 s ahí no
+  prueba que el karaoke coincida con lo que se oye. La única
+  alineación autoritativa es la acústica (onsets de la VO). El
+  informe la etiqueta como «coherencia captions↔transcripción».
+
+## Alineación acústica de captions (`align-captions.py` + `envelope.py`, hub-speed-v5, 21-nov-2026)
+
+Los tiempos de palabra de Whisper adelantan sistemáticamente los
+bordes tras pausa (mediana firmada −0,21 s; hasta −0,56 s en
+marti-fidel V5): el karaoke muestra la primera palabra de cada
+línea 0,20–0,56 s antes de oírse. `align-captions.py` corrige los
+inicios desde los onsets acústicos reales de la VO antes de
+renderizar.
+
+```bash
+.venv/bin/python scripts/audio/align-captions.py \
+  --voice projects/marti-fidel/public/audio/v41/vo-real-v41.wav \
+  --captions projects/marti-fidel/public/audio/v41/captions-v41.json \
+  --out /tmp/captions-v51.json --report /tmp/align-v51.json --verify
+# También acepta el TS de Remotion (captions-v41.ts -> captions-v51.ts).
+# Solo mueve inicios (s/startMs) y el start del chunk en TS; los fines,
+# los slots de segmento y los kw quedan intactos. --verify falla (código
+# 2) si algún desvío supera 0,15 s tras corregir.
+```
+
+Método (mismo que el auditor V5 usó para demostrar el adelanto):
+envolvente RMS en ventanas de 10 ms; solo palabras TRAS SILENCIO
+(≤ −50 dBFS en los 0,15 s previos, mismo criterio que el check (g)):
+en medio de habla continua no hay onset definible por energía y los
+tiempos de Whisper ahí no tienen el sesgo post-pausa. Solo se corrige
+si |desvío| > 0,05 s (por debajo es ruido de rejilla), acotado a
+[anterior + 0,05 s, fin propio − 0,05 s] para no romper la monotonía.
+
+Verificado en marti-fidel V5: 11 palabras corregidas (las 9 del
+hallazgo V5 — MARTÍ −0,25; ES −0,42; UN −0,56; WASHINGTON −0,23; YA
+−0,20; EL −0,22; EN −0,29; CUANDO −0,49; ¡QUE −0,48 s — más NO
+−0,13 y MUCHOS −0,13, bajo el umbral FAIL pero con el mismo sesgo);
+desvío máximo 0,56 → 0,049 s; sobre el umbral 9 → 0. Los 9 desvíos
+quedan en 0,000 s medidos contra los onsets acústicos.
+
+**Por qué el detector es umbral −50 dBFS y no otra cosa**
+(medido en la VO v41, no asumido): el backlog V4 pedía
+«envolvente/correlación en vez de umbral crudo», pero la V5
+demostró que el umbral NO era el problema (los onsets son bruscos
+y reales). Las alternativas se probaron y se rechazaron:
+- Umbral relativo al suelo local (mediana previa + 5 dB): dispara
+  en falso por la deriva del tono de sala (MARTÍ 5,60 en vez de
+  5,90; UN 12,76 en vez de 13,37). El tono de sala fluctúa ±7 dB
+  entre segmentos y el onset de «EL» es de solo +8 dB: no hay
+  margen que separe deriva de onset.
+- Puerta de armonicidad (RMS > −55 dB y harm > 0,4): el tono de
+  sala de esta grabación ES armónico (0,45–0,53 en silencio puro)
+  y dispara en falso (MARTÍ 5,72; ¡QUE 64,02); además PIERDE «UN»
+  entero.
+- Máxima subida de envolvente (`rise_onset`, correlación con un
+  escalón): encuentra el ataque MÁS FUERTE, no el primero («EL»
+  → 26,23 s, el ataque de «GIGANTE», en vez de 25,91 s).
+`envelope_onset` (umbral −50 dBFS + racha de 2 ventanas) coincide
+al milisegundo con `acoustic_span(-50)` en los 17 captions tras
+silencio de V5.
 
 ## Microcortes de voz (`microcut.py` + `vo_build.py`, 18-nov-2026)
 
@@ -136,7 +232,7 @@ Checks y umbrales (constantes al inicio de `microcut.py`):
 | Check | Qué mide | Umbrales |
 |---|---|---|
 | (i1) Empalme | Salto de muestra en ±1 ms vs p99,9 local; salto de DC (10 ms antes vs después); distancia espectral entre lados (20 ms); hueco del fundido (envolvente a 1 ms en ±15 ms) | FAIL: salto >4×; WARN: DC >0,01, espectral >0,6, hueco >12 dB; FAIL: hueco >20 dB con flancos >−40 dBFS (audible) |
-| (i2) Dips en palabras | Comparación directa de envolventes 5 ms editada vs original (normalizadas por mediana; alineación por palabra ±30 ms; referencia = mínimo del original en ±10 ms) | FAIL: caída >10 dB durante 5–80 ms donde el original tiene voz clara sostenida (mediana ±25 ms >−30 dBFS) |
+| (i2) Dips en palabras | Comparación directa de envolventes 5 ms editada vs original (normalizadas por mediana; alineación por palabra ±30 ms; referencia = mínimo del original en ±10 ms). **La mediana del original se toma sobre el tramo de la palabra** (20-nov-2026, V4.1): calcularla sobre la ventana con márgenes de ±60 ms introducía un sesgo de −12,7 dB que marcaba 3 dips fantasma en «EL» (L6, V4). | FAIL: caída >10 dB durante 5–80 ms donde el original tiene voz clara sostenida (mediana ±25 ms >−30 dBFS) |
 | (i3) Pausas | Pausa de voz (offset→onset, `voiced_span`) original vs editada | FAIL: editada <0,25 s o pérdida >50% (misma regla que (c) §4) |
 | (i4) Contigüidad | Correlación por sub-ventanas de 100 ms con energía contra el original en la posición mapeada (forma de onda si factor ≈1; envolvente RMS si hay stretch) | FAIL: correlación mediana <0,70 o salto de lag >15 ms (40 ms con stretch) entre ventanas consecutivas |
 | (i5) SFX | Nivel de mezcla vs VO en los primeros 30 ms de una palabra cuyo onset cae a ±40/50 ms de un SFX | WARN >10 dB, FAIL >15 dB |
@@ -155,8 +251,21 @@ Cómo interpretar los resultados:
   reescribe la forma de onda pero conserva la envolvente. El lag
   con stretch es ruidoso (umbral 40 ms); la correlación de
   envolvente es la señal autoritativa ahí.
+- (i4) busca el lag en **±30 ms** (V4.1, 20-nov-2026): con ±20 ms
+  el segmento 9 de V4.1 daba un falso FAIL (corr 0,76, salto
+  17 ms) porque el lag real (+21,1 ms absolutos: +1,1 ms
+  relativo + ~1 ms de error de redondeo del mapa edit-plan, que
+  redondea a 3 decimales) quedaba JUSTO fuera de la ventana y
+  `best_lag` se clampaba al borde. Con ±30 ms: corr 0,879,
+  salto 10,0 ms (PASS). La ventana de 140 ms del tramo original
+  admite ±30 ms sin riesgo.
+- **Tras editar `microcut.py`, borrar `scripts/audio/__pycache__`.**
+  Un `.pyc` obsoleto puede seguir validando si la edición cae en
+  el mismo segundo y no cambia el tamaño del archivo (mtime en
+  segundos + mismo tamaño): en V4.1 la re-auditoría repetía los
+  números viejos de (i4) hasta borrar el `.pyc`.
 
-Validación (18-nov-2026, `test_microcut.py`, 27 tests):
+Validación (18-nov-2026, `test_microcut.py`, 29 tests desde V4.1):
 - V2.2 (caso malo conocido): (i3) marca exactamente las 6 pausas
   malas (1891,→MARTÍ, RECUENTO,→Y, HOY,→EN, AMÉRICA,→EL,
   CAMBIÓ:→DIECINUEVE, LEER.→PENSAR.).
@@ -170,6 +279,16 @@ Validación (18-nov-2026, `test_microcut.py`, 27 tests):
   pausa — ninguno marcado.
 - `vo_build`: L3 reconstruida desde el original — los 3 empalmes
   pasan de WARN (17,6 dB) a PASS (≤9,9 dB); duración exacta.
+- V4.1 (20-nov-2026): test de regresión de (i2) (palabra corta +
+  márgenes silenciosos + ganancia): falla con el código viejo, pasa
+  con el nuevo. Los 3 dips «EL» de V4 desaparecen (0 dips).
+- V4.1 (21-nov-2026): test de regresión de (i4)
+  `TestIntegrationV41Contiguity` (segmento 9 sobre el audio
+  real): falla con la ventana ±20 ms, pasa con ±30 ms. Un test
+  sintético NO sirve aquí: el glide armónico puro pasa con ambas
+  ventanas (corr 0,996, demasiado permisivo) y el ruido blanco
+  falla con ambas (el paso de 12 muestras de `best_lag` es
+  demasiado grueso para ruido de banda ancha).
 
 Límites honestos (qué NO detecta el análisis de forma de onda):
 - Los saltos de ganancia del loudnorm junto a SFX (−2 a −3 dB en
@@ -188,6 +307,103 @@ Límites honestos (qué NO detecta el análisis de forma de onda):
   (el real): con ruido blanco, dos tramos independientes dan
   distancia ~1,0 por construcción y el check marcaría WARN
   espurio. En audio real no es un problema (V2.3: 0,07–0,10).
+
+## Agujeros AAC de frontera y tramos PCM (20-nov-2026, V4.1)
+
+La V4 de marti-fidel pasó la auditoría (i) con los microcortes
+adjudicados como inaudibles y el usuario TODAVÍA los oía. El
+diagnóstico (20-nov-2026) demostró que la causa NO era el atempo
+ni la VO: **el AAC por tramos inyecta un agujero de 34–55 ms
+(hasta silencio digital, −126 a −180 dBFS) en CADA frontera de
+tramo** — 13 en el máster V4, 8 sobre voz — más ~55 ms de deriva
+por frontera (+770 ms al final). El atempo no los crea (ya están
+en el concat pre-atempo; solo los difumina) y sus propios
+artefactos WSOLA son 5 ms / ≤14 dB (rubberband similar: 3 vs 6
+dips). Cambiar de stretcher no arregla nada; la solución es
+eliminar la deriva y los agujeros en la raíz.
+
+**Solución (obligatoria para renders nuevos):**
+`render-chunks.mjs` usa `--audio-codec pcm-16` por defecto
+(tramos y concat `.mkv`; Remotion exige mkv/mov para h264+PCM)
+y `master.py --clean-audio` (sin trim, atempo ni boost).
+Verificado en renders reales: concat exacto a la muestra
+(deriva 0 ms, corr de envolvente 1,0000, diff muestral RMS
+−96 dBFS), 0 agujeros; máster de prueba 15 s con lag constante
++5 ms (el priming del propio AAC del máster; constante, no
+deriva). `--audio-codec aac` solo existe por compatibilidad.
+
+```bash
+# Render (PCM por defecto; nada que añadir)
+node scripts/render-chunks.mjs <proyecto> --composition <Comp> --chunk 150
+# Máster (sin atempo, sin trim, sin boost)
+.venv/bin/python scripts/audio/master.py --input <concat.mkv>   --out-master <id>_MASTER.mp4 --out-light <id>_LIGERO.mp4   --clean-audio --force
+```
+
+**Check (g) `check_g_master_holes` (parte obligatoria de la
+auditoría):** escanea el máster a 1 ms buscando rachas ≥15 ms bajo
+−50 dBFS y las contrasta con la mezcla **en el mismo momento
+acústico** (curva de lag por correlación). FAIL si hay agujeros
+donde la mezcla es fuerte. Validado en ambos sentidos: máster V4
+→ 16 agujeros (13 fronteras + 3 dips de atempo); concat PCM → 0,
+PASS. Las pausas naturales con la cama en silencio (tesis L9) no
+dan falsos positivos. El check corre solo con `audit-audio.py`
+(cuando se pasa `--mix`); un FAIL de (g) es un defecto de la
+cadena de render, no de la VO ni de la mezcla: no se adjudica
+como «inaudible» — se re-renderiza en PCM.
+
+**Lección:** la adjudicación V4 declaró los agujeros «inaudibles
+por enmascaramiento» y el oído del usuario demostró lo contrario.
+Un agujero de 34–55 ms hasta silencio digital sobre voz NO es
+enmascarable. El oído manda; la medición que no lo ve es la que
+está mal (aquí: la (i2) comparaba VO editada vs cruda, archivos
+que el concat nunca toca — el defecto vivía en la cadena de
+render, fuera del alcance de (i)).
+
+## Tramos vídeo-solo + mezcla en el máster (21-nov-2026, hub-speed-v5)
+
+El audio muxado en cada tramo obligaba a re-renderizar TODO el vídeo
+ante cualquier cambio de mezcla (en V4.1, un cambio de 20 ms + ducking
+costó un re-render completo de 85 min). Flujo nuevo:
+
+```bash
+# Tramos SIN audio (una sola vez; se reutilizan en cada iteración de audio)
+node scripts/render-chunks.mjs <proyecto> --composition <Comp> --chunk 150 \
+  --video-only --out out/chunks-vo --no-concat
+# Máster con la mezcla (cada iteración de audio: solo esto, ~2 min)
+.venv/bin/python scripts/audio/master.py --chunks-dir <out>/chunks-vo \
+  --mix <mezcla.wav> --gain-db 0.6 --out-master <id>_MASTER.mp4 --no-light --force
+```
+
+**`render-chunks.mjs --video-only`:** los tramos salen `.mkv` sin pista
+de audio. NO usa `--muted` (produce píxeles distintos del camino con
+audio): renderiza el audio a PCM-16 con `--separate-audio-to` a un
+temporal que se descarta tras cada tramo. `--video-only` + `--audio-codec`
+→ error. En el manifest, `videoOnly: true` marca los tramos sin audio.
+
+**`master.py --mix <wav>`:** el audio del máster viene de la mezcla, no
+del render (si el vídeo lleva audio, se ignora con un aviso). Cadena
+limpia por defecto (sin trim, boost ni atempo) salvo flags explícitos.
+La mezcla se sondea: si no es 48 kHz se remuestrea; si es mono se
+duplica a estéreo a −3,01 dB/canal (el mismo tratamiento que Remotion
+aplica al muxar: verificado, concat = mezcla × 0,7071, lag 0,00 ms);
+>2 canales → error. Después `apad` + `atrim` a la duración del vídeo
+(con `--chunks-dir` la duración es la suma de los tramos: el demuxer
+concat no reporta duración total). `--gain-db` aplica ganancia antes del
+limitador (reproduce el paso +0,6 dB de V5, no documentado en su
+momento). `--no-light` omite la ligera; `--draft` = `--no-light`.
+
+**Verificación (marti-fidel V5, 21-nov-2026):** render vídeo-solo
+completo 13 min 9 s; máster de prueba 2077 f, −15,90 LUFS, TP −4,30 dBTP
+(V5: −15,9/−4,2); audio vs máster V5 con lag +0,00 ms en las 13 ventanas
+de 5 s, diff RMS −58,98 dBFS (suelo AAC), sin deriva. Vídeo: 1779/2077
+fotogramas bit-idénticos a V5; los 298 restantes difieren solo al nivel
+del ruido propio del pipeline (PSNR 44,7–108 dB, SSIM ≥0,985),
+exactamente lo mismo que un re-render del flujo actual (ver
+`docs/HUB-SPEED-V5-RENDER.md` § No-determinismo: el render no reproduce
+fotogramas bit-idénticos entre corridas; la identidad bit a bit NO es
+criterio válido). **Nunca mezclar en un mismo concat tramos de distintos
+productores/contenedores** (timebases distintas → fotogramas perdidos que
+ffprobe no detecta; solo la decodificación real lo revela).
 
 ## Verificación de líneas de voz (`verify-vo-lines.py`)
 
@@ -216,6 +432,120 @@ evidencia de error real. El oído humano es el desempate. Self-test
 con los casos del 18-nov: `python3 scripts/audio/verify-vo-lines.py
 --self-test` (9/9).
 | `diarize.py` | **Separar voces (16-nov-2026):** quién habla cuándo, con sherpa-onnx 2.0.1 (segmentación pyannote-3.0 + embedding 3D-Speaker ERes2Net, ONNX, 100 % local, sin cuenta ni token). `--speakers 2` para el diálogo de las dos presentadoras del Memorial. Modelos en `<hub>/.sherpa-models/` (46 MB). Salida JSON con segmentos {start, end, speaker}. |
+| `scan-bed.py` | **Escaneo de camas generadas (21-nov-2026, REGLA PERMANENTE):** faster-whisper small + VAD sobre una cama «instrumental» antes de usarla; detecta texturas vocales fantasma (Whisper las transcribe como frases). Salida JSON + PASS/FAIL (código 0/1). Ver § «Escaneo de camas». |
+| `select-bed-window.py` | **Selección automática de ventana de cama (21-nov-2026, hub-speed-v5):** dada una pista y una duración objetivo, elige la mejor ventana (sin voz VAD, sin agujeros, arco calmado con leve crecimiento al cierre) a partir de UN solo escaneo Whisper + curva RMS. Salida JSON con ranking completo; código 0/1/2. Ver § «Selección de ventana de cama». |
+| `thesis-pad.py` | **Pad grave tenido (21-nov-2026, V5 marti-fidel):** sustituye un tramo de cama por un pad grave en bucle (pasaje de la propia cama, lowpass, nivel calibrado) con crossfades de igual potencia. Reemplaza al silencio total de `dip-bed.py` cuando el silencio se siente como agujero. |
+| `ramp-bed.py` | **Rampa de ganancia (21-nov-2026, V5 marti-fidel):** subida lineal en dB (0 → +N dB) entre dos tiempos, constante después; el audio previo queda bit a bit idéntico. Para recuperar una coda descendente hacia el nivel de la meseta al llegar al cierre. |
+
+## Escaneo de camas (`scan-bed.py`) — regla permanente 21-nov-2026
+
+Toda cama generada se escanea con Whisper ANTES de usarla. La pista
+«instrumental» de Flow Music («Documentary underscore», 20-nov-2026)
+llevaba texturas vocales fantasma en 60-88 s: la ventana V4.1
+(72-141,23 s) empezaba dentro de esa zona y los primeros ~16 s del
+reel llevaban susurros bajo la VO. Un escaneo previo lo habría cazado.
+
+```bash
+~/workspace/.stt-env/bin/python scripts/audio/scan-bed.py \
+  --in projects/marti-fidel/public/audio/flow-documentary-underscore.mp3 \
+  --start 88 --duration 69.23 --out /tmp/scan.json
+# PASS (código 0) o FAIL (código 1: voz detectada, no usar la cama)
+```
+
+Método (calibrado 21-nov-2026, faster-whisper small, es): dos
+pasadas (con VAD Silero, primaria; sin VAD, de registro) y
+clasificación por segmento: VOICE (palabras reales, no_speech_prob
+< 0,5 en frase de 2+ palabras, < 0,3 si es una sola palabra) → FAIL;
+HALLUCINATION (carácter único, solo puntuación, patrón «Amara.org»,
+etiqueta «Música», segmento más allá del audio) → INFO; UNCERTAIN
+(palabras reales con nsp por encima del umbral) → escuchar de oído.
+Controles: 0-60 s PASS (0 segmentos), 60-88 s FAIL (VAD: frases
+80,69-88,49 s, nsp 0,224), 88-157,23 s PASS (VAD: 0). **El VAD es el
+discriminador:** sin VAD, Whisper alucina «Subtítulos realizados
+por la comunidad de Amara.org» y «Música» sobre música limpia
+(nsp 0,41-0,69); eso NO es voz y no tumba el veredicto. **La
+decodificación NO es determinista entre corridas** (el texto
+alucinado varía): lo estable es el veredicto, nunca citar el texto
+de un segmento como evidencia.
+
+## Selección de ventana de cama (`select-bed-window.py`) — hub-speed-v5, 21-nov-2026
+
+No elegir la ventana de una cama a mano: el selector la elige
+automáticamente. La ventana V4.1 (72-141,23 s) se eligió a mano y
+empezaba dentro de la zona contaminada 60-88 s; la V5 tuvo que
+moverla a mano a 88-157,23 s. Este script automatiza esa decisión.
+
+```bash
+~/workspace/.stt-env/bin/python scripts/audio/select-bed-window.py \
+  --in projects/marti-fidel/public/audio/flow-documentary-underscore.mp3 \
+  --duration 69.23 --out /tmp/select.json
+# ELEGIDA: 88.00-157.23 s (91,7 pt) — código 0
+# (código 1 = ninguna ventana pasa; 2 = error)
+```
+
+**Diseño eficiente — un solo escaneo:** la pista se decodifica UNA
+vez a WAV 16 kHz mono; ese WAV alimenta una sola pasada Whisper
+(faster-whisper small, con VAD + sin VAD de registro, igual que
+`scan-bed.py`) sobre TODA la pista y la curva RMS por segundo. Las
+ventanas candidatas (paso `--step`, defecto 1 s) se puntúan a partir
+de ese escaneo — nunca un Whisper por ventana. El informe JSON
+guarda el escaneo completo y `--scan-json` lo reutiliza para
+re-puntuar con otros parámetros sin gastar CPU. El escaneo Whisper
+toma el candado compartido `/tmp/hub-speed-v5-render.lock`
+(`--no-lock` lo omite); la puntuación no lo necesita.
+
+**Rechazo duro:** voz VAD (segmento VOICE que solape la ventana
+≥1,0 s — el solape mínimo existe porque la frase 80,69-88,49 s
+termina 0,49 s dentro de la ventana V5 y esa ventana escanea
+limpia) o agujero (un bin de 1 s >14 dB bajo la mediana de la
+ventana). **Puntuación (base 100):** ataque inicial, inicio fuerte,
+crecimiento al cierre (medianas de 10 s, robustas ante un respiro
+de frase suelto), respiro profundo 8-14 dB, voz sin VAD (−30 pt,
+de registro, no rechaza salvo `--strict`), UNCERTAIN (−10 pt).
+**Desempate:** entre las aceptadas a <3 pt de la mejor, gana la
+más temprana.
+
+Verificación (pista Flow, objetivo 69,23 s): con el escaneo real
+completo elige **89,00-158,23 s (92,0 pt)**, equivalente a la
+ventana V5 (88-157,23 s); rechaza la 72-141,23 s (V4.1) por voz
+VAD y la 0-69,23 s por el agujero de −44,9 dBFS a los 10 s (y
+voz 60-68,28 s); con `--duration 170` ninguna ventana pasa
+(código 1). Tiempo sobre la pista completa: ~11 min de pared
+(Whisper 2 pasadas ~2-3 min + espera del candado compartido);
+re-puntuar con `--scan-json`: 2,2 s. Tests:
+`test_select_bed_window.py` (22 tests). Ver
+`docs/HUB-SPEED-V5-BED.md` (mediciones completas y texto para
+`AGENTS.md`).
+
+## Pad de tesis (`thesis-pad.py`) — V5 marti-fidel, 21-nov-2026
+
+El silencio total de `dip-bed.py` en la tesis (53,01-57,04 s) se
+sentía como un agujero, no como drama. `thesis-pad.py` lo sustituye
+por un pad grave tenido: un pasaje de la propia cama en bucle
+(crossfades de igual potencia), lowpass 300 Hz, normalizado a un
+RMS objetivo, con crossfades de igual potencia de 0,5 s con la cama.
+
+```bash
+.venv/bin/python scripts/audio/thesis-pad.py \
+  --in public/audio/v5/music-bed-trimmed.wav \
+  --out public/audio/v5/music-bed-padded.wav \
+  --pad 53.01 57.04 --source 20.0 4.0 --fade 0.5 --lowpass 300 \
+  --target-rms-db -23.5 --force
+```
+
+Calibración del nivel: el pad debe quedar ~-20 dB bajo los picos
+de VO en la MEZCLA FINAL. **No fiarse del cálculo teórico:** la
+primera calibración (-17,8 dBFS, suponiendo ducking -4 dB) midió
+-14,3 dB en la mezcla real (el ducking con threshold 0,12 apenas
+muerde: la VO ronda el umbral). La transferencia MEDIDA
+cama→mezcla es -6,9 dB; con picos de VO a -10,3 dBFS en la mezcla,
+el pad en la cama va a -23,5 dBFS. Verificación: RMS del pad solo
+en la mezcla (resta de energías contra la pausa de la VO en la
+misma ventana) vs picos de VO (RMS 50 ms): V5 midió -20,1 dB, y
+el mínimo RMS 10 ms en la tesis pasó de -61,85 (V4.1, agujero) a
+-38,85 dBFS. El pad queda ~9 dB bajo el tono de sala de la VO en
+la pausa: su función es subir el suelo en los micro-huecos entre
+palabras, no ser una presencia en primer plano.
 
 ## Diarización (`diarize.py`)
 
@@ -302,10 +632,12 @@ Tras cada fase, checkpoint en Git: `node scripts/checkpoint.mjs <id>
   sting supera el techo de −1,5 dBTP pedido); con 0,79 queda ~−1,6 dBTP.
 - **Stem de música**: −16 LUFS (2 dB por debajo de la VO; el ducking lo
   baja a 0,25 bajo la voz). Es el nivel del STEM, no del reel.
-- **Arranque**: el render por tramos deja 40 ms de silencio digital al
+- **Arranque**: el render por tramos AAC deja 40 ms de silencio digital al
   inicio y atenúa ~3-4 dB el arranque; `master.py` recorta los 40 ms y
   aplica un realce de +6 dB que decae en 100 ms. Sin esto, el gancho
-  suena "medio tarde" (auditoría V1.2→V1.3).
+  suena "medio tarde" (auditoría V1.2→V1.3). Con tramos PCM (V4.1) no
+  hay silencio inicial ni atenuación: `--clean-audio` omite el trim y
+  el boost.
 
 ## Entornos
 

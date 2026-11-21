@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Auditoría completa de audio para reels del hub (V1.5).
+"""Auditoría completa de audio para reels del hub (V1.6).
 
 El módulo que faltaba: las mediciones anteriores (RMS global,
 silencedetect, escaneo de clics por umbral) NO detectaban lo que el
@@ -17,15 +17,21 @@ Chequeos (cada uno PASS/WARN/FAIL con timestamps):
      VISUALIZACIÓN (inicio a inicio: lo que BottomKaraoke realmente
      muestra — el componente solo lee `s`, nunca `e`), inicios no
      monótonos, fin de caption vs fin acústico de la palabra.
+     Con `--karaoke-map`, los huecos en líneas que NO se renderizan
+     como karaoke (tarjeta, manuscrita) o en ventanas de karaoke
+     apagado son INFO, no FAIL: no hay karaoke que se apague.
   c) Integridad de la VO vs el original: energía en el LADO DESCARTADO
      de cada corte, clasificada por RMS + ARMONICIDAD (solo la voz
      sonora descartada es FAIL; respiros y clics son INFO), duración
      ACÚSTICA por palabra vs original/factor, onsets tardíos con
      análisis de rampa (salto brusco = cabeza cortada; rampa gradual =
      onset natural silencioso), discontinuidades SOLO en los empalmes
-     (método por borde), y preservación de pausas naturales
-     intra-línea (original vs editada: FAIL si la editada queda
-     < 0,25 s o pierde > 50% de su duración).
+     (método por borde, con suelo absoluto de audibilidad: un paso
+     < 0,02 en silencio es inaudible en la mezcla), y preservación de
+     pausas naturales intra-línea (original vs editada: FAIL si la
+     editada queda < 0,25 s o pierde > 50% de su duración; la medida
+     usa umbrales RELATIVOS al pico de cada línea, no absolutos, para
+     que la ganancia por línea no sesgue la comparación).
   d) Artefactos de time-stretch: flujo espectral en las uniones de
      segmentos con tempo vs uniones SIN stretch (misma posición: inicio
      de segmento tras silencio), y periodicidad WSOLA (autocorrelación
@@ -41,9 +47,14 @@ Chequeos (cada uno PASS/WARN/FAIL con timestamps):
      sidechain dentro de cada frase).
   g) Máster: loudness/TP, silencedetect, onset de voz vs t=0,
      alineación karaoke vs ONSETS ACÚSTICOS de la VO editada
-     (autoritaria) y vs voz del máster (Whisper, con su sesgo
+     (autoritaria; `envelope.envelope_onset`, mismo método que el
+     auditor V5) y vs voz del máster (Whisper, con su sesgo
      conocido), y detección de fallos de transcripción (Whisper vs
-     predicción analítica).
+     predicción analítica). La comparación captions↔transcripción
+     («clean») es COHERENCIA, no sincronía: compara los captions
+     contra los tiempos de los que derivan; un 0,000 s ahí no prueba
+     que el karaoke coincida con lo que se oye. Con `--karaoke-map`,
+     las palabras de líneas sin karaoke no se evalúan aquí.
   h) Espectrogramas (completo + por línea) para revisión visual.
   i) Microcortes de voz a nivel de forma de onda (microcut.py):
      calidad de cada empalme (saltos de muestra, DC, distancia
@@ -65,6 +76,9 @@ Entradas (rutas por defecto dentro del proyecto):
   public/audio/vo-editada-transcripcion.json (Whisper, editada)
   research/vo-editada-prediccion.json (tiempos analíticos)
   research/edit-plan-vXX.json (fronteras de edición; --edit-plan)
+  research/karaoke-map.json (o --karaoke-map; qué líneas van en
+    karaoke y cuáles en tarjeta/manuscrita — sin él, la auditoría
+    supone que TODO es karaoke)
   public/audio/mix.wav (o --mix)
   out/*_MASTER.mp4 (o --master)
   --section ARCHIVO@INICIO@FIN (música, formato de mix.py)
@@ -106,6 +120,17 @@ LECCIONES codificadas aquí (verificadas 17-nov-2026):
     en los empalmes (el patrón fade-out + fade-in no es un
     crossfade). La sección (i) mide ambas cosas; `vo_build.py`
     previene los huecos con crossfades de igual potencia.
+  - La auditoría analiza el archivo de captions, no lo que se
+    renderiza: en V5 marcaba 6 FAIL espurios en líneas que van en
+    tarjeta o manuscrita (L3/L5/L7/L9) o en ventanas de karaoke
+    apagado (L4 desde «WASHINGTON»). El mapa karaoke
+    (`--karaoke-map`) le dice qué se renderiza como karaoke.
+  - Los tiempos de Whisper adelantan los bordes tras pausa
+    (~0,2 s de mediana; hasta 0,56 s): la alineación autoritativa
+    es la acústica (envolvente 10 ms), y `align-captions.py`
+    re-temporiza los captions desde los onsets reales antes de
+    renderizar. La «alineación clean» es coherencia
+    captions↔transcripción, no sincronía (adjudicación V5 §7).
 """
 import argparse
 import difflib
@@ -119,6 +144,11 @@ import sys
 import tempfile
 
 import numpy as np
+
+_HERE = os.path.dirname(os.path.abspath(__file__))
+if _HERE not in sys.path:
+    sys.path.insert(0, _HERE)
+import envelope as env  # noqa: E402  (onsets por envolvente, hub-speed-v5)
 
 # ---------------- umbrales (ver docstring) ----------------
 MIN_CAPTION_S = 0.18       # (b) duración mínima de caption (WARN)
@@ -137,9 +167,25 @@ DUCK_RECOVERY_DB = 6.0     # (f) recuperación del ducking (FAIL)
 DUCK_PUMP_DB = 6.0         # (f) bombeo dentro de una frase (WARN)
 XFADE_DIP_DB = 6.0         # (f) caída en el crossfade (WARN)
 SPLICE_RATIO = 3.0         # (c) discontinuidad en empalme (FAIL)
+SPLICE_MIN_JUMP = 0.02     # (c) paso mínimo audible en empalme (-34 dBFS):
+# un paso menor, en silencio, es inaudible en la mezcla (la cama
+# está >= -32 dBFS RMS por (f) y lo enmascara; caso V5 @ 5,17 s:
+# paso 0,0098 en una pausa diseñada, (i1) limpio). Sin este suelo,
+# el ratio vs un baseline de tono de sala marca FAIL espurios.
 WORD_SQUEEZE = 0.80        # (c) palabra comprimida de más (FAIL)
 PAUSE_MIN_S = 0.25         # (c) pausa intra-línea mínima tras editar (FAIL)
 PAUSE_MAX_LOSS = 0.50      # (c) pérdida máxima de pausa natural (FAIL)
+# (c) §4: umbrales de voiced_span RELATIVOS al pico de línea (p95).
+# La ganancia por línea sesgaba la medida absoluta (L6 original
+# 7,7 dB más quieta que la editada: la pausa MARTÍ,->ES medía
+# 0,50 s en el original y 0,42 s en la editada con -40 dB fijos;
+# con umbrales relativos ambas miden 0,38-0,40 s). La rama "loud"
+# conserva el suelo absoluto -28 dBFS: sin él, un respiro fuerte
+# (-28,1 dB, armonicidad 0,11) en el original quieto se rescata
+# como voz y la pausa QUE->HABER (L7) colapsa de 0,46 s a 0 s.
+VOICED_THRESH_BELOW_PEAK_DB = 32.0
+VOICED_LOUD_BELOW_PEAK_DB = 12.0
+VOICED_LOUD_FLOOR_DB = -28.0
 SILENCE_MIN_S = 0.25       # (e) pausa mínima a clasificar
 SILENCE_THRESH_DB = -45.0  # (e) umbral de silencio
 SR = 48000
@@ -448,6 +494,73 @@ def load_whisper_file(path: str) -> list:
     return words
 
 
+# ---------------- mapa karaoke (hub-speed-v5) ----------------
+
+def load_karaoke_map(path: str) -> dict:
+    """Mapa qué-líneas-van-en-karaoke (JSON).
+
+    Formato (ver projects/marti-fidel/research/karaoke-map-v5.json):
+      {"card_lines": [3, 5, 7], "handwritten_lines": [9],
+       "karaoke_blank_windows": [[15.71, 18.29]]}
+    Las ventanas de apagado son [inicio, fin): el fin es exclusivo
+    (a 49,22 s el karaoke VUELVE). Sin mapa, la auditoría supone
+    que TODO es karaoke (comportamiento histórico).
+    """
+    raw = json.load(open(path, encoding="utf-8"))
+    return {
+        "card_lines": set(raw.get("card_lines", [])),
+        "handwritten_lines": set(raw.get("handwritten_lines", [])),
+        "blank_windows": [(float(a), float(b)) for a, b in
+                          raw.get("karaoke_blank_windows", [])],
+        "path": path,
+    }
+
+
+def caption_line_no(start_s: float, vo_lines: list):
+    """Número de línea (1-based) de un caption por su inicio.
+
+    La línea es la del vo-lines cuyo [start, end] contiene el
+    inicio (con 0,05 s de tolerancia en los bordes). None si no
+    encaja en ninguna (entonces se trata como karaoke).
+    """
+    for i, ln in enumerate(vo_lines):
+        if ln["start"] - 0.05 <= start_s <= ln["end"] + 0.05:
+            return i + 1
+    return None
+
+
+def is_karaoke_caption(start_s: float, line_no, kmap) -> bool:
+    """¿Este caption se renderiza como karaoke?
+
+    False si su línea va en tarjeta o manuscrita, o si su inicio
+    cae en una ventana de karaoke apagado. Sin mapa, True.
+    """
+    if not kmap:
+        return True
+    if line_no is not None and (
+            line_no in kmap["card_lines"]
+            or line_no in kmap["handwritten_lines"]):
+        return False
+    for t0, t1 in kmap["blank_windows"]:
+        if t0 <= start_s < t1:
+            return False
+    return True
+
+
+def caption_render_kind(start_s: float, line_no, kmap) -> str:
+    """Clase de render de un caption (para los mensajes INFO)."""
+    if not kmap:
+        return "karaoke"
+    if line_no is not None and line_no in kmap["card_lines"]:
+        return "tarjeta"
+    if line_no is not None and line_no in kmap["handwritten_lines"]:
+        return "manuscrita"
+    for t0, t1 in kmap["blank_windows"]:
+        if t0 <= start_s < t1:
+            return "karaoke apagado"
+    return "karaoke"
+
+
 # ---------------- informe ----------------
 
 class Report:
@@ -520,7 +633,8 @@ def check_a_script_karaoke(rep: Report, vo_lines: list, captions: list):
 
 
 def check_b_caption_timing(rep: Report, captions: list, edited_vo,
-                           sr: int, silences: list):
+                           sr: int, silences: list, vo_lines=None,
+                           kmap=None):
     """(b) Tiempos de caption: duraciones, solapes, huecos, visualización.
 
     NOTA: BottomKaraoke solo lee los inicios (`s`); la duración (e-s)
@@ -536,6 +650,10 @@ def check_b_caption_timing(rep: Report, captions: list, edited_vo,
     informe por caption genera miles de WARNs que entierran la señal
     (modern-wisdom-aprende: 1.850 WARNs de (b) en un informe de 0,7 MB).
     Los FAILs sí se emiten uno a uno.
+
+    Con karaoke-map: un hueco entre palabras que NO se renderizan
+    como karaoke (tarjeta, manuscrita, ventana de apagado) no es un
+    defecto — no hay karaoke que se apague — y se reporta como INFO.
     """
     n_short = n_overlap = n_disp = 0
     ex_short, ex_overlap, ex_disp, ex_end = [], [], [], []
@@ -580,6 +698,26 @@ def check_b_caption_timing(rep: Report, captions: list, edited_vo,
                 if c.get("pageBreakAfter"):
                     n_gap_chunk += 1
                     continue
+                # Sin karaoke en alguno de los dos lados, el hueco no
+                # tiene efecto visual: la línea va en tarjeta o
+                # manuscrita, o el karaoke está apagado en esa ventana
+                # (caso V5: '2005,' -> 'FIDEL' @ 36,63 s, L7 en
+                # tarjeta — la auditoría marcaba FAIL espurio).
+                if kmap and vo_lines:
+                    ln0 = caption_line_no(s, vo_lines)
+                    ln1 = caption_line_no(ns, vo_lines)
+                    if not is_karaoke_caption(s, ln0, kmap) \
+                            or not is_karaoke_caption(ns, ln1, kmap):
+                        kind = caption_render_kind(ns, ln1, kmap)
+                        rep.add("b", "INFO",
+                                f"hueco {gap:.2f}s entre "
+                                f"{c['text'].strip()!r} y "
+                                f"{captions[i + 1]['text'].strip()!r} "
+                                f"({e:.2f}-{ns:.2f}s): línea en "
+                                f"{kind}, sin karaoke — el hueco no "
+                                f"tiene efecto visual",
+                                t=e)
+                        continue
                 # ¿El hueco está cubierto por silencio de VO? Se exige
                 # que el silencio cubra >=70% del hueco (los bordes de
                 # Whisper y del detector difieren ~0,05-0,08 s). Si el
@@ -788,13 +926,31 @@ def check_c_vo_integrity(rep: Report, orig_vo, edited_vo, sr: int,
                 base = np.percentile(d[blo:bhi], 99.9)
                 worst = d[lo:hi].max() if hi > lo else 0.0
                 if worst > SPLICE_RATIO * max(base, 1e-4):
-                    n_splice += 1
-                    rep.add("c", "FAIL",
-                            f"discontinuidad en empalme L{ln['linea']} "
-                            f"{label} @ {te:.3f}s: salto {worst:.4f} "
-                            f"vs baseline p99,9 {base:.4f} "
-                            f"(ratio {worst / max(base, 1e-4):.1f}x)",
-                            t=te)
+                    if worst > SPLICE_MIN_JUMP:
+                        n_splice += 1
+                        rep.add("c", "FAIL",
+                                f"discontinuidad en empalme "
+                                f"L{ln['linea']} {label} @ {te:.3f}s: "
+                                f"salto {worst:.4f} vs baseline p99,9 "
+                                f"{base:.4f} "
+                                f"(ratio {worst / max(base, 1e-4):.1f}x)",
+                                t=te)
+                    else:
+                        # Paso por debajo del suelo de audibilidad:
+                        # en silencio, el baseline de tono de sala es
+                        # tan bajo que cualquier paso supera el ratio,
+                        # pero un paso < 0,02 (-34 dBFS) es inaudible
+                        # en la mezcla (caso V5 @ 5,17 s: 0,0098 en
+                        # una pausa diseñada, cama a -25,7 dBFS RMS).
+                        rep.add("c", "INFO",
+                                f"paso {worst:.4f} en empalme "
+                                f"L{ln['linea']} {label} @ {te:.3f}s "
+                                f"(ratio "
+                                f"{worst / max(base, 1e-4):.1f}x, pero "
+                                f"por debajo del suelo de audibilidad "
+                                f"{SPLICE_MIN_JUMP}: inaudible en la "
+                                f"mezcla)",
+                                t=te)
     rep.metrics["c_splice_clicks"] = n_splice
     # 3) Duración ACÚSTICA por palabra: editada vs original/factor.
     # Los intervalos de Whisper incluyen a menudo silencio entre
@@ -896,10 +1052,30 @@ def check_c_vo_integrity(rep: Report, orig_vo, edited_vo, sr: int,
     # Las ventanas se extienden hasta 0,10 s (acotado a la mitad
     # del hueco Whisper, para no invadir la palabra vecina) porque
     # los bordes de Whisper caen dentro del intervalo acústico real.
+    # UMBRALES RELATIVOS (hub-speed-v5): el umbral de voz y la rama
+    # "loud" de voiced_span se calculan desde el pico (p95) de cada
+    # línea en cada audio, no con -40/-28 dB absolutos: la ganancia
+    # por línea sesgaba la medida absoluta (ver constantes
+    # VOICED_*). Validado en V5: la pausa L9 HISTORIA,->ESTÁ sigue
+    # midiendo 0,26 s en original y editada (pérdida 0%), y los 15
+    # pares evaluados no cambian de veredicto.
     n_pause = 0
+    rep.metrics["c_line_peaks_db"] = {}
     for ln in plan["lines"]:
         s0 = ln["segs"][0]["edited_start"]
         s1 = ln["segs"][-1]["edited_end"]
+        o0 = ln["segs"][0]["orig_start"]
+        o1 = ln["segs"][-1]["orig_end"]
+        peak_o = env.line_peak_db(orig_vo, sr, o0, o1)
+        peak_e = env.line_peak_db(edited_vo, sr, s0, s1)
+        rep.metrics["c_line_peaks_db"][ln["linea"]] = {
+            "orig": round(peak_o, 1), "edited": round(peak_e, 1)}
+        th_o = peak_o - VOICED_THRESH_BELOW_PEAK_DB
+        th_e = peak_e - VOICED_THRESH_BELOW_PEAK_DB
+        ld_o = max(peak_o - VOICED_LOUD_BELOW_PEAK_DB,
+                   VOICED_LOUD_FLOOR_DB)
+        ld_e = max(peak_e - VOICED_LOUD_BELOW_PEAK_DB,
+                   VOICED_LOUD_FLOOR_DB)
         idx = [i for i in range(n_map)
                if s0 - 0.1 <= pred_words[i]["s"] <= s1 + 0.1]
         for a, b in zip(idx, idx[1:]):
@@ -910,13 +1086,17 @@ def check_c_vo_integrity(rep: Report, orig_vo, edited_vo, sr: int,
             ext_o = min(0.10, max(0.0, gap_o / 2))
             ext_e = min(0.10, max(0.0, gap_e / 2))
             _on, o_off = voiced_span(orig_vo, sr, ow0["s"] - 0.05,
-                                     ow0["e"] + ext_o)
+                                     ow0["e"] + ext_o, thresh_db=th_o,
+                                     loud_db=ld_o)
             o_on, _off = voiced_span(orig_vo, sr, ow1["s"] - ext_o,
-                                     ow1["e"] + 0.05)
+                                     ow1["e"] + 0.05, thresh_db=th_o,
+                                     loud_db=ld_o)
             _on, e_off = voiced_span(edited_vo, sr, pw0["s"] - 0.05,
-                                     pw0["e"] + ext_e)
+                                     pw0["e"] + ext_e, thresh_db=th_e,
+                                     loud_db=ld_e)
             e_on, _off = voiced_span(edited_vo, sr, pw1["s"] - ext_e,
-                                     pw1["e"] + 0.05)
+                                     pw1["e"] + 0.05, thresh_db=th_e,
+                                     loud_db=ld_e)
             if None in (o_off, o_on, e_off, e_on):
                 continue
             o_gap = o_on - o_off
@@ -1357,10 +1537,131 @@ def ducking_gain_curve(bed: np.ndarray, voice: np.ndarray, sr: int,
     return np.array(g)
 
 
+def _envelope_lag_curve(env_ref, env_test, win_s=2.0, step_s=2.0,
+                          search_s=1.0, min_corr=0.8):
+    """Lag test-vs-ref por ventanas (s): [(t_centro, lag_s, corr)].
+
+    Solo ventanas fiables (corr >= min_corr): las que cruzan una
+    frontera de tramo AAC no correlacionan (el salto de lag parte
+    la ventana) y se descartan; el lag se interpola entre las
+    vecinas fiables.
+    """
+    win = int(win_s / 0.005)
+    step = int(step_s / 0.005)
+    span = int(search_s / 0.005)
+    out = []
+    for c in range(0, len(env_ref) - win, step):
+        seg_r = env_ref[c:c + win]
+        if float(np.std(seg_r)) < 1e-6:
+            continue
+        best_c, best_l = -2.0, 0
+        for lag in range(-span, span + 1):
+            j0 = c + lag
+            if j0 < 0 or j0 + win > len(env_test):
+                continue
+            seg_t = env_test[j0:j0 + win]
+            if float(np.std(seg_t)) < 1e-6:
+                continue
+            cc = float(np.corrcoef(seg_r, seg_t)[0, 1])
+            if not math.isnan(cc) and cc > best_c:
+                best_c, best_l = cc, lag
+        if best_c >= min_corr:
+            out.append((c * 0.005, best_l * 0.005, best_c))
+    return out
+
+
+def check_g_master_holes(rep: Report, master_audio, mix, sr: int):
+    """(g) Agujeros de frontera en el máster (V4.1, 20-nov-2026).
+
+    El render por tramos con AAC inyectaba un agujero de 34-55 ms
+    (hasta silencio digital) en cada frontera de tramo: 13 en el
+    máster V4 de marti-fidel, que el usuario oía como microcortes y
+    que la auditoría NO cazaba (el detector de silencios exige
+    >=0,3 s y la (i2) solo mira la VO). Este check escanea el máster
+    a 1 ms: rachas >=15 ms por debajo de -50 dBFS. Cada candidata
+    se contrasta con la mezcla EN EL MISMO MOMENTO ACÚSTICO (curva
+    de lag por correlación de envolventes, para absorber la deriva
+    residual de la vía AAC antigua): si la mezcla ahí tiene voz o
+    música (mediana >-30 dBFS en el tramo del agujero), el agujero
+    es un defecto; si la mezcla también está en silencio (pausa
+    entre palabras con la cama en silencio, como la tesis L9), no.
+    Se excluyen los primeros 0,5 s (arranque) y los últimos 1,5 s
+    (fade de salida). Con tramos PCM no debe haber ninguno.
+    """
+    if mix is None:
+        rep.add("g", "INFO", "sin mezcla: no se buscan agujeros de "
+                "frontera en el máster")
+        return
+    dur = len(master_audio) / sr
+    win = int(0.001 * sr)
+    n = len(master_audio) // win
+    env_m = 20 * np.log10(np.maximum(
+        np.sqrt((master_audio[:n * win].reshape(n, win).astype(
+            np.float64) ** 2).mean(axis=1)), 1e-9))
+    nm = len(mix) // win
+    env_x = 20 * np.log10(np.maximum(
+        np.sqrt((mix[:nm * win].reshape(nm, win).astype(
+            np.float64) ** 2).mean(axis=1)), 1e-9))
+    # Curva de lag máster-vs-mezcla (envolventes a 5 ms).
+    w5 = int(0.005 * sr)
+    n5 = len(master_audio) // w5
+    e5_m = 20 * np.log10(np.maximum(
+        np.sqrt((master_audio[:n5 * w5].reshape(n5, w5).astype(
+            np.float64) ** 2).mean(axis=1)), 1e-9))
+    n5x = len(mix) // w5
+    e5_x = 20 * np.log10(np.maximum(
+        np.sqrt((mix[:n5x * w5].reshape(n5x, w5).astype(
+            np.float64) ** 2).mean(axis=1)), 1e-9))
+    lag_pts = _envelope_lag_curve(e5_x, e5_m)
+    i0 = int(0.5 * 1000)
+    i1 = max(i0, int((dur - 1.5) * 1000))
+    holes = []
+    k = i0
+    while k < min(i1, n):
+        if env_m[k] < -50.0:
+            j = k
+            while j + 1 < min(i1, n) and env_m[j + 1] < -50.0:
+                j += 1
+            if (j - k + 1) >= 15:
+                t = (k + j) / 2 / 1000
+                dur_ms = j - k + 1
+                if lag_pts:
+                    ts = np.array([p[0] for p in lag_pts])
+                    ls = np.array([p[1] for p in lag_pts])
+                    lag = float(np.interp(t, ts, ls))
+                else:
+                    lag = 0.0
+                t_mix = t + lag
+                lo = max(0, int((t_mix - dur_ms / 2000 - 0.03) * 1000))
+                hi = min(nm, int((t_mix + dur_ms / 2000 + 0.03) * 1000))
+                mix_med = (float(np.median(env_x[lo:hi]))
+                           if hi > lo else -120.0)
+                holes.append((t, dur_ms,
+                              float(env_m[k:j + 1].min()), mix_med))
+            k = j + 1
+        else:
+            k += 1
+    real = [h for h in holes if h[3] > -30.0]
+    rep.metrics["g_master_holes"] = len(real)
+    for t, ms, mn, mx in real[:10]:
+        rep.add("g", "FAIL",
+                f"agujero en el máster @ {t:.3f}s: {ms} ms por debajo "
+                f"de -50 dBFS (mín {mn:.0f} dBFS) con la mezcla a "
+                f"{mx:.0f} dBFS — frontera de tramo AAC",
+                t=t)
+    if len(real) > 10:
+        rep.add("g", "FAIL",
+                f"... y {len(real) - 10} agujeros más en el máster")
+    if not real:
+        rep.add("g", "PASS", "sin agujeros de frontera en el máster "
+                "(escaneo a 1 ms)")
+
+
 def check_g_master(rep: Report, master_path: str, captions: list,
                    edited_vo_words: list, pred_words: list,
                    edited_vo, sr: int, expected_frames: int,
-                   do_whisper: bool, model: str):
+                   do_whisper: bool, model: str, mix=None,
+                   vo_lines=None, kmap=None):
     """(g) Máster: loudness/TP, silencios, onset, alineación karaoke/voz.
 
     La alineación autoritativa es captions vs ONSETS ACÚSTICOS de la
@@ -1370,6 +1671,13 @@ def check_g_master(rep: Report, master_path: str, captions: list,
     sistemático ~+0,2 s. La comparación vs la transcripción se hace
     con los bordes CORREGIDOS por la predicción analítica (misma regla
     que el alineador: desvío >0,08 s -> predicción).
+    La comparación «clean» (captions vs transcripción corregida) es
+    COHERENCIA, no sincronía: compara los captions contra los tiempos
+    de palabra de los que derivan, así que un 0,000 s ahí no prueba
+    que el karaoke coincida con lo que se oye (adjudicación V5 §7).
+    La única alineación autoritativa es la acústica.
+    Con karaoke-map, las palabras de líneas sin karaoke (tarjeta,
+    manuscrita, ventana de apagado) no se evalúan como karaoke.
     """
     pr = ffprobe_json(master_path)
     vid = next((s for s in pr["streams"]
@@ -1415,6 +1723,9 @@ def check_g_master(rep: Report, master_path: str, captions: list,
             onset = k * 0.01
             break
     rep.metrics["g_first_audio_s"] = onset
+    # Agujeros de frontera (V4.1): el AAC por tramos los inyecta y
+    # el detector de silencios (>=0,3 s) no los ve.
+    check_g_master_holes(rep, master_audio, mix, sr)
     # Alineación karaoke vs voz del máster (Whisper) y vs VO limpia.
     # 1) Fallo de transcripción: Whisper vs predicción analítica.
     if edited_vo_words and pred_words \
@@ -1450,19 +1761,34 @@ def check_g_master(rep: Report, master_path: str, captions: list,
     # Se guardan los desvíos por caption para el contraste con la
     # alineación clean: si el karaoke coincide con el onset acústico,
     # un desvío vs Whisper/predicción es error de Whisper, no de sync.
+    # Con karaoke-map, las palabras de líneas sin karaoke se omiten
+    # (su desvío no tiene ningún efecto visible: caso V5, 5 de los
+    # 9 FAIL de (g) eran tarjeta/manuscrita/ventana de apagado).
     acoustic_devs = {}
     if edited_vo is not None and pred_words:
         diffs = []
+        skipped = []
         for ci, c in enumerate(captions):
             s = c["startMs"] / 1000
             pre_db = energy_db(edited_vo, sr, max(0.0, s - 0.15), s)
             if pre_db > -50.0:
                 continue  # habla continua antes: sin onset definible
-            on, _off = acoustic_span(edited_vo, sr, s - 0.05, s + 0.6,
-                                     thresh_db=-50.0)
+            if kmap and vo_lines:
+                ln = caption_line_no(s, vo_lines)
+                if not is_karaoke_caption(s, ln, kmap):
+                    skipped.append((c["text"].strip(), s,
+                                    caption_render_kind(s, ln, kmap)))
+                    continue
+            on = env.envelope_onset(edited_vo, sr, s - 0.05, s + 0.6)
             if on is not None:
                 diffs.append((s - on, c["text"].strip(), s))
                 acoustic_devs[ci] = s - on
+        if skipped:
+            rep.add("g", "INFO",
+                    f"{len(skipped)} palabras tras silencio en líneas "
+                    f"sin karaoke, omitidas de la alineación acústica: "
+                    + ", ".join(f"{w} @{s:.2f}s ({k})"
+                                for w, s, k in skipped))
         if diffs:
             absd = [abs(d) for d, _w, _s in diffs]
             mean = float(np.mean(absd))
@@ -1486,7 +1812,7 @@ def check_g_master(rep: Report, master_path: str, captions: list,
                         f"{mean:.3f}s, mediana {med:+.3f}s, máx "
                         f"{abs(mx[0]):.2f}s ({len(diffs)} palabras)")
 
-    def align(words, label):
+    def align(words, label, display):
         w_n = [norm_word(w["w"]) for w in words]
         w_t = [w["s"] for w in words]
         sm = difflib.SequenceMatcher(a=w_n, b=cap_n, autojunk=False)
@@ -1496,8 +1822,19 @@ def check_g_master(rep: Report, master_path: str, captions: list,
                 for k in range(i2 - i1):
                     diffs.append((cap_t[j1 + k] - w_t[i1 + k],
                                   cap_n[j1 + k], j1 + k))
+        if kmap and vo_lines:
+            n_all = len(diffs)
+            diffs = [(d, w, ci) for d, w, ci in diffs
+                     if is_karaoke_caption(
+                         cap_t[ci],
+                         caption_line_no(cap_t[ci], vo_lines), kmap)]
+            if len(diffs) < n_all:
+                rep.add("g", "INFO",
+                        f"alineación {display}: "
+                        f"{n_all - len(diffs)} palabras en líneas sin "
+                        f"karaoke omitidas")
         if not diffs:
-            rep.add("g", "WARN", f"alineación {label}: sin palabras "
+            rep.add("g", "WARN", f"alineación {display}: sin palabras "
                     "alineadas")
             return
         absd = [abs(d) for d, _w, _ci in diffs]
@@ -1516,28 +1853,29 @@ def check_g_master(rep: Report, master_path: str, captions: list,
             if label == "clean" and ac is not None \
                     and abs(ac) <= SYNC_MAX_S:
                 rep.add("g", "INFO",
-                        f"desvío karaoke/Whisper {d:+.2f}s en {w!r}, "
+                        f"desvío captions/Whisper {d:+.2f}s en {w!r}, "
                         f"pero el karaoke coincide con el onset "
                         f"acústico ({ac:+.2f}s): error de Whisper, "
                         f"no de sincronía",
                         t=None)
                 continue
             rep.add("g", "FAIL" if label == "clean" else "WARN",
-                    f"desvío karaoke/voz {label} {d:+.2f}s en {w!r}",
+                    f"desvío {display} {d:+.2f}s en {w!r}",
                     t=None)
         if not bad:
             rep.add("g", "PASS",
-                    f"alineación karaoke/voz {label}: media {mean:.3f}s, "
+                    f"alineación {display}: media {mean:.3f}s, "
                     f"mediana {med:+.3f}s, máx {abs(mx[0]):.2f}s "
                     f"({len(diffs)} palabras)")
         elif label == "master" and abs(med) > 0.1 and len(bad) <= 3:
             rep.add("g", "INFO",
                     f"los desvíos en el máster son un SESGO SISTEMÁTICO "
                     f"de Whisper sobre la mezcla (mediana {med:+.2f}s), "
-                    f"no un defecto de sincronía: ver alineación clean")
+                    f"no un defecto de sincronía: ver coherencia clean")
 
     if corr_words:
-        align(corr_words, "clean")
+        align(corr_words, "clean",
+              "coherencia captions↔transcripción (clean)")
     if do_whisper:
         with tempfile.TemporaryDirectory() as td:
             wav16 = os.path.join(td, "master-16k.wav")
@@ -1545,7 +1883,7 @@ def check_g_master(rep: Report, master_path: str, captions: list,
                             master_path, "-vn", "-ar", "16000", "-ac", "1",
                             wav16], check=True)
             words = transcribe_whisper(wav16, model)
-            align(words, "master")
+            align(words, "master", "karaoke/voz del máster (Whisper)")
     if not (-16.5 <= lufs <= -12.0) or tp > -1.0 or n_sil:
         pass  # ya reportado arriba
     else:
@@ -1699,6 +2037,10 @@ def main() -> int:
                    help="Whisper de la VO editada")
     p.add_argument("--prediction", help="vo-editada-prediccion.json")
     p.add_argument("--edit-plan", help="edit-plan-vXX.json")
+    p.add_argument("--karaoke-map", help="karaoke-map.json (qué líneas "
+                   "van en karaoke; por defecto se busca en "
+                   "research/karaoke-map.json y "
+                   "public/audio/karaoke-map.json)")
     p.add_argument("--section", action="append", default=[],
                    type=parse_section,
                    help="Sección de música ARCHIVO@INICIO@FIN (repetible)")
@@ -1753,6 +2095,16 @@ def main() -> int:
                       "public/audio/vo-editada-transcripcion.json")
     pred_p = pick(a.prediction, "research/vo-editada-prediccion.json")
     plan_p = a.edit_plan
+    kmap_p = pick(a.karaoke_map, "research/karaoke-map.json",
+                  "public/audio/karaoke-map.json")
+    kmap = load_karaoke_map(kmap_p) if kmap_p else None
+    if kmap:
+        print(f"Mapa karaoke: {kmap_p} (tarjeta: "
+              f"{sorted(kmap['card_lines'])}; manuscrita: "
+              f"{sorted(kmap['handwritten_lines'])}; ventanas de "
+              f"apagado: {kmap['blank_windows']})")
+    else:
+        print("Sin mapa karaoke: se supone que TODO es karaoke")
 
     rep = Report(os.path.basename(os.path.abspath(proj)))
     print(f"Auditoría de audio: {proj} ({a.tag})")
@@ -1781,7 +2133,8 @@ def main() -> int:
         rep.add("a", "INFO", "falta vo-lines.json o captions.json")
     # (b) tiempos de caption
     if captions and edited_vo is not None:
-        check_b_caption_timing(rep, captions, edited_vo, SR, silences)
+        check_b_caption_timing(rep, captions, edited_vo, SR, silences,
+                               vo_lines=vo_lines, kmap=kmap)
     else:
         rep.add("b", "INFO", "falta captions.json o VO editada")
     # (c) integridad de la VO
@@ -1818,7 +2171,8 @@ def main() -> int:
         check_g_master(rep, master_p, captions, edited_words,
                        pred_words, edited_vo, SR,
                        a.expected_frames, not a.no_whisper,
-                       a.whisper_model)
+                       a.whisper_model, mix=mix, vo_lines=vo_lines,
+                       kmap=kmap)
     else:
         rep.add("g", "INFO", "falta el máster o captions.json")
     # (h) espectrogramas

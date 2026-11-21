@@ -467,7 +467,6 @@ def word_dips(edited, orig, sr: int, words_ed: list, words_orig: list,
         if len(env_e) < 8 or len(env_o) < 8:
             continue
         med_e = float(np.median(env_e))
-        med_o = float(np.median(env_o))
         if med_e < DIP_VOICED_DB:
             continue
         n_e = len(env_e)
@@ -488,6 +487,14 @@ def word_dips(edited, orig, sr: int, words_ed: list, words_orig: list,
         valid = ~np.isnan(env_m)
         if valid.sum() < 8:
             continue
+        # Mediana del original SOBRE EL TRAMO DE LA PALABRA (env_m),
+        # no sobre env_o: env_o incluye los márgenes de ±60 ms, que
+        # en palabras cortas y rodeadas de silencio dominan la
+        # mediana y sesgan d hacia abajo (V4.1: «EL» de 120 ms con
+        # márgenes silenciosos daba med_o=-35 dBFS frente a
+        # med_e=-14,9 dBFS: sesgo de -12,7 dB y 3 FAIL espurios
+        # donde la editada era el crudo + ganancia constante).
+        med_o = float(np.median(env_m[valid]))
         # Refinamiento global (±30 ms = ±6 ventanas) por correlación.
         best_c, best_sh = -2.0, 0
         for sh in range(-6, 7):
@@ -671,7 +678,16 @@ def segment_contiguity(edited, orig, sr: int, tmap: list) -> list:
             else:
                 # seg_o empieza 20 ms antes de la posición mapeada:
                 # el lag esperado es +20 ms (prefer_lag).
-                lag, c = best_lag(seg_o, seg_e, sr, search_ms=20.0,
+                # Ventana de búsqueda ±30 ms (no ±20): el mapa
+                # editado->original tiene un error de ~1 ms (el
+                # edit-plan redondea a 3 decimales) y el lag real
+                # puede quedar en +21 ms, JUSTO fuera de ±20 ms:
+                # best_lag se clampaba al borde, deprimía la
+                # correlación y saltaba a alias (falso FAIL en el
+                # segmento 9 de marti-fidel V4.1: corr 0,76 y salto
+                # de lag 17 ms en un segmento contiguo con corr
+                # real 0,96 y lag constante +1,1 ms).
+                lag, c = best_lag(seg_o, seg_e, sr, search_ms=30.0,
                                   step=12,
                                   prefer_lag=int(0.02 * sr))
                 # El lag relativo es lag - 20 ms.
