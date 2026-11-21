@@ -39,7 +39,7 @@ sobre el ritmo, antes de fijar la escaleta.
 | `audit-audio.py` | **Auditoría completa de audio (17-nov-2026, V1.5 marti-fidel):** guion↔karaoke, tiempos de caption, integridad de la VO vs el original (cortes con clasificación por armonicidad, empalmes, palabras exprimidas), artefactos de time-stretch, mapa de silencios, música y ducking (suelo RMS, crossfade, recuperación, bombeo), máster (loudness/TP, alineación karaoke/onsets acústicos), espectrogramas, microcortes de voz (sección (i), 18-nov-2026) y agujeros en el máster (check (g), 20-nov-2026, V4.1). Informe JSON + Markdown. **OBLIGATORIO antes de entregar cualquier reel: ningún reel se entrega sin pasar este módulo.** |
 | `microcut.py` | **Detector de microcortes de voz a nivel de forma de onda (18-nov-2026, sección (i) de la auditoría):** calidad de empalme, dips dentro de palabras (editada vs original), pausas recortadas, contigüidad de segmentos y SFX que entierran ataques de palabra. CLI propia + `detect_all()` para tests y auditoría. (i2) corregida 20-nov-2026 (V4.1): la mediana del original se toma sobre el tramo de la palabra, no sobre la ventana con márgenes. |
 | `vo_build.py` | **Construcción de VO sin microcortes (18-nov-2026):** sustituye el patrón `edit_line` + `fade_edges` (fundido de salida + fundido de entrada, que deja un hueco de ~10 ms a −85 dBFS) por crossfades de igual potencia, cortes ajustados a cruces por cero, validación contra los timestamps de Whisper (nunca recortar dentro de una palabra, margen 30 ms) y suelo de pausa (regla 18-nov: ≥0,25 s y ≤50% de pérdida). |
-| `test_microcut.py` | Suite de `microcut.py` + `vo_build.py` (28 tests): microcortes sintéticos inyectados (huecos de 5/10/20/30/50 ms, empalme brusco, pausa exprimida, segmento mal mapeado, SFX sobre onset) + casos reales V2.2/V2.3/baseline (se saltan si faltan los audios, que son salidas de build no versionadas; los edit-plan y predicciones están vendorizados en `tests/fixtures/`). |
+| `test_microcut.py` | Suite de `microcut.py` + `vo_build.py` (29 tests): microcortes sintéticos inyectados (huecos de 5/10/20/30/50 ms, empalme brusco, pausa exprimida, segmento mal mapeado, SFX sobre onset) + casos reales V2.2/V2.3/baseline (se saltan si faltan los audios, que son salidas de build no versionadas; los edit-plan y predicciones están vendorizados en `tests/fixtures/`) + regresión V4.1 de (i4) sobre el audio real. |
 
 ## Auditoría de audio (`audit-audio.py`)
 
@@ -152,8 +152,21 @@ Cómo interpretar los resultados:
   reescribe la forma de onda pero conserva la envolvente. El lag
   con stretch es ruidoso (umbral 40 ms); la correlación de
   envolvente es la señal autoritativa ahí.
+- (i4) busca el lag en **±30 ms** (V4.1, 20-nov-2026): con ±20 ms
+  el segmento 9 de V4.1 daba un falso FAIL (corr 0,76, salto
+  17 ms) porque el lag real (+21,1 ms absolutos: +1,1 ms
+  relativo + ~1 ms de error de redondeo del mapa edit-plan, que
+  redondea a 3 decimales) quedaba JUSTO fuera de la ventana y
+  `best_lag` se clampaba al borde. Con ±30 ms: corr 0,879,
+  salto 10,0 ms (PASS). La ventana de 140 ms del tramo original
+  admite ±30 ms sin riesgo.
+- **Tras editar `microcut.py`, borrar `scripts/audio/__pycache__`.**
+  Un `.pyc` obsoleto puede seguir validando si la edición cae en
+  el mismo segundo y no cambia el tamaño del archivo (mtime en
+  segundos + mismo tamaño): en V4.1 la re-auditoría repetía los
+  números viejos de (i4) hasta borrar el `.pyc`.
 
-Validación (18-nov-2026, `test_microcut.py`, 28 tests desde V4.1):
+Validación (18-nov-2026, `test_microcut.py`, 29 tests desde V4.1):
 - V2.2 (caso malo conocido): (i3) marca exactamente las 6 pausas
   malas (1891,→MARTÍ, RECUENTO,→Y, HOY,→EN, AMÉRICA,→EL,
   CAMBIÓ:→DIECINUEVE, LEER.→PENSAR.).
@@ -170,6 +183,13 @@ Validación (18-nov-2026, `test_microcut.py`, 28 tests desde V4.1):
 - V4.1 (20-nov-2026): test de regresión de (i2) (palabra corta +
   márgenes silenciosos + ganancia): falla con el código viejo, pasa
   con el nuevo. Los 3 dips «EL» de V4 desaparecen (0 dips).
+- V4.1 (21-nov-2026): test de regresión de (i4)
+  `TestIntegrationV41Contiguity` (segmento 9 sobre el audio
+  real): falla con la ventana ±20 ms, pasa con ±30 ms. Un test
+  sintético NO sirve aquí: el glide armónico puro pasa con ambas
+  ventanas (corr 0,996, demasiado permisivo) y el ruido blanco
+  falla con ambas (el paso de 12 muestras de `best_lag` es
+  demasiado grueso para ruido de banda ancha).
 
 Límites honestos (qué NO detecta el análisis de forma de onda):
 - Los saltos de ganancia del loudnorm junto a SFX (−2 a −3 dB en
