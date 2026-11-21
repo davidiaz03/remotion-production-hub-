@@ -18,11 +18,17 @@
      banda horizontal bajo la banda roja y el texto queda debajo, sin
      solaparse con la foto. Para retratos que no caben como fondo a
      sangre completa (la cara chocaría con el titular). */
-  .with-photo.layout-band .photo { top: 150px; bottom: auto; height: 380px; }
+  .with-photo.layout-band .photo { top: 150px; bottom: auto; height: 340px; }
   .with-photo.layout-band .photo::after { background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,0.9) 100%); }
-  .layout-band .main { top: 570px; bottom: 180px; }
-  .format-45.with-photo.layout-band .photo { top: 170px; height: 430px; }
-  .format-45.layout-band .main { top: 640px; bottom: 200px; }
+  .layout-band .main { top: 520px; bottom: 170px; }
+  /* En banda, el titular baja a 96 px en ambos formatos: el titular 4:5
+     (132 px) no cabe con la foto y el cuerpo (4 líneas, desborda el pie).
+     La banda roja mide 150 px en ambos formatos: la foto arranca en 150. */
+  .layout-band .headline { font-size: 96px; }
+  .format-45.layout-band .headline { font-size: 96px; }
+  .layout-band .body { margin-top: 28px; }
+  .format-45.with-photo.layout-band .photo { top: 150px; height: 480px; }
+  .format-45.layout-band .main { top: 690px; bottom: 200px; }
   /* Banda roja superior con el sello de urgencia. */
   .alert-band { position: absolute; top: 0; left: 0; right: 0; height: 150px;
     background: var(--red); display: flex; align-items: center;

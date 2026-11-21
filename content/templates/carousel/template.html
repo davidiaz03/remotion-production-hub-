@@ -17,16 +17,21 @@
      en una lámina sin foto. Los anchos (pct) se calculan en data.json
      sobre una escala honesta (p. ej. % de los 193 Estados miembros);
      la barra destacada (highlight) va en rojo de marca. */
-  .bars { margin-top: 34px; }
-  .bar-row { margin-bottom: 26px; }
+  .bars { margin-top: 40px; }
+  .bar-row { margin-bottom: 36px; }
   .bar-label { font-family: var(--font-display); font-weight: 700;
-    font-size: 34px; text-transform: uppercase; letter-spacing: 0.06em;
+    font-size: 38px; text-transform: uppercase; letter-spacing: 0.06em;
     color: #E8E8E8; display: flex; justify-content: space-between;
     align-items: baseline; }
-  .bar-label b { font-weight: 800; font-size: 52px; color: var(--white); }
-  .bar-track { height: 26px; background: #2A2A2A; margin-top: 10px; }
+  .bar-label b { font-weight: 800; font-size: 60px; color: var(--white); }
+  .bar-track { height: 40px; background: #2A2A2A; margin-top: 12px; }
   .bar-fill { height: 100%; background: var(--gray); }
   .bar-fill.hot { background: var(--red); }
+  /* La lámina con gráfico se centra verticalmente: el gráfico es la
+     protagonista y el bloque no debe quedar colgando arriba con un
+     vacío negro debajo. */
+  .page.with-bars .body-wrap { top: 50%; bottom: auto;
+    transform: translateY(-50%); }
   /* Portada */
   .cover-top { position: absolute; top: 72px; left: 72px; right: 72px;
     display: flex; justify-content: space-between; align-items: center; }
@@ -112,11 +117,16 @@
   .layout-side .item .text { font-size: 28px; }
   /* Variante 4:5 (1080x1350, estándar Instagram). */
   .format-45 .cover-title { top: 470px; }
-  .format-45 .with-photo .body-wrap { top: 780px; }
-  .format-45 .layout-band .photo { height: 420px; }
-  .format-45 .layout-band .body-wrap { top: 600px; }
-  .format-45 .layout-side .photo { height: 900px; }
-  .format-45 .layout-side .body-wrap { top: 170px; }
+  /* OJO: format-45, with-photo, layout-band y layout-side van en el MISMO
+     elemento (el div .page); el selector debe ser compuesto, sin el
+     combinador descendiente. Con espacio (`.format-45 .layout-band …`)
+     la regla no casa nunca — bug latente de la v2 que dejaba la banda
+     4:5 en 340 px y el texto de fondo en y=640 (valores cuadrados). */
+  .format-45.with-photo .body-wrap { top: 780px; }
+  .format-45.layout-band .photo { height: 680px; }
+  .format-45.layout-band .body-wrap { top: 870px; }
+  .format-45.layout-side .photo { height: 900px; }
+  .format-45.layout-side .body-wrap { top: 170px; }
   /* Cierre */
   .closing-center { position: absolute; inset: 0; display: flex;
     flex-direction: column; align-items: center; justify-content: center; text-align: center; }
@@ -151,7 +161,7 @@
 </div>
 {{/if}}
 {{#if _middle}}
-<div class="page grain{{#if _format45}} format-45{{/if}}{{#if image}} with-photo{{#if image_layout}} layout-{{image_layout}}{{/if}}{{/if}}">
+<div class="page grain{{#if _format45}} format-45{{/if}}{{#if image}} with-photo{{#if image_layout}} layout-{{image_layout}}{{/if}}{{/if}}{{#if bars}} with-bars{{/if}}">
   {{#if image}}<div class="photo"><img src="{{image}}"{{#if image_position}} style="object-position: {{image_position}}"{{/if}} alt=""></div>{{/if}}
   <div class="head">
     <div class="kicker">{{kicker}}</div>

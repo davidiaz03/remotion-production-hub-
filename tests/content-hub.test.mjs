@@ -608,6 +608,7 @@ im.save('${path.join(dir, 'foto.png')}')
 		assert.ok(htmlCover.includes('object-position: 50% 25%'), 'falta el encuadre cover_position');
 		// Lámina de barras: dos barras, la destacada en rojo, anchos honestos.
 		const htmlBars = readFileSync(path.join(outDir, 'carrusel-v3-p02.html'), 'utf8');
+		assert.ok(htmlBars.includes('with-bars'), 'falta la clase with-bars (bloque centrado)');
 		assert.ok(htmlBars.includes('bar-fill hot'), 'falta la barra destacada (hot)');
 		assert.ok(htmlBars.includes('width: 85%'), 'falta el ancho 85% (2025)');
 		assert.ok(htmlBars.includes('width: 67%'), 'falta el ancho 67% (2026)');
@@ -694,6 +695,61 @@ im.save('${path.join(dir, 'foto.png')}')
 	} finally {
 		rmSync(dir, { recursive: true, force: true });
 	}
+});
+
+test('carrusel: selectores 4:5 compuestos (bug de la v2: reglas muertas)', () => {
+	// format-45, with-photo, layout-band y layout-side van en el MISMO
+	// elemento (.page); con combinador descendiente (`.format-45
+	// .layout-band …`) la regla no casa nunca y la variante 4:5 hereda
+	// los valores cuadrados. Regresión del 21-nov-2026 (v3).
+	const html = readFileSync(path.join(CONTENT, 'templates', 'carousel', 'template.html'), 'utf8');
+	for (const sel of [
+		'.format-45.with-photo .body-wrap',
+		'.format-45.layout-band .photo',
+		'.format-45.layout-band .body-wrap',
+		'.format-45.layout-side .photo',
+		'.format-45.layout-side .body-wrap',
+	]) {
+		assert.ok(html.includes(sel), `falta el selector compuesto ${sel}`);
+	}
+	for (const dead of [
+		'.format-45 .with-photo .body-wrap',
+		'.format-45 .layout-band .photo',
+		'.format-45 .layout-band .body-wrap',
+		'.format-45 .layout-side .photo',
+		'.format-45 .layout-side .body-wrap',
+	]) {
+		assert.ok(!html.includes(dead), `selector muerto (descendiente) presente: ${dead}`);
+	}
+});
+
+test('face_check: false omite la lámina de plano general (sin falso fallo)', async (t) => {
+	const venvPython = path.join(process.env.HOME ?? '', 'workspace', 'remotion-hub', '.venv', 'bin', 'python');
+	if (!existsSync(venvPython)) {
+		t.skip('sin venv del hub (cv2)');
+		return;
+	}
+	// La lámina 2 del carrusel ONU es un plano general (tablero de
+	// votación con público de fondo): el detector cazaba caras diminutas
+	// de fondo y el QA fallaba en falso. Con face_check: false, la
+	// lámina se omite y la 6 (Fidel, retrato) se sigue analizando.
+	const photo = path.join(CONTENT, 'pieces', 'onu-bloqueo-2026', 'img', 'un-voteboard-result-vert.jpg');
+	if (!existsSync(photo)) {
+		t.skip('sin foto de la pieza onu-bloqueo-2026 (img/ no versionado en este checkout)');
+		return;
+	}
+	const { stdout } = await execFileAsync(venvPython, [
+		path.join(CONTENT, 'scripts', 'face-frame.py'),
+		'--piece', 'onu-bloqueo-2026', '--format', '4:5', '--json',
+	], { cwd: ROOT, timeout: 180000 });
+	const report = JSON.parse(stdout);
+	const p2 = report.pages.find((p) => p.page === 2);
+	assert.ok(p2, 'la lámina 2 debe aparecer en el informe');
+	assert.ok(p2.skipped, 'la lámina 2 debe marcarse como omitida (face_check: false)');
+	assert.deepEqual(p2.warnings ?? [], [], 'la lámina omitida no debe aportar avisos');
+	const p6 = report.pages.find((p) => p.page === 6);
+	assert.ok(p6 && !p6.skipped, 'la lámina 6 (Fidel) se debe seguir analizando');
+	assert.ok(p6.faces_found >= 1, 'la lámina 6 debe detectar caras');
 });
 
 test('galería: índice con las 10 plantillas y aviso si falta el render', async () => {
