@@ -53,13 +53,16 @@ function mutate(f){
  const p=path.join(f.dir,'projects/demo/src/Video.tsx');
  writeFileSync(p,readFileSync(p,'utf8')+'\n// checkpoint test (editable TSX)\n');
 }
-function verify(f){
+function verify(f,approvedBefore){
  const local=git(f.dir,'rev-parse','HEAD');
  assert.equal(git(f.dir,'ls-remote',f.bare,'refs/heads/work/checkpoint-test').split(/\s+/)[0],local);
  assert.equal(git(f.dir,'status','--porcelain'),'');
  const state=JSON.parse(readFileSync(path.join(f.dir,'projects/demo/STATE.json'),'utf8'));
  assert.equal(state.phase,'review');
- assert.equal(state.approvedRevision,null);
+ // El checkpoint no aprueba ni desaprobaba: la aprobación heredada del
+ // fixture (demo-persisted-v1 en HEAD) debe quedar intacta. Antes se
+ // exigía null, pero eso asumía un demo sin aprobar que ya no existe.
+ assert.equal(state.approvedRevision,approvedBefore);
  const rev=state.latestSnapshot;
  assert.ok(rev&&rev.startsWith('demo-'));
  const snap=JSON.parse(readFileSync(path.join(f.dir,'projects/demo/revisions',rev+'.json'),'utf8'));
@@ -72,11 +75,12 @@ function verify(f){
 test('checkpoint resumes a failed push without duplicate snapshot or render',()=>{
  const f=fixture();
  try{
+  const approvedBefore=JSON.parse(readFileSync(path.join(f.dir,'projects/demo/STATE.json'),'utf8')).approvedRevision;
   mutate(f);
   const fail=run(f,'save',{REMOTION_TEST_FAIL_PUSH:'1'});
   assert.notEqual(fail.status,0,'First push must fail');
   must(run(f,'publish'));
-  verify(f);
+  verify(f,approvedBefore);
   const again=JSON.parse(must(run(f,'save')));
   assert.equal(again.status,'unchanged');
  }finally{rmSync(f.top,{recursive:true,force:true});}
@@ -84,12 +88,13 @@ test('checkpoint resumes a failed push without duplicate snapshot or render',()=
 test('checkpoint resumes interrupted metadata commit and preserves HANDOFF',()=>{
  const f=fixture();
  try{
+  const approvedBefore=JSON.parse(readFileSync(path.join(f.dir,'projects/demo/STATE.json'),'utf8')).approvedRevision;
   mutate(f);
   const old=readFileSync(path.join(f.dir,'projects/demo/HANDOFF.md'),'utf8');
   const fail=run(f,'save',{REMOTION_TEST_FAIL_META:'1'},'comentario de prueba');
   assert.notEqual(fail.status,0);
   must(run(f,'publish'));
-  verify(f);
+  verify(f,approvedBefore);
   const handoff=readFileSync(path.join(f.dir,'projects/demo/HANDOFF.md'),'utf8');
   assert.ok(handoff.includes(old.trim()));
   assert.ok(handoff.includes('comentario de prueba'));

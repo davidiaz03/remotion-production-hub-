@@ -30,7 +30,9 @@ test('real demo revisions recover into independent Git worktrees; original sourc
   git(fresh,'checkout','-q','--detach','FETCH_HEAD');
   const originalHead=git(fresh,'rev-parse','HEAD');
   const state=JSON.parse(readFileSync(path.join(fresh,'projects/demo/STATE.json'),'utf8'));
-  assert.equal(state.approvedRevision,null,'Recovery testing must not approve drafts');
+  // La recuperación no aprueba borradores: la aprobación heredada de
+  // HEAD (demo-persisted-v1) debe quedar intacta al final del test.
+  const approvedBefore=state.approvedRevision;
   const revisions=['demo-cut-001','demo-cut-002',state.latestSnapshot];
   assert.equal(new Set(revisions).size,3,'Expected three distinct real revisions');
   let lastSource='';
@@ -66,7 +68,7 @@ test('real demo revisions recover into independent Git worktrees; original sourc
   assert.notEqual(duplicate.status,0,'A duplicate recovery must fail safely');
   assert.equal(git(fresh,'rev-parse','HEAD'),originalHead);
   assert.equal(git(fresh,'status','--porcelain'),'','Current work must remain clean');
-  assert.equal(JSON.parse(readFileSync(path.join(fresh,'projects/demo/STATE.json'),'utf8')).approvedRevision,null);
+  assert.equal(JSON.parse(readFileSync(path.join(fresh,'projects/demo/STATE.json'),'utf8')).approvedRevision,approvedBefore,'Recovery testing must not approve drafts');
  }finally{
   rmSync(temp,{recursive:true,force:true,maxRetries:2});
  }

@@ -14,7 +14,10 @@ test('editable project survives commit -> snapshot -> approval -> later edit -> 
  const temp=mkdtempSync(path.join(os.tmpdir(),'remotion-persistence-test-'));
  const dir=path.join(temp,'hub');
  try{
-  cpSync(ROOT,dir,{recursive:true,filter:(src)=>!src.includes('/node_modules/')&&!src.includes('/.git/')&&!src.includes('/.worktrees/')&&!src.includes('/out/')&&!src.includes('/reports/')&&!src.endsWith('package-lock.json')});
+  // En un worktree, .git es un ARCHIVO (puntero al gitdir real), no un
+  // directorio: sin el endsWith('/.git') la copia hereda el puntero y
+  // los `git init/commit` del test operan sobre el repo real.
+  cpSync(ROOT,dir,{recursive:true,filter:(src)=>!src.includes('/node_modules/')&&!src.includes('/.git/')&&!src.endsWith('/.git')&&!src.includes('/.worktrees/')&&!src.includes('/out/')&&!src.includes('/reports/')&&!src.endsWith('package-lock.json')});
   const pkg=JSON.parse(readFileSync(path.join(dir,'package.json'),'utf8'));
   const lock={name:pkg.name,version:pkg.version,lockfileVersion:3,packages:{'':{name:pkg.name,version:pkg.version,dependencies:pkg.dependencies,devDependencies:pkg.devDependencies}}};
   writeFileSync(path.join(dir,'package-lock.json'),JSON.stringify(lock,null,2)+'\n');
@@ -22,7 +25,7 @@ test('editable project survives commit -> snapshot -> approval -> later edit -> 
   git(dir,'add','-A');git(dir,'commit','-qm','fixture: editable source');
   const sourceSha=git(dir,'rev-parse','HEAD');
   const savedSource=readFileSync(path.join(dir,'projects/demo/src/Video.tsx'),'utf8');
-  const id='demo-persisted-v1';
+  const id='demo-persisted-v2';
   must(node(dir,'scripts/revisions.mjs','snapshot','--project','demo','--revision',id));
   const snapshot=JSON.parse(readFileSync(path.join(dir,`projects/demo/revisions/${id}.json`),'utf8'));
   assert.equal(snapshot.sourceCommit,sourceSha);
