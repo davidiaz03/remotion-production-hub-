@@ -287,6 +287,70 @@ evidencia de error real. El oído humano es el desempate. Self-test
 con los casos del 18-nov: `python3 scripts/audio/verify-vo-lines.py
 --self-test` (9/9).
 | `diarize.py` | **Separar voces (16-nov-2026):** quién habla cuándo, con sherpa-onnx 2.0.1 (segmentación pyannote-3.0 + embedding 3D-Speaker ERes2Net, ONNX, 100 % local, sin cuenta ni token). `--speakers 2` para el diálogo de las dos presentadoras del Memorial. Modelos en `<hub>/.sherpa-models/` (46 MB). Salida JSON con segmentos {start, end, speaker}. |
+| `scan-bed.py` | **Escaneo de camas generadas (21-nov-2026, REGLA PERMANENTE):** faster-whisper small + VAD sobre una cama «instrumental» antes de usarla; detecta texturas vocales fantasma (Whisper las transcribe como frases). Salida JSON + PASS/FAIL (código 0/1). Ver § «Escaneo de camas». |
+| `thesis-pad.py` | **Pad grave tenido (21-nov-2026, V5 marti-fidel):** sustituye un tramo de cama por un pad grave en bucle (pasaje de la propia cama, lowpass, nivel calibrado) con crossfades de igual potencia. Reemplaza al silencio total de `dip-bed.py` cuando el silencio se siente como agujero. |
+| `ramp-bed.py` | **Rampa de ganancia (21-nov-2026, V5 marti-fidel):** subida lineal en dB (0 → +N dB) entre dos tiempos, constante después; el audio previo queda bit a bit idéntico. Para recuperar una coda descendente hacia el nivel de la meseta al llegar al cierre. |
+
+## Escaneo de camas (`scan-bed.py`) — regla permanente 21-nov-2026
+
+Toda cama generada se escanea con Whisper ANTES de usarla. La pista
+«instrumental» de Flow Music («Documentary underscore», 20-nov-2026)
+llevaba texturas vocales fantasma en 60-88 s: la ventana V4.1
+(72-141,23 s) empezaba dentro de esa zona y los primeros ~16 s del
+reel llevaban susurros bajo la VO. Un escaneo previo lo habría cazado.
+
+```bash
+~/workspace/.stt-env/bin/python scripts/audio/scan-bed.py \
+  --in projects/marti-fidel/public/audio/flow-documentary-underscore.mp3 \
+  --start 88 --duration 69.23 --out /tmp/scan.json
+# PASS (código 0) o FAIL (código 1: voz detectada, no usar la cama)
+```
+
+Método (calibrado 21-nov-2026, faster-whisper small, es): dos
+pasadas (con VAD Silero, primaria; sin VAD, de registro) y
+clasificación por segmento: VOICE (palabras reales, no_speech_prob
+< 0,5 en frase de 2+ palabras, < 0,3 si es una sola palabra) → FAIL;
+HALLUCINATION (carácter único, solo puntuación, patrón «Amara.org»,
+etiqueta «Música», segmento más allá del audio) → INFO; UNCERTAIN
+(palabras reales con nsp por encima del umbral) → escuchar de oído.
+Controles: 0-60 s PASS (0 segmentos), 60-88 s FAIL (VAD: frases
+80,69-88,49 s, nsp 0,224), 88-157,23 s PASS (VAD: 0). **El VAD es el
+discriminador:** sin VAD, Whisper alucina «Subtítulos realizados
+por la comunidad de Amara.org» y «Música» sobre música limpia
+(nsp 0,41-0,69); eso NO es voz y no tumba el veredicto. **La
+decodificación NO es determinista entre corridas** (el texto
+alucinado varía): lo estable es el veredicto, nunca citar el texto
+de un segmento como evidencia.
+
+## Pad de tesis (`thesis-pad.py`) — V5 marti-fidel, 21-nov-2026
+
+El silencio total de `dip-bed.py` en la tesis (53,01-57,04 s) se
+sentía como un agujero, no como drama. `thesis-pad.py` lo sustituye
+por un pad grave tenido: un pasaje de la propia cama en bucle
+(crossfades de igual potencia), lowpass 300 Hz, normalizado a un
+RMS objetivo, con crossfades de igual potencia de 0,5 s con la cama.
+
+```bash
+.venv/bin/python scripts/audio/thesis-pad.py \
+  --in public/audio/v5/music-bed-trimmed.wav \
+  --out public/audio/v5/music-bed-padded.wav \
+  --pad 53.01 57.04 --source 20.0 4.0 --fade 0.5 --lowpass 300 \
+  --target-rms-db -23.5 --force
+```
+
+Calibración del nivel: el pad debe quedar ~-20 dB bajo los picos
+de VO en la MEZCLA FINAL. **No fiarse del cálculo teórico:** la
+primera calibración (-17,8 dBFS, suponiendo ducking -4 dB) midió
+-14,3 dB en la mezcla real (el ducking con threshold 0,12 apenas
+muerde: la VO ronda el umbral). La transferencia MEDIDA
+cama→mezcla es -6,9 dB; con picos de VO a -10,3 dBFS en la mezcla,
+el pad en la cama va a -23,5 dBFS. Verificación: RMS del pad solo
+en la mezcla (resta de energías contra la pausa de la VO en la
+misma ventana) vs picos de VO (RMS 50 ms): V5 midió -20,1 dB, y
+el mínimo RMS 10 ms en la tesis pasó de -61,85 (V4.1, agujero) a
+-38,85 dBFS. El pad queda ~9 dB bajo el tono de sala de la VO en
+la pausa: su función es subir el suelo en los micro-huecos entre
+palabras, no ser una presencia en primer plano.
 
 ## Diarización (`diarize.py`)
 

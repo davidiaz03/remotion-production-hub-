@@ -67,5 +67,21 @@ márgenes de ±60 ms (ese sesgo marcaba 3 dips fantasma en «EL» L6).
 No usar AAC para renders nuevos (`--audio-codec aac` solo existe
 por compatibilidad).
 
+## Camas generadas: escanear con Whisper antes de usarlas (21-nov-2026, V5 marti-fidel)
+**Regla permanente: ninguna cama generada («instrumental» o no) se
+usa sin pasar `scripts/audio/scan-bed.py` (faster-whisper small +
+VAD).** La pista «instrumental» de Google Flow Music («Documentary
+underscore», 20-nov-2026) llevaba texturas vocales fantasma en
+60-88 s que Whisper transcribe como frases («¡Claro que no está en
+el cuerpo de nadie!», 80,69-87,99 s): la ventana V4.1 (72-141,23 s)
+empezaba dentro de esa zona y los primeros ~16 s del reel llevaban
+susurros bajo la VO. El escaneo con VAD es el discriminador: la
+zona contaminada da frases con no_speech_prob ~0,22, mientras la
+música limpia da 0 segmentos con VAD (sin VAD, Whisper alucina
+«Subtítulos realizados por la comunidad de Amara.org» sobre música
+limpia: alucinación conocida, NO voz). Veredicto FAIL = elegir otra
+ventana o generar otra pista; nunca mezclar una cama FAIL.
+Ver `scripts/audio/README.md` § «Escaneo de camas».
+
 ## Al cerrar
 Actualiza el historial editorial y siguiente acción, guarda la fuente en Git, comprueba SHA remoto y notifica rama, commit y revisión. Detén Codespaces para reducir consumo gratuito.
