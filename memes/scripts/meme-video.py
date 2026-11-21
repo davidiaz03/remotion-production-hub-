@@ -83,6 +83,14 @@ ROOT = os.path.dirname(HERE)
 CATALOG = os.path.join(ROOT, 'templates', 'catalog.json')
 IMAGES = os.path.join(ROOT, 'templates', 'images')
 FONT = os.path.join(ROOT, 'assets', 'fonts', 'ArchivoBlack-Regular.ttf')
+# Fuentes disponibles (todas SIL OFL 1.1, en ../assets/fonts/):
+# archivo-black = Impact clásica (def.); anton = condensada, para textos
+# largos; bangers = de cómic, para chistes absurdos.
+FONTS = {
+    'archivo-black': FONT,
+    'anton': os.path.join(ROOT, 'assets', 'fonts', 'Anton-Regular.ttf'),
+    'bangers': os.path.join(ROOT, 'assets', 'fonts', 'Bangers-Regular.ttf'),
+}
 SFX_DIR = os.path.join(ROOT, 'assets', 'sfx')
 MUSIC_DIR = os.path.join(ROOT, 'assets', 'music')
 MUSIC_CATALOG = os.path.join(MUSIC_DIR, 'music.json')
@@ -123,6 +131,18 @@ SFX = {
 
 FORMATS = {'vertical': (1080, 1920), 'square': (1080, 1080)}
 FPS = 30
+
+
+def resolve_font(name):
+    """Nombre de fuente (archivo-black|anton|bangers) o ruta .ttf."""
+    if name in FONTS:
+        path = FONTS[name]
+    else:
+        path = os.path.expanduser(name)
+    if not os.path.exists(path):
+        sys.exit(f"fuente no encontrada: {name} "
+                 f"({'|'.join(FONTS)} o ruta a un .ttf)")
+    return path
 
 
 def run(cmd, **kw):
@@ -447,6 +467,12 @@ def main():
                     help='volumen de la música (def. 0.25)')
     ap.add_argument('--speed', type=float, default=1.0,
                     help='velocidad del clip (0.5 lento, 2 rápido)')
+    ap.add_argument('--font', default='archivo-black',
+                    help='fuente: archivo-black (def.), anton, bangers '
+                    'o ruta a un .ttf')
+    ap.add_argument('--draft', action='store_true',
+                    help='borrador rápido: mitad de resolución (540p) y '
+                    'preset veryfast, para iterar antes del render final')
     ap.add_argument('--no-face-check', action='store_true',
                     help='no detectar caras ni desplazar el texto')
     ap.add_argument('--face-box', help='cara sintética x,y,w,h (pruebas)')
@@ -456,6 +482,9 @@ def main():
     if args.list_video_templates:
         list_video_templates(load_video_templates())
         return 0
+
+    global FONT
+    FONT = resolve_font(args.font)
 
     # --- Resolver la base ---
     vt_green = False  # la plantilla de vídeo del catálogo es green screen
@@ -557,6 +586,9 @@ def main():
         tw, th = info['width'], info['height']
     elif args.format == 'original':
         tw, th = 1080, 1080
+    if args.draft:
+        # Borrador: mitad de resolución (par, por yuv420p) y preset rápido.
+        tw, th = (tw // 2) // 2 * 2, (th // 2) // 2 * 2
 
     # --- SFX ---
     sfx_path = None
@@ -1000,7 +1032,9 @@ def main():
         os.makedirs(OUT_DIR, exist_ok=True)
         out = args.out or os.path.join(
             OUT_DIR, f"{name}-{datetime.now():%Y%m%d-%H%M%S}.mp4")
-        cmd += ['-c:v', 'libx264', '-preset', 'medium', '-crf', '20',
+        cmd += ['-c:v', 'libx264',
+                '-preset', 'veryfast' if args.draft else 'medium',
+                '-crf', '23' if args.draft else '20',
                 '-pix_fmt', 'yuv420p', '-movflags', '+faststart']
         if has_out_audio:
             cmd += ['-c:a', 'aac', '-b:a', '128k']

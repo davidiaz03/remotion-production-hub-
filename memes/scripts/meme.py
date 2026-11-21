@@ -31,6 +31,16 @@ Modos:
   # 7. Deep-fry (imagen frita, estilo dank) — combina con cualquier modo:
   python3 meme.py --template disaster-girl --top "YO" --deep-fry
 
+  # 8. Tira cómica vertical (paneles apilados con pie cada uno):
+  python3 meme.py --comic "waiting-skeleton|disaster-girl" \\
+      --texts "LA ESPERA|EL DESASTRE"
+  # Cada panel es un slug de plantilla, una ruta de imagen o
+  # "texto:..." para un panel de solo texto (los paneles se separan
+  # con |, como los textos, para que el texto pueda llevar comas).
+
+  # 9. Otra fuente (Anton condensada, Bangers de cómic):
+  python3 meme.py --template drake-hotline-bling --texts "A|B" --font anton
+
   # Pie de foto en barra inferior (combina con 1-3):
   python3 meme.py --template waiting-skeleton --top "YO ESPERANDO" \\
       --caption "el router lleva parpadeando desde 2019"
@@ -56,8 +66,17 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 CATALOG = os.path.join(ROOT, 'templates', 'catalog.json')
 BOXES = os.path.join(ROOT, 'templates', 'boxes.json')
+ROLES = os.path.join(ROOT, 'templates', 'roles.json')
 IMAGES = os.path.join(ROOT, 'templates', 'images')
 FONT = os.path.join(ROOT, 'assets', 'fonts', 'ArchivoBlack-Regular.ttf')
+# Fuentes disponibles (todas SIL OFL 1.1, en ../assets/fonts/):
+# archivo-black = Impact clásica (def.); anton = condensada, para textos
+# largos; bangers = de cómic, para chistes absurdos.
+FONTS = {
+    'archivo-black': FONT,
+    'anton': os.path.join(ROOT, 'assets', 'fonts', 'Anton-Regular.ttf'),
+    'bangers': os.path.join(ROOT, 'assets', 'fonts', 'Bangers-Regular.ttf'),
+}
 FACE_FRAME = os.path.join(HERE, 'face-frame.py')
 VENV_PYTHON = os.path.expanduser('~/workspace/remotion-hub/.venv/bin/python')
 OUT_DIR = os.path.join(ROOT, 'out')
@@ -74,6 +93,27 @@ NAME_COLORS = ['#E91E63', '#2196F3', '#4CAF50', '#FF9800', '#9C27B0', '#009688']
 def load_catalog():
     with open(CATALOG, encoding='utf-8') as f:
         return json.load(f)['templates']
+
+
+def load_roles():
+    """Estructuras de chiste por plantilla (templates/roles.json)."""
+    try:
+        with open(ROLES, encoding='utf-8') as f:
+            return json.load(f).get('roles', {})
+    except (OSError, ValueError):
+        return {}
+
+
+def resolve_font(name):
+    """Nombre de fuente (archivo-black|anton|bangers) o ruta .ttf."""
+    if name in FONTS:
+        path = FONTS[name]
+    else:
+        path = os.path.expanduser(name)
+    if not os.path.exists(path):
+        sys.exit(f"fuente no encontrada: {name} "
+                 f"({'|'.join(FONTS)} o ruta a un .ttf)")
+    return path
 
 
 def load_boxes():
@@ -134,10 +174,29 @@ def find_template(templates, key):
     return None
 
 
-def list_templates(templates):
-    print(f"{'slug':42} {'cajas':>5}  {'usos':>8}  nombre")
+def list_templates(templates, role=None, roles_data=None):
+    slug_roles = {}
+    if roles_data:
+        for r, spec in roles_data.items():
+            for s in spec.get('templates', []):
+                slug_roles.setdefault(s, []).append(r)
+    if role:
+        templates = [t for t in templates if role in slug_roles.get(t['slug'], [])]
+        if not templates:
+            known = sorted(roles_data or {})
+            sys.exit(f"rol desconocido: {role} (roles: {', '.join(known)})")
+    print(f"{'slug':42} {'cajas':>5}  {'usos':>8}  roles / nombre")
     for t in templates:
-        print(f"{t['slug']:42} {t['box_count']:>5}  {t['captions']:>8}  {t['name']}")
+        roles = ','.join(slug_roles.get(t['slug'], [])) or '—'
+        print(f"{t['slug']:42} {t['box_count']:>5}  {t['captions']:>8}  "
+              f"{roles} — {t['name']}")
+
+
+def list_roles(roles_data):
+    for role in sorted(roles_data):
+        spec = roles_data[role]
+        print(f"{role}: {spec.get('desc', '')}")
+        print(f"  plantillas: {', '.join(spec.get('templates', []))}")
 
 
 def wrap(draw, text, font, max_w):
@@ -161,7 +220,7 @@ def _stroke(size):
     return max(1, size // 12)
 
 
-def fit_font(draw, text, max_w, max_h, start_size, font_path=FONT, stroke=True):
+def fit_font(draw, text, max_w, max_h, start_size, font_path=None, stroke=True):
     """Mayor tamaño de fuente con el que el texto (envuelto) cabe en max_w x max_h.
 
     Cuenta el borde (stroke) en ancho y alto, y verifica que NINGUNA línea
@@ -170,8 +229,9 @@ def fit_font(draw, text, max_w, max_h, start_size, font_path=FONT, stroke=True):
     comprobación el texto se salía del panel (p. ej. «ACORDARSE» en Drake
     llegaba a 5 px del borde derecho, 19-nov-2026). Con stroke=False
     (texto negro sobre fondo claro, p. ej. las cajas de Drake) no hay
-    borde que contar.
+    borde que contar. font_path=None usa la fuente global (ver --font).
     """
+    font_path = font_path or FONT
     size = start_size
     while size > 8:
         font = ImageFont.truetype(font_path, size)
@@ -345,6 +405,84 @@ def make_fake_chat(spec, width=1080):
     return img
 
 
+def make_comic(panels, captions=None, templates=None, width=1080,
+               panel_h=720, gap=8):
+    """Tira cómica vertical: paneles apilados, cada uno con su pie.
+
+    Cada panel es un slug de plantilla, una ruta de imagen o
+    'texto:...' para un panel de solo texto (fondo blanco, texto negro).
+    El pie va en una franja blanca bajo la imagen, con texto negro.
+    Las imágenes se ajustan ENTERAS dentro del panel (contain sobre
+    fondo blanco): con cover, una plantilla vertical como
+    waiting-skeleton perdía la cabeza y los pies al recortarla a
+    1080x720 (21-nov-2026).
+    """
+    captions = captions or []
+    probe = Image.new('RGB', (10, 10))
+    pdraw = ImageDraw.Draw(probe)
+
+    blocks = []  # (imagen, alto_del_pie, líneas_del_pie, fuente)
+    total_h = gap
+    for i, spec in enumerate(panels):
+        spec = spec.strip()
+        if spec.lower().startswith('texto:'):
+            text = spec.split(':', 1)[1].strip()
+            img = Image.new('RGB', (width, panel_h), 'white')
+            d = ImageDraw.Draw(img)
+            font, lines = fit_font(d, text, int(width * 0.88),
+                                   int(panel_h * 0.8), 90)
+            draw_block(d, lines, font, (int(width * 0.06),
+                                        int(panel_h * 0.1),
+                                        int(width * 0.94),
+                                        int(panel_h * 0.9)),
+                       fill='black', stroke=False)
+        else:
+            if os.path.exists(os.path.expanduser(spec)):
+                path = os.path.expanduser(spec)
+            else:
+                t = find_template(templates or [], spec)
+                if not t:
+                    sys.exit(f'panel no encontrado: {spec} '
+                             f'(slug de plantilla, ruta o "texto:…")')
+                path = os.path.join(IMAGES, os.path.basename(t['file']))
+            img = Image.open(path).convert('RGB')
+            # Contain con escalado en ambos sentidos: thumbnail() solo
+            # achica y una plantilla pequeña (298 px) quedaba enana en
+            # el panel (21-nov-2026).
+            scale = min(width / img.width, panel_h / img.height)
+            img = img.resize((max(1, int(img.width * scale)),
+                              max(1, int(img.height * scale))),
+                             Image.LANCZOS)
+            canvas = Image.new('RGB', (width, panel_h), 'white')
+            canvas.paste(img, ((width - img.width) // 2,
+                               (panel_h - img.height) // 2))
+            img = canvas
+        cap = captions[i] if i < len(captions) else ''
+        cap_h, cap_lines, cap_font = 0, [], None
+        if cap:
+            cap_font, cap_lines = fit_font(pdraw, cap, int(width * 0.9),
+                                           400, 54)
+            lh = [pdraw.textbbox((0, 0), ln, font=cap_font)[3]
+                  for ln in cap_lines]
+            cap_h = sum(lh) + int(cap_font.size * 0.15) * (len(lh) - 1) + 36
+        blocks.append((img, cap_h, cap_lines, cap_font))
+        total_h += panel_h + cap_h + gap
+
+    img = Image.new('RGB', (width, total_h), 'white')
+    draw = ImageDraw.Draw(img)
+    y = gap
+    for panel_img, cap_h, cap_lines, cap_font in blocks:
+        img.paste(panel_img, (0, y))
+        y += panel_h
+        if cap_lines:
+            draw_block(draw, cap_lines, cap_font,
+                       (int(width * 0.05), y, int(width * 0.95), y + cap_h),
+                       fill='black', stroke=False)
+            y += cap_h
+        y += gap
+    return img
+
+
 def save(img, args, name):
     os.makedirs(OUT_DIR, exist_ok=True)
     ext = 'png' if args.png else 'jpg'
@@ -378,6 +516,16 @@ def main():
     ap.add_argument('--text-only', help='meme de solo texto (fondo blanco)')
     ap.add_argument('--grid', help='rejilla 2x2: 4 rutas separadas por coma')
     ap.add_argument('--fake-chat', help='chat falso: "yo: …|Nombre: …|…"')
+    ap.add_argument('--comic', help='tira cómica vertical: paneles '
+                    'separados por | (slug de plantilla, ruta o '
+                    '"texto:…"); los pies van con --texts')
+    ap.add_argument('--font', default='archivo-black',
+                    help='fuente: archivo-black (def.), anton, bangers '
+                    'o ruta a un .ttf')
+    ap.add_argument('--role', help='con --list: solo plantillas de ese rol '
+                    '(ver --list-roles)')
+    ap.add_argument('--list-roles', action='store_true',
+                    help='listar las estructuras de chiste (roles) y salir')
     ap.add_argument('--deep-fry', action='store_true', help='filtro imagen frita')
     ap.add_argument('--no-face-check', action='store_true',
                     help='no detectar caras ni desplazar el texto')
@@ -388,12 +536,24 @@ def main():
     args = ap.parse_args()
 
     templates = load_catalog()
-    if args.list:
-        list_templates(templates)
+    roles_data = load_roles()
+    if args.list_roles:
+        list_roles(roles_data)
         return 0
+    if args.list:
+        list_templates(templates, role=args.role, roles_data=roles_data)
+        return 0
+
+    global FONT
+    FONT = resolve_font(args.font)
 
     if args.text_only:
         return save(make_text_only(args.text_only), args, 'texto')
+    if args.comic:
+        captions = ([p.strip() for p in args.texts.split('|')]
+                    if args.texts else None)
+        return save(make_comic([p.strip() for p in args.comic.split('|')],
+                               captions, templates), args, 'comic')
     if args.grid:
         labels = ([p.strip() for p in args.texts.split('|')]
                   if args.texts else None)
