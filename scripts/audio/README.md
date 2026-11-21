@@ -30,7 +30,7 @@ sobre el ritmo, antes de fijar la escaleta.
 | Script | Qué hace |
 |---|---|
 | `mix.py` | VO + música (archivo único o secciones con crossfades) + SFX opcionales → WAV 48 kHz con ducking sidechain y loudnorm. Informe JSON con LUFS/TP medidos. |
-| `master.py` | Máster + ligera desde el render (chunks o archivo único). Copia el video (ya a CRF 19); recodifica el audio con la cadena V1.3 (recorte 40 ms, realce de arranque +6 dB/100 ms, alimiter 0.79). Con tramos PCM usar `--clean-audio` (sin trim, atempo ni boost: no hay priming ni deriva que corregir). |
+| `master.py` | Máster + ligera desde el render (chunks o archivo único). Copia el video (ya a CRF 19); recodifica el audio con la cadena V1.3 (recorte 40 ms, realce de arranque +6 dB/100 ms, alimiter 0.79). Con tramos PCM usar `--clean-audio` (sin trim, atempo ni boost: no hay priming ni deriva que corregir). Con tramos vídeo-solo, `--mix <wav>` muxa la mezcla en el ensamblado (cadena limpia por defecto; ver § «Tramos vídeo-solo»). |
 | `gen-music.py` | Música original por secciones con MusicGen-small (CPU). Las secciones vienen de un JSON. Stem a −16 LUFS (no confundir con el objetivo del reel). |
 | `gen-vo-piper.py` | VO de previsualización con Piper, línea por línea, desde un JSON de guion. Escribe `vo-lines.json` con los tiempos. Respaldo desde la Fase B (ver Kokoro). |
 | `gen-vo-kokoro.py` | **VO de previsualización recomendada (Fase B, R6):** Kokoro-82M (Apache-2.0), voces ES `em_alex` (defecto), `em_santa`, `ef_dora`. Misma interfaz que Piper (JSON de guion → WAV 24 kHz + `vo-lines.json`). Determinista (empalmar es seguro). ~0,3x tiempo real en esta VM (~3 min para 48 s de VO). Modelo en `../.hf-cache`; requiere espeak-ng (apt, .deb en `../debs/`). |
@@ -259,6 +259,52 @@ enmascarable. El oído manda; la medición que no lo ve es la que
 está mal (aquí: la (i2) comparaba VO editada vs cruda, archivos
 que el concat nunca toca — el defecto vivía en la cadena de
 render, fuera del alcance de (i)).
+
+## Tramos vídeo-solo + mezcla en el máster (21-nov-2026, hub-speed-v5)
+
+El audio muxado en cada tramo obligaba a re-renderizar TODO el vídeo
+ante cualquier cambio de mezcla (en V4.1, un cambio de 20 ms + ducking
+costó un re-render completo de 85 min). Flujo nuevo:
+
+```bash
+# Tramos SIN audio (una sola vez; se reutilizan en cada iteración de audio)
+node scripts/render-chunks.mjs <proyecto> --composition <Comp> --chunk 150 \
+  --video-only --out out/chunks-vo --no-concat
+# Máster con la mezcla (cada iteración de audio: solo esto, ~2 min)
+.venv/bin/python scripts/audio/master.py --chunks-dir <out>/chunks-vo \
+  --mix <mezcla.wav> --gain-db 0.6 --out-master <id>_MASTER.mp4 --no-light --force
+```
+
+**`render-chunks.mjs --video-only`:** los tramos salen `.mkv` sin pista
+de audio. NO usa `--muted` (produce píxeles distintos del camino con
+audio): renderiza el audio a PCM-16 con `--separate-audio-to` a un
+temporal que se descarta tras cada tramo. `--video-only` + `--audio-codec`
+→ error. En el manifest, `videoOnly: true` marca los tramos sin audio.
+
+**`master.py --mix <wav>`:** el audio del máster viene de la mezcla, no
+del render (si el vídeo lleva audio, se ignora con un aviso). Cadena
+limpia por defecto (sin trim, boost ni atempo) salvo flags explícitos.
+La mezcla se sondea: si no es 48 kHz se remuestrea; si es mono se
+duplica a estéreo a −3,01 dB/canal (el mismo tratamiento que Remotion
+aplica al muxar: verificado, concat = mezcla × 0,7071, lag 0,00 ms);
+>2 canales → error. Después `apad` + `atrim` a la duración del vídeo
+(con `--chunks-dir` la duración es la suma de los tramos: el demuxer
+concat no reporta duración total). `--gain-db` aplica ganancia antes del
+limitador (reproduce el paso +0,6 dB de V5, no documentado en su
+momento). `--no-light` omite la ligera; `--draft` = `--no-light`.
+
+**Verificación (marti-fidel V5, 21-nov-2026):** render vídeo-solo
+completo 13 min 9 s; máster de prueba 2077 f, −15,90 LUFS, TP −4,30 dBTP
+(V5: −15,9/−4,2); audio vs máster V5 con lag +0,00 ms en las 13 ventanas
+de 5 s, diff RMS −58,98 dBFS (suelo AAC), sin deriva. Vídeo: 1779/2077
+fotogramas bit-idénticos a V5; los 298 restantes difieren solo al nivel
+del ruido propio del pipeline (PSNR 44,7–108 dB, SSIM ≥0,985),
+exactamente lo mismo que un re-render del flujo actual (ver
+`docs/HUB-SPEED-V5-RENDER.md` § No-determinismo: el render no reproduce
+fotogramas bit-idénticos entre corridas; la identidad bit a bit NO es
+criterio válido). **Nunca mezclar en un mismo concat tramos de distintos
+productores/contenedores** (timebases distintas → fotogramas perdidos que
+ffprobe no detecta; solo la decodificación real lo revela).
 
 ## Verificación de líneas de voz (`verify-vo-lines.py`)
 
