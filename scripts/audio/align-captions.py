@@ -20,6 +20,18 @@ WARN, no FAIL). Los inicios corregidos se acotan para no cruzar
 el inicio de la palabra anterior (+0,05 s) ni el fin de la propia
 palabra (−0,05 s).
 
+Pausa puenteada (hub-v6): Whisper a veces termina la palabra
+anterior tarde Y empieza esta pronto, así que el inicio del
+caption cae dentro de la cola de la palabra anterior y el criterio
+de silencio previo no dispara (la energía en los 0,15 s previos
+es la cola, no silencio). Caso real E2E 21-nov-2026: «MARTÍ» con
+s=3,66 s cuando la voz real arranca en 4,12 s (silencio digital
+3,7–4,1 s). Segunda oportunidad: si tras `s` hay una racha de
+silencio ≥0,15 s seguida de un onset DENTRO de esta palabra
+(antes de su fin), ese onset es el inicio real
+(`envelope.onset_after_silence`). Sin esa guarda del fin, el
+onset podría ser el de la palabra SIGUIENTE.
+
 Formatos: JSON plano de captions (`[{text, startMs, endMs, ...}]`,
 el que consume la auditoría) y TS de Remotion (`export const
 CAPTIONS: CapSegment[] = [...]`, el que consume el render). El
@@ -160,7 +172,24 @@ def measure_deviations(words, voice, sr: int):
         s = w["s"]
         if energy_db(voice, sr, max(0.0, s - PRE_SILENCE_S), s) \
                 > PRE_SILENCE_DB:
-            continue  # habla continua antes: sin onset definible
+            # Segunda oportunidad (hub-v6, pausa puenteada): el
+            # inicio cae dentro de la cola de la palabra anterior
+            # porque Whisper puenteó la pausa. Si tras s hay una
+            # racha de silencio seguida de un onset DENTRO de esta
+            # palabra, ese onset es el inicio real. La ventana llega
+            # hasta el fin de la palabra (tope 1,5 s): un puente
+            # puede superar los 0,6 s de SEARCH_AFTER_S (el inicio
+            # puede caer 0,5 s antes de que empiece la pausa), y la
+            # guarda del fin impide robar el onset siguiente.
+            on = env.onset_after_silence(
+                voice, sr, s, min(w["e"], s + 1.5))
+            if (on is None or on - s <= CORRECT_MIN_S
+                    or on >= w["e"] - MIN_GAP_S):
+                continue  # habla continua: sin onset definible
+            out.append({"word": w["text"], "s": round(s, 3),
+                        "onset": on, "dev": round(s - on, 3),
+                        "bridged": True})
+            continue
         on = env.envelope_onset(voice, sr, s - 0.05,
                                 s + SEARCH_AFTER_S)
         if on is None:
@@ -188,6 +217,7 @@ def align(words, voice, sr: int):
         entry = {"word": w["text"], "s": round(w["s"], 3),
                  "onset": d["onset"] if d else None,
                  "dev_before": d["dev"] if d else None,
+                 "bridged": bool(d.get("bridged")) if d else False,
                  "corrected": False, "s_new": round(w["s"], 3),
                  "dev_after": None}
         if d and abs(d["dev"]) > CORRECT_MIN_S:
@@ -214,6 +244,7 @@ def align(words, voice, sr: int):
         report_words.append(entry)
         prev_s = w["s"]
     return {"words": report_words, "n_after_silence": len(devs),
+            "n_bridged": sum(1 for d in devs if d.get("bridged")),
             "n_corrected": n_corr}
 
 
@@ -265,6 +296,7 @@ def main() -> int:
     rep["summary"] = {
         "n_words": len(words),
         "n_after_silence": rep["n_after_silence"],
+        "n_bridged": rep["n_bridged"],
         "n_corrected": rep["n_corrected"],
         "max_abs_dev_before": round(max(devs_before), 3)
         if devs_before else None,
@@ -274,7 +306,9 @@ def main() -> int:
         "n_over_threshold_after": n_bad_after,
     }
     print(f"palabras: {len(words)}; tras silencio: "
-          f"{rep['n_after_silence']}; corregidas: {rep['n_corrected']}")
+          f"{rep['n_after_silence']} "
+          f"(puenteadas: {rep['n_bridged']}); "
+          f"corregidas: {rep['n_corrected']}")
     print(f"desvío máx: {rep['summary']['max_abs_dev_before']}s -> "
           f"{rep['summary']['max_abs_dev_after']}s "
           f"(umbral {SYNC_MAX_S}s)")
@@ -284,6 +318,7 @@ def main() -> int:
             print(f"  {w['word']}: {w['s']:.3f}s -> {w['s_new']:.3f}s "
                   f"(desvío {w['dev_before']:+.3f}s -> "
                   f"{w['dev_after']:+.3f}s)"
+                  f"{' [puenteada]' if w.get('bridged') else ''}"
                   f"{' [acotado]' if w.get('clamped') else ''}")
 
     if a.report:

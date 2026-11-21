@@ -110,6 +110,50 @@ def envelope_onset(a: np.ndarray, sr: int, t0: float, t1: float,
     return None
 
 
+def onset_after_silence(a: np.ndarray, sr: int, t0: float, t1: float,
+                        min_silence_s: float = 0.15,
+                        thresh_db: float = ONSET_THRESH_DB,
+                        sustain: int = ONSET_SUSTAIN):
+    """Primer onset que sigue a una racha de silencio en [t0, t1].
+
+    Devuelve el inicio del primer ataque sostenido (`sustain`
+    ventanas sobre `thresh_db`) que sigue a una racha de silencio
+    de al menos `min_silence_s` por debajo del umbral, o None si no
+    hay tal par silencio+ataque en la ventana.
+
+    Para el caso «pausa puenteada» (hub-v6, E2E 21-nov-2026): Whisper
+    termina la palabra anterior tarde y empieza esta pronto, así que
+    el inicio del caption cae DENTRO de la cola de la palabra
+    anterior y `envelope_onset` devuelve esa cola (energía ya alta),
+    no el onset real. Aquí se salta la cola buscando la primera
+    racha de silencio y el ataque posterior. La racha mínima de
+    0,15 s deja fuera los cierres de oclusiva (~0,1 s) en medio de
+    frase: un dip breve no es una pausa.
+    """
+    times, db = rms_envelope_db(a, sr, t0=t0, t1=t1)
+    if len(db) == 0:
+        return None
+    min_run = max(1, int(round(min_silence_s / WIN_S)))
+    below = db < thresh_db
+    n = len(below)
+    j = 0
+    while j < n:
+        if not below[j]:
+            j += 1
+            continue
+        k = j
+        while k < n and below[k]:
+            k += 1
+        if k - j >= min_run:
+            # Primer ataque sostenido tras la racha de silencio.
+            for m in range(k, n - sustain + 1):
+                if (db[m:m + sustain] >= thresh_db).all():
+                    return round(float(times[m]), 3)
+            return None  # silencio sin ataque posterior en la ventana
+        j = k
+    return None
+
+
 def rise_onset(a: np.ndarray, sr: int, t0: float, t1: float,
                win_s: float = 0.10):
     """Onset por máxima subida de envolvente (correlación escalón).

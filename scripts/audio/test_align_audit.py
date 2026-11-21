@@ -152,6 +152,28 @@ class TestEnvelopeOnset(unittest.TestCase):
         peak2 = env.line_peak_db(a * 10 ** (12 / 20), SR, 0.0, 1.8)
         self.assertAlmostEqual(peak2 - peak, 12.0, delta=0.5)
 
+    def test_onset_after_silence_skips_tail(self):
+        """Búsqueda desde DENTRO de la cola de la palabra anterior:
+        envelope_onset devolvería la cola (0,3 s); onset_after_silence
+        salta la pausa y devuelve el onset real (0,9 s)."""
+        a = np.concatenate([room(int(0.1 * SR)), voiced(0.4),
+                            room(int(0.4 * SR)), voiced(0.4),
+                            room(int(0.1 * SR))])
+        # Palabra 1: 0,1-0,5; silencio: 0,5-0,9; palabra 2: 0,9-1,3.
+        self.assertAlmostEqual(env.envelope_onset(a, SR, 0.3, 1.3),
+                               0.3, delta=0.02)
+        on = env.onset_after_silence(a, SR, 0.3, 1.3)
+        self.assertIsNotNone(on)
+        self.assertAlmostEqual(on, 0.9, delta=0.02)
+
+    def test_onset_after_silence_short_dip_ignored(self):
+        """Un dip de 0,08 s (cierre de oclusiva) no es una pausa:
+        sin racha de silencio ≥0,15 s, no hay onset."""
+        a = np.concatenate([room(int(0.1 * SR)), voiced(0.4),
+                            room(int(0.08 * SR)), voiced(0.4),
+                            room(int(0.1 * SR))])
+        self.assertIsNone(env.onset_after_silence(a, SR, 0.1, 1.3))
+
 
 # ---------------- align-captions ----------------
 
@@ -197,6 +219,43 @@ class TestAlignCaptions(unittest.TestCase):
         rep = ac.align(flat, a, SR)
         starts = [w["s_new"] for w in rep["words"]]
         self.assertLess(starts[0], starts[1])
+
+    def test_bridged_pause_corrected(self):
+        """Pausa puenteada (hub-v6, caso MARTÍ E2E): Whisper pone el
+        inicio de DOS dentro de la cola de UNO (0,45 s; el onset
+        real es 1,1 s tras 0,6 s de silencio) pero su FIN sigue
+        siendo el real (1,5 s, como en la salida real de Whisper).
+        El criterio viejo no dispara (energía previa alta); la
+        segunda oportunidad lo corrige y lo marca puenteado."""
+        a = self._long_pause_voice()
+        caps = [{"text": "UNO", "startMs": 100, "endMs": 500,
+                 "timestampMs": 100},
+                {"text": "DOS", "startMs": 450, "endMs": 1500,
+                 "timestampMs": 450},
+                {"text": "TRES", "startMs": 1800, "endMs": 2200,
+                 "timestampMs": 1800}]
+        flat = ac.flatten_words(caps, "json")
+        rep = ac.align(flat, a, SR)
+        by_word = {w["word"]: w for w in rep["words"]}
+        self.assertTrue(by_word["DOS"]["corrected"])
+        self.assertTrue(by_word["DOS"]["bridged"])
+        self.assertAlmostEqual(by_word["DOS"]["s_new"], 1.1, delta=0.02)
+        self.assertEqual(rep["n_bridged"], 1)
+
+    def test_bridged_pause_next_word_not_stolen(self):
+        """La guarda del fin: una palabra en medio de habla continua
+        seguida de pausa + palabra siguiente NO se mueve al onset de
+        la siguiente (ese onset queda después de su propio fin)."""
+        a = np.concatenate([room(int(0.1 * SR)), voiced(0.8),
+                            room(int(0.6 * SR)), voiced(0.4),
+                            room(int(0.1 * SR))])
+        # Habla continua 0,1-0,9; silencio 0,9-1,5; palabra 1,5-1,9.
+        caps = self._caps([("UNO", 0.1), ("DOS", 0.5)])
+        flat = ac.flatten_words(caps, "json")
+        rep = ac.align(flat, a, SR)
+        by_word = {w["word"]: w for w in rep["words"]}
+        self.assertFalse(by_word["DOS"]["corrected"])
+        self.assertEqual(rep["n_corrected"], 0)
 
     def test_ts_roundtrip(self):
         """TS: se mueve el `s` de la palabra y el `start` del chunk
