@@ -1,0 +1,44 @@
+{
+  "fragments": [
+    {
+      "text": "CAPÍTULO CERO. APERTURA.",
+      "pause_after": 0.9
+    },
+    {
+      "text": "Este video dura menos de tres minutos, y es una prueba.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Una prueba de que un video largo puede construirse con un solo comando.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Voz, subtítulos, música, montaje y máster, sin tocar nada a mano.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Si estás viendo esto, el pipeline funcionó.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Lo produjo un orquestador: un solo comando, trece pasos.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Cada paso deja un artefacto, y cada artefacto se puede reanudar.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Tiene tres capítulos, como un video largo en miniatura.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "La regla es la misma: por cada capítulo, una acción concreta.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Sin acción, esto es entretenimiento, no avance.",
+      "pause_after": 0.7
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "scenes": [
+    {
+      "chapter": 0,
+      "fromLine": 1,
+      "toLine": 1,
+      "type": "title-card",
+      "kicker": "CAPÍTULO 0",
+      "title": "Apertura: una prueba en miniatura",
+      "subtitle": "Un video largo en menos de tres minutos"
+    },
+    {
+      "chapter": 0,
+      "fromLine": 2,
+      "toLine": 4,
+      "type": "big-statement",
+      "text": "Un video largo puede construirse con un solo comando."
+    },
+    {
+      "chapter": 0,
+      "fromLine": 5,
+      "toLine": 7,
+      "type": "data-strip",
+      "items": [
+        {
+          "label": "pasos del pipeline",
+          "value": "13"
+        },
+        {
+          "label": "capítulos",
+          "value": "3"
+        },
+        {
+          "label": "comandos para construirlo",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "chapter": 0,
+      "fromLine": 8,
+      "toLine": 8,
+      "type": "chapters-map",
+      "highlight": 0
+    },
+    {
+      "chapter": 0,
+      "fromLine": 9,
+      "toLine": 10,
+      "type": "big-statement",
+      "text": "Por cada capítulo, una acción concreta."
+    },
+    {
+      "chapter": 1,
+      "fromLine": 11,
+      "toLine": 11,
+      "type": "title-card",
+      "kicker": "CAPÍTULO 1",
+      "title": "La idea central: la estructura manda"
+    },
+    {
+      "chapter": 1,
+      "fromLine": 12,
+      "toLine": 13,
+      "type": "big-statement",
+      "text": "Un video largo no es un video corto estirado."
+    },
+    {
+      "chapter": 1,
+      "fromLine": 14,
+      "toLine": 16,
+      "type": "two-col",
+      "leftTitle": "Sin capítulos",
+      "leftItems": [
+        "Metraje sin rumbo",
+        "El espectador se pierde"
+      ],
+      "rightTitle": "Con capítulos",
+      "rightItems": [
+        "Cada parte se sostiene sola",
+        "Se entra por el capítulo útil"
+      ]
+    },
+    {
+      "chapter": 1,
+      "fromLine": 17,
+      "toLine": 18,
+      "type": "list",
+      "title": "Lo que lleva cada capítulo",
+      "items": [
+        "Una pregunta que responde",
+        "Una frase que se puede citar",
+        "Una acción concreta"
+      ]
+    },
+    {
+      "chapter": 1,
+      "fromLine": 19,
+      "toLine": 20,
+      "type": "big-statement",
+      "text": "El montaje sigue a la voz, no al revés."
+    },
+    {
+      "chapter": 1,
+      "fromLine": 21,
+      "toLine": 22,
+      "type": "big-statement",
+      "text": "La estructura es el contenido."
+    },
+    {
+      "chapter": 1,
+      "fromLine": 23,
+      "toLine": 23,
+      "type": "question",
+      "text": "¿Qué tres preguntas dividen tu próximo tema?"
+    },
+    {
+      "chapter": 2,
+      "fromLine": 24,
+      "toLine": 24,
+      "type": "title-card",
+      "kicker": "CAPÍTULO 2",
+      "title": "Cierre: tres ideas, tres acciones"
+    },
+    {
+      "chapter": 2,
+      "fromLine": 25,
+      "toLine": 28,
+      "type": "list",
+      "title": "Las tres ideas",
+      "items": [
+        "1. El pipeline existe",
+        "2. La estructura manda",
+        "3. Sin acción no hay avance"
+      ]
+    },
+    {
+      "chapter": 2,
+      "fromLine": 29,
+      "toLine": 30,
+      "type": "big-statement",
+      "text": "La prueba termina aquí, pero el video largo empieza ahora."
+    },
+    {
+      "chapter": 2,
+      "fromLine": 31,
+      "toLine": 31,
+      "type": "summary-card",
+      "text": "Aprender es actuar."
+    }
+  ]
+}

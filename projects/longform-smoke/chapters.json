@@ -1,0 +1,25 @@
+{
+  "chapters": [
+    {
+      "number": 0,
+      "title": "Apertura: una prueba en miniatura",
+      "short_title": "Apertura",
+      "estimated_s": 42,
+      "key_idea": "Un video largo puede construirse con un solo comando; este video es la prueba."
+    },
+    {
+      "number": 1,
+      "title": "La idea central: la estructura manda",
+      "short_title": "La idea central",
+      "estimated_s": 58,
+      "key_idea": "Sin capítulos hay metraje; con capítulos hay un curso."
+    },
+    {
+      "number": 2,
+      "title": "Cierre: tres ideas, tres acciones",
+      "short_title": "Cierre",
+      "estimated_s": 35,
+      "key_idea": "Tres ideas, tres acciones; aprender es actuar."
+    }
+  ]
+}

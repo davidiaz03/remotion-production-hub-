@@ -1,0 +1,11 @@
+{
+  "id": "longform-smoke",
+  "title": "Longform smoke test (2-3 min)",
+  "compositionId": "MainReel",
+  "durationInFrames": 4050,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "crf": 19,
+  "audioRequired": true
+}

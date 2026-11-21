@@ -1,0 +1,22 @@
+{
+  "voice": "em_alex",
+  "speed": 0.95,
+  "threads": 2,
+  "chapters": [
+    {
+      "script": "vo-chapters/ch00.json",
+      "out": "public/audio/vo/ch00.wav",
+      "lines_json": "vo-chapters/ch00-lines.json"
+    },
+    {
+      "script": "vo-chapters/ch01.json",
+      "out": "public/audio/vo/ch01.wav",
+      "lines_json": "vo-chapters/ch01-lines.json"
+    },
+    {
+      "script": "vo-chapters/ch02.json",
+      "out": "public/audio/vo/ch02.wav",
+      "lines_json": "vo-chapters/ch02-lines.json"
+    }
+  ]
+}

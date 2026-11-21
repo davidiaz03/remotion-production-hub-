@@ -1,0 +1,36 @@
+{
+  "fragments": [
+    {
+      "text": "CAPÍTULO DOS. CIERRE.",
+      "pause_after": 0.9
+    },
+    {
+      "text": "Tres capítulos, tres ideas, tres acciones.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Primera: el pipeline existe, y este video es su prueba.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Segunda: la estructura manda; los capítulos son el curso.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Tercera: sin acción, no hay avance.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "La prueba termina aquí, pero el video largo empieza ahora.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Elige un tema, divídelo en capítulos, y constrúyelo.",
+      "pause_after": 0.25
+    },
+    {
+      "text": "Aprender es actuar.",
+      "pause_after": 1.2
+    }
+  ]
+}

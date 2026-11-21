@@ -457,14 +457,31 @@ step('preflight', ['reports/preflight.json'], (heavy) => {
 	if (dryRun) {
 		run(VENV_PY, [path.join(ROOT, 'scripts/visual-preflight.py'),
 			'--project', projectId, '--stills',
+			'--manifest', P(cfg.preflight?.manifest ?? 'preflight-scenes.json'),
 			'--out', P('reports/preflight.json')], 'visual-preflight', home, heavy);
 		return;
 	}
-	if (!existsSync(P('preflight-scenes.json'))) {
-		throw Error('preflight activado pero falta preflight-scenes.json en el proyecto (manifiesto de escenas)');
+	const manifestRel = cfg.preflight?.manifest ?? 'preflight-scenes.json';
+	if (!existsSync(P(manifestRel))) {
+		// Sin manifiesto: se deriva de la timeline (las escenas ya
+		// traen startFrame/endFrame). Así un proyecto largo no tiene
+		// que mantener a mano unos límites que la timeline ya conoce.
+		if (!existsSync(P(timelineJson))) {
+			throw Error(`preflight activado pero falta ${manifestRel} y no hay ${timelineJson} del que derivarlo`);
+		}
+		const tl = JSON.parse(readFileSync(P(timelineJson), 'utf8'));
+		const scenes = (tl.scenes ?? []).map((s, i) => ({
+			name: `S${i + 1}-${s.type}`,
+			start: s.startFrame,
+			end: s.endFrame,
+		}));
+		if (!scenes.length) throw Error(`${timelineJson} no trae escenas para el pre-vuelo`);
+		writeFileSync(P(manifestRel), JSON.stringify({project: projectId, fps: Number(data.fps ?? 30), scenes, logo_skip_scenes: []}, null, 2) + '\n');
+		console.log(`[${stamp()}] == preflight: manifiesto derivado de ${timelineJson} (${scenes.length} escenas)`);
 	}
 	const args = [path.join(ROOT, 'scripts/visual-preflight.py'),
 		'--project', projectId, '--stills',
+		'--manifest', P(manifestRel),
 		'--out', P('reports/preflight.json')];
 	if (cfg.preflight?.args) args.push(...cfg.preflight.args.map(String));
 	run(VENV_PY, args, 'visual-preflight', home, heavy);
