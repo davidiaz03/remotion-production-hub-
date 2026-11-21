@@ -16,7 +16,7 @@
       "draft": {
         "status": "done",
         "startedAt": "2026-11-18T02:30:22.169Z",
-        "updatedAt": "2026-11-18T02:31:17.182Z",
+        "updatedAt": "2026-11-21T05:09:34.071Z",
         "artifacts": [
           "prueba-hero.png",
           "prueba-hero-light.jpg"
@@ -24,11 +24,11 @@
         "note": ""
       },
       "review": {
-        "status": "done",
+        "status": "in_progress",
         "startedAt": "2026-11-18T02:30:22.261Z",
-        "updatedAt": "2026-11-18T02:37:00.804Z",
+        "updatedAt": "2026-11-21T05:09:34.076Z",
         "artifacts": [],
-        "note": "QA visual superado 17-nov-2026 (pieza de prueba, no para publicar)"
+        "note": "Borrador listo para revisión visual"
       },
       "export": {
         "status": "pending",
@@ -63,6 +63,15 @@
       },
       {
         "at": "2026-11-18T02:31:17.182Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "prueba-hero.png",
+          "prueba-hero-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:09:34.071Z",
         "phase": "draft",
         "event": "Borrador renderizado (1 imagen(es))",
         "artifacts": [

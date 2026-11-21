@@ -539,6 +539,27 @@ test('render de ejemplo (breaking): PNG 1080x1080 + JPG ligero + logo en HTML', 
 	}
 });
 
+test('clasificación de avisos de caras: solo la cara en zona de texto es fallo', async () => {
+	const { classifyFaceWarnings } = await import('../content/scripts/face-warnings.mjs');
+	// Informativos: varias caras y sin cara detectada -> aviso, no fallo.
+	let r = classifyFaceWarnings([
+		'7 caras en el encuadre; se encuadra por la mayor (las demás son fondo)',
+		'sin cara detectada: encuadre manual (verificar a ojo)',
+	]);
+	assert.deepEqual(r.failures, []);
+	assert.equal(r.infos.length, 2);
+	// La posición sugerida con problemas no importa si la actual está limpia.
+	r = classifyFaceWarnings(['[sugerida 50% 90%] cara en la zona de texto (la barbilla llega a y=800px, texto desde y=780px)']);
+	assert.deepEqual(r.failures, []);
+	assert.deepEqual(r.infos, []);
+	// La posición ACTUAL con la cara en zona de texto sí es fallo.
+	r = classifyFaceWarnings(['[actual 50% 30%] cara en la zona de texto (la barbilla llega a y=800px, texto desde y=780px)']);
+	assert.equal(r.failures.length, 1);
+	// Cara que no cabe ni con el mejor encuadre: fallo.
+	r = classifyFaceWarnings(['la cara NO cabe entera en la zona libre ni con el mejor encuadre (retrato demasiado ajustado)']);
+	assert.equal(r.failures.length, 1);
+});
+
 test('galería: índice con las 10 plantillas y aviso si falta el render', async () => {
 	const { buildGallery, listTemplates } = await import('../content/scripts/gallery.mjs');
 	assert.equal(listTemplates().length, 10);

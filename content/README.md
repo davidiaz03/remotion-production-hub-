@@ -5,7 +5,12 @@ infografías, miniaturas, stories), paralelo al hub de video Remotion.
 Misma filosofía: **sistema, no piezas sueltas** — marca en tokens,
 plantillas versionadas, renders reproducibles y cada pieza con su estado.
 
-Construido 17-nov-2026, rama `work/content-hub-2026-11-17`.
+Construido 17-nov-2026, rama `work/content-hub-2026-11-17`. **v2
+(21-nov-2026, rama `work/content-hub-v2-2026-11-21`)**: 4 plantillas nuevas
+(`breaking`, `stat`, `cover`, `timeline`), constructor de carrusel desde
+texto, chequeos automáticos de marca, generación por lotes, galería de
+plantillas y QA en un solo comando. Ver
+[`AUDIT-2026-11-21.md`](AUDIT-2026-11-21.md).
 
 ## Estrategia (por qué así)
 
@@ -24,14 +29,18 @@ Ver la matriz completa en [`GUIDE.md`](GUIDE.md).
 ```
 content/
   README.md / BRAND.md / GUIDE.md / CANVA.md / WORKFLOW.md / COPY.md / RESEARCH.md
+  AUDIT-2026-11-21.md  auditoría y decisiones de la v2
   brand/            tokens.json, logo-color.png, fonts/ (Barlow OFL), textures/
   lib/              base.css (estilos compartidos), icons/ (31 Lucide, ISC)
-  templates/        post, story, carousel, infographic, thumbnail, quote
+  templates/        post, story, carousel, infographic, thumbnail, quote,
+                    breaking, stat, cover, timeline
   scripts/          render.mjs, cdp.mjs, template.mjs, state.mjs, new-piece.mjs,
-                    make-logo-white.py, duotone.py, cutout.py, gen-image.py,
-                    postprocess.py, contact-sheet.py, face-frame.py, letterbox.py, density.mjs
+                    build-carousel.mjs, brand-check.mjs, brand-pixels.py,
+                    gallery.mjs, qa.mjs, make-logo-white.py, duotone.py,
+                    cutout.py, gen-image.py, postprocess.py, contact-sheet.py,
+                    face-frame.py, letterbox.py, density.mjs
   pieces/           piezas en curso (cada una: brief.md, data.json, STATE.json, out/)
-  examples/out/     renders de ejemplo (ignorado por git)
+  examples/out/     renders de ejemplo + gallery.html (ignorado por git)
 ```
 
 ## Uso rápido
@@ -42,15 +51,24 @@ source ~/workspace/remotion-hub/activate.sh   # Node 22.16 del hub, obligatorio
 # 1. Nueva pieza (crea pieces/<slug>/ con brief, data y STATE)
 node content/scripts/new-piece.mjs mi-post --template post --title "Mi post"
 
+# 1b. Carrusel desde texto (titular + viñetas -> pieza completa, con
+#     validación de densidad antes de renderizar; ver build-carousel.mjs)
+node content/scripts/build-carousel.mjs mi-carrusel --input slides.md --format 4:5
+node content/scripts/build-carousel.mjs mi-carrusel --title "..." --bullets bullets.txt
+
 # 2. Editar pieces/mi-post/brief.md (hechos verificados, copy) y data.json
 
 # 3. Renderizar (PNG máster + JPG ligero; actualiza STATE.json)
 node content/scripts/render.mjs --piece mi-post
+node content/scripts/render.mjs --all-pieces   # por lotes: todas las piezas
 
-# 4. Revisión visual: leer el PNG (nunca entregar sin mirarlo)
-# 5. Hoja de contacto de todos los ejemplos:
+# 4. QA en un solo comando (densidad + marca + caras) y revisión visual:
+node content/scripts/qa.mjs --piece mi-post
+#    (ninguna pieza se entrega sin leer el PNG renderizado)
+# 5. Hoja de contacto de todos los ejemplos + galería de plantillas:
 node content/scripts/render.mjs --all-examples
 python3 content/scripts/contact-sheet.py
+node content/scripts/gallery.mjs   # -> examples/out/gallery.html
 ```
 
 ## Flujo de una pieza

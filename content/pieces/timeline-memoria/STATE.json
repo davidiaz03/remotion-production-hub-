@@ -1,0 +1,75 @@
+{
+  "schema": "content-hub.state/v1",
+  "slug": "timeline-memoria",
+  "template": "timeline",
+  "title": "Fechas que no se olvidan",
+  "createdAt": "2026-11-21T05:01:09.444Z",
+  "pipeline": {
+    "phases": {
+      "brief": {
+        "status": "in_progress",
+        "startedAt": "2026-11-21T05:01:09.444Z",
+        "updatedAt": "2026-11-21T05:01:09.444Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "draft": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:09:45.475Z",
+        "updatedAt": "2026-11-21T05:16:15.915Z",
+        "artifacts": [
+          "timeline-memoria.png",
+          "timeline-memoria-light.jpg"
+        ],
+        "note": ""
+      },
+      "review": {
+        "status": "in_progress",
+        "startedAt": "2026-11-21T05:09:45.476Z",
+        "updatedAt": "2026-11-21T05:16:15.936Z",
+        "artifacts": [],
+        "note": "Borrador listo para revisión visual"
+      },
+      "export": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-21T05:01:09.444Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-21T05:01:09.444Z",
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-21T05:01:09.444Z",
+        "phase": "brief",
+        "event": "Pieza creada",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-21T05:09:45.475Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "timeline-memoria.png",
+          "timeline-memoria-light.jpg"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:16:15.915Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "timeline-memoria.png",
+          "timeline-memoria-light.jpg"
+        ]
+      }
+    ]
+  }
+}

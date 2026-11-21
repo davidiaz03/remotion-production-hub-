@@ -15,6 +15,11 @@ manda en Canva; la imagen protagonista manda en generación**.
 | Story de anuncio | Plantilla de código (`story`) | Imagen generada/foto | Rápida, con identidad estricta |
 | Miniatura de reel | Plantilla de código (`thumbnail`) | Foto del reel, recorte rembg | Titular gigante legible en el feed; la cara/objeto recortado encima |
 | Tarjeta de cita | Plantilla de código (`quote`) | — | La cita debe ser textual; nunca dejar que una IA la reescriba |
+| Última hora / reacción a una noticia | Plantilla de código (`breaking`) | — | Banda roja + titular + fecha/fuente; sin foto, para salir rápido |
+| Un solo dato o cifra | Plantilla de código (`stat`) | — | Una cifra protagonista gigante; la infografía es para 2–4 cifras |
+| Portada 16:9 (Facebook/YouTube) | Plantilla de código (`cover`) | — | Único formato apaisado del hub; contenido clave centrado |
+| Línea de tiempo (3–4 hechos) | Plantilla de código (`timeline`) | — | Año en rojo + hecho + fuente; para la memoria histórica del museo |
+| Carrusel desde un texto | **Constructor** (`build-carousel.mjs`) | — | Titular + viñetas/Markdown → pieza completa con densidad validada |
 | Post que el usuario quiere retocar en el teléfono | **Canva** (`create-design`) | — | La editabilidad manda sobre el control |
 | Presentación / deck | **Canva** (`create-design` con `outline`) | — | El código no compite en decks multipágina editables |
 | Pieza para imprimir (cartel, volante) | **Canva** + revisión en el editor | Plantilla de código si es solo texto | Canva exporta PDF de imprenta; el código no gestiona sangrías ni CMYK |

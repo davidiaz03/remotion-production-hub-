@@ -1,0 +1,66 @@
+{
+  "schema": "content-hub.state/v1",
+  "slug": "portada-memorial",
+  "template": "cover",
+  "title": "Memorial de la Denuncia",
+  "createdAt": "2026-11-21T05:01:08.974Z",
+  "pipeline": {
+    "phases": {
+      "brief": {
+        "status": "in_progress",
+        "startedAt": "2026-11-21T05:01:08.974Z",
+        "updatedAt": "2026-11-21T05:01:08.974Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "draft": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:09:28.556Z",
+        "updatedAt": "2026-11-21T05:09:28.556Z",
+        "artifacts": [
+          "portada-memorial.png",
+          "portada-memorial-light.jpg"
+        ],
+        "note": ""
+      },
+      "review": {
+        "status": "in_progress",
+        "startedAt": "2026-11-21T05:09:28.558Z",
+        "updatedAt": "2026-11-21T05:09:28.558Z",
+        "artifacts": [],
+        "note": "Borrador listo para revisión visual"
+      },
+      "export": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-21T05:01:08.974Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-21T05:01:08.974Z",
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-21T05:01:08.974Z",
+        "phase": "brief",
+        "event": "Pieza creada",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-21T05:09:28.556Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "portada-memorial.png",
+          "portada-memorial-light.jpg"
+        ]
+      }
+    ]
+  }
+}

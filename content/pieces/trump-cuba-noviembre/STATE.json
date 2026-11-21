@@ -16,7 +16,7 @@
       "draft": {
         "status": "done",
         "startedAt": "2026-11-18T02:45:35.679Z",
-        "updatedAt": "2026-11-18T03:22:45.840Z",
+        "updatedAt": "2026-11-21T05:10:06.989Z",
         "artifacts": [
           "trump-cuba-noviembre-p01.png",
           "trump-cuba-noviembre-p01-light.jpg",
@@ -34,11 +34,11 @@
         "note": ""
       },
       "review": {
-        "status": "done",
+        "status": "in_progress",
         "startedAt": "2026-11-18T02:45:35.689Z",
-        "updatedAt": "2026-11-18T03:26:10.706Z",
+        "updatedAt": "2026-11-21T05:10:06.989Z",
         "artifacts": [],
-        "note": "QA visual v3 aprobado 6/6"
+        "note": "Borrador listo para revisión visual"
       },
       "export": {
         "status": "done",
@@ -162,6 +162,25 @@
         "phase": "review",
         "event": "QA visual v3 aprobado (6/6): cara libre en las 4 láminas con foto, letterbox en 3-5, sin texto cortado",
         "artifacts": []
+      },
+      {
+        "at": "2026-11-21T05:10:06.989Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (6 imagen(es))",
+        "artifacts": [
+          "trump-cuba-noviembre-p01.png",
+          "trump-cuba-noviembre-p01-light.jpg",
+          "trump-cuba-noviembre-p02.png",
+          "trump-cuba-noviembre-p02-light.jpg",
+          "trump-cuba-noviembre-p03.png",
+          "trump-cuba-noviembre-p03-light.jpg",
+          "trump-cuba-noviembre-p04.png",
+          "trump-cuba-noviembre-p04-light.jpg",
+          "trump-cuba-noviembre-p05.png",
+          "trump-cuba-noviembre-p05-light.jpg",
+          "trump-cuba-noviembre-p06.png",
+          "trump-cuba-noviembre-p06-light.jpg"
+        ]
       }
     ]
   }

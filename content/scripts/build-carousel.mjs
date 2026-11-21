@@ -49,6 +49,7 @@ import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { checkCarousel, countWords, LIMITS } from './density.mjs';
 import { initPiece } from './state.mjs';
+import { classifyFaceWarnings } from './face-warnings.mjs';
 
 const execFileAsync = promisify(execFile);
 const CONTENT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -221,10 +222,12 @@ async function checkFaces(slug, format) {
 			'--format', format, '--json',
 		], { cwd: path.resolve(CONTENT, '..') });
 		const report = JSON.parse(stdout);
-		const problems = (report.pages ?? []).flatMap((p) => (p.warnings ?? []).map((w) => `lámina ${p.page}: ${w}`));
-		if (problems.length > 0) {
+		const warnings = (report.pages ?? []).flatMap((p) => (p.warnings ?? []).map((w) => `lámina ${p.page}: ${w}`));
+		const { failures, infos } = classifyFaceWarnings(warnings);
+		for (const w of infos) console.log(`  ! caras: ${w}`);
+		if (failures.length > 0) {
 			console.log('  ✗ caras: el titular puede caer sobre una cara:');
-			for (const p of problems) console.log(`    - ${p}`);
+			for (const p of failures) console.log(`    - ${p}`);
 			console.log('    Ajusta image_position con face-frame.py --apply, cambia de foto o de layout.');
 			return false;
 		}

@@ -1,0 +1,66 @@
+{
+  "schema": "content-hub.state/v1",
+  "slug": "stat-73-barbados",
+  "template": "stat",
+  "title": "73 víctimas del crimen de Barbados",
+  "createdAt": "2026-11-21T05:01:08.746Z",
+  "pipeline": {
+    "phases": {
+      "brief": {
+        "status": "in_progress",
+        "startedAt": "2026-11-21T05:01:08.746Z",
+        "updatedAt": "2026-11-21T05:01:08.746Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "draft": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:09:40.051Z",
+        "updatedAt": "2026-11-21T05:09:40.051Z",
+        "artifacts": [
+          "stat-73-barbados.png",
+          "stat-73-barbados-light.jpg"
+        ],
+        "note": ""
+      },
+      "review": {
+        "status": "in_progress",
+        "startedAt": "2026-11-21T05:09:40.056Z",
+        "updatedAt": "2026-11-21T05:09:40.056Z",
+        "artifacts": [],
+        "note": "Borrador listo para revisión visual"
+      },
+      "export": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-21T05:01:08.746Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-21T05:01:08.746Z",
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-21T05:01:08.746Z",
+        "phase": "brief",
+        "event": "Pieza creada",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-21T05:09:40.051Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "stat-73-barbados.png",
+          "stat-73-barbados-light.jpg"
+        ]
+      }
+    ]
+  }
+}

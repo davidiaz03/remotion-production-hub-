@@ -1,0 +1,66 @@
+{
+  "schema": "content-hub.state/v1",
+  "slug": "ultima-hora-browne",
+  "template": "breaking",
+  "title": "Un primer ministro contó la llamada de Washington",
+  "createdAt": "2026-11-21T05:01:08.374Z",
+  "pipeline": {
+    "phases": {
+      "brief": {
+        "status": "in_progress",
+        "startedAt": "2026-11-21T05:01:08.374Z",
+        "updatedAt": "2026-11-21T05:01:08.374Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "draft": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:10:09.158Z",
+        "updatedAt": "2026-11-21T05:10:09.158Z",
+        "artifacts": [
+          "ultima-hora-browne.png",
+          "ultima-hora-browne-light.jpg"
+        ],
+        "note": ""
+      },
+      "review": {
+        "status": "in_progress",
+        "startedAt": "2026-11-21T05:10:09.161Z",
+        "updatedAt": "2026-11-21T05:10:09.161Z",
+        "artifacts": [],
+        "note": "Borrador listo para revisión visual"
+      },
+      "export": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-21T05:01:08.374Z",
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": "2026-11-21T05:01:08.374Z",
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-21T05:01:08.374Z",
+        "phase": "brief",
+        "event": "Pieza creada",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-21T05:10:09.158Z",
+        "phase": "draft",
+        "event": "Borrador renderizado (1 imagen(es))",
+        "artifacts": [
+          "ultima-hora-browne.png",
+          "ultima-hora-browne-light.jpg"
+        ]
+      }
+    ]
+  }
+}

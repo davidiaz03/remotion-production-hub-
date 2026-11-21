@@ -21,6 +21,19 @@ El render es compartido: `node content/scripts/render.mjs --example <plantilla>`
 | `thumbnail` | 1080×1920 | Portada/miniatura de reel | Titular ≤ 30 car.; acento ≤ 20 car. |
 | `quote` | 1080×1080 | Tarjeta de cita | Cita ≤ 200 car., textual y con fuente |
 
+## Las 4 plantillas de la v2 (21-nov-2026)
+
+| Plantilla | Tamaño | Uso | Límites clave |
+|---|---|---|---|
+| `breaking` | 1080×1080 (variante 4:5: 1080×1350) | Última hora: banda roja, titular grande, fecha y fuente | Titular 8–15 palabras; cuerpo ≤ 35 palabras; fuente obligatoria; sin foto |
+| `stat` | 1080×1080 | Tarjeta de un solo dato: cifra gigante en rojo | Cifra máx. ~6 caracteres; etiqueta ≤ 10 palabras; contexto ≤ 30 palabras; fuente obligatoria |
+| `cover` | 1920×1080 | Portada apaisada 16:9 (Facebook/YouTube) | Título ≤ 10 palabras; subtítulo ≤ 20 palabras; contenido clave centrado (FB recorta los lados en móvil) |
+| `timeline` | 1080×1350 | Línea de tiempo: 3–4 hechos fechados | Texto por hecho ≤ 25 palabras; fuente obligatoria |
+
+Ver ejemplos renderizados de las 10 en la galería:
+`node content/scripts/render.mjs --all-examples && node content/scripts/gallery.mjs`
+(→ `content/examples/out/gallery.html`).
+
 ## Formato 4:5 (carrusel)
 
 El estándar de los carruseles informativos en Instagram es el vertical
@@ -162,4 +175,9 @@ Reglas:
    `data.example.json` (datos reales).
 3. Renderizar el ejemplo y hacer QA visual antes de commitear:
    `node content/scripts/render.mjs --example <nueva>`.
-4. Añadirla a la tabla de arriba y a `TEMPLATES` en `scripts/render.mjs`.
+4. Añadirla a la tabla de arriba, a `TEMPLATES` en `scripts/render.mjs`,
+   a `formats` en `brand/tokens.json` y a `TEMPLATES` en
+   `tests/content-hub.test.mjs` (la prueba de plantillas la cubre:
+   logo completo obligatorio, sin hex sueltos).
+5. Pasar el chequeo de marca sobre el ejemplo:
+   `node content/scripts/brand-check.mjs --example <nueva>`.

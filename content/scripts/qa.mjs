@@ -22,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { checkCarousel } from './density.mjs';
 import { checkRendered } from './brand-check.mjs';
+import { classifyFaceWarnings } from './face-warnings.mjs';
 
 const execFileAsync = promisify(execFile);
 const CONTENT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -55,7 +56,7 @@ async function checkFaces(slug, format) {
 	], { cwd: path.resolve(CONTENT, '..') });
 	const report = JSON.parse(stdout);
 	const warnings = (report.pages ?? []).flatMap((p) => (p.warnings ?? []).map((w) => `lámina ${p.page}: ${w}`));
-	return { warnings };
+	return classifyFaceWarnings(warnings);
 }
 
 async function main() {
@@ -109,10 +110,13 @@ async function main() {
 			try {
 				const res = await checkFaces(slug, data.format ?? 'square');
 				if (res.skipped) console.log(`  ! caras: ${res.skipped}`);
-				else if (res.warnings.length > 0) {
-					failed = true;
-					for (const w of res.warnings) console.log(`  ✗ caras: ${w}`);
-				} else console.log('  ✓ caras: ningún titular cae sobre una cara');
+				else {
+					for (const w of res.infos) console.log(`  ! caras: ${w}`);
+					if (res.failures.length > 0) {
+						failed = true;
+						for (const w of res.failures) console.log(`  ✗ caras: ${w}`);
+					} else console.log('  ✓ caras: ningún titular cae sobre una cara');
+				}
 			} catch (err) {
 				console.log(`  ! caras: chequeo no concluyente (${err.message.split('\n')[0]})`);
 			}
