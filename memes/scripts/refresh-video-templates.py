@@ -99,6 +99,50 @@ def probe(path):
             round(float(d['format']['duration']), 2), bool(a.stdout.strip()))
 
 
+def is_screen_green(px):
+    """¿Píxel (r, g, b) de verde de chroma (saturado, no hierba)?"""
+    r, g, b = px
+    return g > 140 and g - r > 50 and g - b > 50
+
+
+def clip_is_green_screen(path, dur):
+    """¿El clip es green screen de verdad? Dos fotogramas (25% y 75%):
+    si en alguno más del 40% de la banda exterior es verde saturado.
+    Antes se deducía de la URL/HTML ('green' en la página) y marcaba
+    como green screen tarjetas que no lo son (las de Bob Esponja,
+    21-nov-2026); medir los píxeles es lo fiable."""
+    import tempfile
+    from PIL import Image
+    tmp = tempfile.mkdtemp(prefix='meme-refresh-green-')
+    try:
+        for frac in (0.25, 0.75):
+            frame = os.path.join(tmp, f'g{int(frac * 100)}.jpg')
+            r = subprocess.run(['ffmpeg', '-y', '-v', 'error',
+                                '-ss', str(max(0.05, dur * frac)),
+                                '-i', path, '-frames:v', '1',
+                                '-vf', 'scale=320:-2', frame],
+                               capture_output=True, text=True)
+            if r.returncode != 0 or not os.path.exists(frame):
+                continue
+            im = Image.open(frame).convert('RGB')
+            w, h = im.size
+            band = max(2, int(min(w, h) * 0.06))
+            border = []
+            for x in range(w):
+                for y in list(range(band)) + list(range(h - band, h)):
+                    border.append(im.getpixel((x, y)))
+            for y in range(band, h - band):
+                for x in list(range(band)) + list(range(w - band, w)):
+                    border.append(im.getpixel((x, y)))
+            green = sum(1 for p in border if is_screen_green(p))
+            if border and green / len(border) > 0.4:
+                return True
+    finally:
+        import shutil
+        shutil.rmtree(tmp, ignore_errors=True)
+    return False
+
+
 def download_memescreens(slug, page_url):
     """Descarga el MP4 directo de una página de clip de MemeScreens."""
     html = fetch_text(page_url)
@@ -117,7 +161,7 @@ def download_memescreens(slug, page_url):
     if not info:
         os.remove(path)
         return None, 'ffprobe no lo reconoce como vídeo'
-    green = 'green-screen' in m.group(0).lower() or 'green' in html.lower()
+    green = clip_is_green_screen(path, info[2])
     return (path, m.group(0), info, green), None
 
 
@@ -151,6 +195,9 @@ def main():
                     help='descargar los candidatos nuevos y añadirlos')
     ap.add_argument('--limit', type=int, default=10,
                     help='máximo de candidatos a descargar con --apply (def. 10)')
+    ap.add_argument('--only', help='solo estos slugs, separados por coma '
+                    '(con --apply, descarga solo los elegidos en vez de '
+                    'los primeros en orden alfabético)')
     ap.add_argument('--kym-only', action='store_true')
     ap.add_argument('--memescreens-only', action='store_true')
     args = ap.parse_args()
@@ -176,6 +223,9 @@ def main():
             continue
         fresh = [(s, u) for s, u in cands
                  if s not in known_slugs and u not in known_urls]
+        if args.only:
+            wanted = {s.strip() for s in args.only.split(',')}
+            fresh = [(s, u) for s, u in fresh if s in wanted]
         print(f'{label}: {len(cands)} en lista · {len(fresh)} nuevos')
         for slug, url in fresh:
             print(f'  NUEVO {slug} — {url}')
