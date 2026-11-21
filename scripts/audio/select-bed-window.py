@@ -104,8 +104,8 @@ TIE_BAND = 3.0
 RAW_VOICE_PENALTY = 30.0
 UNCERTAIN_PENALTY = 10.0
 DEFAULT_LOCK = '/tmp/hub-speed-v5-render.lock'
-LOCK_TIMEOUT_S = 1800
-LOCK_STALE_S = 3600
+LOCK_TIMEOUT_S = 3600
+LOCK_STALE_S = 7200
 
 
 def load_scan_bed():
@@ -437,6 +437,9 @@ def main() -> int:
     ap.add_argument('--lock', default=DEFAULT_LOCK,
                     help='Candado para el escaneo Whisper '
                          f'(defecto {DEFAULT_LOCK})')
+    ap.add_argument('--lock-timeout', type=float, default=LOCK_TIMEOUT_S,
+                    help='Segundos máximos esperando el candado '
+                         f'(defecto {LOCK_TIMEOUT_S})')
     ap.add_argument('--no-lock', action='store_true',
                     help='No tomar el candado para el escaneo')
     args = ap.parse_args()
@@ -481,13 +484,18 @@ def main() -> int:
             lock_path = None if args.no_lock else args.lock
             t_w = time.time()
             try:
-                with Lock(lock_path):
+                with Lock(lock_path, timeout=args.lock_timeout):
+                    # La espera del candado NO es tiempo de Whisper:
+                    # se mide aparte (21-nov-2026: la primera versión
+                    # la incluía en whisper_s y lo inflaba ~8 min).
+                    timings['lock_wait_s'] = round(time.time() - t_w, 1)
+                    t_scan = time.time()
                     scan = scan_track(wav, track_dur, args.model,
                                       scan_bed)
+                    timings['whisper_s'] = round(time.time() - t_scan, 1)
             except TimeoutError as e:
                 print(f'ERROR: {e}', file=sys.stderr)
                 return 2
-            timings['whisper_s'] = round(time.time() - t_w, 1)
             timings['scan_source'] = 'whisper (VAD + sin VAD)'
 
     t_rank = time.time()
@@ -524,9 +532,12 @@ def main() -> int:
           f"{args.duration} s, paso {args.step} s: {len(cands)} "
           f"candidatas, {len(accepted)} aceptadas, {len(rejected)} "
           f"rechazadas ({n_voice} segmentos VOICE en el escaneo)")
+    lock_txt = (f", espera candado {timings['lock_wait_s']} s"
+                if timings.get('lock_wait_s') else '')
     print(f"Tiempo: Whisper {timings['whisper_s']} s, RMS "
           f"{timings['rms_s']} s, puntuación {timings['rank_s']} s, "
-          f"total {timings['total_s']} s [{timings['scan_source']}]")
+          f"total {timings['total_s']} s [{timings['scan_source']}]"
+          f"{lock_txt}")
     if chosen:
         m = chosen['metrics']
         print(f"\nELEGIDA: {chosen['start_s']:.2f}-"
