@@ -7,11 +7,13 @@
 # CAMBIOS vs audit-v4.sh: tag v41; máster/mix/cama V4.1; edit-plan
 # V4.1 (añade las 6 pausas naturales verificadas en la adjudicación
 # V4, medidas en vo-real-v4.wav con el detector del audit: L3 10,81,
-# L5 22,68, L6 31,54, L7 41,96, L8 45,04, L11 65,51); ducking
-# suavizado (release 700 / threshold 0,08 / ratio 3, igual que
-# mix-v41.sh). VO, transcripciones, predicción, captions y vo-lines
-# son los V4 (la VO NO cambia en V4.1). La lista --sfx es
-# EXACTAMENTE la de mix-v41.sh: mismos archivos y tiempos.
+# L5 22,68, L6 31,54, L7 41,96, L8 45,04, L11 65,53); ducking
+# suavizado (release 1500 / threshold 0,12 / ratio 2, igual que
+# mix-v41.sh). VO V4.1 (vo-real-v41.wav: la V4 + 20 ms de tono de
+# sala en la pausa HISTORIA,->ESTÁ, L9 55,29 s); transcripción
+# editada, predicción, captions y vo-lines V4.1 (L9 desde ESTÁ,
+# L10 y L11 desplazados +20 ms). La lista --sfx es EXACTAMENTE
+# la de mix-v41.sh: mismos archivos y tiempos.
 # OJO: NUNCA poner comentarios DENTRO de la invocación continuada
 # con `\` — en bash, la línea `# ...` corta la continuación y el
 # resto de los argumentos se ejecuta como comando.
@@ -26,13 +28,13 @@ python3 scripts/audio/audit-audio.py \
   --master "$PROJ/out/marti-fidel-v41_MASTER.mp4" \
   --mix "$PROJ/public/audio/v41/mix-v41.wav" \
   --voice-orig "$PROJ/public/audio/v4/vo-real-v4-raw.wav" \
-  --voice-edited "$PROJ/public/audio/v4/vo-real-v4.wav" \
+  --voice-edited "$PROJ/public/audio/v41/vo-real-v41.wav" \
   --transcription "$PROJ/public/audio/v4/vo-real-transcripcion-orig.json" \
-  --transcription-edited "$PROJ/public/audio/v4/vo-real-transcripcion-editada.json" \
-  --prediction "$HUB/projects/marti-fidel/research/vo-real-prediccion-v4.json" \
+  --transcription-edited "$PROJ/public/audio/v41/vo-real-transcripcion-editada-v41.json" \
+  --prediction "$HUB/projects/marti-fidel/research/vo-real-prediccion-v41.json" \
   --edit-plan "$HUB/projects/marti-fidel/research/edit-plan-v41.json" \
-  --captions "$PROJ/public/audio/v4/captions.json" \
-  --vo-lines "$PROJ/public/audio/v4/vo-lines.json" \
+  --captions "$PROJ/public/audio/v41/captions-v41.json" \
+  --vo-lines "$PROJ/public/audio/v41/vo-lines-v41.json" \
   --section "$PROJ/public/audio/v41/music-bed-dipped.wav@0@69.23" \
   --sfx "$SFX/booms-and-bass/boom-hit-soft.wav@0.00" \
   --sfx "$SFX/booms-and-bass/bass-808-short.wav@2.43" \
@@ -54,5 +56,5 @@ python3 scripts/audio/audit-audio.py \
   --sfx "$SFX/pops/pop-medium-in.wav@57.63" \
   --sfx "$SFX/booms-and-bass/boom-hit-soft.wav@59.69" \
   --sfx "$PROJ/public/audio/sting-2x.wav@63.85" \
-  --music-volume 0.38 --duck-release 700 --duck-threshold 0.08 --duck-ratio 3 --end-fade 1.0 \
+  --music-volume 0.38 --duck-release 1500 --duck-threshold 0.12 --duck-ratio 2 --end-fade 1.0 \
   --seconds 69.23 --expected-frames 2077

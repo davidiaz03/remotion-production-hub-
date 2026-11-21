@@ -678,7 +678,16 @@ def segment_contiguity(edited, orig, sr: int, tmap: list) -> list:
             else:
                 # seg_o empieza 20 ms antes de la posición mapeada:
                 # el lag esperado es +20 ms (prefer_lag).
-                lag, c = best_lag(seg_o, seg_e, sr, search_ms=20.0,
+                # Ventana de búsqueda ±30 ms (no ±20): el mapa
+                # editado->original tiene un error de ~1 ms (el
+                # edit-plan redondea a 3 decimales) y el lag real
+                # puede quedar en +21 ms, JUSTO fuera de ±20 ms:
+                # best_lag se clampaba al borde, deprimía la
+                # correlación y saltaba a alias (falso FAIL en el
+                # segmento 9 de marti-fidel V4.1: corr 0,76 y salto
+                # de lag 17 ms en un segmento contiguo con corr
+                # real 0,96 y lag constante +1,1 ms).
+                lag, c = best_lag(seg_o, seg_e, sr, search_ms=30.0,
                                   step=12,
                                   prefer_lag=int(0.02 * sr))
                 # El lag relativo es lag - 20 ms.

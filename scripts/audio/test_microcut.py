@@ -577,5 +577,34 @@ class TestIntegrationVoBuildL3(unittest.TestCase):
             self.assertEqual(r["verdict"], "PASS", r)
 
 
+def _v4_files_present():
+    d = os.path.join(PROJ, "public", "audio", "v4")
+    return (os.path.exists(os.path.join(d, "vo-real-v4.wav"))
+            and os.path.exists(os.path.join(d, "vo-real-v4-raw.wav")))
+
+
+@unittest.skipUnless(_v4_files_present(),
+                     "faltan los audios V4 (salidas de build)")
+class TestIntegrationV41Contiguity(unittest.TestCase):
+    def test_segment9_contiguous(self):
+        """Regresión (i4): el segmento 9 (L10, «Leer para no
+        olvidar…», 57,47–63,45 s) de marti-fidel V4.1 es un trozo
+        contiguo del original (medición directa: corr 0,96, lag
+        constante +1,1 ms en las 59 ventanas), pero el check lo
+        marcaba FAIL (corr 0,76, salto de lag 17 ms) porque la
+        ventana de búsqueda de best_lag era ±20 ms y el lag real
+        (+21,1 ms absolutos: el mapa tiene ~1 ms de error por el
+        redondeo del edit-plan a 3 decimales) quedaba fuera de
+        ella. Con ±30 ms el segmento pasa. Falla con el código
+        viejo (ventana de ±20 ms)."""
+        d = os.path.join(PROJ, "public", "audio", "v4")
+        ed = mc.load_wav_fast(os.path.join(d, "vo-real-v4.wav"))
+        og = mc.load_wav_fast(os.path.join(d, "vo-real-v4-raw.wav"))
+        res = mc.segment_contiguity(
+            ed, og, SR, [(57.473, 63.452, 75.786, 1.0)])
+        self.assertTrue(res[0]["ok"], res)
+        self.assertGreater(res[0]["median_corr"], 0.8)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

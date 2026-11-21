@@ -17,7 +17,7 @@ import {
 	textOutline,
 	type KaraokeLine,
 } from '../../../shared/captions';
-import {CAPTIONS} from './captions-v4';
+import {CAPTIONS} from './captions-v41';
 import {CARIBBEAN_TT, CARIBBEAN_BREAK} from './mapDots';
 
 // ================================================================

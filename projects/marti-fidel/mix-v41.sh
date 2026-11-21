@@ -18,15 +18,27 @@
 #   a los 10 s y un ataque en el segundo 0. La cama se normaliza
 #   a -16 LUFS (dos pasadas, como bed-loop.py), mono 48 kHz,
 #   fade-in 0,3 s y fade-out 1 s.
-# - DUCKING SUAVIZADO: V4 bombeaba 12,7 dB dentro de frase (la
-#   música «respiraba» con las sílabas). Release 250 -> 700 ms y
-#   ratio 5 -> 3: la música baja suave bajo la voz y vuelve lenta,
-#   sin bombear. Threshold 0,08 y music-volume 0,38 se mantienen.
+# - DUCKING SUAVIZADO (2ª pasada, 21-nov-2026): V4 bombeaba 12,7 dB
+#   dentro de frase (la música «respiraba» con las sílabas); la 1ª
+#   pasada V4.1 (release 700 ms, ratio 3) bajó a 11,1 dB, aún sobre
+#   el umbral de 6 dB. Simulación con la curva de ganancia del
+#   sidechain (audit-audio.py): el release NO mueve el bombeo (la
+#   variación es máx-mín dentro de frase); lo mueven ratio y
+#   threshold. Release 1500 ms, threshold 0,12, ratio 2: bombeo
+#   6,7 dB (simulado), profundidad media -4,1 dB. El umbral 0,15
+#   daría 5,8 dB pero con profundidad -3,3 dB (las palabras suaves
+#   quedarían sin ducking): se prefiere ducking real a pasar el
+#   umbral. Music-volume 0,38 se mantiene.
+# - VO V4.1 (21-nov-2026): vo-real-v41.wav = la VO V4 con 20 ms de
+#   tono de sala insertados en la pausa HISTORIA,->ESTÁ (L9, 55,29 s;
+#   la pausa medía 0,24 s y la regla permanente exige >=0,25 s;
+#   ahora 0,26 s). El resto de la VO es idéntico (corr 1,0000);
+#   L10/L11 se desplazan +20 ms en todos los archivos de tiempos.
 # - El silencio diseñado en la tesis L9 se mantiene (la música CAE
-#   A SILENCIO 53,01-57,02 s, rampas de 0,5 s, y vuelve solo en
+#   A SILENCIO 53,01-57,04 s, rampas de 0,5 s, y vuelve solo en
 #   «Leer. Pensar.»; dip-bed.py).
-# VO, SFX (20, mismos archivos y tiempos) y niveles (-16 LUFS /
-# TP -2 dBTP, target -14,5 por el techo de TP) idénticos a V4.
+# VO (v41, ver arriba), SFX (20, mismos archivos y tiempos) y niveles
+# (-16 LUFS / TP -2 dBTP, target -14,5 por el techo de TP) idénticos a V4.
 set -e
 HUB=~/workspace/remotion-hub
 PROJ=$HUB/repo/projects/marti-fidel
@@ -48,9 +60,9 @@ ffmpeg -v error -y -ss 72 -i "$BED_IN" -map 0:a:0 -t 69.23 -ac 1 -ar 48000 \
 ~/workspace/remotion-hub/.venv/bin/python scripts/audio/dip-bed.py \
   --in projects/marti-fidel/public/audio/v41/music-bed-trimmed.wav \
   --out projects/marti-fidel/public/audio/v41/music-bed-dipped.wav \
-  --silence 53.01 57.02 --fade 0.5 --force
+  --silence 53.01 57.04 --fade 0.5 --force
 ~/workspace/remotion-hub/.venv/bin/python scripts/audio/mix.py \
-  --voice projects/marti-fidel/public/audio/v4/vo-real-v4.wav \
+  --voice projects/marti-fidel/public/audio/v41/vo-real-v41.wav \
   --music projects/marti-fidel/public/audio/v41/music-bed-dipped.wav \
   --sfx "$SFX/booms-and-bass/boom-hit-soft.wav@0.00" \
   --sfx "$SFX/booms-and-bass/bass-808-short.wav@2.43" \
@@ -74,7 +86,7 @@ ffmpeg -v error -y -ss 72 -i "$BED_IN" -map 0:a:0 -t 69.23 -ac 1 -ar 48000 \
   --sfx "$PROJ/public/audio/sting-2x.wav@63.85" \
   --seconds 69.23 \
   --target-lufs -14.5 --target-tp -2.0 \
-  --duck-release 700 --duck-threshold 0.08 --duck-ratio 3 \
+  --duck-release 1500 --duck-threshold 0.12 --duck-ratio 2 \
   --music-volume 0.38 --end-fade 1.0 \
   --out projects/marti-fidel/public/audio/v41/mix-v41.wav \
   --report projects/marti-fidel/public/audio/v41/mix-v41.json --force
