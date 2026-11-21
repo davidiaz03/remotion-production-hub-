@@ -14,6 +14,14 @@
  *     [--out out/chunks] [--concat-out out/<proyecto>-chunks.mkv]
  *     [--audio-codec pcm-16] [--resume] [--no-concat]
  *     [--video-only] [--scale 1] [--x264-preset medium] [--draft]
+ *     [--lock] [--lock-timeout <s>] [--lock-path <ruta>]
+ *
+ * - --lock toma el candado único de render (/tmp/hub-speed-v5-render.lock,
+ *   propiedad por PID, ver scripts/render-lock.mjs) antes de renderizar
+ *   y lo suelta al terminar o al fallar: en una caja de 1,5 CPU dos
+ *   renders en paralelo se estorban. El orquestador (pipeline.mjs) lo
+ *   pasa siempre; en manual, úsalo cuando otro trabajo pueda estar
+ *   renderizando. Sin --lock no hay protección.
  *
  * - Cada tramo se renderiza con el CLI directo de Remotion y se verifica
  *   con ffprobe (nb_read_frames exacto); un tramo que falle aborta.
@@ -93,6 +101,7 @@ import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {ROOT, loadProject, parseArgs, requireFile} from './lib.mjs';
 import {recordMilestone, setPhase, updateRender} from './state.mjs';
+import {acquireRenderLock, DEFAULT_LOCK_PATH} from './render-lock.mjs';
 
 const {pos, opts} = parseArgs(process.argv.slice(2));
 const projectId = pos[0];
@@ -215,6 +224,7 @@ if (opts['x264-preset'] !== undefined) {
 }
 if (opts.out) resumeParts.push(`--out ${opts.out}`);
 if (opts['concat-out']) resumeParts.push(`--concat-out ${opts['concat-out']}`);
+if (opts.lock === true || opts.lock === 'true') resumeParts.push('--lock');
 const resumeCommand = resumeParts.join(' ');
 const totalChunks = Math.ceil((end - start + 1) / chunkSize);
 const totalFramesPlanned = end - start + 1;
@@ -614,6 +624,26 @@ safeState(
 );
 renderStarted = true;
 
+// Candado único de render (opcional, --lock): se adquiere ANTES de
+// cualquier render y se suelta al terminar o al fallar (el handler
+// de 'exit' cubre process.exit(1) del uncaughtException; la
+// liberación explícita al final cubre el camino normal). Solo el
+// proceso que lo creó puede borrarlo (propiedad por PID).
+let renderLock = null;
+if (opts.lock === true || opts.lock === 'true') {
+	const lockPath = String(opts['lock-path'] ?? DEFAULT_LOCK_PATH);
+	const lockTimeoutMs =
+		Number(opts['lock-timeout'] ?? 0) > 0
+			? Number(opts['lock-timeout']) * 1000
+			: 0;
+	console.log(`[render] esperando candado ${lockPath}…`);
+	renderLock = await acquireRenderLock(lockPath, lockTimeoutMs);
+	console.log('[render] candado adquirido');
+	process.on('exit', () => {
+		if (renderLock) renderLock.release();
+	});
+}
+
 function recordChunkProgress(idx, name, framesSoFar) {
 	safeState(
 		() =>
@@ -937,3 +967,4 @@ console.log(
 	`RENDER_CHUNKS_OK project=${projectId} chunks=${chunks.length} frames=${totalFrames}` +
 		(concat ? ` output=${concat.file}` : ''),
 );
+if (renderLock) renderLock.release();
