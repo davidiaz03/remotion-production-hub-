@@ -1,0 +1,84 @@
+{
+  "reportVersion": 1,
+  "project": "hub-v6-e2e",
+  "composition": "MainReel",
+  "manifest": "projects/hub-v6-e2e/preflight-scenes.json",
+  "generatedAt": "2026-11-21T05:42:16.158239+00:00",
+  "frames": 4,
+  "scenes": 4,
+  "flagged_frames": 4,
+  "blocking_frames": 0,
+  "logo_check": "skip",
+  "faces_check": "on",
+  "sample_clean_per_scene": [],
+  "results": [
+    {
+      "frame": "CLOSING.jpg",
+      "scene": "CLOSING",
+      "flags": [
+        {
+          "check": "dead-frame",
+          "severity": "WARN",
+          "detail": "fotograma 90% vacío — revisar si es pausa intencional o arranque muerto de escena"
+        }
+      ],
+      "metrics": {
+        "phash": "962878d7823879c7",
+        "grid_empty": 0.9,
+        "faces": [],
+        "faces_dubious": 0
+      }
+    },
+    {
+      "frame": "S1.jpg",
+      "scene": "S1",
+      "flags": [
+        {
+          "check": "dead-frame",
+          "severity": "WARN",
+          "detail": "fotograma 70% vacío — revisar si es pausa intencional o arranque muerto de escena"
+        }
+      ],
+      "metrics": {
+        "phash": "8e6196616c8e719e",
+        "grid_empty": 0.7,
+        "faces": [],
+        "faces_dubious": 0
+      }
+    },
+    {
+      "frame": "S2.jpg",
+      "scene": "S2",
+      "flags": [
+        {
+          "check": "dead-frame",
+          "severity": "WARN",
+          "detail": "fotograma 73% vacío — revisar si es pausa intencional o arranque muerto de escena"
+        }
+      ],
+      "metrics": {
+        "phash": "8d316e39c1c632cd",
+        "grid_empty": 0.733,
+        "faces": [],
+        "faces_dubious": 0
+      }
+    },
+    {
+      "frame": "S3.jpg",
+      "scene": "S3",
+      "flags": [
+        {
+          "check": "dead-frame",
+          "severity": "WARN",
+          "detail": "fotograma 72% vacío — revisar si es pausa intencional o arranque muerto de escena"
+        }
+      ],
+      "metrics": {
+        "phash": "8738c74638c738c7",
+        "grid_empty": 0.717,
+        "faces": [],
+        "faces_dubious": 0
+      }
+    }
+  ]
+}

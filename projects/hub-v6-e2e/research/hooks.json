@@ -1,0 +1,14 @@
+{
+  "project": "hub-v6-e2e",
+  "note": "Variantes del gancho (primeros 3 s). La variante 0 es la primera línea del guion; añade variantes y pruébalas con scripts/hook-test.mjs.",
+  "variants": [
+    {
+      "text": "Por primera vez en treinta años, el Caribe dejó de votar unido.",
+      "style": "title"
+    },
+    {
+      "text": "Treinta años de voto unido. Y un día, el Caribe se partió.",
+      "style": "title"
+    }
+  ]
+}

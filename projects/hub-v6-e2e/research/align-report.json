@@ -1,0 +1,277 @@
+{
+ "words": [
+  {
+   "word": "POR",
+   "s": 0.0,
+   "onset": 0.0,
+   "dev_before": 0.0,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 0.0,
+   "dev_after": 0.0
+  },
+  {
+   "word": "PRIMERA",
+   "s": 0.1,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 0.1,
+   "dev_after": null
+  },
+  {
+   "word": "VEZ",
+   "s": 0.46,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 0.46,
+   "dev_after": null
+  },
+  {
+   "word": "EN",
+   "s": 0.76,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 0.76,
+   "dev_after": null
+  },
+  {
+   "word": "TREINTA",
+   "s": 0.94,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 0.94,
+   "dev_after": null
+  },
+  {
+   "word": "AÑOS,",
+   "s": 1.32,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 1.32,
+   "dev_after": null
+  },
+  {
+   "word": "EL",
+   "s": 2.06,
+   "onset": 2.05,
+   "dev_before": 0.01,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 2.06,
+   "dev_after": 0.01
+  },
+  {
+   "word": "CARIBE",
+   "s": 2.16,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 2.16,
+   "dev_after": null
+  },
+  {
+   "word": "DEJÓ",
+   "s": 2.54,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 2.54,
+   "dev_after": null
+  },
+  {
+   "word": "DE",
+   "s": 2.9,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 2.9,
+   "dev_after": null
+  },
+  {
+   "word": "VOTAR",
+   "s": 3.0,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 3.0,
+   "dev_after": null
+  },
+  {
+   "word": "UNIDO.",
+   "s": 3.3,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 3.3,
+   "dev_after": null
+  },
+  {
+   "word": "MARTÍ",
+   "s": 4.12,
+   "onset": 4.12,
+   "dev_before": 0.0,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 4.12,
+   "dev_after": 0.0
+  },
+  {
+   "word": "LO",
+   "s": 4.42,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 4.42,
+   "dev_after": null
+  },
+  {
+   "word": "VIO",
+   "s": 4.56,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 4.56,
+   "dev_after": null
+  },
+  {
+   "word": "VENIR",
+   "s": 4.76,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 4.76,
+   "dev_after": null
+  },
+  {
+   "word": "EN",
+   "s": 5.34,
+   "onset": 5.34,
+   "dev_before": 0.0,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 5.34,
+   "dev_after": 0.0
+  },
+  {
+   "word": "1891.",
+   "s": 5.44,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 5.44,
+   "dev_after": null
+  },
+  {
+   "word": "LEER",
+   "s": 7.45,
+   "onset": 7.45,
+   "dev_before": 0.0,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 7.45,
+   "dev_after": 0.0
+  },
+  {
+   "word": "PARA",
+   "s": 7.68,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 7.68,
+   "dev_after": null
+  },
+  {
+   "word": "NO",
+   "s": 7.88,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 7.88,
+   "dev_after": null
+  },
+  {
+   "word": "OLVIDAR.",
+   "s": 8.06,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 8.06,
+   "dev_after": null
+  },
+  {
+   "word": "PENSAR",
+   "s": 8.78,
+   "onset": 8.78,
+   "dev_before": 0.0,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 8.78,
+   "dev_after": 0.0
+  },
+  {
+   "word": "PARA",
+   "s": 9.0,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 9.0,
+   "dev_after": null
+  },
+  {
+   "word": "NO",
+   "s": 9.32,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 9.32,
+   "dev_after": null
+  },
+  {
+   "word": "ARRODILLARSE.",
+   "s": 9.52,
+   "onset": null,
+   "dev_before": null,
+   "bridged": false,
+   "corrected": false,
+   "s_new": 9.52,
+   "dev_after": null
+  }
+ ],
+ "n_after_silence": 6,
+ "n_bridged": 0,
+ "n_corrected": 0,
+ "summary": {
+  "n_words": 26,
+  "n_after_silence": 6,
+  "n_bridged": 0,
+  "n_corrected": 0,
+  "max_abs_dev_before": 0.01,
+  "max_abs_dev_after": 0.01,
+  "n_over_threshold_before": 0,
+  "n_over_threshold_after": 0
+ }
+}

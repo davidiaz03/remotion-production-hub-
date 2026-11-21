@@ -1,0 +1,29 @@
+{
+  "project": "hub-v6-e2e",
+  "fps": 30,
+  "scenes": [
+    {
+      "name": "S1",
+      "start": 0,
+      "end": 109
+    },
+    {
+      "name": "S2",
+      "start": 110,
+      "end": 219
+    },
+    {
+      "name": "S3",
+      "start": 220,
+      "end": 317
+    },
+    {
+      "name": "CLOSING",
+      "start": 319,
+      "end": 393
+    }
+  ],
+  "logo_skip_scenes": [
+    "CLOSING"
+  ]
+}

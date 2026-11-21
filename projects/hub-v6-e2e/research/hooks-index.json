@@ -1,0 +1,24 @@
+{
+  "project": "hub-v6-e2e",
+  "composition": "MainReel",
+  "seconds": 3,
+  "frames": 90,
+  "scale": 0.5,
+  "variants": [
+    {
+      "index": 0,
+      "text": "Por primera vez en treinta años, el Caribe dejó de votar unido.",
+      "style": "title",
+      "file": "variant-00.mp4",
+      "path": "out/hooks/variant-00.mp4"
+    },
+    {
+      "index": 1,
+      "text": "Treinta años de voto unido. Y un día, el Caribe se partió.",
+      "style": "title",
+      "file": "variant-01.mp4",
+      "path": "out/hooks/variant-01.mp4"
+    }
+  ],
+  "createdAt": "2026-11-21T05:46:20.273Z"
+}

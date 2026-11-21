@@ -1,0 +1,192 @@
+[
+ {
+  "text": "POR",
+  "startMs": 0,
+  "endMs": 100,
+  "timestampMs": 0,
+  "confidence": null
+ },
+ {
+  "text": "PRIMERA",
+  "startMs": 100,
+  "endMs": 460,
+  "timestampMs": 100,
+  "confidence": null
+ },
+ {
+  "text": "VEZ",
+  "startMs": 460,
+  "endMs": 760,
+  "timestampMs": 460,
+  "confidence": null
+ },
+ {
+  "text": "EN",
+  "startMs": 760,
+  "endMs": 940,
+  "timestampMs": 760,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "TREINTA",
+  "startMs": 940,
+  "endMs": 1320,
+  "timestampMs": 940,
+  "confidence": null
+ },
+ {
+  "text": "AÑOS,",
+  "startMs": 1320,
+  "endMs": 1740,
+  "timestampMs": 1320,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "EL",
+  "startMs": 2060,
+  "endMs": 2160,
+  "timestampMs": 2060,
+  "confidence": null
+ },
+ {
+  "text": "CARIBE",
+  "startMs": 2160,
+  "endMs": 2540,
+  "timestampMs": 2160,
+  "confidence": null
+ },
+ {
+  "text": "DEJÓ",
+  "startMs": 2540,
+  "endMs": 2900,
+  "timestampMs": 2540,
+  "confidence": null
+ },
+ {
+  "text": "DE",
+  "startMs": 2900,
+  "endMs": 3000,
+  "timestampMs": 2900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "VOTAR",
+  "startMs": 3000,
+  "endMs": 3300,
+  "timestampMs": 3000,
+  "confidence": null
+ },
+ {
+  "text": "UNIDO.",
+  "startMs": 3300,
+  "endMs": 3660,
+  "timestampMs": 3300,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "MARTÍ",
+  "startMs": 4120,
+  "endMs": 4420,
+  "timestampMs": 4120,
+  "confidence": null
+ },
+ {
+  "text": "LO",
+  "startMs": 4420,
+  "endMs": 4560,
+  "timestampMs": 4420,
+  "confidence": null
+ },
+ {
+  "text": "VIO",
+  "startMs": 4560,
+  "endMs": 4760,
+  "timestampMs": 4560,
+  "confidence": null
+ },
+ {
+  "text": "VENIR",
+  "startMs": 4760,
+  "endMs": 5060,
+  "timestampMs": 4760,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "EN",
+  "startMs": 5340,
+  "endMs": 5440,
+  "timestampMs": 5340,
+  "confidence": null
+ },
+ {
+  "text": "1891.",
+  "startMs": 5440,
+  "endMs": 6840,
+  "timestampMs": 5440,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LEER",
+  "startMs": 7450,
+  "endMs": 7680,
+  "timestampMs": 7450,
+  "confidence": null
+ },
+ {
+  "text": "PARA",
+  "startMs": 7680,
+  "endMs": 7880,
+  "timestampMs": 7680,
+  "confidence": null
+ },
+ {
+  "text": "NO",
+  "startMs": 7880,
+  "endMs": 8060,
+  "timestampMs": 7880,
+  "confidence": null
+ },
+ {
+  "text": "OLVIDAR.",
+  "startMs": 8060,
+  "endMs": 8600,
+  "timestampMs": 8060,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "PENSAR",
+  "startMs": 8780,
+  "endMs": 9000,
+  "timestampMs": 8780,
+  "confidence": null
+ },
+ {
+  "text": "PARA",
+  "startMs": 9000,
+  "endMs": 9320,
+  "timestampMs": 9000,
+  "confidence": null
+ },
+ {
+  "text": "NO",
+  "startMs": 9320,
+  "endMs": 9520,
+  "timestampMs": 9320,
+  "confidence": null
+ },
+ {
+  "text": "ARRODILLARSE.",
+  "startMs": 9520,
+  "endMs": 10160,
+  "timestampMs": 9520,
+  "confidence": null,
+  "pageBreakAfter": true
+ }
+]

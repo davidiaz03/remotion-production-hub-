@@ -1,0 +1,37 @@
+{
+  "master": {
+    "path": "projects/hub-v6-e2e/out/MASTER.mp4",
+    "bytes": 1080909,
+    "duration": 13.133,
+    "width": 1080,
+    "height": 1920,
+    "frames": 394,
+    "has_audio": true,
+    "integrated_lufs": -25.9,
+    "true_peak_dbtp": -8.0
+  },
+  "light": {
+    "path": "projects/hub-v6-e2e/out/LIGERO.mp4",
+    "bytes": 398099,
+    "duration": 13.141,
+    "width": 720,
+    "height": 1280,
+    "frames": 394,
+    "has_audio": true,
+    "integrated_lufs": -25.9,
+    "true_peak_dbtp": -8.0
+  },
+  "limiter": 0.79,
+  "trim_start": 0.0,
+  "atempo": 1.0,
+  "boost_db": 0.0,
+  "clean_audio": false,
+  "mix": "projects/hub-v6-e2e/public/audio/vo.wav",
+  "mix_info": {
+    "channels": 1,
+    "sample_rate": 24000
+  },
+  "gain_db": 0.0,
+  "audio_source": "mix",
+  "audio": "present"
+}

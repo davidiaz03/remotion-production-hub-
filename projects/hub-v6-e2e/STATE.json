@@ -1,0 +1,119 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "hub-v6-e2e",
+  "title": "Prueba hub-v6",
+  "objective": "Prueba hub-v6",
+  "phase": "editing",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [],
+  "pending": [],
+  "nextTask": "Seguir RUNBOOK.md: sustituir las tarjetas por assets reales, alinear captions, pre-vuelo y borrador.",
+  "updatedAt": "2026-11-21T05:43:21.655Z",
+  "pipeline": {
+    "phases": {
+      "assets": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "vo": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "captions": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "mix": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "render": {
+        "status": "done",
+        "startedAt": "2026-11-21T05:42:16.343Z",
+        "updatedAt": "2026-11-21T05:43:21.655Z",
+        "artifacts": [],
+        "note": "out/hub-v6-e2e-chunks.mkv",
+        "chunks": {
+          "total": 3,
+          "done": 3,
+          "completed": [
+            "out/chunks/chunk_01.mkv",
+            "out/chunks/chunk_02.mkv",
+            "out/chunks/chunk_03.mkv"
+          ],
+          "framesDone": 394,
+          "framesTotal": 394,
+          "percent": 100,
+          "chunkSize": 150,
+          "resumeCommand": "node scripts/render-chunks.mjs hub-v6-e2e --frames 0-393 --chunk 150 --resume --video-only"
+        }
+      },
+      "qa": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-21T05:42:16.343Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-393 en 3 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-21T05:42:37.269Z",
+        "phase": "render",
+        "event": "Tramo 1/3 verificado (chunk_01.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_01.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:43:00.348Z",
+        "phase": "render",
+        "event": "Tramo 2/3 verificado (chunk_02.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_02.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:43:20.301Z",
+        "phase": "render",
+        "event": "Tramo 3/3 verificado (chunk_03.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_03.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-21T05:43:21.655Z",
+        "phase": "render",
+        "event": "Render completo: 3 tramos concatenados (out/hub-v6-e2e-chunks.mkv)",
+        "artifacts": []
+      }
+    ]
+  }
+}

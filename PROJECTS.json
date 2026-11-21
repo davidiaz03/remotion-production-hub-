@@ -47,6 +47,14 @@
       "approvedRevision": null,
       "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
       "updatedAt": "2026-11-17T21:32:26.430Z"
+    },
+    {
+      "id": "hub-v6-e2e",
+      "title": "Prueba hub-v6",
+      "latestSnapshot": null,
+      "approvedRevision": null,
+      "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
+      "updatedAt": "2026-11-21T05:26:09.383Z"
     }
   ]
 }

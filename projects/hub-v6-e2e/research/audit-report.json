@@ -1,0 +1,79 @@
+{
+ "project": "hub-v6-e2e",
+ "tag": "vX",
+ "overall": "FAIL",
+ "counts": {
+  "PASS": 0,
+  "WARN": 2,
+  "FAIL": 1,
+  "INFO": 6
+ },
+ "metrics": {
+  "g_duration": 13.133,
+  "g_frames": 394,
+  "g_lufs": -25.9,
+  "g_true_peak": -8.0,
+  "g_silence_intervals": 3,
+  "g_first_audio_s": 0.01,
+  "g_align_master_mean": 0.031,
+  "g_align_master_median_signed": 0.0,
+  "g_align_master_max": 0.3,
+  "g_align_master_max_word": "en"
+ },
+ "findings": [
+  {
+   "check": "a",
+   "sev": "INFO",
+   "t": null,
+   "msg": "falta vo-lines.json o captions.json"
+  },
+  {
+   "check": "b",
+   "sev": "INFO",
+   "t": null,
+   "msg": "falta captions.json o VO editada"
+  },
+  {
+   "check": "c",
+   "sev": "INFO",
+   "t": null,
+   "msg": "faltan VO original/editada, transcripción o predicción"
+  },
+  {
+   "check": "f",
+   "sev": "INFO",
+   "t": null,
+   "msg": "falta mix.wav"
+  },
+  {
+   "check": "g",
+   "sev": "WARN",
+   "t": null,
+   "msg": "loudness -25.9 LUFS fuera del rango de QA [-16,5, -12,0]"
+  },
+  {
+   "check": "g",
+   "sev": "FAIL",
+   "t": null,
+   "msg": "3 intervalos de silencio >=0,3 s en el máster"
+  },
+  {
+   "check": "g",
+   "sev": "INFO",
+   "t": null,
+   "msg": "sin mezcla: no se buscan agujeros de frontera en el máster"
+  },
+  {
+   "check": "g",
+   "sev": "WARN",
+   "t": null,
+   "msg": "desvío karaoke/voz del máster (Whisper) +0.30s en 'en'"
+  },
+  {
+   "check": "i",
+   "sev": "INFO",
+   "t": null,
+   "msg": "faltan VO original/editada"
+  }
+ ]
+}

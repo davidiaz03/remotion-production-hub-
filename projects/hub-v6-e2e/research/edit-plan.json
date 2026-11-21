@@ -1,0 +1,54 @@
+{
+  "project": "hub-v6-e2e",
+  "title": "Prueba hub-v6",
+  "platform": "instagram-reels",
+  "fps": 30,
+  "voFile": "audio/vo.wav",
+  "voDurationSec": 10.605,
+  "voFrames": 319,
+  "closingFrames": 75,
+  "durationInFrames": 394,
+  "karaoke": "pill",
+  "captionSafe": false,
+  "captions": "captions transcritos con Whisper y alineados al guion",
+  "scenes": [
+    {
+      "id": 1,
+      "name": "S1",
+      "line": "Por primera vez en treinta años, el Caribe dejó de votar unido.",
+      "startSec": 0,
+      "endSec": 3.66,
+      "startFrame": 0,
+      "durationInFrames": 110,
+      "asset": null,
+      "notes": "TODO: sustituir la tarjeta por el asset real (foto, KenBurnsStill, motion)."
+    },
+    {
+      "id": 2,
+      "name": "S2",
+      "line": "Martí lo vio venir en 1891.",
+      "startSec": 3.66,
+      "endSec": 7.32,
+      "startFrame": 110,
+      "durationInFrames": 110,
+      "asset": null,
+      "notes": "TODO: sustituir la tarjeta por el asset real (foto, KenBurnsStill, motion)."
+    },
+    {
+      "id": 3,
+      "name": "S3",
+      "line": "Leer para no olvidar. Pensar para no arrodillarse.",
+      "startSec": 7.32,
+      "endSec": 10.605,
+      "startFrame": 220,
+      "durationInFrames": 98,
+      "asset": null,
+      "notes": "TODO: sustituir la tarjeta por el asset real (foto, KenBurnsStill, motion)."
+    }
+  ],
+  "closing": {
+    "name": "CLOSING",
+    "startFrame": 319,
+    "durationInFrames": 75
+  }
+}

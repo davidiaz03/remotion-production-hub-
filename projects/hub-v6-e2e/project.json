@@ -1,0 +1,18 @@
+{
+  "id": "hub-v6-e2e",
+  "title": "Prueba hub-v6",
+  "compositionId": "MainReel",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationInFrames": 394,
+  "audioRequired": true,
+  "drivePath": "Remotion Production/projects/hub-v6-e2e",
+  "assets": {
+    "mode": "manifest",
+    "manifest": "asset-manifest.json"
+  },
+  "crf": 19,
+  "platform": "instagram-reels",
+  "voFile": "audio/vo.wav"
+}
