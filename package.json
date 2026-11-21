@@ -6,6 +6,8 @@
   "scripts": {
     "project": "node scripts/project.mjs",
     "new": "node scripts/project.mjs create",
+    "new-reel": "node scripts/new-reel.mjs",
+    "hooks": "node scripts/hook-test.mjs",
     "studio": "node scripts/project.mjs studio",
     "preview": "node scripts/project.mjs render --mode quick",
     "master": "node scripts/project.mjs render --mode full",
