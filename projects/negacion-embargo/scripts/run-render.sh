@@ -30,9 +30,15 @@ echo "== 1) Render por tramos PCM (2325 f, 16 tramos de 150) =="
 cd "$REPO"
 node scripts/render-chunks.mjs negacion-embargo --composition MainReel \
   --frames 0-2324 --chunk 150 --concurrency 2 --timeout 120000 --crf 19 \
-  --out "projects/negacion-embargo/out/chunks" \
-  --concat-out "projects/negacion-embargo/out/negacion-embargo-chunks.mkv" \
+  --out "out/chunks" \
+  --concat-out "out/negacion-embargo-chunks.mkv" \
   --audio-codec pcm-16 $RESUME
+# NOTA (22-nov, bug de ruta): render-chunks.mjs resuelve --out
+# respecto a `home` de loadProject() = el DIR DEL PROYECTO, no la
+# raíz del repo (scripts/lib.mjs:12). Pasar rutas relativas a la
+# raíz («projects/negacion-embargo/out/chunks») las anida dentro
+# del proyecto (proyectos/negacion-embargo/projects/.../out/chunks)
+# y el --resume no las encuentra. Usar rutas relativas al proyecto.
 
 echo "== 2) Máster + ligera (master.py --clean-audio) =="
 cd "$REPO/projects/negacion-embargo"

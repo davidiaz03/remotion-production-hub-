@@ -39,11 +39,12 @@ import {CAPTIONS} from './captions';
 // en zona despejada (FALLBACK 22-nov: el sándwich fantasma no
 // funciona — el webm VP9 se renderiza OPACO en Chromium).
 //
-// NOTA PUNTO. (medido 22-nov): el slam visual + SFX están en
-// f400 (13,32 s), pero el audio «Period.» medido (Whisper small +
-// energía) cae en f423 (14,1 s). El glitch y el shake de PUNTO.
-// siguen al slam visual (f400); si el padre mueve el slam a f423,
-// el glitch lo sigue (usa PUNTO_AT). Ver HANDOFF.md.
+// NOTA PUNTO. (medido 22-nov, FIX aplicado): el slam visual +
+// glitch + shake + SFX están en f423 (14,1 s), SOBRE el audio
+// «Period.» medido (Whisper small + energía). Antes estaban en
+// f400 (13,32 s) — 23 f de anticipación, desync, no estilo.
+// El glitch G2 vive en T2Video (windows at: 134), no en
+// PanelT2Scene; PUNTO_AT solo mueve el texto. Ver HANDOFF.md.
 //
 // AUDIO: la mezcla (audio/mix.wav: VO + cama + SFX) va con
 // <Audio>. El audio del panel NO está en la mezcla: T1 viene de
@@ -548,8 +549,11 @@ const DimmedKaraokeL4: React.FC<{lines: KaraokeLine[]}> = ({lines}) => {
 // hasta f297 (local 12). El push-in (T8) corre durante la pausa
 // antes de «Period.» (local 71–115 = 11,88–13,32 s), anclado en
 // la cara (50% 28%); se mantiene en 1,05 hasta el corte.
-// CONSECUENCIA: «Period.» se oye a las 13,32 s (no 13,72 s) — el
-// slam «PUNTO.» y su impacto SFX se mueven a 13,32 s.
+// «Period.» se oye a las 14,1 s (f423, medido con Whisper sobre
+// panel-t2.mp4: 4,58 s del clip + J-cut 9,5 s): el slam
+// «PUNTO.» + glitch + shake + SFX caen en f423, SOBRE la
+// palabra. El push-in termina en f400 y aguanta en 1,05 hasta
+// el slam — no se mueve (el empuje completa antes del golpe).
 const T2Video: React.FC = () => {
 	const f = useCurrentFrame();
 	const push = interpolate(f, [71, 115], [1, 1.05], {
@@ -588,12 +592,12 @@ const T2Video: React.FC = () => {
 					{/* Glitch RGB ×2 en este clip: G1 «It's fake» (local
 					17–24, centro global f306 = 10,2 s, medido en el
 					corte: «fake» 10,04–10,40 s) y G2 «PUNTO.» (local
-					111–118, centro global f400 = 13,32 s, el slam
-					visual; el audio «Period.» medido cae en f423). */}
+					134–141, centro global f423 = 14,1 s, el slam
+					visual SOBRE el audio «Period.» medido). */}
 					<GlitchVideo
 						src="video/panel-t2.mp4"
 						volume={1}
-						windows={[{at: 17}, {at: 111}]}
+						windows={[{at: 17}, {at: 134}]}
 					/>
 				</div>
 			</div>
@@ -1168,21 +1172,20 @@ const PanelT1Scene: React.FC = () => {
 // de la tarjeta de Rubio. Esta escena solo pinta los overlays
 // (sin fondo opaco: el video se ve a través). La pausa de 1,44 s
 // antes de «Period.» es el latido dramático: «PUNTO.» entra con
-// slam en local f103 (13,32 s, NO 13,72 s — el J-cut adelanta
-// «Period.» 0,4 s; el impacto SFX se mueve a 13,32 s).
+// slam en local f126 (14,1 s, global f423), SOBRE el audio
+// «Period.» medido (Whisper: 4,58 s del clip + J-cut 9,5 s).
 // El VIDEO (T2Video) lleva match cut con morph (B1 post-corte
 // local 12–36 + B2 pre-corte local 168–180) y glitch RGB ×2:
 // G1 «It's fake» (local 17–24, centro global f306 = 10,2 s,
-// medido en el corte) y G2 «PUNTO.» (local 111–118, centro
-// global f400 = 13,32 s, el slam visual). NOTA: el audio
-// «Period.» medido cae en f423 (14,1 s), 23 f DESPUÉS del slam
-// visual f400 — el padre/agente de audio decide si mueve el
-// slam+SFX a f423 o confirma la anticipación deliberada.
+// medido en el corte) y G2 «PUNTO.» (local 134–141, centro
+// global f423 = 14,1 s, el slam visual). FIX 22-nov: antes el
+// slam estaba en f400 (13,32 s), 23 f ANTES de la palabra —
+// desync, no anticipación deliberada. Ver HANDOFF.md.
 // ================================================================
 const PanelT2Scene: React.FC = () => {
 	const f = useCurrentFrame();
 	const {fps} = useVideoConfig();
-	const PUNTO_AT = 103;
+	const PUNTO_AT = 126;
 	const puntoP = spring({
 		frame: f - PUNTO_AT,
 		fps,
@@ -1216,8 +1219,8 @@ const PanelT2Scene: React.FC = () => {
 									display: 'inline-block',
 									// Origen IZQUIERDO: el pop 1,8× crece hacia
 									// la derecha, nunca sobre «LIE.» — con
-									// origen centrado el pico (f400) y el
-									// sobrepaso del spring (f~412) se comían el
+									// origen centrado el pico (f423) y el
+									// sobrepaso del spring (f~435) se comían el
 									// espacio y se leía «LPERIOD.» (22-nov).
 									// El texto NO lleva split RGB (el glitch
 									// es solo del vídeo); el solape era el pop.
@@ -3173,7 +3176,7 @@ const LogoScene: React.FC = () => {
 // 15,1 s), VO L8 (la re-mezcla la mueve a 68,5 s). Pre-lap
 // visual de L4 (828–861). Wipe de S9 sobre el final de L6
 // (1818–1830). Deriva global lenta (T4): 1,0→1,015 sobre todo
-// el reel; shake de impacto (T6) en 5 slams (f9/f400/f1660/f1789/
+// el reel; shake de impacto (T6) en 5 slams (f9/f423/f1660/f1789/
 // f1996); filtros de glitch RGB (GlitchDefs) para T2/T3; grano
 // animado por encima; guía de zona segura solo en pre-vuelo
 // (SHOW_SAFE_GUIDE, nunca en render).
@@ -3185,15 +3188,15 @@ export const MainReel: React.FC = () => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	// Shake de impacto (T6): 5 slams — f9 (título, 0,3 s), f400
-	// («PUNTO.», 13,32 s), f1660 (sello EAR, 55,33 s), f1789
+	// Shake de impacto (T6): 5 slams — f9 (título, 0,3 s), f423
+	// («PUNTO.», 14,1 s), f1660 (sello EAR, 55,33 s), f1789
 	// («CONTROL», 59,63 s), f1996 (sello final, 66,53 s).
 	// Patrón por slam (dt 0/1/2): x [3, −2, 1] px, y [2, −1, 0,5] px,
 	// con decay en 2–3 fotogramas. Se aplica como translate ANTES
 	// del scale(drift) en el wrapper de deriva; el grano queda
 	// fuera (estático). Amplitud pequeña: si se nota como
 	// «temblor» está pasado.
-	const SLAMS = [9, 400, 1660, 1789, 1996];
+	const SLAMS = [9, 423, 1660, 1789, 1996];
 	const shakeX = [3, -2, 1];
 	const shakeY = [2, -1, 0.5];
 	let sx = 0;
