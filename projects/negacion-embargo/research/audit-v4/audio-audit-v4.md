@@ -1,0 +1,1566 @@
+# Auditoría de audio — negacion-embargo (v4)
+
+**Veredicto: WARN** — 0 FAIL, 62 WARN, 12 PASS, 45 INFO.
+
+## (a) Guion ↔ karaoke — PASS
+
+- **PASS**: guion<->karaoke 1:1 en orden (125 palabras)
+
+## (b) Tiempos de caption — WARN
+
+- **WARN** @ 3.78s: caption corto (0.060s < 0.18s): 'NO' @ 3.78s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 3.78s: visualización corta (0.060s): 'NO' @ 3.78s — el pop de 0,1 s se corta antes de terminar
+- **WARN** @ 3.84s: caption corto (0.080s < 0.18s): 'HAY' @ 3.84s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 3.84s: visualización corta (0.080s): 'HAY' @ 3.84s — el pop de 0,1 s se corta antes de terminar
+- **INFO** @ 4.40s: hueco 0.50s entre chunks: 'BLOQUEO.' -> 'MÍRALOS.' (4.40-4.90s): cambio de línea, la anterior queda visible (pegajoso)
+- **INFO** @ 5.42s: hueco 18.18s entre chunks: 'MÍRALOS.' -> 'CUATRO' (5.42-23.60s): cambio de línea, la anterior queda visible (pegajoso)
+- **INFO** @ 28.38s: hueco 0.78s entre chunks: 'ESTO.' -> 'ESTA' (28.38-29.16s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 29.60s: caption corto (0.100s < 0.18s): 'ES' @ 29.60s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 29.60s: visualización corta (0.100s): 'ES' @ 29.60s — el pop de 0,1 s se corta antes de terminar
+- **WARN** @ 29.70s: caption corto (0.120s < 0.18s): 'LA' @ 29.70s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 30.94s: caption corto (0.140s < 0.18s): 'DE' @ 30.94s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **INFO** @ 31.44s: hueco 0.50s entre chunks: 'ESTADO,' -> 'DICE' (31.44-31.94s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 32.20s: caption corto (0.160s < 0.18s): 'QUE' @ 32.20s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **INFO** @ 37.88s: hueco 3.03s entre chunks: 'HOY.' -> 'Y' (37.88-40.91s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 41.26s: caption corto (0.120s < 0.18s): 'EL' @ 41.26s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 41.60s: caption corto (0.160s < 0.18s): 'DE' @ 41.60s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 44.04s: caption corto (0.160s < 0.18s): '10' @ 44.04s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **INFO** @ 45.04s: hueco 0.54s entre chunks: 'NUEVAS,' -> 'UNA' (45.04-45.58s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 45.58s: caption corto (0.140s < 0.18s): 'UNA' @ 45.58s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 45.92s: caption corto (0.140s < 0.18s): 'DE' @ 45.92s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **INFO** @ 49.18s: hueco 1.82s entre chunks: 'CHINOS.' -> 'WALTZ' (49.18-51.00s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 54.36s: caption corto (0.120s < 0.18s): 'A' @ 54.36s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **INFO** @ 54.74s: hueco 0.60s entre 'CUBA,' y 'PERO' (54.74-55.34s): en pausa de VO, esperado
+- **WARN** @ 55.34s: caption corto (0.120s < 0.18s): 'PERO' @ 55.34s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 56.94s: caption corto (0.160s < 0.18s): 'DEL' @ 56.94s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **INFO** @ 57.52s: hueco 0.59s entre chunks: 'GOBIERNO.' -> 'ESO' (57.52-58.11s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 58.11s: caption corto (0.170s < 0.18s): 'ESO' @ 58.11s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 58.28s: caption corto (0.120s < 0.18s): 'NO' @ 58.28s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 58.40s: caption corto (0.080s < 0.18s): 'ES' @ 58.40s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 58.40s: visualización corta (0.080s): 'ES' @ 58.40s — el pop de 0,1 s se corta antes de terminar
+- **INFO** @ 59.20s: hueco 0.44s entre chunks: 'LIBRE,' -> 'ESO' (59.20-59.64s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 59.64s: caption corto (0.160s < 0.18s): 'ESO' @ 59.64s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 59.80s: caption corto (0.140s < 0.18s): 'ES' @ 59.80s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **INFO** @ 60.34s: hueco 1.43s entre chunks: 'CONTROL.' -> 'ELLOS' (60.34-61.77s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 62.02s: caption corto (0.140s < 0.18s): 'LO' @ 62.02s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **INFO** @ 62.56s: hueco 0.48s entre chunks: 'NIEGAN,' -> 'SUS' (62.56-63.04s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 63.04s: caption corto (0.080s < 0.18s): 'SUS' @ 63.04s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 63.04s: visualización corta (0.080s): 'SUS' @ 63.04s — el pop de 0,1 s se corta antes de terminar
+- **WARN** @ 63.78s: caption corto (0.100s < 0.18s): 'LO' @ 63.78s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **INFO** @ 64.54s: hueco 0.40s entre chunks: 'CONFIRMAN,' -> 'EL' (64.54-64.94s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 64.94s: caption corto (0.120s < 0.18s): 'EL' @ 64.94s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 65.42s: caption corto (0.100s < 0.18s): 'NO' @ 65.42s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 65.42s: visualización corta (0.100s): 'NO' @ 65.42s — el pop de 0,1 s se corta antes de terminar
+- **WARN** @ 65.52s: caption corto (0.120s < 0.18s): 'ES' @ 65.52s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 65.64s: caption corto (0.100s < 0.18s): 'UN' @ 65.64s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 65.64s: visualización corta (0.100s): 'UN' @ 65.64s — el pop de 0,1 s se corta antes de terminar
+- **WARN** @ 66.52s: caption corto (0.160s < 0.18s): 'ES' @ 66.52s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 66.68s: caption corto (0.120s < 0.18s): 'UN' @ 66.68s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **INFO** @ 67.56s: hueco 0.94s entre chunks: 'OFICIAL.' -> '¿TÚ' (67.56-68.50s): cambio de línea, la anterior queda visible (pegajoso)
+- **WARN** @ 69.08s: caption corto (0.140s < 0.18s): 'QUÉ' @ 69.08s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 69.98s: caption corto (0.140s < 0.18s): 'LO' @ 69.98s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 70.66s: caption corto (0.160s < 0.18s): 'NO' @ 70.66s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 71.96s: caption corto (0.140s < 0.18s): 'NO' @ 71.96s [sin efecto visual en BottomKaraoke; importa en SRT]
+- **WARN** @ 25.80s: fin de caption 26.20s vs fin acústico 26.43s (+0.23s): 'MESES.'
+- **WARN** @ 44.68s: fin de caption 45.04s vs fin acústico 45.26s (+0.22s): 'NUEVAS,'
+- **WARN** @ 46.06s: fin de caption 46.54s vs fin acústico 46.76s (+0.22s): 'PETRÓLEO,'
+- **WARN** @ 59.94s: fin de caption 60.34s vs fin acústico 60.50s (+0.16s): 'CONTROL.'
+- **WARN** @ 67.30s: fin de caption 67.56s vs fin acústico 67.81s (+0.25s): 'OFICIAL.'
+
+## (c) Integridad de la VO — PASS
+
+- **INFO** @ 0.50s: onset tardío +0.62s (rampa natural): 'El' @ 0.50s — Whisper adelantó el borde; la palabra está completa
+- **INFO** @ 23.60s: onset tardío +0.68s (rampa natural): 'Cuatro' @ 23.60s — Whisper adelantó el borde; la palabra está completa
+- **INFO** @ 29.00s: onset tardío +0.16s (rampa natural): 'Esta' @ 29.00s — Whisper adelantó el borde; la palabra está completa
+- **INFO** @ 40.50s: onset tardío +0.41s (rampa natural): 'Y' @ 40.50s — Whisper adelantó el borde; la palabra está completa
+- **INFO** @ 61.50s: onset brusco +0.27s (ataque rápido natural): 'Ellos' @ 61.50s — el corte de ese segmento no descartó voz; la palabra está completa
+- **PASS**: VO íntegra: cortes en silencio, empalmes limpios, sin palabras exprimidas
+
+## (d) Artefactos de time-stretch — PASS
+
+- **PASS**: ninguna línea con tempo != 1 (sin stretch)
+
+## (e) Mapa de silencios — WARN
+
+- **INFO** @ 0.00s: silencio inicial 0.83s @ 0.00-0.83s (lead-in antes de la primera palabra)
+- **INFO** @ 4.39s: pausa 0.51s @ 4.39-4.90s (diseñada, prosodia)
+- **INFO** @ 5.52s: pausa 18.78s @ 5.52-24.30s (diseñada, entre-líneas)
+- **WARN** @ 5.52s: pausa larga 18.78s @ 5.52s sin ser dramática
+- **INFO** @ 26.44s: pausa 0.56s @ 26.44-27.00s (dramática, entre-líneas)
+- **INFO** @ 28.51s: pausa 0.72s @ 28.51-29.23s (diseñada, entre-líneas)
+- **WARN** @ 28.51s: pausa larga 0.72s @ 28.51s sin ser dramática
+- **INFO** @ 31.53s: pausa 0.45s @ 31.53-31.98s (diseñada, prosodia)
+- **INFO** @ 34.41s: pausa 0.26s @ 34.41-34.67s (diseñada, prosodia)
+- **INFO** @ 37.93s: pausa 2.99s @ 37.93-40.92s (diseñada, entre-líneas)
+- **WARN** @ 37.93s: pausa larga 2.99s @ 37.93s sin ser dramática
+- **INFO** @ 45.26s: pausa 0.29s @ 45.26-45.55s (diseñada, prosodia)
+- **INFO** @ 49.21s: pausa 1.72s @ 49.21-50.93s (diseñada, entre-líneas)
+- **WARN** @ 49.21s: pausa larga 1.72s @ 49.21s sin ser dramática
+- **INFO** @ 50.94s: pausa 0.33s @ 50.94-51.27s (diseñada, prosodia)
+- **INFO** @ 54.83s: pausa 0.51s @ 54.83-55.34s (diseñada, prosodia)
+- **INFO** @ 57.65s: pausa 0.46s @ 57.65-58.11s (diseñada, prosodia)
+- **INFO** @ 59.32s: pausa 0.32s @ 59.32-59.64s (diseñada, prosodia)
+- **INFO** @ 60.50s: pausa 1.04s @ 60.50-61.54s (dramática, entre-líneas)
+- **INFO** @ 62.67s: pausa 0.34s @ 62.67-63.01s (diseñada, prosodia)
+- **INFO** @ 64.58s: pausa 0.36s @ 64.58-64.94s (diseñada, prosodia)
+- **INFO** @ 66.26s: pausa 0.26s @ 66.26-66.52s (diseñada, prosodia)
+- **INFO** @ 67.82s: pausa 0.99s @ 67.82-68.81s (dramática, entre-líneas)
+- **INFO** @ 69.64s: pausa 0.30s @ 69.64-69.94s (diseñada, prosodia)
+- **INFO** @ 73.22s: silencio final 4.28s @ 73.22-77.50s (outro musical tras la última palabra)
+- **PASS**: mapa de silencios: 21 pausas, todas diseñadas
+
+## (f) Música y ducking — WARN
+
+- **WARN**: bombeo del ducking: la ganancia de la música varía 12.4 dB dentro de una frase (> 6.0 dB: la música «respira» con las sílabas)
+- **PASS**: música presente en toda la mezcla (suelo -32.0 dBFS respetado)
+
+## (g) Máster — WARN
+
+- **PASS**: sin agujeros de frontera en el máster (escaneo a 1 ms)
+- **PASS**: alineación karaoke/onset acústico: media 0.006s, mediana +0.000s, máx 0.03s (12 palabras)
+- **INFO**: desvío karaoke/Whisper +0.16s en 'esta', pero el karaoke coincide con el onset acústico (+0.00s): error de Whisper, no de sincronía
+- **INFO**: desvío karaoke/Whisper +0.41s en 'y', pero el karaoke coincide con el onset acústico (-0.00s): error de Whisper, no de sincronía
+- **INFO**: desvío karaoke/Whisper +0.19s en 'ellos', pero el karaoke coincide con el onset acústico (+0.00s): error de Whisper, no de sincronía
+- **WARN**: desvío karaoke/voz master +0.50s en 'el'
+- **WARN**: desvío karaoke/voz master -0.20s en 'lleva'
+- **WARN**: desvío karaoke/voz master -0.88s en 'cuatro'
+- **WARN**: desvío karaoke/voz master -0.36s en 'vale'
+- **WARN**: desvío karaoke/voz master +0.74s en 'esta'
+- **WARN**: desvío karaoke/voz master -0.24s en 'y'
+- **WARN**: desvío karaoke/voz master -0.32s en 'un'
+- **WARN**: desvío karaoke/voz master +0.27s en 'y'
+- **WARN**: desvío karaoke/voz master -0.26s en 'ese'
+- **WARN**: desvío karaoke/voz master +0.30s en 'pero'
+- **WARN**: desvío karaoke/voz master +0.21s en 'ellos'
+- **WARN**: desvío karaoke/voz master -0.24s en 'tú'
+- **WARN**: desvío karaoke/voz master -0.34s en 'que'
+- **PASS**: máster: -16.2 LUFS, TP -2.1 dBTP, sin silencios
+
+## (h) Espectrogramas — PASS
+
+- **INFO**: sin matplotlib: no hay espectrogramas (No module named 'matplotlib')
+
+## (i) Microcortes de voz (forma de onda) — PASS
+
+- **PASS**: [i1] empalmes limpios (sin saltos, huecos ni discontinuidades espectrales)
+- **PASS**: [i2] sin dips dentro de palabras (toda caída de la editada existe también en el original)
+- **PASS**: [i4] 8 segmentos verificados como trozos contiguos del original
+- **PASS**: [i5] ningún SFX enmascara el ataque de una palabra
+- **INFO**: pausas intra-línea: cubiertas por (c) §4 (misma regla que (i3): <0,25 s o pérdida >50%)
+
+## Métricas
+
+```json
+{
+ "a_script_words": 125,
+ "a_caption_words": 125,
+ "b_short_captions": 32,
+ "b_overlaps": 0,
+ "b_short_display": 7,
+ "b_end_mismatch": 5,
+ "c_cuts_inside_speech": 0,
+ "c_splice_clicks": 0,
+ "c_squeezed_words": 0,
+ "c_pause_fails": 0,
+ "e_silences": [
+  [
+   0.0,
+   0.83,
+   0.83
+  ],
+  [
+   4.39,
+   4.9,
+   0.51
+  ],
+  [
+   5.52,
+   24.3,
+   18.78
+  ],
+  [
+   26.44,
+   27.0,
+   0.56
+  ],
+  [
+   28.51,
+   29.23,
+   0.72
+  ],
+  [
+   31.53,
+   31.98,
+   0.45
+  ],
+  [
+   34.41,
+   34.67,
+   0.26
+  ],
+  [
+   37.93,
+   40.92,
+   2.99
+  ],
+  [
+   45.26,
+   45.55,
+   0.29
+  ],
+  [
+   49.21,
+   50.93,
+   1.72
+  ],
+  [
+   50.94,
+   51.27,
+   0.33
+  ],
+  [
+   54.83,
+   55.34,
+   0.51
+  ],
+  [
+   57.65,
+   58.11,
+   0.46
+  ],
+  [
+   59.32,
+   59.64,
+   0.32
+  ],
+  [
+   60.5,
+   61.54,
+   1.04
+  ],
+  [
+   62.67,
+   63.01,
+   0.34
+  ],
+  [
+   64.58,
+   64.94,
+   0.36
+  ],
+  [
+   66.26,
+   66.52,
+   0.26
+  ],
+  [
+   67.82,
+   68.81,
+   0.99
+  ],
+  [
+   69.64,
+   69.94,
+   0.3
+  ],
+  [
+   73.22,
+   77.5,
+   4.28
+  ]
+ ],
+ "e_unexpected_pauses": 0,
+ "f_mix_rms_curve": [
+  [
+   0.0,
+   -25.0
+  ],
+  [
+   0.25,
+   -20.0
+  ],
+  [
+   0.5,
+   -24.3
+  ],
+  [
+   0.75,
+   -26.9
+  ],
+  [
+   1.0,
+   -13.6
+  ],
+  [
+   1.25,
+   -10.2
+  ],
+  [
+   1.5,
+   -12.7
+  ],
+  [
+   1.75,
+   -15.8
+  ],
+  [
+   2.0,
+   -15.1
+  ],
+  [
+   2.25,
+   -14.2
+  ],
+  [
+   2.5,
+   -14.8
+  ],
+  [
+   2.75,
+   -13.3
+  ],
+  [
+   3.0,
+   -17.6
+  ],
+  [
+   3.25,
+   -18.4
+  ],
+  [
+   3.5,
+   -15.8
+  ],
+  [
+   3.75,
+   -15.9
+  ],
+  [
+   4.0,
+   -14.1
+  ],
+  [
+   4.25,
+   -19.8
+  ],
+  [
+   4.5,
+   -24.3
+  ],
+  [
+   4.75,
+   -22.7
+  ],
+  [
+   5.0,
+   -13.9
+  ],
+  [
+   5.25,
+   -21.0
+  ],
+  [
+   5.5,
+   -20.6
+  ],
+  [
+   5.75,
+   -29.3
+  ],
+  [
+   6.0,
+   -31.9
+  ],
+  [
+   6.25,
+   -29.7
+  ],
+  [
+   6.5,
+   -29.3
+  ],
+  [
+   6.75,
+   -28.3
+  ],
+  [
+   7.0,
+   -25.2
+  ],
+  [
+   7.25,
+   -27.3
+  ],
+  [
+   7.5,
+   -28.3
+  ],
+  [
+   7.75,
+   -30.0
+  ],
+  [
+   8.0,
+   -30.4
+  ],
+  [
+   8.25,
+   -30.3
+  ],
+  [
+   8.5,
+   -29.3
+  ],
+  [
+   8.75,
+   -31.1
+  ],
+  [
+   9.0,
+   -32.9
+  ],
+  [
+   9.25,
+   -29.1
+  ],
+  [
+   9.5,
+   -27.2
+  ],
+  [
+   9.75,
+   -18.9
+  ],
+  [
+   10.0,
+   -24.0
+  ],
+  [
+   10.25,
+   -25.9
+  ],
+  [
+   10.5,
+   -31.4
+  ],
+  [
+   10.75,
+   -30.5
+  ],
+  [
+   11.0,
+   -29.3
+  ],
+  [
+   11.25,
+   -29.0
+  ],
+  [
+   11.5,
+   -27.7
+  ],
+  [
+   11.75,
+   -30.5
+  ],
+  [
+   12.0,
+   -32.7
+  ],
+  [
+   12.25,
+   -26.9
+  ],
+  [
+   12.5,
+   -30.8
+  ],
+  [
+   12.75,
+   -29.9
+  ],
+  [
+   13.0,
+   -27.0
+  ],
+  [
+   13.25,
+   -28.3
+  ],
+  [
+   13.5,
+   -29.6
+  ],
+  [
+   13.75,
+   -27.3
+  ],
+  [
+   14.0,
+   -17.9
+  ],
+  [
+   14.25,
+   -25.5
+  ],
+  [
+   14.5,
+   -28.3
+  ],
+  [
+   14.75,
+   -30.5
+  ],
+  [
+   15.0,
+   -31.2
+  ],
+  [
+   15.25,
+   -20.1
+  ],
+  [
+   15.5,
+   -21.6
+  ],
+  [
+   15.75,
+   -26.7
+  ],
+  [
+   16.0,
+   -31.7
+  ],
+  [
+   16.25,
+   -29.1
+  ],
+  [
+   16.5,
+   -30.9
+  ],
+  [
+   16.75,
+   -28.8
+  ],
+  [
+   17.0,
+   -30.9
+  ],
+  [
+   17.25,
+   -32.2
+  ],
+  [
+   17.5,
+   -29.8
+  ],
+  [
+   17.75,
+   -29.2
+  ],
+  [
+   18.0,
+   -30.1
+  ],
+  [
+   18.25,
+   -30.7
+  ],
+  [
+   18.5,
+   -31.9
+  ],
+  [
+   18.75,
+   -33.6
+  ],
+  [
+   19.0,
+   -27.2
+  ],
+  [
+   19.25,
+   -19.9
+  ],
+  [
+   19.5,
+   -22.1
+  ],
+  [
+   19.75,
+   -26.9
+  ],
+  [
+   20.0,
+   -28.9
+  ],
+  [
+   20.25,
+   -29.2
+  ],
+  [
+   20.5,
+   -29.5
+  ],
+  [
+   20.75,
+   -27.5
+  ],
+  [
+   21.0,
+   -27.4
+  ],
+  [
+   21.25,
+   -28.3
+  ],
+  [
+   21.5,
+   -29.8
+  ],
+  [
+   21.75,
+   -26.3
+  ],
+  [
+   22.0,
+   -25.2
+  ],
+  [
+   22.25,
+   -27.0
+  ],
+  [
+   22.5,
+   -28.4
+  ],
+  [
+   22.75,
+   -27.7
+  ],
+  [
+   23.0,
+   -21.7
+  ],
+  [
+   23.25,
+   -24.9
+  ],
+  [
+   23.5,
+   -24.8
+  ],
+  [
+   23.75,
+   -25.3
+  ],
+  [
+   24.0,
+   -25.5
+  ],
+  [
+   24.25,
+   -25.5
+  ],
+  [
+   24.5,
+   -14.7
+  ],
+  [
+   24.75,
+   -10.0
+  ],
+  [
+   25.0,
+   -12.2
+  ],
+  [
+   25.25,
+   -18.0
+  ],
+  [
+   25.5,
+   -14.2
+  ],
+  [
+   25.75,
+   -15.6
+  ],
+  [
+   26.0,
+   -18.3
+  ],
+  [
+   26.25,
+   -23.6
+  ],
+  [
+   26.5,
+   -34.7
+  ],
+  [
+   26.75,
+   -36.1
+  ],
+  [
+   27.0,
+   -14.4
+  ],
+  [
+   27.25,
+   -17.7
+  ],
+  [
+   27.5,
+   -14.6
+  ],
+  [
+   27.75,
+   -11.7
+  ],
+  [
+   28.0,
+   -12.4
+  ],
+  [
+   28.25,
+   -21.2
+  ],
+  [
+   28.5,
+   -21.1
+  ],
+  [
+   28.75,
+   -23.8
+  ],
+  [
+   29.0,
+   -24.5
+  ],
+  [
+   29.25,
+   -15.6
+  ],
+  [
+   29.5,
+   -14.1
+  ],
+  [
+   29.75,
+   -14.1
+  ],
+  [
+   30.0,
+   -15.4
+  ],
+  [
+   30.25,
+   -14.8
+  ],
+  [
+   30.5,
+   -17.6
+  ],
+  [
+   30.75,
+   -16.4
+  ],
+  [
+   31.0,
+   -17.1
+  ],
+  [
+   31.25,
+   -15.0
+  ],
+  [
+   31.5,
+   -24.8
+  ],
+  [
+   31.75,
+   -23.3
+  ],
+  [
+   32.0,
+   -15.8
+  ],
+  [
+   32.25,
+   -18.0
+  ],
+  [
+   32.5,
+   -14.1
+  ],
+  [
+   32.75,
+   -14.5
+  ],
+  [
+   33.0,
+   -18.5
+  ],
+  [
+   33.25,
+   -17.4
+  ],
+  [
+   33.5,
+   -15.0
+  ],
+  [
+   33.75,
+   -22.2
+  ],
+  [
+   34.0,
+   -14.2
+  ],
+  [
+   34.25,
+   -15.5
+  ],
+  [
+   34.5,
+   -17.1
+  ],
+  [
+   34.75,
+   -14.1
+  ],
+  [
+   35.0,
+   -14.6
+  ],
+  [
+   35.25,
+   -13.2
+  ],
+  [
+   35.5,
+   -17.0
+  ],
+  [
+   35.75,
+   -14.4
+  ],
+  [
+   36.0,
+   -18.7
+  ],
+  [
+   36.25,
+   -13.7
+  ],
+  [
+   36.5,
+   -14.3
+  ],
+  [
+   36.75,
+   -19.7
+  ],
+  [
+   37.0,
+   -15.4
+  ],
+  [
+   37.25,
+   -17.1
+  ],
+  [
+   37.5,
+   -18.2
+  ],
+  [
+   37.75,
+   -19.4
+  ],
+  [
+   38.0,
+   -24.2
+  ],
+  [
+   38.25,
+   -25.5
+  ],
+  [
+   38.5,
+   -24.1
+  ],
+  [
+   38.75,
+   -22.2
+  ],
+  [
+   39.0,
+   -22.5
+  ],
+  [
+   39.25,
+   -23.6
+  ],
+  [
+   39.5,
+   -23.8
+  ],
+  [
+   39.75,
+   -24.3
+  ],
+  [
+   40.0,
+   -23.8
+  ],
+  [
+   40.25,
+   -22.0
+  ],
+  [
+   40.5,
+   -23.4
+  ],
+  [
+   40.75,
+   -23.8
+  ],
+  [
+   41.0,
+   -15.9
+  ],
+  [
+   41.25,
+   -11.5
+  ],
+  [
+   41.5,
+   -11.9
+  ],
+  [
+   41.75,
+   -11.1
+  ],
+  [
+   42.0,
+   -11.8
+  ],
+  [
+   42.25,
+   -17.2
+  ],
+  [
+   42.5,
+   -13.2
+  ],
+  [
+   42.75,
+   -13.4
+  ],
+  [
+   43.0,
+   -12.7
+  ],
+  [
+   43.25,
+   -16.7
+  ],
+  [
+   43.5,
+   -14.7
+  ],
+  [
+   43.75,
+   -15.0
+  ],
+  [
+   44.0,
+   -13.2
+  ],
+  [
+   44.25,
+   -18.4
+  ],
+  [
+   44.5,
+   -16.6
+  ],
+  [
+   44.75,
+   -16.6
+  ],
+  [
+   45.0,
+   -19.2
+  ],
+  [
+   45.25,
+   -20.0
+  ],
+  [
+   45.5,
+   -15.4
+  ],
+  [
+   45.75,
+   -16.0
+  ],
+  [
+   46.0,
+   -15.2
+  ],
+  [
+   46.25,
+   -11.2
+  ],
+  [
+   46.5,
+   -14.5
+  ],
+  [
+   46.75,
+   -18.0
+  ],
+  [
+   47.0,
+   -14.0
+  ],
+  [
+   47.25,
+   -19.6
+  ],
+  [
+   47.5,
+   -14.2
+  ],
+  [
+   47.75,
+   -15.0
+  ],
+  [
+   48.0,
+   -17.7
+  ],
+  [
+   48.25,
+   -12.4
+  ],
+  [
+   48.5,
+   -13.8
+  ],
+  [
+   48.75,
+   -18.5
+  ],
+  [
+   49.0,
+   -19.7
+  ],
+  [
+   49.25,
+   -22.2
+  ],
+  [
+   49.5,
+   -22.5
+  ],
+  [
+   49.75,
+   -21.5
+  ],
+  [
+   50.0,
+   -22.8
+  ],
+  [
+   50.25,
+   -24.2
+  ],
+  [
+   50.5,
+   -23.3
+  ],
+  [
+   50.75,
+   -24.4
+  ],
+  [
+   51.0,
+   -25.3
+  ],
+  [
+   51.25,
+   -11.0
+  ],
+  [
+   51.5,
+   -14.7
+  ],
+  [
+   51.75,
+   -12.3
+  ],
+  [
+   52.0,
+   -11.3
+  ],
+  [
+   52.25,
+   -16.7
+  ],
+  [
+   52.5,
+   -17.0
+  ],
+  [
+   52.75,
+   -15.8
+  ],
+  [
+   53.0,
+   -17.8
+  ],
+  [
+   53.25,
+   -14.9
+  ],
+  [
+   53.5,
+   -12.5
+  ],
+  [
+   53.75,
+   -15.7
+  ],
+  [
+   54.0,
+   -16.4
+  ],
+  [
+   54.25,
+   -15.1
+  ],
+  [
+   54.5,
+   -11.7
+  ],
+  [
+   54.75,
+   -25.4
+  ],
+  [
+   55.0,
+   -25.7
+  ],
+  [
+   55.25,
+   -13.3
+  ],
+  [
+   55.5,
+   -13.9
+  ],
+  [
+   55.75,
+   -13.6
+  ],
+  [
+   56.0,
+   -16.3
+  ],
+  [
+   56.25,
+   -17.4
+  ],
+  [
+   56.5,
+   -13.7
+  ],
+  [
+   56.75,
+   -17.0
+  ],
+  [
+   57.0,
+   -12.9
+  ],
+  [
+   57.25,
+   -13.1
+  ],
+  [
+   57.5,
+   -23.4
+  ],
+  [
+   57.75,
+   -32.1
+  ],
+  [
+   58.0,
+   -16.1
+  ],
+  [
+   58.25,
+   -15.8
+  ],
+  [
+   58.5,
+   -15.6
+  ],
+  [
+   58.75,
+   -15.7
+  ],
+  [
+   59.0,
+   -13.2
+  ],
+  [
+   59.25,
+   -23.2
+  ],
+  [
+   59.5,
+   -17.6
+  ],
+  [
+   59.75,
+   -14.5
+  ],
+  [
+   60.0,
+   -18.9
+  ],
+  [
+   60.25,
+   -15.3
+  ],
+  [
+   60.5,
+   -21.1
+  ],
+  [
+   60.75,
+   -21.9
+  ],
+  [
+   61.0,
+   -24.4
+  ],
+  [
+   61.25,
+   -25.0
+  ],
+  [
+   61.5,
+   -24.3
+  ],
+  [
+   61.75,
+   -10.4
+  ],
+  [
+   62.0,
+   -13.6
+  ],
+  [
+   62.25,
+   -14.0
+  ],
+  [
+   62.5,
+   -19.8
+  ],
+  [
+   62.75,
+   -24.5
+  ],
+  [
+   63.0,
+   -17.8
+  ],
+  [
+   63.25,
+   -13.3
+  ],
+  [
+   63.5,
+   -15.6
+  ],
+  [
+   63.75,
+   -13.9
+  ],
+  [
+   64.0,
+   -14.6
+  ],
+  [
+   64.25,
+   -18.2
+  ],
+  [
+   64.5,
+   -21.8
+  ],
+  [
+   64.75,
+   -18.0
+  ],
+  [
+   65.0,
+   -12.8
+  ],
+  [
+   65.25,
+   -12.1
+  ],
+  [
+   65.5,
+   -13.8
+  ],
+  [
+   65.75,
+   -12.4
+  ],
+  [
+   66.0,
+   -16.9
+  ],
+  [
+   66.25,
+   -22.2
+  ],
+  [
+   66.5,
+   -14.0
+  ],
+  [
+   66.75,
+   -13.9
+  ],
+  [
+   67.0,
+   -17.0
+  ],
+  [
+   67.25,
+   -18.3
+  ],
+  [
+   67.5,
+   -15.9
+  ],
+  [
+   67.75,
+   -24.2
+  ],
+  [
+   68.0,
+   -23.3
+  ],
+  [
+   68.25,
+   -20.5
+  ],
+  [
+   68.5,
+   -21.1
+  ],
+  [
+   68.75,
+   -22.2
+  ],
+  [
+   69.0,
+   -11.6
+  ],
+  [
+   69.25,
+   -15.0
+  ],
+  [
+   69.5,
+   -22.2
+  ],
+  [
+   69.75,
+   -18.2
+  ],
+  [
+   70.0,
+   -12.2
+  ],
+  [
+   70.25,
+   -11.3
+  ],
+  [
+   70.5,
+   -15.0
+  ],
+  [
+   70.75,
+   -15.4
+  ],
+  [
+   71.0,
+   -13.1
+  ],
+  [
+   71.25,
+   -17.6
+  ],
+  [
+   71.5,
+   -17.1
+  ],
+  [
+   71.75,
+   -15.5
+  ],
+  [
+   72.0,
+   -12.5
+  ],
+  [
+   72.25,
+   -17.5
+  ],
+  [
+   72.5,
+   -15.8
+  ],
+  [
+   72.75,
+   -16.6
+  ],
+  [
+   73.0,
+   -20.2
+  ],
+  [
+   73.25,
+   -23.0
+  ],
+  [
+   73.5,
+   -24.9
+  ],
+  [
+   73.75,
+   -22.8
+  ],
+  [
+   74.0,
+   -24.9
+  ],
+  [
+   74.25,
+   -26.2
+  ],
+  [
+   74.5,
+   -17.1
+  ],
+  [
+   74.75,
+   -19.4
+  ],
+  [
+   75.0,
+   -20.1
+  ],
+  [
+   75.25,
+   -20.6
+  ],
+  [
+   75.5,
+   -23.4
+  ],
+  [
+   75.75,
+   -26.3
+  ],
+  [
+   76.0,
+   -21.5
+  ],
+  [
+   76.25,
+   -23.2
+  ],
+  [
+   76.5,
+   -25.2
+  ],
+  [
+   76.75,
+   -25.5
+  ],
+  [
+   77.0,
+   -31.7
+  ],
+  [
+   77.25,
+   -38.5
+  ]
+ ],
+ "f_windows_below_floor": 0,
+ "f_duck_recovery": [
+  [
+   4.39,
+   3.4
+  ],
+  [
+   26.44,
+   3.8
+  ],
+  [
+   31.53,
+   3.6
+  ],
+  [
+   37.93,
+   3.8
+  ]
+ ],
+ "f_duck_slow_recovery": 0,
+ "f_duck_pump_max_db": 12.4,
+ "f_duck_depth_mean_db": -5.4,
+ "g_duration": 77.5,
+ "g_frames": 2325,
+ "g_lufs": -16.2,
+ "g_true_peak": -2.1,
+ "g_silence_intervals": 0,
+ "g_first_audio_s": 0.02,
+ "g_master_holes": 0,
+ "g_transcription_failures": 0,
+ "g_align_acoustic_mean": 0.006,
+ "g_align_acoustic_median_signed": 0.0,
+ "g_align_acoustic_max": 0.03,
+ "g_align_acoustic_max_word": "DICE",
+ "g_align_clean_mean": 0.017,
+ "g_align_clean_median_signed": 0.0,
+ "g_align_clean_max": 0.41,
+ "g_align_clean_max_word": "y",
+ "g_align_master_mean": 0.057,
+ "g_align_master_median_signed": -0.02,
+ "g_align_master_max": 0.88,
+ "g_align_master_max_word": "cuatro",
+ "i1_splice_fail": 0,
+ "i1_splice_warn": 0,
+ "i1_worst_dip_db": 0.0,
+ "i2_word_dips": 0,
+ "i3_pause_fails": 1,
+ "i4_bad_segments": 0,
+ "i4_segments": 8,
+ "i5_sfx_masks": 0
+}
+```

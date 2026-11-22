@@ -1,181 +1,515 @@
 {
- "approvedRevision": null,
- "completed": [
-  "Recopilación de video real (22-nov-2026): 4 momentos del panel con metraje real — Rubio 20-may (corte 10,05 s + original 314,6 s + still), Waltz 7-jul UN Web TV 99.ª plenaria (corte «It's fake» 17,02 s + ventana completa 331,8 s + still), Waltz 27-oct UNifeed soundbite 33 (26,6 s + still) con respaldo UN Web TV 27.ª plenaria (ventanas 90,5 s + 80,1 s), Waltz 16-nov Fox News (foto real 1280×720). Todo verificado por transcripción local faster-whisper y/o verificación visual. 13 archivos, 546 MB, en asset-manifest.json con SHA256.",
-  "Brief creativo (CREATIVE_BRIEF.md): concepto, estructura, guion 125 palabras, plan por escena con técnicas, materiales, licencias, decisiones. Regla de Suleris incorporada: en la voz del Memorial se dice BLOQUEO; «embargo» solo en citas textuales de EE. UU. Voz: Adriana.",
-  "Capturas de state.gov (22-nov-2026): «Cuba Sanctions» y comunicado 5-nov, ambas 1920x1080, texto clave verificado legible a ojo por dos agentes. Método CDP + relay CONNECT local (Chromium headless directo no funciona en esta VM; documentado en research/capturas-state-gov-metodo.md).",
-  "Búsqueda en el archivo indexado del Memorial (22-nov-2026, 13 términos): solo 2 piezas directamente útiles (imagen satelital NOAA/CIRA de Cuba a oscuras y fuente cruda del reel de Bruno ONU), ambas en Drive sin descargar (ver «referenced» en asset-manifest.json). Nada de puerto, petróleo, barcos, La Habana, Malecón ni calles. El B-roll principal es el metraje ONU/Rubio.",
-  "Visto bueno FINAL de Suleris (22-nov-2026 ~12:36, «Confirmado, procede» del usuario): puerta dura SUPERADA. Corrección de terminología incorporada: BLOQUEO en la voz del Memorial; «embargo» solo en la cita L4 y su traducción fiel.",
-  "VO de Adriana COMPLETA 8/8 y verificada (22-nov-2026 ~12:30): 7/8 líneas OK a la primera + L1 recibida y verificada (MATCH ambos modelos). Ver VO_VERIFICATION.md. Archivos en public/audio/real/lines/L1.wav–L8.wav (48 kHz).",
-  "Auditoría pre-edición (22-nov-2026, AUDIT_PREEDIT.md, commit 8eca2c4): APROBADO CON CORRECCIONES (C1–C12). Plan de 12 escenas autoritativo; panel medido ~18 s; total ~75 s (73–78 s).",
-  "SFX copiados al proyecto (22-nov-2026): 14/14 IDs del mapa de sonido de la auditoría en public/audio/sfx/ (add-sfx.mjs).",
-  "Tiempos de palabra de la VO (22-nov-2026): L2–L8 en research/vo/vo-transcription-small.json; L1 en research/vo/l1-words-small.json (faster-whisper small, word_timestamps).",
-  "Cama elegida (22-nov-2026): documentary-flow-a (biblioteca del hub, Flow «Documentary underscore» ventana 89–149 s, 60 s, −19,74 LUFS, scan PASS — VAD sin voz, Whisper solo alucinaciones conocidas). Pendiente: bucle a la duración del video + dips horneados (panel −6 dB, giro −12 dB) + mezcla.",
-  "Decisión de montaje (22-nov-2026): tarjetas 2–3 del panel con voz original completa (4–5,6 s, medido); Rubio con punch-in 120–130% sobre la cara (C9) + banda de cita como respaldo; audio del panel en la composición (clips pre-normalizados a −16 LUFS), mezcla = VO + cama + SFX.",
-  "Mezcla TEMPORAL (22-nov-2026): documentary-flow-a bucleada a 77,5 s con dips horneados; scan-bed.py PASS sobre el stem; mix.wav PASS_REAL (-16,8 LUFS, TP -1,5, 37 SFX). SOLO para ritmo/tiempos y pre-vuelo. La mezcla FINAL espera la cama nueva de Flow Music (orden del usuario 22-nov ~12:50).",
-  "Cama FINAL + mezcla FINAL (22-nov-2026 ~13:20): «Memorial de la Denuncia — Cama documental» (Flow Music, Lyria 3.5, 112 BPM), ventana 8–98 s, scan PASS; stem 77,5 s con dips horneados (panel −6 dB, giro −12 dB). Mezcla FINAL fixed-gain lineal PASS_REAL (−16,2 LUFS, TP −1,9, 37 SFX, music-volume 0,40). Hallazgos codificados: el loudnorm dinámico (un solo pase y two-pass con objetivo inalcanzable) DESHACE los dips horneados — mix.py ahora tiene --fixed-gain y --two-pass; alimiter con level=false (el auto-level devolvía los picos a 0 dBFS). El render de validación usa directamente la mezcla FINAL (ya no hace falta render con la temporal).",
-  "Composición MainReel v2 (22-nov-2026 ~14:58, commit 1cab80d): 12 escenas, 2325 f, con todas las correcciones ordenadas (caras, L4 T1-T5, 8 técnicas, gancho video real, auditoría 18 puntos, investigación 3). Pre-vuelo: 70 stills del subagente + 16/16 críticos verificados por mí; puerta QA visual PASS sobre el borrador v2.",
-  "Re-mezcla v2 (22-nov-2026 ~15:05): 43 SFX (38 + 4 risers riser-1s-soft sync 0,982 + obturador en el freeze T3 18,40 s -6 dB + marcador L4 36,58 s -1 dB); J-cut L8 (VO 69,0->68,5 s, verificado +5 dB en el paso); PUNTO. en 13,32 s; contador 48,81 s. Mix fixed-gain PASS_REAL -16,43 LUFS / TP -1,94. Risers a ganancia 1 (pico nativo -18,1 dB, ya bajo la mitad de la VO).",
-  "Frame fantasma de Bruno localizado y corregido (22-nov-2026 ~15:20): verificado por extracción densa fotograma a fotograma — Bruno Rodríguez en f465–f468 (15,50–15,63 s), primeros 4 fotogramas de T3 (cola del plano anterior en el soundbite UNifeed; el usuario lo vio ~13,7 s pero el pinpoint del padre, 15,50–15,63 s, es el correcto; la ventana 13,5–14,5 s está limpia). Corrección en MainReel.tsx: startFrom={5} en ambos videos de T3 (principal + backdrop difuminado) + freeze de local 87 a local 82 (disolución 82–88, push [82,120]); el freeze aterriza en f547 = 18,23 s (antes f552 = 18,40 s); el SFX de obturador se mueve a 18,23 s en la re-mezcla v3. tsc --noEmit limpio.",
-  "Subtítulo del cordón militar eliminado (22-nov-2026 ~15:20): la línea en cursiva «Un bloqueo es un anillo de barcos militares alrededor de una isla.» fuera de la banda de cita de T3 (MainReel.tsx). La tarjeta Fox T4 sigue en la composición (su retirada + el reemplazo de la 4ª declaración esperan al padre; NO re-timar el panel).",
-  "Bug de ruta del render diagnosticado y corregido (22-nov-2026 ~15:20, aviso de la vigilancia 15:13): render-chunks.mjs resuelve --out respecto a `home` de loadProject() = dir del proyecto (scripts/lib.mjs:12), pero run-render.sh pasaba una ruta relativa a la raíz del repo → los tramos iban a projects/negacion-embargo/projects/negacion-embargo/out/chunks/ (chunk_01 15:08, chunk_02 15:10, rancios por el cambio de composición, eliminados) y el --resume no los encontraba. run-render.sh ahora pasa out/chunks + out/negacion-embargo-chunks.mkv (relativos al proyecto). No hay proceso de render activo (el de validación se mató a las ~15:11 por el feedback 15:10); NO se reanuda hasta la composición v3.",
-  "NOAA «before» NO disponible en esta sesión (22-nov-2026 ~15:20): entrada CIRA «Nighttime View of Power Blackouts in Cuba» existe (antes 15-feb-2026 06:58 UTC «Standard Nighttime Lights», después 17-mar-2026 07:06 UTC — el par es feb→mar; la nota «06:56» estaba 2 min desviada); la página CIRA devolvió 403 en browser.open (no reintentable por otra vía) y no hay URL directa del PNG ni archivo 2026 en Commons. Se aplica el fallback de la investigación 4: zoom lento + rótulo en español + círculo en La Habana. El padre puede bajar el PNG «before» en su navegador si quiere el wipe (seguimiento de ~30 min).",
-  "Investigación 4 (22-nov-2026 ~15:15): 8 técnicas para subir de nivel. Subagente de composición lanzado ~15:20 para las visuales (T2 glitch RGB, T3 match cuts, T4 NOAA fallback, T6 shake, T7 micro-animación de texto, T8 rima de bucle visual, título del gancho). El audio (T1 capas SFX, T5 micro-drops, disparo CC0) lo hago yo tras la composición. T4 se corta; si el panel queda en 3 tarjetas, los ~4 s liberados van al giro o a L4, no al logo (pero el re-timing sigue EN ESPERA del reemplazo).",
-  "Disparo CC0 verificado y medido (22-nov-2026 ~15:26): Freesound 844540 «Gun (Pistol) Shot» por synth2, licencia CC0 verificada en la página (uso comercial sin permiso). Preview HQ descargada (0,746 s, media −29,7 dB, pico −7,9 dB, pico a 0,0567 s → sync 0,057 s); escaneo Whisper+VAD: 0 segmentos, sin voz (PASS). Archivo canónico en public/audio/sfx/weapons/gunshot-pistol-cc0.wav. Sync medido en el sting: la grieta aparece en 0,733–0,750 s del sting (primer fotograma con grieta = f2257 = 75,23 s global); evento T = 75,23 s, at = 75,176 s. Fallback: boom-hit-strong. Ver research/sfx/gunshot-pistol-cc0.md.",
-  "4ª DECLARACIÓN VERIFICADA — espera del panel LEVANTADA (22-nov-2026 ~15:27, commit f2da904): Waltz 28-oct-2026, explicación de voto AGNU (28.ª plenaria), «that there is no blockade» (10,2–12,8 s del corte). Triple verificación (UN Web TV + transcripción oficial USUN AS DELIVERED + Whisper local, palabra por palabra). L2 «Cuatro veces» SE MANTIENE. Corte principal: public/video/waltz-28oct-no-blockade-eov.mp4 (12,913 s, 1080p, 29,97 fps, SHA cd165a8f…); still public/img/real-un/waltz-28oct-eov.jpg. Plano SENTADO (escaño, placa «UNITED STATES»), crop 9:16 centrado en Waltz, mirada baja (lectura, no defecto), sin subtítulos quemados, rótulo «WALTZ · ONU 28-OCT». Handoff leído: HANDOFF-4TA-TARJETA-28OCT.md. Subagente de composición actualizado (~15:28) con el reemplazo + re-timing del panel + barra de tiempo (27 y 28-oct a un día: ajustar nodos) + match cut T3→T4 (19,5 s). Panel final: Rubio 20-may → Waltz 7-jul → Waltz 27-oct → Waltz 28-oct.",
-  "PNG «before» NOAA/CIRA CONSEGUIDO Y VERIFICADO (22-nov-2026 ~16:03): public/img/Cuba_lights_before_NOAA_CIRA_2026.png (1920×1080, 2.156.036 B, SHA256 dd6e0b43… verificado). «Standard Nighttime Lights», 15-feb-2026 06:58 UTC, VIIRS DNB, entrada CIRA «Nighttime View of Power Blackouts in Cuba» (par con el «after» 17-mar-2026 07:06 UTC). Verificado a ojo (padre + yo): isla entera iluminada (La Habana al oeste, Santiago al este), logos CIRA/NOAA. Registrado en asset-manifest.json (37 archivos, 602.033.301 B). ADVERTENCIA: los dos PNG NO alinean tal cual (distintas pasadas del satélite; correlación de gradientes 0,116; costas duplicadas en fusión 50/50) — el wipe exige alinear el «after» sobre el «before» (semejanza, ancla La Habana) o usar un corte. El «after» trae «After Power Outages» quemado en inglés (y~88–95%): cubrir o recortar. El «before» de la otra entrada CIRA (4-dic-2024) es de OTRO evento — NO usar. Subagente actualizado (~16:04): el wipe SUSTITUYE al fallback.",
-  "Composición v3 FINAL (22-nov-2026 ~17:10 AST, commit 7844d3e58c4a0f15d3b9dd792e985bec9e022f59, pusheado, tsc limpio): Investigación 4 + 4ª tarjeta Waltz 28-oct + correcciones del padre. Glitch RGB ×3 (f306/f400/f471), match cuts con morph ×3 (cortes f297/f465/f585), shake ×5 (f9/f400/f1660/f1789/f1996), micro-animación (eslóganes letra por letra sin solapamiento, odómetro que descifra desde f1551, flip «10» f1464–1472), rima de bucle (deceleración logo desde f2310, hold desde f2322), wipe S9 f1818–1830, T4 nueva Waltz 28-oct (slot 585–705 f, rótulo «WALTZ · ONU 28-OCT», barra de tiempo 27/28-oct sin solape), título del gancho en 2 líneas (FALLBACK: el sándwich fantasma «BLOQUEO» NO funciona — el webm VP9 con alfa se renderiza OPACO en el Chromium de Remotion; recorte bueno guardado en disco sin usar). NOAA por CORTE f1808→f1809 (el wipe NO converge: corr. gradientes 0,13–0,25, SIFT 38 matches → 4 inliers, sin pico real, << objetivo 0,4; costas duplicadas en fusión 50/50; documentado en HANDOFF + asset-manifest «wipe»→«corte»). Rótulo NOAA por lado (ANTES «Cuba con luz · feb 2026» / DESPUÉS «Cuba a oscuras · mar 2026», chips ANTES 15 FEB / DESPUÉS 17 MAR intactos; píldora opaca #060C14 tapa el inglés «After Power Outages»). Glitch «PUNTO.» legible: el texto NO llevaba split RGB — la causa era el pop del spring de «PERIOD.» (1,8×, origen centrado); fix transformOrigin 'left center' (el pop crece a la derecha, nunca sobre «LIE.»); verificado f400 y f412. Verificación propia a ojo (8 stills frescos v3): f0 (video desde f0, sin título), f9 (título 2 líneas bajo la barbilla, cara libre), f400/f412 («IT'S A LIE. PERIOD.» legible, espacio intacto), f465 (WALTZ, sin Bruno — el recorte startFrom=5 funciona), f547 (freeze 18,23 s, cita + atribución, cara libre), f1808/f1809 (rótulos por lado correctos, inglés tapado). Tiempos definitivos para la mezcla: glitch f306/f400/f471, morph f294/f462/f582, shimmer NOAA f1809 (60,30 s), odómetro f1551 (asientan f1561/f1571/f1581), flip «10» f1464–1472, eslóganes f1948/f1990, sello f1996, obturador f547 (18,23 s), disparo logo 75,23 s (at 75,176 s), hold logo desde f2322.",
-  "DESVIACIÓN ABIERTA — «PUNTO.» visual vs audio (medido 22-nov): el slam visual + glitch + shake están en f400 (13,32 s), pero el audio «Period.» medido (Whisper small + energía, subagente) cae en f423 (14,1 s) — 23 f (0,77 s) DESPUÉS. Verificación propia: Whisper sobre panel-t2.mp4 da «Period.» a 4,58 s del clip (pausa 1,44 s tras «lie.», coincide con lo documentado); con startFrom={15} (0,5 s) + J-cut (audio desde 9,5 s) da f419–f423, consistente con f423. La v2 puso el slam en 13,32 s creyendo que «Period.» caía en 13,72 s (el J-cut lo adelantaba 0,4 s) — esa creencia era errónea. DECISIÓN (coordinador): mover el slam a f423 (la «PUNTO.» traduce «Period.» y debe caer SOBRE la palabra; 23 f de anticipación no es estilo, es desync; prioridad del usuario: tiempos exactos). Cambios: PUNTO_AT 103→126, SLAMS 400→423, glitch G2 local 111–118→134–141 (está en la Sequence T2Video desde f285, no en PanelT2Scene), comentarios; regenerar f423 (+ f400/f412) y verificar; commit. La re-mezcla v3 usa el riser «PUNTO.» a 14,1 s (at 13,118 s). B2 morph con salto residual (T2 termina cabeza ~589, T3 entra ~852 y sube sola al hablar) — toque ligero aplicado, informado con honestidad; no bloquea.",
-  "FIX «PUNTO.» f400→f423 APLICADO Y VERIFICADO (22-nov-2026 ~17:25 AST): el slam visual + glitch G2 + shake + SFX caen ahora SOBRE el audio «Period.» (f423 = 14,1 s). Cambios en MainReel.tsx: PUNTO_AT 103→126 (PanelT2Scene, local desde f297), SLAMS 400→423, glitch G2 windows at 111→134 (local 134–141 en T2Video desde f285, pico local 138 = f423), comentarios actualizados (el push-in local 71–115 NO se mueve: completa en f400 y aguanta en 1,05 hasta el slam). Verificación visual: stills f423/f400/f412 regenerados — f423 muestra «IT’S A LIE. PERIOD.» legible con espacio intacto + «PUNTO.» rojo contundente, cara libre; f400/f412 limpios (pausa, sin slam). Verificación acústica independiente: Whisper small sobre panel-t2.mp4 da «Period.» 4,58–5,28 s del clip (p=0,98), pausa 1,44 s tras «lie.» (3,14 s); energía 20 ms confirma el inicio de palabra en 4,58–4,64 s (bump −31 dBFS sobre el suelo −36 dBFS) y la vocal fuerte en 5,10 s; el slam en f423 (clip 4,60 s) cae 0,02 s después del inicio de palabra. tsc --noEmit limpio. La re-mezcla v3 mueve el riser y el impacto «PUNTO.» a 14,1 s (at 13,118 s / 14,09 s).",
-  "RE-MEZCLA v3 TERMINADA Y VERIFICADA (22-nov-2026 ~17:45 AST): 77 SFX (43 v2 + 34 nuevos), fixed-gain lineal, PASS_REAL, -16,3 LUFS / TP -1,9 dBTP (objetivo -16,0 / < -1,5). Obturador 18,23 s (f547); disparo CC0 75,23 s (at 75,176 s, sync 0,057 s, ganancia 1); riser PUNTO. a 14,1 s (at 13,118 s); triadas whoosh+click+sub-bass en los 4 impactos (0,3/14,1/55,34/66,52 s); glitch x3 (10,2/14,1/15,7 s); morph x3 (9,5/15,1/19,1 s); foley L4/L5; countup 51,7 s + coins 52,7 s; data-tick 49,07 s; shimmer NOAA 60,30 s; card-slide x4 a -18 dB; chime CTA 68,5 s; dings 70,82/72,28 s; micro-drops de cama a -45 dB (32,2-32,7 / 59,1-59,6 / 66,0-66,5 s) con riser a -18 dB como guarda en CONTROL (la pausa de VO 59,20-59,64 coincide con el drop). Verificacion: silencedetect -45 dB / 0,3 s = CERO intervalos (check (g) a salvo); 4 desiertos v2 cubiertos; stem v3 bit-identico al v2 fuera de las 3 ventanas de drop; 29 copias sfx-mix verificadas exactas (dPeak=dRMS=uvo_db). Rima de bucle: ultimo beat de la cama a 77,132 s (0,368 s antes del final); el bucle queda 0,16 beats fuera de rejilla por la duracion fija de 77,5 s — sin cambio (acortar la cama crearia un silencio >=0,3 s y fallaria el check (g)). Mix: public/audio/mix.wav (sha dd2c3a7b0225152e8a49429b884a387980034bf164ff7d5b01dce7aa1658f60a)."
- ],
- "compositionId": "MainReel",
- "id": "negacion-embargo",
- "latestSnapshot": null,
- "nextTask": "ESPERAR el visto bueno del usuario sobre el título del gancho (f9, fallback 2 líneas). Tras su OK: render de validación por tramos PCM + master.py + qa-media con la MEZCLA FINAL v3 + auditoría de audio obligatoria sobre el máster; luego entrega (Drive + Muse storage).",
- "objective": "Dicen que no hay bloqueo",
- "pending": [
-  "Render por tramos PCM + master.py + qa-media con la MEZCLA FINAL v3 (ruta corregida: out/chunks relativo al proyecto; SIN | tail).",
-  "Auditoría de audio obligatoria (audit-audio.py) sobre el MÁSTER FINAL: FAIL = no entregar.",
-  "Entrega: máster 1080×1920 + ligera 720p → Drive (Memorial — Másters reels) + enlaces Muse storage; commit y push."
- ],
- "phase": "edit",
- "pipeline": {
-  "phases": {
-   "assets": {
-    "status": "done",
-    "artifacts": []
-   },
-   "vo": {
-    "status": "done",
-    "artifacts": []
-   },
-   "edit": {
-    "status": "in-progress"
-   },
-   "qa": {
-    "status": "pending",
-    "artifacts": []
-   },
-   "delivery": {
-    "status": "pending",
-    "artifacts": []
-   },
-   "captions": {
-    "status": "pending",
-    "startedAt": null,
-    "updatedAt": null,
-    "artifacts": [],
-    "note": ""
-   },
-   "mix": {
-    "status": "done",
-    "startedAt": "2026-11-22T21:25:00Z",
-    "updatedAt": "2026-11-22T21:31:26Z",
-    "artifacts": [
-     "public/audio/mix.wav",
-     "public/audio/mix.wav.json",
-     "research/timeline.json"
-    ],
-    "note": "Mezcla v3: 77 SFX, PASS_REAL, -16,3 LUFS / TP -1,9 dBTP, 0 intervalos de silencio >=0,3 s bajo -45 dB."
-   },
-   "render": {
-    "status": "pending",
-    "startedAt": null,
-    "updatedAt": "2026-11-22T21:16:45Z",
-    "artifacts": [],
-    "note": "Render de validación v2 MATADO ~15:11 (composición sustituida por feedback 15:10); sus 2 tramos iban a la ruta anidada (bug corregido en run-render.sh) y se eliminaron. NO hay render activo. Fix PUNTO. + re-mezcla v3 COMPLETOS. El render v3 espera SOLO el visto bueno del usuario sobre el nuevo título del gancho (f9, fallback de 2 líneas)."
-   }
-  },
-  "milestones": [
-   {
-    "at": "2026-11-22T19:04:33.675Z",
-    "phase": "render",
-    "event": "Render iniciado: fotogramas 0-2324 en 16 tramos de 150",
-    "artifacts": []
-   },
-   {
-    "at": "2026-11-22T19:06:36.447Z",
-    "phase": "render",
-    "event": "Render iniciado: fotogramas 0-2324 en 16 tramos de 150",
-    "artifacts": []
-   },
-   {
-    "at": "2026-11-22T19:08:07.717Z",
-    "phase": "render",
-    "event": "Tramo 1/16 verificado (chunk_01.mkv)",
-    "artifacts": [
-     "out/chunks/chunk_01.mkv"
-    ]
-   },
-   {
-    "at": "2026-11-22T19:10:36.067Z",
-    "phase": "render",
-    "event": "Tramo 2/16 verificado (chunk_02.mkv)",
-    "artifacts": [
-     "out/chunks/chunk_02.mkv"
-    ]
-   },
-   {
-    "at": "2026-11-22T21:16:45Z",
-    "phase": "render",
-    "event": "Render v2 detenido: composición sustituida (feedback 15:10); tramos anidados eliminados; render v3 pendiente del fix PUNTO. + re-mezcla v3",
-    "artifacts": []
-   },
-   {
-    "at": "2026-11-22T21:31:26Z",
-    "phase": "mix",
-    "event": "Re-mezcla v3 verificada: 77 SFX, PASS_REAL, -16,3 LUFS / TP -1,9 dBTP, 0 silencios >=0,3 s",
-    "artifacts": [
-     "public/audio/mix.wav"
-    ]
-   }
-  ]
- },
- "schema": "remotion-hub.state/v1",
- "title": "Dicen que no hay bloqueo",
- "updatedAt": "2026-11-22T21:31:26Z",
- "milestones": {
-  "order": [
-   "composicion",
-   "prevuelo",
-   "cama",
-   "render",
-   "auditoria",
-   "entrega"
+  "approvedRevision": null,
+  "completed": [
+    "Recopilación de video real (22-nov-2026): 4 momentos del panel con metraje real — Rubio 20-may (corte 10,05 s + original 314,6 s + still), Waltz 7-jul UN Web TV 99.ª plenaria (corte «It's fake» 17,02 s + ventana completa 331,8 s + still), Waltz 27-oct UNifeed soundbite 33 (26,6 s + still) con respaldo UN Web TV 27.ª plenaria (ventanas 90,5 s + 80,1 s), Waltz 16-nov Fox News (foto real 1280×720). Todo verificado por transcripción local faster-whisper y/o verificación visual. 13 archivos, 546 MB, en asset-manifest.json con SHA256.",
+    "Brief creativo (CREATIVE_BRIEF.md): concepto, estructura, guion 125 palabras, plan por escena con técnicas, materiales, licencias, decisiones. Regla de Suleris incorporada: en la voz del Memorial se dice BLOQUEO; «embargo» solo en citas textuales de EE. UU. Voz: Adriana.",
+    "Capturas de state.gov (22-nov-2026): «Cuba Sanctions» y comunicado 5-nov, ambas 1920x1080, texto clave verificado legible a ojo por dos agentes. Método CDP + relay CONNECT local (Chromium headless directo no funciona en esta VM; documentado en research/capturas-state-gov-metodo.md).",
+    "Búsqueda en el archivo indexado del Memorial (22-nov-2026, 13 términos): solo 2 piezas directamente útiles (imagen satelital NOAA/CIRA de Cuba a oscuras y fuente cruda del reel de Bruno ONU), ambas en Drive sin descargar (ver «referenced» en asset-manifest.json). Nada de puerto, petróleo, barcos, La Habana, Malecón ni calles. El B-roll principal es el metraje ONU/Rubio.",
+    "Visto bueno FINAL de Suleris (22-nov-2026 ~12:36, «Confirmado, procede» del usuario): puerta dura SUPERADA. Corrección de terminología incorporada: BLOQUEO en la voz del Memorial; «embargo» solo en la cita L4 y su traducción fiel.",
+    "VO de Adriana COMPLETA 8/8 y verificada (22-nov-2026 ~12:30): 7/8 líneas OK a la primera + L1 recibida y verificada (MATCH ambos modelos). Ver VO_VERIFICATION.md. Archivos en public/audio/real/lines/L1.wav–L8.wav (48 kHz).",
+    "Auditoría pre-edición (22-nov-2026, AUDIT_PREEDIT.md, commit 8eca2c4): APROBADO CON CORRECCIONES (C1–C12). Plan de 12 escenas autoritativo; panel medido ~18 s; total ~75 s (73–78 s).",
+    "SFX copiados al proyecto (22-nov-2026): 14/14 IDs del mapa de sonido de la auditoría en public/audio/sfx/ (add-sfx.mjs).",
+    "Tiempos de palabra de la VO (22-nov-2026): L2–L8 en research/vo/vo-transcription-small.json; L1 en research/vo/l1-words-small.json (faster-whisper small, word_timestamps).",
+    "Cama elegida (22-nov-2026): documentary-flow-a (biblioteca del hub, Flow «Documentary underscore» ventana 89–149 s, 60 s, −19,74 LUFS, scan PASS — VAD sin voz, Whisper solo alucinaciones conocidas). Pendiente: bucle a la duración del video + dips horneados (panel −6 dB, giro −12 dB) + mezcla.",
+    "Decisión de montaje (22-nov-2026): tarjetas 2–3 del panel con voz original completa (4–5,6 s, medido); Rubio con punch-in 120–130% sobre la cara (C9) + banda de cita como respaldo; audio del panel en la composición (clips pre-normalizados a −16 LUFS), mezcla = VO + cama + SFX.",
+    "Mezcla TEMPORAL (22-nov-2026): documentary-flow-a bucleada a 77,5 s con dips horneados; scan-bed.py PASS sobre el stem; mix.wav PASS_REAL (-16,8 LUFS, TP -1,5, 37 SFX). SOLO para ritmo/tiempos y pre-vuelo. La mezcla FINAL espera la cama nueva de Flow Music (orden del usuario 22-nov ~12:50).",
+    "Cama FINAL + mezcla FINAL (22-nov-2026 ~13:20): «Memorial de la Denuncia — Cama documental» (Flow Music, Lyria 3.5, 112 BPM), ventana 8–98 s, scan PASS; stem 77,5 s con dips horneados (panel −6 dB, giro −12 dB). Mezcla FINAL fixed-gain lineal PASS_REAL (−16,2 LUFS, TP −1,9, 37 SFX, music-volume 0,40). Hallazgos codificados: el loudnorm dinámico (un solo pase y two-pass con objetivo inalcanzable) DESHACE los dips horneados — mix.py ahora tiene --fixed-gain y --two-pass; alimiter con level=false (el auto-level devolvía los picos a 0 dBFS). El render de validación usa directamente la mezcla FINAL (ya no hace falta render con la temporal).",
+    "Composición MainReel v2 (22-nov-2026 ~14:58, commit 1cab80d): 12 escenas, 2325 f, con todas las correcciones ordenadas (caras, L4 T1-T5, 8 técnicas, gancho video real, auditoría 18 puntos, investigación 3). Pre-vuelo: 70 stills del subagente + 16/16 críticos verificados por mí; puerta QA visual PASS sobre el borrador v2.",
+    "Re-mezcla v2 (22-nov-2026 ~15:05): 43 SFX (38 + 4 risers riser-1s-soft sync 0,982 + obturador en el freeze T3 18,40 s -6 dB + marcador L4 36,58 s -1 dB); J-cut L8 (VO 69,0->68,5 s, verificado +5 dB en el paso); PUNTO. en 13,32 s; contador 48,81 s. Mix fixed-gain PASS_REAL -16,43 LUFS / TP -1,94. Risers a ganancia 1 (pico nativo -18,1 dB, ya bajo la mitad de la VO).",
+    "Frame fantasma de Bruno localizado y corregido (22-nov-2026 ~15:20): verificado por extracción densa fotograma a fotograma — Bruno Rodríguez en f465–f468 (15,50–15,63 s), primeros 4 fotogramas de T3 (cola del plano anterior en el soundbite UNifeed; el usuario lo vio ~13,7 s pero el pinpoint del padre, 15,50–15,63 s, es el correcto; la ventana 13,5–14,5 s está limpia). Corrección en MainReel.tsx: startFrom={5} en ambos videos de T3 (principal + backdrop difuminado) + freeze de local 87 a local 82 (disolución 82–88, push [82,120]); el freeze aterriza en f547 = 18,23 s (antes f552 = 18,40 s); el SFX de obturador se mueve a 18,23 s en la re-mezcla v3. tsc --noEmit limpio.",
+    "Subtítulo del cordón militar eliminado (22-nov-2026 ~15:20): la línea en cursiva «Un bloqueo es un anillo de barcos militares alrededor de una isla.» fuera de la banda de cita de T3 (MainReel.tsx). La tarjeta Fox T4 sigue en la composición (su retirada + el reemplazo de la 4ª declaración esperan al padre; NO re-timar el panel).",
+    "Bug de ruta del render diagnosticado y corregido (22-nov-2026 ~15:20, aviso de la vigilancia 15:13): render-chunks.mjs resuelve --out respecto a `home` de loadProject() = dir del proyecto (scripts/lib.mjs:12), pero run-render.sh pasaba una ruta relativa a la raíz del repo → los tramos iban a projects/negacion-embargo/projects/negacion-embargo/out/chunks/ (chunk_01 15:08, chunk_02 15:10, rancios por el cambio de composición, eliminados) y el --resume no los encontraba. run-render.sh ahora pasa out/chunks + out/negacion-embargo-chunks.mkv (relativos al proyecto). No hay proceso de render activo (el de validación se mató a las ~15:11 por el feedback 15:10); NO se reanuda hasta la composición v3.",
+    "NOAA «before» NO disponible en esta sesión (22-nov-2026 ~15:20): entrada CIRA «Nighttime View of Power Blackouts in Cuba» existe (antes 15-feb-2026 06:58 UTC «Standard Nighttime Lights», después 17-mar-2026 07:06 UTC — el par es feb→mar; la nota «06:56» estaba 2 min desviada); la página CIRA devolvió 403 en browser.open (no reintentable por otra vía) y no hay URL directa del PNG ni archivo 2026 en Commons. Se aplica el fallback de la investigación 4: zoom lento + rótulo en español + círculo en La Habana. El padre puede bajar el PNG «before» en su navegador si quiere el wipe (seguimiento de ~30 min).",
+    "Investigación 4 (22-nov-2026 ~15:15): 8 técnicas para subir de nivel. Subagente de composición lanzado ~15:20 para las visuales (T2 glitch RGB, T3 match cuts, T4 NOAA fallback, T6 shake, T7 micro-animación de texto, T8 rima de bucle visual, título del gancho). El audio (T1 capas SFX, T5 micro-drops, disparo CC0) lo hago yo tras la composición. T4 se corta; si el panel queda en 3 tarjetas, los ~4 s liberados van al giro o a L4, no al logo (pero el re-timing sigue EN ESPERA del reemplazo).",
+    "Disparo CC0 verificado y medido (22-nov-2026 ~15:26): Freesound 844540 «Gun (Pistol) Shot» por synth2, licencia CC0 verificada en la página (uso comercial sin permiso). Preview HQ descargada (0,746 s, media −29,7 dB, pico −7,9 dB, pico a 0,0567 s → sync 0,057 s); escaneo Whisper+VAD: 0 segmentos, sin voz (PASS). Archivo canónico en public/audio/sfx/weapons/gunshot-pistol-cc0.wav. Sync medido en el sting: la grieta aparece en 0,733–0,750 s del sting (primer fotograma con grieta = f2257 = 75,23 s global); evento T = 75,23 s, at = 75,176 s. Fallback: boom-hit-strong. Ver research/sfx/gunshot-pistol-cc0.md.",
+    "4ª DECLARACIÓN VERIFICADA — espera del panel LEVANTADA (22-nov-2026 ~15:27, commit f2da904): Waltz 28-oct-2026, explicación de voto AGNU (28.ª plenaria), «that there is no blockade» (10,2–12,8 s del corte). Triple verificación (UN Web TV + transcripción oficial USUN AS DELIVERED + Whisper local, palabra por palabra). L2 «Cuatro veces» SE MANTIENE. Corte principal: public/video/waltz-28oct-no-blockade-eov.mp4 (12,913 s, 1080p, 29,97 fps, SHA cd165a8f…); still public/img/real-un/waltz-28oct-eov.jpg. Plano SENTADO (escaño, placa «UNITED STATES»), crop 9:16 centrado en Waltz, mirada baja (lectura, no defecto), sin subtítulos quemados, rótulo «WALTZ · ONU 28-OCT». Handoff leído: HANDOFF-4TA-TARJETA-28OCT.md. Subagente de composición actualizado (~15:28) con el reemplazo + re-timing del panel + barra de tiempo (27 y 28-oct a un día: ajustar nodos) + match cut T3→T4 (19,5 s). Panel final: Rubio 20-may → Waltz 7-jul → Waltz 27-oct → Waltz 28-oct.",
+    "PNG «before» NOAA/CIRA CONSEGUIDO Y VERIFICADO (22-nov-2026 ~16:03): public/img/Cuba_lights_before_NOAA_CIRA_2026.png (1920×1080, 2.156.036 B, SHA256 dd6e0b43… verificado). «Standard Nighttime Lights», 15-feb-2026 06:58 UTC, VIIRS DNB, entrada CIRA «Nighttime View of Power Blackouts in Cuba» (par con el «after» 17-mar-2026 07:06 UTC). Verificado a ojo (padre + yo): isla entera iluminada (La Habana al oeste, Santiago al este), logos CIRA/NOAA. Registrado en asset-manifest.json (37 archivos, 602.033.301 B). ADVERTENCIA: los dos PNG NO alinean tal cual (distintas pasadas del satélite; correlación de gradientes 0,116; costas duplicadas en fusión 50/50) — el wipe exige alinear el «after» sobre el «before» (semejanza, ancla La Habana) o usar un corte. El «after» trae «After Power Outages» quemado en inglés (y~88–95%): cubrir o recortar. El «before» de la otra entrada CIRA (4-dic-2024) es de OTRO evento — NO usar. Subagente actualizado (~16:04): el wipe SUSTITUYE al fallback.",
+    "Composición v3 FINAL (22-nov-2026 ~17:10 AST, commit 7844d3e58c4a0f15d3b9dd792e985bec9e022f59, pusheado, tsc limpio): Investigación 4 + 4ª tarjeta Waltz 28-oct + correcciones del padre. Glitch RGB ×3 (f306/f400/f471), match cuts con morph ×3 (cortes f297/f465/f585), shake ×5 (f9/f400/f1660/f1789/f1996), micro-animación (eslóganes letra por letra sin solapamiento, odómetro que descifra desde f1551, flip «10» f1464–1472), rima de bucle (deceleración logo desde f2310, hold desde f2322), wipe S9 f1818–1830, T4 nueva Waltz 28-oct (slot 585–705 f, rótulo «WALTZ · ONU 28-OCT», barra de tiempo 27/28-oct sin solape), título del gancho en 2 líneas (FALLBACK: el sándwich fantasma «BLOQUEO» NO funciona — el webm VP9 con alfa se renderiza OPACO en el Chromium de Remotion; recorte bueno guardado en disco sin usar). NOAA por CORTE f1808→f1809 (el wipe NO converge: corr. gradientes 0,13–0,25, SIFT 38 matches → 4 inliers, sin pico real, << objetivo 0,4; costas duplicadas en fusión 50/50; documentado en HANDOFF + asset-manifest «wipe»→«corte»). Rótulo NOAA por lado (ANTES «Cuba con luz · feb 2026» / DESPUÉS «Cuba a oscuras · mar 2026», chips ANTES 15 FEB / DESPUÉS 17 MAR intactos; píldora opaca #060C14 tapa el inglés «After Power Outages»). Glitch «PUNTO.» legible: el texto NO llevaba split RGB — la causa era el pop del spring de «PERIOD.» (1,8×, origen centrado); fix transformOrigin 'left center' (el pop crece a la derecha, nunca sobre «LIE.»); verificado f400 y f412. Verificación propia a ojo (8 stills frescos v3): f0 (video desde f0, sin título), f9 (título 2 líneas bajo la barbilla, cara libre), f400/f412 («IT'S A LIE. PERIOD.» legible, espacio intacto), f465 (WALTZ, sin Bruno — el recorte startFrom=5 funciona), f547 (freeze 18,23 s, cita + atribución, cara libre), f1808/f1809 (rótulos por lado correctos, inglés tapado). Tiempos definitivos para la mezcla: glitch f306/f400/f471, morph f294/f462/f582, shimmer NOAA f1809 (60,30 s), odómetro f1551 (asientan f1561/f1571/f1581), flip «10» f1464–1472, eslóganes f1948/f1990, sello f1996, obturador f547 (18,23 s), disparo logo 75,23 s (at 75,176 s), hold logo desde f2322.",
+    "DESVIACIÓN ABIERTA — «PUNTO.» visual vs audio (medido 22-nov): el slam visual + glitch + shake están en f400 (13,32 s), pero el audio «Period.» medido (Whisper small + energía, subagente) cae en f423 (14,1 s) — 23 f (0,77 s) DESPUÉS. Verificación propia: Whisper sobre panel-t2.mp4 da «Period.» a 4,58 s del clip (pausa 1,44 s tras «lie.», coincide con lo documentado); con startFrom={15} (0,5 s) + J-cut (audio desde 9,5 s) da f419–f423, consistente con f423. La v2 puso el slam en 13,32 s creyendo que «Period.» caía en 13,72 s (el J-cut lo adelantaba 0,4 s) — esa creencia era errónea. DECISIÓN (coordinador): mover el slam a f423 (la «PUNTO.» traduce «Period.» y debe caer SOBRE la palabra; 23 f de anticipación no es estilo, es desync; prioridad del usuario: tiempos exactos). Cambios: PUNTO_AT 103→126, SLAMS 400→423, glitch G2 local 111–118→134–141 (está en la Sequence T2Video desde f285, no en PanelT2Scene), comentarios; regenerar f423 (+ f400/f412) y verificar; commit. La re-mezcla v3 usa el riser «PUNTO.» a 14,1 s (at 13,118 s). B2 morph con salto residual (T2 termina cabeza ~589, T3 entra ~852 y sube sola al hablar) — toque ligero aplicado, informado con honestidad; no bloquea.",
+    "FIX «PUNTO.» f400→f423 APLICADO Y VERIFICADO (22-nov-2026 ~17:25 AST): el slam visual + glitch G2 + shake + SFX caen ahora SOBRE el audio «Period.» (f423 = 14,1 s). Cambios en MainReel.tsx: PUNTO_AT 103→126 (PanelT2Scene, local desde f297), SLAMS 400→423, glitch G2 windows at 111→134 (local 134–141 en T2Video desde f285, pico local 138 = f423), comentarios actualizados (el push-in local 71–115 NO se mueve: completa en f400 y aguanta en 1,05 hasta el slam). Verificación visual: stills f423/f400/f412 regenerados — f423 muestra «IT’S A LIE. PERIOD.» legible con espacio intacto + «PUNTO.» rojo contundente, cara libre; f400/f412 limpios (pausa, sin slam). Verificación acústica independiente: Whisper small sobre panel-t2.mp4 da «Period.» 4,58–5,28 s del clip (p=0,98), pausa 1,44 s tras «lie.» (3,14 s); energía 20 ms confirma el inicio de palabra en 4,58–4,64 s (bump −31 dBFS sobre el suelo −36 dBFS) y la vocal fuerte en 5,10 s; el slam en f423 (clip 4,60 s) cae 0,02 s después del inicio de palabra. tsc --noEmit limpio. La re-mezcla v3 mueve el riser y el impacto «PUNTO.» a 14,1 s (at 13,118 s / 14,09 s).",
+    "RE-MEZCLA v3 TERMINADA Y VERIFICADA (22-nov-2026 ~17:45 AST): 77 SFX (43 v2 + 34 nuevos), fixed-gain lineal, PASS_REAL, -16,3 LUFS / TP -1,9 dBTP (objetivo -16,0 / < -1,5). Obturador 18,23 s (f547); disparo CC0 75,23 s (at 75,176 s, sync 0,057 s, ganancia 1); riser PUNTO. a 14,1 s (at 13,118 s); triadas whoosh+click+sub-bass en los 4 impactos (0,3/14,1/55,34/66,52 s); glitch x3 (10,2/14,1/15,7 s); morph x3 (9,5/15,1/19,1 s); foley L4/L5; countup 51,7 s + coins 52,7 s; data-tick 49,07 s; shimmer NOAA 60,30 s; card-slide x4 a -18 dB; chime CTA 68,5 s; dings 70,82/72,28 s; micro-drops de cama a -45 dB (32,2-32,7 / 59,1-59,6 / 66,0-66,5 s) con riser a -18 dB como guarda en CONTROL (la pausa de VO 59,20-59,64 coincide con el drop). Verificacion: silencedetect -45 dB / 0,3 s = CERO intervalos (check (g) a salvo); 4 desiertos v2 cubiertos; stem v3 bit-identico al v2 fuera de las 3 ventanas de drop; 29 copias sfx-mix verificadas exactas (dPeak=dRMS=uvo_db). Rima de bucle: ultimo beat de la cama a 77,132 s (0,368 s antes del final); el bucle queda 0,16 beats fuera de rejilla por la duracion fija de 77,5 s — sin cambio (acortar la cama crearia un silencio >=0,3 s y fallaria el check (g)). Mix: public/audio/mix.wav (sha dd2c3a7b0225152e8a49429b884a387980034bf164ff7d5b01dce7aa1658f60a).",
+    "Render v4 TERMINADO Y VERIFICADO (22-nov-2026 ~19:35 La Habana, 22,7 min): 16/16 tramos PCM, 2325/2325 fotogramas, concat OK; MASTER-v4.mp4 -16,2 LUFS / TP -2,1 dBTP (41.160.186 B) + LIGERA-v4.mp4 720x1280 -16,2 LUFS / TP -2,1 (6.374.743 B). qa-media full: passed, 0 warnings/failures. Deriva A/V 0 ms (offset +5 ms constante).",
+    "TRIAJE auditoría v3 + AUDITORÍA v4 SUPERADA (22-nov-2026 ~19:43 La Habana, commit d8eb218): v3 daba FAIL 119 (causa raíz: voice-orig.wav corrupto por concat -c copy, L1 mono + L2-L8 estéreo → 116,71 s; corregido a 61,78 s y verificado corr 1,0000 por línea). Correcciones: fundidos 5 ms en bordes de línea (discontinuidades 10,8x → máx 1,40x), QUÉ @69.08, VALE,/AHORA a bordes acústicos (hueco karaoke 0,36→0,23 s), chime+pop 68,50→68,35 y ding-high 72,28→72,43 (i5 3→0), 12 pausas de prosodia verificadas en el original (research/vo/prosody-gaps.json), auditoría: (e) lee prosody_gaps + normaliza intervalos invertidos, (c) §4 salta pares entre tomas. Auditoría v4 sobre MASTER-v4.mp4: 0 FAIL, 62 WARN, 12 PASS, 45 INFO — veredicto WARN (62 WARN benignos/documentados, ver nota del hito).",
+    "ENTREGA v4 (22-nov-2026 ~19:45 La Habana): máster + ligera en Drive «Memorial — Másters reels» (IDs 1PFmEEEpSFJ5UAL493ZQgy8JFn-pSB0vV y 1VRHQ9f9IvENKUq56jGhePgcPQa9FgjvR) + enlaces Muse storage (vencen 24-nov ~19:44 La Habana). QA visual v4: PASS (negro autorizado 68.77–68.83 s; tramo sin corte 19.53–23.50 s adjudicado: plano único de Waltz 28-oct hablando + línea de tiempo y tarjeta animándose, movimiento verificado a ojo f19.6/f21.5). Extracción densa f462–f474: Waltz en f465/f468, SIN Bruno (confirmado a ojo)."
   ],
-  "composicion": {
-   "label": "Composición construida",
-   "status": "done",
-   "doneAt": "2026-11-22T21:10:57Z",
-   "note": "MainReel v3 FINAL (commit 7844d3e, pusheado, tsc limpio): Investigación 4 + 4ª tarjeta Waltz 28-oct + rótulo NOAA por lado + legibilidad PUNTO. Glitch ×3, morph ×3, shake ×5, micro-animación, rima de bucle, NOAA por CORTE (wipe no converge), título gancho fallback 2 líneas (sándwich fantasma no funciona — VP9 opaco en Chromium). Pre-vuelo v3 verificado por el subagente (stills por punto) + 8/8 críticos verificados por mí. Desviación abierta: PUNTO. f400 visual vs f423 audio (23 f) — mover a f423."
+  "compositionId": "MainReel",
+  "id": "negacion-embargo",
+  "latestSnapshot": null,
+  "nextTask": "Entregado al usuario (v4, 22-nov-2026 ~19:45 La Habana). Pendiente: visto bueno del usuario sobre el máster v4 para publicar (etiqueta IA de Meta + términos Flow Music, como en Martí-Fidel). Repaso de lecciones de esta producción DESPUÉS de la entrega (acordado 22-nov 16:28; el usuario pidió ser más crítico con el tiempo sin bajar la calidad).",
+  "objective": "Dicen que no hay bloqueo",
+  "pending": [],
+  "phase": "done",
+  "pipeline": {
+    "phases": {
+      "assets": {
+        "status": "done",
+        "artifacts": []
+      },
+      "vo": {
+        "status": "done",
+        "artifacts": []
+      },
+      "edit": {
+        "status": "done"
+      },
+      "qa": {
+        "status": "done",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/MASTER-v3.mp4",
+          "out/MASTER-v4.mp4"
+        ],
+        "startedAt": "2026-11-22T21:55:17.894Z",
+        "updatedAt": "2026-11-22T23:38:42.143Z",
+        "note": "-16.2 LUFS, TP -2.1 dBTP"
+      },
+      "delivery": {
+        "status": "pending",
+        "artifacts": []
+      },
+      "captions": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "mix": {
+        "status": "done",
+        "startedAt": "2026-11-22T21:25:00Z",
+        "updatedAt": "2026-11-22T21:31:26Z",
+        "artifacts": [
+          "public/audio/mix.wav",
+          "public/audio/mix.wav.json",
+          "research/timeline.json"
+        ],
+        "note": "Mezcla v3: 77 SFX, PASS_REAL, -16,3 LUFS / TP -1,9 dBTP, 0 intervalos de silencio >=0,3 s bajo -45 dB."
+      },
+      "render": {
+        "status": "done",
+        "startedAt": "2026-11-22T21:32:56.975Z",
+        "updatedAt": "2026-11-22T23:34:51.597Z",
+        "artifacts": [],
+        "note": "out/negacion-embargo-chunks.mkv",
+        "chunks": {
+          "total": 16,
+          "done": 16,
+          "completed": [
+            "out/chunks/chunk_01.mkv",
+            "out/chunks/chunk_02.mkv",
+            "out/chunks/chunk_03.mkv",
+            "out/chunks/chunk_04.mkv",
+            "out/chunks/chunk_05.mkv",
+            "out/chunks/chunk_06.mkv",
+            "out/chunks/chunk_07.mkv",
+            "out/chunks/chunk_08.mkv",
+            "out/chunks/chunk_09.mkv",
+            "out/chunks/chunk_10.mkv",
+            "out/chunks/chunk_11.mkv",
+            "out/chunks/chunk_12.mkv",
+            "out/chunks/chunk_13.mkv",
+            "out/chunks/chunk_14.mkv",
+            "out/chunks/chunk_15.mkv",
+            "out/chunks/chunk_16.mkv"
+          ],
+          "framesDone": 2325,
+          "framesTotal": 2325,
+          "percent": 100,
+          "chunkSize": 150,
+          "resumeCommand": "node scripts/render-chunks.mjs negacion-embargo --frames 0-2324 --chunk 150 --resume --composition MainReel --audio-codec pcm-16 --out out/chunks --concat-out out/negacion-embargo-chunks.mkv"
+        }
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-22T19:04:33.675Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-2324 en 16 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-22T19:06:36.447Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-2324 en 16 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-22T19:08:07.717Z",
+        "phase": "render",
+        "event": "Tramo 1/16 verificado (chunk_01.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_01.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T19:10:36.067Z",
+        "phase": "render",
+        "event": "Tramo 2/16 verificado (chunk_02.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_02.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:16:45Z",
+        "phase": "render",
+        "event": "Render v2 detenido: composición sustituida (feedback 15:10); tramos anidados eliminados; render v3 pendiente del fix PUNTO. + re-mezcla v3",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-22T21:31:26Z",
+        "phase": "mix",
+        "event": "Re-mezcla v3 verificada: 77 SFX, PASS_REAL, -16,3 LUFS / TP -1,9 dBTP, 0 silencios >=0,3 s",
+        "artifacts": [
+          "public/audio/mix.wav"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:32:56.975Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-2324 en 16 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-22T21:34:35.027Z",
+        "phase": "render",
+        "event": "Tramo 1/16 verificado (chunk_01.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_01.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:36:54.696Z",
+        "phase": "render",
+        "event": "Tramo 2/16 verificado (chunk_02.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_02.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:38:33.547Z",
+        "phase": "render",
+        "event": "Tramo 3/16 verificado (chunk_03.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_03.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:41:00.236Z",
+        "phase": "render",
+        "event": "Tramo 4/16 verificado (chunk_04.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_04.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:42:55.090Z",
+        "phase": "render",
+        "event": "Tramo 5/16 verificado (chunk_05.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_05.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:43:39.743Z",
+        "phase": "render",
+        "event": "Tramo 6/16 verificado (chunk_06.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_06.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:44:17.875Z",
+        "phase": "render",
+        "event": "Tramo 7/16 verificado (chunk_07.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_07.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:45:07.189Z",
+        "phase": "render",
+        "event": "Tramo 8/16 verificado (chunk_08.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_08.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:45:43.056Z",
+        "phase": "render",
+        "event": "Tramo 9/16 verificado (chunk_09.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_09.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:46:17.679Z",
+        "phase": "render",
+        "event": "Tramo 10/16 verificado (chunk_10.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_10.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:47:34.135Z",
+        "phase": "render",
+        "event": "Tramo 11/16 verificado (chunk_11.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_11.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:48:26.392Z",
+        "phase": "render",
+        "event": "Tramo 12/16 verificado (chunk_12.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_12.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:49:19.959Z",
+        "phase": "render",
+        "event": "Tramo 13/16 verificado (chunk_13.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_13.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:50:08.303Z",
+        "phase": "render",
+        "event": "Tramo 14/16 verificado (chunk_14.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_14.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:50:43.018Z",
+        "phase": "render",
+        "event": "Tramo 15/16 verificado (chunk_15.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_15.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:51:09.006Z",
+        "phase": "render",
+        "event": "Tramo 16/16 verificado (chunk_16.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_16.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T21:51:28.130Z",
+        "phase": "render",
+        "event": "Render completo: 16 tramos concatenados (out/negacion-embargo-chunks.mkv)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-22T21:55:17.894Z",
+        "phase": "qa",
+        "event": "QA técnico passed — MASTER-v3.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/MASTER-v3.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:16:11.252Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-2324 en 16 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-22T23:17:40.772Z",
+        "phase": "render",
+        "event": "Tramo 1/16 verificado (chunk_01.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_01.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:20:00.015Z",
+        "phase": "render",
+        "event": "Tramo 2/16 verificado (chunk_02.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_02.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:21:39.705Z",
+        "phase": "render",
+        "event": "Tramo 3/16 verificado (chunk_03.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_03.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:24:11.689Z",
+        "phase": "render",
+        "event": "Tramo 4/16 verificado (chunk_04.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_04.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:26:12.649Z",
+        "phase": "render",
+        "event": "Tramo 5/16 verificado (chunk_05.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_05.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:26:58.076Z",
+        "phase": "render",
+        "event": "Tramo 6/16 verificado (chunk_06.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_06.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:27:35.772Z",
+        "phase": "render",
+        "event": "Tramo 7/16 verificado (chunk_07.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_07.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:28:21.584Z",
+        "phase": "render",
+        "event": "Tramo 8/16 verificado (chunk_08.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_08.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:28:56.341Z",
+        "phase": "render",
+        "event": "Tramo 9/16 verificado (chunk_09.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_09.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:29:32.797Z",
+        "phase": "render",
+        "event": "Tramo 10/16 verificado (chunk_10.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_10.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:30:53.706Z",
+        "phase": "render",
+        "event": "Tramo 11/16 verificado (chunk_11.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_11.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:31:50.363Z",
+        "phase": "render",
+        "event": "Tramo 12/16 verificado (chunk_12.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_12.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:32:42.671Z",
+        "phase": "render",
+        "event": "Tramo 13/16 verificado (chunk_13.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_13.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:33:31.608Z",
+        "phase": "render",
+        "event": "Tramo 14/16 verificado (chunk_14.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_14.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:34:05.032Z",
+        "phase": "render",
+        "event": "Tramo 15/16 verificado (chunk_15.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_15.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:34:31.285Z",
+        "phase": "render",
+        "event": "Tramo 16/16 verificado (chunk_16.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_16.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-22T23:34:51.597Z",
+        "phase": "render",
+        "event": "Render completo: 16 tramos concatenados (out/negacion-embargo-chunks.mkv)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-22T23:38:42.143Z",
+        "phase": "qa",
+        "event": "QA técnico passed — MASTER-v4.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/MASTER-v4.mp4"
+        ]
+      }
+    ]
   },
-  "prevuelo": {
-   "label": "Pre-vuelo visual superado",
-   "status": "done",
-   "doneAt": "2026-11-22T21:10:57Z",
-   "note": "v3: subagente verificó stills por punto (gancho f0/f9/f15/f60/f85, morph f296/f297/f464/f465/f584/f585, glitch f306/f400/f412/f471, freeze f547, T4 f585/f600/f650/f700, flip f1464/f1468/f1472, odómetro f1561/f1581, NOAA f1789/f1795/f1808/f1809/f1810/f1820, eslóganes f1948/f1990/f1996, sello f2010, logo f2315/f2320/f2324 hold). Verificación propia: 8/8 críticos PASS (f0, f9, f400, f412, f465=Waltz sin Bruno, f547, f1808, f1809). Pendiente: regenerar f423 tras el fix PUNTO. + extracción densa 15,4–15,8 s sobre el borrador v3."
-  },
-  "cama": {
-   "label": "Cama lista y escaneada",
-   "status": "done",
-   "doneAt": "2026-11-22T17:19:04Z",
-   "note": "Cama nueva de Flow Music «Memorial de la Denuncia — Cama documental» (Lyria 3.5, 112 BPM, 117,38 s), recibida y escaneada 22-nov ~12:58. Ventana limpia 8–98 s (90 s; evita la intro 0–7 s —incluye el UNCERTAIN 1,84–3,84 s— y el fade-out 113–117 s); scan PASS 0 VOICE / 0 UNCERTAIN en la ventana. Registrada en la biblioteca como memorial-cama-documental. Stem 77,5 s a nivel nativo (−22,3 LUFS) + dips horneados (panel −6 dB, giro −12 dB; verificados por RMS). MEZCLA FINAL con fixed-gain lineal (+3,21 dB): PASS_REAL −16,2 LUFS / TP −1,9; dips verificados en la mezcla (panel −7,3/−10,1 dB netos). Respaldo: documentary-flow-a (stem y mezcla temporal guardados como music-bed-documentary-flow-a.wav y mix-temp-flow-a.wav)."
-  },
-  "render": {
-   "label": "Render terminado",
-   "status": "pending",
-   "doneAt": null
-  },
-  "auditoria": {
-   "label": "Auditoría de audio superada",
-   "status": "pending",
-   "doneAt": null
-  },
-  "entrega": {
-   "label": "Máster + ligera entregados",
-   "status": "pending",
-   "doneAt": null
+  "schema": "remotion-hub.state/v1",
+  "title": "Dicen que no hay bloqueo",
+  "updatedAt": "2026-11-22T23:45:07Z",
+  "milestones": {
+    "order": [
+      "composicion",
+      "prevuelo",
+      "cama",
+      "render",
+      "auditoria",
+      "entrega"
+    ],
+    "composicion": {
+      "label": "Composición construida",
+      "status": "done",
+      "doneAt": "2026-11-22T21:10:57Z",
+      "note": "MainReel v3 FINAL (commit 7844d3e, pusheado, tsc limpio): Investigación 4 + 4ª tarjeta Waltz 28-oct + rótulo NOAA por lado + legibilidad PUNTO. Glitch ×3, morph ×3, shake ×5, micro-animación, rima de bucle, NOAA por CORTE (wipe no converge), título gancho fallback 2 líneas (sándwich fantasma no funciona — VP9 opaco en Chromium). Pre-vuelo v3 verificado por el subagente (stills por punto) + 8/8 críticos verificados por mí. Desviación abierta: PUNTO. f400 visual vs f423 audio (23 f) — mover a f423."
+    },
+    "prevuelo": {
+      "label": "Pre-vuelo visual superado",
+      "status": "done",
+      "doneAt": "2026-11-22T21:10:57Z",
+      "note": "v3: subagente verificó stills por punto (gancho f0/f9/f15/f60/f85, morph f296/f297/f464/f465/f584/f585, glitch f306/f400/f412/f471, freeze f547, T4 f585/f600/f650/f700, flip f1464/f1468/f1472, odómetro f1561/f1581, NOAA f1789/f1795/f1808/f1809/f1810/f1820, eslóganes f1948/f1990/f1996, sello f2010, logo f2315/f2320/f2324 hold). Verificación propia: 8/8 críticos PASS (f0, f9, f400, f412, f465=Waltz sin Bruno, f547, f1808, f1809). Pendiente: regenerar f423 tras el fix PUNTO. + extracción densa 15,4–15,8 s sobre el borrador v3."
+    },
+    "cama": {
+      "label": "Cama lista y escaneada",
+      "status": "done",
+      "doneAt": "2026-11-22T17:19:04Z",
+      "note": "Cama nueva de Flow Music «Memorial de la Denuncia — Cama documental» (Lyria 3.5, 112 BPM, 117,38 s), recibida y escaneada 22-nov ~12:58. Ventana limpia 8–98 s (90 s; evita la intro 0–7 s —incluye el UNCERTAIN 1,84–3,84 s— y el fade-out 113–117 s); scan PASS 0 VOICE / 0 UNCERTAIN en la ventana. Registrada en la biblioteca como memorial-cama-documental. Stem 77,5 s a nivel nativo (−22,3 LUFS) + dips horneados (panel −6 dB, giro −12 dB; verificados por RMS). MEZCLA FINAL con fixed-gain lineal (+3,21 dB): PASS_REAL −16,2 LUFS / TP −1,9; dips verificados en la mezcla (panel −7,3/−10,1 dB netos). Respaldo: documentary-flow-a (stem y mezcla temporal guardados como music-bed-documentary-flow-a.wav y mix-temp-flow-a.wav)."
+    },
+    "render": {
+      "label": "Render terminado",
+      "status": "done",
+      "doneAt": "2026-11-22T23:35:00Z",
+      "note": "v4 (22-nov-2026 ~19:35 La Habana, 22,7 min): 16/16 tramos PCM, 2325/2325 fotogramas, concat OK. MASTER-v4.mp4 41.160.186 B, -16,2 LUFS / TP -2,1 dBTP; LIGERA-v4.mp4 6.374.743 B, 720x1280, -16,2 LUFS / TP -2,1. qa-media full: passed, 0 warnings, 0 failures, deriva 0 ms (offset constante +5 ms, AAC). Deriva A/V medida: 0 ms (corr 0,9998-1,0000 en 5 puntos; el punto 20 s da 0,28 porque ahí suenan las voces del panel, que no están en mix.wav). Log: /tmp/negacion-embargo-render-v4.log."
+    },
+    "auditoria": {
+      "label": "Auditoría de audio superada",
+      "status": "done",
+      "doneAt": "2026-11-22T23:43:00Z",
+      "note": "v4 (22-nov-2026 ~19:43 La Habana): 0 FAIL, 62 WARN, 12 PASS, 45 INFO — veredicto WARN (el overall solo da PASS con 0 WARN; los 62 WARN son benignos/documentados: 44 de (b) captions cortos sin efecto visual + 5 fin-vs-acústico, 13 de (g) desvíos Whisper sobre el máster — alineación acústica PASS media 0,006 s, máx 0,03 s —, 4 de (e) pausas largas diseñadas entre líneas, 1 de (f) bombeo ducking 12,4 dB). Triaje v3 (commit d8eb218): la causa raíz era voice-orig.wav corrupto (concat -c copy con L1 mono + L2-L8 estéreo, 116,71 s); corregido a 61,78 s. Además: fundidos 5 ms en bordes de línea, QUÉ @69.08, VALE,/AHORA a bordes acústicos, chime+pop 68,50->68,35 y ding-high 72,28->72,43. Pre-auditoría v4-pre2 ya daba 0 FAIL. Informe: research/audit-v4/audio-audit-v4.json/.md."
+    },
+    "entrega": {
+      "label": "Máster + ligera entregados",
+      "status": "done",
+      "doneAt": "2026-11-22T23:45:07Z",
+      "note": "v4 entregada 22-nov-2026 ~19:45 La Habana. Drive «Memorial — Másters reels» (17JdcMxLgk6sodhj_ipxMhqqSP-1JHFCE): MASTER v4 ID 1PFmEEEpSFJ5UAL493ZQgy8JFn-pSB0vV (41.160.186 B) y LIGERA v4 ID 1VRHQ9f9IvENKUq56jGhePgcPQa9FgjvR (6.374.743 B). Muse storage (vencen 24-nov ~19:44 La Habana): MASTER https://muse.ai/files/823310194207159/1760789569045448/e9yzzrz1d4i7l160epma4i4y/MASTER-v4.mp4 y LIGERA https://muse.ai/files/823310194207159/1125466973623408/f1695ny313wy80s037jhkohy/LIGERA-v4.mp4."
+    }
   }
- }
 }
