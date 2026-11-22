@@ -1,0 +1,42 @@
+{
+  "approvedRevision": null,
+  "completed": [
+    "Recopilación de video real (22-nov-2026): 4 momentos del panel con metraje real — Rubio 20-may (corte 10,05 s + original 314,6 s + still), Waltz 7-jul UN Web TV 99.ª plenaria (corte «It's fake» 17,02 s + ventana completa 331,8 s + still), Waltz 27-oct UNifeed soundbite 33 (26,6 s + still) con respaldo UN Web TV 27.ª plenaria (ventanas 90,5 s + 80,1 s), Waltz 16-nov Fox News (foto real 1280×720). Todo verificado por transcripción local faster-whisper y/o verificación visual. 13 archivos, 546 MB, en asset-manifest.json con SHA256.",
+    "Brief creativo (CREATIVE_BRIEF.md): concepto, estructura, guion 125 palabras, plan por escena con técnicas, materiales, licencias, decisiones. Regla de Suleris incorporada: en la voz del Memorial se dice BLOQUEO; «embargo» solo en citas textuales de EE. UU. Voz: Adriana.",
+    "Capturas de state.gov (22-nov-2026): «Cuba Sanctions» y comunicado 5-nov, ambas 1920x1080, texto clave verificado legible a ojo por dos agentes. Método CDP + relay CONNECT local (Chromium headless directo no funciona en esta VM; documentado en research/capturas-state-gov-metodo.md).",
+    "Búsqueda en el archivo indexado del Memorial (22-nov-2026, 13 términos): solo 2 piezas directamente útiles (imagen satelital NOAA/CIRA de Cuba a oscuras y fuente cruda del reel de Bruno ONU), ambas en Drive sin descargar (ver «referenced» en asset-manifest.json). Nada de puerto, petróleo, barcos, La Habana, Malecón ni calles. El B-roll principal es el metraje ONU/Rubio."
+  ],
+  "compositionId": "MainReel",
+  "id": "negacion-embargo",
+  "latestSnapshot": null,
+  "nextTask": "Esperar el visto bueno FINAL de Suleris (puerta dura). Al aprobar: Adriana graba la VO definitiva, elegir y escanear cama Flow Music (scan-bed.py), luego editar. Recopilación de materiales COMPLETA (15 archivos locales + 4 referenciados en Drive).",
+  "objective": "Dicen que no hay bloqueo",
+  "pending": [
+    "Visto bueno FINAL de Suleris sobre el texto corregido (puerta dura — NO editar ni renderizar ni grabar VO definitiva hasta entonces).",
+    "VO: Adriana graba la definitiva (guion entregado 22-nov; sin audio de referencia por decisión del usuario).",
+    "Cama Flow Music: elegir ventana limpia y escanear con scan-bed.py.",
+    "Decisión de montaje: duración de las tarjetas 2-3 del panel (3 s vs 4-5 s con voz original).",
+    "Decisión de montaje: tratamiento de los subtítulos quemados en inglés del video de Rubio."
+  ],
+  "phase": "assets",
+  "pipeline": {
+    "phases": {
+      "assets": {
+        "status": "done"
+      },
+      "edit": {
+        "status": "blocked",
+        "waitingOn": "Visto bueno final de Suleris + capturas state.gov"
+      },
+      "qa": {
+        "status": "pending"
+      },
+      "vo": {
+        "status": "pending"
+      }
+    }
+  },
+  "schema": "remotion-hub.state/v1",
+  "title": "Dicen que no hay bloqueo",
+  "updatedAt": "2026-11-22T16:15:00Z"
+}

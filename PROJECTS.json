@@ -47,6 +47,14 @@
       "approvedRevision": null,
       "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
       "updatedAt": "2026-11-17T21:32:26.430Z"
+    },
+    {
+      "id": "negacion-embargo",
+      "title": "Dicen que no hay bloqueo",
+      "latestSnapshot": null,
+      "approvedRevision": null,
+      "nextTask": "Esperar el visto bueno FINAL de Suleris (puerta dura) y las capturas de state.gov; al aprobar: VO Kokoro, cama Flow Music (scan-bed.py), luego editar",
+      "updatedAt": "2026-11-22T16:00:00Z"
     }
   ]
 }

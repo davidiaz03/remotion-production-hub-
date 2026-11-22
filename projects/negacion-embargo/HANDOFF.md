@@ -1,0 +1,62 @@
+# Handoff — «Dicen que no hay bloqueo» (negacion-embargo)
+
+22-nov-2026. Recopilación de materiales + plan de producción.
+**NO se ha editado ni renderizado nada**: falta el visto bueno FINAL
+de Suleris sobre el texto corregido (puerta dura).
+
+## Dónde está todo
+
+- Brief creativo: `CREATIVE_BRIEF.md` (concepto, guion, plan por escena).
+- Manifiesto: `asset-manifest.json` (13 archivos, 546 MB, con SHA256,
+  fuente, licencia y escena que sirve cada uno).
+- Estrategia aprobada: `preprod/propuestas/2026-11-22/roi-rena-cuba-nunca-a-tenido-embargo/estrategia-video-1.md`
+- Dossier: `preprod/investigacion/negacion-del-embargo/dossier.md`
+
+## Lo conseguido
+
+- **Panel completo con metraje real**: Rubio 20-may (corte 10,05 s),
+  Waltz 7-jul «It's fake» (corte 17,02 s, UN Web TV 99.ª plenaria),
+  Waltz 27-oct «There is no blockade» (UNifeed soundbite 33, 26,6 s),
+  Waltz 16-nov Fox News (foto real). Todo verificado por
+  transcripción local y/o a ojo.
+- **Respaldo y fuentes de edición**: ventanas UN Web TV completas
+  (julio 331,8 s; octubre 90,5 s + 80,1 s — la de 90,5 s incluye la
+  cifra de 876 M con la voz de Waltz, útil para L6), paquetes UNifeed
+  completos, original de Rubio completo.
+- **Documentos reales**: capturas de state.gov «Cuba Sanctions» y
+  comunicado del 5-nov (ambas 1920×1080, texto clave verificado
+  legible a ojo por dos agentes). Método CDP + relay CONNECT local
+  (ver `research/capturas-state-gov-metodo.md`).
+- **Archivo del Memorial buscado** (13 términos): solo 2 piezas
+  útiles, en Drive sin descargar (imagen satelital NOAA/CIRA de
+  Cuba a oscuras; fuente cruda del reel de Bruno ONU) — ver
+  `referenced` en el manifiesto. Nada de puerto/petróleo/barcos/
+  Habana/Malecón.
+
+## Lo que falta
+
+- Visto bueno FINAL de Suleris (puerta dura).
+- Cama Flow Music (elegir ventana limpia + `scan-bed.py`).
+- VO: Adriana graba la definitiva (guion entregado 22-nov; sin
+  audio de referencia por decisión del usuario).
+- Si se usa la imagen satelital de Cuba a oscuras: descargarla de
+  Drive (`Cuba_blackout_NOAA_CIRA_2026.png`) y verificar el crédito
+  NOAA/CIRA.
+
+## Avisos para la edición
+
+1. El video de Rubio lleva **subtítulos quemados en inglés** (sin
+   fotograma limpio): recortar el tercio inferior o cubrir con la
+   banda de la cita.
+2. El corte «It's fake» empieza con una cola «aid.» de ~0,3 s:
+   recortar el inicio; la frase empieza a ~0,3 s.
+3. Las frases de las tarjetas 2–3 con voz original duran 5–6 s:
+   decidir si el panel se estira a 14–16 s o se queda en 3 s por
+   tarjeta con cita completa como texto (ver CREATIVE_BRIEF.md §5).
+4. La foto de Fox News es 1280×720 (no hay mayor resolución en el
+   artículo); verificar su crédito original al publicar.
+5. **Regla de Suleris**: en la voz del Memorial, BLOQUEO, nunca
+   «embargo» («embargo» solo en citas textuales de EE. UU., L4).
+6. Licencias: ONU © (crédito «Imágenes: UN Web TV / Naciones
+   Unidas»); Dept. de Estado = dominio público; Fox News = cita
+   editorial con atribución.

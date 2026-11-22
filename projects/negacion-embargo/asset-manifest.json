@@ -1,0 +1,266 @@
+{
+ "collectedAt": "2026-11-22T16:15:00Z",
+ "collectedBy": "subagente de recopilación (rama work/preprod-2026-11-21)",
+ "files": [
+  {
+   "bytes": 13230199,
+   "durationSec": 26.604,
+   "fps": 29.97,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública. Crédito al publicar: «Imágenes: UN Web TV / Naciones Unidas»",
+   "path": "public/video/waltz-27oct-no-blockade-soundbite33.mp4",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-3 (activo principal)",
+   "sha256": "c62311bf23651a56002051607475e78a8894691f624950f57a9907fd63dcc0cc",
+   "sourceDetail": "UNifeed, paquete 28-oct-2026 (unifeed261028b_H264.mp4), soundbite 33, corte 344,5-371,0 s del paquete; la frase está en 345,75-369,79 s",
+   "sourceUrl": "https://media.un.org/unifeed/en/asset/d367/d3670721",
+   "verifiedBy": "transcripción local faster-whisper del corte: empieza «There is no blockade. A blockade is a ring of military ships around an island. It doesn't exist. It does not exist…»"
+  },
+  {
+   "bytes": 12124926,
+   "durationSec": 17.017,
+   "editNote": "Recortar los primeros ~0,3 s (cola «aid.» de la frase anterior); la frase «There is no ring» empieza a ~0,3 s del corte.",
+   "fps": 29.97,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública. Crédito al publicar: «Imágenes: UN Web TV / Naciones Unidas»",
+   "path": "public/video/waltz-7jul-its-fake.mp4",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-2 (activo principal)",
+   "sha256": "b56d6b1eafc2a7daf1f178d24c3033f66777f94bf9e4d4bff23179dd3c9b4de2",
+   "sourceDetail": "UN Web TV, 99.ª plenaria, 80.º período (VOD Kaltura 1_siptwejj, flavor 1080p 1_4lg0uhrz), corte 1:55:55-1:56:13 (ventana 6720-7050 s, offset 235,55-252,55 s); «It's fake» empieza a 1:56:05",
+   "sourceUrl": "https://webtv.un.org/en/asset/k1q/k1qm4uecqr",
+   "verifiedBy": "transcripción local faster-whisper del corte: «There is no ring of Navy warships… It's fake. It's false. It's a lie. Period.»"
+  },
+  {
+   "bytes": 2313616,
+   "durationSec": 10.051,
+   "editNote": "El video original lleva subtítulos quemados en inglés; no existe fotograma limpio de subtítulos en esa frase. En el montaje: recortar el tercio inferior o cubrirlos con la banda de la cita.",
+   "fps": 23.976,
+   "license": "Dominio público — obra del gobierno de EE. UU. (17 USC §105)",
+   "path": "public/video/rubio-bloqueo-petrolero.mp4",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-1 (activo principal)",
+   "sha256": "1620d3f6d8c1657ac9db577057fb37824534ef72872c5ba7afbc91a4570a0cd5",
+   "sourceDetail": "YouTube, canal U.S. Department of State, «Secretary Rubio Message to the Cuban People on Their Independence Day», subido 2026-05-20; corte 27,96-38,00 s del original (la frase ocupa 28,76-37,58 s)",
+   "sourceUrl": "https://www.youtube.com/watch?v=JFFS7os5CCs",
+   "verifiedBy": "transcripción local faster-whisper small (es), timestamps por palabra: «La razón por la que se ven obligados a sobrevivir 22 horas al día sin electricidad no se debe a un \"bloqueo\" petrolero por parte de Estados Unidos.»"
+  },
+  {
+   "bytes": 165896740,
+   "durationSec": 331.821,
+   "fps": 29.97,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública",
+   "path": "public/video/waltz-7jul-webtv-ventana.mp4",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-2 (fuente de edición) / b-roll de respaldo",
+   "sha256": "e4acbaae08c97fb9803a2f47d94e6b5657bbfeb6d3c77e09f92bac18f0239d7a",
+   "sourceDetail": "UN Web TV, 99.ª plenaria, 80.º período (VOD Kaltura 1_siptwejj), ventana 1:52:00-1:57:30: intervención completa de Waltz (nombres de presos, «so-called blockade», 100 M de ayuda)",
+   "sourceUrl": "https://webtv.un.org/en/asset/k1q/k1qm4uecqr",
+   "verifiedBy": "transcripción local faster-whisper de la ventana completa (transcripts.un.org/en/ga/80/99.txt confirma los timecodes)"
+  },
+  {
+   "bytes": 30292840,
+   "durationSec": 90.547,
+   "fps": 29.97,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública",
+   "path": "public/video/waltz-27oct-webtv-noblockade-ventana.mp4",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-3 (respaldo) / L6 (cifra 876 M con voz de Waltz)",
+   "sha256": "9cc3e080b94a040f92e46653984101411d1c732a9cd8f41cd7c5258722f30f96",
+   "sourceDetail": "UN Web TV, 27.ª plenaria, 81.º período (VOD Kaltura 1_719600n0, flavor 1080p 1_2gnivzfc), ventana 1:16:10-1:17:40",
+   "sourceUrl": "https://webtv.un.org/en/asset/k1o/k1o8px6n3w",
+   "verifiedBy": "transcripción local faster-whisper: «There is no blockade» a 1:16:40; «876 million in goods to Cuba» a 1:16:53-1:17:05"
+  },
+  {
+   "bytes": 28805836,
+   "durationSec": 80.056,
+   "fps": 29.97,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública",
+   "path": "public/video/waltz-27oct-webtv-luxury-ventana.mp4",
+   "resolution": "1920x1080",
+   "scene": "b-roll de respaldo",
+   "sha256": "842b6e7de5591974be10d1861a527cf64e95daa37ec42a98a682625ee6ad1033",
+   "sourceDetail": "UN Web TV, 27.ª plenaria, 81.º período (VOD Kaltura 1_719600n0), ventana 1:05:00-1:06:20",
+   "sourceUrl": "https://webtv.un.org/en/asset/k1o/k1o8px6n3w",
+   "verifiedBy": "transcripción local faster-whisper: línea «this embargo I guess doesn't apply to luxury goods» a ~1:05:54"
+  },
+  {
+   "bytes": 183819904,
+   "durationSec": 374.293,
+   "fps": 29.97,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública",
+   "path": "public/video/unifeed261028b-paquete-completo.mp4",
+   "resolution": "1920x1080",
+   "scene": "fuente (soundbite 33) / b-roll",
+   "sha256": "654376ca7c01126f6e368fc176ec3745c3b49cd1315440d8646797fd2c602026",
+   "sourceDetail": "UNifeed, paquete 28-oct-2026 (unifeed261028b_H264.mp4, S3 downloads.unmultimedia.org), paquete completo; fuente del soundbite 33",
+   "sourceUrl": "https://media.un.org/unifeed/en/asset/d367/d3670721",
+   "verifiedBy": "ffprobe 1920x1080; el extractor genérico de yt-dlp lo etiqueta mal como 360p (la resolución real es 1080p)"
+  },
+  {
+   "bytes": 97043169,
+   "durationSec": 197.269,
+   "fps": 29.97,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública",
+   "path": "public/video/unifeed260707d-paquete-completo.mp4",
+   "resolution": "1920x1080",
+   "scene": "b-roll de respaldo (confrontación Waltz-Bruno, 120-192 s del paquete)",
+   "sha256": "bfabd1e6536d3600b928ca59ae5660a22c6c2925aa0c0900b01ba5666b7f399d",
+   "sourceDetail": "UNifeed, paquete 7-jul-2026 (unifeed260707d_H264.mp4, S3 downloads.unmultimedia.org), paquete completo",
+   "sourceUrl": "https://media.un.org/unifeed/en/asset/d360/d3603231",
+   "verifiedBy": "transcripción local faster-whisper completa: NO contiene «It's fake. It's false. It's a lie. Period.» — contiene el discurso de Bruno (12-97 s) y la confrontación de Waltz (120-192 s: «You can pound away, my friend, this is not Havana…»)"
+  },
+  {
+   "bytes": 37563762,
+   "durationSec": 314.63,
+   "editNote": "El video lleva subtítulos quemados en inglés.",
+   "fps": 23.976,
+   "license": "Dominio público — obra del gobierno de EE. UU. (17 USC §105)",
+   "path": "public/video/rubio-20may-2026-original.mp4",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-1 (fuente de edición)",
+   "sha256": "e16116b8de41e4561adf387be9612ea51d98aad3c73519c1f1fc6183a49ff17a",
+   "sourceDetail": "YouTube, canal U.S. Department of State, «Secretary Rubio Message to the Cuban People on Their Independence Day», subido 2026-05-20; original completo (1080p, formatos 137+140)",
+   "sourceUrl": "https://www.youtube.com/watch?v=JFFS7os5CCs",
+   "verifiedBy": "ffprobe + transcripción local faster-whisper small (es), 79 segmentos con timestamps por palabra (transcript efímero en ~/workspace/.tmp/rubio/transcript.json)"
+  },
+  {
+   "bytes": 136827,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública",
+   "path": "public/img/real-un/waltz-27oct-podium.jpg",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-3 (still)",
+   "sha256": "8770f039d78045dfa034bfbc36e226867d8b63079175c6c2517f7c28e2e5a0bb",
+   "sourceDetail": "UNifeed, paquete 28-oct-2026, fotograma del soundbite 33",
+   "sourceUrl": "https://media.un.org/unifeed/en/asset/d367/d3670721",
+   "verifiedBy": "verificado a ojo: primer plano de Waltz en el podio ONU, mármol verde, emblema ONU, pin de bandera EE. UU."
+  },
+  {
+   "bytes": 290383,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública",
+   "path": "public/img/real-un/waltz-7jul-podium.jpg",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-2 (still)",
+   "sha256": "ef7c3717bbca31cd54b152dd2153c428bc8db8e9056c7da7cec45eb904f78899",
+   "sourceDetail": "UN Web TV, 99.ª plenaria, 80.º período, fotograma del momento «It's fake» (offset 247 s de la ventana)",
+   "sourceUrl": "https://webtv.un.org/en/asset/k1q/k1qm4uecqr",
+   "verifiedBy": "verificado a ojo: Waltz en el podio ONU, mármol verde, emblema ONU, pin de bandera EE. UU., manos abiertas"
+  },
+  {
+   "bytes": 126596,
+   "editNote": "El still incluye los subtítulos quemados en inglés.",
+   "license": "Dominio público — obra del gobierno de EE. UU. (17 USC §105)",
+   "path": "public/img/rubio-20may-still.jpg",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-1 (still)",
+   "sha256": "ff143f2a2d428f840a2ff0a20ab03b5826b0404b01e1af269b81443d9e6d7787",
+   "sourceDetail": "YouTube, canal U.S. Department of State, fotograma a 33,17 s (mitad de la frase)",
+   "sourceUrl": "https://www.youtube.com/watch?v=JFFS7os5CCs",
+   "verifiedBy": "verificado a ojo: Rubio hablando a cámara, bandera de EE. UU. a la izquierda; subtítulos quemados en inglés visibles"
+  },
+  {
+   "bytes": 78768,
+   "editNote": "1280x720 (16:9), no 1080p: suficiente para un reel vertical con recorte; no hay versión de mayor resolución en el artículo.",
+   "license": "© Fox News — material con copyright; uso como cita editorial con atribución («Foto: Fox News»). Verificar el crédito original de la foto al publicar (puede ser foto de la ONU reproducida por Fox).",
+   "path": "public/img/waltz-foxnews-16nov.jpg",
+   "resolution": "1280x720",
+   "scene": "panel-tarjeta-4 (foto de fondo de la tarjeta diseñada)",
+   "sha256": "9b08f3e0b78efb7fa6fcfaf3a48e3c4fab457a45cb0f75840d0eaf401a53a617",
+   "sourceDetail": "Fox News, og:image del artículo «Cuba's people deserve freedom, not another generation of communist misery», publicado 2026-11-16T07:00:03-05:00; URL de la imagen: static.foxnews.com/foxnews.com/content/uploads/2026/07/Mike-Waltz-Cuba-UN.jpg",
+   "sourceUrl": "https://foxnews.com/opinion/cubas-rulers-shout-down-diplomats-cannot-silence-cry-freedom",
+   "verifiedBy": "verificado a ojo: foto real de Waltz en el atril de la ONU (fondo de mármol verde) sosteniendo una foto de dos jóvenes. No es ilustración."
+  },
+  {
+   "path": "public/img/docs/statedept-cuba-sanctions.png",
+   "bytes": 146540,
+   "sha256": "341e7aa2c2849972ab7b0b4305ebeeaa579844548cc990832bfdc3fd0788adec",
+   "resolution": "1920x1080",
+   "sourceUrl": "https://www.state.gov/cuba-sanctions/",
+   "sourceDetail": "Captura de la página «Cuba Sanctions» del Departamento de Estado, primer viewport (1920x1080), 22-nov-2026, vía CDP + relay CONNECT local (ver research/capturas-state-gov-metodo.md)",
+   "license": "Dominio público — obra del gobierno de EE. UU. (17 USC §105)",
+   "scene": "L4 (20-32 s, activo principal)",
+   "verifiedBy": "Verificado a ojo por dos agentes: párrafo completo legible «The United States maintains a comprehensive economic embargo on the Republic of Cuba… which remains in place today», encabezado «Cuba Sanctions» y logo del Departamento de Estado. No hizo falta captura alta."
+  },
+  {
+   "path": "public/img/docs/statedept-5nov-2026.png",
+   "bytes": 245649,
+   "sha256": "6788f4ccb58ea47d74245c804844d4735cdec687702da14efada31b6f40f3e0b",
+   "resolution": "1920x1080",
+   "sourceUrl": "https://www.state.gov/releases/office-of-the-spokesman/2026/11/further-sanctions-on-the-cuban-regimes-foreign-military-support-and-illicit-revenue-networks/",
+   "sourceDetail": "Captura del comunicado del 5-nov-2026, primer viewport (1920x1080), 22-nov-2026, vía CDP + relay CONNECT local; recapturada limpia tras salir la primera con el modal de cookies (ver research/capturas-state-gov-metodo.md)",
+   "license": "Dominio público — obra del gobierno de EE. UU. (17 USC §105)",
+   "scene": "L5 (32-42 s, activo principal)",
+   "verifiedBy": "Verificado a ojo por dos agentes: título «Further Sanctions on the Cuban Regime's Foreign Military Support and Illicit Revenue Networks», «PRESS STATEMENT / MARCO RUBIO, SECRETARY OF STATE / NOVEMBER 5, 2026» y el párrafo de designaciones («I am designating ten targets… a crude oil shipping network… five associated vessels as blocked property») legibles."
+  }
+ ],
+ "formatVersion": 1,
+ "notes": "Los videos no se commitean (gitignore). Este manifiesto es el registro canónico con SHA256. La sección «referenced» lista material del archivo del Memorial que existe en Drive pero NO está descargado localmente (sin SHA); descargar al editar solo si se usa.",
+ "project": "negacion-embargo",
+ "title": "Dicen que no hay bloqueo",
+ "totalBytes": 572115755,
+ "referenced": [
+  {
+   "name": "Cuba_blackout_NOAA_CIRA_2026.png",
+   "type": "foto",
+   "location": "Drive — Carrusel_Ben_Rhodes_Cuba_Memorial/05_FOTOGRAFIAS_CUBA",
+   "status": "en Drive, NO descargado (el archivo indexado la referencia; descargar al editar si se usa)",
+   "scene": "realidad (20-52 s)",
+   "use": "Imagen satelital NOAA/CIRA de Cuba a oscuras. La pieza más útil del archivo para este reel.",
+   "license": "NOAA/CIRA — imagen satelital de agencia federal de EE. UU.; verificar crédito al usar"
+  },
+  {
+   "name": "source-bruno-onu-2026.mp4",
+   "type": "video crudo",
+   "location": "Drive — 01 - Reel Bruno ONU 2026/assets",
+   "status": "en Drive, NO descargado",
+   "scene": "panel (3-15 s) o realidad",
+   "use": "Fuente original del reel de Bruno en la ONU; plano de ONU/Cuba de respaldo.",
+   "license": "Material propio del Memorial"
+  },
+  {
+   "name": "MD_WALTZ_ONU_01-09.png (9 láminas)",
+   "type": "diseños terminados",
+   "location": "Drive — Memorial_Carrusel_Waltz_ONU_2026-10/01_FINAL_PUBLICAR",
+   "status": "en Drive, NO descargado",
+   "scene": "panel (referencia)",
+   "use": "Carrusel ya publicado sobre Waltz en la ONU. Son diseños terminados, no fotos sueltas: referencia o extracción de algún elemento, no B-roll limpio.",
+   "license": "Material propio del Memorial"
+  },
+  {
+   "name": "REEL_ONU_CUBA_V01/V02_1080x1920.mp4",
+   "type": "máster de otro reel",
+   "location": "Drive — PROYECTO_ONU_CUBA_2026_PRE_POST/...",
+   "status": "en Drive, NO descargado",
+   "scene": "referencia",
+   "use": "Másters de otro reel; reutilizar planos implicaría recortar un máster ya editado. Referencia, no B-roll directo.",
+   "license": "Material propio del Memorial"
+  }
+ ],
+ "archiveSearch": {
+  "termsNoResults": [
+   "habana",
+   "asamblea",
+   "puerto",
+   "petroleo",
+   "gasolina",
+   "barco",
+   "buque",
+   "malecon",
+   "bandera",
+   "edificio"
+  ],
+  "termsWithResults": {
+   "cuba": 60,
+   "onu": 89,
+   "calle": 2
+  },
+  "conclusion": "El archivo tiene muy poco B-roll directo para este reel: nada de puerto, petróleo, barcos, La Habana, Malecón ni calles de Cuba. El B-roll principal es el metraje ONU/Rubio ya recopilado.",
+  "doNotPropose": [
+   "Fotos de Miami/Little Havana (12_RECURSOS_MIAMI: Calle Ocho, monumentos de Bahía de Cochinos)",
+   "Material Bosch / embajada de Lima / clips de Bosch (Caso Pilar — Recursos visuales)",
+   "Fotos Ben Rhodes / Hasan Minhaj / Obama–Raúl 2016 (otro carrusel)",
+   "02_ecosistema-onu-bloqueo…mp4 (carpeta «que-evitar», referencia negativa)",
+   "01_viral-reciente-terrorista-onu…mp4 (referencia viral, no material propio)",
+   "Logos y camas de audio del reel Bruno (marca/audio, no B-roll)"
+  ],
+  "pendingFromSuleris": "archive/pendiente-suleris.md (no pedido aún): fotos de archivo histórico del Memorial (ninguna en Drive), testimonios de otras víctimas (video crudo), video crudo del testimonio de Pilar (grabado 8-nov-2026; en Drive solo 3 fotos). Nada de lo pendiente cubre puerto/petróleo/barcos/Habana."
+ }
+}
