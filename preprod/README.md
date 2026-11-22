@@ -59,8 +59,10 @@ preprod/
 ├── FORMATOS.md               ← principios de gancho, 11 formatos, patrones de edición
 ├── RANKING.md                ← criterios de ranking, fórmula, umbral, ajustes del agente
 ├── checklist-suleris.json    ← checklist legible por máquina (V1–V9, E1–E4 + reglas de guion)
+├── trend-channels.json       ← canales de referencia del escaneo de outliers
 ├── research/
-│   └── tendencias-YYYY-MM-DD.md  ← investigación cruda de tendencias (una por escaneo)
+│   ├── tendencias-YYYY-MM-DD.md  ← investigación cruda de tendencias (una por escaneo)
+│   └── outliers-YYYY-MM-DD.md / .json  ← informe semanal de outliers de YouTube
 └── propuestas/
     ├── index.json            ← URLs ya propuestas (dedupe de rank)
     └── YYYY-MM-DD/
@@ -69,7 +71,8 @@ preprod/
         └── <slug>/propuesta.md
 
 scripts/preprod/
-└── propose.py                ← única entrada del módulo (draft, check, rank, daily)
+├── propose.py                ← entrada de propuestas (draft, check, rank, daily)
+└── outliers.py               ← escáner de outliers de YouTube (scan)
 
 tests/preprod/
 ├── preprod.test.mjs          ← suite (node --test)
@@ -89,6 +92,15 @@ separados, porque comparten la construcción del pack, el checklist,
 el ranking y el índice. Una sola entrada documentada es más fácil
 de probar (la garantía de no-edición se verifica sobre un solo
 archivo) y de invocar desde el cron.
+
+**Excepción deliberada — `outliers.py`:** el escáner de outliers es
+una segunda entrada, no un quinto subcomando de `propose.py`,
+porque es lo contrario de `propose.py`: tiene red (API de YouTube)
+y `subprocess` (yt-dlp). Meterlo en `propose.py` rompería la
+garantía que los tests imponen sobre ese archivo (offline,
+determinista, sin `subprocess`). `outliers.py` tiene su propia
+garantía: no menciona edición ni la ejecuta (test estático en
+`tests/preprod/outliers.test.mjs`).
 
 ## Comandos
 
@@ -167,6 +179,56 @@ Opciones comunes: `--out DIR` redirige el directorio de propuestas
 (útil para pruebas); `--digest-dir DIR` y `--news-content DIR`
 redigen las entradas.
 
+### outliers.py scan — escáner de outliers de YouTube (reemplazo gratis de vidIQ)
+
+```bash
+# Escaneo semanal completo (8 canales de preprod/trend-channels.json)
+python3 scripts/preprod/outliers.py scan
+
+# Solo algunos canales, o menos videos por canal
+python3 scripts/preprod/outliers.py scan --only "Memorias de Pez" --only "DW Documental" --max 30
+```
+
+Para cada canal de referencia, compara las vistas de cada video
+con la **mediana del canal** (solo videos de más de 7 días: los
+recientes aún no acumularon vistas) y marca **outlier ≥3x** y
+**breakout ≥10x**. Escribe `preprod/research/outliers-YYYY-MM-DD.md`
+(legible: top 3 global arriba, outliers por canal ordenados por
+multiplicador) y `outliers-YYYY-MM-DD.json` (legible por máquina).
+Los videos recientes (≤7 días) con multiplicador alto van a una
+sección aparte, «Recientes a vigilar», sin clasificar. Matiz: la
+mediana mezcla formatos (Shorts y videos largos), así que un canal
+con muchos Shorts de pocas vistas tendrá una mediana baja y
+multiplicadores altos; el informe muestra la duración de cada video
+para que el agente juzgue.
+
+**Dos backends, selección automática** (`--backend api|ytdlp|auto`,
+defecto `auto`):
+- `api`: YouTube Data API v3, cuando existe `YOUTUBE_API_KEY`.
+  Rápido (~3 unidades por canal: `channels.list` → playlist de
+  uploads → `playlistItems.list` → `videos.list` en lotes de 50).
+  **Nunca usa `search.list`** (su bucket aparte está limitado a
+  100 llamadas/día). Tope por defecto 500 unidades/corrida
+  (`--quota-cap`); el informe registra las unidades gastadas.
+- `ytdlp`: yt-dlp local, sin clave. Más lento (~2-3 min por canal
+  con `--max 50`, extracción completa porque la lista plana no
+  trae fechas fiables) pero sin dependencias de Google.
+
+**Crear la clave gratis de la API de YouTube** (una sola vez, ~5 min):
+1. Proyecto en [Google Cloud Console](https://console.cloud.google.com/)
+   (crear uno nuevo o usar uno existente).
+2. Habilitar la API «YouTube Data API v3» (APIs y servicios →
+   Biblioteca → buscar «YouTube Data API v3» → Habilitar).
+3. Crear credenciales → Clave de API → copiar la clave.
+4. `export YOUTUBE_API_KEY=la-clave` antes de correr el scan (o
+   guardarla en el entorno del cron). La clave **nunca** va en un
+   archivo del repo ni se imprime: el script solo la lee del entorno.
+
+**Nota de cadencia:** las estadísticas son una instantánea semanal:
+la API de YouTube no permite almacenar estadísticas más de 30 días;
+la cadencia semanal (un informe por escaneo, sin acumular
+históricos) lo resuelve.
+
 ## Ranking (resumen; detalle en RANKING.md)
 
 | Criterio | Peso | Qué mide |
@@ -220,7 +282,7 @@ aprobación: la edición empieza SOLO cuando el usuario dice que
 Suleris aprobó, y la aprobación se registra en la sección
 «Aprobación» del pack (estado, fecha, medio, notas).
 
-## Corrida diaria (spec del cron — NO creado)
+## Corrida diaria (cron creado 21-nov-2026)
 
 El cron corre después del radar (07:17) y de la ingesta de
 news-content (07:35), para que el digest y los borradores del día
@@ -246,44 +308,53 @@ procedimiento completo (pasos, cuentas de referencia, criterios de
 revisión) es el de `FORMATOS.md` §6; este es el resumen operativo:
 
 1. **Cuándo:** cada lunes, después de la corrida diaria.
-2. **Fuentes:** los reels de la última semana de las 5 cuentas de
-   referencia (AJ+ Español, Memorias de Pez, La Hiperactina, La
-   Base / Pablo Iglesias, El Orden Mundial y sus podcasts).
-   Anotar los 2–3 con mejor ratio likes/seguidores (o vistas en
-   YouTube) y transcribir su gancho.
-3. **A partir del 2-dic-2026, con vidIQ con créditos:** búsqueda de
-   outliers en español (Instagram + TikTok) para
-   documental/denuncia/historia, con vistas y múltiplos; revisar
-   RT en Español, DW Documental y VisualPolitik (pendientes en
-   `FORMATOS.md` §5); aclarar qué cuenta es «Nota»; re-verificar
-   si la ventaja del gancho corto de Scrptly y los múltiplos de
-   EditorOP se sostienen en la muestra hispana.
-4. **Qué se revisa:** cualquier formato nuevo (nuevo tipo de gancho,
+2. **Primero, el escaneo de outliers:** correr
+   `python3 scripts/preprod/outliers.py scan` (con la clave gratis
+   de la API si existe, si no con yt-dlp) y leer
+   `preprod/research/outliers-YYYY-MM-DD.md`. Los outliers y
+   breakouts de la semana son el material principal del escaneo:
+   ver los 2–3 primeros y transcribir su gancho.
+3. **Fuentes de Instagram:** los reels de la última semana de las 5
+   cuentas de referencia (AJ+ Español, Memorias de Pez, La
+   Hiperactina, La Base / Pablo Iglesias, El Orden Mundial y sus
+   podcasts). Anotar los 2–3 con mejor ratio likes/seguidores y
+   transcribir su gancho. (El escáner local cubre YouTube; para
+   Instagram se usa `instagram-cli`.)
+4. **vidIQ (opcional, a partir del 2-dic-2026 con créditos):**
+   búsqueda de outliers en Instagram + TikTok para
+   documental/denuncia/historia — lo único que el escáner local no
+   cubre. RT en Español, DW Documental y VisualPolitik ya están
+   cubiertos por el escáner local (RT: no disponible en YouTube,
+   ver `trend-channels.json`); queda pendiente aclarar qué cuenta
+   es «Nota» y re-verificar si la ventaja del gancho corto de
+   Scrptly y los múltiplos de EditorOP se sostienen en la muestra
+   hispana.
+5. **Qué se revisa:** cualquier formato nuevo (nuevo tipo de gancho,
    nuevo uso de IA, nuevo patrón de edición) con URL y fecha; si un
    principio de `FORMATOS.md` deja de cumplirse en los ganadores
    (p. ej. el texto en 0–3 s cae por debajo de 2/3 de los casos),
    marcarlo «en revisión» y no borrarlo hasta la siguiente
    confirmación.
-5. **Qué se escribe:** una entrada fechada en `preprod/research/`
+6. **Qué se escribe:** una entrada fechada en `preprod/research/`
    (nuevo archivo `tendencias-YYYY-MM-DD.md` o sección fechada en
    el archivo vigente) + actualización de `FORMATOS.md` solo con lo
    verificado, con nota de versión (fecha del escaneo y qué cambió).
    Regla permanente: nada sin fuente — un ejemplo sin URL y fecha no
    entra; una cifra sin fuente se marca como no verificada y no se
    usa para decidir.
-6. **Dato propio manda:** cada vez que el Memorial publique un reel
+7. **Dato propio manda:** cada vez que el Memorial publique un reel
    con rendimiento excepcional, incorporar el dato propio a
    `FORMATOS.md` (por encima de cualquier estudio externo).
 
-### Spec del cron semanal (NO creado)
+### Spec del cron semanal
 
 ```
 Nombre:   preprod-trends-weekly
 Horario:  lunes, 09:00 America/Puerto_Rico
 Tarea:    escaneo semanal de tendencias según el procedimiento de
-          arriba (trabajo del agente con vidIQ + búsqueda social;
-          no es un comando único): revisar las 5 cuentas de
-          referencia, registrar el escaneo en preprod/research/
+          arriba: primero `outliers.py scan`, luego revisión de
+          Instagram con instagram-cli (y vidIQ solo si tiene
+          créditos); registrar el escaneo en preprod/research/
           y actualizar preprod/FORMATOS.md solo con lo verificado.
 Comportamiento: silencioso si no hay cambios que incorporar;
                 informe corto al usuario solo con lo nuevo.
@@ -301,22 +372,34 @@ fixture, sin contenido inventado), ranking (orden, desglose,
 justificación, URL ya propuesta excluida), garantía de no-edición
 (escaneo estático + ejecución con `--out` en tmpdir) y corrida
 diaria silenciosa (digest bajo umbral → exit 0, sin packs ni
-shortlist).
+shortlist). La suite de outliers (`tests/preprod/outliers.test.mjs`,
+8 tests) cubre la matemática (mediana, multiplicador, umbrales
+3x/10x, exclusión de recientes), la selección de backend, la cuota,
+la generación del informe con un yt-dlp falso (sin red) y la
+garantía de no-edición de `outliers.py`.
 
 ## Estado y pendientes
 
 - **Estado (21-nov-2026):** módulo construido y probado (suite en
-  verde). Rama `work/preprod-2026-11-21`, sin commit. Crons NO
-  creados (specs arriba, pendientes de la orden del usuario).
-- **Pendiente — vidIQ (2-dic-2026):** sin créditos (0 de 150) hasta
-  el 2-dic-2026. La búsqueda de outliers en español, la revisión de
-  RT en Español / DW Documental / VisualPolitik y la aclaración de
-  «Nota» esperan a esa fecha (`FORMATOS.md` §5).
+  verde, 26 tests: 18 de propuestas + 8 de outliers). Rama
+  `work/preprod-2026-11-21`, pusheada. Crons creados: `preprod-daily`
+  07:50 (primera corrida dom 22-nov) y `preprod-trends-weekly` lun
+  09:00 (primera corrida 23-nov).
+- **Escáner de outliers (21-nov-2026):** `scripts/preprod/outliers.py`
+  + `preprod/trend-channels.json` (7 canales de YouTube verificados;
+  RT en Español no disponible en YouTube). Reemplaza a vidIQ como
+  vía principal de búsqueda de outliers; vidIQ queda opcional
+  (Instagram + TikTok) cuando vuelva a tener créditos, el 2-dic-2026.
 - **Pendiente — primera corrida real:** el primer `daily` con el
   digest del 22-nov validará el ranking contra noticias frescas y
   calibrará el umbral de 30 si hace falta (si la shortlist sale
   sistemáticamente vacía o sistemáticamente llena, el umbral se
   revisa con el usuario, no en silencio).
-- **Pendiente — aprobación del usuario:** los crons (`preprod-daily`
-  07:50 y `preprod-trends-weekly` lunes 09:00) solo se crean cuando
-  el usuario lo ordene.
+- **Pendiente — clave gratis de la API de YouTube:** el escáner
+  funciona sin clave (yt-dlp, ~2-3 min por canal), pero con clave
+  es segundos por canal. Pasos en la sección de `outliers.py scan`
+  de arriba; la clave nunca va en el repo.
+- **Pendiente — aclarar qué cuenta es «Nota»** (mencionada en el
+  encargo de tendencias, no identificada) y re-verificar si la
+  ventaja del gancho corto de Scrptly y los múltiplos de EditorOP
+  se sostienen en la muestra hispana.

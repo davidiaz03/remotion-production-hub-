@@ -3,8 +3,9 @@
 **Documento vivo del ecosistema del Memorial de la Denuncia.**
 **Investigación base:** 21-nov-2026 (`preprod/research/tendencias-2026-11-21.md`,
 con 15 videos analizados fotograma a fotograma + estudios EditorOP y Scrptly).
-**Próxima actualización:** tras el 2-dic-2026 (vidIQ con créditos) + escaneo
-semanal (ver §6). **Idioma:** español (es-419).
+**Próxima actualización:** escaneo semanal de los lunes con el escáner local
+de outliers (`scripts/preprod/outliers.py scan`); vidIQ es opcional desde
+el 2-dic-2026 (ver §5). **Idioma:** español (es-419).
 
 **Regla de este documento:** cada afirmación con ejemplo lleva su cita (URL).
 Lo marcado [VERIFICADO] se vio directamente en el video; lo marcado
@@ -237,7 +238,7 @@ o del formato equivalente, no opinión.
 
 ---
 
-## 5. Nota: vidIQ sin créditos hasta el 2-dic-2026
+## 5. Nota: vidIQ es opcional desde el 21-nov-2026 (el escáner local es la vía principal)
 
 **vidIQ no tiene créditos (0 de 150) hasta el 2-dic-2026.** La búsqueda de
 outliers en Instagram/TikTok en español — la herramienta que daría ejemplos
@@ -248,16 +249,30 @@ investigación se compensó con el estudio de EditorOP (que usó vidIQ el
 sin vistas), con yt-dlp (vistas de YouTube) y con análisis directo de 15
 videos descargados.
 
-**Pendiente para la actualización con vidIQ (a partir del 2-dic-2026):**
-1. Outlier search en español (Instagram + TikTok) para documental/denuncia/
-   historia: ejemplos frescos del nicho hispano con vistas y múltiplos.
-2. Revisar RT en Español (handle no localizado) y DW Documental
-   (@dwdocumentales, sin resultados en el CLI) en YouTube/TikTok.
-3. Revisar VisualPolitik en YouTube (sus Shorts recientes son anuncios de
-   máster, no documentales).
-4. Aclarar qué cuenta es «Nota» (mencionada en el encargo, no identificada).
-5. Re-verificar si la ventaja del gancho corto de Scrptly y los múltiplos de
-   EditorOP se sostienen en la muestra hispana.
+**Desde el 21-nov-2026, el escáner local reemplaza a vidIQ en YouTube:**
+`scripts/preprod/outliers.py scan` (con la API gratis de YouTube o con
+yt-dlp, sin clave) calcula el múltiplo sobre la mediana de cada canal de
+referencia (`preprod/trend-channels.json`) y escribe el informe semanal en
+`preprod/research/outliers-YYYY-MM-DD.md`. Los pendientes de vidIQ quedan así:
+1. Outlier search en YouTube en español: **cubierto por el escáner local**.
+2. RT en Español: **no disponible en YouTube** — YouTube bloqueó los canales
+   de RT en marzo de 2022; se reportó un regreso en ene-2025 como
+   @RTESChannel, pero verificado 21-nov-2026: 404 desde este entorno
+   (también fallan @RTenEspanol y @ActualidadRT). Queda en
+   `trend-channels.json` como `no_disponible`, para re-verificar
+   periódicamente.
+3. DW Documental y VisualPolitik: **cubiertos por el escáner local**
+   (UCQ1GpKa15ulyoQuxz7H4rng y UCJQQVLyM6wtPleV4wFBK06g).
+4. Aclarar qué cuenta es «Nota» (mencionada en el encargo, no
+   identificada): **pendiente**.
+5. Re-verificar si la ventaja del gancho corto de Scrptly y los múltiplos
+   de EditorOP se sostienen en la muestra hispana: **pendiente** (tarea
+   manual de investigación, no del escáner).
+
+**Lo único que vidIQ seguiría aportando** cuando vuelva a tener créditos
+(2-dic-2026) es la búsqueda de outliers en **Instagram + TikTok**, que el
+escáner local no cubre. Para Instagram, el escaneo semanal usa
+`instagram-cli` (ver §6).
 
 **No se afirma ningún dato de vidIQ en este documento** salvo los publicados
 por EditorOP (octubre 2026) y citados como [SEGÚN FUENTE].
@@ -271,24 +286,29 @@ por EditorOP (octubre 2026) y citados como [SEGÚN FUENTE].
   19-nov-2026). Investigación cruda completa:
   `preprod/research/tendencias-2026-11-21.md`.
 - **Escaneo semanal (cada lunes):**
-  1. Revisar los reels de la última semana de las 5 cuentas de referencia
+  1. Correr `python3 scripts/preprod/outliers.py scan` y leer
+     `preprod/research/outliers-YYYY-MM-DD.md`: los outliers y
+     breakouts de la semana son el material principal. Ver los 2–3
+     primeros y transcribir su gancho.
+  2. Revisar los reels de la última semana de las 5 cuentas de referencia
      (§5 de la investigación cruda): AJ+ Español, Memorias de Pez, La
      Hiperactina, La Base/Pablo Iglesias, El Orden Mundial y sus podcasts.
      Anotar los 2–3 con mejor ratio likes/seguidores (o vistas en YouTube)
      y transcribir su gancho.
-  2. Anotar cualquier formato nuevo que aparezca (nuevo tipo de gancho,
+  3. Anotar cualquier formato nuevo que aparezca (nuevo tipo de gancho,
      nuevo uso de IA, nuevo patrón de edición) con URL y fecha.
-  3. Si un principio de este documento deja de cumplirse en los ganadores
+  4. Si un principio de este documento deja de cumplirse en los ganadores
      (p. ej., cae el texto en 0–3 s por debajo de 2/3 de los casos),
      marcarlo como «en revisión» y no borrarlo hasta la siguiente
      confirmación.
-  4. Registrar el escaneo como una entrada fechada en
+  5. Registrar el escaneo como una entrada fechada en
      `preprod/research/` (un archivo por escaneo o una sección fechada en
      el archivo de tendencias vigente) y actualizar este FORMATOS.md solo
      con lo verificado.
-- **Actualización mayor:** tras el 2-dic-2026 con vidIQ (ver §5), y cada vez
-  que el Memorial publique un reel con rendimiento excepcional (para
-  incorporar el dato propio, que manda sobre cualquier estudio externo).
+- **Actualización mayor:** con vidIQ (opcional, solo Instagram + TikTok)
+  tras el 2-dic-2026, y cada vez que el Memorial publique un reel con
+  rendimiento excepcional (para incorporar el dato propio, que manda
+  sobre cualquier estudio externo).
 - **Regla permanente de este documento:** nada sin fuente. Un ejemplo sin URL
   y fecha no entra; una cifra sin fuente se marca como no verificada y no se
   usa para decidir.

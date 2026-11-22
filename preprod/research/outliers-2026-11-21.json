@@ -1,0 +1,318 @@
+{
+  "fecha": "2026-11-21",
+  "backend": "ytdlp",
+  "unidades_api": 0,
+  "top_global": [
+    {
+      "titulo": "Si BUKELE gana en HAITÍ, su MANO DURA se exportará a toda Latinoamérica @VisualPolitik",
+      "url": "https://www.youtube.com/watch?v=S9GPoWqgeGo",
+      "vistas": 2747905,
+      "multiplicador": 112.72,
+      "clasificacion": "breakout",
+      "publicado": "2026-11-03",
+      "duracion_s": 1382
+    },
+    {
+      "titulo": "La guerra de BUKELE en HAITÍ es PEOR de lo que pensábamos: no queda ni una CÁRCEL @VisualPolitik",
+      "url": "https://www.youtube.com/watch?v=LJLGVfzj0nY",
+      "vistas": 1834108,
+      "multiplicador": 75.23,
+      "clasificacion": "breakout",
+      "publicado": "2026-11-11",
+      "duracion_s": 1330
+    },
+    {
+      "titulo": "El caso de la espía CHINA de NVIDIA es PEOR de lo que pensábamos: TRUMP lo sabía @VisualPolitik",
+      "url": "https://www.youtube.com/watch?v=mIPIl8eHECM",
+      "vistas": 1281738,
+      "multiplicador": 52.58,
+      "clasificacion": "breakout",
+      "publicado": "2026-11-10",
+      "duracion_s": 1350
+    }
+  ],
+  "canales": [
+    {
+      "canal": "DW Documental",
+      "mediana": 303843,
+      "n_videos": 50,
+      "n_base": 43,
+      "outliers": [
+        {
+          "titulo": "Corea del Norte y su alianza con China y Rusia | DW Documental",
+          "url": "https://www.youtube.com/watch?v=psaKHith4GI",
+          "vistas": 1674541,
+          "multiplicador": 5.51,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-28",
+          "duracion_s": 2541
+        },
+        {
+          "titulo": "Imitaciones peligrosas: Tras la pista de falsificadores | DW Documental",
+          "url": "https://www.youtube.com/watch?v=5PnIKZtRBKM",
+          "vistas": 1651234,
+          "multiplicador": 5.43,
+          "clasificacion": "outlier",
+          "publicado": "2026-09-27",
+          "duracion_s": 3501
+        },
+        {
+          "titulo": "Corea del Norte - Propaganda para la dictadura | DW Documental",
+          "url": "https://www.youtube.com/watch?v=6Df2pTGbC2c",
+          "vistas": 1585844,
+          "multiplicador": 5.22,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-04",
+          "duracion_s": 2631
+        },
+        {
+          "titulo": "Del 0 al 9 - El misterioso origen de nuestros números | DW Documental",
+          "url": "https://www.youtube.com/watch?v=OyDMSzrUfRU",
+          "vistas": 1574138,
+          "multiplicador": 5.18,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-07",
+          "duracion_s": 3101
+        },
+        {
+          "titulo": "Trump y el poder - Una profunda grieta en los Estados Unidos | DW Documental",
+          "url": "https://www.youtube.com/watch?v=X29l0HOJchw",
+          "vistas": 1167331,
+          "multiplicador": 3.84,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-02",
+          "duracion_s": 2610
+        }
+      ],
+      "recientes_a_vigilar": []
+    },
+    {
+      "canal": "VisualPolitik",
+      "mediana": 24379.0,
+      "n_videos": 50,
+      "n_base": 38,
+      "outliers": [
+        {
+          "titulo": "Si BUKELE gana en HAITÍ, su MANO DURA se exportará a toda Latinoamérica @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=S9GPoWqgeGo",
+          "vistas": 2747905,
+          "multiplicador": 112.72,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-03",
+          "duracion_s": 1382
+        },
+        {
+          "titulo": "La guerra de BUKELE en HAITÍ es PEOR de lo que pensábamos: no queda ni una CÁRCEL @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=LJLGVfzj0nY",
+          "vistas": 1834108,
+          "multiplicador": 75.23,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-11",
+          "duracion_s": 1330
+        },
+        {
+          "titulo": "El caso de la espía CHINA de NVIDIA es PEOR de lo que pensábamos: TRUMP lo sabía @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=mIPIl8eHECM",
+          "vistas": 1281738,
+          "multiplicador": 52.58,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-10",
+          "duracion_s": 1350
+        },
+        {
+          "titulo": "La DERROTA de TRUMP es peor de lo que pensábamos: hasta TEXAS vota DEMÓCRATA @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=Z6jV3WWAXwY",
+          "vistas": 1227179,
+          "multiplicador": 50.34,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-04",
+          "duracion_s": 1417
+        },
+        {
+          "titulo": "Tras perder hasta TEXAS, los REPUBLICANOS ya se pelean por la HERENCIA de TRUMP @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=1Ow6hmBaiLY",
+          "vistas": 930573,
+          "multiplicador": 38.17,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-05",
+          "duracion_s": 1243
+        },
+        {
+          "titulo": "El FIN del orden de EEUU en Oriente Medio: EGIPTO entra en la GUERRA @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=3HJyH9hUfAQ",
+          "vistas": 611297,
+          "multiplicador": 25.07,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-13",
+          "duracion_s": 1397
+        },
+        {
+          "titulo": "MBS vive de BÚNKER en BÚNKER: la guerra con IRÁN amenaza su camino al TRONO @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=0UOKGrp8haU",
+          "vistas": 542176,
+          "multiplicador": 22.24,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-08",
+          "duracion_s": 1378
+        },
+        {
+          "titulo": "Los REPUBLICANOS entran en PÁNICO: TRUMP pierde los ESTADOS que decidirán 2028 @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=K4W9JplFudQ",
+          "vistas": 463221,
+          "multiplicador": 19.0,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-12",
+          "duracion_s": 1518
+        },
+        {
+          "titulo": "Algo MALO está ocurriendo tras las elecciones de EEUU: Wall Street se Desploma @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=YTwj0upLpZE",
+          "vistas": 422862,
+          "multiplicador": 17.35,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-06",
+          "duracion_s": 1356
+        },
+        {
+          "titulo": "Máster en IA y optimización de procesos productivos - 2a edición",
+          "url": "https://www.youtube.com/watch?v=QUfLVlYMAM0",
+          "vistas": 194769,
+          "multiplicador": 7.99,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-10",
+          "duracion_s": 97
+        },
+        {
+          "titulo": "Máster en IA y optimización de procesos productivos - 2a edición",
+          "url": "https://www.youtube.com/watch?v=Vmg8DjK7J80",
+          "vistas": 151296,
+          "multiplicador": 6.21,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-10",
+          "duracion_s": 148
+        },
+        {
+          "titulo": "Máster en IA y optimización de procesos productivos - 2a edición",
+          "url": "https://www.youtube.com/watch?v=gg7qRJfr0W0",
+          "vistas": 138278,
+          "multiplicador": 5.67,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-10",
+          "duracion_s": 151
+        },
+        {
+          "titulo": "Máster en IA y optimización de procesos productivos - 2a edición",
+          "url": "https://www.youtube.com/watch?v=i1lx6kNIkrI",
+          "vistas": 128514,
+          "multiplicador": 5.27,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-10",
+          "duracion_s": 53
+        }
+      ],
+      "recientes_a_vigilar": [
+        {
+          "titulo": "La ONU gastó 7.000 MILLONES en HAITÍ sin estabilizarlo… y ahora BUKELE la deja fuera @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=L9HGIfHbof8",
+          "vistas": 1075974,
+          "multiplicador": 44.14,
+          "clasificacion": null,
+          "publicado": "2026-11-18",
+          "duracion_s": 1398
+        },
+        {
+          "titulo": "¿Está TRUMP a punto de cometer su MAYOR ERROR con IRÁN? @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=bLpJvzv1Ouc",
+          "vistas": 974491,
+          "multiplicador": 39.97,
+          "clasificacion": null,
+          "publicado": "2026-11-16",
+          "duracion_s": 1380
+        },
+        {
+          "titulo": "PUTIN exige lo IMPOSIBLE para acabar la GUERRA: ¿qué está tramando? @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=_-GTKio1UDE",
+          "vistas": 498768,
+          "multiplicador": 20.46,
+          "clasificacion": null,
+          "publicado": "2026-11-20",
+          "duracion_s": 1322
+        },
+        {
+          "titulo": "TERREMOTO en el PENTÁGONO: El jefe de GUERRA de TRUMP está contra las cuerdas @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=Ih78EUAA0Dc",
+          "vistas": 435820,
+          "multiplicador": 17.88,
+          "clasificacion": null,
+          "publicado": "2026-11-14",
+          "duracion_s": 1402
+        },
+        {
+          "titulo": "El régimen de CUBA tiene de repente un PROBLEMA: su GASOLINA ya solo llega de EEUU @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=wSMWeYz4tHk",
+          "vistas": 398547,
+          "multiplicador": 16.35,
+          "clasificacion": null,
+          "publicado": "2026-11-17",
+          "duracion_s": 1128
+        },
+        {
+          "titulo": "EEUU sabía que 51 SISTEMAS de su CONTROL AÉREO no aguantaban… y no los cambió a tiempo",
+          "url": "https://www.youtube.com/watch?v=19d6EiwP028",
+          "vistas": 254021,
+          "multiplicador": 10.42,
+          "clasificacion": null,
+          "publicado": "2026-11-14",
+          "duracion_s": 743
+        },
+        {
+          "titulo": "El GOBIERNO tiene de repente un PROBLEMA con 2.000 MILLONES en contratos de DEFENSA @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=SUblUQGi7YI",
+          "vistas": 150868,
+          "multiplicador": 6.19,
+          "clasificacion": null,
+          "publicado": "2026-11-19",
+          "duracion_s": 1313
+        },
+        {
+          "titulo": "Máster en IA y optimización de procesos productivos - 2a edición",
+          "url": "https://www.youtube.com/watch?v=DFob_otRqp4",
+          "vistas": 86710,
+          "multiplicador": 3.56,
+          "clasificacion": null,
+          "publicado": "2026-11-16",
+          "duracion_s": 48
+        },
+        {
+          "titulo": "🔴DIRECTO: Presentación del Máster en IA Aplicada y Optimización de Procesos Productivos",
+          "url": "https://www.youtube.com/watch?v=HHWZ9YDrCa8",
+          "vistas": 79141,
+          "multiplicador": 3.25,
+          "clasificacion": null,
+          "publicado": "2026-11-15",
+          "duracion_s": 6491
+        }
+      ]
+    },
+    {
+      "canal": "Memorias de Pez",
+      "mediana": 344889.5,
+      "n_videos": 49,
+      "n_base": 44,
+      "outliers": [
+        {
+          "titulo": "✅ La ESTRATEGIA de CHINA para frenar la expansión del ISLAM",
+          "url": "https://www.youtube.com/watch?v=iErUoKNGY9g",
+          "vistas": 1183410,
+          "multiplicador": 3.43,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-23",
+          "duracion_s": 655
+        }
+      ],
+      "recientes_a_vigilar": []
+    }
+  ],
+  "omitidos": [],
+  "fallos": []
+}
