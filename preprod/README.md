@@ -60,12 +60,15 @@ preprod/
 ├── RANKING.md                ← criterios de ranking, fórmula, umbral, ajustes del agente
 ├── checklist-suleris.json    ← checklist legible por máquina (V1–V9, E1–E4 + reglas de guion)
 ├── trend-channels.json       ← canales de referencia del escaneo de outliers
+├── medicion-config.json      ← perfiles de la medición semanal (Memorial + otros proyectos)
 ├── research/
 │   ├── tendencias-YYYY-MM-DD.md  ← investigación cruda de tendencias (una por escaneo)
 │   ├── outliers-YYYY-MM-DD.md / .json  ← informe semanal de outliers de YouTube (señal: vistas)
 │   ├── outliers-instagram-YYYY-MM-DD.md / .json  ← informe semanal de outliers de Instagram (señal: likes)
 │   ├── outliers-facebook-YYYY-MM-DD.md / .json  ← informe semanal de outliers de Facebook (señal: reacciones)
-│   └── fb-urls-YYYY-MM-DD.txt  ← lista de URLs de posts de Facebook para el escaneo de FB
+│   ├── fb-urls-YYYY-MM-DD.txt  ← lista de URLs de posts de Facebook para el escaneo de FB
+│   ├── medicion-YYYY-MM-DD.md / .json  ← informe semanal de medición propia (señal: reacciones FB, likes IG)
+│   └── fb-urls-medicion-YYYY-MM-DD.txt  ← URLs de FB del perfil para la medición
 └── propuestas/
     ├── index.json            ← URLs ya propuestas (dedupe de rank)
     └── YYYY-MM-DD/
@@ -75,10 +78,13 @@ preprod/
 
 scripts/preprod/
 ├── propose.py                ← entrada de propuestas (draft, check, rank, daily)
-└── outliers.py               ← escáner de outliers de YouTube, Instagram y Facebook (scan)
+├── outliers.py               ← escáner de outliers de YouTube, Instagram y Facebook (scan)
+└── measure.py                ← medición semanal del contenido propio (measure)
 
 tests/preprod/
 ├── preprod.test.mjs          ← suite (node --test)
+├── outliers.test.mjs         ← suite del escáner de outliers
+├── measure.test.mjs          ← suite de la medición semanal
 └── fixtures/                 ← digests sintéticos, borrador de ejemplo, packs
 ```
 
@@ -280,6 +286,57 @@ la API de YouTube no permite almacenar estadísticas más de 30 días;
 la cadencia semanal (un informe por escaneo, sin acumular
 históricos) lo resuelve.
 
+### measure.py measure — medición semanal del contenido propio
+
+El escáner de outliers mira cuentas de REFERENCIA; `measure.py` mide lo que
+rinde el contenido PROPIO del Memorial en Facebook e Instagram y devuelve los
+hallazgos a FORMATOS.md y al ranking. Es el cierre del círculo: sin esta
+medición, la línea base de FORMATOS.md es solo la auditoría de octubre de 2026
+y los 2 reels virales.
+
+```bash
+cd ~/workspace/remotion-hub/repo
+python3 scripts/preprod/measure.py measure --platform all --max 30 --date 2026-11-21 \
+  --fb-urls preprod/research/fb-urls-medicion-2026-11-21.txt --no-digest
+```
+
+- **Señal por plataforma**: Facebook = reacciones (publicaciones del feed,
+  Historias excluidas); Instagram = likes públicos, o Views y Accounts reached
+  si hay sesión propia (ver bloqueos). Las medianas son PROPIAS por plataforma
+  y por tipo (reel/carrusel/foto/post, mínimo n=3 por tipo), sobre
+  publicaciones de más de 7 días; la ventana es los últimos 7 días.
+- **Umbrales**: destacado ≥3x la mediana, flojo ≤0,5x (mismo espíritu que
+  `outliers.py`). Top 3 y bottom 3 con enlaces y ratios; patrón hora/día solo
+  si n≥10, grupos n≥3 y ratio ≥1,5x (descriptivo, no causal).
+- **Facebook — vía de Páginas (preferida, HOY BLOQUEADA)**: `pages list` no
+  descubre la Página (verificado 21-oct y 21-nov-2026), `pages access` y el
+  timeline dan 403. Cuando el conector la descubra, `measure.py` la usa sola
+  (señal: interacciones; el `owner_id` de la Página es 61553292780810).
+- **Facebook — vía de URLs (activa)**: `post read` + `post reactions read`
+  sobre una lista de URLs (`--fb-urls`, una por línea). La lista se mantiene a
+  mano: el conector NO descubre URLs recientes (digests sin URLs del Memorial,
+  `social.search` sin resultados, `feed newsfeed` sin posts del Memorial).
+  La base histórica se siembra desde el CSV de la auditoría de octubre de 2026
+  (`--fb-base-csv`, 40 publicaciones de feed; las 25 Historias se excluyen y
+  las cifras en español «1,0 mil» se parsean). La deduplicación es por
+  (fecha, inicio del título): la URL canónica que devuelve `post read` difiere
+  de la de la lista y de la del CSV.
+- **Instagram — lectura pública (activa)**: `posts --username memorialdenuncia`
+  con la cuenta personal como lectora (4.682 seguidores el 21-nov-2026).
+- **Instagram — insights propios (BLOQUEADO)**: `individual-post-insights`
+  devuelve `media_not_found` con la cuenta personal; falta reactivar la sesión
+  de @memorialdenuncia (código nuevo al correo del Memorial) y pasar su ID con
+  `--instagram-owned-id`. Sin eso, la medición usa likes públicos, sin Views
+  ni Accounts reached.
+- **Perfiles**: `preprod/medicion-config.json` define el núcleo general y un
+  perfil por proyecto (Memorial + otros: el principio de reutilización —
+  lo general va en el núcleo, el Memorial es un perfil más). `--profile`
+  elige el perfil; sin `--profile`, la config del Memorial es la de defecto.
+- **El módulo NO edita FORMATOS.md**: propone los cambios en la sección
+  «Hallazgos para FORMATOS.md» del informe; el agente semanal aplica solo lo
+  verificado, con nota de versión. Nunca inventar un ejemplo ni una cifra.
+- **Salida**: `preprod/research/medicion-YYYY-MM-DD.md` y `.json`.
+
 ## Ranking (resumen; detalle en RANKING.md)
 
 | Criterio | Peso | Qué mide |
@@ -371,13 +428,21 @@ revisión) es el de `FORMATOS.md` §6; este es el resumen operativo:
    (ver la sección de `outliers.py scan`): el escaneo descubre
    URLs en los digests recientes del radar, y el agente añade las
    URLs de las Páginas de referencia que falten.
-3. **Revisión manual de lo que el escáner no mide:** ver los reels
+3. **Medición propia de la semana:** correr `python3 scripts/preprod/measure.py
+   measure --platform all --max 30` (con `--fb-urls` y `--fb-base-csv` según
+   la sección de `measure.py measure`) y leer el informe en
+   `preprod/research/medicion-YYYY-MM-DD.md`: top/bottom de la semana,
+   medianas por tipo y la sección «Hallazgos para FORMATOS.md». Aplicar a
+   `FORMATOS.md` solo los hallazgos verificados, con nota de versión (fecha
+   de la medición y qué cambió). La lista de URLs de Facebook se mantiene a
+   mano (el conector no descubre URLs recientes del Memorial).
+4. **Revisión manual de lo que el escáner no mide:** ver los reels
    outliers de Instagram y Facebook y transcribir su gancho;
    anotar los 2–3 recientes a vigilar con mejor ratio
    likes/seguidores. (Desde el 21-nov-2026 el escáner local cubre
    Instagram — señal: likes — y Facebook — señal: reacciones por
    lista de URLs —; ya no hace falta revisarlos a mano desde cero.)
-4. **vidIQ (opcional, a partir del 2-dic-2026 con créditos):**
+5. **vidIQ (opcional, a partir del 2-dic-2026 con créditos):**
    búsqueda de outliers en TikTok para
    documental/denuncia/historia — lo único que el escáner local no
    cubre. RT en Español no está en ninguna plataforma (YouTube y
@@ -385,20 +450,20 @@ revisión) es el de `FORMATOS.md` §6; este es el resumen operativo:
    pendiente aclarar qué cuenta es «Nota» y re-verificar si la
    ventaja del gancho corto de Scrptly y los múltiplos de EditorOP
    se sostienen en la muestra hispana.
-5. **Qué se revisa:** cualquier formato nuevo (nuevo tipo de gancho,
+6. **Qué se revisa:** cualquier formato nuevo (nuevo tipo de gancho,
    nuevo uso de IA, nuevo patrón de edición) con URL y fecha; si un
    principio de `FORMATOS.md` deja de cumplirse en los ganadores
    (p. ej. el texto en 0–3 s cae por debajo de 2/3 de los casos),
    marcarlo «en revisión» y no borrarlo hasta la siguiente
    confirmación.
-6. **Qué se escribe:** una entrada fechada en `preprod/research/`
+7. **Qué se escribe:** una entrada fechada en `preprod/research/`
    (nuevo archivo `tendencias-YYYY-MM-DD.md` o sección fechada en
    el archivo vigente) + actualización de `FORMATOS.md` solo con lo
    verificado, con nota de versión (fecha del escaneo y qué cambió).
    Regla permanente: nada sin fuente — un ejemplo sin URL y fecha no
    entra; una cifra sin fuente se marca como no verificada y no se
    usa para decidir.
-7. **Dato propio manda:** cada vez que el Memorial publique un reel
+8. **Dato propio manda:** cada vez que el Memorial publique un reel
    con rendimiento excepcional, incorporar el dato propio a
    `FORMATOS.md` (por encima de cualquier estudio externo).
 
@@ -409,11 +474,14 @@ Nombre:   preprod-trends-weekly
 Horario:  lunes, 09:00 America/Puerto_Rico
 Tarea:    escaneo semanal de tendencias según el procedimiento de
           arriba: primero `outliers.py scan --platform all --max 30`
-          (con la lista de URLs de Facebook preparada), luego
-          revisión de los outliers (ver los 2–3 primeros y
-          transcribir su gancho; vidIQ solo si tiene créditos, solo
-          TikTok); registrar el escaneo en preprod/research/ y
-          actualizar preprod/FORMATOS.md solo con lo verificado.
+          (con la lista de URLs de Facebook preparada), luego la
+          medición propia (`measure.py measure --platform all
+          --max 30`, con la lista de URLs de Facebook del Memorial
+          y la base CSV), luego revisión de los outliers (ver los
+          2–3 primeros y transcribir su gancho; vidIQ solo si tiene
+          créditos, solo TikTok); registrar el escaneo en
+          preprod/research/ y actualizar preprod/FORMATOS.md solo
+          con lo verificado (tendencias + hallazgos de la medición).
 Comportamiento: silencioso si no hay cambios que incorporar;
                 informe corto al usuario solo con lo nuevo.
 ```
@@ -438,15 +506,24 @@ yt-dlp, instagram-cli con paginación y filtro de colaboraciones,
 facebook-cli con enriquecimiento por URL y agrupación por Página),
 el descubrimiento de URLs en digests, la resolución del ID de
 Instagram, la detección de rate limit y la paginación adaptativa
-de Instagram, y la garantía de no-edición de `outliers.py`.
+de Instagram, y la garantía de no-edición de `outliers.py`. La suite
+de medición (`tests/preprod/measure.test.mjs`, 14 tests) cubre la
+matemática (mediana propia por plataforma y por tipo, umbrales
+3x/0,5x, top/bottom, patrón hora/día con guardas), la vía de URLs
+de Facebook con el CSV de la auditoría (parseo con BOM, exclusión
+de Historias, cifras «1,0 mil», deduplicación por URL y por
+fecha+título), la vía de Páginas con CLI falso (rate limit con
+fallback a URLs), la lectura pública de Instagram con paginación y
+la detección de la sesión propia bloqueada, la generación del
+informe y la garantía de no-edición de `measure.py`. Total: 47 tests.
 
 ## Estado y pendientes
 
 - **Estado (21-nov-2026):** módulo construido y probado (suite en
-  verde, 33 tests: 18 de propuestas + 15 de outliers). Rama
-  `work/preprod-2026-11-21`, pusheada. Crons creados: `preprod-daily`
-  07:50 (primera corrida dom 22-nov) y `preprod-trends-weekly` lun
-  09:00 (primera corrida 23-nov).
+  verde, 47 tests: 18 de propuestas + 15 de outliers + 14 de
+  medición). Rama `work/preprod-2026-11-21`, pusheada. Crons creados:
+  `preprod-daily` 07:50 (primera corrida dom 22-nov) y
+  `preprod-trends-weekly` lun 09:00 (primera corrida 23-nov).
 - **Escáner de outliers (21-nov-2026):** `scripts/preprod/outliers.py`
   + `preprod/trend-channels.json` (22 cuentas: 7 canales de YouTube,
   5 cuentas de Instagram, 4 Páginas de Facebook). Reemplaza a vidIQ
@@ -458,6 +535,19 @@ de Instagram, y la garantía de no-edición de `outliers.py`.
   recientes a vigilar). RT en Español no disponible en ninguna
   plataforma (YouTube y Meta lo bloquearon en 2022); AJ+ Español
   en Facebook pendiente de verificar.
+- **Medición semanal (21-nov-2026):** `scripts/preprod/measure.py` +
+  `preprod/medicion-config.json` (perfil Memorial + núcleo general
+  reutilizable). Verificación real 21-nov: Facebook semana 0
+  publicaciones (ninguna URL reciente descubrible por ninguna vía
+  del conector), base 49 posts únicos, mediana 17 reacciones
+  (reels 60, fotos 14,5, carruseles 18,5); Instagram semana 7
+  publicaciones, base 83, mediana 22 likes (reels 62, carruseles
+  14, fotos 15); mejor post de la semana: el reel del caso Pilar,
+  222 likes, 10,09x la mediana. En ambas plataformas los reels
+  rinden ~4x la mediana de fotos/carruseles. Bloqueos: vía de
+  Páginas de Facebook (pages list vacío, 403) e insights propios de
+  Instagram (falta reactivar la sesión de @memorialdenuncia).
+  Informe: `preprod/research/medicion-2026-11-21.md`.
 - **Pendiente — primera corrida real:** el primer `daily` con el
   digest del 22-nov validará el ranking contra noticias frescas y
   calibrará el umbral de 30 si hace falta (si la shortlist sale

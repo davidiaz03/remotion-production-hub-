@@ -1,0 +1,45 @@
+# URLs de posts de Facebook del Memorial para la medición semanal (21-nov-2026).
+# Fuente: CSV de la auditoría de oct-2026 (40 URLs de feed) + informe institucional (7 URLs).
+# Todas son de sep-oct 2026 (base de mediana); la semana 14-21 nov no tiene URLs
+# descubribles por ninguna vía del conector (pages list vacío, timeline 403,
+# digests sin URLs del Memorial, social.search sin resultados).
+https://facebook.com/memorialdenuncia/posts/pfbid021fyGPByRqk9BMnbJuRJXvAGKjGyGgp4uwTGbm4eRQzzpnNgQJBekd5SMDpSgnhFJl
+https://facebook.com/memorialdenuncia/posts/pfbid027no37f7C7XVsWwwbH2rXVowdS9eBUjXb7MEtyL9QiHkCGktcA9euHTwcLWZ3zBPWl
+https://facebook.com/memorialdenuncia/posts/pfbid02EQaYc2ezsU3mn1NrnNvGBmDJrNJKVjaJAAschMomeuWHk38yiaLzj3kNyqbZJjBl
+https://facebook.com/memorialdenuncia/posts/pfbid02GbnhFwWfxJeT6MXkeYV6sYpjWJgokv5azWUMF3bRdzuxTcVrDMsmCzUXArthPTQNl
+https://facebook.com/memorialdenuncia/posts/pfbid02M7nQc9817SsAjkVWJv8HyvJvF4vWth3yUWSeJEyuwL18gfEnzhK4bHtNYK5BVBUYl
+https://facebook.com/memorialdenuncia/posts/pfbid02Rv3uzYBkbjAMXDu3PRKZkGCtGdCExCxpPPKVmPBgxqeehu78TDu1GhUYBaM2VP4Ql
+https://facebook.com/memorialdenuncia/posts/pfbid02S8wMATFA9Syx3SzxeKdAD3MSsMEtuECyErv4r779Vn2fTgL4HDRyerCUMgrDsBovl
+https://facebook.com/memorialdenuncia/posts/pfbid02SMpnLNJZh7VejABndWZEFtfvu5ok5sngFx22TzfceB3PuPc2BR7GPoPK6xnkh5Gql
+https://facebook.com/memorialdenuncia/posts/pfbid02UQs3bGxuck59wg1FfJ7fy4duoQnhBkWmuncV8T6c9KqtTchMt8meNeckFyZZhXnRl
+https://facebook.com/memorialdenuncia/posts/pfbid02UizVhgcPtJG43fnCisqMRMS4YgCxxAC89EiTuQ3SD5wT6YT56eZy2kH2MG3jF2Vnl
+https://facebook.com/memorialdenuncia/posts/pfbid02UjkrpLXvDzEVrLqmZoQHbqtXayCrSB3JNmK2xFDJxLEhXHdfmpiPR1xXdTw5CXPzl
+https://facebook.com/memorialdenuncia/posts/pfbid02YPjWqiUUBqk1RmW76BN5REhkaeW7T5ntBp7BvoMNC7ZaX8E58mijQb1pBD4EczABl
+https://facebook.com/memorialdenuncia/posts/pfbid02fKqxthmYcALR4FHz7aWtz46eVRi7aMT7CxAuzJ7se1NFkxAsVqf1g5WJ3jxfiTWwl
+https://facebook.com/memorialdenuncia/posts/pfbid0AztXSzSDeWjz99hQu5jptpHENMxHrnkLreQX24Fzoic5sH5ZG3DXkXTa9SwhPeCl
+https://facebook.com/memorialdenuncia/posts/pfbid0CWUYTXjUCan5C8BFjPA9fxz8kzjKqVBKS3Zo7GLSkLSC4479ezLirneE95sLkf36l
+https://facebook.com/memorialdenuncia/posts/pfbid0DVGLx9qNnme28EqfkohYoX4go8sRzpZRb4Myb2gdCfnyVPpiTd1oCwfH34Fc17E2l
+https://facebook.com/memorialdenuncia/posts/pfbid0ExZKVCeG1Q5MuPuM2gmFiKu3k3L7KZRaoRkfp4xCHf6KXvv7eCMTd4k7Uei6MGvHl
+https://facebook.com/memorialdenuncia/posts/pfbid0J2gQGzFn1unQ2k1qcRbKHKAcEDeXDTgqVuiVdmgtro5XV3igbUD7AWsyykDtZSmFl
+https://facebook.com/memorialdenuncia/posts/pfbid0WFnGpukRvXCWf5632AyJJKzADTF2Deq9o7MBiAewR7KDgmbkzt16k6u6rc7TtWogl
+https://facebook.com/memorialdenuncia/posts/pfbid0XJcR3o8u2DqGi5hGEyVRH3HDetTP1M764NPjtSEGATJHmp8pu7fdhVoFhECeaY1kl
+https://facebook.com/memorialdenuncia/posts/pfbid0atSNXUQ1iEPVoLvmxSTmnfjvcbkM7bsWzyjSsijaAdQ3AV1xJNhMBgXQKCwCcpNol
+https://facebook.com/memorialdenuncia/posts/pfbid0jE8Uy67qTbSt1efz7YcdWnU3PbYfk8zardHHgBtAYqRRAgf1xQ64DGVWTA85b2nel
+https://facebook.com/memorialdenuncia/posts/pfbid0o8dauRSQu27TNs9M7vG1kp6jUigzPckmKwr1Uja8wEf63e6mTjXTGE2YdSQtCndql
+https://facebook.com/memorialdenuncia/posts/pfbid0suhR5bCeB1BbndCHo1XuBeaJeDi5GfuxLMNqp9jZbSDFpJyNq2AAdj8pRA9JxxVhl
+https://facebook.com/memorialdenuncia/posts/pfbid0upyxA7GzBU19Mnia1JdN2BSjKFY6cUwUzC21VXUJ1Mk1CNnJMbVRZcKGFjq3Vhhvl
+https://facebook.com/memorialdenuncia/posts/pfbid0vNmB7rGJVjc8X2DL4ufX1xtYeGrEkdevQiKwxymPfC7dZBTJAKAFp3Mrzrh5DYb3l
+https://facebook.com/memorialdenuncia/posts/pfbid0vUSZ2PWamgZiZRBgZxqQUDNQmw43y3W8XhqU5trUdzooEP5ra8ucyJ2J2aM611iDl
+https://facebook.com/memorialdenuncia/posts/pfbid0zRthjRrB7ccvDHsTaMheSP9rt3smYMJCHtbAv3NzVHvmcjdhxDH35AY5g53sjUmtl
+https://facebook.com/reel/1051742240998161/
+https://facebook.com/reel/1078838284982868/
+https://facebook.com/reel/1116506600908602/
+https://facebook.com/reel/1426150138987790/
+https://facebook.com/reel/1763127024983816/
+https://facebook.com/reel/1785796345997082/
+https://facebook.com/reel/2384225195316890/
+https://facebook.com/reel/2569330940156480/
+https://facebook.com/reel/28176314332064971/
+https://facebook.com/reel/3063849720628112/
+https://facebook.com/reel/922566067586053/
+https://facebook.com/reel/973975062166733/

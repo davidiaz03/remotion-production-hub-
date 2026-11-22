@@ -18,6 +18,18 @@ diálogo, karaoke grande con palabra clave en rojo, overlays de evidencia, tema
 indignante. Los reels sin presentadora rinden 32–69 reacciones. Esa es la línea
 base contra la que se mide todo lo de abajo.
 
+**Medición propia 21-nov-2026** (`preprod/research/medicion-2026-11-21.md`,
+49 posts únicos de Facebook y 90 de Instagram, medianas propias por
+plataforma y por tipo): en Facebook la mediana es 17 reacciones (reels 60,
+n=12; fotos 14,5, n=32; carruseles 18,5, n=4); en Instagram la mediana es 22
+likes (reels 62, n=39; carruseles 14, n=37; fotos 15, n=7). En ambas
+plataformas los reels rinden ~4x la mediana de fotos (Facebook, 60 vs 14,5)
+y de carruseles (Instagram, 62 vs 14). Mejor post de la semana en Instagram:
+el reel del caso Pilar (testimonio de la propia víctima), 222 likes, 10,09x
+la mediana — https://www.instagram.com/reel/Df-s8UmvPSR/ [VERIFICADO].
+La medición se repite cada lunes (`scripts/preprod/measure.py measure`); los
+hallazgos verificados actualizan esta sección con nota de fecha.
+
 ---
 
 ## 1. Principios de gancho
@@ -296,16 +308,22 @@ por EditorOP (octubre 2026) y citados como [SEGÚN FUENTE].
      (`outliers-`, `outliers-instagram-` y `outliers-facebook-`):
      los outliers y breakouts de la semana son el material
      principal. Ver los 2–3 primeros y transcribir su gancho.
-  2. Revisar lo que el escáner no mide: ver los reels outliers y
+  2. Correr `python3 scripts/preprod/measure.py measure --platform all
+     --max 30` (con la lista de URLs de Facebook del Memorial y la base
+     CSV, ver README) y leer el informe `medicion-YYYY-MM-DD.md`:
+     top/bottom de la semana, medianas por tipo y «Hallazgos para
+     FORMATOS.md». Aplicar a este documento solo los hallazgos
+     verificados, con nota de fecha.
+  3. Revisar lo que el escáner no mide: ver los reels outliers y
      anotar los 2–3 recientes a vigilar con mejor ratio
      likes/seguidores.
-  3. Anotar cualquier formato nuevo que aparezca (nuevo tipo de gancho,
+  4. Anotar cualquier formato nuevo que aparezca (nuevo tipo de gancho,
      nuevo uso de IA, nuevo patrón de edición) con URL y fecha.
-  4. Si un principio de este documento deja de cumplirse en los ganadores
+  5. Si un principio de este documento deja de cumplirse en los ganadores
      (p. ej., cae el texto en 0–3 s por debajo de 2/3 de los casos),
      marcarlo como «en revisión» y no borrarlo hasta la siguiente
      confirmación.
-  5. Registrar el escaneo como una entrada fechada en
+  6. Registrar el escaneo como una entrada fechada en
      `preprod/research/` (un archivo por escaneo o una sección fechada en
      el archivo de tendencias vigente) y actualizar este FORMATOS.md solo
      con lo verificado.
