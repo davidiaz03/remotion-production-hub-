@@ -1,0 +1,188 @@
+{
+  "fuentes": [
+    {
+      "etiquetas": [
+        "bandeja"
+      ],
+      "folder_id": "1CnSkW9OYuW28o6cnPl3nkPXRP9HQpkoB",
+      "grupo": "bandeja",
+      "nombre": "Videos oficiales",
+      "nota": "Bandeja de entrada del hub; vacía el 21-nov-2026. Se indexa para que el material nuevo entre solo al refrescar.",
+      "profundidad": 1,
+      "proyecto": "bandeja"
+    },
+    {
+      "etiquetas": [
+        "máster"
+      ],
+      "folder_id": "17JdcMxLgk6sodhj_ipxMhqqSP-1JHFCE",
+      "grupo": "masters",
+      "nombre": "Memorial — Másters reels",
+      "profundidad": 1,
+      "proyecto": "marti-fidel"
+    },
+    {
+      "etiquetas": [],
+      "folder_id": "1Eabgk8p_AFNPTROiUBWduy2wiQEtvKFU",
+      "grupo": "che",
+      "nombre": "che-october-1967-reel-2026",
+      "nota": "Subcarpetas renders (85 ítems), assets (70), notes, references, reference-only y R8_CANVA_FINISHING_PACKAGE.",
+      "profundidad": 2,
+      "proyecto": "che"
+    },
+    {
+      "etiquetas": [],
+      "folder_id": "1xmPeA_AWT51oB7cZBu2jAUFjtp-ytTdR",
+      "grupo": "diaz-canel",
+      "nombre": "PRUEBA_01_DIAZCANEL_20261016",
+      "profundidad": 1,
+      "proyecto": "diaz-canel"
+    },
+    {
+      "etiquetas": [
+        "archivo"
+      ],
+      "folder_id": "1uE1yrWyeoJdozi-RLewMwEU9MpYD1Def",
+      "grupo": "pilar-recursos",
+      "nombre": "Caso Pilar — Recursos visuales",
+      "profundidad": 1,
+      "proyecto": "pilar"
+    },
+    {
+      "etiquetas": [],
+      "folder_id": "1FSBLacAWOhS3YN22AKzRpJeuzq4FzGVv",
+      "grupo": "pilar-versiones",
+      "nombre": "PROYECTO_UNICO_PILAR_LIBRO_BOMBA_20261107_PREMONTAJE",
+      "nota": "Versiones V1–V30 del reel del caso Pilar; la subcarpeta de Marabana se reclasifica a proyecto marabana por regla de ruta.",
+      "profundidad": 2,
+      "proyecto": "pilar"
+    },
+    {
+      "etiquetas": [
+        "museo"
+      ],
+      "folder_id": "1WgqsPMQ-gs4P3x2rS3lO5RgdPtfKtLIV",
+      "grupo": "recorrido",
+      "nombre": "Fotos recorrido memorial",
+      "profundidad": 1,
+      "proyecto": "recorrido"
+    },
+    {
+      "etiquetas": [
+        "carrusel"
+      ],
+      "folder_id": "1VQnIOi5fY8miImsezk_W4Y4VjgAXtKe0",
+      "grupo": "waltz",
+      "nombre": "Memorial_Carrusel_Waltz_ONU_2026-10",
+      "profundidad": 2,
+      "proyecto": "carruseles"
+    },
+    {
+      "etiquetas": [
+        "carrusel"
+      ],
+      "folder_id": "1jdG07m_TDVYV8xhMOBI5wjKYW1ORpars",
+      "grupo": "ben-rhodes",
+      "nombre": "Carrusel_Ben_Rhodes_Cuba_Memorial",
+      "profundidad": 2,
+      "proyecto": "carruseles"
+    },
+    {
+      "etiquetas": [
+        "carrusel"
+      ],
+      "folder_id": "1-idNxV-FkuN5t_AtFTSIwY4Iy3in_IDp",
+      "grupo": "salud",
+      "nombre": "Carrusel_Salud_Bloqueo_2026-10-01",
+      "profundidad": 2,
+      "proyecto": "carruseles"
+    },
+    {
+      "etiquetas": [
+        "carrusel"
+      ],
+      "folder_id": "1wF5NzZHNh8zYIDge-8ZPWW7rF_N50D3i",
+      "grupo": "fanca",
+      "nombre": "FANCA",
+      "nota": "Incluye 34 DNG crudos en la raíz además de los finales en las subcarpetas.",
+      "profundidad": 2,
+      "proyecto": "carruseles"
+    },
+    {
+      "etiquetas": [
+        "carrusel"
+      ],
+      "folder_id": "1VaUR83FRO1CkTldRquX3fcKv6QTqei59",
+      "grupo": "bruno",
+      "nombre": "Carrusel Bruno Rodríguez — Informe bloqueo 2026-09-08",
+      "profundidad": 2,
+      "proyecto": "carruseles"
+    },
+    {
+      "etiquetas": [
+        "estrategia"
+      ],
+      "folder_id": "1siGPNeUOD9oOE5GaUoRgGZ3Z8g8Pbxb1",
+      "grupo": "estrategia",
+      "nombre": "Memorial de la Denuncia - Estrategia Digital",
+      "nota": "Contiene los carruseles de Salud y Bruno como subcarpetas; el dedupe por file_id evita duplicarlos.",
+      "profundidad": 2,
+      "proyecto": "estrategia"
+    },
+    {
+      "etiquetas": [
+        "referencia"
+      ],
+      "folder_id": "1pa6IIqq6HIFm9Yv-70lYzNmHhfYNKtWk",
+      "grupo": "referencias",
+      "nombre": "Memorial — Referencias edición reels virales (para ChatGPT)",
+      "profundidad": 2,
+      "proyecto": "estrategia"
+    },
+    {
+      "etiquetas": [
+        "onu"
+      ],
+      "folder_id": "12iiyZi9X4D4Nlb0nc8CaniiJg4k42O3e",
+      "grupo": "onu-cuba",
+      "nombre": "PROYECTO_ONU_CUBA_2026_PRE_POST",
+      "nota": "Kit de trabajo ONU Cuba 2026 (WORK_KIT, prompts, matriz de derechos, manifiesto SHA256) + producciones V01–V03.",
+      "profundidad": 2,
+      "proyecto": "onu-cuba"
+    },
+    {
+      "etiquetas": [
+        "marca",
+        "logo"
+      ],
+      "folder_id": "1Q4Ro_nj65lqOuotEhBrQ2Jvu4Jt5IPoP",
+      "grupo": "marca",
+      "nombre": "04_AUDIO_VOZ_LOGOS_IDENTIDAD",
+      "nota": "Marca de agua oficial y cierre animado. Los demás logos viven en assets del Che, del reel Bruno ONU y en 06_RECURSOS del carrusel Waltz; se etiquetan por nombre.",
+      "profundidad": 1,
+      "proyecto": "marca"
+    },
+    {
+      "etiquetas": [
+        "referencia",
+        "miami"
+      ],
+      "folder_id": "1HyiUU-pRXmJj4r4qL41TiDWaWUZ3cGdt",
+      "grupo": "miami",
+      "nombre": "12_RECURSOS_MIAMI",
+      "nota": "7 fotos de memoriales en EE. UU. (el informe del 21-nov contó 2; el índice corrige).",
+      "profundidad": 1,
+      "proyecto": "otros"
+    },
+    {
+      "etiquetas": [
+        "onu"
+      ],
+      "folder_id": "1sgGItu34Sbn4xbwngjewtLIFmDF0RELu",
+      "grupo": "bruno-onu",
+      "nombre": "01 - Reel Bruno ONU 2026",
+      "profundidad": 2,
+      "proyecto": "bruno-onu"
+    }
+  ]
+}
