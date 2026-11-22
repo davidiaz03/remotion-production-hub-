@@ -1,0 +1,716 @@
+[
+ {
+  "linea": 2,
+  "texto": "Cuatro veces en seis meses.",
+  "palabras": [
+   {
+    "palabra": "Cuatro",
+    "inicio": 0.0,
+    "fin": 1.2,
+    "probabilidad": 0.763
+   },
+   {
+    "palabra": "veces",
+    "inicio": 1.2,
+    "fin": 1.48,
+    "probabilidad": 0.997
+   },
+   {
+    "palabra": "en",
+    "inicio": 1.48,
+    "fin": 1.92,
+    "probabilidad": 0.985
+   },
+   {
+    "palabra": "seis",
+    "inicio": 1.92,
+    "fin": 2.2,
+    "probabilidad": 0.983
+   },
+   {
+    "palabra": "meses.",
+    "inicio": 2.2,
+    "fin": 2.6,
+    "probabilidad": 0.999
+   }
+  ]
+ },
+ {
+  "linea": 3,
+  "texto": "Vale, ahora mira esto.",
+  "palabras": [
+   {
+    "palabra": "Vale,",
+    "inicio": 1.1,
+    "fin": 1.86,
+    "probabilidad": 0.72
+   },
+   {
+    "palabra": "ahora",
+    "inicio": 2.22,
+    "fin": 2.4,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "mira",
+    "inicio": 2.4,
+    "fin": 2.58,
+    "probabilidad": 0.888
+   },
+   {
+    "palabra": "esto.",
+    "inicio": 2.58,
+    "fin": 2.98,
+    "probabilidad": 0.996
+   }
+  ]
+ },
+ {
+  "linea": 4,
+  "texto": "Esta es la página del Departamento de Estado, dice que Estados Unidos mantiene y cito un embargo económico integral contra Cuba que sigue vigente hoy.",
+  "palabras": [
+   {
+    "palabra": "Esta",
+    "inicio": 0.9,
+    "fin": 1.5,
+    "probabilidad": 0.851
+   },
+   {
+    "palabra": "es",
+    "inicio": 1.5,
+    "fin": 1.6,
+    "probabilidad": 0.995
+   },
+   {
+    "palabra": "la",
+    "inicio": 1.6,
+    "fin": 1.72,
+    "probabilidad": 0.994
+   },
+   {
+    "palabra": "página",
+    "inicio": 1.72,
+    "fin": 2.0,
+    "probabilidad": 0.997
+   },
+   {
+    "palabra": "del",
+    "inicio": 2.0,
+    "fin": 2.24,
+    "probabilidad": 0.951
+   },
+   {
+    "palabra": "Departamento",
+    "inicio": 2.24,
+    "fin": 2.84,
+    "probabilidad": 0.922
+   },
+   {
+    "palabra": "de",
+    "inicio": 2.84,
+    "fin": 2.98,
+    "probabilidad": 0.964
+   },
+   {
+    "palabra": "Estado,",
+    "inicio": 2.98,
+    "fin": 3.34,
+    "probabilidad": 0.991
+   },
+   {
+    "palabra": "dice",
+    "inicio": 3.84,
+    "fin": 4.1,
+    "probabilidad": 0.864
+   },
+   {
+    "palabra": "que",
+    "inicio": 4.1,
+    "fin": 4.26,
+    "probabilidad": 0.994
+   },
+   {
+    "palabra": "Estados",
+    "inicio": 4.26,
+    "fin": 4.5,
+    "probabilidad": 0.902
+   },
+   {
+    "palabra": "Unidos",
+    "inicio": 4.5,
+    "fin": 4.92,
+    "probabilidad": 0.999
+   },
+   {
+    "palabra": "mantiene",
+    "inicio": 4.92,
+    "fin": 5.6,
+    "probabilidad": 0.994
+   },
+   {
+    "palabra": "y",
+    "inicio": 5.6,
+    "fin": 5.9,
+    "probabilidad": 0.449
+   },
+   {
+    "palabra": "cito",
+    "inicio": 5.9,
+    "fin": 6.28,
+    "probabilidad": 0.966
+   },
+   {
+    "palabra": "un",
+    "inicio": 6.28,
+    "fin": 6.66,
+    "probabilidad": 0.72
+   },
+   {
+    "palabra": "embargo",
+    "inicio": 6.66,
+    "fin": 6.92,
+    "probabilidad": 0.425
+   },
+   {
+    "palabra": "económico",
+    "inicio": 6.92,
+    "fin": 7.5,
+    "probabilidad": 0.998
+   },
+   {
+    "palabra": "integral",
+    "inicio": 7.5,
+    "fin": 7.84,
+    "probabilidad": 0.976
+   },
+   {
+    "palabra": "contra",
+    "inicio": 7.84,
+    "fin": 8.14,
+    "probabilidad": 0.983
+   },
+   {
+    "palabra": "Cuba",
+    "inicio": 8.14,
+    "fin": 8.48,
+    "probabilidad": 0.996
+   },
+   {
+    "palabra": "que",
+    "inicio": 8.48,
+    "fin": 8.82,
+    "probabilidad": 0.784
+   },
+   {
+    "palabra": "sigue",
+    "inicio": 8.82,
+    "fin": 9.1,
+    "probabilidad": 0.995
+   },
+   {
+    "palabra": "vigente",
+    "inicio": 9.1,
+    "fin": 9.52,
+    "probabilidad": 0.986
+   },
+   {
+    "palabra": "hoy.",
+    "inicio": 9.52,
+    "fin": 9.78,
+    "probabilidad": 0.991
+   }
+  ]
+ },
+ {
+  "linea": 5,
+  "texto": "Y el 5 de noviembre ese mismo departamento anunció 10 sanciones nuevas, una red de petróleo, entidades estatales y proveedores chinos.",
+  "palabras": [
+   {
+    "palabra": "Y",
+    "inicio": 0.78,
+    "fin": 1.54,
+    "probabilidad": 0.596
+   },
+   {
+    "palabra": "el",
+    "inicio": 1.54,
+    "fin": 1.66,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "5",
+    "inicio": 1.66,
+    "fin": 1.88,
+    "probabilidad": 0.955
+   },
+   {
+    "palabra": "de",
+    "inicio": 1.88,
+    "fin": 2.04,
+    "probabilidad": 0.995
+   },
+   {
+    "palabra": "noviembre",
+    "inicio": 2.04,
+    "fin": 2.56,
+    "probabilidad": 0.963
+   },
+   {
+    "palabra": "ese",
+    "inicio": 2.56,
+    "fin": 2.98,
+    "probabilidad": 0.531
+   },
+   {
+    "palabra": "mismo",
+    "inicio": 2.98,
+    "fin": 3.26,
+    "probabilidad": 0.988
+   },
+   {
+    "palabra": "departamento",
+    "inicio": 3.26,
+    "fin": 3.86,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "anunció",
+    "inicio": 3.86,
+    "fin": 4.32,
+    "probabilidad": 0.975
+   },
+   {
+    "palabra": "10",
+    "inicio": 4.32,
+    "fin": 4.48,
+    "probabilidad": 0.829
+   },
+   {
+    "palabra": "sanciones",
+    "inicio": 4.48,
+    "fin": 4.96,
+    "probabilidad": 0.987
+   },
+   {
+    "palabra": "nuevas,",
+    "inicio": 4.96,
+    "fin": 5.32,
+    "probabilidad": 0.992
+   },
+   {
+    "palabra": "una",
+    "inicio": 5.86,
+    "fin": 6.0,
+    "probabilidad": 0.917
+   },
+   {
+    "palabra": "red",
+    "inicio": 6.0,
+    "fin": 6.2,
+    "probabilidad": 0.951
+   },
+   {
+    "palabra": "de",
+    "inicio": 6.2,
+    "fin": 6.34,
+    "probabilidad": 0.997
+   },
+   {
+    "palabra": "petróleo,",
+    "inicio": 6.34,
+    "fin": 6.82,
+    "probabilidad": 0.984
+   },
+   {
+    "palabra": "entidades",
+    "inicio": 7.04,
+    "fin": 7.44,
+    "probabilidad": 0.993
+   },
+   {
+    "palabra": "estatales",
+    "inicio": 7.44,
+    "fin": 8.12,
+    "probabilidad": 0.996
+   },
+   {
+    "palabra": "y",
+    "inicio": 8.12,
+    "fin": 8.42,
+    "probabilidad": 0.904
+   },
+   {
+    "palabra": "proveedores",
+    "inicio": 8.42,
+    "fin": 8.94,
+    "probabilidad": 0.984
+   },
+   {
+    "palabra": "chinos.",
+    "inicio": 8.94,
+    "fin": 9.46,
+    "probabilidad": 0.967
+   }
+  ]
+ },
+ {
+  "linea": 6,
+  "texto": "Waltz presume de 876 millones en ventas a Cuba, pero cada venta necesita un permiso del gobierno. Eso no es comercio libre, eso es control.",
+  "palabras": [
+   {
+    "palabra": "Waltz",
+    "inicio": 1.32,
+    "fin": 1.96,
+    "probabilidad": 0.631
+   },
+   {
+    "palabra": "presume",
+    "inicio": 1.96,
+    "fin": 2.34,
+    "probabilidad": 0.607
+   },
+   {
+    "palabra": "de",
+    "inicio": 2.34,
+    "fin": 2.52,
+    "probabilidad": 0.982
+   },
+   {
+    "palabra": "876",
+    "inicio": 2.52,
+    "fin": 3.26,
+    "probabilidad": 0.663
+   },
+   {
+    "palabra": "millones",
+    "inicio": 3.26,
+    "fin": 4.0,
+    "probabilidad": 0.975
+   },
+   {
+    "palabra": "en",
+    "inicio": 4.0,
+    "fin": 4.36,
+    "probabilidad": 0.983
+   },
+   {
+    "palabra": "ventas",
+    "inicio": 4.36,
+    "fin": 4.68,
+    "probabilidad": 0.973
+   },
+   {
+    "palabra": "a",
+    "inicio": 4.68,
+    "fin": 4.8,
+    "probabilidad": 0.987
+   },
+   {
+    "palabra": "Cuba,",
+    "inicio": 4.8,
+    "fin": 5.06,
+    "probabilidad": 0.872
+   },
+   {
+    "palabra": "pero",
+    "inicio": 5.56,
+    "fin": 5.78,
+    "probabilidad": 0.989
+   },
+   {
+    "palabra": "cada",
+    "inicio": 5.78,
+    "fin": 6.02,
+    "probabilidad": 0.996
+   },
+   {
+    "palabra": "venta",
+    "inicio": 6.02,
+    "fin": 6.38,
+    "probabilidad": 0.989
+   },
+   {
+    "palabra": "necesita",
+    "inicio": 6.38,
+    "fin": 6.7,
+    "probabilidad": 0.993
+   },
+   {
+    "palabra": "un",
+    "inicio": 6.7,
+    "fin": 6.9,
+    "probabilidad": 0.993
+   },
+   {
+    "palabra": "permiso",
+    "inicio": 6.9,
+    "fin": 7.26,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "del",
+    "inicio": 7.26,
+    "fin": 7.42,
+    "probabilidad": 0.767
+   },
+   {
+    "palabra": "gobierno.",
+    "inicio": 7.42,
+    "fin": 7.84,
+    "probabilidad": 0.843
+   },
+   {
+    "palabra": "Eso",
+    "inicio": 8.36,
+    "fin": 8.6,
+    "probabilidad": 0.957
+   },
+   {
+    "palabra": "no",
+    "inicio": 8.6,
+    "fin": 8.72,
+    "probabilidad": 0.995
+   },
+   {
+    "palabra": "es",
+    "inicio": 8.72,
+    "fin": 8.8,
+    "probabilidad": 0.999
+   },
+   {
+    "palabra": "comercio",
+    "inicio": 8.8,
+    "fin": 9.22,
+    "probabilidad": 0.997
+   },
+   {
+    "palabra": "libre,",
+    "inicio": 9.22,
+    "fin": 9.52,
+    "probabilidad": 0.993
+   },
+   {
+    "palabra": "eso",
+    "inicio": 9.96,
+    "fin": 10.12,
+    "probabilidad": 0.944
+   },
+   {
+    "palabra": "es",
+    "inicio": 10.12,
+    "fin": 10.26,
+    "probabilidad": 0.999
+   },
+   {
+    "palabra": "control.",
+    "inicio": 10.26,
+    "fin": 10.66,
+    "probabilidad": 0.988
+   }
+  ]
+ },
+ {
+  "linea": 7,
+  "texto": "Ellos lo niegan, sus documentos lo confirman, el bloqueo no es un relato, es un documento oficial.",
+  "palabras": [
+   {
+    "palabra": "Ellos",
+    "inicio": 1.36,
+    "fin": 1.88,
+    "probabilidad": 0.926
+   },
+   {
+    "palabra": "lo",
+    "inicio": 1.88,
+    "fin": 2.02,
+    "probabilidad": 0.983
+   },
+   {
+    "palabra": "niegan,",
+    "inicio": 2.02,
+    "fin": 2.42,
+    "probabilidad": 0.981
+   },
+   {
+    "palabra": "sus",
+    "inicio": 2.9,
+    "fin": 2.98,
+    "probabilidad": 0.973
+   },
+   {
+    "palabra": "documentos",
+    "inicio": 2.98,
+    "fin": 3.64,
+    "probabilidad": 0.999
+   },
+   {
+    "palabra": "lo",
+    "inicio": 3.64,
+    "fin": 3.74,
+    "probabilidad": 0.984
+   },
+   {
+    "palabra": "confirman,",
+    "inicio": 3.74,
+    "fin": 4.4,
+    "probabilidad": 0.937
+   },
+   {
+    "palabra": "el",
+    "inicio": 4.8,
+    "fin": 4.92,
+    "probabilidad": 0.912
+   },
+   {
+    "palabra": "bloqueo",
+    "inicio": 4.92,
+    "fin": 5.28,
+    "probabilidad": 0.998
+   },
+   {
+    "palabra": "no",
+    "inicio": 5.28,
+    "fin": 5.38,
+    "probabilidad": 0.995
+   },
+   {
+    "palabra": "es",
+    "inicio": 5.38,
+    "fin": 5.5,
+    "probabilidad": 0.999
+   },
+   {
+    "palabra": "un",
+    "inicio": 5.5,
+    "fin": 5.6,
+    "probabilidad": 0.998
+   },
+   {
+    "palabra": "relato,",
+    "inicio": 5.6,
+    "fin": 6.04,
+    "probabilidad": 0.993
+   },
+   {
+    "palabra": "es",
+    "inicio": 6.3,
+    "fin": 6.54,
+    "probabilidad": 0.994
+   },
+   {
+    "palabra": "un",
+    "inicio": 6.54,
+    "fin": 6.66,
+    "probabilidad": 0.996
+   },
+   {
+    "palabra": "documento",
+    "inicio": 6.66,
+    "fin": 7.16,
+    "probabilidad": 0.999
+   },
+   {
+    "palabra": "oficial.",
+    "inicio": 7.16,
+    "fin": 7.42,
+    "probabilidad": 0.998
+   }
+  ]
+ },
+ {
+  "linea": 8,
+  "texto": "¿Tú que crees que lo niegan porque no existe o porque no les conviene admitirlo?",
+  "palabras": [
+   {
+    "palabra": "¿Tú",
+    "inicio": 0.66,
+    "fin": 1.24,
+    "probabilidad": 0.809
+   },
+   {
+    "palabra": "que",
+    "inicio": 1.24,
+    "fin": 1.38,
+    "probabilidad": 0.424
+   },
+   {
+    "palabra": "crees",
+    "inicio": 1.38,
+    "fin": 1.76,
+    "probabilidad": 0.996
+   },
+   {
+    "palabra": "que",
+    "inicio": 1.76,
+    "fin": 2.14,
+    "probabilidad": 0.824
+   },
+   {
+    "palabra": "lo",
+    "inicio": 2.14,
+    "fin": 2.28,
+    "probabilidad": 0.988
+   },
+   {
+    "palabra": "niegan",
+    "inicio": 2.28,
+    "fin": 2.62,
+    "probabilidad": 0.964
+   },
+   {
+    "palabra": "porque",
+    "inicio": 2.62,
+    "fin": 2.82,
+    "probabilidad": 0.972
+   },
+   {
+    "palabra": "no",
+    "inicio": 2.82,
+    "fin": 2.98,
+    "probabilidad": 0.997
+   },
+   {
+    "palabra": "existe",
+    "inicio": 2.98,
+    "fin": 3.44,
+    "probabilidad": 0.972
+   },
+   {
+    "palabra": "o",
+    "inicio": 3.44,
+    "fin": 3.88,
+    "probabilidad": 0.742
+   },
+   {
+    "palabra": "porque",
+    "inicio": 3.88,
+    "fin": 4.12,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "no",
+    "inicio": 4.12,
+    "fin": 4.26,
+    "probabilidad": 0.997
+   },
+   {
+    "palabra": "les",
+    "inicio": 4.26,
+    "fin": 4.44,
+    "probabilidad": 0.987
+   },
+   {
+    "palabra": "conviene",
+    "inicio": 4.44,
+    "fin": 4.78,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "admitirlo?",
+    "inicio": 4.78,
+    "fin": 5.34,
+    "probabilidad": 0.912
+   }
+  ]
+ }
+]

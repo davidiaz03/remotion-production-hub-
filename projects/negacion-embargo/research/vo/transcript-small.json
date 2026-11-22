@@ -1,0 +1,779 @@
+{
+ "el_2_1_j9qw": {
+  "text": "Cuatro veces en seis meses.",
+  "segments": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "text": "Cuatro veces en seis meses.",
+    "words": [
+     {
+      "w": "Cuatro",
+      "s": 0.0,
+      "e": 1.2,
+      "p": 0.763
+     },
+     {
+      "w": "veces",
+      "s": 1.2,
+      "e": 1.48,
+      "p": 0.997
+     },
+     {
+      "w": "en",
+      "s": 1.48,
+      "e": 1.92,
+      "p": 0.985
+     },
+     {
+      "w": "seis",
+      "s": 1.92,
+      "e": 2.2,
+      "p": 0.983
+     },
+     {
+      "w": "meses.",
+      "s": 2.2,
+      "e": 2.6,
+      "p": 0.999
+     }
+    ]
+   }
+  ]
+ },
+ "el_3_0_7umm": {
+  "text": "Vale, ahora mira esto.",
+  "segments": [
+   {
+    "start": 1.1,
+    "end": 2.98,
+    "text": "Vale, ahora mira esto.",
+    "words": [
+     {
+      "w": "Vale,",
+      "s": 1.1,
+      "e": 1.86,
+      "p": 0.72
+     },
+     {
+      "w": "ahora",
+      "s": 2.22,
+      "e": 2.4,
+      "p": 0.98
+     },
+     {
+      "w": "mira",
+      "s": 2.4,
+      "e": 2.58,
+      "p": 0.888
+     },
+     {
+      "w": "esto.",
+      "s": 2.58,
+      "e": 2.98,
+      "p": 0.996
+     }
+    ]
+   }
+  ]
+ },
+ "el_4_3_8km5": {
+  "text": "Esta es la página del Departamento de Estado, dice que Estados Unidos mantiene y cito un embargo económico integral contra Cuba que sigue vigente hoy.",
+  "segments": [
+   {
+    "start": 0.9,
+    "end": 6.28,
+    "text": "Esta es la página del Departamento de Estado, dice que Estados Unidos mantiene y cito",
+    "words": [
+     {
+      "w": "Esta",
+      "s": 0.9,
+      "e": 1.5,
+      "p": 0.851
+     },
+     {
+      "w": "es",
+      "s": 1.5,
+      "e": 1.6,
+      "p": 0.995
+     },
+     {
+      "w": "la",
+      "s": 1.6,
+      "e": 1.72,
+      "p": 0.994
+     },
+     {
+      "w": "página",
+      "s": 1.72,
+      "e": 2.0,
+      "p": 0.997
+     },
+     {
+      "w": "del",
+      "s": 2.0,
+      "e": 2.24,
+      "p": 0.951
+     },
+     {
+      "w": "Departamento",
+      "s": 2.24,
+      "e": 2.84,
+      "p": 0.922
+     },
+     {
+      "w": "de",
+      "s": 2.84,
+      "e": 2.98,
+      "p": 0.964
+     },
+     {
+      "w": "Estado,",
+      "s": 2.98,
+      "e": 3.34,
+      "p": 0.991
+     },
+     {
+      "w": "dice",
+      "s": 3.84,
+      "e": 4.1,
+      "p": 0.864
+     },
+     {
+      "w": "que",
+      "s": 4.1,
+      "e": 4.26,
+      "p": 0.994
+     },
+     {
+      "w": "Estados",
+      "s": 4.26,
+      "e": 4.5,
+      "p": 0.902
+     },
+     {
+      "w": "Unidos",
+      "s": 4.5,
+      "e": 4.92,
+      "p": 0.999
+     },
+     {
+      "w": "mantiene",
+      "s": 4.92,
+      "e": 5.6,
+      "p": 0.994
+     },
+     {
+      "w": "y",
+      "s": 5.6,
+      "e": 5.9,
+      "p": 0.449
+     },
+     {
+      "w": "cito",
+      "s": 5.9,
+      "e": 6.28,
+      "p": 0.966
+     }
+    ]
+   },
+   {
+    "start": 6.28,
+    "end": 9.78,
+    "text": "un embargo económico integral contra Cuba que sigue vigente hoy.",
+    "words": [
+     {
+      "w": "un",
+      "s": 6.28,
+      "e": 6.66,
+      "p": 0.72
+     },
+     {
+      "w": "embargo",
+      "s": 6.66,
+      "e": 6.92,
+      "p": 0.425
+     },
+     {
+      "w": "económico",
+      "s": 6.92,
+      "e": 7.5,
+      "p": 0.998
+     },
+     {
+      "w": "integral",
+      "s": 7.5,
+      "e": 7.84,
+      "p": 0.976
+     },
+     {
+      "w": "contra",
+      "s": 7.84,
+      "e": 8.14,
+      "p": 0.983
+     },
+     {
+      "w": "Cuba",
+      "s": 8.14,
+      "e": 8.48,
+      "p": 0.996
+     },
+     {
+      "w": "que",
+      "s": 8.48,
+      "e": 8.82,
+      "p": 0.784
+     },
+     {
+      "w": "sigue",
+      "s": 8.82,
+      "e": 9.1,
+      "p": 0.995
+     },
+     {
+      "w": "vigente",
+      "s": 9.1,
+      "e": 9.52,
+      "p": 0.986
+     },
+     {
+      "w": "hoy.",
+      "s": 9.52,
+      "e": 9.78,
+      "p": 0.991
+     }
+    ]
+   }
+  ]
+ },
+ "el_5_4_zldu": {
+  "text": "Y el 5 de noviembre ese mismo departamento anunció 10 sanciones nuevas, una red de petróleo, entidades estatales y proveedores chinos.",
+  "segments": [
+   {
+    "start": 0.78,
+    "end": 6.34,
+    "text": "Y el 5 de noviembre ese mismo departamento anunció 10 sanciones nuevas, una red de",
+    "words": [
+     {
+      "w": "Y",
+      "s": 0.78,
+      "e": 1.54,
+      "p": 0.596
+     },
+     {
+      "w": "el",
+      "s": 1.54,
+      "e": 1.66,
+      "p": 0.97
+     },
+     {
+      "w": "5",
+      "s": 1.66,
+      "e": 1.88,
+      "p": 0.955
+     },
+     {
+      "w": "de",
+      "s": 1.88,
+      "e": 2.04,
+      "p": 0.995
+     },
+     {
+      "w": "noviembre",
+      "s": 2.04,
+      "e": 2.56,
+      "p": 0.963
+     },
+     {
+      "w": "ese",
+      "s": 2.56,
+      "e": 2.98,
+      "p": 0.531
+     },
+     {
+      "w": "mismo",
+      "s": 2.98,
+      "e": 3.26,
+      "p": 0.988
+     },
+     {
+      "w": "departamento",
+      "s": 3.26,
+      "e": 3.86,
+      "p": 0.99
+     },
+     {
+      "w": "anunció",
+      "s": 3.86,
+      "e": 4.32,
+      "p": 0.975
+     },
+     {
+      "w": "10",
+      "s": 4.32,
+      "e": 4.48,
+      "p": 0.829
+     },
+     {
+      "w": "sanciones",
+      "s": 4.48,
+      "e": 4.96,
+      "p": 0.987
+     },
+     {
+      "w": "nuevas,",
+      "s": 4.96,
+      "e": 5.32,
+      "p": 0.992
+     },
+     {
+      "w": "una",
+      "s": 5.86,
+      "e": 6.0,
+      "p": 0.917
+     },
+     {
+      "w": "red",
+      "s": 6.0,
+      "e": 6.2,
+      "p": 0.951
+     },
+     {
+      "w": "de",
+      "s": 6.2,
+      "e": 6.34,
+      "p": 0.997
+     }
+    ]
+   },
+   {
+    "start": 6.34,
+    "end": 9.46,
+    "text": "petróleo, entidades estatales y proveedores chinos.",
+    "words": [
+     {
+      "w": "petróleo,",
+      "s": 6.34,
+      "e": 6.82,
+      "p": 0.984
+     },
+     {
+      "w": "entidades",
+      "s": 7.04,
+      "e": 7.44,
+      "p": 0.993
+     },
+     {
+      "w": "estatales",
+      "s": 7.44,
+      "e": 8.12,
+      "p": 0.996
+     },
+     {
+      "w": "y",
+      "s": 8.12,
+      "e": 8.42,
+      "p": 0.904
+     },
+     {
+      "w": "proveedores",
+      "s": 8.42,
+      "e": 8.94,
+      "p": 0.984
+     },
+     {
+      "w": "chinos.",
+      "s": 8.94,
+      "e": 9.46,
+      "p": 0.967
+     }
+    ]
+   }
+  ]
+ },
+ "el_6_5_tjt9": {
+  "text": "Waltz presume de 876 millones en ventas a Cuba, pero cada venta necesita un permiso del gobierno. Eso no es comercio libre, eso es control.",
+  "segments": [
+   {
+    "start": 1.32,
+    "end": 7.26,
+    "text": "Waltz presume de 876 millones en ventas a Cuba, pero cada venta necesita un permiso",
+    "words": [
+     {
+      "w": "Waltz",
+      "s": 1.32,
+      "e": 1.96,
+      "p": 0.631
+     },
+     {
+      "w": "presume",
+      "s": 1.96,
+      "e": 2.34,
+      "p": 0.607
+     },
+     {
+      "w": "de",
+      "s": 2.34,
+      "e": 2.52,
+      "p": 0.982
+     },
+     {
+      "w": "876",
+      "s": 2.52,
+      "e": 3.26,
+      "p": 0.663
+     },
+     {
+      "w": "millones",
+      "s": 3.26,
+      "e": 4.0,
+      "p": 0.975
+     },
+     {
+      "w": "en",
+      "s": 4.0,
+      "e": 4.36,
+      "p": 0.983
+     },
+     {
+      "w": "ventas",
+      "s": 4.36,
+      "e": 4.68,
+      "p": 0.973
+     },
+     {
+      "w": "a",
+      "s": 4.68,
+      "e": 4.8,
+      "p": 0.987
+     },
+     {
+      "w": "Cuba,",
+      "s": 4.8,
+      "e": 5.06,
+      "p": 0.872
+     },
+     {
+      "w": "pero",
+      "s": 5.56,
+      "e": 5.78,
+      "p": 0.989
+     },
+     {
+      "w": "cada",
+      "s": 5.78,
+      "e": 6.02,
+      "p": 0.996
+     },
+     {
+      "w": "venta",
+      "s": 6.02,
+      "e": 6.38,
+      "p": 0.989
+     },
+     {
+      "w": "necesita",
+      "s": 6.38,
+      "e": 6.7,
+      "p": 0.993
+     },
+     {
+      "w": "un",
+      "s": 6.7,
+      "e": 6.9,
+      "p": 0.993
+     },
+     {
+      "w": "permiso",
+      "s": 6.9,
+      "e": 7.26,
+      "p": 0.99
+     }
+    ]
+   },
+   {
+    "start": 7.26,
+    "end": 10.66,
+    "text": "del gobierno. Eso no es comercio libre, eso es control.",
+    "words": [
+     {
+      "w": "del",
+      "s": 7.26,
+      "e": 7.42,
+      "p": 0.767
+     },
+     {
+      "w": "gobierno.",
+      "s": 7.42,
+      "e": 7.84,
+      "p": 0.843
+     },
+     {
+      "w": "Eso",
+      "s": 8.36,
+      "e": 8.6,
+      "p": 0.957
+     },
+     {
+      "w": "no",
+      "s": 8.6,
+      "e": 8.72,
+      "p": 0.995
+     },
+     {
+      "w": "es",
+      "s": 8.72,
+      "e": 8.8,
+      "p": 0.999
+     },
+     {
+      "w": "comercio",
+      "s": 8.8,
+      "e": 9.22,
+      "p": 0.997
+     },
+     {
+      "w": "libre,",
+      "s": 9.22,
+      "e": 9.52,
+      "p": 0.993
+     },
+     {
+      "w": "eso",
+      "s": 9.96,
+      "e": 10.12,
+      "p": 0.944
+     },
+     {
+      "w": "es",
+      "s": 10.12,
+      "e": 10.26,
+      "p": 0.999
+     },
+     {
+      "w": "control.",
+      "s": 10.26,
+      "e": 10.66,
+      "p": 0.988
+     }
+    ]
+   }
+  ]
+ },
+ "el_7_6_xpg6": {
+  "text": "Ellos lo niegan, sus documentos lo confirman, el bloqueo no es un relato, es un documento oficial.",
+  "segments": [
+   {
+    "start": 1.36,
+    "end": 7.42,
+    "text": "Ellos lo niegan, sus documentos lo confirman, el bloqueo no es un relato, es un documento oficial.",
+    "words": [
+     {
+      "w": "Ellos",
+      "s": 1.36,
+      "e": 1.88,
+      "p": 0.926
+     },
+     {
+      "w": "lo",
+      "s": 1.88,
+      "e": 2.02,
+      "p": 0.983
+     },
+     {
+      "w": "niegan,",
+      "s": 2.02,
+      "e": 2.42,
+      "p": 0.981
+     },
+     {
+      "w": "sus",
+      "s": 2.9,
+      "e": 2.98,
+      "p": 0.973
+     },
+     {
+      "w": "documentos",
+      "s": 2.98,
+      "e": 3.64,
+      "p": 0.999
+     },
+     {
+      "w": "lo",
+      "s": 3.64,
+      "e": 3.74,
+      "p": 0.984
+     },
+     {
+      "w": "confirman,",
+      "s": 3.74,
+      "e": 4.4,
+      "p": 0.937
+     },
+     {
+      "w": "el",
+      "s": 4.8,
+      "e": 4.92,
+      "p": 0.912
+     },
+     {
+      "w": "bloqueo",
+      "s": 4.92,
+      "e": 5.28,
+      "p": 0.998
+     },
+     {
+      "w": "no",
+      "s": 5.28,
+      "e": 5.38,
+      "p": 0.995
+     },
+     {
+      "w": "es",
+      "s": 5.38,
+      "e": 5.5,
+      "p": 0.999
+     },
+     {
+      "w": "un",
+      "s": 5.5,
+      "e": 5.6,
+      "p": 0.998
+     },
+     {
+      "w": "relato,",
+      "s": 5.6,
+      "e": 6.04,
+      "p": 0.993
+     },
+     {
+      "w": "es",
+      "s": 6.3,
+      "e": 6.54,
+      "p": 0.994
+     },
+     {
+      "w": "un",
+      "s": 6.54,
+      "e": 6.66,
+      "p": 0.996
+     },
+     {
+      "w": "documento",
+      "s": 6.66,
+      "e": 7.16,
+      "p": 0.999
+     },
+     {
+      "w": "oficial.",
+      "s": 7.16,
+      "e": 7.42,
+      "p": 0.998
+     }
+    ]
+   }
+  ]
+ },
+ "el_8_7_hjuv": {
+  "text": "¿Tú que crees que lo niegan porque no existe o porque no les conviene admitirlo?",
+  "segments": [
+   {
+    "start": 0.66,
+    "end": 5.34,
+    "text": "¿Tú que crees que lo niegan porque no existe o porque no les conviene admitirlo?",
+    "words": [
+     {
+      "w": "¿Tú",
+      "s": 0.66,
+      "e": 1.24,
+      "p": 0.809
+     },
+     {
+      "w": "que",
+      "s": 1.24,
+      "e": 1.38,
+      "p": 0.424
+     },
+     {
+      "w": "crees",
+      "s": 1.38,
+      "e": 1.76,
+      "p": 0.996
+     },
+     {
+      "w": "que",
+      "s": 1.76,
+      "e": 2.14,
+      "p": 0.824
+     },
+     {
+      "w": "lo",
+      "s": 2.14,
+      "e": 2.28,
+      "p": 0.988
+     },
+     {
+      "w": "niegan",
+      "s": 2.28,
+      "e": 2.62,
+      "p": 0.964
+     },
+     {
+      "w": "porque",
+      "s": 2.62,
+      "e": 2.82,
+      "p": 0.972
+     },
+     {
+      "w": "no",
+      "s": 2.82,
+      "e": 2.98,
+      "p": 0.997
+     },
+     {
+      "w": "existe",
+      "s": 2.98,
+      "e": 3.44,
+      "p": 0.972
+     },
+     {
+      "w": "o",
+      "s": 3.44,
+      "e": 3.88,
+      "p": 0.742
+     },
+     {
+      "w": "porque",
+      "s": 3.88,
+      "e": 4.12,
+      "p": 0.95
+     },
+     {
+      "w": "no",
+      "s": 4.12,
+      "e": 4.26,
+      "p": 0.997
+     },
+     {
+      "w": "les",
+      "s": 4.26,
+      "e": 4.44,
+      "p": 0.987
+     },
+     {
+      "w": "conviene",
+      "s": 4.44,
+      "e": 4.78,
+      "p": 0.9
+     },
+     {
+      "w": "admitirlo?",
+      "s": 4.78,
+      "e": 5.34,
+      "p": 0.912
+     }
+    ]
+   }
+  ]
+ }
+}

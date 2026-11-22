@@ -1,0 +1,82 @@
+{
+ "veredicto_global": "DISCREPANCIA",
+ "resumen": {
+  "MATCH": 6,
+  "INCIERTO": 1,
+  "DISCREPANCIA": 1
+ },
+ "lineas": [
+  {
+   "linea": 1,
+   "veredicto": "DISCREPANCIA",
+   "detalles": [
+    {
+     "veredicto": "DISCREPANCIA",
+     "detalle": "sin transcripción"
+    }
+   ],
+   "guion": "El gobierno de Estados Unidos lleva meses diciendo que no hay bloqueo. Míralos.",
+   "asr": null
+  },
+  {
+   "linea": 2,
+   "veredicto": "MATCH",
+   "detalles": [],
+   "guion": "Cuatro veces. En seis meses.",
+   "asr": "Cuatro veces en seis meses."
+  },
+  {
+   "linea": 3,
+   "veredicto": "MATCH",
+   "detalles": [],
+   "guion": "Vale. Ahora mira esto.",
+   "asr": "Vale, ahora mira esto."
+  },
+  {
+   "linea": 4,
+   "veredicto": "MATCH",
+   "detalles": [],
+   "guion": "Esta es la página del Departamento de Estado. Dice que Estados Unidos mantiene, y cito, un embargo económico integral contra Cuba, que sigue vigente hoy.",
+   "asr": "Esta es la página del Departamento de Estado, dice que Estados Unidos mantiene y cito un embargo económico integral contra Cuba que sigue vigente hoy."
+  },
+  {
+   "linea": 5,
+   "veredicto": "MATCH",
+   "detalles": [],
+   "guion": "Y el 5 de noviembre, ese mismo Departamento anunció 10 sanciones nuevas: una red de petróleo, entidades estatales y proveedores chinos.",
+   "asr": "Y el 5 de noviembre ese mismo departamento anunció 10 sanciones nuevas, una red de petróleo, entidades estatales y proveedores chinos."
+  },
+  {
+   "linea": 6,
+   "veredicto": "MATCH",
+   "detalles": [],
+   "guion": "Waltz presume de 876 millones en ventas a Cuba. Pero cada venta necesita un permiso del gobierno. Eso no es comercio libre, eso es control.",
+   "asr": "Waltz presume de 876 millones en ventas a Cuba, pero cada venta necesita un permiso del gobierno. Eso no es comercio libre, eso es control."
+  },
+  {
+   "linea": 7,
+   "veredicto": "MATCH",
+   "detalles": [],
+   "guion": "Ellos lo niegan. Sus documentos lo confirman. El bloqueo no es un relato. Es un documento oficial.",
+   "asr": "Ellos lo niegan, sus documentos lo confirman, el bloqueo no es un relato, es un documento oficial."
+  },
+  {
+   "linea": 8,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'qué' oído como 'que' (prob. ASR 0.42 < 0.5)",
+     "guion": [
+      "qué"
+     ],
+     "asr": [
+      "que"
+     ]
+    }
+   ],
+   "guion": "¿Tú qué crees, que lo niegan porque no existe o porque no les conviene admitirlo?",
+   "asr": "¿Tú que crees que lo niegan porque no existe o porque no les conviene admitirlo?"
+  }
+ ]
+}

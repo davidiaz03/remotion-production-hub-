@@ -189,13 +189,164 @@
    "license": "Dominio público — obra del gobierno de EE. UU. (17 USC §105)",
    "scene": "L5 (40-50 s, activo principal)",
    "verifiedBy": "Verificado a ojo por dos agentes: título «Further Sanctions on the Cuban Regime's Foreign Military Support and Illicit Revenue Networks», «PRESS STATEMENT / MARCO RUBIO, SECRETARY OF STATE / NOVEMBER 5, 2026» y el párrafo de designaciones («I am designating ten targets… a crude oil shipping network… five associated vessels as blocked property») legibles."
+  },
+  {
+   "bytes": 109658,
+   "durationSec": 3.392,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/el_2_1_j9qw.aac",
+   "scene": "VO L2 (original)",
+   "sha256": "308fc861d8ac9dc65074f86aee8476403c9ace52201279982edd662a76c52b0e",
+   "sourceDetail": "Entregado por el usuario 22-nov-2026 (WhatsApp). Asignado a L2 por contenido transcrito.",
+   "verifiedBy": "faster-whisper small+base: «Cuatro veces en seis meses.» MATCH (verify-vo-lines.py)."
+  },
+  {
+   "bytes": 116554,
+   "durationSec": 3.605,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/el_3_0_7umm.aac",
+   "scene": "VO L3 (original)",
+   "sha256": "38f02c0e2b90b65fa59305ba281e7e3d6b38f6b7d47cfe939ed50a268e8b029e",
+   "sourceDetail": "Entregado por el usuario 22-nov-2026 (WhatsApp). Asignado a L3 por contenido transcrito.",
+   "verifiedBy": "faster-whisper small+base: «Vale, ahora mira esto.» MATCH."
+  },
+  {
+   "bytes": 116554,
+   "durationSec": 3.605,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/el_3_2_qwro.aac",
+   "scene": "VO L3 — DUPLICADO (no usar)",
+   "sha256": "38f02c0e2b90b65fa59305ba281e7e3d6b38f6b7d47cfe939ed50a268e8b029e",
+   "sourceDetail": "Entregado por el usuario 22-nov-2026 (WhatsApp). Byte-idéntico a el_3_0_7umm.aac (mismo SHA256): es la misma grabación de L3 enviada dos veces. NO es la L1.",
+   "verifiedBy": "SHA256 idéntico a el_3_0_7umm.aac; cmp confirma duplicado.",
+   "editNote": "Duplicado: usar solo el_3_0_7umm.aac / L3.wav. La L1 NO llegó con estos archivos."
+  },
+  {
+   "bytes": 346213,
+   "durationSec": 10.71,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/el_4_3_8km5.aac",
+   "scene": "VO L4 (original)",
+   "sha256": "cd878b40b507a51b0ad9c9e35bad9f87e5bb5cdaa0b7dc41dd131517e582664f",
+   "sourceDetail": "Entregado por el usuario 22-nov-2026 (WhatsApp). Asignado a L4 por contenido transcrito.",
+   "verifiedBy": "faster-whisper small+base: texto íntegro del guion incl. «y cito, un embargo económico integral…». MATCH."
+  },
+  {
+   "bytes": 346903,
+   "durationSec": 10.731,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/el_5_4_zldu.aac",
+   "scene": "VO L5 (original)",
+   "sha256": "2e3a6cd0e876319202d1f082efd39e70e9daa1c4e571258e7b7b3574544a61a6",
+   "sourceDetail": "Entregado por el usuario 22-nov-2026 (WhatsApp). Asignado a L5 por contenido transcrito.",
+   "verifiedBy": "faster-whisper small+base: texto íntegro del guion. MATCH."
+  },
+  {
+   "bytes": 393111,
+   "durationSec": 12.16,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/el_6_5_tjt9.aac",
+   "scene": "VO L6 (original)",
+   "sha256": "fd5688b78b2c34142ce54b1300a46d36451ae106db4c02c9e9a0b19a68bc2087",
+   "sourceDetail": "Entregado por el usuario 22-nov-2026 (WhatsApp). Asignado a L6 por contenido transcrito.",
+   "verifiedBy": "faster-whisper small+base: «Eso no es comercio libre» — el «no» presente en ambos modelos (p=0.99, 8.60-8.72 s). «876» verificado con 4 pasadas aisladas (ambos modelos, ambos beams: 876). MATCH."
+  },
+  {
+   "bytes": 267591,
+   "durationSec": 8.278,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/el_7_6_xpg6.aac",
+   "scene": "VO L7 (original)",
+   "sha256": "3e9341cfce6a5fb9ea2778dd7c03cf975bda42237790a469f17735a592e21d19",
+   "sourceDetail": "Entregado por el usuario 22-nov-2026 (WhatsApp). Asignado a L7 por contenido transcrito.",
+   "verifiedBy": "faster-whisper small+base: texto íntegro del guion; ninguna palabra de baja probabilidad. MATCH."
+  },
+  {
+   "bytes": 195866,
+   "durationSec": 6.059,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/el_8_7_hjuv.aac",
+   "scene": "VO L8 (original)",
+   "sha256": "66696e62cbee227271d5c61ffaf618835be22b1f84f56108d8a9a60eb4966f09",
+   "sourceDetail": "Entregado por el usuario 22-nov-2026 (WhatsApp). Asignado a L8 por contenido transcrito.",
+   "verifiedBy": "faster-whisper small: texto íntegro del guion («admitirlo» p=0.91). INCIERTO solo por «qué» vs «que» (misma palabra hablada, artefacto ortográfico)."
+  },
+  {
+   "bytes": 651342,
+   "durationSec": 3.392,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/L2.wav",
+   "scene": "VO L2 (edición, wav 48 kHz)",
+   "sha256": "0641a3d5a66f3018092b198c97d35b9873059e5c6d21848b0cee97839a9cea48",
+   "sourceDetail": "Conversión sin pérdida perceptual de el_2_1_j9qw.aac (ffmpeg, 48 kHz estéreo) para el montaje.",
+   "verifiedBy": "Mismo contenido que el original .aac."
+  },
+  {
+   "bytes": 692302,
+   "durationSec": 3.605,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/L3.wav",
+   "scene": "VO L3 (edición, wav 48 kHz)",
+   "sha256": "302f1cd63d8b49fd4766bc0d54f5cd01df1451c158d9ba4eec84b8f324390a23",
+   "sourceDetail": "Conversión de el_3_0_7umm.aac (ffmpeg, 48 kHz estéreo) para el montaje.",
+   "verifiedBy": "Mismo contenido que el original .aac."
+  },
+  {
+   "bytes": 2056270,
+   "durationSec": 10.71,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/L4.wav",
+   "scene": "VO L4 (edición, wav 48 kHz)",
+   "sha256": "09618dbd0d025341b6d98da55425a56c8933a0132f0eaebc04095c62f6019bb7",
+   "sourceDetail": "Conversión de el_4_3_8km5.aac (ffmpeg, 48 kHz estéreo) para el montaje.",
+   "verifiedBy": "Mismo contenido que el original .aac."
+  },
+  {
+   "bytes": 2060366,
+   "durationSec": 10.731,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/L5.wav",
+   "scene": "VO L5 (edición, wav 48 kHz)",
+   "sha256": "b4860ef2bc1ff8219465107b1e5d443a72da8d587077eb488394b0d41a564095",
+   "sourceDetail": "Conversión de el_5_4_zldu.aac (ffmpeg, 48 kHz estéreo) para el montaje.",
+   "verifiedBy": "Mismo contenido que el original .aac."
+  },
+  {
+   "bytes": 2334798,
+   "durationSec": 12.16,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/L6.wav",
+   "scene": "VO L6 (edición, wav 48 kHz)",
+   "sha256": "abe7065a1f97ecbed280e0fc35a480a8b16e6f5fa90d50c9d0cba2cb648cae12",
+   "sourceDetail": "Conversión de el_6_5_tjt9.aac (ffmpeg, 48 kHz estéreo) para el montaje.",
+   "verifiedBy": "Mismo contenido que el original .aac."
+  },
+  {
+   "bytes": 1589326,
+   "durationSec": 8.278,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/L7.wav",
+   "scene": "VO L7 (edición, wav 48 kHz)",
+   "sha256": "8cae01a8fab583df6b9a2f1bec4e044cbca844b744914576f42647a0940abcde",
+   "sourceDetail": "Conversión de el_7_6_xpg6.aac (ffmpeg, 48 kHz estéreo) para el montaje.",
+   "verifiedBy": "Mismo contenido que el original .aac."
+  },
+  {
+   "bytes": 1163342,
+   "durationSec": 6.059,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/L8.wav",
+   "scene": "VO L8 (edición, wav 48 kHz)",
+   "sha256": "4ac9635ca1682c5f7a048112fcea0bbc9dc554f84268030c70b9305cff4c97fd",
+   "sourceDetail": "Conversión de el_8_7_hjuv.aac (ffmpeg, 48 kHz estéreo) para el montaje.",
+   "verifiedBy": "Mismo contenido que el original .aac."
   }
  ],
  "formatVersion": 1,
  "notes": "Los videos no se commitean (gitignore). Este manifiesto es el registro canónico con SHA256. La sección «referenced» lista material del archivo del Memorial que existe en Drive pero NO está descargado localmente (sin SHA); descargar al editar solo si se usa.",
  "project": "negacion-embargo",
  "title": "Dicen que no hay bloqueo",
- "totalBytes": 572115755,
+ "totalBytes": 584555951,
  "referenced": [
   {
    "name": "Cuba_blackout_NOAA_CIRA_2026.png",
@@ -262,5 +413,7 @@
    "Logos y camas de audio del reel Bruno (marca/audio, no B-roll)"
   ],
   "pendingFromSuleris": "archive/pendiente-suleris.md (no pedido aún): fotos de archivo histórico del Memorial (ninguna en Drive), testimonios de otras víctimas (video crudo), video crudo del testimonio de Pilar (grabado 8-nov-2026; en Drive solo 3 fotos). Nada de lo pendiente cubre puerto/petróleo/barcos/Habana."
- }
+ },
+ "voVerifiedAt": "2026-11-22T16:30:00Z",
+ "voVerdict": "7/8 líneas OK (L2-L8); L1 pendiente de grabar; L3 duplicada (el_3_2_qwro.aac = el_3_0_7umm.aac). Ver VO_VERIFICATION.md."
 }
