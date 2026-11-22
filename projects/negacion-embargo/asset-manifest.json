@@ -408,13 +408,25 @@
    "sourceDetail": "Fotograma del corte waltz-28oct-fake-phony-blockade.mp4 (12 s, durante «fake, phony, made-up blockade»)",
    "sourceUrl": "https://webtv.un.org/en/asset/k1k/k1kspetddv",
    "verifiedBy": "Verificado a ojo: mismo plano sentado, placa «UNITED STATES», sin subtítulos quemados"
+  },
+  {
+   "bytes": 2156036,
+   "license": "NOAA/CIRA — imagen satelital de agencia federal de EE. UU. (dominio público); crédito al publicar: «NOAA / CIRA»",
+   "path": "public/img/Cuba_lights_before_NOAA_CIRA_2026.png",
+   "resolution": "1920x1080",
+   "scene": "realidad L6 (59,6–61,0 s) — corte antes/después con Cuba_blackout_NOAA_CIRA_2026.png (f1808→f1809)",
+   "sha256": "dd6e0b433c29ae846d5d767f9a199a50d78124bf8191a88892476212f7341732",
+   "sourceDetail": "«Standard Nighttime Lights», 15-feb-2026 06:58 UTC, VIIRS DNB (NOAA-20/21), entrada CIRA «Nighttime View of Power Blackouts in Cuba» (intervalo 2026/02/15 06:58 – 2026/03/17 07:06 UTC); versión nolabels. Par con el «after» (17-mar-2026 07:06 UTC).",
+   "sourceUrl": "https://satlib.cira.colostate.edu/wp-content/uploads/sites/23/2026/03/202602150658_n21-snpp-n20_viirs_dnb_cubablackout_nolabels0.png",
+   "verifiedBy": "Verificado a ojo (padre + yo): Cuba de noche con las luces de las ciudades encendidas (La Habana brillante al oeste, Santiago al este), logos CIRA/NOAA abajo a la derecha. SHA256 verificado. OJO: el «before» de la otra entrada CIRA («Nationwide Power Blackout in Cuba», 4-dic-2024) es de OTRO evento — NO usar.",
+   "editNote": "Los dos PNG NO alinean tal cual (distintas pasadas del satélite; correlación de gradientes 0,116; costas duplicadas en fusión 50/50). Intentos de semejanza (SIFT + rejilla anclada en La Habana): mejor 0,249 por gradientes / 0,051–0,084 por bordes, sin pico real, << objetivo 0,4 — NO converge. Decisión 22-nov: CORTE duro en local 294 (global f1809 = 60,30 s) con rótulos ANTES/DESPUÉS + crédito por lado («Cuba con luz · feb» / «Cuba a oscuras · mar»). El «after» trae «After Power Outages» quemado en inglés (y~88–95%): cubierto por la píldora de crédito opaca (top 1038, glifos medidos en display y 1049–1074)."
   }
  ],
  "formatVersion": 1,
- "notes": "Los videos no se commitean (gitignore). Este manifiesto es el registro canónico con SHA256. La sección «referenced» lista material del archivo del Memorial que existe en Drive pero NO está descargado localmente (sin SHA); descargar al editar solo si se usa. 4ª tarjeta del panel (22-nov, reemplazo de la Fox): Waltz 28-oct-2026, explicación de voto AGNU — 2 cortes de video + 2 stills. Ver HANDOFF-4TA-TARJETA-28OCT.md.",
+ "notes": "Los videos no se commitean (gitignore). Este manifiesto es el registro canónico con SHA256. La sección «referenced» lista material del archivo del Memorial que existe en Drive pero NO está descargado localmente (sin SHA); descargar al editar solo si se usa. 4ª tarjeta del panel (22-nov, reemplazo de la Fox): Waltz 28-oct-2026, explicación de voto AGNU — 2 cortes de video + 2 stills. Ver HANDOFF-4TA-TARJETA-28OCT.md. NOAA «before» (22-nov): Cuba_lights_before_NOAA_CIRA_2026.png (Standard Nighttime Lights, 15-feb-2026 06:58 UTC) — par del «after» para el corte L6 (f1808→f1809); los dos PNG no alinean (ver editNote: mejor semejanza 0,249/0,08 << 0,4).",
  "project": "negacion-embargo",
  "title": "Dicen que no hay bloqueo",
- "totalBytes": 599877265,
+ "totalBytes": 602033301,
  "referenced": [
   {
    "name": "Cuba_blackout_NOAA_CIRA_2026.png",

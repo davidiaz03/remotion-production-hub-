@@ -28,6 +28,23 @@ import {CAPTIONS} from './captions';
 // Fuente de verdad numérica: research/timeline.json.
 // Plan escena por escena: AUDIT_PREEDIT.md §6 (C1–C12).
 //
+// V3 (22-nov, composición visual): T4 Fox → video Waltz 28-oct
+// (panel-t4.mp4, 8,9–12,9 s del corte EOV); glitch RGB ×3 (T2/T3/
+// PUNTO.); match cuts con morph en T1→T2, T2→T3 y T3→T4; NOAA por
+// CORTE (el wipe no converge: corr. 0,13–0,25 << 0,4) con rótulo
+// por lado («Cuba con luz · feb» / «Cuba a oscuras · mar»);
+// shake de impacto ×5; micro-animación de texto (eslóganes letra
+// por letra, odómetro que descifra, flip del «10»); rima de bucle
+// en el logo (deceleración a hold); título del gancho en 2 líneas
+// en zona despejada (FALLBACK 22-nov: el sándwich fantasma no
+// funciona — el webm VP9 se renderiza OPACO en Chromium).
+//
+// NOTA PUNTO. (medido 22-nov): el slam visual + SFX están en
+// f400 (13,32 s), pero el audio «Period.» medido (Whisper small +
+// energía) cae en f423 (14,1 s). El glitch y el shake de PUNTO.
+// siguen al slam visual (f400); si el padre mueve el slam a f423,
+// el glitch lo sigue (usa PUNTO_AT). Ver HANDOFF.md.
+//
 // AUDIO: la mezcla (audio/mix.wav: VO + cama + SFX) va con
 // <Audio>. El audio del panel NO está en la mezcla: T1 viene de
 // su OffthreadVideo; T2 va en su propia Sequence (J-cut: el audio
@@ -118,6 +135,200 @@ const popIn = (f: number, at: number, dur = 12) =>
 const winOp = (f: number, a: number, b: number) =>
 	clamp01(f, a, a + 8) * (1 - clamp01(f, b - 8, b));
 
+// ---------- match cut con morph (investigación 3 #7 / AE #7) ----------
+// Pre-corte (12 f): el plano saliente se acerca al encuadre del
+// entrante (ease-in cúbico, ~80% del ajuste antes del corte).
+// Post-corte (24 f): el entrante arranca en el encuadre igualado y
+// se asienta a su encuadre natural (ease-out cúbico). Ratio 1:2.
+// Los valores (ty, escala) se miden por frontera en el código de
+// cada escena (cabezas medidas en stills de pre-vuelo).
+const morphIn = (f: number, a: number, b: number) => {
+	const p = clamp01(f, a, b);
+	return p * p * p;
+};
+const morphOut = (f: number, a: number, b: number) => {
+	const p = clamp01(f, a, b);
+	return 1 - (1 - p) * (1 - p) * (1 - p);
+};
+
+// ---------- glitch RGB «detector de mentiras» (AE #9) ----------
+// Tres copias del mismo clip con aislamiento de canal por SVG
+// feColorMatrix + mix-blend-mode screen, desplazadas ±dx. La base
+// se atenúa mientras las copias entran: en el pico solo quedan los
+// 3 canales separados (el canal G queda en su sitio). Ventana 8 f,
+// pico de distorsión en el centro (env = sin(pi·p), dx máx 4 px).
+// SOLO 3 usos: «It's fake» (T2), «PUNTO.» (T2) y «There is no
+// blockade» (T3). Los filtros viven en <GlitchDefs /> (raíz).
+const GlitchDefs: React.FC = () => (
+	<svg width="0" height="0" style={{position: 'absolute'}} aria-hidden="true">
+		<defs>
+			<filter id="glitchR">
+				<feColorMatrix
+					type="matrix"
+					values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"
+				/>
+			</filter>
+			<filter id="glitchG">
+				<feColorMatrix
+					type="matrix"
+					values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0"
+				/>
+			</filter>
+			<filter id="glitchB">
+				<feColorMatrix
+					type="matrix"
+					values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0"
+				/>
+			</filter>
+		</defs>
+	</svg>
+);
+const GlitchVideo: React.FC<{
+	src: string;
+	startFrom?: number;
+	volume?: number;
+	windows: Array<{at: number; dur?: number}>;
+	videoStyle?: React.CSSProperties;
+}> = ({src, startFrom = 0, volume = 0, windows, videoStyle}) => {
+	const f = useCurrentFrame();
+	let env = 0;
+	for (const w of windows) {
+		const dur = w.dur ?? 8;
+		if (f >= w.at && f < w.at + dur) {
+			env = Math.max(env, Math.sin(Math.PI * ((f - w.at) / dur)));
+		}
+	}
+	const dx = 4 * env;
+	const baseStyle: React.CSSProperties = {
+		width: '100%',
+		height: '100%',
+		objectFit: 'cover',
+		...videoStyle,
+		opacity: 1 - 0.9 * env,
+	};
+	const chan = (filter: string, tx: number) => (
+		<div
+			key={filter}
+			style={{
+				position: 'absolute',
+				inset: 0,
+				mixBlendMode: 'screen',
+				opacity: env,
+				transform: `translateX(${tx}px)`,
+			}}
+		>
+			<OffthreadVideo
+				src={staticFile(src)}
+				startFrom={startFrom}
+				volume={0}
+				style={{
+					width: '100%',
+					height: '100%',
+					objectFit: 'cover',
+					filter: `url(#${filter})`,
+					...videoStyle,
+				}}
+			/>
+		</div>
+	);
+	return (
+		<>
+			<OffthreadVideo
+				src={staticFile(src)}
+				startFrom={startFrom}
+				volume={volume}
+				style={baseStyle}
+			/>
+			{env > 0 && (
+				<>
+					{chan('glitchR', -dx)}
+					{chan('glitchG', 0)}
+					{chan('glitchB', dx)}
+				</>
+			)}
+		</>
+	);
+};
+
+// ---------- eslogan letra por letra (micro-animación premium) ----------
+// Cada letra entra con stagger de 1 f, subida 30→0 px y pop de escala
+// con sobrepaso ~4–6% (Easing.back(1.15)). La salida NO es un fundido:
+// la hace el padre con un wipe de máscara hacia arriba (6 f) para que
+// el eslogan 1 salga COMPLETO antes de que entre el sello.
+const LetterSlogan: React.FC<{
+	lines: string[];
+	top: number;
+	size: number;
+	delay: number;
+	accentWord?: string;
+}> = ({lines, top, size, delay, accentWord}) => {
+	const f = useCurrentFrame();
+	let idx = 0;
+	return (
+		<div
+			style={{
+				position: 'absolute',
+				top,
+				left: 56,
+				right: 56,
+				textAlign: 'center',
+				pointerEvents: 'none',
+			}}
+		>
+			{lines.map((line, li) => (
+				<div
+					key={li}
+					style={{
+						display: 'flex',
+						flexWrap: 'wrap',
+						justifyContent: 'center',
+						gap: `0 ${Math.round(size * 0.26)}px`,
+						lineHeight: 1.08,
+					}}
+				>
+					{line.split(' ').map((word, wi) => (
+						<span key={wi} style={{display: 'inline-block'}}>
+							{word.split('').map((ch, ci) => {
+								const start = delay + idx++ * 1;
+								const q = clamp01(f, start, start + 6);
+								const scale = interpolate(q, [0, 1], [0.6, 1], {
+									easing: Easing.out(Easing.back(1.15)),
+									extrapolateLeft: 'clamp',
+									extrapolateRight: 'clamp',
+								});
+								const y = interpolate(q, [0, 1], [30, 0], {
+									easing: Easing.out(Easing.cubic),
+									extrapolateLeft: 'clamp',
+									extrapolateRight: 'clamp',
+								});
+								return (
+									<span
+										key={ci}
+										style={{
+											display: 'inline-block',
+											fontFamily: ARCHIVO,
+											fontSize: size,
+											fontWeight: 800,
+											letterSpacing: -1,
+											color:
+												word === accentWord ? MEMORIAL_RED : '#FFFFFF',
+											opacity: q,
+											transform: `scale(${scale}) translateY(${y}px)`,
+											textShadow: '0 4px 24px rgba(0,0,0,0.55)',
+										}}
+									>
+										{ch}
+									</span>
+								);
+							})}
+						</span>
+					))}
+				</div>
+			))}
+		</div>
+	);
+};
+
 // ---------- chip mono (voz DATO: fechas, fuentes, etiquetas) ----------
 const DataChip: React.FC<{
 	top: number;
@@ -150,9 +361,12 @@ const DataChip: React.FC<{
 );
 
 // ---------- barra de línea de tiempo del panel (C3) ----------
-// MAY 20 → JUL 7 → OCT 27 → NOV 16: la negación es una campaña
+// MAY 20 → JUL 7 → OCT 27 → OCT 28: la negación es una campaña
 // sostenida, no un desliz. El punto activo va en rojo.
-const TL_DATES = ['MAY 20', 'JUL 7', 'OCT 27', 'NOV 16'];
+// Espaciado UNIFORME (90/390/690/990): las etiquetas miden 160 px,
+// así OCT 27 (610–770) y OCT 28 (910–1070) NO se solapan pese a
+// estar a un día de distancia (hueco de 140 px).
+const TL_DATES = ['MAY 20', 'JUL 7', 'OCT 27', 'OCT 28'];
 const TL_X = [90, 390, 690, 990];
 const TimelineBar: React.FC<{active: number}> = ({active}) => {
 	const f = useCurrentFrame();
@@ -343,20 +557,45 @@ const T2Video: React.FC = () => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	// Match cut con morph. B1 post-corte (local 12–36): arranca en el
+	// encuadre igualado con T1 (ty −72 px, escala 1,12) y se asienta
+	// al encuadre natural (ease-out, 24 f). B2 pre-corte (local
+	// 168–180): empuje leve hacia T3 (ty +24 px, escala 1,02,
+	// ease-in, 12 f) — T3 entra con la cabeza baja (lee sus notas),
+	// el match completo no calza; morph ligero, sin forzar.
+	const morphQ1 = morphOut(f, 12, 36);
+	const morphTy = -72 * (1 - morphQ1) + 24 * morphIn(f, 168, 180);
+	const morphS =
+		1.12 + (1 - 1.12) * morphQ1 + (1.02 - 1) * morphIn(f, 168, 180);
 	return (
 		<AbsoluteFill style={{opacity: f >= 12 ? 1 : 0}}>
 			<div
 				style={{
 					position: 'absolute',
 					inset: 0,
-					transform: `scale(${push})`,
-					transformOrigin: '50% 28%',
+					transform: `translateY(${morphTy}px) scale(${morphS})`,
+					transformOrigin: '540px 570px',
 				}}
 			>
-				<OffthreadVideo
-					src={staticFile('video/panel-t2.mp4')}
-					style={{width: '100%', height: '100%', objectFit: 'cover'}}
-				/>
+				<div
+					style={{
+						position: 'absolute',
+						inset: 0,
+						transform: `scale(${push})`,
+						transformOrigin: '50% 28%',
+					}}
+				>
+					{/* Glitch RGB ×2 en este clip: G1 «It's fake» (local
+					17–24, centro global f306 = 10,2 s, medido en el
+					corte: «fake» 10,04–10,40 s) y G2 «PUNTO.» (local
+					111–118, centro global f400 = 13,32 s, el slam
+					visual; el audio «Period.» medido cae en f423). */}
+					<GlitchVideo
+						src="video/panel-t2.mp4"
+						volume={1}
+						windows={[{at: 17}, {at: 111}]}
+					/>
+				</div>
 			</div>
 		</AbsoluteFill>
 	);
@@ -646,81 +885,85 @@ const LINES_L8: KaraokeLine[] = shiftLines(
 // frente, boca muy abierta a 14,0 s, puño levantado a 15,0 s;
 // evita la pausa de 6,0–7,0 s y el inicio de perfil de 7,0 s)
 // + punch-in 1,3→1,0 anclado en la cara (48% 26%, local 0–51,
-// ~1,7 s) + título con revelado por líneas (HookTitle, formado
-// a f12 = 0,4 s, con el slam a 0,3 s) + segundo latido a 3,5 s
+// ~1,7 s) + título en 2 líneas en zona despejada («DICEN QUE NO
+// HAY» + «BLOQUEO» rojo, top 930, fuera del punch; entra f0–12
+// con el slam a 0,3 s, sale a 3,5 s) + segundo latido a 3,5 s
 // (el título sale con barrido a la izquierda y la cámara da un
 // segundo punch 1,0→1,10 en 8 f) + flash-preview de T2 (local
 // 105–119, MUDO, zoom 1,0→1,12) + karaoke L1. Cara libre en
-// todo momento: título y karaoke van sobre el pecho (y 820–1244).
+// todo momento: ningún texto toca ojos, boca, frente ni barbilla
+// (verificado en f0/f9/f15/f60).
 // ================================================================
-// Título del gancho: revelado por líneas con máscara (NO
-// KineticHeadline: no hace revelado por líneas y su spring tarda
-// ~12–15 f). Cada línea sube 110%→0 en 6 f, stagger 3 f (línea 1
-// f0–6, línea 2 f3–9, línea 3 f6–12). Formado a f12 (0,4 s); el
-// slam a f9 coincide con el aterrizaje de la línea 2. Salida a
-// 3,5 s (local 105–113): deslizamiento rápido a la izquierda +
-// fade, stagger 2 f por línea.
+// Título del gancho — FALLBACK aplicado 22-nov (ver HookTitle):
+// el sándwich fantasma («BLOQUEO» gigante DETRÁS de Waltz, video
+// → fantasma → recorte con alfa) NO funciona en el Chromium de
+// Remotion: el webm VP9 se renderiza OPACO y tapa la palabra.
+// Recorte u2net por lote (171 f, 13,0–18,7 s del soundbite 33)
+// con choke 1 px + feather 0,6 px; verificado a ojo sobre rojo
+// (sin halo apreciable) — el recorte en sí es bueno, lo que falla
+// es la decodificación del alfa en Chromium. Si en el futuro el
+// render real decodifica alfa VP9, el sándwich puede volver
+// (video/hook-cutout.webm sigue en public/, 171 f).
+// Título del gancho — FALLBACK (22-nov): el sándwich fantasma
+// NO funciona en el Chromium de Remotion (el webm VP9 lleva el
+// alfa en el bitstream — A/B +30% de tamaño — pero el decodificador
+// lo descarta y el recorte se renderiza OPACO, tapando la palabra:
+// «BLOQUEO» 1261 px de ancho debería asomar ~800 px a y 700 donde
+// la silueta solo cubre 286–663, y no asoma en f9/f60/f85; el
+// webm opaco coincide píxel a píxel con la base, por eso el still
+// se ve limpio). El webm se QUITA de HookScene y el título va en
+// zona despejada, 2 líneas, FUERA del punch: «DICEN QUE NO HAY»
+// (54 px) + «BLOQUEO» (140 px, rojo). Top 930: ~300 px bajo la
+// barbilla (~630) y el bloque termina ~1134, 26 px sobre el
+// karaoke (1160). Misma entrada/salida que el fantasma (f0–12,
+// salida 105–113 con deslizamiento).
 const HookTitle: React.FC = () => {
 	const f = useCurrentFrame();
-	const lines = [
-		['DICEN', 'QUE'],
-		['NO', 'HAY'],
-		['BLOQUEO'],
-	];
+	const inOp = clamp01(f, 0, 12);
+	const outOp = 1 - clamp01(f, 105, 113);
+	const outX = interpolate(f, [105, 113], [0, -200], {
+		easing: Easing.out(Easing.cubic),
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
 	return (
-		<div style={{position: 'absolute', top: 820, left: 0, right: 0}}>
-			{lines.map((words, li) => {
-				const inP = interpolate(f, [li * 3, li * 3 + 6], [0, 1], {
-					easing: Easing.out(Easing.cubic),
-					extrapolateLeft: 'clamp',
-					extrapolateRight: 'clamp',
-				});
-				const outP = interpolate(f, [105 + li * 2, 113 + li * 2], [0, 1], {
-					easing: Easing.out(Easing.cubic),
-					extrapolateLeft: 'clamp',
-					extrapolateRight: 'clamp',
-				});
-				const y = interpolate(inP, [0, 1], [110, 0]);
-				return (
-					<div
-						key={li}
-						style={{
-							overflow: 'hidden',
-							height: 100,
-							opacity: 1 - outP,
-							transform: `translateX(${interpolate(outP, [0, 1], [0, -200])}px)`,
-						}}
-					>
-						<div
-							style={{
-								transform: `translateY(${y}%)`,
-								textAlign: 'center',
-								fontFamily: ARCHIVO,
-								fontSize: 92,
-								lineHeight: 1,
-								color: '#FFFFFF',
-							}}
-						>
-							{words.map((w, wi) => (
-								<span
-									key={w}
-									style={{
-										color: w === 'BLOQUEO' ? MEMORIAL_RED : '#FFFFFF',
-										textShadow: '0 6px 30px rgba(0,0,0,0.6)',
-									}}
-								>
-									{w}
-									{wi < words.length - 1 ? ' ' : ''}
-								</span>
-							))}
-						</div>
-					</div>
-				);
-			})}
+		<div
+			style={{
+				position: 'absolute',
+				top: 930,
+				left: 0,
+				right: 0,
+				textAlign: 'center',
+				opacity: inOp * outOp,
+				transform: `translateX(${outX}px)`,
+			}}
+		>
+			<div
+				style={{
+					fontFamily: ARCHIVO,
+					fontSize: 54,
+					letterSpacing: 8,
+					color: '#FFFFFF',
+					textShadow: '0 6px 30px rgba(0,0,0,0.6)',
+				}}
+			>
+				DICEN QUE NO HAY
+			</div>
+			<div
+				style={{
+					fontFamily: ARCHIVO,
+					fontSize: 140,
+					lineHeight: 1,
+					marginTop: 8,
+					color: MEMORIAL_RED,
+					textShadow: '0 8px 40px rgba(0,0,0,0.6)',
+				}}
+			>
+				BLOQUEO
+			</div>
 		</div>
 	);
 };
-
 const HookScene: React.FC = () => {
 	const f = useCurrentFrame();
 	// Punch-in 1,3→1,0 (local 0–51, ease-out cúbico, anclado en
@@ -748,6 +991,10 @@ const HookScene: React.FC = () => {
 	});
 	return (
 		<AbsoluteFill style={{background: INK}}>
+			{/* Video base del gancho con punch (el sándwich fantasma
+			se retiró 22-nov: el webm VP9 se renderiza OPACO en el
+			Chromium de Remotion y tapaba la palabra — ver HookTitle).
+			El título va FUERA del punch, en zona despejada. */}
 			<div
 				style={{
 					position: 'absolute',
@@ -820,8 +1067,23 @@ const HookScene: React.FC = () => {
 // El audio del clip termina en local f120, antes del corte.
 // ================================================================
 const PanelT1Scene: React.FC = () => {
+	const f = useCurrentFrame();
+	// Match cut con morph B1 pre-corte (local 114–126): el plano de
+	// Rubio se acerca al encuadre de T2 (ty +60 px, escala 0,94,
+	// ease-in) — la cabeza de Rubio (centro 433, alto 371) se mueve
+	// hacia la de Waltz en T2 (centro 565, alto 311). Magnitud
+	// contenida a propósito: mayor translate/scale sacaría los
+	// subtítulos quemados por encima de la banda opaca (y 1420).
 	return (
 		<AbsoluteFill style={{background: INK}}>
+			<div
+				style={{
+					position: 'absolute',
+					inset: 0,
+					transform: `translateY(${60 * morphIn(f, 114, 126)}px) scale(${1 + (0.94 - 1) * morphIn(f, 114, 126)})`,
+					transformOrigin: '540px 433px',
+				}}
+			>
 			{/* Fondo difuminado del mismo video (mudo): cubre los
 			laterales y la franja superior del inset. */}
 			<div style={{position: 'absolute', inset: 0}}>
@@ -851,6 +1113,7 @@ const PanelT1Scene: React.FC = () => {
 					src={staticFile('video/panel-t1.mp4')}
 					style={{width: '100%', height: '100%', objectFit: 'cover'}}
 				/>
+			</div>
 			</div>
 			{/* Banda inferior OPACA (y 1420–1920): traga los
 			subtítulos quemados (en display y ≥ 1452, medido).
@@ -907,6 +1170,14 @@ const PanelT1Scene: React.FC = () => {
 // antes de «Period.» es el latido dramático: «PUNTO.» entra con
 // slam en local f103 (13,32 s, NO 13,72 s — el J-cut adelanta
 // «Period.» 0,4 s; el impacto SFX se mueve a 13,32 s).
+// El VIDEO (T2Video) lleva match cut con morph (B1 post-corte
+// local 12–36 + B2 pre-corte local 168–180) y glitch RGB ×2:
+// G1 «It's fake» (local 17–24, centro global f306 = 10,2 s,
+// medido en el corte) y G2 «PUNTO.» (local 111–118, centro
+// global f400 = 13,32 s, el slam visual). NOTA: el audio
+// «Period.» medido cae en f423 (14,1 s), 23 f DESPUÉS del slam
+// visual f400 — el padre/agente de audio decide si mueve el
+// slam+SFX a f423 o confirma la anticipación deliberada.
 // ================================================================
 const PanelT2Scene: React.FC = () => {
 	const f = useCurrentFrame();
@@ -943,6 +1214,14 @@ const PanelT2Scene: React.FC = () => {
 								style={{
 									color: MEMORIAL_RED,
 									display: 'inline-block',
+									// Origen IZQUIERDO: el pop 1,8× crece hacia
+									// la derecha, nunca sobre «LIE.» — con
+									// origen centrado el pico (f400) y el
+									// sobrepaso del spring (f~412) se comían el
+									// espacio y se leía «LPERIOD.» (22-nov).
+									// El texto NO lleva split RGB (el glitch
+									// es solo del vídeo); el solape era el pop.
+									transformOrigin: 'left center',
 									transform: `scale(${puntoScale})`,
 								}}
 							>
@@ -996,26 +1275,44 @@ const PanelT2Scene: React.FC = () => {
 // ================================================================
 // S3 — PANEL T3, WALTZ 27-OCT (465–585 f · 15,5–19,5 s, local 0–120)
 // Video Waltz 0,3–2,8 s CON RAMPA (panel-t3-ramp.mp4, MUDO, 87 f
-// = 2,9 s: últimos 0,5 s de 100%→30%) + freeze-frame 1,1 s.
+// = 2,9 s: últimos 0,5 s de 100%→30%) + freeze-frame 1,27 s.
 // El AUDIO va por separado (T3Audio, desde 15,1 s, J-cut) a
-// velocidad normal — nunca se estira. El freeze aterriza en
-// local 87 (global f552 = 18,40 s): ahí va el SFX de obturador.
-// Disolución de 6 f (87–93) entre video y freeze. El freeze
-// lleva push manual 1,0→1,05 durante su ventana (87–120): el
+// velocidad normal — nunca se estira. El video arranca con
+// startFrom=5: los 5 primeros fotogramas del clip son Bruno
+// Rodríguez (cola del plano anterior en el soundbite UNifeed,
+// f465–f468 del borrador v2) y se saltan. El freeze aterriza en
+// local 82 (global f547 = 18,23 s): ahí va el SFX de obturador.
+// Disolución de 6 f (82–88) entre video y freeze. El freeze
+// lleva push manual 1,0→1,05 durante su ventana (82–120): el
 // KenBurns anterior tenía su zoom terminado antes de aparecer
 // (bug, auditoría 16). Video + freeze bajados 230 px: pelo
 // ~355 (la barra queda 49 px por encima), mentón ~930 (la
-// tarjeta, con la itálica en una sola línea, empieza en ~981).
+// tarjeta, sin la itálica del cordón, empieza en ~951).
+// Match cut con morph (B2 post-corte local 0–24 + B3 pre-corte
+// local 108–120) y glitch RGB G3 «There is no blockade» (local
+// 2–9, centro global f471 = 15,7 s). B2 es un toque ligero:
+// T3 entra con la cabeza baja (lee sus notas) y sube sola al
+// hablar; el match completo no calza.
 // ================================================================
 const PanelT3Scene: React.FC = () => {
 	const f = useCurrentFrame();
-	const videoOp = 1 - clamp01(f, 87, 93);
-	const freezeOp = clamp01(f, 87, 93);
-	const freezeScale = interpolate(f, [87, 120], [1, 1.05], {
+	const videoOp = 1 - clamp01(f, 82, 88);
+	const freezeOp = clamp01(f, 82, 88);
+	const freezeScale = interpolate(f, [82, 120], [1, 1.05], {
 		easing: Easing.inOut(Easing.sin),
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	// Match cut con morph. B2 post-corte (local 0–24): arranca
+	// levemente desplazado (ty −16 px, escala 0,98) y se asienta
+	// (ease-out). B3 pre-corte (local 108–120): se acerca al
+	// encuadre de T4 (ty −19 px, escala 1,031, ease-in) — las
+	// cabezas casi calzan (T3 centro 642/alto 575; T4 centro
+	// 618/alto 597), es el match más limpio del panel.
+	const morphQ2 = morphOut(f, 0, 24);
+	const morphTy = -16 * (1 - morphQ2) - 19 * morphIn(f, 108, 120);
+	const morphS =
+		0.98 + (1 - 0.98) * morphQ2 + (1.031 - 1) * morphIn(f, 108, 120);
 	return (
 		<AbsoluteFill style={{background: INK}}>
 			{/* Backdrop difuminado (cubre la franja superior de
@@ -1024,6 +1321,7 @@ const PanelT3Scene: React.FC = () => {
 				<OffthreadVideo
 					src={staticFile('video/panel-t3-ramp.mp4')}
 					volume={0}
+					startFrom={5}
 					style={{
 						width: '100%',
 						height: '100%',
@@ -1033,7 +1331,15 @@ const PanelT3Scene: React.FC = () => {
 					}}
 				/>
 			</div>
-			{/* Video + freeze, bajados 230 px. */}
+			{/* Video + freeze, bajados 230 px, con morph. */}
+			<div
+				style={{
+					position: 'absolute',
+					inset: 0,
+					transform: `translateY(${morphTy}px) scale(${morphS})`,
+					transformOrigin: '540px 642px',
+				}}
+			>
 			<div
 				style={{
 					position: 'absolute',
@@ -1042,10 +1348,14 @@ const PanelT3Scene: React.FC = () => {
 				}}
 			>
 				<div style={{position: 'absolute', inset: 0, opacity: videoOp}}>
-					<OffthreadVideo
-						src={staticFile('video/panel-t3-ramp.mp4')}
+					{/* Glitch RGB G3 «There is no blockade» (local
+					2–9, centro global f471 = 15,7 s: el audio
+					«There» arranca en 15,1 s + 0,6 s del clip). */}
+					<GlitchVideo
+						src="video/panel-t3-ramp.mp4"
+						startFrom={5}
 						volume={0}
-						style={{width: '100%', height: '100%', objectFit: 'cover'}}
+						windows={[{at: 2}]}
 					/>
 				</div>
 				<div
@@ -1062,6 +1372,7 @@ const PanelT3Scene: React.FC = () => {
 						style={{width: '100%', height: '100%', objectFit: 'cover'}}
 					/>
 				</div>
+			</div>
 			</div>
 			<PanelGradients />
 			<TimelineBar active={2} />
@@ -1094,21 +1405,6 @@ const PanelT3Scene: React.FC = () => {
 				</div>
 				<div
 					style={{
-						fontFamily: COND,
-						fontStyle: 'italic',
-						fontWeight: 500,
-						fontSize: 28,
-						lineHeight: 1.3,
-						marginTop: 18,
-						color: '#D1D5DB',
-						textShadow: '0 2px 8px rgba(0,0,0,0.8)',
-						whiteSpace: 'nowrap',
-					}}
-				>
-					«Un bloqueo es un anillo de barcos militares alrededor de una isla.»
-				</div>
-				<div
-					style={{
 						fontFamily: MONO,
 						fontSize: 26,
 						fontWeight: 700,
@@ -1124,44 +1420,37 @@ const PanelT3Scene: React.FC = () => {
 	);
 };
 // ================================================================
-// S4 — PANEL T4, FOX (585–705 f · 19,5–23,5 s, local 0–120)
-// Sándwich parallax 2.5D (T7) + título fantasma (T4) sobre la
-// foto de Fox News (1280×720): fondo difuminado 100→102% →
-// «CORDON» en rojo (110 px, deriva ±60 px, pulso 1,0→1,03,
-// en display y 800–910, entre el mentón y la tarjeta: detrás
-// del sujeto, se lee a ambos lados del cuello/pecho, NUNCA
-// cubre la cara) → recorte del sujeto 100→105% (GrabCut,
-// El hueco tras el recorte lo tapa la copia difuminada de la
-// misma foto (R21: nunca píxeles generados). Reencuadre
-// translate(−150, +190): el inset de Fox sale de cuadro (era
-// el «fragmento» de la esquina superior izquierda, auditoría 3)
-// y la cabeza baja bajo la barra (pelo ~340). Sin voz original
-// (es un artículo de opinión).
+// S4 — PANEL T4, WALTZ 28-OCT EOV (585–705 f · 19,5–23,5 s, local 0–120)
+// Tarjeta de VIDEO (reemplaza la Fox 16-nov: el cordón naval no es
+// la narrativa). Corte panel-t4.mp4 (8,9–12,9 s del EOV, 4,0 s,
+// loudnorm −16 LUFS, medido −17,0): «and for all that there is no
+// blockade» — «blockade» cierra en 12,6–12,8 s, sin cola. Plano
+// SENTADO desde el escaño (micrófono de cuello de cisne, placa
+// «UNITED STATES»): crop vertical centrado en Waltz (objectPosition
+// 50%), el delegado del borde izquierdo queda fuera. Encuadre:
+// escala 0,80 + translateY 235 px (origen 50% 0%): pelo ~321,
+// mentón ~917 — bajo la barra (etiquetas hasta 306) y encima de la
+// tarjeta (~951); el chip (top 330, derecha) no toca el pelo.
+// Sin parallax ni título fantasma (eran solo para la foto Fox).
+// Audio: el del propio clip. Match cut B3 post-corte (local 0–24):
+// arranca en el encuadre igualado con T3 (ty +5 px, escala 0,993)
+// y se asienta.
 // ================================================================
 const PanelT4Scene: React.FC = () => {
 	const f = useCurrentFrame();
-	const bgScale = interpolate(f, [0, 120], [1, 1.02], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
-	const fgScale = interpolate(f, [0, 120], [1, 1.05], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
-	const ghostX = interpolate(f, [0, 120], [-60, 60], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
-	// Pulso 1,0→1,03, periodo 60 f, empieza en 1,0.
-	const ghostPulse =
-		1 + 0.03 * ((1 - Math.cos((f / 60) * Math.PI * 2)) / 2);
+	// Match cut B3 post-corte (local 0–24, ease-out): T3 termina con
+	// la cabeza en (540, 623); T4 arranca ahí (ty +5, escala 0,993).
+	const morphQ3 = morphOut(f, 0, 24);
+	const morphTy = 5 * (1 - morphQ3);
+	const morphS = 0.993 + (1 - 0.993) * morphQ3;
 	return (
 		<AbsoluteFill style={{background: INK}}>
 			{/* Backdrop difuminado (cubre los huecos del reencuadre:
-			arriba 190 px y derecha 150 px). */}
+			laterales por la escala 0,80 y arriba/abajo). */}
 			<div style={{position: 'absolute', inset: 0}}>
-				<Img
-					src={staticFile('img/waltz-foxnews-16nov.jpg')}
+				<OffthreadVideo
+					src={staticFile('video/panel-t4.mp4')}
+					volume={0}
 					style={{
 						width: '100%',
 						height: '100%',
@@ -1171,107 +1460,62 @@ const PanelT4Scene: React.FC = () => {
 					}}
 				/>
 			</div>
-			{/* Sándwich parallax, reencuadrado. */}
+			{/* Video principal con reencuadre + morph B3. */}
 			<div
 				style={{
 					position: 'absolute',
 					inset: 0,
-					transform: 'translate(-150px, 190px)',
-					overflow: 'hidden',
+					transform: `translateY(${morphTy}px) scale(${morphS})`,
+					transformOrigin: '540px 618px',
 				}}
 			>
 				<div
 					style={{
 						position: 'absolute',
 						inset: 0,
-						transform: `scale(${bgScale})`,
-						transformOrigin: '52% 30%',
+						transform: 'translateY(235px) scale(0.8)',
+						transformOrigin: '50% 0%',
 					}}
 				>
-					<Img
-						src={staticFile('img/waltz-foxnews-16nov.jpg')}
+					<OffthreadVideo
+						src={staticFile('video/panel-t4.mp4')}
 						style={{
 							width: '100%',
 							height: '100%',
 							objectFit: 'cover',
-							filter: 'blur(8px)',
+							objectPosition: '50% 50%',
 						}}
-					/>
-				</div>
-				<div
-					style={{
-						position: 'absolute',
-						inset: 0,
-						background: 'rgba(5,5,7,0.45)',
-					}}
-				/>
-				{/* Palabra fantasma: 110 px en display y 800–910
-				(entre el mentón, 790, y la tarjeta, 946) — a
-				170 px rozaba la boca y las letras se cortaban
-				contra la tarjeta. Se lee a ambos lados del
-				cuello/pecho, detrás del sujeto. */}
-				<div
-					style={{
-						position: 'absolute',
-						top: 610,
-						left: 0,
-						right: 0,
-						textAlign: 'center',
-						transform: `translateX(${ghostX}px) scale(${ghostPulse})`,
-						fontFamily: ARCHIVO,
-						fontSize: 110,
-						letterSpacing: 4,
-						color: MEMORIAL_RED,
-						opacity: 0.45,
-						textShadow: '0 8px 40px rgba(0,0,0,0.6)',
-					}}
-				>
-					CORDON
-				</div>
-				<div
-					style={{
-						position: 'absolute',
-						inset: 0,
-						transform: `scale(${fgScale})`,
-						transformOrigin: '52% 30%',
-					}}
-				>
-					<Img
-						src={staticFile('img/waltz-foxnews-cutout.png')}
-						style={{width: '100%', height: '100%', objectFit: 'cover'}}
 					/>
 				</div>
 			</div>
 			<PanelGradients />
 			<TimelineBar active={3} />
 			<DataChip top={330} right={40}>
-				FOX NEWS
+				UN WEB TV · ONU
 			</DataChip>
 			<QuoteBand bottom={700}>
 				<div
 					style={{
 						fontFamily: ARCHIVO,
-						fontSize: 52,
-						lineHeight: 1.18,
+						fontSize: 50,
+						lineHeight: 1.15,
 						color: '#FFFFFF',
 						textShadow: textOutline(3),
 					}}
 				>
-					THERE IS NO AMERICAN NAVAL CORDON AROUND CUBA
+					THAT THERE IS NO BLOCKADE
 				</div>
 				<div
 					style={{
-						fontFamily: COND,
-						fontWeight: 600,
-						fontSize: 38,
-						lineHeight: 1.25,
-						marginTop: 16,
-						color: '#E5E7EB',
-						textShadow: '0 2px 8px rgba(0,0,0,0.8)',
+						fontFamily: ARCHIVO,
+						fontSize: 68,
+						lineHeight: 1.1,
+						marginTop: 12,
+						color: MEMORIAL_RED,
+						textShadow: '0 6px 30px rgba(237,28,36,0.5)',
 					}}
 				>
-					NO HAY NINGÚN CORDÓN NAVAL ESTADOUNIDENSE ALREDEDOR
-					DE CUBA
+					QUE NO HAY BLOQUEO
 				</div>
 				<div
 					style={{
@@ -1283,13 +1527,14 @@ const PanelT4Scene: React.FC = () => {
 						color: 'rgba(255,255,255,0.75)',
 					}}
 				>
-					MIKE WALTZ — FOX NEWS · OPINIÓN · 16 NOV 2026
+					MIKE WALTZ — EMBAJADOR ANTE LA ONU · 28 OCT 2026
 				</div>
 			</QuoteBand>
 		</AbsoluteFill>
 	);
 };
-// ================================================================
+
+
 // S5 — GIRO (705–861 f · 23,5–28,7 s, local 0–156)
 // L2: rejilla 2×2 de las 4 tarjetas (pops en corcheas de la
 // rejilla nominal: local f2/10/18/26 — 23,57/23,83/24,10/24,37 s,
@@ -1306,7 +1551,7 @@ const GRID_CARDS = [
 	{file: 'img/rubio-20may-still.jpg', label: 'RUBIO · 20 MAY'},
 	{file: 'img/real-un/waltz-7jul-podium.jpg', label: 'WALTZ · 7 JUL'},
 	{file: 'img/real-un/waltz-27oct-podium.jpg', label: 'WALTZ · 27 OCT'},
-	{file: 'img/waltz-foxnews-16nov.jpg', label: 'WALTZ · FOX 16 NOV'},
+	{file: 'img/real-un/waltz-28oct-eov.jpg', label: 'WALTZ · 28 OCT'},
 ];
 const GRID_POPS = [2, 10, 18, 26];
 const GRID_ROT = [-3, 2, 3, -2];
@@ -1818,8 +2063,15 @@ const DocL5Scene: React.FC = () => {
 	const value = L5_CLICKS.filter((c) => f >= c).length;
 	const lastClick = [...L5_CLICKS].reverse().find((c) => f >= c) ?? -1;
 	// El «0» respira sutilmente mientras espera (auditoría 17).
+	// El «10» final (local 264–272) no hace pop: hace flip de dígito
+	// (el «9» gira a «10», marcador de aeropuerto); escala 1 fija
+	// durante el flip.
 	const numScale =
-		value > 0 ? popIn(f, lastClick, 8) : 1 + 0.02 * Math.sin((f / 30) * Math.PI * 2);
+		f >= 264 && f <= 272
+			? 1
+			: value > 0
+				? popIn(f, lastClick, 8)
+				: 1 + 0.02 * Math.sin((f / 30) * Math.PI * 2);
 	// Anillo de pulso del «10» (local 264–285, antes del chip).
 	const ringP = interpolate(f, [264, 285], [0, 1], {
 		extrapolateLeft: 'clamp',
@@ -1876,21 +2128,59 @@ const DocL5Scene: React.FC = () => {
 						transform: `scale(${numScale})`,
 					}}
 				>
+					{/* Flip del «10» final (local 264–272, global
+					f1464–1472): cara «9» rotateX 0→90 (264–268),
+					cara «10» roja rotateX −90→0 (268–272),
+					perspective 600 px. */}
 					<div
 						style={{
+							position: 'relative',
 							fontFamily: ARCHIVO,
 							fontSize: 220,
 							lineHeight: 1,
-							color:
-								value === 10
-									? MEMORIAL_RED
-									: value === 0
-										? 'rgba(255,255,255,0.45)'
-										: '#FFFFFF',
+							perspective: '600px',
 							textShadow: '0 6px 30px rgba(0,0,0,0.55)',
 						}}
 					>
-						{value}
+						{f >= 264 && f <= 272 ? (
+							<>
+								<div
+									style={{
+										transform: `rotateX(${interpolate(f, [264, 268], [0, 90], {easing: Easing.in(Easing.cubic), extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}deg)`,
+										backfaceVisibility: 'hidden',
+										opacity: f < 268 ? 1 : 0,
+										color: '#FFFFFF',
+									}}
+								>
+									9
+								</div>
+								<div
+									style={{
+										position: 'absolute',
+										inset: 0,
+										transform: `rotateX(${interpolate(f, [268, 272], [-90, 0], {easing: Easing.out(Easing.cubic), extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}deg)`,
+										backfaceVisibility: 'hidden',
+										opacity: f >= 268 ? 1 : 0,
+										color: MEMORIAL_RED,
+									}}
+								>
+									10
+								</div>
+							</>
+						) : (
+							<div
+								style={{
+									color:
+										value === 10
+											? MEMORIAL_RED
+											: value === 0
+												? 'rgba(255,255,255,0.45)'
+												: '#FFFFFF',
+								}}
+							>
+								{value}
+							</div>
+						)}
 					</div>
 					<div
 						style={{
@@ -2042,14 +2332,21 @@ const DocL5Scene: React.FC = () => {
 // ================================================================
 // S8 — L6, EAR (1515–1830 f · 50,5–61 s, local 0–315)
 // 4 tiempos (C6): (1) Waltz MUDO (soundbite 19,3–25,2 s, volume 0)
-// + ODÓMETRO «$876 M» (T5: cuenta desde $0 con ease-out en local
-// 36–66 = 52,2–53,2 s, mientras Adriana dice «876 millones»;
-// cifras tabulares en 3 slots de ancho fijo, sin baile) + chip
-// y «incluye $231,7 M en combustible» DESPUÉS de que el número
-// se asiente (local 70–78); (2) sello «PERMISO REQUERIDO — EAR»
-// sobre el número (local 145 = 55,34 s); (3) «COMERCIO LIBRE»
-// tachado en rojo (local 228 = 58,11 s); (4) «CONTROL» en rojo
-// + imagen NOAA de Cuba a oscuras (local 274 = 59,64 s). El
+// + ODÓMETRO «$876 M» (T7: dígitos que «descifran» y se asientan
+// de izquierda a derecha en local 46/56/66 = 52,03/52,37/52,7 s,
+// mientras Adriana dice «876 millones»; cifras tabulares en 3
+// slots de ancho fijo, sin baile) + chip y «incluye $231,7 M en
+// combustible» DESPUÉS de que el número se asiente (local 70–78);
+// (2) sello «PERMISO REQUERIDO — EAR» sobre el número (local 145
+// = 55,34 s); (3) «COMERCIO LIBRE» tachado en rojo (local 228 =
+// 58,11 s); (4) «CONTROL» en rojo + ANTES/DESPUÉS de Cuba a
+// oscuras (NOAA/CIRA, local 274 = 59,64 s): par feb→mar 2026 con
+// CORTE duro en local 294 (global f1809 = 60,30 s) — el wipe NO
+// es viable (las pasadas no alinean: corr. de gradientes 0,13;
+// mejor semejanza 0,249/0,08 << 0,4). Rótulos «ANTES · 15 FEB
+// 2026» / «DESPUÉS · 17 MAR 2026» + crédito POR LADO
+// («Cuba con luz · feb 2026» antes / «Cuba a oscuras · mar 2026»
+// después; tapa el inglés del «after»). El
 // video se retira con fundido en local 165–183 (su ventana
 // termina en 177) y lleva push lento 1,0→1,04 (T7).
 //
@@ -2070,15 +2367,18 @@ const EarL6Scene: React.FC = () => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	// Odómetro: $0 → $876 en local 36–66 (ease-out cúbico).
-	const odom = Math.round(
-		interpolate(f, [36, 66], [0, 876], {
-			easing: Easing.out(Easing.cubic),
-			extrapolateLeft: 'clamp',
-			extrapolateRight: 'clamp',
-		}),
-	);
-	const digits = String(odom).padStart(3, ' ').split('');
+	// Odómetro «descifrado» (T7): los dígitos son aleatorios
+	// (deterministas) y se asientan de izquierda a derecha —
+	// 8 en local 46, 7 en 56, 6 en 66 (global f1561/f1571/f1581).
+	// Ventana local 36–66 = global f1551–1581 (51,7–52,7 s).
+	const FINAL_DIGITS = [8, 7, 6];
+	const digits = FINAL_DIGITS.map((d, i) => {
+		const settleAt = 46 + i * 10;
+		if (f >= settleAt) {
+			return String(d);
+		}
+		return String((Math.floor(f / 2) * 7 + i * 13 + 5) % 10);
+	});
 	// Entradas: número 33–36; chip + subtítulo 70–78 (después de
 	// que el número se asiente). Todo el bloque se retira en
 	// local 228–234 (antes del tachado).
@@ -2103,7 +2403,10 @@ const EarL6Scene: React.FC = () => {
 				})
 			: 0;
 	const controlScale = interpolate(controlP, [0, 1], [1.8, 1]);
-	const noaaOp = clamp01(f, 280, 296);
+	// El bloque NOAA entra con fundido en local 280–292 (completo
+	// ANTES del corte ANTES/DESPUÉS en local 294, para que el
+	// corte sea limpio).
+	const noaaOp = clamp01(f, 280, 292);
 	return (
 		<AbsoluteFill style={{background: INK}}>
 			<div style={{position: 'absolute', inset: 0, opacity: videoOp}}>
@@ -2136,7 +2439,9 @@ const EarL6Scene: React.FC = () => {
 			/>
 			{/* (1) Odómetro $876 M sobre el traje (top 900): la cara
 			(y ~120–800) queda libre. Cifras tabulares: 3 slots de
-			ancho fijo, blancos a la izquierda (nunca ceros). */}
+			ancho fijo; los dígitos «descifran» (aleatorios
+			deterministas) y se asientan de izquierda a derecha
+			(local 46/56/66). */}
 			<div
 				style={{
 					position: 'absolute',
@@ -2254,8 +2559,21 @@ const EarL6Scene: React.FC = () => {
 				/>
 			</div>
 			{/* (4) CONTROL + Cuba a oscuras (NOAA/CIRA). CONTROL en
-			el tercio superior (top 320), NOAA debajo (500–1108):
-			tarjeta equilibrada, sin tercio superior vacío. */}
+			el tercio superior (top 320). ANTES/DESPUÉS con CORTE
+			duro (no wipe): las dos pasadas del satélite NO alinean
+			— correlación de gradientes 0,13 en bruto; mejor
+			semejanza por rejilla (escala+rotación anclada en La
+			Habana, píxel más brillante 1533,440) 0,249 por
+			gradientes y 0,05–0,08 por bordes Canny, muy por debajo
+			del objetivo 0,4; SIFT solo 4 inliers (transformada
+			absurda). Un wipe mostraría la isla saltando en la
+			divisoria; el corte no exige alineación. Corte en
+			local 294 (global f1809 = 60,30 s): 20 f de ANTES
+			(15 feb 2026, isla iluminada) + 21 f de DESPUÉS
+			(17 mar 2026, isla a oscuras). El rótulo en inglés del
+			«after» («After Power Outages», abajo al centro) queda
+			TAPADO por la píldora de crédito en español (top 1030,
+			centrada). */}
 			{f >= 274 && (
 				<div
 					style={{
@@ -2277,25 +2595,53 @@ const EarL6Scene: React.FC = () => {
 				</div>
 			)}
 			<div style={{position: 'absolute', inset: 0, opacity: noaaOp}}>
-				<Img
-					src={staticFile('img/Cuba_blackout_NOAA_CIRA_2026.png')}
+				{/* Contenedor 1080×608 en top 500. ANTES y DESPUÉS
+				en el mismo encuadre (contain); el cambio es un
+				corte duro en local 294. */}
+				<div
 					style={{
 						position: 'absolute',
 						top: 500,
 						left: 0,
 						width: 1080,
 						height: 608,
-						objectFit: 'contain',
+						overflow: 'hidden',
 						borderTop: '1px solid rgba(255,255,255,0.2)',
 						borderBottom: '1px solid rgba(255,255,255,0.2)',
 					}}
-				/>
+				>
+					<Img
+						src={staticFile('img/Cuba_lights_before_NOAA_CIRA_2026.png')}
+						style={{
+							position: 'absolute',
+							inset: 0,
+							width: '100%',
+							height: '100%',
+							objectFit: 'contain',
+							opacity: f < 294 ? 1 : 0,
+						}}
+					/>
+					<Img
+						src={staticFile('img/Cuba_blackout_NOAA_CIRA_2026.png')}
+						style={{
+							position: 'absolute',
+							inset: 0,
+							width: '100%',
+							height: '100%',
+							objectFit: 'contain',
+							opacity: f >= 294 ? 1 : 0,
+						}}
+					/>
+				</div>
+				{/* Rótulo ANTES/DESPUÉS (misma posición, arriba a la
+				derecha — zona despejada en ambas imágenes —; el
+				texto cambia en el corte). */}
 				<div
 					style={{
 						position: 'absolute',
-						top: 520,
-						left: 40,
-						background: 'rgba(6,12,20,0.72)',
+						top: 516,
+						right: 40,
+						background: 'rgba(6,12,20,0.78)',
 						border: '1px solid rgba(255,255,255,0.28)',
 						borderRadius: 6,
 						padding: '10px 18px',
@@ -2306,7 +2652,49 @@ const EarL6Scene: React.FC = () => {
 						color: '#FFFFFF',
 					}}
 				>
-					CUBA A OSCURAS · NOAA / CIRA
+					{f < 294 ? 'ANTES · 15 FEB 2026' : 'DESPUÉS · 17 MAR 2026'}
+				</div>
+				{/* Crédito en español, abajo al centro, POR LADO
+				(cambia en el corte local 294): el rótulo único
+				«Cuba a oscuras · feb 2026» contradecía el mes y
+				la descripción de cada lado (before 15-feb,
+				iluminada; after 17-mar, a oscuras). TAPA el
+				rótulo en inglés del «after» («After Power
+				Outages», glifos MEDIDOS en la imagen original:
+				y 976–1020, x 722–1196 → display y 1049–1074,
+				x 406–673. La píldora (top 1038, padding 14 px,
+				fondo OPACO #060C14) cubre 1038–~1094 con margen
+				a ambos lados; el fondo semitransparente dejaba
+				transparentar el inglés. Solo el lado DESPUÉS
+				necesita la cobertura (el before es nolabels).
+				No bajarla más: a top 1055 asomaban los glifos por
+				arriba; a top 1030 asomaban por abajo. */}
+				<div
+					style={{
+						position: 'absolute',
+						top: 1038,
+						left: 0,
+						right: 0,
+						textAlign: 'center',
+					}}
+				>
+					<span
+						style={{
+							fontFamily: MONO,
+							fontSize: 22,
+							fontWeight: 700,
+							letterSpacing: 2,
+							color: '#FFFFFF',
+							background: '#060C14',
+							border: '1px solid rgba(255,255,255,0.28)',
+							borderRadius: 6,
+							padding: '14px 18px',
+						}}
+					>
+						{f < 294
+							? 'Cuba con luz · NOAA / CIRA · feb 2026'
+							: 'Cuba a oscuras · NOAA / CIRA · mar 2026'}
+					</span>
 				</div>
 			</div>
 		</AbsoluteFill>
@@ -2318,25 +2706,27 @@ const EarL6Scene: React.FC = () => {
 // mini-tarjetas CICLANDO cada 48 f = 3 compases de la rejilla
 // nominal, con fundido cruzado de 4 f entre slots), documentos
 // a la derecha. Eslogan en dos tiempos: «EL BLOQUEO NO ES UN
-// RELATO.» (local 118 = 64,94 s) → el sello «ES UN DOCUMENTO
-// OFICIAL» (local 166 = 66,52 s, con el slam). El karaoke solo
-// cubre los 2 primeros chunks de L7; el eslogan y el sello
-// hacen de texto para el resto. Eslogan y sello van al tercio
-// inferior (top 900, dentro de la zona segura): las 3 caras de
-// mini-tarjeta quedan libres en todo momento (regla de caras)
-// y el eslogan llena el vacío que dejaba el punto 7 de la
-// auditoría. Collage «tablón» (T6) en mini-tarjetas y
-// documentos: borde blanco 10 px, sombra grande, rotación.
-// Push lento (T7): 1,0→1,03 sobre local 0–225. La entrada es
-// un wipe SOBRE el final de L6 (CloseL7Wipe, 1818–1830): por
-// eso el layout inicial NO tiene fade — en local 0 todo está a
-// opacidad 1 y el wipe enlaza sin parpadeo.
+// RELATO.» (local 118 = 64,94 s, letra por letra con stagger de
+// 1 f y pop con sobrepaso) → wipe de salida hacia arriba (local
+// 160–166, global f1990–1996: el eslogan 1 sale COMPLETO antes
+// de que entre el sello) → el sello «ES UN DOCUMENTO OFICIAL»
+// (local 166 = 66,52 s, con el slam). El karaoke solo cubre los
+// 2 primeros chunks de L7; el eslogan y el sello hacen de texto
+// para el resto. Eslogan y sello van al tercio inferior (top 900,
+// dentro de la zona segura): las 3 caras de mini-tarjeta quedan
+// libres en todo momento (regla de caras) y el eslogan llena el
+// vacío que dejaba el punto 7 de la auditoría. Collage «tablón»
+// (T6) en mini-tarjetas y documentos: borde blanco 10 px, sombra
+// grande, rotación. Push lento (T7): 1,0→1,03 sobre local 0–225.
+// La entrada es un wipe SOBRE el final de L6 (CloseL7Wipe,
+// 1818–1830): por eso el layout inicial NO tiene fade — en local
+// 0 todo está a opacidad 1 y el wipe enlaza sin parpadeo.
 // ================================================================
 const CLOSE_CARDS = [
 	{file: 'img/rubio-20may-still.jpg', label: 'RUBIO · 20 MAY'},
 	{file: 'img/real-un/waltz-7jul-podium.jpg', label: 'WALTZ · 7 JUL'},
 	{file: 'img/real-un/waltz-27oct-podium.jpg', label: 'WALTZ · 27 OCT'},
-	{file: 'img/waltz-foxnews-16nov.jpg', label: 'WALTZ · FOX 16 NOV'},
+	{file: 'img/real-un/waltz-28oct-eov.jpg', label: 'WALTZ · 28 OCT'},
 ];
 const CLOSE_ROT = [-3, 2, 3, -2];
 // Layout estático de la pantalla dividida (cabeceras + divisor
@@ -2548,7 +2938,9 @@ const CloseL7Scene: React.FC = () => {
 	});
 	const cardScale = slot === 0 ? 1 : interpolate(p, [0, 1], [1.1, 1]);
 	const scrimOp = clamp01(f, 118, 130) * 0.65;
-	const sloganOut = 1 - clamp01(f, 166, 174);
+	// Wipe de salida del eslogan (local 160–166): sale COMPLETO
+	// antes de que entre el sello (166).
+	const wipeOut = clamp01(f, 160, 166);
 	// Push lento sobre la pantalla dividida (T7).
 	const push = interpolate(f, [0, 225], [1, 1.03], {
 		extrapolateLeft: 'clamp',
@@ -2579,18 +2971,32 @@ const CloseL7Scene: React.FC = () => {
 						opacity: scrimOp,
 					}}
 				/>
-				<div style={{opacity: sloganOut}}>
-					<KineticHeadline
-						lines={[
-							[{t: 'EL'}, {t: 'BLOQUEO'}, {t: 'NO'}, {t: 'ES'}],
-							[{t: 'UN'}, {t: 'RELATO.'}],
-						]}
-						top={900}
+				{/* Eslóganes letra por letra (T7): «EL BLOQUEO NO ES»
+				/ «UN RELATO.» con stagger de 1 f por letra y pop
+				con sobrepaso ~4–6% (la última letra se asienta en
+				local ~145). La salida es un WIPE de máscara hacia
+				arriba (local 160–166): el eslogan 1 sale COMPLETO
+				antes de que entre el sello (166) — nunca dos
+				eslóganes en el mismo cuadro (corrección del
+				solapamiento de v66.6). */}
+				<div
+					style={{
+						position: 'absolute',
+						top: 900,
+						left: 0,
+						right: 0,
+						height: 190,
+						overflow: 'hidden',
+						transform: `translateY(${-110 * wipeOut}%)`,
+						opacity: 1 - wipeOut,
+					}}
+				>
+					<LetterSlogan
+						lines={['EL BLOQUEO NO ES', 'UN RELATO.']}
+						top={0}
 						size={84}
 						delay={118}
-						step={4}
-						accentColor={MEMORIAL_RED}
-						fontFamily={ARCHIVO}
+						accentWord="BLOQUEO"
 					/>
 				</div>
 				<StampSeal
@@ -2728,12 +3134,26 @@ const QuestionL8Scene: React.FC = () => {
 // Logo animado del Memorial (sting-black-2x, 720×1280, 3,04 s, SIN
 // audio: el sting suena desde la mezcla). Escalar a cover (el
 // aspecto 9:16 es exacto).
+// Rima de bucle (T8): los últimos 0,5 s deceleran a hold total.
+// Para local f ≥ 75, el video avanza a ritmo decelerado:
+// s(f) = 75 + 7·(1−(1−p)²), p = (f−75)/15 — el último fotograma
+// visible (fuente ~82) queda en hold desde ~global f2322. El
+// video se reproduce desde f − s(f) (startFrom dinámico, float,
+// sin redondear): el fotograma mostrado es s(f). La deceleración
+// empieza en global f2310 (77,0 s). Si Remotion no acepta el
+// startFrom fraccionario, fallback: JPG del fotograma 82 +
+// fundido de 4 f en local 75.
 // ================================================================
 const LogoScene: React.FC = () => {
+	const f = useCurrentFrame();
+	const p = clamp01(f, 75, 90);
+	const s = f < 75 ? f : 75 + 7 * (1 - (1 - p) * (1 - p));
+	const startFrom = f - s;
 	return (
 		<AbsoluteFill style={{background: '#000000'}}>
 			<OffthreadVideo
 				src={staticFile('video/sting-black-2x.mp4')}
+				startFrom={startFrom}
 				style={{width: '100%', height: '100%', objectFit: 'cover'}}
 			/>
 		</AbsoluteFill>
@@ -2743,7 +3163,7 @@ const LogoScene: React.FC = () => {
 // ================================================================
 // COMPOSICIÓN PRINCIPAL — MainReel (2325 f = 77,5 s)
 // S0 gancho (0–171) · S1 T1 Rubio (171–297) · S2 T2 Waltz 7-jul
-// (297–465) · S3 T3 Waltz 27-oct (465–585) · S4 T4 Fox (585–705) ·
+// (297–465) · S3 T3 Waltz 27-oct (465–585) · S4 T4 Waltz 28-oct (585–705) ·
 // S5 giro (705–861) · S6 L4 state.gov (861–1200) · S7 L5 5-nov
 // (1200–1515) · S8 L6 EAR (1515–1830) · S9 cierre L7 (1830–2055) ·
 // S10 pregunta L8 (2055–2235) · S11 logo (2235–2325).
@@ -2753,8 +3173,10 @@ const LogoScene: React.FC = () => {
 // 15,1 s), VO L8 (la re-mezcla la mueve a 68,5 s). Pre-lap
 // visual de L4 (828–861). Wipe de S9 sobre el final de L6
 // (1818–1830). Deriva global lenta (T4): 1,0→1,015 sobre todo
-// el reel; grano animado por encima; guía de zona segura solo
-// en pre-vuelo (SHOW_SAFE_GUIDE, nunca en render).
+// el reel; shake de impacto (T6) en 5 slams (f9/f400/f1660/f1789/
+// f1996); filtros de glitch RGB (GlitchDefs) para T2/T3; grano
+// animado por encima; guía de zona segura solo en pre-vuelo
+// (SHOW_SAFE_GUIDE, nunca en render).
 // ================================================================
 export const MainReel: React.FC = () => {
 	const f = useCurrentFrame();
@@ -2763,14 +3185,35 @@ export const MainReel: React.FC = () => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	// Shake de impacto (T6): 5 slams — f9 (título, 0,3 s), f400
+	// («PUNTO.», 13,32 s), f1660 (sello EAR, 55,33 s), f1789
+	// («CONTROL», 59,63 s), f1996 (sello final, 66,53 s).
+	// Patrón por slam (dt 0/1/2): x [3, −2, 1] px, y [2, −1, 0,5] px,
+	// con decay en 2–3 fotogramas. Se aplica como translate ANTES
+	// del scale(drift) en el wrapper de deriva; el grano queda
+	// fuera (estático). Amplitud pequeña: si se nota como
+	// «temblor» está pasado.
+	const SLAMS = [9, 400, 1660, 1789, 1996];
+	const shakeX = [3, -2, 1];
+	const shakeY = [2, -1, 0.5];
+	let sx = 0;
+	let sy = 0;
+	for (const s of SLAMS) {
+		const dt = f - s;
+		if (dt >= 0 && dt <= 2) {
+			sx += shakeX[dt];
+			sy += shakeY[dt];
+		}
+	}
 	return (
 		<AbsoluteFill style={{background: NAVY}}>
 			<Audio src={staticFile('audio/mix.wav')} />
+			<GlitchDefs />
 			<div
 				style={{
 					position: 'absolute',
 					inset: 0,
-					transform: `scale(${drift})`,
+					transform: `translate(${sx}px, ${sy}px) scale(${drift})`,
 					transformOrigin: '50% 50%',
 				}}
 			>
@@ -2792,7 +3235,7 @@ export const MainReel: React.FC = () => {
 				<Sequence from={S3_START} durationInFrames={120} name="S3 panel T3 Waltz 27-oct">
 					<PanelT3Scene />
 				</Sequence>
-				<Sequence from={S4_START} durationInFrames={120} name="S4 panel T4 Fox">
+				<Sequence from={S4_START} durationInFrames={120} name="S4 panel T4 28-oct">
 					<PanelT4Scene />
 				</Sequence>
 				<Sequence from={S5_START} durationInFrames={156} name="S5 giro">
