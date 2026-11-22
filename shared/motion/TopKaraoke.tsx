@@ -1,5 +1,11 @@
 import React from 'react';
-import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {
+	Easing,
+	interpolate,
+	spring,
+	useCurrentFrame,
+	useVideoConfig,
+} from 'remotion';
 import {
   resolveKaraokeLines,
   type CaptionsToLinesOptions,
@@ -36,6 +42,19 @@ export type TopKaraokeProps = {
   keywordColor?: string;
   /** Ancho máximo del bloque. */
   maxWidth?: number;
+  /**
+   * Pop SOLO en la palabra clave (kw): escala 1 → 1,05 con overshoot
+   * en 2 f al inicio de la palabra; el resto sin escala. Por defecto
+   * (false) todas las palabras activas hacen pop 1,3 → 1.
+   */
+  keywordPop?: boolean;
+  /** Puntos en las esquinas del recuadro de palabra clave. */
+  keywordDots?: boolean;
+  /**
+   * Segundos que una línea sigue visible tras su última palabra.
+   * Por defecto 0,2. Con solapes, manda la línea más reciente.
+   */
+  hold?: number;
 };
 
 /**
@@ -62,6 +81,9 @@ export const TopKaraoke: React.FC<TopKaraokeProps> = ({
   idleColor = MOTION_COLORS.gray,
   keywordColor = MOTION_COLORS.blue,
   maxWidth = 960,
+  keywordPop = false,
+  keywordDots = true,
+  hold = 0.2,
 }) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -73,14 +95,17 @@ export const TopKaraoke: React.FC<TopKaraokeProps> = ({
     [linesProp, captions],
   );
 
-  // Línea activa: desde que empieza su primera palabra hasta 0,2 s después
-  // de la última. Entre líneas no se muestra nada (corte limpio).
-  const lineIdx = lines.findIndex((line) => {
-    if (line.words.length === 0) return false;
+  // Línea activa: desde que empieza su primera palabra hasta `hold`
+  // después de la última. Entre líneas no se muestra nada (corte
+  // limpio). Si dos líneas solapan (hold largo), manda la más
+  // reciente: la línea vieja nunca bloquea a la nueva. (reduce
+  // en vez de findLastIndex: el lib de TS no llega a es2023.)
+  const lineIdx = lines.reduce<number>((acc, line, i) => {
+    if (line.words.length === 0) return acc;
     const start = line.words[0].s;
     const end = line.words[line.words.length - 1].e;
-    return now >= start - 0.02 && now <= end + 0.2;
-  });
+    return now >= start - 0.02 && now <= end + hold ? i : acc;
+  }, -1);
   if (lineIdx < 0) return null;
   const line = lines[lineIdx];
 
@@ -113,15 +138,29 @@ export const TopKaraoke: React.FC<TopKaraokeProps> = ({
         const end = w.e > w.s ? w.e : w.s + 0.08;
         const active = now >= w.s && now < end;
         const said = now >= end;
-        const pop = active
-          ? spring({
-              frame: frame - w.s * fps,
-              fps,
-              config: {damping: 12, stiffness: 320},
-            })
-          : 1;
-        const scale = interpolate(pop, [0, 1], [1.3, 1]);
-        const boxed = Boolean(w.kw) && (active || said);
+        const isKw = Boolean(w.kw);
+        // Pop: con keywordPop, SOLO la palabra clave (1 → 1,05 con
+        // overshoot en 2 f al activarse, 1,05 mientras se dice, 1 al
+        // terminar); el resto sin escala. Sin keywordPop, el pop
+        // clásico 1,3 → 1 en cada palabra activa.
+        let scale = 1;
+        if (keywordPop) {
+          if (isKw && active) {
+            scale = interpolate(frame - w.s * fps, [0, 2], [1, 1.05], {
+              easing: Easing.out(Easing.back(2.2)),
+              extrapolateLeft: 'clamp',
+              extrapolateRight: 'clamp',
+            });
+          }
+        } else if (active) {
+          const pop = spring({
+            frame: frame - w.s * fps,
+            fps,
+            config: {damping: 12, stiffness: 320},
+          });
+          scale = interpolate(pop, [0, 1], [1.3, 1]);
+        }
+        const boxed = isKw && (active || said);
         return (
           <span
             key={`${lineIdx}-${i}`}
@@ -134,6 +173,10 @@ export const TopKaraoke: React.FC<TopKaraokeProps> = ({
               color: active ? activeColor : idleColor,
               transform: `scale(${scale})`,
               display: 'inline-block',
+              // Sombra sutil: define los glifos sobre fondos claros
+              // (p. ej. el documento blanco de L4); invisible sobre
+              // fondos oscuros.
+              textShadow: '0 2px 10px rgba(0,0,0,0.85)',
               // Recuadro de palabra clave (azul, esquinas redondeadas).
               border: boxed ? `3px solid ${keywordColor}` : '3px solid transparent',
               borderRadius: 14,
@@ -143,7 +186,7 @@ export const TopKaraoke: React.FC<TopKaraokeProps> = ({
             }}
           >
             {w.t}
-            {boxed && (
+            {boxed && keywordDots && (
               <>
                 <span
                   style={{
