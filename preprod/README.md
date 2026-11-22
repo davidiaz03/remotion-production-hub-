@@ -80,7 +80,8 @@ tests/preprod/
 a propósito — es el registro auditable de qué se propuso, cuándo y
 qué aprobó Suleris (la sección `## Aprobación` de cada pack). Pesa
 poco (~40 KB/día) y el `index.json` es el dedupe entre corridas:
-nunca se borra a mano.
+nunca se borra a mano. El `daily.log` queda fuera por `.gitignore`
+(`*.log`): es efímero, lo durable es la shortlist y los packs.
 
 **Decisión de diseño — una sola entrada:** los cuatro subcomandos
 viven en un solo script (`propose.py`) en vez de cuatro scripts
