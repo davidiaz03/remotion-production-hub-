@@ -81,3 +81,18 @@ que se completan.
 6. Licencias: ONU © (crédito «Imágenes: UN Web TV / Naciones
    Unidas»); Dept. de Estado = dominio público; Fox News = cita
    editorial con atribución.
+
+## 22-nov ~15:05 — Composición v2 recibida + re-mezcla v2 (hitos 1–2)
+
+- Composición MainReel v2 (commit `1cab80d`): reencuadre Rubio, regla de
+  caras, L4 T1–T5, 8 técnicas, gancho video real, auditoría 18 puntos,
+  investigación 3. Borrador v2 540p; puerta QA visual PASS (0 negros).
+- Pre-vuelo: 70 stills del subagente + 16/16 críticos verificados por mí
+  (S1, L6, S9, gancho, L4, T3/T4, wipe, sello fantasma, freeze).
+- Re-mezcla v2: 43 SFX (+4 risers sync 0,982, obturador 18,40 s −6 dB,
+  marcador 36,58 s −1 dB); J-cut L8 (VO 69,0→68,5 s); PUNTO. 13,32 s;
+  contador 48,81 s. Mix −16,43 LUFS / TP −1,94.
+- NO re-ejecutar `scripts/build-timeline.py` sin restaurar `src/captions.ts`
+  después (regenera los onsets y destruye las correcciones manuales + el
+  desplazamiento L8). Trampa documentada por el subagente de composición.
+- Pendiente: render de validación (run-render.sh) + QA + auditoría + entrega.

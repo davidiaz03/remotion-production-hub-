@@ -146,7 +146,7 @@
   },
   {
    "linea": 8,
-   "slot": 68.85,
+   "slot": 68.35,
    "factor_uniforme": 1.0,
    "gaps": [],
    "segs": [
@@ -155,8 +155,8 @@
      "orig_end": 61.363,
      "orig_word_start": 56.383,
      "orig_word_end": 61.063,
-     "edited_start": 68.85,
-     "edited_end": 73.98,
+     "edited_start": 68.35,
+     "edited_end": 73.48,
      "head_keep": 0.15,
      "tail_keep": 0.3,
      "merged_subphrases": null

@@ -26,8 +26,10 @@ FPS = 30
 # --- VO: inicio del HABLA de cada línea en la línea de tiempo (s) -------
 # Medido: L1 4,92 s de habla; L2 2,60; L3 1,88; L4 8,88; L5 8,68;
 # L6 9,34; L7 6,06; L8 4,68. Respiración entre líneas: 0,3–1,4 s.
+# L8 en 68,5 (J-cut investigación 3: la voz empieza sobre el último
+# fotograma del cierre; era 69,0).
 SPEECH_START = {1: 0.5, 2: 23.6, 3: 26.5, 4: 29.0,
-                5: 40.5, 6: 51.0, 7: 61.5, 8: 69.0}
+                5: 40.5, 6: 51.0, 7: 61.5, 8: 68.5}
 
 # --- Chunks de karaoke (índices de palabra, 2–4 por golpe) --------------
 # kw = palabra clave en rojo #ED1C24 (mapa AUDIT_PREEDIT.md §8).
@@ -157,6 +159,8 @@ SFX_SYNC = {  # del índice shared/motion/sfx/index.ts
     "click-hover-medium": (0.008, -1), "swish-hard": (0.054, -4),
     "bass-808-short": (0.011, -8), "cinematic-slam-big": (0.011, -8),
     "writing-marker-draw": (0, -1),
+    "riser-1s-soft": (0.982, 0), "riser-1s-soft-tail": (0.292, 0),
+    "mechanical-shutter-light": (0.010, -6),
 }
 SFX_CAT = {  # categoría (subcarpeta en public/audio/sfx/)
     "cinematic-drum-big": "cinematic-hits", "whoosh-medium-hard": "whooshes",
@@ -167,6 +171,9 @@ SFX_CAT = {  # categoría (subcarpeta en public/audio/sfx/)
     "click-hover-medium": "interface", "swish-hard": "swishes-and-zips",
     "bass-808-short": "booms-and-bass", "cinematic-slam-big": "cinematic-hits",
     "writing-marker-draw": "writing-and-drawing",
+    "riser-1s-soft": "risers-and-fallers",
+    "riser-1s-soft-tail": "risers-and-fallers",
+    "mechanical-shutter-light": "mechanical",
 }
 # Rejilla nominal del compás (T_beat = 0,5357 s; la cama no tiene
 # pulso bloqueable): 10 ticks espaciados 1 compás, anclados al
@@ -175,12 +182,15 @@ _ticks = [round(44.04 + i * 0.5357 - 0.05, 2) for i in range(10)]
 SFX_EVENTS = [
     ("cinematic-drum-big", 0.30, True),
     ("whoosh-medium-hard", 0.30, True),
+    ("riser-1s-soft-tail", 0.30, False),  # cola 0,29 s: solo cabe el final
     ("impact-medium-hard", 5.70, False),
     ("whoosh-fast-hard", 9.90, False),
     ("impact-medium-hard", 9.90, False),
+    ("riser-1s-soft", 13.32, False),  # riser T3 antes de «PUNTO.»
     ("impact-heavy-hard", 13.32, False),  # J-cut: «Period.» a 13,32 s
     ("whoosh-fast-hard", 15.50, False),
     ("impact-medium-hard", 15.50, False),
+    ("mechanical-shutter-light", 18.40, True),  # aterrizaje freeze T3 (f552)
     ("whoosh-fast-hard", 19.50, False),
     ("impact-medium-hard", 19.50, False),
     ("reverse-whoosh-short-strong", 23.20, False),
@@ -195,9 +205,11 @@ SFX_EVENTS = [
     ("writing-marker-draw", 36.58, True),  # trazo rojo T2 (L4)
 ] + [("click-hover-medium", t, True) for t in _ticks] + [
     ("impact-medium-hard", 48.81, True),  # acompaña al tick 10
+    ("riser-1s-soft", 55.34, False),  # riser T3 antes del sello EAR
     ("impact-heavy-hard", 55.34, True),  # "Pero" (onset acústico; Whisper 55.24)
     ("swish-hard", 58.11, True),  # "Eso" (onset acústico; Whisper 58.04)
     ("bass-808-short", 59.64, True),
+    ("riser-1s-soft", 66.52, False),  # riser T3 antes del sello final
     ("cinematic-slam-big", 66.52, True),  # "Es" (onset acústico; Whisper 66.44)
     ("pop-medium-in", 68.50, True),
     ("pop-medium-in", 68.80, True),

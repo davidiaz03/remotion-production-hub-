@@ -661,92 +661,92 @@
  },
  {
   "text": "¿TÚ",
-  "startMs": 69000,
-  "endMs": 69580,
+  "startMs": 68500,
+  "endMs": 69080,
   "pageBreakAfter": false
  },
  {
   "text": "QUE",
-  "startMs": 69580,
-  "endMs": 69720,
+  "startMs": 69080,
+  "endMs": 69220,
   "pageBreakAfter": false
  },
  {
   "text": "CREES",
-  "startMs": 69720,
-  "endMs": 70100,
+  "startMs": 69220,
+  "endMs": 69600,
   "pageBreakAfter": true
  },
  {
   "text": "QUE",
-  "startMs": 70100,
-  "endMs": 70480,
+  "startMs": 69600,
+  "endMs": 69980,
   "pageBreakAfter": false
  },
  {
   "text": "LO",
-  "startMs": 70480,
-  "endMs": 70620,
+  "startMs": 69980,
+  "endMs": 70120,
   "pageBreakAfter": false
  },
  {
   "text": "NIEGAN",
-  "startMs": 70620,
-  "endMs": 70960,
+  "startMs": 70120,
+  "endMs": 70460,
   "pageBreakAfter": true
  },
  {
   "text": "PORQUE",
-  "startMs": 70960,
-  "endMs": 71160,
+  "startMs": 70460,
+  "endMs": 70660,
   "pageBreakAfter": false
  },
  {
   "text": "NO",
-  "startMs": 71160,
-  "endMs": 71320,
+  "startMs": 70660,
+  "endMs": 70820,
   "pageBreakAfter": false
  },
  {
   "text": "EXISTE",
-  "startMs": 71320,
-  "endMs": 71780,
+  "startMs": 70820,
+  "endMs": 71280,
   "pageBreakAfter": true
  },
  {
   "text": "O",
-  "startMs": 71780,
-  "endMs": 72220,
+  "startMs": 71280,
+  "endMs": 71720,
   "pageBreakAfter": false
  },
  {
   "text": "PORQUE",
-  "startMs": 72220,
-  "endMs": 72460,
+  "startMs": 71720,
+  "endMs": 71960,
   "pageBreakAfter": false
  },
  {
   "text": "NO",
-  "startMs": 72460,
-  "endMs": 72600,
+  "startMs": 71960,
+  "endMs": 72100,
   "pageBreakAfter": false
  },
  {
   "text": "LES",
-  "startMs": 72600,
-  "endMs": 72780,
+  "startMs": 72100,
+  "endMs": 72280,
   "pageBreakAfter": true
  },
  {
   "text": "CONVIENE",
-  "startMs": 72780,
-  "endMs": 73120,
+  "startMs": 72280,
+  "endMs": 72620,
   "pageBreakAfter": false
  },
  {
   "text": "ADMITIRLO?",
-  "startMs": 73120,
-  "endMs": 73680,
+  "startMs": 72620,
+  "endMs": 73180,
   "pageBreakAfter": true
  }
 ]

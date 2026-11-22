@@ -30,7 +30,7 @@ ffmpeg -y -v error \
 [4:a]atrim=0.63:9.76,asetpts=PTS-STARTPTS,aresample=48000,adelay=40350:all=1[l5];\
 [5:a]atrim=1.17:10.96,asetpts=PTS-STARTPTS,aresample=48000,adelay=50850:all=1[l6];\
 [6:a]atrim=1.21:7.72,asetpts=PTS-STARTPTS,aresample=48000,adelay=61350:all=1[l7];\
-[7:a]atrim=0.51:5.64,asetpts=PTS-STARTPTS,aresample=48000,adelay=68850:all=1[l8];\
+[7:a]atrim=0.51:5.64,asetpts=PTS-STARTPTS,aresample=48000,adelay=68350:all=1[l8];\
 [l1][l2][l3][l4][l5][l6][l7][l8]amix=inputs=8:duration=longest:normalize=0,aresample=48000,apad=whole_dur=77.5,atrim=0:77.5[a]" \
   -map "[a]" -c:a pcm_s16le public/audio/voice-placed.wav
 echo "   voice-placed.wav OK"
@@ -122,5 +122,10 @@ gain_sfx interface click-hover-medium -1
 gain_sfx swishes-and-zips swish-hard -4
 gain_sfx booms-and-bass bass-808-short -8
 gain_sfx cinematic-hits cinematic-slam-big -8
+gain_sfx writing-and-drawing writing-marker-draw -1
+# El obturador usa la vía uvo por NIVEL (-6 dB: cae en el silencio del
+# freeze), no por ducking; los risers van a ganancia 1 (pico -18,1 dB,
+# ya bajo la mitad de la VO) y usan el original.
+gain_sfx mechanical mechanical-shutter-light -6
 echo "   12 SFX con uvo en public/audio/sfx-mix/"
 echo "TODO OK"
