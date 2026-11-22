@@ -176,7 +176,7 @@
    "sourceUrl": "https://www.state.gov/cuba-sanctions/",
    "sourceDetail": "Captura de la página «Cuba Sanctions» del Departamento de Estado, primer viewport (1920x1080), 22-nov-2026, vía CDP + relay CONNECT local (ver research/capturas-state-gov-metodo.md)",
    "license": "Dominio público — obra del gobierno de EE. UU. (17 USC §105)",
-   "scene": "L4 (20-32 s, activo principal)",
+   "scene": "L4 (28-40 s, activo principal)",
    "verifiedBy": "Verificado a ojo por dos agentes: párrafo completo legible «The United States maintains a comprehensive economic embargo on the Republic of Cuba… which remains in place today», encabezado «Cuba Sanctions» y logo del Departamento de Estado. No hizo falta captura alta."
   },
   {
@@ -187,7 +187,7 @@
    "sourceUrl": "https://www.state.gov/releases/office-of-the-spokesman/2026/11/further-sanctions-on-the-cuban-regimes-foreign-military-support-and-illicit-revenue-networks/",
    "sourceDetail": "Captura del comunicado del 5-nov-2026, primer viewport (1920x1080), 22-nov-2026, vía CDP + relay CONNECT local; recapturada limpia tras salir la primera con el modal de cookies (ver research/capturas-state-gov-metodo.md)",
    "license": "Dominio público — obra del gobierno de EE. UU. (17 USC §105)",
-   "scene": "L5 (32-42 s, activo principal)",
+   "scene": "L5 (40-50 s, activo principal)",
    "verifiedBy": "Verificado a ojo por dos agentes: título «Further Sanctions on the Cuban Regime's Foreign Military Support and Illicit Revenue Networks», «PRESS STATEMENT / MARCO RUBIO, SECRETARY OF STATE / NOVEMBER 5, 2026» y el párrafo de designaciones («I am designating ten targets… a crude oil shipping network… five associated vessels as blocked property») legibles."
   }
  ],
@@ -202,7 +202,7 @@
    "type": "foto",
    "location": "Drive — Carrusel_Ben_Rhodes_Cuba_Memorial/05_FOTOGRAFIAS_CUBA",
    "status": "en Drive, NO descargado (el archivo indexado la referencia; descargar al editar si se usa)",
-   "scene": "realidad (20-52 s)",
+   "scene": "realidad (28-60 s)",
    "use": "Imagen satelital NOAA/CIRA de Cuba a oscuras. La pieza más útil del archivo para este reel.",
    "license": "NOAA/CIRA — imagen satelital de agencia federal de EE. UU.; verificar crédito al usar"
   },
@@ -211,7 +211,7 @@
    "type": "video crudo",
    "location": "Drive — 01 - Reel Bruno ONU 2026/assets",
    "status": "en Drive, NO descargado",
-   "scene": "panel (3-15 s) o realidad",
+   "scene": "panel (5-23 s) o realidad",
    "use": "Fuente original del reel de Bruno en la ONU; plano de ONU/Cuba de respaldo.",
    "license": "Material propio del Memorial"
   },

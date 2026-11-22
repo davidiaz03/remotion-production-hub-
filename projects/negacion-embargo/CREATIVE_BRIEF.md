@@ -1,6 +1,6 @@
 # Brief creativo — «Dicen que no hay bloqueo»
 
-> Reel del Memorial de la Denuncia. Sin presentadoras, dinámico, ~70 s.
+> Reel del Memorial de la Denuncia. Sin presentadoras, dinámico, ~75 s.
 > Proyecto: `negacion-embargo` (el id viene del slug del dossier
 > `negacion-del-embargo`; el título y la voz del reel dicen BLOQUEO,
 > regla de Suleris del 22-nov-2026).
@@ -20,13 +20,18 @@
 > da el tono humano). **NO editar ni renderizar hasta el visto bueno
 > final de Suleris.** Este brief cubre la recopilación de materiales
 > + el plan de producción; la edición empieza con la aprobación final.
+> **Auditoría pre-edición (22-nov, `AUDIT_PREEDIT.md`):** veredicto
+> APROBADO CON CORRECCIONES (C1–C12). Tiempos corregidos con
+> medición real (Whisper): panel ~18 s, total ~75 s. Este brief
+> incorpora las decisiones de la auditoría (§3, §5, §6, §10, §11).
 
 ## 1. Concepto
 
 **Lo rápido es el discurso; lo lento es la prueba.** Dos velocidades:
-las negaciones van en ráfaga (4 tarjetas, ~3 s cada una) y la realidad
-va lenta y pesada, documento por documento. El contraste de ritmo ES
-el argumento: negar es barato y rápido; los documentos pesan.
+las negaciones van en ráfaga (4 tarjetas, ~18 s en total, medido con
+Whisper) y la realidad va lenta y pesada, documento por documento. El
+contraste de ritmo ES el argumento: negar es barato y rápido; los
+documentos pesan.
 
 Una sola idea (R6): ellos lo niegan, sus documentos lo confirman.
 Sin presentadoras, sin cara del Memorial: las únicas personas en
@@ -42,16 +47,16 @@ EE. UU.: la cita de state.gov en L4 («y cito, un embargo económico
 integral…») y las citas del panel. El título del reel es
 «Dicen que no hay bloqueo».
 
-## 3. Estructura y tiempos (~70 s)
+## 3. Estructura y tiempos (~75 s, corregido por la auditoría)
 
 | Bloque | Tiempo | Qué pasa |
 |---|---|---|
-| Gancho | 0–3 s | L1 + tarjeta de título. La tesis en una frase. |
-| Panel de negaciones | 3–15 s | 4 tarjetas reales, ~3 s cada una, sin VO. Golpe percusivo por tarjeta. |
-| Giro | 15–20 s | L2–L3. La música se corta. Silencio antes de «mira esto». |
-| La realidad | 20–52 s | L4–L6. state.gov (zoom + subrayado palabra por palabra), 5-nov (contador 1→10), EAR (sello «permiso requerido»). |
-| Cierre | 52–60 s | L7. Pantalla dividida: negaciones a la izquierda, documentos a la derecha. |
-| Pregunta | 60–70 s | L8 + logo animado del Memorial. |
+| Gancho | 0–5 s | L1 (~5 s) + título cinético sobre Waltz en primer plano (C1). |
+| Panel de negaciones | 5–23 s | 4 tarjetas reales (~18 s, medido), citas cortas + voz original (C2); barra de línea de tiempo (C3). |
+| Giro | 23–28 s | L2–L3. Música cortada; rejilla 2×2 de las tarjetas (C4). |
+| La realidad | 28–60 s | L4 (dos planos + overlay en español, C5), L5 (contador 1→10 + nodos, C12), L6 (cara de Waltz + 4 tiempos + combustible, C6). |
+| Cierre | 60–68 s | L7. Pantalla dividida + eslogan en dos tiempos + sello (C7). |
+| Pregunta | 68–76 s | L8 + botones A/B (C8) + logo animado (~3 s). |
 
 El memorando Mallory NO entra aquí: es la segunda parte
 («El documento que lo dice todo»), con dossier propio, después de
@@ -67,31 +72,31 @@ realidad; el panel y el giro marcan el contraste. Adriana graba la
 definitiva con la dirección de tono explicada (sin audio de
 referencia IA, por decisión del usuario 22-nov).
 
-> L1 (0–3 s): «El gobierno de Estados Unidos lleva meses diciendo que no
+> L1 (0–5 s): «El gobierno de Estados Unidos lleva meses diciendo que no
 > hay bloqueo. Míralos.» (13)
 >
-> [PANEL 3–15 s, sin VO — ver §5]
+> [PANEL 5–23 s, sin VO — ver §5]
 >
-> L2 (15–17 s): «Cuatro veces. En seis meses.» (5)
+> L2 (23–25 s): «Cuatro veces. En seis meses.» (5)
 >
-> L3 (17–20 s): «Vale. Ahora mira esto.» (4)
+> L3 (25–28 s): «Vale. Ahora mira esto.» (4)
 >
-> L4 (20–32 s): «Esta es la página del Departamento de Estado. Dice que
+> L4 (28–40 s): «Esta es la página del Departamento de Estado. Dice que
 > Estados Unidos mantiene, y cito, un embargo económico integral contra
 > Cuba, que sigue vigente hoy.» (25)
 >
-> L5 (32–42 s): «Y el 5 de noviembre, ese mismo Departamento anunció 10
+> L5 (40–50 s): «Y el 5 de noviembre, ese mismo Departamento anunció 10
 > sanciones nuevas: una red de petróleo, entidades estatales y
 > proveedores chinos.» (21)
 >
-> L6 (42–52 s): «Waltz presume de 876 millones en ventas a Cuba. Pero
+> L6 (50–60 s): «Waltz presume de 876 millones en ventas a Cuba. Pero
 > cada venta necesita un permiso del gobierno. Eso no es comercio libre,
 > eso es control.» (25)
 >
-> L7 (52–60 s): «Ellos lo niegan. Sus documentos lo confirman. El bloqueo
+> L7 (60–68 s): «Ellos lo niegan. Sus documentos lo confirman. El bloqueo
 > no es un relato. Es un documento oficial.» (17)
 >
-> L8 (60–70 s): «¿Tú qué crees, que lo niegan porque no existe o porque
+> L8 (68–73 s): «¿Tú qué crees, que lo niegan porque no existe o porque
 > no les conviene admitirlo?» (15)
 
 Dirección por línea: L1 con media sonrisa («Míralos» invita, no
@@ -117,93 +122,104 @@ documentos hace el trabajo.
 
 ## 5. Las 4 tarjetas del panel (en pantalla)
 
-1. **Rubio, 20-may-2026** (video en español): «...no se debe a un
-   "bloqueo" petrolero por parte de Estados Unidos» — Marco Rubio,
-   Secretario de Estado. La única en español y a cámara: abre el panel.
-   Clip: `rubio-bloqueo-petrolero.mp4` (10,05 s; la frase ocupa
-   28,76–37,58 s del original). ⚠️ El video original lleva
-   **subtítulos quemados en inglés**: en el montaje hay que recortar
-   el tercio inferior o cubrirlos con la banda de la cita.
-2. **Waltz, 7-jul-2026, ONU**: «It's fake. It's false. It's a lie.
-   Period.» + subtítulo «Es falso. Es mentira. Punto.» — Mike Waltz,
-   Embajador ante la ONU. Clip: `waltz-7jul-its-fake.mp4` (17,02 s;
-   incluye la frase previa «There is no ring of Navy warships…»;
-   recortar los primeros ~0,3 s, cola «aid.» de la frase anterior).
-   Fuente: UN Web TV, 99.ª plenaria, 80.º período (corte 1:55:55–1:56:13;
-   «It's fake» empieza a 1:56:05).
-3. **Waltz, 27-oct-2026, ONU**: «There is no blockade.» + «No hay
-   bloqueo.» — UNifeed soundbite 33: Waltz en primer plano con su
-   voz original. Clip: `waltz-27oct-no-blockade-soundbite33.mp4`
-   (26,6 s). Respaldo: ventana UN Web TV 27.ª plenaria, 81.º período
-   (`waltz-27oct-webtv-noblockade-ventana.mp4`, 90,5 s, incluye la
-   cifra de 876 M en 1:16:53–1:17:05).
-4. **Waltz, 16-nov-2026, Fox News**: «there is no American naval cordon
-   around Cuba» + «no hay un cordón naval estadounidense alrededor de
-   Cuba». Tarjeta diseñada sobre foto real: `waltz-foxnews-16nov.jpg`
-   (Waltz en el podio ONU sosteniendo una foto; 1280×720).
+1. **Rubio, 20-may-2026** (video en español, ~4,3 s): texto en
+   pantalla «NO SE DEBE A UN “BLOQUEO” PETROLERO» (cita corta; la
+   completa va en el audio y en la descripción). Audio: cola de la
+   frase (clip 6,34–9,56 s, medido); video desde el 5,9 s. Clip:
+   `rubio-bloqueo-petrolero.mp4`. ⚠️ Subtítulos quemados en inglés:
+   **punch-in 120–130% sobre la cara** (C9) + banda de cita como
+   respaldo. Clip a 23,976 fps: verificar en la composición de
+   30 fps.
+2. **Waltz, 7-jul-2026, ONU** (~5,6 s): «IT'S FAKE. IT'S FALSE. IT'S
+   A LIE. PERIOD.» + «ES FALSO. ES MENTIRA. PUNTO.». Audio: la
+   ráfaga (clip 11,18–16,16 s, medido; pausa de 1,44 s antes de
+   «Period.» — «PUNTO.» entra con slam). Video desde el 10,9 s. La
+   cola «aid.» (0–0,24 s) queda fuera del rango usado. Clip:
+   `waltz-7jul-its-fake.mp4` (UN Web TV, 99.ª plenaria, 80.º
+   período).
+3. **Waltz, 27-oct-2026, ONU** (~4 s): «THERE IS NO BLOCKADE» /
+   «NO HAY BLOQUEO» (grande) + la definición en pequeño. Audio:
+   solo «There is no blockade.» (clip 0,6–2,8 s, medido); la frase
+   completa dura 10,9 s y cortarla por el medio sería deshonesto
+   (C2). Video 0,3–2,8 s + freeze-frame hasta los 4 s. Clip:
+   `waltz-27oct-no-blockade-soundbite33.mp4`. Respaldo: ventana UN
+   Web TV 27.ª plenaria (`waltz-27oct-webtv-noblockade-ventana.mp4`,
+   90,5 s, 876 M en 1:16:53–1:17:05).
+4. **Waltz, 16-nov-2026, Fox News** (~4 s): «THERE IS NO AMERICAN
+   NAVAL CORDON AROUND CUBA» + traducción completa. Tarjeta
+   diseñada sobre foto real: `waltz-foxnews-16nov.jpg` (1280×720,
+   fondo con degradado, no foto hero).
 
-Cada tarjeta: nombre, cargo, fecha y sello de fuente (R15). Orden
-cronológico: la negación no es un desliz, es una campaña sostenida
-todo 2026. La 5.ª alternativa («this fake, phony, made-up blockade»,
-28-oct) queda fuera: mismo orador al día siguiente.
+Cada tarjeta: nombre, cargo, fecha y sello de fuente (R15) + punto
+en la **barra de línea de tiempo** (MAY 20 → JUL 7 → OCT 27 →
+NOV 16, C3). Orden cronológico: la negación no es un desliz, es
+una campaña sostenida todo 2026. La 5.ª alternativa («this fake,
+phony, made-up blockade», 28-oct) queda fuera: mismo orador al día
+siguiente. **Regla de texto (C2):** en pantalla va la cita CORTA
+(una tarjeta de 4 s admite ~13–17 palabras leídas); la cita
+completa va en el audio (tarjetas 1–3) y en la descripción del
+video. **Panel total: ~18 s (medido con Whisper; timecodes por
+palabra en `research/panel-word-times.json`).**
 
-**Tensión de ritmo (decisión para la edición):** las frases de las
-tarjetas 2 y 3 con voz original duran 5–6 s, más que los 3 s de la
-tabla. Opciones: (a) dejar que las tarjetas 2–3 respiren 4–5 s
-(panel 14–16 s, el reel lo absorbe); (b) mantener 3 s con la cita
-completa como texto y un extracto de video debajo. Recomendado: (a)
-— la voz original de Waltz es el activo más fuerte del panel.
+## 6. Plan por escena (técnicas de edición — actualizado por la auditoría, ver `AUDIT_PREEDIT.md` §6)
 
-## 6. Plan por escena (técnicas de edición)
-
-- **Gancho (0–3 s):** tarjeta de título cinética con punch-in sobre
-  fondo oscuro; L1 de Adriana. El título dice «Dicen que no hay
-  bloqueo» (la negación citada, en la voz del Memorial).
-- **Panel (3–15 s):** tarjetas cinéticas con punch (zoom de entrada
-  + golpe percusivo por tarjeta, corte cada ~3 s). Tarjetas 1–3 con
-  video real recortado (Rubio a cámara, Waltz en el podio 7-jul y
-  27-oct); tarjeta 4 diseñada sobre la foto de Fox News. Citas en
-  inglés con traducción en español debajo, en la misma tarjeta.
-  Karaoke NO aplica al panel (son citas, no VO): la cita va completa
-  y el subrayado cae sobre la palabra clave («fake», «no blockade»).
-- **Giro (15–20 s):** la música se CORTA a casi-silencio; L2–L3 en
-  staccato con un latido de silencio tras «Vale». Pantalla casi
-  vacía: la pausa es el efecto.
-- **L4 — state.gov (20–32 s):** captura real de la página «Cuba
-  Sanctions» con zoom lento + subrayado que avanza palabra por
-  palabra sobre «comprehensive economic embargo… remains in place
-  today». Ningún documento quieto en pantalla. Sello de fuente
-  (state.gov + fecha de captura) en la esquina.
-- **L5 — 5-nov (32–42 s):** captura del comunicado del 5-nov con
-  **contador 1→10** sobre las designaciones (red de petróleo crudo,
-  entidades estatales, proveedores con sede en China). **Gráfico de
-  nodos** abstracto para la red petrolera: nodos = las 10
-  designaciones agrupadas por tipo, sin mapa geográfico y SIN
-  inventar rutas (los nodos se conectan por categoría, no por
-  geografía).
-- **L6 — EAR (42–52 s):** el **sello «PERMISO REQUERIDO — EAR»**
-  cae sobre el documento de exportación mientras Adriana dice «cada
-  venta necesita un permiso». La cifra 876 M aparece atribuida
-  («Waltz, ONU 27-oct») y se tacha de «comercio libre» para dejar
-  «control». B-roll opcional: la ventana UN Web TV con la frase de
-  Waltz sobre los 876 M.
-- **Cierre (52–60 s):** **pantalla dividida**: negaciones a la
-  izquierda (las 4 tarjetas en miniatura, en bucle lento),
-  documentos a la derecha (state.gov + comunicado 5-nov). L7 más
-  lenta y pesada; el sello final «ES UN DOCUMENTO OFICIAL» cae
-  sobre el lado de los documentos.
-- **Pregunta (60–70 s):** L8 directa a cámara (sin cara: texto
-  karaoke sobre fondo oscuro), logo animado del Memorial con su
-  fondo negro y el sting completo.
+- **Gancho (0–5 s, C1):** Waltz en primer plano (still + Ken Burns
+  lento) + tarjeta de título cinética con slam a 0,3 s; L1 de
+  Adriana con karaoke. El título dice «Dicen que no hay bloqueo».
+  Cara en el fotograma 0: nunca texto sobre negro.
+- **Panel (5–23 s, ~18 s, C2–C3):** tarjetas cinéticas con punch
+  (zoom de entrada + golpe percusivo por tarjeta). Tarjetas 1–3 con
+  video real recortado (Rubio a cámara, Waltz 7-jul y 27-oct);
+  tarjeta 4 diseñada sobre la foto de Fox News. **Cita CORTA en
+  pantalla** (la completa va en el audio y en la descripción);
+  traducción en español debajo. Barra de línea de tiempo (MAY 20 →
+  JUL 7 → OCT 27 → NOV 16). WhipPan entre tarjetas y en el límite
+  panel → documento.
+- **Giro (23–28 s, C4):** la música se CORTA a casi-silencio; L2–L3
+  en staccato con un latido de silencio tras «Vale». L2 con rejilla
+  2×2 de las 4 tarjetas + «CUATRO VECES.» / «EN SEIS MESES.»
+  cinético (el silencio tiene ancla visual).
+- **L4 — state.gov (28–40 s, C5):** DOS planos: página completa
+  ~65% (URL + «Cuba Sanctions», 0–4 s) → punch al párrafo ~150–180%
+  + subrayado palabra por palabra sobre «comprehensive economic
+  embargo… remains in place today» + overlay en español
+  entrecomillado («un embargo económico integral…» — conserva
+  «embargo» por ser traducción fiel de la cita). Ningún documento
+  quieto en pantalla. Sello de fuente en la esquina.
+- **L5 — 5-nov (40–50 s, C12):** captura del comunicado del 5-nov
+  con **contador 1→10** sincronizado con 10 nodos en 3 grupos por
+  NOMBRE (red de petróleo crudo, entidades estatales, proveedores
+  con sede en China) — SIN cifras por grupo (el dossier no da el
+  desglose) y SIN mapa ni rutas inventadas. Chip «5 BUQUES
+  BLOQUEADOS» al final.
+- **L6 — EAR (50–60 s, C6):** 4 tiempos: (1) Waltz mudo (soundbite
+  19,3–25,2 s) + «$876 M» + «WALTZ · ONU 27-OCT» + «incluye
+  $231,7 M en combustible»; (2) sello «PERMISO REQUERIDO — EAR»
+  sobre el número; (3) «COMERCIO LIBRE» tachado en rojo; (4)
+  «CONTROL» en rojo + imagen satelital NOAA/CIRA de Cuba a oscuras.
+- **Cierre (60–68 s, C7):** **pantalla dividida**: negaciones a la
+  izquierda (las 4 mini-tarjetas CICLANDO cada ~1,5 s), documentos
+  a la derecha. L7 como eslogan en dos tiempos («EL BLOQUEO NO ES
+  UN RELATO.» → «ES UN DOCUMENTO OFICIAL.»); el sello final cae
+  con slam + hold 0,5 s.
+- **Pregunta (68–73 s, C8):** L8 con karaoke + botones «A · NO
+  EXISTE» / «B · NO LES CONVIENE» + «Comenta A o B» (opcional).
+  Logo animado del Memorial (fondo negro) + sting, ~3 s.
 - **Karaoke:** híbrido 2–4 palabras, palabra clave en rojo Memorial
-  (#ED1C24), grande y centrado, solo sobre la VO (no sobre el panel).
+  (#ED1C24), grande y centrado, solo sobre la VO (no sobre el
+  panel). Mapa de palabras clave en `AUDIT_PREEDIT.md` §8 (L4 en
+  rojo: «sigue vigente hoy», no «embargo»).
 - **Marca:** logotipo COMPLETO del Memorial, BLANCO y TRANSPARENTE,
   sin placa, desde el fotograma 0; el logo animado del cierre
   conserva su fondo negro.
-- **Sonido:** golpe por tarjeta del panel; whoosh en los zooms a
-  documento; voz original de Waltz en la tarjeta 3 (UNifeed);
-  cama documental (Flow Music, §8) con pulso bajo el panel, corte
-  a casi-silencio en el giro, vuelta baja bajo la realidad.
+- **Sonido:** mapa SFX completo en `AUDIT_PREEDIT.md` §8 (IDs
+  reales del índice: `cinematic-drum-big`, `impact-medium-hard`,
+  `whoosh-fast-hard`, `impact-heavy-hard`,
+  `reverse-whoosh-short-strong`, `pop-medium-in`, `move-zoom-in`,
+  `click-hover-medium`, `swish-hard`, `bass-808-short`,
+  `cinematic-slam-big`). Cama documental (Flow Music, §8) con
+  pulso bajo el panel, corte a casi-silencio en el giro, vuelta
+  baja bajo la realidad.
 
 ## 7. Materiales recopilados (22-nov-2026)
 
@@ -260,8 +276,8 @@ directamente útiles (en Drive, NO descargadas; ver `referenced`
 en `asset-manifest.json`):
 
 1. `Cuba_blackout_NOAA_CIRA_2026.png` — imagen satelital NOAA/CIRA
-   de Cuba a oscuras → realidad (20–52 s), la pieza más útil del
-   archivo para este reel.
+   de Cuba a oscuras → final de L6 (50–60 s, C6), la pieza más útil
+   del archivo para este reel (descargar de Drive antes de editar).
 2. `source-bruno-onu-2026.mp4` — fuente original del reel de Bruno
    en la ONU → panel o realidad, plano de ONU/Cuba de respaldo.
 
@@ -329,6 +345,19 @@ escanea al empezar la edición.
 7. **La foto de Fox News es 1280×720**, no 1080p: suficiente para
    un reel vertical con recorte; no hay versión de mayor resolución
    en el artículo.
+8. **Auditoría pre-edición (22-nov, `AUDIT_PREEDIT.md`):** veredicto
+   APROBADO CON CORRECCIONES (C1–C12). Decisiones: gancho con cara
+   en el fotograma 0 (C1); citas cortas en el panel (C2); tarjeta 3
+   con solo «There is no blockade» en audio (C2); L4 en dos planos
+   + overlay en español (C5); L6 con cara de Waltz + overlay de
+   combustible $231,7 M (C6); nodos sin cifras por grupo (C12).
+   Rechazado: choque Waltz–Bruno, línea «luxury goods», «the only
+   embargo… guillotine», y recortar la frase de la tarjeta 3 por
+   el medio.
+9. **Ninguna corrección de la auditoría toca el guion de Adriana:**
+   todas son visuales, sonoras o de estructura.
+10. **Tiempos corregidos:** panel ~18 s (medido con Whisper),
+    total ~75 s; `durationInFrames` 2100 → ~2250 al llegar la VO.
 
 ## 11. Lo que falta (antes de editar)
 
@@ -336,11 +365,17 @@ escanea al empezar la edición.
 - [ ] Cama Flow Music: elegir ventana limpia y escanear con `scan-bed.py`.
 - [ ] VO: Adriana graba la definitiva (guion entregado 22-nov; sin
       audio de referencia por decisión del usuario).
-- [ ] Si se usa la imagen satelital de Cuba a oscuras: descargar
-      `Cuba_blackout_NOAA_CIRA_2026.png` de Drive y verificar crédito
-      NOAA/CIRA.
-- [ ] Decisión de montaje: duración de las tarjetas 2–3 (ver §5).
-- [ ] Decisión de montaje: tratamiento de los subtítulos quemados de
-      Rubio (recorte o banda).
+- [ ] Descargar la imagen satelital de Cuba a oscuras
+      (`Cuba_blackout_NOAA_CIRA_2026.png`) de Drive y verificar
+      crédito NOAA/CIRA (se usa al final de L6, C6).
+- [x] Decisión de montaje: duración de las tarjetas 2–3 — DECIDIDA
+      en la auditoría (§5: T2 ~5,6 s, T3 ~4 s con solo la primera
+      frase en audio; panel ~18 s).
+- [x] Decisión de montaje: tratamiento de los subtítulos quemados de
+      Rubio — DECIDIDO: punch-in 120–130% sobre la cara + banda de
+      cita (C9).
+- [ ] Preconstrucción (`AUDIT_PREEDIT.md` §8): plantillas de
+      tarjetas, tratamiento de documentos, sello, nodos, botones
+      A/B, karaoke, SFX copiados al proyecto.
 - [ ] Al publicar: crédito «Imágenes: UN Web TV / Naciones Unidas»;
       verificar el crédito original de la foto de Fox News.
