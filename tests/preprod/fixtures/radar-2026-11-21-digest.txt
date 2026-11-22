@@ -1,0 +1,32 @@
+
+######## CUBA-EEUU : /tmp/fixture-digest.xml
+
+--- 2026-11-20 21:00:00 UTC | 12 Likes | entity-Miguel Díaz-Canel¦handle=@diazcanelb¦author_id=user-1
+https://www.facebook.com/reel/1111111111111111/
+The video shows Cuban President Miguel Díaz-Canel speaking at a press conference in Havana about the U.S. blockade and fuel sanctions, while images of oil tankers and the island's capital appear on screen. Díaz-Canel says: "The blockade is a war against our people, but Cuba will not surrender." The report mentions 10 million Cubans affected and a route of tankers across the Caribbean Sea, yet Washington denies the impact. What happens next?
+
+--- 2026-11-20 10:00:00 UTC | 50K Likes | entity-Franklin Virguez¦handle=@franklinv¦author_id=user-2
+https://www.instagram.com/reel/2222222222222222/
+Franklin Virguez discusses the Venezuela oil deal and United States pressure in a short Instagram reel, with 20 seconds of archive footage and maps of the region.
+
+--- 2026-11-20 22:00:00 UTC | 9K Likes | entity-Ya Propuesta¦handle=@yapropuesta¦author_id=user-6
+https://www.facebook.com/reel/9999999999999999/
+The video shows a long report from Havana about the blockade, fuel sanctions and oil tankers, with the Cuban president speaking about the war against the people of the island. The report says: "Cuba will resist the blockade and the sanctions." It mentions 10 million Cubans, the capital and a route across the Caribbean, yet the story continues. What happens next?
+
+######## VENEZUELA : /tmp/fixture-digest.xml
+
+--- 2026-11-20 21:05:00 UTC | 300 Likes | entity-Duplicado de A¦handle=@duplicado¦author_id=user-5
+https://www.facebook.com/reel/1111111111111111/
+Short duplicate description of the same reel.
+
+######## BAYERN : /tmp/fixture-digest.xml
+
+--- 2026-11-20 18:00:00 UTC | 8 Likes | entity-Bayern München¦handle=@fcbayern¦author_id=user-3
+https://www.facebook.com/fcbayern/posts/pfbid0ejemplo
+Harry Kane underwent surgery on his left ankle after the injury against Arsenal, and Bayern confirmed he will be out for several months. The club says the operation went well, but the striker faces a long recovery of 12 weeks before returning to training with the team.
+
+######## ESP-BRASIL-IA : /tmp/fixture-digest.xml
+
+--- 2026-11-18 12:00:00 UTC | 5 Likes | entity-Rumor Sin Fuente¦handle=@rumor¦author_id=user-4
+https://www.facebook.com/rumor/posts/pfbid0ejemplo
+A viral post claims a secret deal was signed, allegedly changing everything overnight.

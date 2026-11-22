@@ -1,0 +1,40 @@
+{
+  "classification": "declaración",
+  "classification_note": "Nota de clasificación del JSON de prueba.",
+  "drafts": [
+    "2026-11-21-ejemplo-reel.md"
+  ],
+  "facts": {
+    "context": "Contexto de ejemplo del JSON: la declaración se produjo en el marco de una rueda de prensa.",
+    "what": "Declaración de ejemplo para probar el andamio de preproducción (texto del JSON).",
+    "when": "Viernes 20 de noviembre de 2026",
+    "where": "Lugar de ejemplo, La Habana",
+    "who": "Personaje de Prueba, cargo de ejemplo"
+  },
+  "headline_original": "EJEMPLO DE PRUEBA: declaración ficticia para el fixture",
+  "id": "2026-11-21-ejemplo",
+  "inferences": [
+    "Inferencia de ejemplo del JSON."
+  ],
+  "primary_source": {
+    "cites_concrete_post": true,
+    "detail": "Detalle de fuente primaria del JSON de prueba.",
+    "status": "pendiente"
+  },
+  "quotes": [
+    {
+      "speaker": "Personaje de Prueba",
+      "text": "cita de ejemplo del JSON"
+    }
+  ],
+  "section": "Cuba-EE.UU.",
+  "source": {
+    "accessed": "2026-11-21",
+    "name": "Medio de Prueba (Instagram)",
+    "published": "",
+    "url": "https://www.instagram.com/reel/EJEMPLO000/",
+    "via": "text"
+  },
+  "status": "validado",
+  "verification_note": "Nota de verificación del JSON de prueba."
+}

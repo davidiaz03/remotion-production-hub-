@@ -1,0 +1,409 @@
+{
+  "alcance_valores": {
+    "ganchos": "las 3 opciones de la sección Ganchos",
+    "guion": "líneas de voz en off numeradas de la sección Guion",
+    "plan_visual": "líneas visuales (`>`) de la sección Guion"
+  },
+  "descripcion": "Checklist legible por máquina para los packs de propuesta de reels del Memorial de la Denuncia. Derivada fielmente de preprod/SULERIS.md (vetos V1–V9, exigencias E1–E4) y de las reglas de preprod/NARRATIVA.md que aplican al guion y al plan visual de la propuesta. Ninguna regla aquí es inventada: cada una cita su fuente.",
+  "duplicados_unificados": [
+    {
+      "ids": [
+        "V5",
+        "R3"
+      ],
+      "nota": "La misma regla en SULERIS.md §2 V5 y NARRATIVA.md §1 R3; se incluye una sola vez como V5, con ambas fuentes citadas."
+    },
+    {
+      "ids": [
+        "V7",
+        "R4"
+      ],
+      "nota": "La misma regla en SULERIS.md §2 V7 y NARRATIVA.md §1 R4; se incluye una sola vez como V7, con ambas fuentes citadas."
+    },
+    {
+      "ids": [
+        "V6",
+        "R11"
+      ],
+      "nota": "La misma regla en SULERIS.md §2 V6 y NARRATIVA.md §2 R11; se incluye una sola vez como V6, con ambas fuentes citadas."
+    },
+    {
+      "ids": [
+        "V4",
+        "R12"
+      ],
+      "nota": "La misma regla en SULERIS.md §2 V4 y NARRATIVA.md §2 R12; se incluye una sola vez como V4, con ambas fuentes citadas."
+    },
+    {
+      "ids": [
+        "E1",
+        "R28"
+      ],
+      "nota": "La misma regla en SULERIS.md §3 E1 y NARRATIVA.md §5 R28; se incluye una sola vez como E1, con ambas fuentes citadas."
+    }
+  ],
+  "fecha": "2026-11-21",
+  "fuentes": [
+    "preprod/SULERIS.md",
+    "preprod/NARRATIVA.md"
+  ],
+  "reglas": [
+    {
+      "alcance": [
+        "guion",
+        "ganchos",
+        "plan_visual"
+      ],
+      "fuente": "SULERIS.md §2 V1",
+      "guia_verificacion": "Lee el guion entero y pregunta: ¿la estructura (gancho, desarrollo, cierre) depende de una cifra de votación? Si la cifra es solo contexto de una o dos líneas y la espina es otra idea, pasa. Escribe en la evidencia dónde aparece la cifra (o que no aparece) y cuál es la espina del reel.",
+      "id": "V1",
+      "texto": "Las cifras de una votación NO pueden ser la espina del reel: una votación, un recuento o una cifra es contexto breve, nunca la estructura.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion",
+        "ganchos"
+      ],
+      "fuente": "SULERIS.md §2 V2",
+      "id": "V2",
+      "notas": "Patrón conservador: solo las dos fórmulas que la consecuencia aplicada prohíbe literalmente en la voz en off. El marco de inventario más amplio (listar abstenciones o ausencias con otras palabras) lo revisa el agente en V1.",
+      "patrones": [
+        "\\bno votaron\\b",
+        "\\bno se presentaron\\b"
+      ],
+      "texto": "No enmarcar en «los que no votaron / no se presentaron»: el guion no es un inventario de la votación (quién votó, quién se abstuvo, quién faltó).",
+      "tipo": "regex"
+    },
+    {
+      "alcance": [
+        "plan_visual"
+      ],
+      "fuente": "SULERIS.md §2 V3",
+      "guia_verificacion": "Mira la primera línea del plan visual: ¿qué se ve en el segundo 0? Si es la Asamblea General de la ONU, el salón de sesiones o el tablero de votación como apertura, falla. Un tablero de la ONU como overlay de evidencia a mitad del reel sí está permitido. Escribe en la evidencia qué muestra la primera escena.",
+      "id": "V3",
+      "texto": "Las primeras imágenes NUNCA son la Asamblea de la ONU: el gancho sale del ensayo o del dato, nunca del salón de la Asamblea.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion",
+        "ganchos",
+        "plan_visual"
+      ],
+      "fuente": "SULERIS.md §2 V4; NARRATIVA.md §2 R12",
+      "id": "V4",
+      "notas": "El primer patrón detecta «19» solo y excluye: años y números mayores (1891, 1917, 19xx, 2019), horas (19:30), fechas (19/11/2026, «19 de noviembre») y ordinales (19.º). La prohibición es editorial, no factual: la aritmética 19 = 6+7+6 está verificada, lo que se prohíbe es usar el número como argumento. El marco «mayoría/minoría» construido sobre él lo revisa el agente (ver V1).",
+      "patrones": [
+        "(?<![0-9])19(?![0-9/:ºª])(?!\\s+de\\s+(?:enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|ene|feb|mar|abr|may|jun|jul|ago|sep|sept|oct|nov|dic)\\b)",
+        "\\bdiecinueve\\b",
+        "\\b6-7-6\\b"
+      ],
+      "texto": "El «19» autónomo está PROHIBIDO en voz, pantalla y mapa: ni «19 gobiernos», ni «diecinueve», ni el desglose 6-7-6, ni el marco «mayoría/minoría» construido sobre él.",
+      "tipo": "regex"
+    },
+    {
+      "alcance": [
+        "guion",
+        "ganchos"
+      ],
+      "fuente": "SULERIS.md §2 V5; NARRATIVA.md §1 R3",
+      "id": "V5",
+      "notas": "Patrón conservador: detecta las formas documentadas en la evidencia («repiten por nosotros, y dejamos de pensar»). NO detecta todas las formas verbales de primera persona del plural (eso daría falsos positivos: «vamos», «somos» y similares aparecen en usos no acusatorios), así que el agente debe revisar además cada línea buscando acusaciones en «nosotros» y dejar constancia en la evidencia. Excepción validada por Suleris: el «nos» de «ese imperio que solo nos ve como su patio trasero» es objeto de la mirada del imperio, no autoacusación, y NO viola esta regla.",
+      "patrones": [
+        "\\bnosotros\\b",
+        "\\bnosotras\\b",
+        "\\bdejamos de\\b"
+      ],
+      "texto": "Ninguna acusación en primera persona del plural: las acusaciones van en tercera persona («muchos…»), nunca en «nosotros».",
+      "tipo": "regex"
+    },
+    {
+      "alcance": [
+        "guion",
+        "ganchos",
+        "plan_visual"
+      ],
+      "fuente": "SULERIS.md §2 V6; NARRATIVA.md §2 R11",
+      "id": "V6",
+      "notas": "Los dos primeros patrones detectan la tesis y el nombre de Martí a menos de 120 caracteres (atribución implícita o explícita). El tercero detecta la firma «— Suleris». Una cita real y verificada de Martí, distinta de la tesis, no viola esta regla.",
+      "patrones": [
+        "(olvida su historia|condenado a volverla)[\\s\\S]{0,120}Martí",
+        "Martí[\\s\\S]{0,120}(olvida su historia|condenado a volverla)",
+        "[—–-]\\s*Suleris\\b"
+      ],
+      "texto": "La tesis NO se atribuye a Martí (ni se firma): «Cuando un pueblo olvida su historia, está condenado a volverla a vivir» es formulación de Suleris, no cita de Martí; se presenta como tesis del reel, sin atribución y sin firma «— Suleris».",
+      "tipo": "regex"
+    },
+    {
+      "alcance": [
+        "plan_visual"
+      ],
+      "fuente": "SULERIS.md §2 V7; NARRATIVA.md §1 R4",
+      "id": "V7",
+      "notas": "La prohibición es del SELLO GRÁFICO, no de la palabra: por eso el patrón solo se aplica al plan visual, nunca al guion. «Patio trasero» en la voz en off (como en la línea que la propia Suleris redactó) y como karaoke de esa voz está permitido.",
+      "patrones": [
+        "patio trasero",
+        "(círculo|circulo)\\s+(sobre|en)\\s+el\\s+mapa"
+      ],
+      "texto": "NO al sello «PATIO TRASERO» ni al círculo sobre el mapa: nunca marcar visualmente a Cuba/el Caribe con el marco del imperio.",
+      "tipo": "regex"
+    },
+    {
+      "alcance": [
+        "guion",
+        "plan_visual"
+      ],
+      "fuente": "SULERIS.md §2 V8; NARRATIVA.md §3 R17 (ejemplo c)",
+      "guia_verificacion": "Cruza cada línea de voz en off con su línea visual: ¿lo que se ve contradice lo que se dice (palmas donde la voz dice árboles, un número distinto del que se oye, una imagen que desmiente la palabra)? Escribe en la evidencia que el cruce línea por línea se hizo y qué se encontró.",
+      "id": "V8",
+      "texto": "La pantalla nunca contradice a la voz: donde la voz dice «árboles», se ven árboles de verdad, no palmas ni palmeras.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "plan_visual"
+      ],
+      "fuente": "SULERIS.md §2 V9",
+      "guia_verificacion": "Si el plan visual incluye un retrato de Fidel, verifica la dirección de la mirada en la foto concreta elegida (al frente o hacia arriba; nunca hacia abajo). Si el pack no usa retrato de Fidel, marca pass con evidencia «sin retrato de Fidel en el plan visual».",
+      "id": "V9",
+      "texto": "El retrato de Fidel debe mirarlo al frente o hacia arriba, nunca hacia abajo.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion",
+        "ganchos",
+        "plan_visual"
+      ],
+      "fuente": "SULERIS.md §3 E1; NARRATIVA.md §5 R28",
+      "guia_verificacion": "Si el guion habla de la votación y la unanimidad rota, comprueba que el sujeto es CARICOM (o «el Caribe» en el sentido de CARICOM) y nunca «América Latina» como bloque votante. Si el pack no trata ese dato, marca pass con evidencia «el pack no trata la votación ONU / el dato CARICOM».",
+      "id": "E1",
+      "texto": "El marco correcto es CARICOM cuando el dato es CARICOM: la unanimidad rota de 33 años es la del bloque CARICOM, no la del «Caribe geográfico» ni la de «América Latina». Rep. Dominicana NO es CARICOM (es CARIFORUM); Guyana SÍ lo es.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion"
+      ],
+      "fuente": "SULERIS.md §3 E2",
+      "id": "E2a",
+      "notas": "El patrón se aplica línea por línea sobre las líneas numeradas de voz en off. Una «Y» a mitad de línea no viola la regla.",
+      "patrones": [
+        "^\\s*(?:\\d+[.)]\\s+)?Y\\b"
+      ],
+      "texto": "Ninguna línea de voz en off empieza con «Y»: al decirlo en voz alta suena repetitivo aunque las líneas estén en párrafos diferentes.",
+      "tipo": "regex"
+    },
+    {
+      "alcance": [
+        "guion"
+      ],
+      "fuente": "SULERIS.md §3 E2",
+      "id": "E2b",
+      "maximo": 1,
+      "notas": "Se cuentan las líneas numeradas de voz en off que abren con «Martí». Una sola está permitida; dos o más fallan. Mencionar a Martí a mitad de línea no cuenta.",
+      "patrones": [
+        "^\\s*(?:\\d+[.)]\\s+)?Martí\\b"
+      ],
+      "texto": "Solo una línea de voz en off abre con «Martí»: dos o más aperturas con «Martí» suenan repetitivas al decirlas.",
+      "tipo": "regex_max"
+    },
+    {
+      "alcance": [
+        "guion"
+      ],
+      "fuente": "SULERIS.md §3 E3",
+      "guia_verificacion": "Si Suleris marcó ideas esenciales para este reel (en su feedback o en el ensayo de partida), comprueba que cada una tiene su espacio en el guion (su línea o su escena) y no quedó comprimida. Escribe en la evidencia qué ideas son y en qué líneas quedaron. Si no marcó ideas para este reel, marca pass con evidencia «sin ideas marcadas por Suleris para este tema».",
+      "id": "E3",
+      "texto": "Las ideas con peso, no comprimidas a una frase: cuando Suleris marca ideas esenciales, cada una queda con su peso en el guion, no apretada en una línea.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion",
+        "ganchos",
+        "plan_visual"
+      ],
+      "fuente": "SULERIS.md §3 E4",
+      "guia_verificacion": "Confirma que este pack no ha saltado el orden: nadie ha pedido la grabación definitiva ni ha empezado la edición con este guion sin la confirmación de Suleris. La única excepción la decide el usuario, nunca el equipo por su cuenta; si el usuario ordenó una excepción, regístrala en la evidencia con fecha. En un pack nuevo, la evidencia habitual es «pack en propuesta; sin grabación pedida ni edición iniciada».",
+      "id": "E4",
+      "texto": "Orden de trabajo: guion primero, confirmación de Suleris, voz en off, y solo entonces edición final. No se pide grabación definitiva ni se toca la edición antes de que ella confirme el guion.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion",
+        "ganchos",
+        "plan_visual"
+      ],
+      "fuente": "NARRATIVA.md §1 R1; SULERIS.md §5 F4",
+      "guia_verificacion": "Lee el pack como lo leería un contrario: ¿qué frase, cifra o imagen podría recortar, sacar de contexto o virar en contra? Escribe en la evidencia el resultado de esa lectura (qué se revisó y qué punto, si lo hay, quedó ajustado).",
+      "id": "R1",
+      "texto": "Mirar desde las dos posiciones: todo lo que se hace se mira desde nuestra posición y desde la posición opuesta (cómo lo leerá el adversario, si se puede manipular, si se puede virar en contra).",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion",
+        "ganchos"
+      ],
+      "fuente": "NARRATIVA.md §1 R2",
+      "guia_verificacion": "Haz la auditoría línea por línea (método de referencia: la tabla de auditoría del feedback del 20-nov-2026, que clasificó cada línea por riesgo bajo/medio/alto). Escribe en la evidencia que la auditoría se hizo y si alguna línea quedó corregida por riesgo alto.",
+      "id": "R2",
+      "texto": "Anti-tergiversación: antes de entregar, revisar el guion línea por línea buscando los puntos donde el mensaje se puede tergiversar o sacar de contexto.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion"
+      ],
+      "fuente": "NARRATIVA.md §1 R5; SULERIS.md §4 G1",
+      "guia_verificacion": "Si este reel nace de un ensayo o documento que envió Suleris, comprueba que la espina del guion es la tesis de ese documento y que la noticia del día es solo contexto. Si el reel nace de una noticia sin ensayo de partida, marca pass con evidencia «reel de noticia, sin ensayo de partida».",
+      "id": "R5",
+      "texto": "El ensayo manda; la actualidad es contexto, no espina: cuando el reel nace de un ensayo o documento, la esencia de ese documento es la espina y la noticia es contexto breve y evidencia.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion"
+      ],
+      "fuente": "NARRATIVA.md §1 R6",
+      "guia_verificacion": "Resume el guion en una frase. Si necesitas un «y también» para cubrirlo, el guion tiene más de una idea y hay que partirlo. Escribe en la evidencia la idea única del reel en una frase.",
+      "id": "R6",
+      "texto": "Una sola idea por reel: un dato, una cita, una pregunta. Si el guion necesita un «y también», es otro reel.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "plan_visual"
+      ],
+      "fuente": "NARRATIVA.md §3 R15",
+      "guia_verificacion": "Por cada hecho del guion, comprueba que el plan visual prevé su overlay de evidencia con atribución completa (quién, cargo, medio, fecha). Escribe en la evidencia qué overlays prevé el plan y para qué hechos.",
+      "id": "R15",
+      "texto": "Overlays de evidencia con atribución completa: cada hecho que se afirma lleva su overlay de evidencia en pantalla (tarjeta de cita con nombre, cargo, medio y fecha; o sello de fuente con acta, fecha y lugar).",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion",
+        "plan_visual"
+      ],
+      "fuente": "NARRATIVA.md §3 R17",
+      "guia_verificacion": "Cruza guion y plan visual escena por escena: números que coinciden con la voz, imágenes que no desmienten la palabra, gráficos sincronizados con la idea que nombran. Escribe en la evidencia que el cruce se hizo (ver también V8 para el caso concreto de los árboles).",
+      "id": "R17",
+      "texto": "Congruencia visual: lo que se ve en pantalla no puede contradecir lo que dice la voz en ese instante; cada gráfico aparece cuando se dice la idea y se va cuando termina.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "ganchos",
+        "plan_visual"
+      ],
+      "fuente": "NARRATIVA.md §3 R19; FORMATOS.md §1",
+      "guia_verificacion": "Comprueba que al menos una de las 3 opciones de gancho se entiende sin sonido en 1–3 s (texto corto + imagen que la prueba) y que ninguna opción es una intro institucional o un saludo. Escribe en la evidencia qué opción cumple y con qué imagen.",
+      "id": "R19",
+      "texto": "Gancho en los primeros 1–3 segundos: afirmación corta en texto (primera línea de 7–10 palabras) + imagen que la prueba. Nada de intro institucional, logo animado ni «El Memorial presenta» al inicio.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "plan_visual"
+      ],
+      "fuente": "NARRATIVA.md §3 R21",
+      "guia_verificacion": "Revisa el plan visual: ¿pide alguna imagen generada de una persona real (Martí, Fidel, Browne) o un «archivo» sintético presentado como real? Si lo pide, falla. El motion graphics, las animaciones y los fondos generados sí están permitidos. Escribe en la evidencia qué recursos visuales prevé el plan y que ninguno es retrato generado ni archivo sintético.",
+      "id": "R21",
+      "texto": "IA y motion graphics permitidos donde eleven el video; PROHIBIDO IA para retratos o «archivo» sintético: ningún retrato o foto generada de Martí, Fidel o Browne, ni ningún «archivo» sintético presentado como real.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion"
+      ],
+      "fuente": "NARRATIVA.md §5 R27",
+      "guia_verificacion": "Lista las cifras del guion y comprueba cada una contra su fuente primaria (no contra un resumen de terceros). Escribe en la evidencia cada cifra con su fuente. Si el guion no lleva cifras, marca pass con evidencia «el guion no lleva cifras».",
+      "id": "R27",
+      "texto": "Cifras verificadas contra la fuente primaria antes de usarlas: cada cifra del guion se verifica contra su fuente primaria (acta oficial, texto íntegro) y se documenta la verificación.",
+      "tipo": "agent"
+    },
+    {
+      "alcance": [
+        "guion",
+        "plan_visual"
+      ],
+      "fuente": "NARRATIVA.md §6 R30",
+      "guia_verificacion": "Si el formato elegido es sin presentadora, comprueba que el plan justifica cómo el motion graphics, el dato y el ritmo hacen el trabajo de atención que haría la presentadora (cambio visual cada 2–3 s, gancho-cifra en el fotograma 0). Si el formato es con presentadora(s), marca pass con evidencia «formato con presentadora: receta probada del Memorial».",
+      "id": "R30",
+      "texto": "La receta que rindió: presentadoras a cámara en diálogo + karaoke con clave en rojo + overlays de evidencia + tema indignante. Sin presentadora, el motion graphics y el dato tienen que hacer TODO el trabajo de atención.",
+      "tipo": "agent"
+    }
+  ],
+  "reglas_no_aplicables_en_preprod": [
+    {
+      "id": "R7",
+      "motivo": "Etapa de edición: regula cómo se adapta el audio al montaje. No hay montaje en un pack de propuesta."
+    },
+    {
+      "id": "R8",
+      "motivo": "Etapa de edición de audio: regula las pausas de la voz grabada. No hay audio en un pack de propuesta."
+    },
+    {
+      "id": "R9",
+      "motivo": "Etapa de producción: regula quién graba la voz definitiva y cuándo. El orden de trabajo en preproducción lo cubre E4."
+    },
+    {
+      "id": "R10",
+      "motivo": "Etapa de verificación de audio: regula la revisión de la voz grabada contra el guion. No hay audio en un pack de propuesta."
+    },
+    {
+      "id": "R13",
+      "motivo": "Etapa de edición: especificación de la marca de agua en el video. El pack no construye el video; el editor aplica la regla al montar."
+    },
+    {
+      "id": "R14",
+      "motivo": "Etapa de edición: especificación del karaoke. El pack no construye subtítulos; el editor aplica la regla al montar."
+    },
+    {
+      "id": "R16",
+      "motivo": "Etapa de edición: el rojo #ED1C24 como único acento en el video. El pack es texto; el editor aplica la regla al montar."
+    },
+    {
+      "id": "R18",
+      "motivo": "Etapa de edición: regula la superposición de textos en pantalla. No hay pantalla en un pack de propuesta."
+    },
+    {
+      "id": "R20",
+      "motivo": "Etapa de edición: ritmo de cambios visuales del montaje. El pack sugiere el ritmo en el plan visual; la regla se verifica sobre el montaje."
+    },
+    {
+      "id": "R22",
+      "motivo": "Etapa de edición: colocación del texto respecto a las caras en el fotograma. No hay fotogramas en un pack de propuesta."
+    },
+    {
+      "id": "R23",
+      "motivo": "Etapa de producción de audio: escaneo de camas generadas con Whisper+VAD. No hay música en un pack de propuesta."
+    },
+    {
+      "id": "R24",
+      "motivo": "Etapa de entrega: auditoría de audio obligatoria del máster. No hay máster en un pack de propuesta."
+    },
+    {
+      "id": "R25",
+      "motivo": "Etapa de mezcla: música y ducking. No hay mezcla en un pack de propuesta."
+    },
+    {
+      "id": "R26",
+      "motivo": "Etapa de mezcla: niveles de voz, música y SFX. No hay mezcla en un pack de propuesta."
+    },
+    {
+      "id": "R29",
+      "motivo": "Etapa de edición: verificación del mapa país por país sobre el compuesto. El pack no construye mapas; el editor aplica la regla al montar."
+    }
+  ],
+  "tipos_de_chequeo": {
+    "agent": "Atestación humana: el agente (o el usuario) revisa la regla a mano, marca el estado (pass/flag) y escribe la evidencia. El comando `check` exige que cada ítem tenga estado y evidencia escrita, pero no puede verificar el contenido de la atestación.",
+    "regex": "Mecánico: el comando `check` aplica los patrones sobre el texto del pack (guion, ganchos y/o plan visual según `alcance`). Cualquier coincidencia es un fallo que cita la regla y la línea de evidencia.",
+    "regex_max": "Mecánico con tope: el comando `check` cuenta las coincidencias del patrón y falla solo si superan `maximo`."
+  },
+  "version": "1.0"
+}

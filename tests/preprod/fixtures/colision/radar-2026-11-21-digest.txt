@@ -1,0 +1,17 @@
+######## VENEZUELA : /tmp/fixture-colision.xml
+
+--- 2026-11-20 21:34:00 UTC | 8.3K Likes | entity-NTN24¦handle=@ntn24¦author_id=user-11
+https://www.facebook.com/reel/2011594893132373/
+This is a news segment from the Latin American channel NTN24, branded as 'Último Minuto'. A male news anchor reports on a statement made by Donald Trump. The core headline displayed throughout is: "NO ESTÁN EN VENEZUELA, NOSOTROS SÍ": TRUMP, SOBRE RUSIA Y CHINA. The anchor explains that Trump has confirmed the United States presence in Venezuela, while Russia and China left the country after pressure from Washington.
+
+--- 2026-11-20 21:35:00 UTC | 45K Likes | entity-NTN24¦handle=@ntn24¦author_id=user-11
+https://www.instagram.com/reel/Df-ocWiJfbO/
+This is an NTN24 news segment presented by a female anchor, reporting that Donald Trump said Russia and China are no longer in Venezuela. The on-screen headline reads: "NO ESTÁN EN VENEZUELA, NOSOTROS SÍ". The segment shows the White House press conference with JD Vance and Marco Rubio flanking the president.
+
+--- 2026-11-20 23:47:00 UTC | 620 Likes | entity-NOTICIAS 24 HORAS¦handle=@noticias24horas¦author_id=user-12
+https://www.instagram.com/reel/Df-3oe0Mupj/
+This is a breaking news segment from the channel. The video shows Donald Trump speaking at a rally. The clip "overlays the bottom, stating: "TRUMP QUIERE RESOLVER CUBA ANTES DE TERMINAR SU MANDATO" while the anchor discusses the United States embargo and the blockade pressure on the island.
+
+--- 2026-11-20 02:12:00 UTC |  | entity-Roi Rena¦handle=@errerenau¦author_id=user-13
+https://www.threads.com/@errerenau/post/Df8jeQPDGOV
+The two-image carousel presents a brief online exchange about U.S.-Cuba policy. Slide 0 shows a comment thread where a user states, "Cuba nunca a tenido embargo" (Cuba has never had an embargo). Slide 1 displays a mobile browser screenshot of a Google-translated U.S. State Department webpage titled "Sanciones a Cuba," with text stating that the United States maintains a comprehensive economic embargo against Cuba, initiated by President John F. Kennedy, and the blockade continues to affect the island today.

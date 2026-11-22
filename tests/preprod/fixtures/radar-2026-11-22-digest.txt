@@ -1,0 +1,12 @@
+
+######## CUBA-EEUU : /tmp/fixture-digest.xml
+
+--- 2026-11-21 20:00:00 UTC | 200K Likes | entity-Rumor Viral¦handle=@rumorviral¦author_id=user-7
+https://www.facebook.com/reel/3333333333333333/
+A viral post claims a secret deal was signed, allegedly changing everything overnight.
+
+######## ESP-BRASIL-IA : /tmp/fixture-digest.xml
+
+--- 2026-11-21 19:00:00 UTC | 3 Likes | entity-Sin Sustancia¦handle=@sinsustancia¦author_id=user-8
+https://www.facebook.com/sinsustancia/posts/pfbid0ejemplo
+Unconfirmed reports say something happened somewhere.

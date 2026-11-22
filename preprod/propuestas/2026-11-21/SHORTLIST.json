@@ -1,0 +1,251 @@
+{
+  "fecha": "2026-11-21",
+  "umbral": 30.0,
+  "stats": {
+    "parseadas": 197,
+    "unicas": 197,
+    "duplicadas": 0,
+    "ya_propuestas": 0,
+    "frescas": 197,
+    "sobre_umbral": 10,
+    "secciones": [
+      "CUBA-EEUU",
+      "VENEZUELA",
+      "BAYERN",
+      "ESP-BRASIL-IA"
+    ],
+    "lineas_omitidas": 0
+  },
+  "items": [
+    {
+      "rank": 1,
+      "section": "VENEZUELA",
+      "entity": "NTN24",
+      "handle": "",
+      "url": "https://www.facebook.com/reel/2011594893132373/",
+      "timestamp": "2026-11-20T21:34:05Z",
+      "likes": 8300,
+      "description": "This is a news segment from the Latin American channel NTN24, branded as 'Último Minuto' and 'Club de Prensa'. A male news anchor in a studio reports on a statement made by Donald Trump, identified on-screen as 'Presidente de Estados Unidos'. The core headline displayed throughout is: '\"NO ESTÁN EN VENEZUELA, NOSOTROS SÍ\": TRUMP, SOBRE RUSIA Y CHINA'. The anchor explains that Trump has confirmed the United States' presence in Venezuela, while ass",
+      "criterios": {
+        "valor_informativo": 5,
+        "narrativa": 5,
+        "formato": 4,
+        "gancho": 4,
+        "actualidad": 4
+      },
+      "bonus_engagement": 0.4,
+      "total": 54.4,
+      "formato_sugerido": "Denuncia en vivo",
+      "tipo_gancho": "Cita textual del protagonista",
+      "justificacion": "Hecho sustancial con material para un guion; además encaja en la narrativa del Memorial; con gancho claro. Cita en pantalla: «NO ESTÁN EN VENEZUELA, NOSOTROS SÍ». Formato: Denuncia en vivo; gancho: Cita textual del protagonista.",
+      "banderas": []
+    },
+    {
+      "rank": 2,
+      "section": "VENEZUELA",
+      "entity": "NTN24",
+      "handle": "@ntn24",
+      "url": "https://www.instagram.com/reel/Df-ocWiJfbO/",
+      "timestamp": "2026-11-20T21:35:07Z",
+      "likes": 45000,
+      "description": "This is a breaking news segment from the Latin American news channel NTN24. The anchor reports on a statement made by Donald Trump, identified on-screen as President of the United States, during a White House press conference. The lower-third headline reads: \"'NO ESTAN EN VENEZUELA, NOSOTROS SI': TRUMP, SOBRE RUSIA Y CHINA\" ('They are not in Venezuela, we are': Trump, about Russia and China). The anchor explains that Trump confirmed Russia and Ch",
+      "criterios": {
+        "valor_informativo": 5,
+        "narrativa": 5,
+        "formato": 4,
+        "gancho": 3,
+        "actualidad": 4
+      },
+      "bonus_engagement": 0.5,
+      "total": 52.5,
+      "formato_sugerido": "Denuncia en vivo",
+      "tipo_gancho": "Cita textual del protagonista",
+      "justificacion": "Hecho sustancial con material para un guion; además encaja en la narrativa del Memorial. Cita en pantalla: «NO ESTAN EN VENEZUELA, NOSOTROS SI: TRUMP, SOBRE RUSIA Y CHINA». Formato: Denuncia en vivo; gancho: Cita textual del protagonista.",
+      "banderas": []
+    },
+    {
+      "rank": 3,
+      "section": "VENEZUELA",
+      "entity": "Franklin Virguez",
+      "handle": "@virguezfranklin",
+      "url": "https://www.instagram.com/reel/Df-xzyGv73W/",
+      "timestamp": "2026-11-20T23:00:33Z",
+      "likes": 3100,
+      "description": "This is an NTN24 news segment presented by a male anchor in a studio. The broadcast covers a developing story about former U.S. President Donald Trump commenting on the presence of Russia and China in Venezuela. On-screen graphics read \"NO ESTAN EN VENEZUELA, NOSOTROS SI\": TRUMP, SOBRE RUSIA Y CHINA\" and \"NOTICIA EN DESARROLLO\". The anchor speaks while the screen shows split images including Trump at a podium (identified as Presidente de Estados",
+      "criterios": {
+        "valor_informativo": 5,
+        "narrativa": 4,
+        "formato": 4,
+        "gancho": 4,
+        "actualidad": 4
+      },
+      "bonus_engagement": 0.3,
+      "total": 51.3,
+      "formato_sugerido": "Denuncia en vivo",
+      "tipo_gancho": "Cita textual del protagonista",
+      "justificacion": "Hecho sustancial con material para un guion; además encaja en la narrativa del Memorial; con gancho claro. Cita en pantalla: «NO ESTAN EN VENEZUELA, NOSOTROS SI». Formato: Denuncia en vivo; gancho: Cita textual del protagonista.",
+      "banderas": []
+    },
+    {
+      "rank": 4,
+      "section": "VENEZUELA",
+      "entity": "NOTICIAS 24 HORAS 💥",
+      "handle": "@venezuela24horas",
+      "url": "https://www.instagram.com/reel/Df-3oe0Mupj/",
+      "timestamp": "2026-11-20T23:47:48Z",
+      "likes": 620,
+      "description": "The video shows former U.S. President Donald Trump speaking at a White House podium, flanked by two men in suits (identified by context as JD Vance on the left and Marco Rubio on the right). A Spanish-language news graphic from \"24hs\" overlays the bottom, stating: \"Donald Trump reitera este viernes que exigió a China y Rusia retirarse de Venezuela y asegura que 'ambas naciones acataron su petición'.\" The headline reads \"YA NO ESTÁN ALLÍ, PERO NOS",
+      "criterios": {
+        "valor_informativo": 5,
+        "narrativa": 4,
+        "formato": 4,
+        "gancho": 4,
+        "actualidad": 4
+      },
+      "bonus_engagement": 0.3,
+      "total": 51.3,
+      "formato_sugerido": "Denuncia en vivo",
+      "tipo_gancho": "Cita textual del protagonista",
+      "justificacion": "Hecho sustancial con material para un guion; además encaja en la narrativa del Memorial; con gancho claro. Cita en pantalla: «Donald Trump reitera este viernes que exigió a China y Rusia retirarse de Venezu…». Formato: Denuncia en vivo; gancho: Cita textual del protagonista.",
+      "banderas": []
+    },
+    {
+      "rank": 5,
+      "section": "VENEZUELA",
+      "entity": "AlbertoNews",
+      "handle": "@albertorodnews",
+      "url": "https://www.instagram.com/reel/Df-WtyrAri2/",
+      "timestamp": "2026-11-20T19:02:31Z",
+      "likes": 2000,
+      "description": "The video shows former President Donald Trump speaking at a White House press briefing podium, flanked by JD Vance on his left and Marco Rubio on his right, with the White House seal behind him. A reporter from \"Real America's Voice\" asks in Spanish-subtitled English about Trump's actions toward China in Greenland and Venezuela, restoring the Monroe Doctrine regarding the Panama Canal, Pacific military exercises, and new trade deals. Trump respon",
+      "criterios": {
+        "valor_informativo": 5,
+        "narrativa": 5,
+        "formato": 4,
+        "gancho": 2,
+        "actualidad": 4
+      },
+      "bonus_engagement": 0.3,
+      "total": 50.3,
+      "formato_sugerido": "Denuncia en vivo",
+      "tipo_gancho": "Cita textual del protagonista",
+      "justificacion": "Hecho sustancial con material para un guion; además encaja en la narrativa del Memorial. Cita en pantalla: «Real America's Voice». Formato: Denuncia en vivo; gancho: Cita textual del protagonista.",
+      "banderas": []
+    },
+    {
+      "rank": 6,
+      "section": "CUBA-EEUU",
+      "entity": "Atlas Of Why",
+      "handle": "@atlas_ofwhy",
+      "url": "https://www.instagram.com/reel/Df_0-RuT_L1/",
+      "timestamp": "2026-11-21T08:44:12Z",
+      "likes": 3,
+      "description": "This infographic-style video titled 'OTG-27 ON THE GROUND - CUBA' explains why Cuba experiences nightly power cuts in November 2026. It opens with nighttime footage of Havana's darkened coastline and states that since January, Cuba's imported fuel supply collapsed after Venezuela stopped deliveries and Mexico suspended shipments, following a U.S. emergency order (EO 14380, Jan 29 2026) threatening tariffs on any country buying Cuban oil. Using UN",
+      "criterios": {
+        "valor_informativo": 5,
+        "narrativa": 5,
+        "formato": 3,
+        "gancho": 2,
+        "actualidad": 5
+      },
+      "bonus_engagement": 0.1,
+      "total": 50.1,
+      "formato_sugerido": "Documental faceless",
+      "tipo_gancho": "Narración con fecha exacta",
+      "justificacion": "Hecho sustancial con material para un guion; además encaja en la narrativa del Memorial. Formato: Documental faceless; gancho: Narración con fecha exacta.",
+      "banderas": []
+    },
+    {
+      "rank": 7,
+      "section": "VENEZUELA",
+      "entity": "América Noticias",
+      "handle": "@americateve41",
+      "url": "https://www.instagram.com/reel/Df90jy3xDt0/",
+      "timestamp": "2026-11-20T14:00:27Z",
+      "likes": 370,
+      "description": "The video is a news segment from NTN24 / América TeVe Noticias replaying archival 2019 footage of Venezuelan President Nicolás Maduro speaking at an outdoor podium. He wears the presidential sash and is flanked by uniformed military officers in red berets. On-screen text states: '\"UN TÍTERE... HA PRETENDIDO QUE EL IMPERIO SE APODERE DE NUESTRO PAÍS\" ESO DECÍA MADURO EN 2019.' Lower thirds alternate between '\"QUIERE ENTREGAR VZLA. A EEUU\": MADURO'",
+      "criterios": {
+        "valor_informativo": 5,
+        "narrativa": 4,
+        "formato": 4,
+        "gancho": 3,
+        "actualidad": 4
+      },
+      "bonus_engagement": 0.3,
+      "total": 49.3,
+      "formato_sugerido": "Denuncia en vivo",
+      "tipo_gancho": "Cita textual del protagonista",
+      "justificacion": "Hecho sustancial con material para un guion; además encaja en la narrativa del Memorial. Cita en pantalla: «UN TÍTERE... HA PRETENDIDO QUE EL IMPERIO SE APODERE DE NUESTRO PAÍS». Formato: Denuncia en vivo; gancho: Cita textual del protagonista.",
+      "banderas": []
+    },
+    {
+      "rank": 8,
+      "section": "CUBA-EEUU",
+      "entity": "Mia Hernández",
+      "handle": "",
+      "url": "https://www.facebook.com/mia.hernandez.84395/posts/pfbid02QjA2rPPkag9QZpPT5E2hraUd6ShfyyHbbjzPzQ7Rth9SsaTHTAzdDzpki8aZtoP7l",
+      "timestamp": "2026-11-20T17:47:21Z",
+      "likes": 20,
+      "description": "The image shows a close-up of two hands holding up a white paper sign against a dark, blurred background. The sign displays bold Spanish text in red and black: \"ABAJO el BLOQUEO es un GENOCIDIO a la FAMILIA CUBANA!!!\" translating to \"Down with the blockade, it is a genocide against the Cuban family!!!\". The message is a direct political statement condemning the economic blockade (widely understood as the U.S. embargo) on Cuba, characterizing it a",
+      "criterios": {
+        "valor_informativo": 5,
+        "narrativa": 5,
+        "formato": 3,
+        "gancho": 2,
+        "actualidad": 4
+      },
+      "bonus_engagement": 0.1,
+      "total": 48.1,
+      "formato_sugerido": "Presentador a cámara + evidencia",
+      "tipo_gancho": "Cita textual del protagonista",
+      "justificacion": "Hecho sustancial con material para un guion; además encaja en la narrativa del Memorial. Cita en pantalla: «ABAJO el BLOQUEO es un GENOCIDIO a la FAMILIA CUBANA!!!». Formato: Presentador a cámara + evidencia; gancho: Cita textual del protagonista.",
+      "banderas": []
+    },
+    {
+      "rank": 9,
+      "section": "CUBA-EEUU",
+      "entity": "Cimarrón",
+      "handle": "",
+      "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid023jMXCSLtL9XmrB5PMrSwFjjJ8NLd8dXC3qMQvXry8JETMa7iExHgEjtHyufpNpz9l&id=61593194723057",
+      "timestamp": "2026-11-21T02:54:16Z",
+      "likes": 4,
+      "description": "The author asserts that the United States blockade against Cuba is the primary reason for the hardships experienced by the Cuban population and represents the most significant infringement of their human rights. Entities places=Cuba Author 【entity-Cimarrón¦author_id=user-290875012685901558899】 260 Followers Language es",
+      "criterios": {
+        "valor_informativo": 5,
+        "narrativa": 5,
+        "formato": 2,
+        "gancho": 2,
+        "actualidad": 5
+      },
+      "bonus_engagement": 0.1,
+      "total": 48.1,
+      "formato_sugerido": "Documental faceless",
+      "tipo_gancho": "Afirmación + pregunta",
+      "justificacion": "Hecho sustancial con material para un guion; además encaja en la narrativa del Memorial. Formato: Documental faceless; gancho: Afirmación + pregunta.",
+      "banderas": []
+    },
+    {
+      "rank": 10,
+      "section": "CUBA-EEUU",
+      "entity": "Roi Rena",
+      "handle": "@errerenau",
+      "url": "https://www.threads.com/@errerenau/post/Df8jeQPDGOV",
+      "timestamp": "2026-11-20T02:12:19Z",
+      "likes": null,
+      "description": "The two-image carousel presents a brief online exchange about U.S.-Cuba policy. Slide 0 shows a comment thread where a user states, \"Cuba nunca a tenido embargo\" (Cuba has never had an embargo). Slide 1 displays a mobile browser screenshot of a Google-translated U.S. State Department webpage titled \"Sanciones a Cuba,\" with text stating that the United States maintains a comprehensive economic embargo against Cuba, initiated by President John F. K",
+      "criterios": {
+        "valor_informativo": 5,
+        "narrativa": 5,
+        "formato": 3,
+        "gancho": 3,
+        "actualidad": 3
+      },
+      "bonus_engagement": 0.0,
+      "total": 48.0,
+      "formato_sugerido": "Presentador a cámara + evidencia",
+      "tipo_gancho": "Cita textual del protagonista",
+      "justificacion": "Hecho sustancial con material para un guion; además encaja en la narrativa del Memorial. Cita en pantalla: «Cuba nunca a tenido embargo». Formato: Presentador a cámara + evidencia; gancho: Cita textual del protagonista.",
+      "banderas": []
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+######## CUBA-EEUU : /tmp/fixture-sin-likes.xml
+
+--- 2026-11-20 21:00:00 UTC |  | entity-Sin Likes¦handle=@sinlikes¦author_id=user-9
+https://www.facebook.com/reel/3333333333333333/
+The video shows Cuban President Miguel Díaz-Canel speaking at a press conference in Havana about the U.S. blockade and fuel sanctions, while images of oil tankers and the island's capital appear on screen. Díaz-Canel says: "The blockade is a war against our people, but Cuba will not surrender." The report mentions 10 million Cubans affected and a route of tankers across the Caribbean Sea, yet Washington denies the impact. What happens next?
