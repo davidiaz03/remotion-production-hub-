@@ -1,0 +1,646 @@
+{
+  "project": "negacion-embargo",
+  "title": "Dicen que no hay bloqueo",
+  "fps": 30,
+  "duration_s": 77.5,
+  "duration_frames": 2325,
+  "scenes": [
+    {
+      "id": 0,
+      "name": "Gancho",
+      "start_f": 0,
+      "end_f": 171,
+      "note": "Waltz primer plano (still + Ken Burns) + título cinético con slam a 0,3 s + karaoke L1; logo desde f0.",
+      "start_s": 0.0,
+      "end_s": 5.7
+    },
+    {
+      "id": 1,
+      "name": "Panel T1 Rubio",
+      "start_f": 171,
+      "end_f": 297,
+      "note": "Video Rubio 5,9–9,9 s (punch-in 120–130% sobre la cara, C9); «NO SE DEBE A UN “BLOQUEO” PETROLERO»; punto 1/4.",
+      "start_s": 5.7,
+      "end_s": 9.9
+    },
+    {
+      "id": 2,
+      "name": "Panel T2 Waltz 7-jul",
+      "start_f": 297,
+      "end_f": 465,
+      "note": "Video Waltz 10,9–16,5 s; «IT'S FAKE. IT'S FALSE. IT'S A LIE. PERIOD.» + «ES FALSO. ES MENTIRA. PUNTO.»; slam en «PUNTO.» a 13,72 s; punto 2/4.",
+      "start_s": 9.9,
+      "end_s": 15.5
+    },
+    {
+      "id": 3,
+      "name": "Panel T3 Waltz 27-oct",
+      "start_f": 465,
+      "end_f": 585,
+      "note": "Video Waltz 0,3–2,8 s + freeze-frame 1,5 s; «THERE IS NO BLOCKADE» / «NO HAY BLOQUEO» grande; punto 3/4.",
+      "start_s": 15.5,
+      "end_s": 19.5
+    },
+    {
+      "id": 4,
+      "name": "Panel T4 Fox",
+      "start_f": 585,
+      "end_f": 705,
+      "note": "Tarjeta sobre foto Fox + degradado; «THERE IS NO AMERICAN NAVAL CORDON AROUND CUBA» + traducción; punto 4/4.",
+      "start_s": 19.5,
+      "end_s": 23.5
+    },
+    {
+      "id": 5,
+      "name": "Giro",
+      "start_f": 705,
+      "end_f": 861,
+      "note": "L2: rejilla 2×2 + «CUATRO VECES.» / «EN SEIS MESES.»; L3: casi negro + «Vale. Ahora mira esto.»; música cortada.",
+      "start_s": 23.5,
+      "end_s": 28.7
+    },
+    {
+      "id": 6,
+      "name": "L4 state.gov",
+      "start_f": 861,
+      "end_f": 1200,
+      "note": "Plano 1 página ~65% (28,7–32,7 s) → WhipPan → punch al párrafo ~150–180% + subrayado palabra por palabra + overlay en español entrecomillado desde 34,0 s.",
+      "start_s": 28.7,
+      "end_s": 40.0
+    },
+    {
+      "id": 7,
+      "name": "L5 5-nov",
+      "start_f": 1200,
+      "end_f": 1515,
+      "note": "Comunicado + contador 1→10 (44,04–49,18 s) + 10 nodos en 3 grupos por NOMBRE (sin cifras) + chip «5 BUQUES BLOQUEADOS» al final.",
+      "start_s": 40.0,
+      "end_s": 50.5
+    },
+    {
+      "id": 8,
+      "name": "L6 EAR",
+      "start_f": 1515,
+      "end_f": 1830,
+      "note": "4 tiempos: (1) Waltz mudo 19,3–25,2 s + «$876 M» + «incluye $231,7 M en combustible»; (2) sello «PERMISO REQUERIDO — EAR» a 55,24 s; (3) «COMERCIO LIBRE» tachado a 58,04 s; (4) «CONTROL» en rojo + NOAA a 59,64 s.",
+      "start_s": 50.5,
+      "end_s": 61.0
+    },
+    {
+      "id": 9,
+      "name": "Cierre L7",
+      "start_f": 1830,
+      "end_f": 2055,
+      "note": "Pantalla dividida: 4 mini-tarjetas ciclando cada ~1,5 s (izq.) + 2 documentos (der.); eslogan en dos tiempos (64,94 s / 66,44 s) + sello «ES UN DOCUMENTO OFICIAL».",
+      "start_s": 61.0,
+      "end_s": 68.5
+    },
+    {
+      "id": 10,
+      "name": "Pregunta L8",
+      "start_f": 2055,
+      "end_f": 2235,
+      "note": "Karaoke L8 + botones «A · NO EXISTE» / «B · NO LES CONVIENE» (a 69,0 s) + «Comenta A o B».",
+      "start_s": 68.5,
+      "end_s": 74.5
+    },
+    {
+      "id": 11,
+      "name": "Logo",
+      "start_f": 2235,
+      "end_f": 2325,
+      "note": "Logo animado del Memorial (fondo negro, sting-black-2x) + sting; 3,0 s.",
+      "start_s": 74.5,
+      "end_s": 77.5
+    }
+  ],
+  "vo_placement": {
+    "L1": {
+      "file": "audio/real/lines/L1.wav",
+      "trim_start_s": 0.95,
+      "trim_end_s": 6.32,
+      "adelay_s": 0.35,
+      "speech_start_s": 0.5,
+      "speech_end_s": 5.42
+    },
+    "L2": {
+      "file": "audio/real/lines/L2.wav",
+      "trim_start_s": 0.0,
+      "trim_end_s": 2.9,
+      "adelay_s": 23.6,
+      "speech_start_s": 23.6,
+      "speech_end_s": 26.2
+    },
+    "L3": {
+      "file": "audio/real/lines/L3.wav",
+      "trim_start_s": 0.95,
+      "trim_end_s": 3.28,
+      "adelay_s": 26.35,
+      "speech_start_s": 26.5,
+      "speech_end_s": 28.38
+    },
+    "L4": {
+      "file": "audio/real/lines/L4.wav",
+      "trim_start_s": 0.75,
+      "trim_end_s": 10.08,
+      "adelay_s": 28.85,
+      "speech_start_s": 29.0,
+      "speech_end_s": 37.88
+    },
+    "L5": {
+      "file": "audio/real/lines/L5.wav",
+      "trim_start_s": 0.63,
+      "trim_end_s": 9.76,
+      "adelay_s": 40.35,
+      "speech_start_s": 40.5,
+      "speech_end_s": 49.18
+    },
+    "L6": {
+      "file": "audio/real/lines/L6.wav",
+      "trim_start_s": 1.17,
+      "trim_end_s": 10.96,
+      "adelay_s": 50.85,
+      "speech_start_s": 51.0,
+      "speech_end_s": 60.34
+    },
+    "L7": {
+      "file": "audio/real/lines/L7.wav",
+      "trim_start_s": 1.21,
+      "trim_end_s": 7.72,
+      "adelay_s": 61.35,
+      "speech_start_s": 61.5,
+      "speech_end_s": 67.56
+    },
+    "L8": {
+      "file": "audio/real/lines/L8.wav",
+      "trim_start_s": 0.51,
+      "trim_end_s": 5.64,
+      "adelay_s": 68.85,
+      "speech_start_s": 69.0,
+      "speech_end_s": 73.68
+    }
+  },
+  "panel": {
+    "t1_rubio": {
+      "file": "video/rubio-bloqueo-petrolero.mp4",
+      "clip_start": 5.9,
+      "clip_end": 9.9,
+      "scene_start_s": 5.7,
+      "phrase_s": [
+        6.34,
+        9.56
+      ],
+      "note": "23,976 fps; punch-in 120–130% sobre la cara."
+    },
+    "t2_waltz7": {
+      "file": "video/waltz-7jul-its-fake.mp4",
+      "clip_start": 10.9,
+      "clip_end": 16.5,
+      "scene_start_s": 9.9,
+      "phrase_s": [
+        11.18,
+        16.16
+      ],
+      "punto_s": 13.72,
+      "note": "Pausa de 1,44 s antes de «Period.»."
+    },
+    "t3_waltz27": {
+      "file": "video/waltz-27oct-no-blockade-soundbite33.mp4",
+      "clip_start": 0.3,
+      "clip_end": 2.8,
+      "freeze_s": 1.5,
+      "scene_start_s": 15.5,
+      "phrase_s": [
+        0.6,
+        2.8
+      ],
+      "note": "Video 2,5 s + freeze-frame 1,5 s (still a 2,7 s). La frase completa dura 10,9 s: NO recortarla por el medio."
+    },
+    "t4_fox": {
+      "file": "img/waltz-foxnews-16nov.jpg",
+      "scene_start_s": 19.5,
+      "note": "Foto 1280×720 como fondo, no hero; tarjeta diseñada encima."
+    },
+    "l6_mute": {
+      "file": "video/waltz-27oct-no-blockade-soundbite33.mp4",
+      "clip_start": 19.3,
+      "clip_end": 25.2,
+      "scene_start_s": 50.5,
+      "muted": true,
+      "note": "Ventana muda de Waltz bajo L6 (1)."
+    }
+  },
+  "sfx": [
+    {
+      "id": "cinematic-drum-big",
+      "event_s": 0.3,
+      "at_s": 0.289,
+      "sync_s": 0.011,
+      "underVO": true,
+      "uvo_db": -8,
+      "file": "audio/sfx/cinematic-hits/cinematic-drum-big.wav"
+    },
+    {
+      "id": "whoosh-medium-hard",
+      "event_s": 0.3,
+      "at_s": 0.099,
+      "sync_s": 0.201,
+      "underVO": true,
+      "uvo_db": -4,
+      "file": "audio/sfx/whooshes/whoosh-medium-hard.wav"
+    },
+    {
+      "id": "impact-medium-hard",
+      "event_s": 5.7,
+      "at_s": 5.69,
+      "sync_s": 0.01,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/impacts/impact-medium-hard.wav"
+    },
+    {
+      "id": "whoosh-fast-hard",
+      "event_s": 9.9,
+      "at_s": 9.808,
+      "sync_s": 0.092,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/whooshes/whoosh-fast-hard.wav"
+    },
+    {
+      "id": "impact-medium-hard",
+      "event_s": 9.9,
+      "at_s": 9.89,
+      "sync_s": 0.01,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/impacts/impact-medium-hard.wav"
+    },
+    {
+      "id": "impact-heavy-hard",
+      "event_s": 13.72,
+      "at_s": 13.71,
+      "sync_s": 0.01,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/impacts/impact-heavy-hard.wav"
+    },
+    {
+      "id": "whoosh-fast-hard",
+      "event_s": 15.5,
+      "at_s": 15.408,
+      "sync_s": 0.092,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/whooshes/whoosh-fast-hard.wav"
+    },
+    {
+      "id": "impact-medium-hard",
+      "event_s": 15.5,
+      "at_s": 15.49,
+      "sync_s": 0.01,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/impacts/impact-medium-hard.wav"
+    },
+    {
+      "id": "whoosh-fast-hard",
+      "event_s": 19.5,
+      "at_s": 19.408,
+      "sync_s": 0.092,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/whooshes/whoosh-fast-hard.wav"
+    },
+    {
+      "id": "impact-medium-hard",
+      "event_s": 19.5,
+      "at_s": 19.49,
+      "sync_s": 0.01,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/impacts/impact-medium-hard.wav"
+    },
+    {
+      "id": "reverse-whoosh-short-strong",
+      "event_s": 23.2,
+      "at_s": 22.86,
+      "sync_s": 0.34,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/reverse-whooshes/reverse-whoosh-short-strong.wav"
+    },
+    {
+      "id": "pop-medium-in",
+      "event_s": 23.7,
+      "at_s": 23.689,
+      "sync_s": 0.011,
+      "underVO": true,
+      "uvo_db": -2,
+      "file": "audio/sfx/pops/pop-medium-in.wav"
+    },
+    {
+      "id": "pop-medium-in",
+      "event_s": 24.1,
+      "at_s": 24.089,
+      "sync_s": 0.011,
+      "underVO": true,
+      "uvo_db": -2,
+      "file": "audio/sfx/pops/pop-medium-in.wav"
+    },
+    {
+      "id": "pop-medium-in",
+      "event_s": 24.5,
+      "at_s": 24.489,
+      "sync_s": 0.011,
+      "underVO": true,
+      "uvo_db": -2,
+      "file": "audio/sfx/pops/pop-medium-in.wav"
+    },
+    {
+      "id": "pop-medium-in",
+      "event_s": 24.9,
+      "at_s": 24.889,
+      "sync_s": 0.011,
+      "underVO": true,
+      "uvo_db": -2,
+      "file": "audio/sfx/pops/pop-medium-in.wav"
+    },
+    {
+      "id": "whoosh-fast-hard",
+      "event_s": 28.7,
+      "at_s": 28.608,
+      "sync_s": 0.092,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/whooshes/whoosh-fast-hard.wav"
+    },
+    {
+      "id": "move-zoom-in",
+      "event_s": 32.7,
+      "at_s": 32.211,
+      "sync_s": 0.489,
+      "underVO": true,
+      "uvo_db": -3,
+      "file": "audio/sfx/bounce-spin-zoom/move-zoom-in.wav"
+    },
+    {
+      "id": "whoosh-medium-soft",
+      "event_s": 32.7,
+      "at_s": 32.471,
+      "sync_s": 0.229,
+      "underVO": true,
+      "uvo_db": -2,
+      "file": "audio/sfx/whooshes/whoosh-medium-soft.wav"
+    },
+    {
+      "id": "impact-light-soft",
+      "event_s": 34.0,
+      "at_s": 33.988,
+      "sync_s": 0.012,
+      "underVO": true,
+      "uvo_db": -2,
+      "file": "audio/sfx/impacts/impact-light-soft.wav"
+    },
+    {
+      "id": "click-hover-medium",
+      "event_s": 44.04,
+      "at_s": 44.032,
+      "sync_s": 0.008,
+      "underVO": true,
+      "uvo_db": -1,
+      "file": "audio/sfx/interface/click-hover-medium.wav"
+    },
+    {
+      "id": "click-hover-medium",
+      "event_s": 44.61,
+      "at_s": 44.602,
+      "sync_s": 0.008,
+      "underVO": true,
+      "uvo_db": -1,
+      "file": "audio/sfx/interface/click-hover-medium.wav"
+    },
+    {
+      "id": "click-hover-medium",
+      "event_s": 45.18,
+      "at_s": 45.172,
+      "sync_s": 0.008,
+      "underVO": true,
+      "uvo_db": -1,
+      "file": "audio/sfx/interface/click-hover-medium.wav"
+    },
+    {
+      "id": "click-hover-medium",
+      "event_s": 45.75,
+      "at_s": 45.742,
+      "sync_s": 0.008,
+      "underVO": true,
+      "uvo_db": -1,
+      "file": "audio/sfx/interface/click-hover-medium.wav"
+    },
+    {
+      "id": "click-hover-medium",
+      "event_s": 46.32,
+      "at_s": 46.312,
+      "sync_s": 0.008,
+      "underVO": true,
+      "uvo_db": -1,
+      "file": "audio/sfx/interface/click-hover-medium.wav"
+    },
+    {
+      "id": "click-hover-medium",
+      "event_s": 46.9,
+      "at_s": 46.892,
+      "sync_s": 0.008,
+      "underVO": true,
+      "uvo_db": -1,
+      "file": "audio/sfx/interface/click-hover-medium.wav"
+    },
+    {
+      "id": "click-hover-medium",
+      "event_s": 47.47,
+      "at_s": 47.462,
+      "sync_s": 0.008,
+      "underVO": true,
+      "uvo_db": -1,
+      "file": "audio/sfx/interface/click-hover-medium.wav"
+    },
+    {
+      "id": "click-hover-medium",
+      "event_s": 48.04,
+      "at_s": 48.032,
+      "sync_s": 0.008,
+      "underVO": true,
+      "uvo_db": -1,
+      "file": "audio/sfx/interface/click-hover-medium.wav"
+    },
+    {
+      "id": "click-hover-medium",
+      "event_s": 48.61,
+      "at_s": 48.602,
+      "sync_s": 0.008,
+      "underVO": true,
+      "uvo_db": -1,
+      "file": "audio/sfx/interface/click-hover-medium.wav"
+    },
+    {
+      "id": "click-hover-medium",
+      "event_s": 49.18,
+      "at_s": 49.172,
+      "sync_s": 0.008,
+      "underVO": true,
+      "uvo_db": -1,
+      "file": "audio/sfx/interface/click-hover-medium.wav"
+    },
+    {
+      "id": "impact-medium-hard",
+      "event_s": 49.18,
+      "at_s": 49.17,
+      "sync_s": 0.01,
+      "underVO": true,
+      "uvo_db": -3,
+      "file": "audio/sfx/impacts/impact-medium-hard.wav"
+    },
+    {
+      "id": "impact-heavy-hard",
+      "event_s": 55.34,
+      "at_s": 55.33,
+      "sync_s": 0.01,
+      "underVO": true,
+      "uvo_db": -4,
+      "file": "audio/sfx/impacts/impact-heavy-hard.wav"
+    },
+    {
+      "id": "swish-hard",
+      "event_s": 58.11,
+      "at_s": 58.056,
+      "sync_s": 0.054,
+      "underVO": true,
+      "uvo_db": -4,
+      "file": "audio/sfx/swishes-and-zips/swish-hard.wav"
+    },
+    {
+      "id": "bass-808-short",
+      "event_s": 59.64,
+      "at_s": 59.629,
+      "sync_s": 0.011,
+      "underVO": true,
+      "uvo_db": -8,
+      "file": "audio/sfx/booms-and-bass/bass-808-short.wav"
+    },
+    {
+      "id": "cinematic-slam-big",
+      "event_s": 66.52,
+      "at_s": 66.509,
+      "sync_s": 0.011,
+      "underVO": true,
+      "uvo_db": -8,
+      "file": "audio/sfx/cinematic-hits/cinematic-slam-big.wav"
+    },
+    {
+      "id": "pop-medium-in",
+      "event_s": 69.0,
+      "at_s": 68.989,
+      "sync_s": 0.011,
+      "underVO": true,
+      "uvo_db": -2,
+      "file": "audio/sfx/pops/pop-medium-in.wav"
+    },
+    {
+      "id": "pop-medium-in",
+      "event_s": 69.3,
+      "at_s": 69.289,
+      "sync_s": 0.011,
+      "underVO": true,
+      "uvo_db": -2,
+      "file": "audio/sfx/pops/pop-medium-in.wav"
+    },
+    {
+      "id": "cinematic-drum-big",
+      "event_s": 74.5,
+      "at_s": 74.489,
+      "sync_s": 0.011,
+      "underVO": false,
+      "uvo_db": 0,
+      "file": "audio/sfx/cinematic-hits/cinematic-drum-big.wav"
+    }
+  ],
+  "beats": {
+    "title_slam_s": 0.3,
+    "punto_slam_s": 13.72,
+    "grid_pops_s": [
+      23.7,
+      24.1,
+      24.5,
+      24.9
+    ],
+    "l4_punch_s": 32.7,
+    "l4_overlay_s": 34.0,
+    "l4_quote_s": [
+      35.66,
+      38.78
+    ],
+    "l5_counter_s": [
+      44.04,
+      49.18
+    ],
+    "l5_nodes_s": {
+      "red_petroleo": 45.58,
+      "entidades": 46.76,
+      "proveedores": 48.14
+    },
+    "l5_chip_s": 49.5,
+    "l6_number_s": 51.0,
+    "l6_seal_s": 55.34,
+    "l6_strike_s": 58.11,
+    "l6_control_s": 59.64,
+    "l7_slogan1_s": 64.94,
+    "l7_slogan2_s": 66.52,
+    "l8_buttons_s": 69.0,
+    "l8_highlight_a_s": 71.32,
+    "l8_highlight_b_s": 72.78,
+    "logo_s": 74.5
+  },
+  "bed": {
+    "id": "documentary-flow-a",
+    "file": "audio/music-bed.wav",
+    "dips": [
+      {
+        "t0": 5.7,
+        "t1": 23.5,
+        "gain_db": -6,
+        "ramp_s": 0.3,
+        "note": "Panel: la cama baja para dejar claras las voces originales."
+      },
+      {
+        "t0": 23.5,
+        "t1": 28.7,
+        "gain_db": -12,
+        "ramp_s": 0.3,
+        "note": "Giro: música cortada a casi-silencio (NO silencio digital: el check (g) falla con >=0,3 s bajo -45 dB)."
+      },
+      {
+        "t0": 28.7,
+        "t1": 29.2,
+        "gain_db": 0,
+        "ramp_s": 0.5,
+        "note": "Vuelta al nivel tras el giro (subida con la revelación)."
+      }
+    ],
+    "note": "Stem bucleado a 77,5 s con dips horneados; mix.py lo duckeada bajo la VO."
+  },
+  "mix": {
+    "voice_track": "audio/voice-placed.wav",
+    "out": "audio/mix.wav",
+    "target_lufs": -14.5,
+    "target_tp": -1.5
+  },
+  "panel_audio": {
+    "note": "El audio del panel va EN LA COMPOSICIÓN (OffthreadVideo), NO en la mezcla. Segmentos pre-normalizados a -16 LUFS / TP -2 en video/panel-t1.mp4, panel-t2.mp4, panel-t3.mp4."
+  },
+  "notes": [
+    "Tiempos de palabra: faster-whisper small (L1: l1-words-small.json; L2–L8: vo-transcription-small.json).",
+    "Los captions de src/captions.ts son PRE-alineación: correr align-captions.py contra audio/voice-placed.wav antes del render (Whisper adelanta ~0,2 s los inicios tras pausa).",
+    "Terminología: BLOQUEO en la voz del Memorial; «embargo» solo en la cita L4 y su traducción fiel (nunca en rojo)."
+  ]
+}

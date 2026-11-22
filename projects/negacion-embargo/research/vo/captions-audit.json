@@ -1,0 +1,752 @@
+[
+ {
+  "text": "EL",
+  "startMs": 500,
+  "endMs": 1220,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "GOBIERNO",
+  "startMs": 1220,
+  "endMs": 1580,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 1580,
+  "endMs": 1760,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ESTADOS",
+  "startMs": 1760,
+  "endMs": 2000,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "UNIDOS",
+  "startMs": 2000,
+  "endMs": 2480,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LLEVA",
+  "startMs": 2480,
+  "endMs": 2800,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "MESES",
+  "startMs": 2800,
+  "endMs": 3140,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DICIENDO",
+  "startMs": 3140,
+  "endMs": 3540,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "QUE",
+  "startMs": 3540,
+  "endMs": 3780,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "NO",
+  "startMs": 3780,
+  "endMs": 3840,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "HAY",
+  "startMs": 3840,
+  "endMs": 3920,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "BLOQUEO.",
+  "startMs": 3920,
+  "endMs": 4400,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "MÍRALOS.",
+  "startMs": 4900,
+  "endMs": 5420,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "CUATRO",
+  "startMs": 23600,
+  "endMs": 24800,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "VECES",
+  "startMs": 24800,
+  "endMs": 25080,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "EN",
+  "startMs": 25080,
+  "endMs": 25520,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "SEIS",
+  "startMs": 25520,
+  "endMs": 25800,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MESES.",
+  "startMs": 25800,
+  "endMs": 26200,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "VALE,",
+  "startMs": 26500,
+  "endMs": 27260,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "AHORA",
+  "startMs": 27620,
+  "endMs": 27800,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "MIRA",
+  "startMs": 27800,
+  "endMs": 27980,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESTO.",
+  "startMs": 27980,
+  "endMs": 28380,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ESTA",
+  "startMs": 29160,
+  "endMs": 29600,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ES",
+  "startMs": 29600,
+  "endMs": 29700,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LA",
+  "startMs": 29700,
+  "endMs": 29820,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PÁGINA",
+  "startMs": 29820,
+  "endMs": 30100,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "DEL",
+  "startMs": 30100,
+  "endMs": 30340,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DEPARTAMENTO",
+  "startMs": 30340,
+  "endMs": 30940,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 30940,
+  "endMs": 31080,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESTADO,",
+  "startMs": 31080,
+  "endMs": 31440,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "DICE",
+  "startMs": 31940,
+  "endMs": 32200,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "QUE",
+  "startMs": 32200,
+  "endMs": 32360,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESTADOS",
+  "startMs": 32360,
+  "endMs": 32600,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "UNIDOS",
+  "startMs": 32600,
+  "endMs": 33020,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "MANTIENE",
+  "startMs": 33020,
+  "endMs": 33700,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "Y",
+  "startMs": 33700,
+  "endMs": 34000,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CITO",
+  "startMs": 34000,
+  "endMs": 34380,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "UN",
+  "startMs": 34380,
+  "endMs": 34760,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EMBARGO",
+  "startMs": 34760,
+  "endMs": 35020,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ECONÓMICO",
+  "startMs": 35020,
+  "endMs": 35600,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "INTEGRAL",
+  "startMs": 35600,
+  "endMs": 35940,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "CONTRA",
+  "startMs": 35940,
+  "endMs": 36240,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CUBA",
+  "startMs": 36240,
+  "endMs": 36580,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "QUE",
+  "startMs": 36580,
+  "endMs": 36920,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "SIGUE",
+  "startMs": 36920,
+  "endMs": 37200,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "VIGENTE",
+  "startMs": 37200,
+  "endMs": 37620,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "HOY.",
+  "startMs": 37620,
+  "endMs": 37880,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "Y",
+  "startMs": 40910,
+  "endMs": 41260,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EL",
+  "startMs": 41260,
+  "endMs": 41380,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "5",
+  "startMs": 41380,
+  "endMs": 41600,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 41600,
+  "endMs": 41760,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "NOVIEMBRE",
+  "startMs": 41760,
+  "endMs": 42280,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESE",
+  "startMs": 42280,
+  "endMs": 42700,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MISMO",
+  "startMs": 42700,
+  "endMs": 42980,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "DEPARTAMENTO",
+  "startMs": 42980,
+  "endMs": 43580,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ANUNCIÓ",
+  "startMs": 43580,
+  "endMs": 44040,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "10",
+  "startMs": 44040,
+  "endMs": 44200,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "SANCIONES",
+  "startMs": 44200,
+  "endMs": 44680,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NUEVAS,",
+  "startMs": 44680,
+  "endMs": 45040,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "UNA",
+  "startMs": 45580,
+  "endMs": 45720,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "RED",
+  "startMs": 45720,
+  "endMs": 45920,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 45920,
+  "endMs": 46060,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PETRÓLEO,",
+  "startMs": 46060,
+  "endMs": 46540,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ENTIDADES",
+  "startMs": 46760,
+  "endMs": 47160,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESTATALES",
+  "startMs": 47160,
+  "endMs": 47840,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "Y",
+  "startMs": 47840,
+  "endMs": 48140,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PROVEEDORES",
+  "startMs": 48140,
+  "endMs": 48660,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CHINOS.",
+  "startMs": 48660,
+  "endMs": 49180,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "WALTZ",
+  "startMs": 51000,
+  "endMs": 51640,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PRESUME",
+  "startMs": 51640,
+  "endMs": 52020,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 52020,
+  "endMs": 52200,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "876",
+  "startMs": 52200,
+  "endMs": 52940,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MILLONES",
+  "startMs": 52940,
+  "endMs": 53680,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EN",
+  "startMs": 53680,
+  "endMs": 54040,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "VENTAS",
+  "startMs": 54040,
+  "endMs": 54360,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "A",
+  "startMs": 54360,
+  "endMs": 54480,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CUBA,",
+  "startMs": 54480,
+  "endMs": 54740,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PERO",
+  "startMs": 55340,
+  "endMs": 55460,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "CADA",
+  "startMs": 55460,
+  "endMs": 55700,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "VENTA",
+  "startMs": 55700,
+  "endMs": 56060,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NECESITA",
+  "startMs": 56060,
+  "endMs": 56380,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "UN",
+  "startMs": 56380,
+  "endMs": 56580,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PERMISO",
+  "startMs": 56580,
+  "endMs": 56940,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DEL",
+  "startMs": 56940,
+  "endMs": 57100,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "GOBIERNO.",
+  "startMs": 57100,
+  "endMs": 57520,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ESO",
+  "startMs": 58110,
+  "endMs": 58280,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NO",
+  "startMs": 58280,
+  "endMs": 58400,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ES",
+  "startMs": 58400,
+  "endMs": 58480,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "COMERCIO",
+  "startMs": 58480,
+  "endMs": 58900,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LIBRE,",
+  "startMs": 58900,
+  "endMs": 59200,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ESO",
+  "startMs": 59640,
+  "endMs": 59800,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ES",
+  "startMs": 59800,
+  "endMs": 59940,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CONTROL.",
+  "startMs": 59940,
+  "endMs": 60340,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ELLOS",
+  "startMs": 61770,
+  "endMs": 62020,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LO",
+  "startMs": 62020,
+  "endMs": 62160,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NIEGAN,",
+  "startMs": 62160,
+  "endMs": 62560,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "SUS",
+  "startMs": 63040,
+  "endMs": 63120,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DOCUMENTOS",
+  "startMs": 63120,
+  "endMs": 63780,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LO",
+  "startMs": 63780,
+  "endMs": 63880,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CONFIRMAN,",
+  "startMs": 63880,
+  "endMs": 64540,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "EL",
+  "startMs": 64940,
+  "endMs": 65060,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "BLOQUEO",
+  "startMs": 65060,
+  "endMs": 65420,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "NO",
+  "startMs": 65420,
+  "endMs": 65520,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ES",
+  "startMs": 65520,
+  "endMs": 65640,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "UN",
+  "startMs": 65640,
+  "endMs": 65740,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "RELATO,",
+  "startMs": 65740,
+  "endMs": 66180,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ES",
+  "startMs": 66520,
+  "endMs": 66680,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "UN",
+  "startMs": 66680,
+  "endMs": 66800,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DOCUMENTO",
+  "startMs": 66800,
+  "endMs": 67300,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "OFICIAL.",
+  "startMs": 67300,
+  "endMs": 67560,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "¿TÚ",
+  "startMs": 69000,
+  "endMs": 69580,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "QUE",
+  "startMs": 69580,
+  "endMs": 69720,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CREES",
+  "startMs": 69720,
+  "endMs": 70100,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "QUE",
+  "startMs": 70100,
+  "endMs": 70480,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LO",
+  "startMs": 70480,
+  "endMs": 70620,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NIEGAN",
+  "startMs": 70620,
+  "endMs": 70960,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "PORQUE",
+  "startMs": 70960,
+  "endMs": 71160,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NO",
+  "startMs": 71160,
+  "endMs": 71320,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EXISTE",
+  "startMs": 71320,
+  "endMs": 71780,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "O",
+  "startMs": 71780,
+  "endMs": 72220,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PORQUE",
+  "startMs": 72220,
+  "endMs": 72460,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NO",
+  "startMs": 72460,
+  "endMs": 72600,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LES",
+  "startMs": 72600,
+  "endMs": 72780,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "CONVIENE",
+  "startMs": 72780,
+  "endMs": 73120,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ADMITIRLO?",
+  "startMs": 73120,
+  "endMs": 73680,
+  "pageBreakAfter": true
+ }
+]

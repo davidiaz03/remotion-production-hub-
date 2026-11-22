@@ -1,0 +1,1147 @@
+{
+ "words": [
+  {
+   "word": "EL",
+   "s": 0.5,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 0.5,
+   "dev_after": null
+  },
+  {
+   "word": "GOBIERNO",
+   "s": 1.22,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 1.22,
+   "dev_after": null
+  },
+  {
+   "word": "DE",
+   "s": 1.58,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 1.58,
+   "dev_after": null
+  },
+  {
+   "word": "ESTADOS",
+   "s": 1.76,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 1.76,
+   "dev_after": null
+  },
+  {
+   "word": "UNIDOS",
+   "s": 2.0,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 2.0,
+   "dev_after": null
+  },
+  {
+   "word": "LLEVA",
+   "s": 2.48,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 2.48,
+   "dev_after": null
+  },
+  {
+   "word": "MESES",
+   "s": 2.8,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 2.8,
+   "dev_after": null
+  },
+  {
+   "word": "DICIENDO",
+   "s": 3.14,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 3.14,
+   "dev_after": null
+  },
+  {
+   "word": "QUE",
+   "s": 3.54,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 3.54,
+   "dev_after": null
+  },
+  {
+   "word": "NO",
+   "s": 3.78,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 3.78,
+   "dev_after": null
+  },
+  {
+   "word": "HAY",
+   "s": 3.84,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 3.84,
+   "dev_after": null
+  },
+  {
+   "word": "BLOQUEO.",
+   "s": 3.92,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 3.92,
+   "dev_after": null
+  },
+  {
+   "word": "MÍRALOS.",
+   "s": 4.82,
+   "onset": 4.9,
+   "dev_before": -0.08,
+   "corrected": true,
+   "s_new": 4.9,
+   "dev_after": 0.0,
+   "clamped": false
+  },
+  {
+   "word": "CUATRO",
+   "s": 23.6,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 23.6,
+   "dev_after": null
+  },
+  {
+   "word": "VECES",
+   "s": 24.8,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 24.8,
+   "dev_after": null
+  },
+  {
+   "word": "EN",
+   "s": 25.08,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 25.08,
+   "dev_after": null
+  },
+  {
+   "word": "SEIS",
+   "s": 25.52,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 25.52,
+   "dev_after": null
+  },
+  {
+   "word": "MESES.",
+   "s": 25.8,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 25.8,
+   "dev_after": null
+  },
+  {
+   "word": "VALE,",
+   "s": 26.5,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 26.5,
+   "dev_after": null
+  },
+  {
+   "word": "AHORA",
+   "s": 27.62,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 27.62,
+   "dev_after": null
+  },
+  {
+   "word": "MIRA",
+   "s": 27.8,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 27.8,
+   "dev_after": null
+  },
+  {
+   "word": "ESTO.",
+   "s": 27.98,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 27.98,
+   "dev_after": null
+  },
+  {
+   "word": "ESTA",
+   "s": 29.0,
+   "onset": 29.16,
+   "dev_before": -0.16,
+   "corrected": true,
+   "s_new": 29.16,
+   "dev_after": 0.0,
+   "clamped": false
+  },
+  {
+   "word": "ES",
+   "s": 29.6,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 29.6,
+   "dev_after": null
+  },
+  {
+   "word": "LA",
+   "s": 29.7,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 29.7,
+   "dev_after": null
+  },
+  {
+   "word": "PÁGINA",
+   "s": 29.82,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 29.82,
+   "dev_after": null
+  },
+  {
+   "word": "DEL",
+   "s": 30.1,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 30.1,
+   "dev_after": null
+  },
+  {
+   "word": "DEPARTAMENTO",
+   "s": 30.34,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 30.34,
+   "dev_after": null
+  },
+  {
+   "word": "DE",
+   "s": 30.94,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 30.94,
+   "dev_after": null
+  },
+  {
+   "word": "ESTADO,",
+   "s": 31.08,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 31.08,
+   "dev_after": null
+  },
+  {
+   "word": "DICE",
+   "s": 31.94,
+   "onset": 31.97,
+   "dev_before": -0.03,
+   "corrected": false,
+   "s_new": 31.94,
+   "dev_after": -0.03
+  },
+  {
+   "word": "QUE",
+   "s": 32.2,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 32.2,
+   "dev_after": null
+  },
+  {
+   "word": "ESTADOS",
+   "s": 32.36,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 32.36,
+   "dev_after": null
+  },
+  {
+   "word": "UNIDOS",
+   "s": 32.6,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 32.6,
+   "dev_after": null
+  },
+  {
+   "word": "MANTIENE",
+   "s": 33.02,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 33.02,
+   "dev_after": null
+  },
+  {
+   "word": "Y",
+   "s": 33.7,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 33.7,
+   "dev_after": null
+  },
+  {
+   "word": "CITO",
+   "s": 34.0,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 34.0,
+   "dev_after": null
+  },
+  {
+   "word": "UN",
+   "s": 34.38,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 34.38,
+   "dev_after": null
+  },
+  {
+   "word": "EMBARGO",
+   "s": 34.76,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 34.76,
+   "dev_after": null
+  },
+  {
+   "word": "ECONÓMICO",
+   "s": 35.02,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 35.02,
+   "dev_after": null
+  },
+  {
+   "word": "INTEGRAL",
+   "s": 35.6,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 35.6,
+   "dev_after": null
+  },
+  {
+   "word": "CONTRA",
+   "s": 35.94,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 35.94,
+   "dev_after": null
+  },
+  {
+   "word": "CUBA",
+   "s": 36.24,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 36.24,
+   "dev_after": null
+  },
+  {
+   "word": "QUE",
+   "s": 36.58,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 36.58,
+   "dev_after": null
+  },
+  {
+   "word": "SIGUE",
+   "s": 36.92,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 36.92,
+   "dev_after": null
+  },
+  {
+   "word": "VIGENTE",
+   "s": 37.2,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 37.2,
+   "dev_after": null
+  },
+  {
+   "word": "HOY.",
+   "s": 37.62,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 37.62,
+   "dev_after": null
+  },
+  {
+   "word": "Y",
+   "s": 40.5,
+   "onset": 40.91,
+   "dev_before": -0.41,
+   "corrected": true,
+   "s_new": 40.91,
+   "dev_after": 0.0,
+   "clamped": false
+  },
+  {
+   "word": "EL",
+   "s": 41.26,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 41.26,
+   "dev_after": null
+  },
+  {
+   "word": "5",
+   "s": 41.38,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 41.38,
+   "dev_after": null
+  },
+  {
+   "word": "DE",
+   "s": 41.6,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 41.6,
+   "dev_after": null
+  },
+  {
+   "word": "NOVIEMBRE",
+   "s": 41.76,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 41.76,
+   "dev_after": null
+  },
+  {
+   "word": "ESE",
+   "s": 42.28,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 42.28,
+   "dev_after": null
+  },
+  {
+   "word": "MISMO",
+   "s": 42.7,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 42.7,
+   "dev_after": null
+  },
+  {
+   "word": "DEPARTAMENTO",
+   "s": 42.98,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 42.98,
+   "dev_after": null
+  },
+  {
+   "word": "ANUNCIÓ",
+   "s": 43.58,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 43.58,
+   "dev_after": null
+  },
+  {
+   "word": "10",
+   "s": 44.04,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 44.04,
+   "dev_after": null
+  },
+  {
+   "word": "SANCIONES",
+   "s": 44.2,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 44.2,
+   "dev_after": null
+  },
+  {
+   "word": "NUEVAS,",
+   "s": 44.68,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 44.68,
+   "dev_after": null
+  },
+  {
+   "word": "UNA",
+   "s": 45.58,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 45.58,
+   "dev_after": null
+  },
+  {
+   "word": "RED",
+   "s": 45.72,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 45.72,
+   "dev_after": null
+  },
+  {
+   "word": "DE",
+   "s": 45.92,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 45.92,
+   "dev_after": null
+  },
+  {
+   "word": "PETRÓLEO,",
+   "s": 46.06,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 46.06,
+   "dev_after": null
+  },
+  {
+   "word": "ENTIDADES",
+   "s": 46.76,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 46.76,
+   "dev_after": null
+  },
+  {
+   "word": "ESTATALES",
+   "s": 47.16,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 47.16,
+   "dev_after": null
+  },
+  {
+   "word": "Y",
+   "s": 47.84,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 47.84,
+   "dev_after": null
+  },
+  {
+   "word": "PROVEEDORES",
+   "s": 48.14,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 48.14,
+   "dev_after": null
+  },
+  {
+   "word": "CHINOS.",
+   "s": 48.66,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 48.66,
+   "dev_after": null
+  },
+  {
+   "word": "WALTZ",
+   "s": 51.0,
+   "onset": 51.03,
+   "dev_before": -0.03,
+   "corrected": false,
+   "s_new": 51.0,
+   "dev_after": -0.03
+  },
+  {
+   "word": "PRESUME",
+   "s": 51.64,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 51.64,
+   "dev_after": null
+  },
+  {
+   "word": "DE",
+   "s": 52.02,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 52.02,
+   "dev_after": null
+  },
+  {
+   "word": "876",
+   "s": 52.2,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 52.2,
+   "dev_after": null
+  },
+  {
+   "word": "MILLONES",
+   "s": 52.94,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 52.94,
+   "dev_after": null
+  },
+  {
+   "word": "EN",
+   "s": 53.68,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 53.68,
+   "dev_after": null
+  },
+  {
+   "word": "VENTAS",
+   "s": 54.04,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 54.04,
+   "dev_after": null
+  },
+  {
+   "word": "A",
+   "s": 54.36,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 54.36,
+   "dev_after": null
+  },
+  {
+   "word": "CUBA,",
+   "s": 54.48,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 54.48,
+   "dev_after": null
+  },
+  {
+   "word": "PERO",
+   "s": 55.24,
+   "onset": 55.34,
+   "dev_before": -0.1,
+   "corrected": true,
+   "s_new": 55.34,
+   "dev_after": 0.0,
+   "clamped": false
+  },
+  {
+   "word": "CADA",
+   "s": 55.46,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 55.46,
+   "dev_after": null
+  },
+  {
+   "word": "VENTA",
+   "s": 55.7,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 55.7,
+   "dev_after": null
+  },
+  {
+   "word": "NECESITA",
+   "s": 56.06,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 56.06,
+   "dev_after": null
+  },
+  {
+   "word": "UN",
+   "s": 56.38,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 56.38,
+   "dev_after": null
+  },
+  {
+   "word": "PERMISO",
+   "s": 56.58,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 56.58,
+   "dev_after": null
+  },
+  {
+   "word": "DEL",
+   "s": 56.94,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 56.94,
+   "dev_after": null
+  },
+  {
+   "word": "GOBIERNO.",
+   "s": 57.1,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 57.1,
+   "dev_after": null
+  },
+  {
+   "word": "ESO",
+   "s": 58.04,
+   "onset": 58.11,
+   "dev_before": -0.07,
+   "corrected": true,
+   "s_new": 58.11,
+   "dev_after": 0.0,
+   "clamped": false
+  },
+  {
+   "word": "NO",
+   "s": 58.28,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 58.28,
+   "dev_after": null
+  },
+  {
+   "word": "ES",
+   "s": 58.4,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 58.4,
+   "dev_after": null
+  },
+  {
+   "word": "COMERCIO",
+   "s": 58.48,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 58.48,
+   "dev_after": null
+  },
+  {
+   "word": "LIBRE,",
+   "s": 58.9,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 58.9,
+   "dev_after": null
+  },
+  {
+   "word": "ESO",
+   "s": 59.64,
+   "onset": 59.64,
+   "dev_before": 0.0,
+   "corrected": false,
+   "s_new": 59.64,
+   "dev_after": 0.0
+  },
+  {
+   "word": "ES",
+   "s": 59.8,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 59.8,
+   "dev_after": null
+  },
+  {
+   "word": "CONTROL.",
+   "s": 59.94,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 59.94,
+   "dev_after": null
+  },
+  {
+   "word": "ELLOS",
+   "s": 61.5,
+   "onset": 61.77,
+   "dev_before": -0.27,
+   "corrected": true,
+   "s_new": 61.77,
+   "dev_after": 0.0,
+   "clamped": false
+  },
+  {
+   "word": "LO",
+   "s": 62.02,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 62.02,
+   "dev_after": null
+  },
+  {
+   "word": "NIEGAN,",
+   "s": 62.16,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 62.16,
+   "dev_after": null
+  },
+  {
+   "word": "SUS",
+   "s": 63.04,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 63.04,
+   "dev_after": null
+  },
+  {
+   "word": "DOCUMENTOS",
+   "s": 63.12,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 63.12,
+   "dev_after": null
+  },
+  {
+   "word": "LO",
+   "s": 63.78,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 63.78,
+   "dev_after": null
+  },
+  {
+   "word": "CONFIRMAN,",
+   "s": 63.88,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 63.88,
+   "dev_after": null
+  },
+  {
+   "word": "EL",
+   "s": 64.94,
+   "onset": 64.94,
+   "dev_before": 0.0,
+   "corrected": false,
+   "s_new": 64.94,
+   "dev_after": 0.0
+  },
+  {
+   "word": "BLOQUEO",
+   "s": 65.06,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 65.06,
+   "dev_after": null
+  },
+  {
+   "word": "NO",
+   "s": 65.42,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 65.42,
+   "dev_after": null
+  },
+  {
+   "word": "ES",
+   "s": 65.52,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 65.52,
+   "dev_after": null
+  },
+  {
+   "word": "UN",
+   "s": 65.64,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 65.64,
+   "dev_after": null
+  },
+  {
+   "word": "RELATO,",
+   "s": 65.74,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 65.74,
+   "dev_after": null
+  },
+  {
+   "word": "ES",
+   "s": 66.44,
+   "onset": 66.52,
+   "dev_before": -0.08,
+   "corrected": true,
+   "s_new": 66.52,
+   "dev_after": 0.0,
+   "clamped": false
+  },
+  {
+   "word": "UN",
+   "s": 66.68,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 66.68,
+   "dev_after": null
+  },
+  {
+   "word": "DOCUMENTO",
+   "s": 66.8,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 66.8,
+   "dev_after": null
+  },
+  {
+   "word": "OFICIAL.",
+   "s": 67.3,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 67.3,
+   "dev_after": null
+  },
+  {
+   "word": "¿TÚ",
+   "s": 69.0,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 69.0,
+   "dev_after": null
+  },
+  {
+   "word": "QUE",
+   "s": 69.58,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 69.58,
+   "dev_after": null
+  },
+  {
+   "word": "CREES",
+   "s": 69.72,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 69.72,
+   "dev_after": null
+  },
+  {
+   "word": "QUE",
+   "s": 70.1,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 70.1,
+   "dev_after": null
+  },
+  {
+   "word": "LO",
+   "s": 70.48,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 70.48,
+   "dev_after": null
+  },
+  {
+   "word": "NIEGAN",
+   "s": 70.62,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 70.62,
+   "dev_after": null
+  },
+  {
+   "word": "PORQUE",
+   "s": 70.96,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 70.96,
+   "dev_after": null
+  },
+  {
+   "word": "NO",
+   "s": 71.16,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 71.16,
+   "dev_after": null
+  },
+  {
+   "word": "EXISTE",
+   "s": 71.32,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 71.32,
+   "dev_after": null
+  },
+  {
+   "word": "O",
+   "s": 71.78,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 71.78,
+   "dev_after": null
+  },
+  {
+   "word": "PORQUE",
+   "s": 72.22,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 72.22,
+   "dev_after": null
+  },
+  {
+   "word": "NO",
+   "s": 72.46,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 72.46,
+   "dev_after": null
+  },
+  {
+   "word": "LES",
+   "s": 72.6,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 72.6,
+   "dev_after": null
+  },
+  {
+   "word": "CONVIENE",
+   "s": 72.78,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 72.78,
+   "dev_after": null
+  },
+  {
+   "word": "ADMITIRLO?",
+   "s": 73.12,
+   "onset": null,
+   "dev_before": null,
+   "corrected": false,
+   "s_new": 73.12,
+   "dev_after": null
+  }
+ ],
+ "n_after_silence": 11,
+ "n_corrected": 7,
+ "summary": {
+  "n_words": 125,
+  "n_after_silence": 11,
+  "n_corrected": 7,
+  "max_abs_dev_before": 0.41,
+  "max_abs_dev_after": 0.03,
+  "n_over_threshold_before": 3,
+  "n_over_threshold_after": 0
+ }
+}

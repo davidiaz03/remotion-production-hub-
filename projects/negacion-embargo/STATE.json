@@ -4,39 +4,91 @@
     "Recopilación de video real (22-nov-2026): 4 momentos del panel con metraje real — Rubio 20-may (corte 10,05 s + original 314,6 s + still), Waltz 7-jul UN Web TV 99.ª plenaria (corte «It's fake» 17,02 s + ventana completa 331,8 s + still), Waltz 27-oct UNifeed soundbite 33 (26,6 s + still) con respaldo UN Web TV 27.ª plenaria (ventanas 90,5 s + 80,1 s), Waltz 16-nov Fox News (foto real 1280×720). Todo verificado por transcripción local faster-whisper y/o verificación visual. 13 archivos, 546 MB, en asset-manifest.json con SHA256.",
     "Brief creativo (CREATIVE_BRIEF.md): concepto, estructura, guion 125 palabras, plan por escena con técnicas, materiales, licencias, decisiones. Regla de Suleris incorporada: en la voz del Memorial se dice BLOQUEO; «embargo» solo en citas textuales de EE. UU. Voz: Adriana.",
     "Capturas de state.gov (22-nov-2026): «Cuba Sanctions» y comunicado 5-nov, ambas 1920x1080, texto clave verificado legible a ojo por dos agentes. Método CDP + relay CONNECT local (Chromium headless directo no funciona en esta VM; documentado en research/capturas-state-gov-metodo.md).",
-    "Búsqueda en el archivo indexado del Memorial (22-nov-2026, 13 términos): solo 2 piezas directamente útiles (imagen satelital NOAA/CIRA de Cuba a oscuras y fuente cruda del reel de Bruno ONU), ambas en Drive sin descargar (ver «referenced» en asset-manifest.json). Nada de puerto, petróleo, barcos, La Habana, Malecón ni calles. El B-roll principal es el metraje ONU/Rubio."
+    "Búsqueda en el archivo indexado del Memorial (22-nov-2026, 13 términos): solo 2 piezas directamente útiles (imagen satelital NOAA/CIRA de Cuba a oscuras y fuente cruda del reel de Bruno ONU), ambas en Drive sin descargar (ver «referenced» en asset-manifest.json). Nada de puerto, petróleo, barcos, La Habana, Malecón ni calles. El B-roll principal es el metraje ONU/Rubio.",
+    "Visto bueno FINAL de Suleris (22-nov-2026 ~12:36, «Confirmado, procede» del usuario): puerta dura SUPERADA. Corrección de terminología incorporada: BLOQUEO en la voz del Memorial; «embargo» solo en la cita L4 y su traducción fiel.",
+    "VO de Adriana COMPLETA 8/8 y verificada (22-nov-2026 ~12:30): 7/8 líneas OK a la primera + L1 recibida y verificada (MATCH ambos modelos). Ver VO_VERIFICATION.md. Archivos en public/audio/real/lines/L1.wav–L8.wav (48 kHz).",
+    "Auditoría pre-edición (22-nov-2026, AUDIT_PREEDIT.md, commit 8eca2c4): APROBADO CON CORRECCIONES (C1–C12). Plan de 12 escenas autoritativo; panel medido ~18 s; total ~75 s (73–78 s).",
+    "SFX copiados al proyecto (22-nov-2026): 14/14 IDs del mapa de sonido de la auditoría en public/audio/sfx/ (add-sfx.mjs).",
+    "Tiempos de palabra de la VO (22-nov-2026): L2–L8 en research/vo/vo-transcription-small.json; L1 en research/vo/l1-words-small.json (faster-whisper small, word_timestamps).",
+    "Cama elegida (22-nov-2026): documentary-flow-a (biblioteca del hub, Flow «Documentary underscore» ventana 89–149 s, 60 s, −19,74 LUFS, scan PASS — VAD sin voz, Whisper solo alucinaciones conocidas). Pendiente: bucle a la duración del video + dips horneados (panel −6 dB, giro −12 dB) + mezcla.",
+    "Decisión de montaje (22-nov-2026): tarjetas 2–3 del panel con voz original completa (4–5,6 s, medido); Rubio con punch-in 120–130% sobre la cara (C9) + banda de cita como respaldo; audio del panel en la composición (clips pre-normalizados a −16 LUFS), mezcla = VO + cama + SFX.",
+    "Mezcla TEMPORAL (22-nov-2026): documentary-flow-a bucleada a 77,5 s con dips horneados; scan-bed.py PASS sobre el stem; mix.wav PASS_REAL (-16,8 LUFS, TP -1,5, 37 SFX). SOLO para ritmo/tiempos y pre-vuelo. La mezcla FINAL espera la cama nueva de Flow Music (orden del usuario 22-nov ~12:50)."
   ],
   "compositionId": "MainReel",
   "id": "negacion-embargo",
   "latestSnapshot": null,
-  "nextTask": "Esperar el visto bueno FINAL de Suleris (puerta dura). Al aprobar: Adriana graba la VO definitiva, elegir y escanear cama Flow Music (scan-bed.py), luego editar. Recopilación de materiales COMPLETA (15 archivos locales + 4 referenciados en Drive).",
+  "nextTask": "Producción en curso (22-nov ~12:50): composición MainReel + pre-vuelo + render con la mezcla TEMPORAL (documentary-flow-a). La mezcla FINAL espera la cama nueva de Flow Music; al llegar, re-mezcla + re-render + auditoría final.",
   "objective": "Dicen que no hay bloqueo",
   "pending": [
-    "Visto bueno FINAL de Suleris sobre el texto corregido (puerta dura — NO editar ni renderizar ni grabar VO definitiva hasta entonces).",
-    "VO: Adriana graba la definitiva (guion entregado 22-nov; sin audio de referencia por decisión del usuario).",
-    "Cama Flow Music: elegir ventana limpia y escanear con scan-bed.py.",
-    "Decisión de montaje: duración de las tarjetas 2-3 del panel (3 s vs 4-5 s con voz original).",
-    "Decisión de montaje: tratamiento de los subtítulos quemados en inglés del video de Rubio."
+    "Cama NUEVA de Flow Music (más rápida, más carácter): llega escaneada; al recibirla, bucle/dips + mezcla final + re-render + re-auditoría. Si no encaja en el montaje, volver a documentary-flow-a y avisar.",
+    "Construir la composición MainReel (12 escenas según AUDIT_PREEDIT.md §6, 2325 f).",
+    "Pre-vuelo visual: stills en los fotogramas clave de las 12 escenas antes del render.",
+    "Render por tramos PCM + master.py + qa-media (primero con la mezcla temporal para validar; el render final va con la mezcla definitiva).",
+    "Auditoría de audio obligatoria (audit-audio.py) sobre el MÁSTER FINAL: FAIL = no entregar.",
+    "Entrega: máster 1080×1920 + ligera 720p → Drive (Memorial — Másters reels) + enlaces Muse storage; commit y push."
   ],
-  "phase": "assets",
+  "phase": "edit",
   "pipeline": {
     "phases": {
       "assets": {
         "status": "done"
       },
+      "vo": {
+        "status": "done"
+      },
       "edit": {
-        "status": "blocked",
-        "waitingOn": "Visto bueno final de Suleris + capturas state.gov"
+        "status": "in-progress"
       },
       "qa": {
         "status": "pending"
       },
-      "vo": {
+      "delivery": {
         "status": "pending"
       }
     }
   },
   "schema": "remotion-hub.state/v1",
   "title": "Dicen que no hay bloqueo",
-  "updatedAt": "2026-11-22T16:15:00Z"
+  "updatedAt": "2026-11-22T16:50:00Z",
+  "milestones": {
+    "order": [
+      "composicion",
+      "prevuelo",
+      "cama",
+      "render",
+      "auditoria",
+      "entrega"
+    ],
+    "composicion": {
+      "label": "Composición construida",
+      "status": "pending",
+      "doneAt": null
+    },
+    "prevuelo": {
+      "label": "Pre-vuelo visual superado",
+      "status": "pending",
+      "doneAt": null
+    },
+    "cama": {
+      "label": "Cama lista y escaneada",
+      "status": "pending",
+      "doneAt": null,
+      "note": "CAMBIO 22-nov ~12:50 (orden del usuario): NO finalizar con documentary-flow-a. El usuario autorizó una cama nueva en Flow Music (Plus), más rápida y con más carácter, para el tono de Adriana. La generación está lanzada en el navegador; el archivo escaneado llega en cuanto esté. documentary-flow-a queda como TEMPORAL (ritmo/tiempos) y como RESPALDO si la nueva no encaja en el montaje."
+    },
+    "render": {
+      "label": "Render terminado",
+      "status": "pending",
+      "doneAt": null
+    },
+    "auditoria": {
+      "label": "Auditoría de audio superada",
+      "status": "pending",
+      "doneAt": null
+    },
+    "entrega": {
+      "label": "Máster + ligera entregados",
+      "status": "pending",
+      "doneAt": null
+    }
+  }
 }

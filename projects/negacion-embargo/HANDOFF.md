@@ -1,8 +1,26 @@
 # Handoff — «Dicen que no hay bloqueo» (negacion-embargo)
 
-22-nov-2026. Recopilación de materiales + plan de producción.
-**NO se ha editado ni renderizado nada**: falta el visto bueno FINAL
-de Suleris sobre el texto corregido (puerta dura).
+22-nov-2026. **PRODUCCIÓN EN CURSO** (fase `edit`, ya no bloqueada):
+Suleris dio el visto bueno final y el usuario ordenó proceder
+(~12:36); VO de Adriana completa 8/8 y verificada.
+
+## Hitos de producción (22-nov, en curso)
+
+- [ ] 1. Composición construida
+- [ ] 2. Pre-vuelo visual superado
+- [ ] 3. Cama lista y escaneada — CAMBIO 22-nov ~12:50 (orden del
+      usuario): NO finalizar con `documentary-flow-a`. Nueva cama en
+      Flow Music (Plus), más rápida y con más carácter, en generación;
+      llega escaneada. `documentary-flow-a` queda como TEMPORAL (la
+      mezcla actual `mix.wav` es temporal, PASS_REAL −16,8 LUFS) y
+      como RESPALDO si la nueva no encaja en el montaje. Al llegar la
+      nueva: bucle/dips + mezcla final + re-render + re-auditoría.
+- [ ] 4. Render terminado
+- [ ] 5. Auditoría de audio superada
+- [ ] 6. Máster + ligera entregados
+
+Se marcan en este archivo y en `STATE.json` (`milestones`) a medida
+que se completan.
 
 ## Dónde está todo
 
