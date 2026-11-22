@@ -360,13 +360,61 @@
    "sha256": "7388f431de7d529ae69f136f51bc8d54415f3f267358a2082cb06260623faef6",
    "sourceDetail": "Conversión sin pérdida perceptual de el_1_8_4uto.aac (ffmpeg, 48 kHz estéreo) para el montaje.",
    "verifiedBy": "faster-whisper small+base: transcripción exacta del guion, MATCH."
+  },
+  {
+   "bytes": 6885285,
+   "durationSec": 12.913,
+   "fps": 29.97,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública. Crédito al publicar: «Imágenes: UN Web TV / Naciones Unidas»",
+   "path": "public/video/waltz-28oct-no-blockade-eov.mp4",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-4 (reemplazo de la tarjeta Fox; activo principal)",
+   "sha256": "cd165a8fefd0cfcfafec21c9a42c1af760806c78597358e01d37e29e6619a134",
+   "sourceDetail": "UN Web TV, 28.ª sesión plenaria AGNU 81.º período (28-oct-2026), explicación de voto de EE. UU. tras la votación; entrada Kaltura 1_kspetddv (medio 1_8dylozhm, flavor 1080p 1_2lw3twfm); corte 4197,3–4210,2 s del video original (1:09:57–1:10:10); Waltz habla SENTADO desde el escaño de EE. UU., no en el podio; sin subtítulos quemados",
+   "sourceUrl": "https://webtv.un.org/en/asset/k1k/k1kspetddv",
+   "verifiedBy": "Transcripción oficial usun.usmission.gov (AS DELIVERED, 2026-10-28) + transcripción local faster-whisper del corte: «What are they afraid of? They're afraid of this assembly, the Cuban people, and the world finding out once and for all that there is no blockade.»"
+  },
+  {
+   "bytes": 7122777,
+   "durationSec": 13.814,
+   "fps": 29.97,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública. Crédito al publicar: «Imágenes: UN Web TV / Naciones Unidas»",
+   "path": "public/video/waltz-28oct-fake-phony-blockade.mp4",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-4 (alternativa — misma sesión, línea «fake, phony, made-up blockade»)",
+   "sha256": "3fb5611d7ac17d71a1dc5e2b9f5444e9fdc5b4af86ff73c0e30c74dfe644319d",
+   "sourceDetail": "UN Web TV, misma sesión (28-oct-2026), explicación de voto; corte 4538,2–4552,0 s del video original (1:15:38–1:15:52); Waltz sentado desde el escaño; sin subtítulos quemados",
+   "sourceUrl": "https://webtv.un.org/en/asset/k1k/k1kspetddv",
+   "verifiedBy": "Transcripción oficial usun.usmission.gov (AS DELIVERED, 2026-10-28) + transcripción local faster-whisper del corte: «and tells the Cuban people that the world is with the regime and not with them. And that all of this suffering comes because of this fake, phony, made-up blockade.»"
+  },
+  {
+   "bytes": 212309,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública. Crédito al publicar: «Imágenes: UN Web TV / Naciones Unidas»",
+   "path": "public/img/real-un/waltz-28oct-eov.jpg",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-4 (still)",
+   "sha256": "2f734aaf8c8c2991b2b9a08cc9019af1367d33832118d6d94112ffde46977adc",
+   "sourceDetail": "Fotograma del corte waltz-28oct-no-blockade-eov.mp4 (11,5 s, durante «that there is no blockade»)",
+   "sourceUrl": "https://webtv.un.org/en/asset/k1k/k1kspetddv",
+   "verifiedBy": "Verificado a ojo: Waltz sentado en el escaño de EE. UU., plano medio, micrófono, placa «UNITED STATES», sin subtítulos quemados"
+  },
+  {
+   "bytes": 222073,
+   "license": "© United Nations — uso editorial/informativo no comercial por institución pública. Crédito al publicar: «Imágenes: UN Web TV / Naciones Unidas»",
+   "path": "public/img/real-un/waltz-28oct-fake-phony.jpg",
+   "resolution": "1920x1080",
+   "scene": "panel-tarjeta-4 alternativa (still)",
+   "sha256": "dad301d04951f904e1be3fcbdc0b6bb63c1d2dffcf4932ee93f3aa25adee2a75",
+   "sourceDetail": "Fotograma del corte waltz-28oct-fake-phony-blockade.mp4 (12 s, durante «fake, phony, made-up blockade»)",
+   "sourceUrl": "https://webtv.un.org/en/asset/k1k/k1kspetddv",
+   "verifiedBy": "Verificado a ojo: mismo plano sentado, placa «UNITED STATES», sin subtítulos quemados"
   }
  ],
  "formatVersion": 1,
- "notes": "Los videos no se commitean (gitignore). Este manifiesto es el registro canónico con SHA256. La sección «referenced» lista material del archivo del Memorial que existe en Drive pero NO está descargado localmente (sin SHA); descargar al editar solo si se usa.",
+ "notes": "Los videos no se commitean (gitignore). Este manifiesto es el registro canónico con SHA256. La sección «referenced» lista material del archivo del Memorial que existe en Drive pero NO está descargado localmente (sin SHA); descargar al editar solo si se usa. 4ª tarjeta del panel (22-nov, reemplazo de la Fox): Waltz 28-oct-2026, explicación de voto AGNU — 2 cortes de video + 2 stills. Ver HANDOFF-4TA-TARJETA-28OCT.md.",
  "project": "negacion-embargo",
  "title": "Dicen que no hay bloqueo",
- "totalBytes": 585434821,
+ "totalBytes": 599877265,
  "referenced": [
   {
    "name": "Cuba_blackout_NOAA_CIRA_2026.png",
