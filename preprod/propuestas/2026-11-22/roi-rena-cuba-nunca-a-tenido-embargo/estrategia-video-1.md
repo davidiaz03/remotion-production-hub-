@@ -1,7 +1,7 @@
-# Estrategia — Video 1: «Dicen que no hay embargo» (sin presentadoras, dinámico)
+# Estrategia — Video 1: «Dicen que no hay bloqueo» (sin presentadoras, dinámico)
 
 > Reel del Memorial de la Denuncia. Versión sin presentadoras del tema
-> «desmontar la negación del embargo» (el pack con presentadoras en
+> «desmontar la negación del bloqueo» (el pack con presentadoras en
 > diálogo vive en `propuesta.md`, mismo directorio).
 > Dossier verificado: `preprod/investigacion/negacion-del-embargo/dossier.md`
 > (14 hechos, 10 VERIFICADO; 5 referencias; 4 tendencias; 4 ganchos).
@@ -32,11 +32,11 @@ memorando Mallory NO entra aquí: es la segunda parte (§6).
 
 ## 3. Guion (VO, 125 palabras)
 
-Voz: la del usuario (ver §5). Las tarjetas del panel NO son VO: van en
+Voz: Adriana (ver §5). Las tarjetas del panel NO son VO: van en
 pantalla con su fuente.
 
 > L1 (0–3 s): «El gobierno de Estados Unidos lleva meses diciendo que no
-> hay embargo. Míralos.» (13)
+> hay bloqueo. Míralos.» (13)
 >
 > [PANEL 3–15 s, sin VO — ver §4]
 >
@@ -56,7 +56,7 @@ pantalla con su fuente.
 > cada venta necesita un permiso del gobierno. Eso no es comercio libre,
 > eso es control.» (25)
 >
-> L7 (52–60 s): «Ellos lo niegan. Sus documentos lo confirman. El embargo
+> L7 (52–60 s): «Ellos lo niegan. Sus documentos lo confirman. El bloqueo
 > no es un relato. Es un documento oficial.» (17)
 >
 > L8 (60–70 s): «¿Tú qué crees, que lo niegan porque no existe o porque
@@ -80,22 +80,26 @@ los cierres, el reel queda en ~67–70 s.
   Commerce… through the EAR»). «Eso es control» es comentario
   editorial del narrador, no un hecho citado.
 - L7–L8: cierre editorial + pregunta de engagement.
-- Matiz de honestidad (R1/R2): la VO NO dice que negaran
-  textualmente «el embargo». Las tarjetas muestran lo que dijeron
+- Matiz de honestidad (R1/R2): la VO NO pone en boca de nadie la
+  frase «no hay embargo». Las tarjetas muestran lo que dijeron
   exactamente (Waltz niega bloqueo NAVAL; Rubio niega bloqueo
   PETROLERO como causa de los apagones) y el contraste con los
-  documentos hace el trabajo.
+  documentos hace el trabajo. **Regla de Suleris (22-nov): en
+  nuestra voz se dice BLOQUEO, nunca «embargo» («embargo» es el
+  término que ELLOS usan para minimizar el asunto); «embargo»
+  solo aparece dentro de citas textuales de fuentes de EE. UU.
+  (L4, state.gov).**
 
 ### Ganchos (3 opciones; recomendado: 1)
 
 1. **(Recomendado)** L1 tal cual: «El gobierno de Estados Unidos lleva
-   meses diciendo que no hay embargo. Míralos.» — tesis + invitación,
+   meses diciendo que no hay bloqueo. Míralos.» — tesis + invitación,
    enmarca el panel.
 2. Cita textual: «There is no blockade» a pantalla completa + «Lo dijo
    el embajador de EE. UU. en la ONU. Mira lo que dice su propio
    gobierno.» (patrón Jayapal/CUBANO MEDIA: la negación como titular).
 3. Número: «10 sanciones nuevas el 5 de noviembre. ¿Y dicen que no hay
-   embargo?» (afirmación + pregunta).
+   bloqueo?» (afirmación + pregunta).
 
 ## 4. Las 4 tarjetas del panel (en pantalla, 3 s cada una)
 
@@ -117,8 +121,12 @@ cronológico: la negación no es un desliz, es una campaña sostenida
 todo 2026. La 5.ª alternativa («this fake, phony, made-up blockade»,
 28-oct) queda fuera: mismo orador al día siguiente.
 
-## 5. Estilo de narración (voz del usuario)
+## 5. Estilo de narración (voz de Adriana)
 
+- **Voz: Adriana** (locutora del Memorial, voz del Martí-Fidel).
+  Dirección de Suleris (22-nov): la voz en off tiene que darle
+  fuerza a las palabras. Tono DISTINTO al Martí-Fidel: más rápido,
+  más directo, con más carácter.
 - **Más rápida y con carácter que el Martí-Fidel.** Conversacional,
   directa, con filo: como contárselo a un amigo, no como leer un
   documental. Ritmo objetivo ~155 palabras/min en la sección de la
@@ -127,10 +135,10 @@ todo 2026. La 5.ª alternativa («this fake, phony, made-up blockade»,
   acusa); L2–L3 en staccato, con un latido de silencio tras «Vale»;
   L4–L6 firmes, dejando que los documentos caigan; L7 más lenta y
   pesada (es la tesis); L8 directa al oyente, conversacional.
-- **Previsualización IA primero, él graba la definitiva** (patrón
-  Marabana): Kokoro a ritmo objetivo para oír el ritmo antes de
-  grabar; 2–3 tomas, de pie, texto a la altura de la cara, pausas
-  tras «Vale» y antes de «Es un documento oficial».
+- **Previsualización IA primero, Adriana graba la definitiva**
+  (patrón Marabana): Kokoro a ritmo objetivo para oír el ritmo
+  antes de grabar; 2–3 tomas, de pie, texto a la altura de la cara,
+  pausas tras «Vale» y antes de «Es un documento oficial».
 - Reglas de audio permanentes: ninguna pausa natural intra-línea
   <0,25 s ni perder >50%; la transcripción solo señala sospechas,
   el oído desempata; auditoría `audit-audio.py` obligatoria antes
@@ -195,11 +203,11 @@ económica de Cuba para «bring about hunger, desperation and
 overthrow of government» — provocar hambre, desesperación y el
 derrocamiento del gobierno. Desclasificado en 1991.
 
-**Concepto:** la primera parte demuestra que el embargo EXISTE; la
+**Concepto:** la primera parte demuestra que el bloqueo EXISTE; la
 segunda responde a la pregunta que la primera deja abierta (¿por
 qué lo niegan?): porque la intención nunca fue un secreto — quedó
 escrita en 1960. Mismo ADN (documento protagonista, dinámico, voz
-del usuario), arco distinto: del «lo niegan» al «lo escribieron».
+de Adriana), arco distinto: del «lo niegan» al «lo escribieron».
 
 **Estructura tentativa:** gancho («En 1960, un funcionario del
 Departamento de Estado escribió el plan por escrito.») → el memo
