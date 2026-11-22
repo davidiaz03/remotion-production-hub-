@@ -340,13 +340,33 @@
    "sha256": "4ac9635ca1682c5f7a048112fcea0bbc9dc554f84268030c70b9305cff4c97fd",
    "sourceDetail": "Conversión de el_8_7_hjuv.aac (ffmpeg, 48 kHz estéreo) para el montaje.",
    "verifiedBy": "Mismo contenido que el original .aac."
+  },
+  {
+   "bytes": 221384,
+   "durationSec": 6.848,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/el_1_8_4uto.aac",
+   "scene": "VO L1 (original)",
+   "sha256": "933adc78457bb3a60247c0b72ff358159eb5dda0e15a1488027b438bf68d1162",
+   "sourceDetail": "Entregado por el usuario 22-nov-2026 (WhatsApp). Asignado a L1 por contenido transcrito.",
+   "verifiedBy": "faster-whisper small+base: transcripción exacta del guion, MATCH."
+  },
+  {
+   "bytes": 657486,
+   "durationSec": 6.848,
+   "license": "Voz de Adriana, locutora del Memorial — grabación para este reel",
+   "path": "public/audio/real/lines/L1.wav",
+   "scene": "VO L1 (edición, wav 48 kHz)",
+   "sha256": "7388f431de7d529ae69f136f51bc8d54415f3f267358a2082cb06260623faef6",
+   "sourceDetail": "Conversión sin pérdida perceptual de el_1_8_4uto.aac (ffmpeg, 48 kHz estéreo) para el montaje.",
+   "verifiedBy": "faster-whisper small+base: transcripción exacta del guion, MATCH."
   }
  ],
  "formatVersion": 1,
  "notes": "Los videos no se commitean (gitignore). Este manifiesto es el registro canónico con SHA256. La sección «referenced» lista material del archivo del Memorial que existe en Drive pero NO está descargado localmente (sin SHA); descargar al editar solo si se usa.",
  "project": "negacion-embargo",
  "title": "Dicen que no hay bloqueo",
- "totalBytes": 584555951,
+ "totalBytes": 585434821,
  "referenced": [
   {
    "name": "Cuba_blackout_NOAA_CIRA_2026.png",
@@ -414,6 +434,6 @@
   ],
   "pendingFromSuleris": "archive/pendiente-suleris.md (no pedido aún): fotos de archivo histórico del Memorial (ninguna en Drive), testimonios de otras víctimas (video crudo), video crudo del testimonio de Pilar (grabado 8-nov-2026; en Drive solo 3 fotos). Nada de lo pendiente cubre puerto/petróleo/barcos/Habana."
  },
- "voVerifiedAt": "2026-11-22T16:30:00Z",
- "voVerdict": "7/8 líneas OK (L2-L8); L1 pendiente de grabar; L3 duplicada (el_3_2_qwro.aac = el_3_0_7umm.aac). Ver VO_VERIFICATION.md."
+ "voVerifiedAt": "2026-11-22T16:31:29Z",
+ "voVerdict": "8/8 líneas OK — VO completa (L1 recibida 22-nov ~12:30, MATCH small+base)"
 }
