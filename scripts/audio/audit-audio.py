@@ -824,6 +824,17 @@ def check_c_vo_integrity(rep: Report, orig_vo, edited_vo, sr: int,
     # del hueco Whisper, para no invadir la palabra vecina) porque
     # los bordes de Whisper caen dentro del intervalo acústico real.
     n_pause = 0
+    # Inicios de segmento (tiempo editado): una pausa que cruza un
+    # empalme NO es intra-línea. Caso 22-nov-2026 (auditoría v4-pre):
+    # 'meses.'->'Vale,' cruza L2->L3 (L3 arranca 0,15 s antes de que
+    # termine L2, así que 'Vale,' cae dentro de la tolerancia ±0,1 s
+    # del span de L2 y el par se evalúa como intra-L2). El hueco
+    # entre tomas es decisión de montaje (ritmo) — lo valida (e) como
+    # pausa diseñada —, no una pausa natural que §4 deba proteger:
+    # el «original» de 2,32 s incluye el lead-in de sala de la toma
+    # L3 (1,1 s), que el montaje recorta por diseño.
+    seg_starts = [sg["edited_start"] for ln2 in plan["lines"]
+                  for sg in ln2["segs"]]
     for ln in plan["lines"]:
         s0 = ln["segs"][0]["edited_start"]
         s1 = ln["segs"][-1]["edited_end"]
@@ -832,6 +843,8 @@ def check_c_vo_integrity(rep: Report, orig_vo, edited_vo, sr: int,
         for a, b in zip(idx, idx[1:]):
             ow0, ow1 = orig_words[a], orig_words[b]
             pw0, pw1 = pred_words[a], pred_words[b]
+            if any(pw0["e"] < st <= pw1["s"] for st in seg_starts):
+                continue  # pausa entre tomas/segmentos, no intra-línea
             gap_o = ow1["s"] - ow0["e"]
             gap_e = pw1["s"] - pw0["e"]
             ext_o = min(0.10, max(0.0, gap_o / 2))
@@ -1008,10 +1021,20 @@ def check_e_silences(rep: Report, edited_vo, sr: int, plan: dict,
                                  segs[i + 1]["edited_start"], "intra-línea"))
             if ln["linea"] > 1:
                 prev = plan["lines"][ln["linea"] - 2]
-                designed.append((prev["segs"][-1]["edited_end"],
-                                 segs[0]["edited_start"], "entre-líneas"))
+                ds, de = (prev["segs"][-1]["edited_end"],
+                          segs[0]["edited_start"])
+                # Los segmentos pueden solaparse (L3 arranca 0,15 s antes
+                # de que termine L2: intervalo invertido): normalizar.
+                # Sin esto, la pausa L2->L3 (26,44 s) no casa con ningún
+                # hueco diseñado y (e) da FAIL espurio (auditoría v3).
+                designed.append((min(ds, de), max(ds, de), "entre-líneas"))
             for gs, ge in ln.get("merged_gaps", []):
                 designed.append((gs, ge, "fusión"))
+            # Pausas de prosodia: silencios de la toma única, verificados
+            # en el original (no son ediciones). Ver research/vo/
+            # prosody-gaps.json (auditoría v3, 22-nov-2026).
+            for gs, ge in ln.get("prosody_gaps", []):
+                designed.append((gs, ge, "prosodia"))
     n_unexp = 0
     total_dur = len(edited_vo) / sr
     for s, e, d in sil:

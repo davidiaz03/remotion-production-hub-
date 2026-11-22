@@ -9,6 +9,12 @@
    "slot": 0.35,
    "factor_uniforme": 1.0,
    "gaps": [],
+   "prosody_gaps": [
+    [
+     4.39,
+     4.9
+    ]
+   ],
    "segs": [
     {
      "orig_start": 0.95,
@@ -29,6 +35,7 @@
    "slot": 23.6,
    "factor_uniforme": 1.0,
    "gaps": [],
+   "prosody_gaps": [],
    "segs": [
     {
      "orig_start": 6.848,
@@ -49,6 +56,7 @@
    "slot": 26.35,
    "factor_uniforme": 1.0,
    "gaps": [],
+   "prosody_gaps": [],
    "segs": [
     {
      "orig_start": 11.19,
@@ -69,6 +77,16 @@
    "slot": 28.85,
    "factor_uniforme": 1.0,
    "gaps": [],
+   "prosody_gaps": [
+    [
+     31.53,
+     31.98
+    ],
+    [
+     34.41,
+     34.67
+    ]
+   ],
    "segs": [
     {
      "orig_start": 14.595,
@@ -89,6 +107,12 @@
    "slot": 40.35,
    "factor_uniforme": 1.0,
    "gaps": [],
+   "prosody_gaps": [
+    [
+     45.26,
+     45.55
+    ]
+   ],
    "segs": [
     {
      "orig_start": 25.185,
@@ -109,6 +133,24 @@
    "slot": 50.85,
    "factor_uniforme": 1.0,
    "gaps": [],
+   "prosody_gaps": [
+    [
+     50.94,
+     51.27
+    ],
+    [
+     54.83,
+     55.34
+    ],
+    [
+     57.65,
+     58.11
+    ],
+    [
+     59.32,
+     59.64
+    ]
+   ],
    "segs": [
     {
      "orig_start": 36.455,
@@ -129,6 +171,20 @@
    "slot": 61.35,
    "factor_uniforme": 1.0,
    "gaps": [],
+   "prosody_gaps": [
+    [
+     62.67,
+     63.01
+    ],
+    [
+     64.58,
+     64.94
+    ],
+    [
+     66.26,
+     66.52
+    ]
+   ],
    "segs": [
     {
      "orig_start": 48.655,
@@ -149,6 +205,12 @@
    "slot": 68.35,
    "factor_uniforme": 1.0,
    "gaps": [],
+   "prosody_gaps": [
+    [
+     69.64,
+     69.94
+    ]
+   ],
    "segs": [
     {
      "orig_start": 56.233,

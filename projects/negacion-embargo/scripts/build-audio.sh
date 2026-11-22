@@ -17,20 +17,24 @@ export TMPDIR="${TMPDIR:-$HOME/workspace/.tmp}"
 mkdir -p "$TMPDIR" public/audio public/video public/img
 
 echo "== 1) VO colocada =="
+# afade 5 ms en cada borde de línea (auditoría v3 FAIL (c) §2: 3
+# discontinuidades de empalme — el atrim cortaba el tono de sala sin
+# fundido; el salto L8 fin era 10,8x el baseline). El fundido solo
+# toca tono de sala: la voz está a >=0,15 s de cada borde.
 ffmpeg -y -v error \
   -i public/audio/real/lines/L1.wav -i public/audio/real/lines/L2.wav \
   -i public/audio/real/lines/L3.wav -i public/audio/real/lines/L4.wav \
   -i public/audio/real/lines/L5.wav -i public/audio/real/lines/L6.wav \
   -i public/audio/real/lines/L7.wav -i public/audio/real/lines/L8.wav \
   -filter_complex "\
-[0:a]atrim=0.95:6.32,asetpts=PTS-STARTPTS,aresample=48000,adelay=350:all=1[l1];\
-[1:a]atrim=0:2.90,asetpts=PTS-STARTPTS,aresample=48000,adelay=23600:all=1[l2];\
-[2:a]atrim=0.95:3.28,asetpts=PTS-STARTPTS,aresample=48000,adelay=26350:all=1[l3];\
-[3:a]atrim=0.75:10.08,asetpts=PTS-STARTPTS,aresample=48000,adelay=28850:all=1[l4];\
-[4:a]atrim=0.63:9.76,asetpts=PTS-STARTPTS,aresample=48000,adelay=40350:all=1[l5];\
-[5:a]atrim=1.17:10.96,asetpts=PTS-STARTPTS,aresample=48000,adelay=50850:all=1[l6];\
-[6:a]atrim=1.21:7.72,asetpts=PTS-STARTPTS,aresample=48000,adelay=61350:all=1[l7];\
-[7:a]atrim=0.51:5.64,asetpts=PTS-STARTPTS,aresample=48000,adelay=68350:all=1[l8];\
+[0:a]atrim=0.95:6.32,asetpts=PTS-STARTPTS,aresample=48000,afade=t=in:st=0:d=0.005,afade=t=out:st=5.365:d=0.005,adelay=350:all=1[l1];\
+[1:a]atrim=0:2.90,asetpts=PTS-STARTPTS,aresample=48000,afade=t=in:st=0:d=0.005,afade=t=out:st=2.895:d=0.005,adelay=23600:all=1[l2];\
+[2:a]atrim=0.95:3.28,asetpts=PTS-STARTPTS,aresample=48000,afade=t=in:st=0:d=0.005,afade=t=out:st=2.325:d=0.005,adelay=26350:all=1[l3];\
+[3:a]atrim=0.75:10.08,asetpts=PTS-STARTPTS,aresample=48000,afade=t=in:st=0:d=0.005,afade=t=out:st=9.325:d=0.005,adelay=28850:all=1[l4];\
+[4:a]atrim=0.63:9.76,asetpts=PTS-STARTPTS,aresample=48000,afade=t=in:st=0:d=0.005,afade=t=out:st=9.125:d=0.005,adelay=40350:all=1[l5];\
+[5:a]atrim=1.17:10.96,asetpts=PTS-STARTPTS,aresample=48000,afade=t=in:st=0:d=0.005,afade=t=out:st=9.785:d=0.005,adelay=50850:all=1[l6];\
+[6:a]atrim=1.21:7.72,asetpts=PTS-STARTPTS,aresample=48000,afade=t=in:st=0:d=0.005,afade=t=out:st=6.505:d=0.005,adelay=61350:all=1[l7];\
+[7:a]atrim=0.51:5.64,asetpts=PTS-STARTPTS,aresample=48000,afade=t=in:st=0:d=0.005,afade=t=out:st=5.125:d=0.005,adelay=68350:all=1[l8];\
 [l1][l2][l3][l4][l5][l6][l7][l8]amix=inputs=8:duration=longest:normalize=0,aresample=48000,apad=whole_dur=77.5,atrim=0:77.5[a]" \
   -map "[a]" -c:a pcm_s16le public/audio/voice-placed.wav
 echo "   voice-placed.wav OK"

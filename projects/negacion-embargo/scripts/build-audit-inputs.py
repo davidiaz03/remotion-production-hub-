@@ -70,13 +70,30 @@ def main():
     place = timeline["vo_placement"]
 
     # 1) VO original: concatenación sin huecos.
+    # CORRECCIÓN 22-nov (auditoría v3 FAIL): L1 es MONO y L2–L8 son
+    # ESTÉREO; el concat con `-c copy` no convierte y la cabecera
+    # declara mono (formato de L1): las muestras estéreo de L2–L8 se
+    # leen como mono intercalado (duración duplicada, 116,71 s, audio
+    # inservible) y la auditoría compara contra un original corrupto.
+    # Se convierte cada línea a mono 48k ANTES de concatenar.
+    conv = []
+    for n in range(1, 9):
+        out = os.path.join(VO_DIR, f"_orig_L{n}.wav")
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i",
+                        os.path.join(PROJ, "public/audio/real/lines",
+                                     f"L{n}.wav"),
+                        "-ac", "1", "-ar", "48000", out], check=True)
+        conv.append(out)
     concat_list = os.path.join(VO_DIR, "concat-orig.txt")
     with open(concat_list, "w") as f:
-        for n in range(1, 9):
-            f.write(f"file '{os.path.join(PROJ, 'public/audio/real/lines', f'L{n}.wav')}'\n")
+        for p in conv:
+            f.write(f"file '{p}'\n")
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat",
-                    "-safe", "0", "-i", concat_list, "-c", "copy",
+                    "-safe", "0", "-i", concat_list,
+                    "-c:a", "pcm_s16le",
                     os.path.join(VO_DIR, "voice-orig.wav")], check=True)
+    for p in conv:
+        os.remove(p)
 
     # Offsets de cada línea en la concatenación.
     offsets, acc = {}, 0.0
@@ -109,6 +126,16 @@ def main():
               ensure_ascii=False, indent=1)
 
     # 4) Plan de edición (un segmento por línea, factor 1.0).
+    # Pausas de prosodia intra-línea (research/vo/prosody-gaps.json):
+    # silencios de la toma única, verificados uno a uno en el original
+    # (energía -56..-61 dBFS con voz a ambos lados) — no son ediciones;
+    # el check (e) las trata como diseñadas. Sin ellas, (e) da FAIL
+    # espurio en cada pausa natural de Adriana (auditoría v3, 13 FAIL).
+    prosody = {}
+    pg_path = os.path.join(VO_DIR, "prosody-gaps.json")
+    if os.path.isfile(pg_path):
+        for ln_no, gs, ge in json.load(open(pg_path)):
+            prosody.setdefault(ln_no, []).append([gs, ge])
     lines = []
     for n in range(1, 9):
         p = place[f"L{n}"]
@@ -117,6 +144,7 @@ def main():
         lines.append({
             "linea": n, "slot": p["adelay_s"], "factor_uniforme": 1.0,
             "gaps": [],
+            "prosody_gaps": prosody.get(n, []),
             "segs": [{
                 "orig_start": round(offsets[n] + p["trim_start_s"], 3),
                 "orig_end": round(offsets[n] + p["trim_end_s"], 3),

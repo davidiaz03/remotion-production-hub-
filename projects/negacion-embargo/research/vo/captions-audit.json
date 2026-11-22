@@ -110,12 +110,12 @@
  {
   "text": "VALE,",
   "startMs": 26500,
-  "endMs": 27260,
+  "endMs": 27350,
   "pageBreakAfter": false
  },
  {
   "text": "AHORA",
-  "startMs": 27620,
+  "startMs": 27580,
   "endMs": 27800,
   "pageBreakAfter": true
  },
@@ -666,7 +666,7 @@
   "pageBreakAfter": false
  },
  {
-  "text": "QUE",
+  "text": "QUÉ",
   "startMs": 69080,
   "endMs": 69220,
   "pageBreakAfter": false

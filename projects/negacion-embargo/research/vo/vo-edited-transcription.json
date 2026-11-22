@@ -1,8 +1,8 @@
 [
  {
-  "text": "El gobierno de Estados Unidos lleva meses diciendo que no hay bloqueo. Míralos.",
-  "start": 0.0,
-  "end": 5.48,
+  "text": "El Gobierno de Estados Unidos lleva meses diciendo que no hay bloqueo. Míralos.",
+  "start": 0.72,
+  "end": 5.44,
   "words": [
    {
     "w": "El",
@@ -10,7 +10,7 @@
     "e": 1.22
    },
    {
-    "w": "gobierno",
+    "w": "Gobierno",
     "s": 1.22,
     "e": 1.56
    },
@@ -22,73 +22,73 @@
    {
     "w": "Estados",
     "s": 1.76,
-    "e": 2.0
+    "e": 2.02
    },
    {
     "w": "Unidos",
-    "s": 2.0,
+    "s": 2.02,
     "e": 2.48
    },
    {
     "w": "lleva",
     "s": 2.48,
-    "e": 2.82
+    "e": 2.8
    },
    {
     "w": "meses",
-    "s": 2.82,
+    "s": 2.8,
     "e": 3.14
    },
    {
     "w": "diciendo",
     "s": 3.14,
-    "e": 3.56
+    "e": 3.54
    },
    {
     "w": "que",
-    "s": 3.56,
-    "e": 3.78
+    "s": 3.54,
+    "e": 3.76
    },
    {
     "w": "no",
-    "s": 3.78,
+    "s": 3.76,
     "e": 3.86
    },
    {
     "w": "hay",
     "s": 3.86,
-    "e": 3.94
+    "e": 3.92
    },
    {
     "w": "bloqueo.",
-    "s": 3.94,
+    "s": 3.92,
     "e": 4.38
    },
    {
     "w": "Míralos.",
-    "s": 4.84,
-    "e": 5.48
+    "s": 4.9,
+    "e": 5.44
    }
   ]
  },
  {
   "text": "Cuatro veces en seis meses. Vale, ahora mira esto.",
-  "start": 23.92,
+  "start": 24.32,
   "end": 28.4,
   "words": [
    {
     "w": "Cuatro",
     "s": 23.6,
-    "e": 24.72
+    "e": 24.74
    },
    {
     "w": "veces",
-    "s": 24.72,
-    "e": 25.1
+    "s": 24.74,
+    "e": 25.06
    },
    {
     "w": "en",
-    "s": 25.1,
+    "s": 25.06,
     "e": 25.5
    },
    {
@@ -99,12 +99,12 @@
    {
     "w": "meses.",
     "s": 25.8,
-    "e": 26.26
+    "e": 26.22
    },
    {
     "w": "Vale,",
-    "s": 26.82,
-    "e": 27.26
+    "s": 26.9,
+    "e": 27.24
    },
    {
     "w": "ahora",
@@ -114,38 +114,38 @@
    {
     "w": "mira",
     "s": 27.8,
-    "e": 28.0
+    "e": 27.98
    },
    {
     "w": "esto.",
-    "s": 28.0,
+    "s": 27.98,
     "e": 28.4
    }
   ]
  },
  {
   "text": "Esta es la página del Departamento de Estado. Dice que Estados Unidos mantiene, y cito,",
-  "start": 28.4,
-  "end": 34.36,
+  "start": 29.2,
+  "end": 34.34,
   "words": [
    {
     "w": "Esta",
     "s": 29.0,
-    "e": 29.58
+    "e": 29.6
    },
    {
     "w": "es",
-    "s": 29.58,
+    "s": 29.6,
     "e": 29.7
    },
    {
     "w": "la",
     "s": 29.7,
-    "e": 29.82
+    "e": 29.8
    },
    {
     "w": "página",
-    "s": 29.82,
+    "s": 29.8,
     "e": 30.1
    },
    {
@@ -156,59 +156,59 @@
    {
     "w": "Departamento",
     "s": 30.34,
-    "e": 30.92
+    "e": 30.88
    },
    {
     "w": "de",
-    "s": 30.92,
+    "s": 30.88,
     "e": 31.08
    },
    {
     "w": "Estado.",
     "s": 31.08,
-    "e": 31.46
+    "e": 31.4
    },
    {
     "w": "Dice",
-    "s": 31.82,
-    "e": 32.22
+    "s": 32.0,
+    "e": 32.2
    },
    {
     "w": "que",
-    "s": 32.22,
+    "s": 32.2,
     "e": 32.36
    },
    {
     "w": "Estados",
     "s": 32.36,
-    "e": 32.62
+    "e": 32.6
    },
    {
     "w": "Unidos",
-    "s": 32.62,
+    "s": 32.6,
     "e": 33.0
    },
    {
     "w": "mantiene,",
     "s": 33.0,
-    "e": 33.68
+    "e": 33.66
    },
    {
     "w": "y",
     "s": 33.92,
-    "e": 34.04
+    "e": 34.02
    },
    {
     "w": "cito,",
-    "s": 34.04,
-    "e": 34.36
+    "s": 34.02,
+    "e": 34.34
    }
   ]
  },
  {
   "text": "un embargo económico integral contra Cuba que sigue vigente hoy.",
   "start": 34.68,
-  "end": 37.9,
+  "end": 37.88,
   "words": [
    {
     "w": "un",
@@ -218,26 +218,26 @@
    {
     "w": "embargo",
     "s": 34.76,
-    "e": 35.04
+    "e": 35.02
    },
    {
     "w": "económico",
-    "s": 35.04,
+    "s": 35.02,
     "e": 35.6
    },
    {
     "w": "integral",
     "s": 35.6,
-    "e": 35.94
+    "e": 35.9
    },
    {
     "w": "contra",
-    "s": 35.94,
-    "e": 36.24
+    "s": 35.9,
+    "e": 36.22
    },
    {
     "w": "Cuba",
-    "s": 36.24,
+    "s": 36.22,
     "e": 36.58
    },
    {
@@ -253,33 +253,33 @@
    {
     "w": "vigente",
     "s": 37.2,
-    "e": 37.58
+    "e": 37.56
    },
    {
     "w": "hoy.",
-    "s": 37.58,
-    "e": 37.9
+    "s": 37.56,
+    "e": 37.88
    }
   ]
  },
  {
-  "text": "Y el 5 de noviembre, ese mismo departamento anunció diez sanciones nuevas.",
-  "start": 40.62,
+  "text": "Y el 5 de noviembre ese mismo departamento anunció diez sanciones nuevas,",
+  "start": 40.98,
   "end": 45.04,
   "words": [
    {
     "w": "Y",
-    "s": 40.62,
+    "s": 40.5,
     "e": 41.26
    },
    {
     "w": "el",
     "s": 41.26,
-    "e": 41.38
+    "e": 41.4
    },
    {
     "w": "5",
-    "s": 41.38,
+    "s": 41.4,
     "e": 41.6
    },
    {
@@ -288,13 +288,13 @@
     "e": 41.76
    },
    {
-    "w": "noviembre,",
+    "w": "noviembre",
     "s": 41.76,
     "e": 42.28
    },
    {
     "w": "ese",
-    "s": 42.56,
+    "s": 42.28,
     "e": 42.7
    },
    {
@@ -305,43 +305,43 @@
    {
     "w": "departamento",
     "s": 42.98,
-    "e": 43.58
+    "e": 43.56
    },
    {
     "w": "anunció",
-    "s": 43.58,
-    "e": 44.04
+    "s": 43.56,
+    "e": 44.06
    },
    {
     "w": "diez",
-    "s": 44.04,
+    "s": 44.06,
     "e": 44.2
    },
    {
     "w": "sanciones",
     "s": 44.2,
-    "e": 44.66
+    "e": 44.64
    },
    {
-    "w": "nuevas.",
-    "s": 44.66,
+    "w": "nuevas,",
+    "s": 44.64,
     "e": 45.04
    }
   ]
  },
  {
-  "text": "Una red de petróleo, entidades estatales y proveedores chinos.",
-  "start": 45.56,
-  "end": 49.14,
+  "text": "una red de petróleo, entidades estatales y proveedores chinos.",
+  "start": 45.58,
+  "end": 49.16,
   "words": [
    {
-    "w": "Una",
-    "s": 45.56,
-    "e": 45.72
+    "w": "una",
+    "s": 45.58,
+    "e": 45.74
    },
    {
     "w": "red",
-    "s": 45.72,
+    "s": 45.74,
     "e": 45.92
    },
    {
@@ -377,12 +377,12 @@
    {
     "w": "chinos.",
     "s": 48.64,
-    "e": 49.14
+    "e": 49.16
    }
   ]
  },
  {
-  "text": "Waltz presume de 876 millones en ventas a Cuba, pero cada venta necesita un permiso del gobierno.",
+  "text": "Waltz presume de 876 millones en ventas a Cuba, pero cada venta necesita un permiso del Gobierno.",
   "start": 51.0,
   "end": 57.52,
   "words": [
@@ -394,21 +394,21 @@
    {
     "w": "presume",
     "s": 51.64,
-    "e": 51.98
+    "e": 52.0
    },
    {
     "w": "de",
-    "s": 51.98,
+    "s": 52.0,
     "e": 52.2
    },
    {
     "w": "876",
     "s": 52.2,
-    "e": 52.98
+    "e": 53.0
    },
    {
     "w": "millones",
-    "s": 52.98,
+    "s": 53.0,
     "e": 53.68
    },
    {
@@ -419,11 +419,11 @@
    {
     "w": "ventas",
     "s": 54.04,
-    "e": 54.34
+    "e": 54.36
    },
    {
     "w": "a",
-    "s": 54.34,
+    "s": 54.36,
     "e": 54.48
    },
    {
@@ -433,7 +433,7 @@
    },
    {
     "w": "pero",
-    "s": 55.28,
+    "s": 55.2,
     "e": 55.46
    },
    {
@@ -459,28 +459,28 @@
    {
     "w": "permiso",
     "s": 56.58,
-    "e": 56.92
+    "e": 56.94
    },
    {
     "w": "del",
-    "s": 56.92,
+    "s": 56.94,
     "e": 57.12
    },
    {
-    "w": "gobierno.",
+    "w": "Gobierno.",
     "s": 57.12,
     "e": 57.52
    }
   ]
  },
  {
-  "text": "Eso no es comercio libre, eso es control. Ellos lo niegan, sus documentos lo confirman.",
-  "start": 58.04,
+  "text": "Eso no es comercio libre, eso es control. Ellos lo niegan, sus documentos lo confirman,",
+  "start": 58.06,
   "end": 64.46,
   "words": [
    {
     "w": "Eso",
-    "s": 58.04,
+    "s": 58.06,
     "e": 58.28
    },
    {
@@ -496,11 +496,11 @@
    {
     "w": "comercio",
     "s": 58.48,
-    "e": 58.9
+    "e": 58.92
    },
    {
     "w": "libre,",
-    "s": 58.9,
+    "s": 58.92,
     "e": 59.2
    },
    {
@@ -516,53 +516,53 @@
    {
     "w": "control.",
     "s": 59.94,
-    "e": 60.36
+    "e": 60.38
    },
    {
     "w": "Ellos",
-    "s": 61.52,
-    "e": 62.0
+    "s": 61.58,
+    "e": 62.02
    },
    {
     "w": "lo",
-    "s": 62.0,
+    "s": 62.02,
     "e": 62.16
    },
    {
     "w": "niegan,",
     "s": 62.16,
-    "e": 62.52
+    "e": 62.54
    },
    {
     "w": "sus",
-    "s": 63.02,
+    "s": 63.04,
     "e": 63.14
    },
    {
     "w": "documentos",
     "s": 63.14,
-    "e": 63.76
+    "e": 63.78
    },
    {
     "w": "lo",
-    "s": 63.76,
+    "s": 63.78,
     "e": 63.88
    },
    {
-    "w": "confirman.",
+    "w": "confirman,",
     "s": 63.88,
     "e": 64.46
    }
   ]
  },
  {
-  "text": "El bloqueo no es un relato, es un documento oficial.",
-  "start": 64.94,
+  "text": "el bloqueo no es un relato, es un documento oficial.",
+  "start": 64.96,
   "end": 67.62,
   "words": [
    {
-    "w": "El",
-    "s": 64.94,
+    "w": "el",
+    "s": 64.96,
     "e": 65.06
    },
    {
@@ -573,11 +573,11 @@
    {
     "w": "no",
     "s": 65.42,
-    "e": 65.52
+    "e": 65.54
    },
    {
     "w": "es",
-    "s": 65.52,
+    "s": 65.54,
     "e": 65.64
    },
    {
@@ -588,11 +588,11 @@
    {
     "w": "relato,",
     "s": 65.74,
-    "e": 66.16
+    "e": 66.18
    },
    {
     "w": "es",
-    "s": 66.48,
+    "s": 66.5,
     "e": 66.68
    },
    {
@@ -603,28 +603,28 @@
    {
     "w": "documento",
     "s": 66.8,
-    "e": 67.26
+    "e": 67.28
    },
    {
     "w": "oficial.",
-    "s": 67.26,
+    "s": 67.28,
     "e": 67.62
    }
   ]
  },
  {
   "text": "¿Tú qué crees? Que lo niegan porque no existe o porque no les conviene admitirlo.",
-  "start": 68.54,
-  "end": 72.64,
+  "start": 68.82,
+  "end": 73.18,
   "words": [
    {
     "w": "¿Tú",
-    "s": 68.54,
-    "e": 69.06
+    "s": 68.5,
+    "e": 69.08
    },
    {
     "w": "qué",
-    "s": 69.06,
+    "s": 69.08,
     "e": 69.2
    },
    {
@@ -640,26 +640,26 @@
    {
     "w": "lo",
     "s": 70.0,
-    "e": 70.12
+    "e": 70.14
    },
    {
     "w": "niegan",
-    "s": 70.12,
+    "s": 70.14,
     "e": 70.42
    },
    {
     "w": "porque",
     "s": 70.42,
-    "e": 70.64
+    "e": 70.66
    },
    {
     "w": "no",
-    "s": 70.64,
-    "e": 70.82
+    "s": 70.66,
+    "e": 70.84
    },
    {
     "w": "existe",
-    "s": 70.82,
+    "s": 70.84,
     "e": 71.28
    },
    {
@@ -680,17 +680,17 @@
    {
     "w": "les",
     "s": 72.1,
-    "e": 72.26
+    "e": 72.28
    },
    {
     "w": "conviene",
-    "s": 72.26,
+    "s": 72.28,
     "e": 72.56
    },
    {
     "w": "admitirlo.",
     "s": 72.56,
-    "e": 72.88
+    "e": 73.18
    }
   ]
  }
