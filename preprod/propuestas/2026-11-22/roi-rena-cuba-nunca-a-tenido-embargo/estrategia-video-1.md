@@ -135,14 +135,12 @@ todo 2026. La 5.ª alternativa («this fake, phony, made-up blockade»,
   acusa); L2–L3 en staccato, con un latido de silencio tras «Vale»;
   L4–L6 firmes, dejando que los documentos caigan; L7 más lenta y
   pesada (es la tesis); L8 directa al oyente, conversacional.
-- **Previsualización IA de AUDIO (referencia de ritmo, no guía
-  para grabar):** Kokoro a ritmo objetivo (~155 palabras/min) para
-  oír el paso antes de grabar y cronometrar el montaje. Adriana la
-  escucha una vez si quiere captar la energía; graba libre, guiada
-  solo por la dirección de tono. El montaje se hace CON su VO: la
-  edición sigue a la voz, no al revés. 2–3 tomas, de pie, texto a
-  la altura de la cara, pausas tras «Vale» y antes de «Es un
-  documento oficial».
+- **Sin audio de referencia** (decisión del usuario 22-nov): la
+  dirección de tono basta (un audio de IA nunca da el tono humano);
+  Adriana graba libre. El montaje se hace
+  CON su VO: la edición sigue a la voz, no al revés. 2–3 tomas,
+  de pie, texto a la altura de la cara, pausas tras «Vale» y
+  antes de «Es un documento oficial».
 - Reglas de audio permanentes: ninguna pausa natural intra-línea
   <0,25 s ni perder >50%; la transcripción solo señala sospechas,
   el oído desempata; auditoría `audit-audio.py` obligatoria antes
