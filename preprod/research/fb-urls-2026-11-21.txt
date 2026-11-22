@@ -1,0 +1,34 @@
+# URLs de Facebook para la verificación real del escáner (21-nov-2026).
+# Recogidas de los digests del radar (10, 19 y 21-nov-2026): las Páginas
+# de referencia de FB no tienen URLs descubribles por ninguna vía
+# disponible, así que la verificación corre sobre Páginas reales del
+# radar (FC Bayern, UniVista TV, Wenderfis, CubaNet, NTN24).
+# FC Bayern (13; incluye 1 de la página de fans de Bangladesh y 1 de FC Bayern US)
+https://www.facebook.com/fcbayern.en/posts/pfbid0N27AKKXjDmXYxpVfZA874neyqQg2FmLQZHxEGx1PBSw31offMPo5PCiVBFWy9yz5l
+https://www.facebook.com/reel/1873537310327532/
+https://www.facebook.com/reel/1105021255743195/
+https://www.facebook.com/reel/1668607758241885/
+https://www.facebook.com/reel/1668600124960805/
+https://www.facebook.com/reel/1450772717257416/
+https://www.facebook.com/reel/1671519737844984/
+https://www.facebook.com/reel/1440673278240621/
+https://www.facebook.com/reel/3027932510880566/
+https://www.facebook.com/reel/1121984447106904/
+https://www.facebook.com/reel/1620463653100858/
+https://www.facebook.com/FCBayernUS/posts/pfbid02PPWQEjH8UCt3NRveHazSD6CbtAsPjXjxvSkXYUzq8AwUn2MNe1cUz9tdiXSkXWYRl
+https://www.facebook.com/fcbayern.en/posts/pfbid022Uqd1sCXturkStLfE2wgeo9jGBLM1WitsphcnB9LU3baKygNLazvDjP9dnrM8iDWl
+# UniVista TV (5)
+https://www.facebook.com/UniVistaTV/posts/pfbid0Rj2qgArCFimFVGAbemHMhFv5Ps1Vr1MLqwstbpnEScPZtrAxvaqcE2Rj57oR57Qpl
+https://www.facebook.com/UniVistaTV/posts/pfbid054fpAJ9DFgFmgvZSaZAQTCKGiK5pZkLYMYnWLC8M7ADUoCNf19qeSzTXbdS4XjV5l
+https://www.facebook.com/UniVistaTV/posts/pfbid0GSR1DTx1LBLqyCBmsTNSs3rYfcYc2VBvbXSUSUgQ7gKtYWkDnzpv5hPZnqddAdphl
+https://www.facebook.com/UniVistaTV/posts/pfbid02skyaxKsSDSfVLg9yDoqGYX2davHBRa8uKRVDzzp3FxctF485iGZWRStngRE3tETCl
+https://www.facebook.com/UniVistaTV/posts/pfbid02W7w9CpxHS4NPSuR6nMPiorsZKCN7TL7MC6jnqY4ppyxXvYobsHsRjBpxqgsHpSmsl
+# Wenderfis (3)
+https://www.facebook.com/Wenderfis/posts/pfbid0bxV74Hkj6Acin2pBpx6BiRNbAsjrPCpvvbmAVTrZZEZLC7sCHabDYrdBzGZB9FZHl
+https://www.facebook.com/Wenderfis/posts/pfbid08dC8aPoJbajrRCRovSYD5nKgCz8uSsVPyg9EFxYhqdjJxtfcTJMM7GikuaBcZ1K6l
+https://www.facebook.com/Wenderfis/posts/pfbid0rU4PpX2CnLrSqtyNStNeLKUTLP93evVst72XyNnBqCxodBpV9vEwU3dJ2ThvNZkPl
+# CubaNet Noticias (2)
+https://www.facebook.com/cubanetnoticias/posts/pfbid0PsuNgCuZKQccore8AxKRfLqEjvSnJD9V3y171X2VPzPwPjNtZK7Py1HQ6xNTwTHLl
+https://www.facebook.com/cubanetnoticias/posts/pfbid02SYsVy1UjChsmef9NQN9TuqzEdaRTM3P43WCtPySCzA2QanGZssKzLcrXjtgfJKk1l
+# NTN24 (1)
+https://www.facebook.com/reel/2011594893132373/

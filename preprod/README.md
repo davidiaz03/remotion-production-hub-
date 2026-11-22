@@ -62,7 +62,10 @@ preprod/
 ├── trend-channels.json       ← canales de referencia del escaneo de outliers
 ├── research/
 │   ├── tendencias-YYYY-MM-DD.md  ← investigación cruda de tendencias (una por escaneo)
-│   └── outliers-YYYY-MM-DD.md / .json  ← informe semanal de outliers de YouTube
+│   ├── outliers-YYYY-MM-DD.md / .json  ← informe semanal de outliers de YouTube (señal: vistas)
+│   ├── outliers-instagram-YYYY-MM-DD.md / .json  ← informe semanal de outliers de Instagram (señal: likes)
+│   ├── outliers-facebook-YYYY-MM-DD.md / .json  ← informe semanal de outliers de Facebook (señal: reacciones)
+│   └── fb-urls-YYYY-MM-DD.txt  ← lista de URLs de posts de Facebook para el escaneo de FB
 └── propuestas/
     ├── index.json            ← URLs ya propuestas (dedupe de rank)
     └── YYYY-MM-DD/
@@ -72,7 +75,7 @@ preprod/
 
 scripts/preprod/
 ├── propose.py                ← entrada de propuestas (draft, check, rank, daily)
-└── outliers.py               ← escáner de outliers de YouTube (scan)
+└── outliers.py               ← escáner de outliers de YouTube, Instagram y Facebook (scan)
 
 tests/preprod/
 ├── preprod.test.mjs          ← suite (node --test)
@@ -179,31 +182,75 @@ Opciones comunes: `--out DIR` redirige el directorio de propuestas
 (útil para pruebas); `--digest-dir DIR` y `--news-content DIR`
 redigen las entradas.
 
-### outliers.py scan — escáner de outliers de YouTube (reemplazo gratis de vidIQ)
+### outliers.py scan — escáner de outliers (reemplazo gratis de vidIQ)
 
 ```bash
-# Escaneo semanal completo (8 canales de preprod/trend-channels.json)
-python3 scripts/preprod/outliers.py scan
+# Escaneo semanal completo: las tres plataformas, un informe por plataforma
+python3 scripts/preprod/outliers.py scan --platform all --max 30
 
-# Solo algunos canales, o menos videos por canal
-python3 scripts/preprod/outliers.py scan --only "Memorias de Pez" --only "DW Documental" --max 30
+# Solo una plataforma, o solo algunas cuentas
+python3 scripts/preprod/outliers.py scan --platform instagram --max 30
+python3 scripts/preprod/outliers.py scan --platform youtube --only "Memorias de Pez" --max 30
+python3 scripts/preprod/outliers.py scan --platform facebook --fb-urls preprod/research/fb-urls-YYYY-MM-DD.txt --max 30
 ```
 
-Para cada canal de referencia, compara las vistas de cada video
-con la **mediana del canal** (solo videos de más de 7 días: los
-recientes aún no acumularon vistas) y marca **outlier ≥3x** y
-**breakout ≥10x**. Escribe `preprod/research/outliers-YYYY-MM-DD.md`
-(legible: top 3 global arriba, outliers por canal ordenados por
-multiplicador) y `outliers-YYYY-MM-DD.json` (legible por máquina).
-Los videos recientes (≤7 días) con multiplicador alto van a una
-sección aparte, «Recientes a vigilar», sin clasificar. Matiz: la
-mediana mezcla formatos (Shorts y videos largos), así que un canal
-con muchos Shorts de pocas vistas tendrá una mediana baja y
-multiplicadores altos; el informe muestra la duración de cada video
-para que el agente juzgue.
+Para cada cuenta de referencia, compara la señal de cada
+publicación con la **mediana de la cuenta** (solo publicaciones de
+más de 7 días: las recientes aún no acumularon señal) y marca
+**outlier ≥3x** y **breakout ≥10x**. La matemática es la misma en
+las tres plataformas; lo que cambia es la señal:
 
-**Dos backends, selección automática** (`--backend api|ytdlp|auto`,
-defecto `auto`):
+| Plataforma | Señal principal | Secundaria | Informe |
+|---|---|---|---|
+| YouTube | vistas | duración | `outliers-YYYY-MM-DD.md/.json` |
+| Instagram | likes | comentarios | `outliers-instagram-YYYY-MM-DD.md/.json` |
+| Facebook | reacciones | comentarios | `outliers-facebook-YYYY-MM-DD.md/.json` |
+
+**Instagram usa likes, no vistas, por necesidad:** el conector de
+Instagram no expone las vistas de las publicaciones de otras
+cuentas (solo likes y comentarios), así que los likes son la señal
+disponible. El escaneo filtra las colaboraciones de otros autores
+que aparecen en el perfil de la cuenta pedida, y pagina hasta
+completar una base mínima de 10 publicaciones antiguas (las cuentas
+que publican varias veces al día cubren menos de 7 días con
+`--max 30`; el tope duro es 3x `--max`). La cuenta propia de
+Instagram se resuelve por flag `--instagram-account-id`, variable
+`INSTAGRAM_ACCOUNT_ID` o autodetección (`instagram-cli accounts`);
+el ID nunca se guarda en el repo ni se imprime.
+
+**Facebook parte de una lista de URLs, no de un listado:** el
+conector de Facebook NO lista las publicaciones de una Página
+(verificado 21-nov-2026: `pages posts list` solo sirve para Páginas
+administradas; el timeline y el feed no devuelven publicaciones de
+Páginas ajenas con métricas). El procedimiento semanal es:
+1. Preparar `preprod/research/fb-urls-YYYY-MM-DD.txt` con las URLs
+   de los posts recientes de las Páginas de referencia (una por
+   línea; ~10–15 por Página, mezclando recientes y de hace más de
+   7 días para que haya base de mediana). Fuentes: los posts que el
+   agente encuentra en la revisión de tendencias y en el radar.
+2. Correr el escaneo: descubre automáticamente las URLs de
+   Facebook de los digests recientes del radar (`--digest-dir`,
+   `--digest-days`, por defecto 7 días) y las suma a las de
+   `--fb-urls` (con `--no-digest` se desactiva el descubrimiento).
+3. Cada URL se enriquece con `facebook-cli post read` + `post
+   reactions read` (con el `post_id` que devuelve el primero, no
+   con el ID de la URL) y se agrupa por Página (por `owner_id`).
+   Las Páginas de referencia sin URLs aparecen en una sección
+   aparte del informe, para que el agente sepa qué falta.
+
+Consecuencia honesta: la muestra de Facebook es la lista recogida,
+no el historial de la Página; la mediana es conservadora y el
+informe avisa cuando la base es pequeña (`n_base < 5`, «mediana
+poco fiable»). Las publicaciones recientes (≤7 días) con
+multiplicador alto van a una sección aparte, «Recientes a
+vigilar», sin clasificar. Matiz (YouTube): la mediana mezcla
+formatos (Shorts y videos largos), así que un canal con muchos
+Shorts de pocas vistas tendrá una mediana baja y multiplicadores
+altos; el informe muestra la duración de cada video para que el
+agente juzgue.
+
+**Backends de YouTube** (`--backend api|ytdlp|auto`, defecto `auto`,
+solo aplica a YouTube):
 - `api`: YouTube Data API v3, cuando existe `YOUTUBE_API_KEY`.
   Rápido (~3 unidades por canal: `channels.list` → playlist de
   uploads → `playlistItems.list` → `videos.list` en lotes de 50).
@@ -213,6 +260,10 @@ defecto `auto`):
 - `ytdlp`: yt-dlp local, sin clave. Más lento (~2-3 min por canal
   con `--max 50`, extracción completa porque la lista plana no
   trae fechas fiables) pero sin dependencias de Google.
+
+**Ante un 429 / rate limit** de un proveedor, el escaneo se detiene
+en ese proveedor, escribe el informe parcial con lo recogido y no
+reintenta por otra vía.
 
 **Crear la clave gratis de la API de YouTube** (una sola vez, ~5 min):
 1. Proyecto en [Google Cloud Console](https://console.cloud.google.com/)
@@ -308,27 +359,32 @@ procedimiento completo (pasos, cuentas de referencia, criterios de
 revisión) es el de `FORMATOS.md` §6; este es el resumen operativo:
 
 1. **Cuándo:** cada lunes, después de la corrida diaria.
-2. **Primero, el escaneo de outliers:** correr
-   `python3 scripts/preprod/outliers.py scan` (con la clave gratis
-   de la API si existe, si no con yt-dlp) y leer
-   `preprod/research/outliers-YYYY-MM-DD.md`. Los outliers y
-   breakouts de la semana son el material principal del escaneo:
-   ver los 2–3 primeros y transcribir su gancho.
-3. **Fuentes de Instagram:** los reels de la última semana de las 5
-   cuentas de referencia (AJ+ Español, Memorias de Pez, La
-   Hiperactina, La Base / Pablo Iglesias, El Orden Mundial y sus
-   podcasts). Anotar los 2–3 con mejor ratio likes/seguidores y
-   transcribir su gancho. (El escáner local cubre YouTube; para
-   Instagram se usa `instagram-cli`.)
+2. **Primero, el escaneo de outliers (las tres plataformas):** correr
+   `python3 scripts/preprod/outliers.py scan --platform all --max 30`
+   (YouTube con la clave gratis de la API si existe, si no con
+   yt-dlp; Instagram y Facebook con sus CLIs) y leer los tres
+   informes en `preprod/research/` (`outliers-`,
+   `outliers-instagram-` y `outliers-facebook-YYYY-MM-DD.md`). Los
+   outliers y breakouts de la semana son el material principal del
+   escaneo: ver los 2–3 primeros y transcribir su gancho. Para
+   Facebook, antes del escaneo hay que preparar la lista de URLs
+   (ver la sección de `outliers.py scan`): el escaneo descubre
+   URLs en los digests recientes del radar, y el agente añade las
+   URLs de las Páginas de referencia que falten.
+3. **Revisión manual de lo que el escáner no mide:** ver los reels
+   outliers de Instagram y Facebook y transcribir su gancho;
+   anotar los 2–3 recientes a vigilar con mejor ratio
+   likes/seguidores. (Desde el 21-nov-2026 el escáner local cubre
+   Instagram — señal: likes — y Facebook — señal: reacciones por
+   lista de URLs —; ya no hace falta revisarlos a mano desde cero.)
 4. **vidIQ (opcional, a partir del 2-dic-2026 con créditos):**
-   búsqueda de outliers en Instagram + TikTok para
+   búsqueda de outliers en TikTok para
    documental/denuncia/historia — lo único que el escáner local no
-   cubre. RT en Español, DW Documental y VisualPolitik ya están
-   cubiertos por el escáner local (RT: no disponible en YouTube,
-   ver `trend-channels.json`); queda pendiente aclarar qué cuenta
-   es «Nota» y re-verificar si la ventaja del gancho corto de
-   Scrptly y los múltiplos de EditorOP se sostienen en la muestra
-   hispana.
+   cubre. RT en Español no está en ninguna plataforma (YouTube y
+   Meta lo bloquearon en 2022, ver `trend-channels.json`); queda
+   pendiente aclarar qué cuenta es «Nota» y re-verificar si la
+   ventaja del gancho corto de Scrptly y los múltiplos de EditorOP
+   se sostienen en la muestra hispana.
 5. **Qué se revisa:** cualquier formato nuevo (nuevo tipo de gancho,
    nuevo uso de IA, nuevo patrón de edición) con URL y fecha; si un
    principio de `FORMATOS.md` deja de cumplirse en los ganadores
@@ -352,10 +408,12 @@ revisión) es el de `FORMATOS.md` §6; este es el resumen operativo:
 Nombre:   preprod-trends-weekly
 Horario:  lunes, 09:00 America/Puerto_Rico
 Tarea:    escaneo semanal de tendencias según el procedimiento de
-          arriba: primero `outliers.py scan`, luego revisión de
-          Instagram con instagram-cli (y vidIQ solo si tiene
-          créditos); registrar el escaneo en preprod/research/
-          y actualizar preprod/FORMATOS.md solo con lo verificado.
+          arriba: primero `outliers.py scan --platform all --max 30`
+          (con la lista de URLs de Facebook preparada), luego
+          revisión de los outliers (ver los 2–3 primeros y
+          transcribir su gancho; vidIQ solo si tiene créditos, solo
+          TikTok); registrar el escaneo en preprod/research/ y
+          actualizar preprod/FORMATOS.md solo con lo verificado.
 Comportamiento: silencioso si no hay cambios que incorporar;
                 informe corto al usuario solo con lo nuevo.
 ```
@@ -373,23 +431,33 @@ justificación, URL ya propuesta excluida), garantía de no-edición
 (escaneo estático + ejecución con `--out` en tmpdir) y corrida
 diaria silenciosa (digest bajo umbral → exit 0, sin packs ni
 shortlist). La suite de outliers (`tests/preprod/outliers.test.mjs`,
-8 tests) cubre la matemática (mediana, multiplicador, umbrales
+15 tests) cubre la matemática (mediana, multiplicador, umbrales
 3x/10x, exclusión de recientes), la selección de backend, la cuota,
-la generación del informe con un yt-dlp falso (sin red) y la
-garantía de no-edición de `outliers.py`.
+la generación de los tres informes con CLIs falsos (sin red:
+yt-dlp, instagram-cli con paginación y filtro de colaboraciones,
+facebook-cli con enriquecimiento por URL y agrupación por Página),
+el descubrimiento de URLs en digests, la resolución del ID de
+Instagram, la detección de rate limit y la paginación adaptativa
+de Instagram, y la garantía de no-edición de `outliers.py`.
 
 ## Estado y pendientes
 
 - **Estado (21-nov-2026):** módulo construido y probado (suite en
-  verde, 26 tests: 18 de propuestas + 8 de outliers). Rama
+  verde, 33 tests: 18 de propuestas + 15 de outliers). Rama
   `work/preprod-2026-11-21`, pusheada. Crons creados: `preprod-daily`
   07:50 (primera corrida dom 22-nov) y `preprod-trends-weekly` lun
   09:00 (primera corrida 23-nov).
 - **Escáner de outliers (21-nov-2026):** `scripts/preprod/outliers.py`
-  + `preprod/trend-channels.json` (7 canales de YouTube verificados;
-  RT en Español no disponible en YouTube). Reemplaza a vidIQ como
-  vía principal de búsqueda de outliers; vidIQ queda opcional
-  (Instagram + TikTok) cuando vuelva a tener créditos, el 2-dic-2026.
+  + `preprod/trend-channels.json` (22 cuentas: 7 canales de YouTube,
+  5 cuentas de Instagram, 4 Páginas de Facebook). Reemplaza a vidIQ
+  como vía principal de búsqueda de outliers en las tres
+  plataformas; vidIQ queda opcional (solo TikTok) cuando vuelva a
+  tener créditos, el 2-dic-2026. Verificación real 21-nov: Instagram
+  5 cuentas, 47 outliers (3 breakout, top La Base 21,54x);
+  Facebook 9 Páginas de 24 URLs, 0 outliers (muestras pequeñas, 4
+  recientes a vigilar). RT en Español no disponible en ninguna
+  plataforma (YouTube y Meta lo bloquearon en 2022); AJ+ Español
+  en Facebook pendiente de verificar.
 - **Pendiente — primera corrida real:** el primer `daily` con el
   digest del 22-nov validará el ranking contra noticias frescas y
   calibrará el umbral de 30 si hace falta (si la shortlist sale

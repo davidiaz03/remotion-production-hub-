@@ -1,0 +1,174 @@
+{
+  "fecha": "2026-11-21",
+  "plataforma": "facebook",
+  "backend": "facebook-cli",
+  "unidades_api": 0,
+  "top_global": [],
+  "canales": [
+    {
+      "canal": "CubaNet Noticias (facebook.com/cubanetnoticias)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "FC Bayern Munich (facebook.com/FCBayernUS)",
+      "mediana": 466,
+      "n_publicaciones": 5,
+      "n_base": 1,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [
+        {
+          "titulo": "Harry adding goal kicks to the resume 📝",
+          "url": "https://facebook.com/reel/1671519737844984/",
+          "multiplicador": 4.85,
+          "clasificacion": null,
+          "publicado": "2026-11-18",
+          "reacciones": 2259,
+          "comentarios": 4,
+          "media_type": "entfbstatusupdatevideo"
+        },
+        {
+          "titulo": "Back and ready for Friday 👊",
+          "url": "https://facebook.com/reel/3027932510880566/",
+          "multiplicador": 3.66,
+          "clasificacion": null,
+          "publicado": "2026-11-19",
+          "reacciones": 1706,
+          "comentarios": 3,
+          "media_type": "entfbstatusupdatevideo"
+        },
+        {
+          "titulo": "Harry Kane has to be substituted off after 20 minutes, with Tom Bischof coming…",
+          "url": "https://facebook.com/100044217350101/posts/pfbid0KMoMP3BZ55SdoqWoKBSdzu7YJLC3g3LsMLrfweexQeK59km93i7fNKA3ertPBHGTl/",
+          "multiplicador": 3.16,
+          "clasificacion": null,
+          "publicado": "2026-11-20",
+          "reacciones": 1472,
+          "comentarios": 35,
+          "media_type": null
+        }
+      ],
+      "configurada": false
+    },
+    {
+      "canal": "FC Bayern München (facebook.com/fcbayern.arab)",
+      "mediana": 437,
+      "n_publicaciones": 1,
+      "n_base": 1,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "FC Bayern München (facebook.com/fcbayern.en)",
+      "mediana": 5181.5,
+      "n_publicaciones": 3,
+      "n_base": 2,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "FC Bayern München (facebook.com/fcbayern.es)",
+      "mediana": 313,
+      "n_publicaciones": 3,
+      "n_base": 1,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [
+        {
+          "titulo": "¡Miren quiénes ya están de vuelta en Múnich! 👀🔥",
+          "url": "https://facebook.com/reel/1440673278240621/",
+          "multiplicador": 9.48,
+          "clasificacion": null,
+          "publicado": "2026-11-18",
+          "reacciones": 2967,
+          "comentarios": 9,
+          "media_type": "entfbstatusupdatevideo"
+        }
+      ],
+      "configurada": false
+    },
+    {
+      "canal": "FC Bayern München Fans Bangladesh (facebook.com/fcbayernbangla)",
+      "mediana": 155,
+      "n_publicaciones": 1,
+      "n_base": 1,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "NTN24 (facebook.com/NTN24)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "UniVista TV (facebook.com/UniVistaTV)",
+      "mediana": 172.5,
+      "n_publicaciones": 5,
+      "n_base": 2,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Wenderfis (facebook.com/Wenderfis)",
+      "mediana": null,
+      "n_publicaciones": 3,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    }
+  ],
+  "omitidos": [
+    {
+      "nombre": "AJ+ Español",
+      "motivo": "estado: pendiente_verificacion"
+    },
+    {
+      "nombre": "La Hiperactina",
+      "motivo": "estado: no_disponible"
+    },
+    {
+      "nombre": "RT en Español",
+      "motivo": "estado: no_disponible"
+    }
+  ],
+  "fallos": [],
+  "paginas_sin_urls": [
+    {
+      "nombre": "Memorias de Pez",
+      "facebook_handle": "MemoriasdPez"
+    },
+    {
+      "nombre": "La Base",
+      "facebook_handle": "canalredtelevision"
+    },
+    {
+      "nombre": "El Orden Mundial",
+      "facebook_handle": "elordenmundial"
+    },
+    {
+      "nombre": "DW Documental",
+      "facebook_handle": "dwdocumental"
+    }
+  ]
+}

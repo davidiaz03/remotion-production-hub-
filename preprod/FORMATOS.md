@@ -249,18 +249,23 @@ investigación se compensó con el estudio de EditorOP (que usó vidIQ el
 sin vistas), con yt-dlp (vistas de YouTube) y con análisis directo de 15
 videos descargados.
 
-**Desde el 21-nov-2026, el escáner local reemplaza a vidIQ en YouTube:**
-`scripts/preprod/outliers.py scan` (con la API gratis de YouTube o con
-yt-dlp, sin clave) calcula el múltiplo sobre la mediana de cada canal de
-referencia (`preprod/trend-channels.json`) y escribe el informe semanal en
-`preprod/research/outliers-YYYY-MM-DD.md`. Los pendientes de vidIQ quedan así:
+**Desde el 21-nov-2026, el escáner local reemplaza a vidIQ en YouTube,
+Instagram y Facebook:** `scripts/preprod/outliers.py scan --platform
+all --max 30` calcula el múltiplo sobre la mediana de cada cuenta de
+referencia (`preprod/trend-channels.json`) y escribe los informes
+semanales en `preprod/research/` (`outliers-`, `outliers-instagram-`
+y `outliers-facebook-YYYY-MM-DD.md`). Señales: vistas en YouTube,
+likes en Instagram (el conector no expone vistas de publicaciones
+ajenas) y reacciones en Facebook (por lista de URLs: el conector no
+lista las publicaciones de una Página). Los pendientes de vidIQ
+quedan así:
 1. Outlier search en YouTube en español: **cubierto por el escáner local**.
-2. RT en Español: **no disponible en YouTube** — YouTube bloqueó los canales
-   de RT en marzo de 2022; se reportó un regreso en ene-2025 como
-   @RTESChannel, pero verificado 21-nov-2026: 404 desde este entorno
-   (también fallan @RTenEspanol y @ActualidadRT). Queda en
-   `trend-channels.json` como `no_disponible`, para re-verificar
-   periódicamente.
+2. RT en Español: **no disponible en ninguna plataforma** — YouTube
+   bloqueó los canales de RT en marzo de 2022 y Meta hizo lo mismo
+   en Facebook e Instagram; confirmado por su corresponsal Aliana
+   Nieves (oct-2026). Queda en `trend-channels.json` como
+   `no_disponible`, para re-verificar periódicamente. La premisa de
+   que «RT sigue en Facebook» es falsa.
 3. DW Documental y VisualPolitik: **cubiertos por el escáner local**
    (UCQ1GpKa15ulyoQuxz7H4rng y UCJQQVLyM6wtPleV4wFBK06g).
 4. Aclarar qué cuenta es «Nota» (mencionada en el encargo, no
@@ -270,9 +275,8 @@ referencia (`preprod/trend-channels.json`) y escribe el informe semanal en
    manual de investigación, no del escáner).
 
 **Lo único que vidIQ seguiría aportando** cuando vuelva a tener créditos
-(2-dic-2026) es la búsqueda de outliers en **Instagram + TikTok**, que el
-escáner local no cubre. Para Instagram, el escaneo semanal usa
-`instagram-cli` (ver §6).
+(2-dic-2026) es la búsqueda de outliers en **TikTok**, que el
+escáner local no cubre.
 
 **No se afirma ningún dato de vidIQ en este documento** salvo los publicados
 por EditorOP (octubre 2026) y citados como [SEGÚN FUENTE].
@@ -286,15 +290,15 @@ por EditorOP (octubre 2026) y citados como [SEGÚN FUENTE].
   19-nov-2026). Investigación cruda completa:
   `preprod/research/tendencias-2026-11-21.md`.
 - **Escaneo semanal (cada lunes):**
-  1. Correr `python3 scripts/preprod/outliers.py scan` y leer
-     `preprod/research/outliers-YYYY-MM-DD.md`: los outliers y
-     breakouts de la semana son el material principal. Ver los 2–3
-     primeros y transcribir su gancho.
-  2. Revisar los reels de la última semana de las 5 cuentas de referencia
-     (§5 de la investigación cruda): AJ+ Español, Memorias de Pez, La
-     Hiperactina, La Base/Pablo Iglesias, El Orden Mundial y sus podcasts.
-     Anotar los 2–3 con mejor ratio likes/seguidores (o vistas en YouTube)
-     y transcribir su gancho.
+  1. Correr `python3 scripts/preprod/outliers.py scan --platform all
+     --max 30` (con la lista de URLs de Facebook preparada, ver
+     README) y leer los tres informes en `preprod/research/`
+     (`outliers-`, `outliers-instagram-` y `outliers-facebook-`):
+     los outliers y breakouts de la semana son el material
+     principal. Ver los 2–3 primeros y transcribir su gancho.
+  2. Revisar lo que el escáner no mide: ver los reels outliers y
+     anotar los 2–3 recientes a vigilar con mejor ratio
+     likes/seguidores.
   3. Anotar cualquier formato nuevo que aparezca (nuevo tipo de gancho,
      nuevo uso de IA, nuevo patrón de edición) con URL y fecha.
   4. Si un principio de este documento deja de cumplirse en los ganadores
@@ -305,7 +309,7 @@ por EditorOP (octubre 2026) y citados como [SEGÚN FUENTE].
      `preprod/research/` (un archivo por escaneo o una sección fechada en
      el archivo de tendencias vigente) y actualizar este FORMATOS.md solo
      con lo verificado.
-- **Actualización mayor:** con vidIQ (opcional, solo Instagram + TikTok)
+- **Actualización mayor:** con vidIQ (opcional, solo TikTok)
   tras el 2-dic-2026, y cada vez que el Memorial publique un reel con
   rendimiento excepcional (para incorporar el dato propio, que manda
   sobre cualquier estudio externo).

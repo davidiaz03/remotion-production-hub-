@@ -1,0 +1,15 @@
+# URLs de Facebook para la prueba de outliers.py (fixture sin red).
+# Comentarios y líneas en blanco se ignoran.
+https://www.facebook.com/reel/2001/
+https://www.facebook.com/reel/2002/
+https://www.facebook.com/reel/2003/
+https://www.facebook.com/reel/2004/
+https://www.facebook.com/reel/2005/
+https://www.facebook.com/reel/2006/
+https://www.facebook.com/reel/2007/
+https://www.facebook.com/reel/2008/
+https://www.facebook.com/paginab/posts/2101
+https://www.facebook.com/paginab/posts/2102
+
+# Esta URL no está en los datos del stub: debe registrarse como fallo.
+https://www.facebook.com/reel/9999/
