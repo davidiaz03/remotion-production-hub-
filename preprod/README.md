@@ -55,7 +55,7 @@ ese parseo.
 preprod/
 ├── README.md                 ← este archivo
 ├── SULERIS.md                ← perfil codificado de la directora (vetos, exigencias, gustos)
-├── NARRATIVA.md              ← 30 reglas narrativas permanentes del Memorial
+├── NARRATIVA.md              ← 31 reglas narrativas permanentes del Memorial
 ├── FORMATOS.md               ← principios de gancho, 11 formatos, patrones de edición
 ├── RANKING.md                ← criterios de ranking, fórmula, umbral, ajustes del agente
 ├── checklist-suleris.json    ← checklist legible por máquina (V1–V9, E1–E4 + reglas de guion)
@@ -69,6 +69,8 @@ preprod/
 │   ├── fb-urls-YYYY-MM-DD.txt  ← lista de URLs de posts de Facebook para el escaneo de FB
 │   ├── medicion-YYYY-MM-DD.md / .json  ← informe semanal de medición propia (señal: reacciones FB, likes IG)
 │   └── fb-urls-medicion-YYYY-MM-DD.txt  ← URLs de FB del perfil para la medición
+├── investigacion/
+│   └── <slug>/dossier.md     ← dossier de investigación previa por tema (R31)
 └── propuestas/
     ├── index.json            ← URLs ya propuestas (dedupe de rank)
     └── YYYY-MM-DD/
@@ -78,13 +80,17 @@ preprod/
 
 scripts/preprod/
 ├── propose.py                ← entrada de propuestas (draft, check, rank, daily)
+├── investigate.py            ← etapa de investigación previa (new, check)
 ├── outliers.py               ← escáner de outliers de YouTube, Instagram y Facebook (scan)
 └── measure.py                ← medición semanal del contenido propio (measure)
 
 tests/preprod/
-├── preprod.test.mjs          ← suite (node --test)
-├── outliers.test.mjs         ← suite del escáner de outliers
-├── measure.test.mjs          ← suite de la medición semanal
+├── preprod.test.mjs          ← suite de propuestas (18 tests)
+├── investigate.test.mjs      ← suite de la investigación previa (15 tests)
+├── outliers.test.mjs         ← suite del escáner de outliers (15 tests)
+├── measure.test.mjs          ← suite de la medición semanal (14 tests)
+├── archive.test.mjs          ← suite del archivo propio (7 tests)
+├── publish.test.mjs          ← suite de la publicación programada (20 tests)
 └── fixtures/                 ← digests sintéticos, borrador de ejemplo, packs
 ```
 
@@ -117,6 +123,39 @@ Todos desde la raíz del repo. `--help` en cada subcomando. Salidas:
 0 OK · 1 error operativo o validación fallida · 2 uso incorrecto.
 Solo Python stdlib, sin red, determinista y offline.
 
+### investigate.py — etapa de investigación previa (antes del guion)
+
+```bash
+# Crear el dossier de un tema (plantilla con marcadores [ESCRIBIR])
+python3 scripts/preprod/investigate.py new "la negación del embargo" --date 2026-11-22
+
+# Validar un dossier rellenado (por slug o por ruta)
+python3 scripts/preprod/investigate.py check negacion-del-embargo
+python3 scripts/preprod/investigate.py check preprod/investigacion/negacion-del-embargo/dossier.md
+```
+
+El dossier es la puerta R31: sin dossier verificado no hay guion.
+Un tema, un dossier, en `preprod/investigacion/<slug>/dossier.md`;
+un tema puede alimentar varios packs (la propuesta referencia su
+dossier en la Ficha con `- Dossier: <ruta>`). Contenido: hechos
+verificados contra su fuente primaria (estado, fuente, fecha;
+VERIFICADO exige URL), 3–5 referencias de videos o posts del tema
+que funcionan — el CENTRO del dossier — con URL, métricas, por qué
+funcionan y qué se toma prestado como guía (nunca copia),
+tendencias que se puedan adaptar al tema (al menos 2) y ganchos que
+funcionan en el tema (al menos 2). Las referencias que vengan del
+escáner de outliers se anotan en Origen con la ruta del informe
+(`preprod/research/outliers-*.md`); el dossier no duplica el
+escáner, lo referencia.
+
+Puerta en `propose.py`: `draft` sin dossier avisa y deja
+`- Dossier: pendiente`; `draft --dossier <ruta>` valida el dossier
+antes de crear el pack y escribe su ruta en la Ficha (si el dossier
+no es válido, el draft falla). `check` exige dossier verificado en
+los packs nuevos (fecha posterior al 22-nov-2026); los packs
+anteriores a la etapa solo reciben un aviso y pueden recibir un
+dossier retroactivo.
+
 ### draft — andamio de un pack de propuesta
 
 ```bash
@@ -144,6 +183,11 @@ opciones de gancho, guion (líneas de VO numeradas + plan visual por
 escena, 120–170 palabras habladas, ~60 s), justificación de formato
 (con sugerencia automática desde FORMATOS.md) y el checklist de
 Suleris completo con estado pendiente.
+
+Si el tema ya tiene dossier, `draft --dossier <ruta>` lo valida y
+lo deja referenciado en la Ficha; sin dossier, el draft avisa y
+`check` fallará en los packs nuevos hasta que el dossier exista y
+esté verificado (ver `investigate.py` arriba).
 
 ### check — validar un pack rellenado
 
@@ -515,14 +559,28 @@ de Historias, cifras «1,0 mil», deduplicación por URL y por
 fecha+título), la vía de Páginas con CLI falso (rate limit con
 fallback a URLs), la lectura pública de Instagram con paginación y
 la detección de la sesión propia bloqueada, la generación del
-informe y la garantía de no-edición de `measure.py`. Total: 47 tests.
+informe y la garantía de no-edición de `measure.py`. La suite de la
+investigación previa (`tests/preprod/investigate.test.mjs`, 15
+tests) cubre la creación del dossier (plantilla con las cuatro
+secciones), el happy path por slug y por ruta, los fallos de
+validación (hecho VERIFICADO sin fuente primaria, referencia sin
+métricas o sin URL, sección faltante, sin tendencias, sin hechos
+VERIFICADOS), `--force` y el dossier inexistente, la puerta en
+`propose.py` (draft avisa sin dossier, `--dossier` válido lo
+referencia y `--dossier` inválido falla; check exige dossier en
+packs nuevos y solo avisa en los anteriores a la etapa), la
+garantía de no-edición de `investigate.py` y que `--out` no escribe
+fuera del tmpdir. Las suites de archivo (`archive.test.mjs`, 7
+tests) y de publicación programada (`publish.test.mjs`, 20 tests)
+cubren sus módulos respectivos. Total: 89 tests.
 
 ## Estado y pendientes
 
-- **Estado (21-nov-2026):** módulo construido y probado (suite en
-  verde, 47 tests: 18 de propuestas + 15 de outliers + 14 de
-  medición). Rama `work/preprod-2026-11-21`, pusheada. Crons creados:
-  `preprod-daily` 07:50 (primera corrida dom 22-nov) y
+- **Estado (22-nov-2026):** módulo construido y probado (suite en
+  verde, 89 tests: 18 de propuestas + 15 de investigación previa +
+  15 de outliers + 14 de medición + 7 de archivo + 20 de
+  publicación). Rama `work/preprod-2026-11-21`, pusheada. Crons
+  creados: `preprod-daily` 07:50 (primera corrida dom 22-nov) y
   `preprod-trends-weekly` lun 09:00 (primera corrida 23-nov).
 - **Escáner de outliers (21-nov-2026):** `scripts/preprod/outliers.py`
   + `preprod/trend-channels.json` (22 cuentas: 7 canales de YouTube,
@@ -548,6 +606,15 @@ informe y la garantía de no-edición de `measure.py`. Total: 47 tests.
   Páginas de Facebook (pages list vacío, 403) e insights propios de
   Instagram (falta reactivar la sesión de @memorialdenuncia).
   Informe: `preprod/research/medicion-2026-11-21.md`.
+- **Etapa de investigación previa (22-nov-2026):**
+  `scripts/preprod/investigate.py` (new/check) + NARRATIVA.md R31
+  (sin dossier verificado no hay guion). Primer dossier:
+  `preprod/investigacion/negacion-del-embargo/dossier.md` (14
+  hechos, 10 VERIFICADO; 5 referencias con URL y métricas
+  re-verificadas; 4 tendencias adaptables; 4 ganchos). La etapa
+  cazó dos errores de la investigación del pack: el video «AMERICA
+  VS CUBA» tenía 1.196 vistas, no 35K, y el video del hombre
+  tatuado no se localizó — ninguno entró como referencia.
 - **Pendiente — primera corrida real:** el primer `daily` con el
   digest del 22-nov validará el ranking contra noticias frescas y
   calibrará el umbral de 30 si hace falta (si la shortlist sale

@@ -14,6 +14,7 @@
 - Sección: Cuba-EE.UU.
 - Fecha de la noticia: 2026-11-20 (hilo de Threads); el arco cubre 27-oct-2026 (ONU) → 5-nov-2026 (designaciones) → 20-nov-2026 (Threads).
 - Fuente primaria: verificada — publicación de Threads abierta directamente (autor, fecha, enlace a state.gov traducido); página state.gov/cuba-sanctions abierta directamente el 22-nov-2026; comunicado del Departamento de Estado del 5-nov-2026 abierto directamente; negación de Waltz corroborada por Noticias ONU.
+- Dossier: ../../../investigacion/negacion-del-embargo/dossier.md
 
 ## Hechos (de la fuente; no añadir hechos sin fuente)
 

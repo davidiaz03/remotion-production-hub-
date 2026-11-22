@@ -11,6 +11,12 @@ shortlists, logs) dentro de preprod/propuestas/. La edición empieza
 únicamente cuando el usuario confirma que Suleris aprobó un pack, y
 eso lo hace otro flujo, nunca este.
 
+ETAPA DE INVESTIGACIÓN PREVIA (NARRATIVA.md R31): antes de redactar
+el guion de un pack nuevo, el tema se investiga en un dossier
+(`investigate.py`); `check` exige un dossier verificado en la ficha
+de los packs nuevos. Los packs del 2026-11-22 o anteriores solo
+reciben un aviso y pueden recibir un dossier retroactivo.
+
 Solo Python stdlib, sin red, determinista y offline. El parseo del
 digest se reutiliza de news-content (news_content/radar.py); este
 script no reescribe ese parseo.
@@ -58,6 +64,12 @@ LINEAS_GUION_ANDAMIO = 8
 UMBRAL_SHORTLIST = 30.0
 SHORTLIST_MAX = 10
 DAILY_PACKS = 3
+
+# Etapa de investigación previa (NARRATIVA.md R31, 22-nov-2026): los
+# packs de esta fecha o anteriores son anteriores a la etapa — sin
+# dossier referenciado solo reciben un aviso, no un fallo. Los packs
+# posteriores exigen un dossier verificado para pasar el check.
+DOSSIER_CORTE_LEGADO = "2026-11-22"
 
 CLASIFICACIONES = {"hecho confirmado", "declaración", "preliminar",
                    "rumor no verificado", "reacción social"}
@@ -416,6 +428,10 @@ def construir_pack(ficha: dict, checklist: dict) -> str:
         lineas.append(f"- Fecha de la noticia: {ficha['fecha_noticia']}")
     if ficha.get("fuente_primaria"):
         lineas.append(f"- Fuente primaria: {ficha['fuente_primaria']}")
+    lineas.append(
+        "- Dossier: "
+        f"{ficha.get('dossier') or 'pendiente (investigate.py new <tema> '
+        'antes de redactar el guion)'}")
     lineas += [
         "",
         "## Hechos (de la fuente; no añadir hechos sin fuente)",
@@ -1130,13 +1146,39 @@ def buscar_coincidencias(patron: str, lineas: list[str]) -> list[tuple[int, str]
     return halladas
 
 
-def validar_pack(ruta: Path, checklist: dict) -> list[str]:
-    """Valida un pack rellenado. Devuelve la lista de fallos (vacía = OK)."""
+def _validar_dossier(ruta: Path) -> list[str]:
+    """Valida un dossier con investigate.py (importación perezosa: el
+    módulo se carga solo cuando un pack referencia un dossier)."""
+    scripts_dir = Path(__file__).resolve().parent
+    if str(scripts_dir) not in sys.path:
+        sys.path.insert(0, str(scripts_dir))
+    try:
+        import investigate
+    except ImportError:
+        return [f"no se pudo cargar investigate.py desde {scripts_dir}"]
+    return investigate.validar_dossier(ruta)
+
+
+def fecha_del_pack(ruta: Path, texto: str) -> str | None:
+    """Fecha del pack: primero del path (propuestas/YYYY-MM-DD/...),
+    si no de la línea «> Fecha:» del encabezado."""
+    for parte in ruta.parts:
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", parte):
+            return parte
+    m = re.search(r"^> Fecha:\s*(\d{4}-\d{2}-\d{2})", texto, re.M)
+    return m.group(1) if m else None
+
+
+def validar_pack(ruta: Path, checklist: dict) -> tuple[list[str], list[str]]:
+    """Valida un pack rellenado. Devuelve (fallos, avisos): los avisos
+    no bloquean (p. ej. un pack anterior a la etapa de investigación
+    sin dossier referenciado)."""
     fallos: list[str] = []
+    avisos: list[str] = []
     try:
         texto = ruta.read_text(encoding="utf-8")
     except OSError as exc:
-        return [f"no se pudo leer el pack: {exc}"]
+        return [f"no se pudo leer el pack: {exc}"], []
     secciones = dividir_secciones(texto)
 
     # 1. Marcadores sin rellenar.
@@ -1220,7 +1262,43 @@ def validar_pack(ruta: Path, checklist: dict) -> list[str]:
                         f"{regla['id']}: {regla['texto'][:80]}… — "
                         f"{len(halladas)} coincidencias (máximo {maximo}); "
                         f"primera: «{halladas[0][1][:120]}»")
-    return fallos
+
+    # 7. Dossier de investigación (NARRATIVA.md R31): sin dossier
+    # verificado no hay guion. Los packs anteriores a la etapa solo
+    # reciben un aviso; los nuevos fallan sin dossier o con un
+    # dossier que no pasa su propia validación.
+    fecha_pack = fecha_del_pack(ruta, texto)
+    es_legado = fecha_pack is None or fecha_pack <= DOSSIER_CORTE_LEGADO
+    m_dossier = re.search(r"^- Dossier:\s*(.+)$", texto_ficha, re.M)
+    if m_dossier is None:
+        if es_legado:
+            avisos.append("sin dossier de investigación referenciado "
+                          "(pack anterior a la etapa de investigación; "
+                          "dossier retroactivo recomendado)")
+        else:
+            fallos.append("falta la línea «- Dossier:» en la ficha "
+                          "(etapa de investigación previa, NARRATIVA.md R31)")
+    else:
+        dossier_valor = m_dossier.group(1).strip()
+        if (dossier_valor.lower().startswith("pendiente")
+                or MARCADOR_ESCRIBIR in dossier_valor):
+            if es_legado:
+                avisos.append("dossier pendiente (pack anterior a la "
+                              "etapa de investigación)")
+            else:
+                fallos.append("dossier pendiente: investiga el tema con "
+                              "`investigate.py new <tema>` antes de "
+                              "redactar el guion (NARRATIVA.md R31)")
+        else:
+            ruta_dossier = Path(dossier_valor)
+            if not ruta_dossier.is_absolute():
+                ruta_dossier = (ruta.parent / ruta_dossier).resolve()
+            if not ruta_dossier.exists():
+                fallos.append(f"dossier no encontrado: {dossier_valor}")
+            else:
+                for fallo in _validar_dossier(ruta_dossier):
+                    fallos.append(f"dossier: {fallo}")
+    return fallos, avisos
 
 
 # --- Subcomandos ----------------------------------------------------------
@@ -1262,12 +1340,30 @@ def cmd_draft(args) -> int:
     if args.slug:
         slug = slugify(args.slug)
     slug = slug_unico(props_dir, fecha, slug, ficha.get("fuente_url", ""))
+    if args.dossier:
+        ruta_dossier = Path(args.dossier)
+        if not ruta_dossier.exists():
+            print(f"error: dossier no encontrado: {ruta_dossier}",
+                  file=sys.stderr)
+            return 1
+        fallos_dossier = _validar_dossier(ruta_dossier)
+        if fallos_dossier:
+            print(f"error: dossier no válido: {ruta_dossier}",
+                  file=sys.stderr)
+            for fallo in fallos_dossier:
+                print(f"  - {fallo}", file=sys.stderr)
+            return 1
+        ficha["dossier"] = args.dossier
     contenido = construir_pack(ficha, checklist)
     destino = escribir_pack(props_dir, fecha, slug, contenido, args.force)
     pack_rel = f"{fecha}/{slug}/propuesta.md"
     registrar_propuesta(props_dir, ficha.get("fuente_url", ""), pack_rel,
                         fecha, ficha["titulo"])
     print(f"pack creado: {destino} (desde {origen})")
+    if not args.dossier:
+        print("aviso: sin dossier de investigación — crea uno con "
+              "`investigate.py new <tema>` y rellena la línea Dossier de "
+              "la ficha antes de redactar el guion (NARRATIVA.md R31)")
     return 0
 
 
@@ -1277,7 +1373,9 @@ def cmd_check(args) -> int:
     if not ruta.exists():
         print(f"error: pack no encontrado: {ruta}", file=sys.stderr)
         return 1
-    fallos = validar_pack(ruta, checklist)
+    fallos, avisos = validar_pack(ruta, checklist)
+    for aviso in avisos:
+        print(f"aviso: {aviso}")
     if fallos:
         print(f"check FALLIDO ({len(fallos)}): {ruta}")
         for fallo in fallos:
@@ -1362,6 +1460,9 @@ def cmd_daily(args) -> int:
                             ficha["titulo"])
         log(f"pack {candidato['rank']}: {destino}")
         creados += 1
+    if creados:
+        log(f"dossier: los {creados} packs salen con Dossier pendiente; "
+            f"investigar con `investigate.py new <tema>` antes de redactar")
     log(f"daily {fecha}: fin ({creados} packs creados)")
     log_path.write_text("\n".join(lineas_log) + "\n", encoding="utf-8")
     return 0
@@ -1401,6 +1502,11 @@ def construir_cli() -> argparse.ArgumentParser:
                               "America/Puerto_Rico)")
     p_draft.add_argument("--slug", metavar="SLUG",
                          help="slug del pack (defecto: desde el título)")
+    p_draft.add_argument("--dossier", metavar="RUTA",
+                         help="dossier de investigación verificado "
+                              "(investigate.py); se valida antes de "
+                              "crear el pack y queda en la línea "
+                              "Dossier de la ficha")
     p_draft.add_argument("--force", action="store_true",
                          help="sobrescribir el pack si ya existe")
     p_draft.add_argument("--out", metavar="DIR",
@@ -1418,7 +1524,11 @@ def construir_cli() -> argparse.ArgumentParser:
                     "del checklist contra guion, ganchos y plan visual) y "
                     "estructurales (3 ganchos, sin marcadores [ESCRIBIR], "
                     "guion 120–170 palabras, checklist completo con "
-                    "evidencia, fuente con URL). Exit 0 solo si todo pasa.")
+                    "evidencia, fuente con URL) y la puerta de la etapa "
+                    "de investigación (NARRATIVA.md R31): los packs "
+                    "nuevos exigen un dossier verificado referenciado "
+                    "en la ficha; los packs del 2026-11-22 o anteriores "
+                    "solo reciben un aviso. Exit 0 solo si todo pasa.")
     p_check.add_argument("pack", metavar="PACK",
                          help="ruta a propuesta.md")
     p_check.set_defaults(func=cmd_check)

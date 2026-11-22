@@ -334,3 +334,11 @@ por EditorOP (octubre 2026) y citados como [SEGÚN FUENTE].
 - **Regla permanente de este documento:** nada sin fuente. Un ejemplo sin URL
   y fecha no entra; una cifra sin fuente se marca como no verificada y no se
   usa para decidir.
+- **Referencias por tema:** las referencias de videos y posts que funcionan en
+  UN tema concreto no viven aquí: viven en el dossier de investigación de
+  ese tema (`preprod/investigacion/<slug>/dossier.md`, sección
+  `## Referencias`, 3–5 con URL, métricas, por qué funcionan y qué se toma
+  prestado como guía). Este documento guarda principios TRANSVERSALES
+  (tipos de gancho, formatos, patrones de edición); el dossier guarda la
+  evidencia del tema. Las tendencias adaptables a un tema también viven en
+  su dossier (`## Tendencias adaptables`). Ver NARRATIVA.md R31.

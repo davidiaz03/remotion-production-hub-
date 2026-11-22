@@ -411,6 +411,30 @@ NO apareció en ninguna fuente no está aquí: ver §9.
   `research/map-build.py` (regla documentada para reproducir la corrección de
   Galápagos en un futuro re-run).
 
+### R31. Sin dossier de investigación verificado no hay guion
+- **Regla:** antes de escribir el guion de un reel, el tema se investiga a
+  fondo en un dossier (`preprod/investigacion/<slug>/dossier.md`): hechos
+  verificados contra su fuente primaria (cada uno con estado, fuente y
+  fecha), 3–5 referencias de videos o posts del tema que funcionan (con
+  URL, métricas, por qué funcionan y qué se toma prestado COMO GUÍA,
+  nunca copia), tendencias que se puedan adaptar al tema y ganchos que
+  funcionan en el tema. Las referencias son el CENTRO del dossier, no un
+  extra: sin contenido de referencia exitoso no hay guion a la altura de
+  las redes. `investigate.py check` valida el dossier; `propose.py check`
+  exige el dossier verificado en los packs nuevos (los anteriores al
+  22-nov-2026 solo reciben un aviso y pueden recibir dossier retroactivo).
+- **Evidencia:** primer dossier (negación del embargo, 22-nov-2026): 14
+  hechos (10 VERIFICADO), 5 referencias con URL y métricas re-verificadas
+  (Jayapal 160K, CUBANO MEDIA 38K, portavoz china 26K, Graham Allen 14K,
+  reel Pilar 222 likes), 4 tendencias adaptables (ángulo del combustible:
+  VisualPolitik 398K vistas, 16,35x) y 4 ganchos. La etapa cazó dos
+  errores de la investigación del pack: el video «AMERICA VS CUBA» tenía
+  1.196 vistas, no 35K, y el video del hombre tatuado (80K IG + 22K FB)
+  no se localizó — ninguno de los dos entró como referencia.
+- **Fuente:** orden del usuario 22-nov-2026 + refuerzo el mismo día;
+  `scripts/preprod/investigate.py`;
+  `preprod/investigacion/negacion-del-embargo/dossier.md`.
+
 ---
 
 ## 6. LA RECETA VIRAL DEL MEMORIAL
