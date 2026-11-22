@@ -21,10 +21,18 @@ MIX = os.path.expanduser("~/workspace/remotion-hub/repo/scripts/audio/mix.py")
 
 def main() -> int:
     t = json.load(open(os.path.join(PROJ, "research/timeline.json")))
+    # Ducking: receta probada de marti-fidel V1.5+ (threshold 0,08,
+    # ratio 5, release 250 ms): bombeo 20,1 -> 9,1 dB, profundidad
+    # media -11,8 -> -3,4 dB, recuperación perfecta. Los defaults de
+    # mix.py (0,018 / 7 / 420 ms) bombean ~20 dB y recuperan lento
+    # (el check (f) de la auditoría haría FAIL en recuperación).
     args = [HUB_PY, MIX,
             "--voice", os.path.join(PROJ, "public/audio/voice-placed.wav"),
             "--music", os.path.join(PROJ, "public/audio/music-bed.wav"),
             "--seconds", str(t["duration_s"]),
+            "--duck-threshold", "0.08",
+            "--duck-ratio", "5",
+            "--duck-release", "250",
             "--out", os.path.join(PROJ, "public/audio/mix.wav")]
     if "--force" in sys.argv:
         args.append("--force")
