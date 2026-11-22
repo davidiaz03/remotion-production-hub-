@@ -28,6 +28,23 @@ duración en cadena de una sola entrada — ver nota en el código):
   mezcla: amix (VO + música duckeada + SFX) -> alimiter 0.89
          -> loudnorm I=-14.5 TP=-1.5 LRA=8 -> WAV 48 kHz s16le
 
+LOUDNORM DINÁMICO vs DIPS (22-nov-2026, negacion-embargo): el
+loudnorm de un solo pase es DINÁMICO: sube los pasajes tranquilos
+para alcanzar el objetivo. Si la cama lleva dips horneados (panel
+-6 dB, giro -12 dB), el loudnorm los DESHACE en la mezcla (medido:
+el giro de -12 dB quedó en 0 dB netos; el panel de -6 dB en 0-3 dB).
+--two-pass (loudnorm LINEAL) solo funciona si el objetivo es
+alcanzable linealmente (ganancia necesaria <= TP_objetivo - TP_entrada);
+si no, ffmpeg vuelve a modo dinámico aunque se pida linear=true
+(medido: con TP de entrada -0,82 y objetivo -14,5, el two-pass salió
+dinámico y los dips se borraron igual). La vía fiable cuando los
+picos de SFX impiden el lineal es --fixed-gain: mide la mezcla,
+aplica una ganancia CONSTANTE (objetivo - I_entrada) y un limitador
+de seguridad (0,8, level=false). Ganancia constante = dips exactos;
+el limitador solo toca los transitorios de SFX que excedan el techo.
+Verificado en negacion-embargo: con --fixed-gain los dips medidos en
+la mezcla coinciden con los horneados.
+
 Salida: WAV + informe JSON (LUFS/TP medidos con ebur128, SHA256 de
 entradas y salida, comando ffmpeg). Por defecto se niega a sobrescribir
 (como el Studio); --force lo permite.
@@ -152,6 +169,20 @@ def main() -> int:
     p.add_argument("--end-fade", type=float, default=0.0,
                    help="Fade-out al final de la última sección (s, 0 = ninguno)")
     p.add_argument("--limiter", type=float, default=DEFAULT_LIMITER)
+    p.add_argument("--two-pass", action="store_true",
+                   help="Loudnorm final LINEAL en dos pases (mide y "
+                   "aplica con linear=true): conserva los dips de la "
+                   "cama y la dinámica intencional. Solo funciona si "
+                   "el objetivo es alcanzable linealmente; si no, "
+                   "ffmpeg vuelve a dinámico (ver cabecera).")
+    p.add_argument("--fixed-gain", action="store_true",
+                   help="Normalización final por GANANCIA CONSTANTE "
+                   "en vez de loudnorm: mide la mezcla, aplica "
+                   "volume=(objetivo - I_entrada) y un limitador de "
+                   "seguridad (0,8, level=false). Conserva los dips "
+                   "y la dinámica exactamente; el limitador solo "
+                   "toca los transitorios que excedan el techo. "
+                   "Tiene prioridad sobre --two-pass.")
     p.add_argument("--force", action="store_true",
                    help="Sobrescribir salida e informe si existen")
     a = p.parse_args()
@@ -239,15 +270,78 @@ def main() -> int:
     # Mezcla final: VO + música duckeada + SFX -> limiter -> loudnorm.
     mix_inputs = "[v][duck]" + "".join(f"[{lb}]" for lb in sfx_labels)
     n_mix = 2 + len(sfx_labels)
+    loudnorm_single = (f"loudnorm=I={a.target_lufs}:TP={a.target_tp}:"
+                       f"LRA={a.target_lra}")
+    # alimiter con level=false (sin auto-level): con el default
+    # (level=true) el limitador aplica ganancia de compensación y
+    # devuelve los picos hacia 0 dBFS — con limit=0,65 se midió
+    # TP 0,00 en vez de -3,7, y la mezcla salía MÁS alta con el
+    # limitador más bajo. Sin auto-level el limitador limita de
+    # verdad (misma lección que en audit-audio.py).
     filt.append(
         f"{mix_inputs}amix=inputs={n_mix}:duration=first:normalize=0,"
-        f"alimiter=limit={a.limiter},atrim=0:{a.seconds},"
-        f"loudnorm=I={a.target_lufs}:TP={a.target_tp}:LRA={a.target_lra},"
+        f"alimiter=limit={a.limiter}:level=false,atrim=0:{a.seconds},"
+        f"{loudnorm_single},"
         f"apad=whole_dur={a.seconds},atrim=0:{a.seconds}[mix]"
     )
-    filt_str = ";".join(filt)
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     tmp_out = a.out + ".tmp.wav"
+    norm_info = {"mode": "single-pass (dynamic)"}
+    if a.two_pass or a.fixed_gain:
+        # Pase de medida: mismo grafo, loudnorm con print_format=json
+        # a null. Necesita -v info (con -v error no se imprime el
+        # bloque Parsed_loudnorm).
+        loudnorm_measure = loudnorm_single + ":print_format=json"
+        filt_measure = ";".join(
+            filt[:-1] + [filt[-1].replace(loudnorm_single,
+                                          loudnorm_measure)])
+        meas = subprocess.run(
+            ["ffmpeg", "-y", "-hide_banner", "-v", "info", "-nostdin",
+             *inputs, "-filter_complex", filt_measure, "-map", "[mix]",
+             "-f", "null", "-"],
+            capture_output=True, text=True, check=True, timeout=600)
+        m = re.search(r'\{[^{}]*"input_i"[^{}]*\}', meas.stderr)
+        if not m:
+            print("AVISO: no se pudo medir el loudnorm; se usa el "
+                  "pase único (dinámico).", file=sys.stderr)
+        elif a.fixed_gain:
+            # Ganancia constante = objetivo - I_entrada, + limitador
+            # de seguridad 0,8 (-1,94 dBFS; deja margen intermuestra
+            # para TP <= -1,5). El limitador solo toca los
+            # transitorios que la ganancia empuja sobre el techo.
+            d = json.loads(m.group(0))
+            gain_db = a.target_lufs - float(d["input_i"])
+            norm_info = {
+                "mode": "fixed-gain (linear)",
+                "measured_input_i": d["input_i"],
+                "measured_input_tp": d["input_tp"],
+                "gain_db": round(gain_db, 2),
+                "safety_limiter": 0.8,
+            }
+            fixed = (f"volume={gain_db:.2f}dB,"
+                     f"alimiter=limit=0.8:level=false")
+            filt = filt[:-1] + [filt[-1].replace(loudnorm_single, fixed)]
+        else:
+            d = json.loads(m.group(0))
+            norm_info = {
+                "mode": "two-pass (linear)",
+                "measured_input_i": d["input_i"],
+                "measured_input_tp": d["input_tp"],
+                "measured_input_lra": d["input_lra"],
+                "measured_input_thresh": d["input_thresh"],
+                "target_offset": d["target_offset"],
+                "normalization_type": d["normalization_type"],
+            }
+            loudnorm_linear = (
+                f"{loudnorm_single}:"
+                f"measured_I={d['input_i']}:"
+                f"measured_TP={d['input_tp']}:"
+                f"measured_LRA={d['input_lra']}:"
+                f"measured_thresh={d['input_thresh']}:"
+                f"offset={d['target_offset']}:linear=true")
+            filt = filt[:-1] + [filt[-1].replace(loudnorm_single,
+                                                 loudnorm_linear)]
+    filt_str = ";".join(filt)
     cmd = ["ffmpeg", "-y", "-hide_banner", "-v", "error", "-nostdin", *inputs,
            "-filter_complex", filt_str, "-map", "[mix]",
            "-c:a", "pcm_s16le", tmp_out]
@@ -289,6 +383,7 @@ def main() -> int:
         "true_peak_dbtp": None if silent else tp,
         "target_lufs": a.target_lufs,
         "target_tp": a.target_tp,
+        "normalization": norm_info,
         "voice_sha256": sha256(a.voice),
         "music_sha256": [sha256(s[0]) for s in a.section] if a.section
                         else sha256(a.music),

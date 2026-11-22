@@ -8,13 +8,16 @@ Suleris dio el visto bueno final y el usuario ordenó proceder
 
 - [ ] 1. Composición construida
 - [ ] 2. Pre-vuelo visual superado
-- [ ] 3. Cama lista y escaneada — CAMBIO 22-nov ~12:50 (orden del
-      usuario): NO finalizar con `documentary-flow-a`. Nueva cama en
-      Flow Music (Plus), más rápida y con más carácter, en generación;
-      llega escaneada. `documentary-flow-a` queda como TEMPORAL (la
-      mezcla actual `mix.wav` es temporal, PASS_REAL −16,8 LUFS) y
-      como RESPALDO si la nueva no encaja en el montaje. Al llegar la
-      nueva: bucle/dips + mezcla final + re-render + re-auditoría.
+- [x] 3. Cama lista y escaneada — HECHO 22-nov ~13:20. Cama nueva de
+      Flow Music «Memorial de la Denuncia — Cama documental» (Lyria
+      3.5, 112 BPM, 117,38 s), ventana limpia 8–98 s (90 s; scan PASS
+      0 VOICE / 0 UNCERTAIN), registrada como
+      `memorial-cama-documental`. Stem 77,5 s a nivel nativo + dips
+      horneados (panel −6 dB, giro −12 dB). MEZCLA FINAL con
+      fixed-gain lineal (+3,21 dB): PASS_REAL −16,2 LUFS / TP −1,9;
+      dips verificados en la mezcla. `documentary-flow-a` queda como
+      RESPALDO (stem y mezcla temporal guardados). El render de
+      validación usa directamente la mezcla FINAL.
 - [ ] 4. Render terminado
 - [ ] 5. Auditoría de audio superada
 - [ ] 6. Máster + ligera entregados

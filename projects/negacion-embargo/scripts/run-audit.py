@@ -49,7 +49,7 @@ def main() -> int:
             "--edit-plan", os.path.join(vo, "edit-plan.json"),
             "--section",
             os.path.join(pub, "audio/music-bed.wav") + "@0@77.5",
-            "--music-volume", "0.32",
+            "--music-volume", "0.40",  # igual que run-mix.py
             "--duck-release", "250",
             "--duck-threshold", "0.08",
             "--duck-ratio", "5",

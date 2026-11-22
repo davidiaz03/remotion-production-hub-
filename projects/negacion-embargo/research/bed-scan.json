@@ -1,0 +1,67 @@
+{
+ "input": "/home/hatch/workspace/browser_downloads/sess-1647581713/browser-download-20261122T165615.206050042Z-0-Memorial_de_la_Denuncia___Cama_documental.mp3",
+ "window_start_s": 0.0,
+ "window_duration_s": 117.38,
+ "passes": {
+  "vad": [
+   {
+    "start": 1.84,
+    "end": 3.84,
+    "text": "¡Suscríbete!",
+    "no_speech_prob": 0.934,
+    "avg_logprob": -0.965,
+    "class": "UNCERTAIN",
+    "reason": "palabras reales pero nsp 0.934 (oír)",
+    "start_abs": 1.84,
+    "end_abs": 3.84
+   }
+  ],
+  "raw": [
+   {
+    "start": 0.0,
+    "end": 6.0,
+    "text": "Música",
+    "no_speech_prob": 0.425,
+    "avg_logprob": -1.056,
+    "class": "HALLUCINATION",
+    "reason": "patrón conocido de alucinación",
+    "start_abs": 0.0,
+    "end_abs": 6.0
+   },
+   {
+    "start": 6.0,
+    "end": 16.0,
+    "text": "Música",
+    "no_speech_prob": 0.425,
+    "avg_logprob": -1.056,
+    "class": "HALLUCINATION",
+    "reason": "patrón conocido de alucinación",
+    "start_abs": 6.0,
+    "end_abs": 16.0
+   },
+   {
+    "start": 16.0,
+    "end": 23.0,
+    "text": "Música",
+    "no_speech_prob": 0.425,
+    "avg_logprob": -1.056,
+    "class": "HALLUCINATION",
+    "reason": "patrón conocido de alucinación",
+    "start_abs": 16.0,
+    "end_abs": 23.0
+   },
+   {
+    "start": 23.0,
+    "end": 29.0,
+    "text": "Música",
+    "no_speech_prob": 0.425,
+    "avg_logprob": -1.056,
+    "class": "HALLUCINATION",
+    "reason": "patrón conocido de alucinación",
+    "start_abs": 23.0,
+    "end_abs": 29.0
+   }
+  ]
+ },
+ "verdict": "PASS"
+}

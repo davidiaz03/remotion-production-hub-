@@ -26,13 +26,41 @@ def main() -> int:
     # media -11,8 -> -3,4 dB, recuperación perfecta. Los defaults de
     # mix.py (0,018 / 7 / 420 ms) bombean ~20 dB y recuperan lento
     # (el check (f) de la auditoría haría FAIL en recuperación).
+    # Volumen de música 0,40 (no el default 0,32): el stem nuevo
+    # (memorial-cama-documental, -21,4 LUFS nativos) es ~1,7 LU más
+    # bajo que documentary-flow-a (-19,7); 0,40 (-7,96 dB) deja la
+    # cama en la mezcla al mismo nivel que la mezcla temporal
+    # (-29,4 LUFS sin ducking). Ganancia lineal: conserva los dips.
+    # (La auditoría debe usar el mismo valor: run-audit.py.)
+    # --fixed-gain (ganancia CONSTANTE en vez de loudnorm): el
+    # loudnorm de un solo pase es dinámico y DESHACE los dips
+    # horneados (medido 22-nov: el giro de -12 dB quedó en 0 dB netos
+    # en la mezcla); y --two-pass tampoco sirve aquí porque los picos
+    # de SFX (TP -0,82 con limiter 0,89) hacen inalcanzable el
+    # objetivo lineal y ffmpeg vuelve a dinámico aunque se pida
+    # linear=true (medido: con 0,89 y con 0,65 el two-pass salió
+    # dinámico y los dips se borraron igual). Con fixed-gain, mix.py
+    # mide la mezcla y aplica volume=(objetivo - I_entrada) + un
+    # limitador de seguridad 0,8: ganancia constante = dips exactos.
+    # --limiter 0.65 (-3,7 dBFS): doma los picos de SFX antes de la
+    # ganancia para que el limitador de seguridad apenas tenga que
+    # actuar (solo sobre los transitorios más altos).
+    # --target-lufs -16.0 (no el default -14.5): con fixed-gain, el
+    # objetivo define la ganancia (objetivo - I_entrada ≈ +3,2 dB);
+    # -14.5 exigiría +4,7 dB y el limitador de seguridad recortaría
+    # los slams ~3 dB. Con -16.0 el recorte es ~1,4 dB y el máster
+    # (mezcla + voces del panel) queda ~-15,3, dentro del gate.
     args = [HUB_PY, MIX,
             "--voice", os.path.join(PROJ, "public/audio/voice-placed.wav"),
             "--music", os.path.join(PROJ, "public/audio/music-bed.wav"),
             "--seconds", str(t["duration_s"]),
+            "--music-volume", "0.40",
             "--duck-threshold", "0.08",
             "--duck-ratio", "5",
             "--duck-release", "250",
+            "--fixed-gain",
+            "--target-lufs", "-16.0",
+            "--limiter", "0.65",
             "--out", os.path.join(PROJ, "public/audio/mix.wav")]
     if "--force" in sys.argv:
         args.append("--force")

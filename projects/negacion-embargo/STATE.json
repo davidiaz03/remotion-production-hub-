@@ -12,15 +12,15 @@
     "Tiempos de palabra de la VO (22-nov-2026): L2–L8 en research/vo/vo-transcription-small.json; L1 en research/vo/l1-words-small.json (faster-whisper small, word_timestamps).",
     "Cama elegida (22-nov-2026): documentary-flow-a (biblioteca del hub, Flow «Documentary underscore» ventana 89–149 s, 60 s, −19,74 LUFS, scan PASS — VAD sin voz, Whisper solo alucinaciones conocidas). Pendiente: bucle a la duración del video + dips horneados (panel −6 dB, giro −12 dB) + mezcla.",
     "Decisión de montaje (22-nov-2026): tarjetas 2–3 del panel con voz original completa (4–5,6 s, medido); Rubio con punch-in 120–130% sobre la cara (C9) + banda de cita como respaldo; audio del panel en la composición (clips pre-normalizados a −16 LUFS), mezcla = VO + cama + SFX.",
-    "Mezcla TEMPORAL (22-nov-2026): documentary-flow-a bucleada a 77,5 s con dips horneados; scan-bed.py PASS sobre el stem; mix.wav PASS_REAL (-16,8 LUFS, TP -1,5, 37 SFX). SOLO para ritmo/tiempos y pre-vuelo. La mezcla FINAL espera la cama nueva de Flow Music (orden del usuario 22-nov ~12:50)."
+    "Mezcla TEMPORAL (22-nov-2026): documentary-flow-a bucleada a 77,5 s con dips horneados; scan-bed.py PASS sobre el stem; mix.wav PASS_REAL (-16,8 LUFS, TP -1,5, 37 SFX). SOLO para ritmo/tiempos y pre-vuelo. La mezcla FINAL espera la cama nueva de Flow Music (orden del usuario 22-nov ~12:50).",
+    "Cama FINAL + mezcla FINAL (22-nov-2026 ~13:20): «Memorial de la Denuncia — Cama documental» (Flow Music, Lyria 3.5, 112 BPM), ventana 8–98 s, scan PASS; stem 77,5 s con dips horneados (panel −6 dB, giro −12 dB). Mezcla FINAL fixed-gain lineal PASS_REAL (−16,2 LUFS, TP −1,9, 37 SFX, music-volume 0,40). Hallazgos codificados: el loudnorm dinámico (un solo pase y two-pass con objetivo inalcanzable) DESHACE los dips horneados — mix.py ahora tiene --fixed-gain y --two-pass; alimiter con level=false (el auto-level devolvía los picos a 0 dBFS). El render de validación usa directamente la mezcla FINAL (ya no hace falta render con la temporal)."
   ],
   "compositionId": "MainReel",
   "id": "negacion-embargo",
   "latestSnapshot": null,
-  "nextTask": "Producción en curso (22-nov ~12:50): composición MainReel + pre-vuelo + render con la mezcla TEMPORAL (documentary-flow-a). La mezcla FINAL espera la cama nueva de Flow Music; al llegar, re-mezcla + re-render + auditoría final.",
+  "nextTask": "Producción en curso (22-nov ~13:20): composición MainReel en construcción (subagente); al recibirla, pre-vuelo + render con la MEZCLA FINAL (la cama nueva ya está mezclada; documentary-flow-a queda como respaldo). Luego auditoría final y entrega.",
   "objective": "Dicen que no hay bloqueo",
   "pending": [
-    "Cama NUEVA de Flow Music (más rápida, más carácter): llega escaneada; al recibirla, bucle/dips + mezcla final + re-render + re-auditoría. Si no encaja en el montaje, volver a documentary-flow-a y avisar.",
     "Construir la composición MainReel (12 escenas según AUDIT_PREEDIT.md §6, 2325 f).",
     "Pre-vuelo visual: stills en los fotogramas clave de las 12 escenas antes del render.",
     "Render por tramos PCM + master.py + qa-media (primero con la mezcla temporal para validar; el render final va con la mezcla definitiva).",
@@ -49,7 +49,7 @@
   },
   "schema": "remotion-hub.state/v1",
   "title": "Dicen que no hay bloqueo",
-  "updatedAt": "2026-11-22T16:50:00Z",
+  "updatedAt": "2026-11-22T17:19:04Z",
   "milestones": {
     "order": [
       "composicion",
@@ -71,9 +71,9 @@
     },
     "cama": {
       "label": "Cama lista y escaneada",
-      "status": "pending",
-      "doneAt": null,
-      "note": "CAMBIO 22-nov ~12:50 (orden del usuario): NO finalizar con documentary-flow-a. El usuario autorizó una cama nueva en Flow Music (Plus), más rápida y con más carácter, para el tono de Adriana. La generación está lanzada en el navegador; el archivo escaneado llega en cuanto esté. documentary-flow-a queda como TEMPORAL (ritmo/tiempos) y como RESPALDO si la nueva no encaja en el montaje."
+      "status": "done",
+      "doneAt": "2026-11-22T17:19:04Z",
+      "note": "Cama nueva de Flow Music «Memorial de la Denuncia — Cama documental» (Lyria 3.5, 112 BPM, 117,38 s), recibida y escaneada 22-nov ~12:58. Ventana limpia 8–98 s (90 s; evita la intro 0–7 s —incluye el UNCERTAIN 1,84–3,84 s— y el fade-out 113–117 s); scan PASS 0 VOICE / 0 UNCERTAIN en la ventana. Registrada en la biblioteca como memorial-cama-documental. Stem 77,5 s a nivel nativo (−22,3 LUFS) + dips horneados (panel −6 dB, giro −12 dB; verificados por RMS). MEZCLA FINAL con fixed-gain lineal (+3,21 dB): PASS_REAL −16,2 LUFS / TP −1,9; dips verificados en la mezcla (panel −7,3/−10,1 dB netos). Respaldo: documentary-flow-a (stem y mezcla temporal guardados como music-bed-documentary-flow-a.wav y mix-temp-flow-a.wav)."
     },
     "render": {
       "label": "Render terminado",

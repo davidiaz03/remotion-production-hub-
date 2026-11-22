@@ -291,11 +291,17 @@ def main():
         "panel": PANEL,
         "sfx": sfx,
         "beats": BEATS,
-        "bed": {"id": "documentary-flow-a",
+        "bed": {"id": "memorial-cama-documental",
                 "file": "audio/music-bed.wav",
+                "stem_lufs": -22.28,
+                "music_volume": 0.40,
                 "dips": BED_DIPS,
-                "note": "Stem bucleado a 77,5 s con dips horneados; "
-                        "mix.py lo duckeada bajo la VO."},
+                "note": "Cama nueva de Flow Music (Lyria 3.5, 112 BPM, "
+                        "ventana 8-98 s de la pista, scan PASS). Stem a "
+                        "nivel nativo + dips horneados (SIN loudnorm: "
+                        "caería en modo dinámico y comprimiría los dips); "
+                        "el nivel se calibra con --music-volume 0,40 en "
+                        "la mezcla. Respaldo: documentary-flow-a."},
         "mix": {"voice_track": "audio/voice-placed.wav",
                 "out": "audio/mix.wav",
                 "target_lufs": -14.5, "target_tp": -1.5},

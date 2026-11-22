@@ -1,0 +1,22 @@
+{
+ "input": "public/audio/music-bed.wav",
+ "window_start_s": 0.0,
+ "window_duration_s": 77.5,
+ "passes": {
+  "vad": [],
+  "raw": [
+   {
+    "start": 60.0,
+    "end": 67.0,
+    "text": "Subtítulos realizados por la Iglesia de Jesucristo de los Santos de los Últimos días",
+    "no_speech_prob": 0.759,
+    "avg_logprob": -0.57,
+    "class": "UNCERTAIN",
+    "reason": "palabras reales pero nsp 0.759 (oír)",
+    "start_abs": 60.0,
+    "end_abs": 67.0
+   }
+  ]
+ },
+ "verdict": "PASS"
+}
