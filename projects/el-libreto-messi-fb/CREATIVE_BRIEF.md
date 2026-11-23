@@ -2,7 +2,35 @@
 
 **Proyecto:** `el-libreto-messi-fb` · **Rama:** `work/preprod-2026-11-21`
 **Formato:** Reel Facebook, 30 s, 1080×1920, 30 fps, 900 fotogramas.
-**Fecha:** 23-nov-2026. **Estado:** en producción (v1).
+**Fecha:** 23-nov-2026. **Estado:** v1 terminada — REEL_OK 23-nov 16:22
+(sistema), pendiente el visto bueno del usuario. Sin publicar.
+
+## Resultado v1
+Máster 1080×1920 + ligera 720×1280, 30,0 s, 900 f, −16,5 LUFS,
+TP −4,7 dBTP. QA técnico passed; auditoría de audio WARN, 0 FAIL
+(34 WARN benignos: captions cortos en palabras funcionales, bombeo
+del ducking sobre el tono de sala, 1 desvío Whisper en el máster).
+Pre-vuelo: 0 bloqueantes (revisión a ojo de los 11 stills + f340).
+Fantasma: 0 GHOST; 5 REVISAR revisados a ojo (transiciones legítimas:
+handoff título→contador en f81, slide-in de la comparación f309–312).
+
+Correcciones aplicadas durante la v1 (todas verificadas con re-render):
+- Frontera L1/L2 a 2,45 s (la cola de «Cuba.» tenía energía de voz
+  en 2,36 s) + pausa de prosodia L5 [20,77, 21,02] declarada.
+- Cortes de escena por FOTOGRAMA, no por segundos: 25,15 s cae entre
+  f754 y f755 y el condicional por tiempo retrasaba el corte un
+  fotograma (GHOST real en f754, corregido).
+- Resaltado «José Forever»: la caja estaba en coords de display
+  (1080×1003), no de imagen; medida en la captura original
+  (x 77–247, y 27–50 → display x 124–398, y 44–81).
+- Manifiesto de pre-vuelo: «Sello 2022» fusionado en «Comparación»
+  (mismo beat, pHash Hamming 4 = duplicado bloqueante); still del
+  cierre movido a f870 (f830 cae a mitad del fundido).
+- Dos bugs del orquestador corregidos en el repo: `reel.mjs` llamaba
+  a `ghost-frames.py` con `--master`/`--strips-dir` (la CLI real es
+  `VIDEO … --mark-dir`); `audit-audio.py` transcribía el máster sin
+  VAD y faster-whisper rompía su alineación DTW con el segmento
+  vacío de la cola (IndexError) — ahora `vad_filter=True`.
 
 ## Encargo
 Primer video producido de El Libreto (marca personal sin rostro del

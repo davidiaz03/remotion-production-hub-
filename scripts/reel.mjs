@@ -514,16 +514,16 @@ step('ghost', ['reports/ghost-frames.json'], (heavy) => {
 	}
 	if (dryRun) {
 		run(VENV_PY, [path.join(ROOT, 'scripts/ghost-frames.py'),
-			'--master', P(masterMp4), '--scenes', P(preflightManifest),
+			P(masterMp4), '--scenes', P(preflightManifest),
 			'--out', P('reports/ghost-frames.json'),
-			'--strips-dir', P('reports/ghost-frames')], 'ghost-frames', home, heavy);
+			'--mark-dir', P('reports/ghost-frames')], 'ghost-frames', home, heavy);
 		return;
 	}
 	// Puerta dura P0-4: exit 1 si hay GHOST o REVISAR en un corte.
 	run(VENV_PY, [path.join(ROOT, 'scripts/ghost-frames.py'),
-		'--master', P(masterMp4), '--scenes', P(preflightManifest),
+		P(masterMp4), '--scenes', P(preflightManifest),
 		'--out', P('reports/ghost-frames.json'),
-		'--strips-dir', P('reports/ghost-frames')], 'ghost-frames', home, heavy);
+		'--mark-dir', P('reports/ghost-frames')], 'ghost-frames', home, heavy);
 }, {inputs: [masterMp4, preflightManifest], heavy: true,
 	skipIf: () => {
 		// El marcador vale solo si coincide con la configuración

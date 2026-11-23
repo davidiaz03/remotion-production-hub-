@@ -173,15 +173,20 @@ const PostScenes: React.FC<{t: number}> = ({t}) => {
 						}}
 					>
 						<Img src={staticFile(POST)} style={{width: 1080, height: 1003}} />
-						{/* Resaltado sobre «José Forever - El Taiger» (coords
-						    de imagen x 90-305, y 20-50): escala con el zoom. */}
+						{/* Resaltado sobre «José Forever - El Taiger».
+						    Coords de DISPLAY de la captura (1080x1003):
+						    el nombre mide x 124-398, y 44-81 (medido en
+						    la captura original 670x621: x 77-247,
+						    y 27-50, escala 1,612). La caja anterior
+						    (x 90-305, y 20-50) quedaba arriba y a la
+						    izquierda del nombre. Escala con el zoom. */}
 						<div
 							style={{
 								position: 'absolute',
-								left: 90,
-								top: 20,
-								width: 215,
-								height: 30,
+								left: 118,
+								top: 40,
+								width: 286,
+								height: 45,
 								backgroundColor: RESALTADOR,
 								opacity: 0.55 * highlightOpacity,
 								borderRadius: 4,
@@ -864,12 +869,16 @@ export const MainReel: React.FC = () => {
 
 	return (
 		<AbsoluteFill style={{backgroundColor: TINTA}}>
-			{t < 10.3 && <PostScenes t={t} />}
-			{t >= 10.3 && t < 15.2 && <Comparacion t={t} />}
-			{t >= 15.2 && t < 19.5 && <CasaBlanca t={t} />}
-			{t >= 19.5 && t < 22.6 && <Trio t={t} frame={frame} fps={fps} />}
-			{t >= 22.6 && t < 25.15 && <Veredicto t={t} />}
-			{t >= 25.15 && <Cierre t={t} />}
+			{/* Cortes por FOTOGRAMA (no por segundos): 25,15 s cae entre
+			    f754 y f755 (754,5) y un condicional por tiempo retrasa
+			    el corte un fotograma, lo que ghost-frames marca como
+			    GHOST. Los límites coinciden con preflight-scenes.json. */}
+			{frame < 309 && <PostScenes t={t} />}
+			{frame >= 309 && frame < 456 && <Comparacion t={t} />}
+			{frame >= 456 && frame < 585 && <CasaBlanca t={t} />}
+			{frame >= 585 && frame < 678 && <Trio t={t} frame={frame} fps={fps} />}
+			{frame >= 678 && frame < 754 && <Veredicto t={t} />}
+			{frame >= 754 && <Cierre t={t} />}
 
 			<LibretoKaraoke />
 

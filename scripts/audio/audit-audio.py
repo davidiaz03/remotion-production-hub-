@@ -406,14 +406,19 @@ def ffprobe_json(path: str) -> dict:
 
 
 def transcribe_whisper(wav16k: str, model: str = WHISPER_MODEL) -> list:
-    """Transcribe con faster-whisper (venv) -> [{w, s, e}]."""
+    """Transcribe con faster-whisper (venv) -> [{w, s, e}].
+    Con vad_filter=True: sin VAD, un segmento vacío (cola de tono de
+    sala del máster) rompe la alineación DTW de word_timestamps
+    (IndexError en find_alignment, faster-whisper) y la auditoría
+    final cae. El VAD descarta el no-habla y los tiempos se mapean
+    de vuelta a la línea de tiempo original."""
     script = (
         "import json, sys\n"
         "from faster_whisper import WhisperModel\n"
         "m = WhisperModel(sys.argv[1], device='cpu', compute_type='int8',\n"
         "                 local_files_only=True)\n"
         "segs, _ = m.transcribe(sys.argv[2], language='es',\n"
-        "                       word_timestamps=True)\n"
+        "                       word_timestamps=True, vad_filter=True)\n"
         "words = []\n"
         "for s in segs:\n"
         "    for w in s.words:\n"

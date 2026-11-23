@@ -1,1 +1,255 @@
-{"_notes":{"bed":"SIN MÚSICA: la 'cama' es el tono de sala amb-room-tone (biblioteca SFX, 30 s). build-audio.sh lo copia a music-bed.wav y verifica sha256 contra la biblioteca. No hay cama musical Flow: la puerta NCC de bed_identity no aplica.","edit_plan":"La VO limpia es UNA toma continua: las 7 líneas son segmentos contiguos de la toma original, colocados en 0 sin offsets (edited time = original time). Solo se recorta la cola: la toma termina en 25,70 s (0,58 s de tono de sala tras 'libreto?'). CORRECCIÓN a VO_AUDIT_FB.md: la 'pausa de 1,16 s tras FALSO' era silencio de COLA tras 'libreto?' (25,12-26,30); la pausa real entre FALSO y '¿Quién' es de 0,48 s y NO se toca.","prosody_gaps":"Pausas naturales intra-línea (medidas a -40 dB en la VO limpia): se declaran en el edit-plan para que el check (e) las reconozca como diseñadas. La edición no las toca (factor 1,0, sin cortes dentro de ninguna línea).","sfx":"6 SFX + tono de sala (el tono no cuenta en el techo de 6). Todos underVO: build-audio.sh aplica gain/trim y los deja en public/audio/sfx-mix/. 'sync_s' = posición del pico dentro del clip (recortado); 'at_s' = event_s - sync_s (dónde empieza el clip en la mezcla). El sello cae a 23,21 s (60 ms DESPUÉS del onset de 'FALSO' a 23,15): el check (i5) mide ±50 ms del onset y un sello a 0 dB sobre el ataque de la palabra daría máscara +31,9 dB (FAIL). 60 ms de offset A/V es imperceptible.","vo_placement":"trim_start_s/trim_end_s en coordenadas de la VO limpia (vo-fb-limpia-clean.wav, 27,5 s). speech_start_s = inicio de la primera palabra de la línea. Los límites de segmento caen en silencios (medidos a -40 dB; el límite L5/L6 en 22,63 es el inicio del silencio detectado a -45 dB)."},"beats":{"circulo_bandera":13.9,"contador_aterriza":4.94,"corte_comparacion":10.3,"falso":23.15,"sello_golpe":23.21},"bed":{"file":"public/audio/amb-room-tone.wav","id":"amb-room-tone","note":"Tono de sala, NO música. Stem music-bed.wav verificado por sha256 en build-audio.sh."},"duration_frames":900,"duration_s":30.0,"fps":30,"mix":{"duck_ratio":5,"duck_release_ms":250,"duck_threshold":0.08,"fixed_gain":true,"limiter":0.65,"music_volume":0.4,"target_lufs":-16.0},"project":"el-libreto-messi-fb","scenes":[{"end_f":81,"id":"gancho","name":"Gancho — captura del post + título palabra a palabra","start_f":0},{"end_f":168,"id":"contador","name":"El dato — contador 0→62.000","start_f":81},{"end_f":309,"id":"pagina","name":"La página — zoom al encabezado + resaltado José Forever","start_f":168},{"end_f":456,"id":"comparacion","name":"La comparación — post vs original, sello 2022, círculo en la bandera","start_f":309},{"end_f":585,"id":"casa-blanca","name":"Núcleo real — foto DT-1261 entera + negación","start_f":456},{"end_f":678,"id":"trio","name":"El trío — Bukele, Musk, Bad Bunny","start_f":585},{"end_f":754,"id":"veredicto","name":"Veredicto — FALSO a pantalla completa","start_f":678},{"end_f":900,"id":"cierre","name":"Cierre — pregunta de marca + fuente + end card","start_f":754}],"sfx":[{"at_s":0.0,"event_s":0.0,"file":"public/audio/sfx/bass-sub-drop-short.wav","gain_db":10,"id":"bass-sub-drop-short","note":"Gancho. Pico nativo -17,8 dB -> -7,8 dB.","sync_s":0.021,"underVO":true},{"at_s":4.929,"event_s":4.94,"file":"public/audio/sfx/data-number-land.wav","gain_db":0,"id":"data-number-land","note":"El contador aterriza al terminar 'reacciones'. Pico nativo -8,9 dB.","sync_s":0.011,"underVO":true},{"at_s":10.071,"event_s":10.3,"file":"public/audio/sfx/whoosh-medium-soft.wav","gain_db":8,"id":"whoosh-medium-soft","note":"Pico en el corte a la comparación. Pico nativo -15,4 dB.","sync_s":0.229,"underVO":true},{"at_s":13.9,"event_s":13.9,"file":"public/audio/sfx/writing-pencil-draw.wav","gain_db":6,"id":"writing-pencil-draw","note":"Trazo del círculo sobre la bandera. Recortado a 0,5 s. Pico nativo -17,4 dB.","sync_s":0.0,"trim_dur_s":0.5,"trim_start_s":0.0,"underVO":true},{"at_s":21.418,"event_s":22.4,"file":"public/audio/sfx/riser-1s-soft.wav","gain_db":10,"id":"riser-1s-soft","note":"Sube durante la pausa dramática y se corta en seco al llegar a FALSO. Recortado a 0,982 s. Pico nativo -18,1 dB.","sync_s":0.982,"trim_dur_s":0.982,"trim_start_s":0.0,"underVO":true},{"at_s":22.922,"event_s":23.21,"file":"public/audio/sfx/stamp-rubber-seal.wav","gain_db":0,"id":"stamp-rubber-seal","note":"Veredicto. Clip 3,3-4,0 s del archivo (el golpe principal está a 3,588 s del original; 0,288 s dentro del clip). El golpe cae 60 ms DESPUÉS del onset de 'FALSO' (23,15) para no tapar el ataque de la palabra (check i5). Pico nativo -5,6 dB.","sync_s":0.288,"trim_dur_s":0.7,"trim_start_s":3.3,"underVO":true}],"title":"El Libreto — Messi nunca dijo esto sobre Cuba (Facebook)","vo_lines":[{"end":2.24,"id":"L1","start":0.18,"text":"Messi nunca dijo esto sobre Cuba."},{"end":9.58,"id":"L2","start":2.72,"text":"Este post tiene 62.000 reacciones. Lo publicó una página con 750.000 seguidores que se llama José Forever."},{"end":14.94,"id":"L3","start":10.44,"text":"La pista es la foto. Es de 2022. La bandera se la pusieron después."},{"end":19.42,"id":"L4","start":15.48,"text":"El 5 de marzo, Messi estuvo en la Casa Blanca. Pero no habló de Cuba."},{"end":22.4,"id":"L5","start":19.76,"text":"Lo mismo con Bukele, con Musk, con Bad Bunny."},{"end":23.62,"id":"L6","start":23.15,"text":"FALSO."},{"end":25.12,"id":"L7","start":24.14,"text":"¿Quién escribió el libreto?"}],"vo_placement":[{"head_keep_s":0.18,"id":"L1","speech_start_s":0.18,"tail_keep_s":0.12,"trim_end_s":2.36,"trim_start_s":0.0},{"head_keep_s":0.36,"id":"L2","speech_start_s":2.72,"tail_keep_s":0.1,"trim_end_s":9.68,"trim_start_s":2.36},{"head_keep_s":0.76,"id":"L3","speech_start_s":10.44,"tail_keep_s":0.22,"trim_end_s":15.16,"trim_start_s":9.68},{"head_keep_s":0.32,"id":"L4","speech_start_s":15.48,"tail_keep_s":0.11,"trim_end_s":19.53,"trim_start_s":15.16},{"head_keep_s":0.23,"id":"L5","speech_start_s":19.76,"tail_keep_s":0.23,"trim_end_s":22.63,"trim_start_s":19.53},{"head_keep_s":0.52,"id":"L6","speech_start_s":23.15,"tail_keep_s":0.28,"trim_end_s":23.9,"trim_start_s":22.63},{"head_keep_s":0.24,"id":"L7","speech_start_s":24.14,"tail_keep_s":0.58,"trim_end_s":25.7,"trim_start_s":23.9}]}
+{
+ "_notes": {
+  "bed": "SIN MÚSICA: la 'cama' es el tono de sala amb-room-tone (biblioteca SFX, 30 s). build-audio.sh lo copia a music-bed.wav y verifica sha256 contra la biblioteca. No hay cama musical Flow: la puerta NCC de bed_identity no aplica.",
+  "edit_plan": "La VO limpia es UNA toma continua: las 7 líneas son segmentos contiguos de la toma original, colocados en 0 sin offsets (edited time = original time). Solo se recorta la cola: la toma termina en 25,70 s (0,58 s de tono de sala tras 'libreto?'). CORRECCIÓN a VO_AUDIT_FB.md: la 'pausa de 1,16 s tras FALSO' era silencio de COLA tras 'libreto?' (25,12-26,30); la pausa real entre FALSO y '¿Quién' es de 0,48 s y NO se toca.",
+  "prosody_gaps": "Pausas naturales intra-línea (medidas a -40 dB en la VO limpia): se declaran en el edit-plan para que el check (e) las reconozca como diseñadas. La edición no las toca (factor 1,0, sin cortes dentro de ninguna línea).",
+  "sfx": "6 SFX + tono de sala (el tono no cuenta en el techo de 6). Todos underVO: build-audio.sh aplica gain/trim y los deja en public/audio/sfx-mix/. 'sync_s' = posición del pico dentro del clip (recortado); 'at_s' = event_s - sync_s (dónde empieza el clip en la mezcla). El sello cae a 23,21 s (60 ms DESPUÉS del onset de 'FALSO' a 23,15): el check (i5) mide ±50 ms del onset y un sello a 0 dB sobre el ataque de la palabra daría máscara +31,9 dB (FAIL). 60 ms de offset A/V es imperceptible.",
+  "vo_placement": "trim_start_s/trim_end_s en coordenadas de la VO limpia (vo-fb-limpia-clean.wav, 27,5 s). speech_start_s = inicio de la primera palabra de la línea. Los límites de segmento caen en silencios (medidos a -40 dB; el límite L5/L6 en 22,63 es el inicio del silencio detectado a -45 dB)."
+ },
+ "beats": {
+  "circulo_bandera": 13.9,
+  "contador_aterriza": 4.94,
+  "corte_comparacion": 10.3,
+  "falso": 23.15,
+  "sello_golpe": 23.21
+ },
+ "bed": {
+  "file": "audio/amb-room-tone.wav",
+  "id": "amb-room-tone",
+  "note": "Tono de sala, NO música. Stem music-bed.wav verificado por sha256 en build-audio.sh."
+ },
+ "duration_frames": 900,
+ "duration_s": 30.0,
+ "fps": 30,
+ "mix": {
+  "duck_ratio": 5,
+  "duck_release_ms": 250,
+  "duck_threshold": 0.08,
+  "fixed_gain": true,
+  "limiter": 0.65,
+  "music_volume": 0.4,
+  "target_lufs": -16.0
+ },
+ "project": "el-libreto-messi-fb",
+ "scenes": [
+  {
+   "end_f": 81,
+   "id": "gancho",
+   "name": "Gancho — captura del post + título palabra a palabra",
+   "start_f": 0
+  },
+  {
+   "end_f": 168,
+   "id": "contador",
+   "name": "El dato — contador 0→62.000",
+   "start_f": 81
+  },
+  {
+   "end_f": 309,
+   "id": "pagina",
+   "name": "La página — zoom al encabezado + resaltado José Forever",
+   "start_f": 168
+  },
+  {
+   "end_f": 456,
+   "id": "comparacion",
+   "name": "La comparación — post vs original, sello 2022, círculo en la bandera",
+   "start_f": 309
+  },
+  {
+   "end_f": 585,
+   "id": "casa-blanca",
+   "name": "Núcleo real — foto DT-1261 entera + negación",
+   "start_f": 456
+  },
+  {
+   "end_f": 678,
+   "id": "trio",
+   "name": "El trío — Bukele, Musk, Bad Bunny",
+   "start_f": 585
+  },
+  {
+   "end_f": 754,
+   "id": "veredicto",
+   "name": "Veredicto — FALSO a pantalla completa",
+   "start_f": 678
+  },
+  {
+   "end_f": 900,
+   "id": "cierre",
+   "name": "Cierre — pregunta de marca + fuente + end card",
+   "start_f": 754
+  }
+ ],
+ "sfx": [
+  {
+   "at_s": 0.0,
+   "event_s": 0.0,
+   "file": "audio/sfx/bass-sub-drop-short.wav",
+   "gain_db": 10,
+   "id": "bass-sub-drop-short",
+   "note": "Gancho. Pico nativo -17,8 dB -> -7,8 dB.",
+   "sync_s": 0.021,
+   "underVO": true
+  },
+  {
+   "at_s": 4.929,
+   "event_s": 4.94,
+   "file": "audio/sfx/data-number-land.wav",
+   "gain_db": 0,
+   "id": "data-number-land",
+   "note": "El contador aterriza al terminar 'reacciones'. Pico nativo -8,9 dB.",
+   "sync_s": 0.011,
+   "underVO": true
+  },
+  {
+   "at_s": 10.071,
+   "event_s": 10.3,
+   "file": "audio/sfx/whoosh-medium-soft.wav",
+   "gain_db": 8,
+   "id": "whoosh-medium-soft",
+   "note": "Pico en el corte a la comparación. Pico nativo -15,4 dB.",
+   "sync_s": 0.229,
+   "underVO": true
+  },
+  {
+   "at_s": 13.9,
+   "event_s": 13.9,
+   "file": "audio/sfx/writing-pencil-draw.wav",
+   "gain_db": 6,
+   "id": "writing-pencil-draw",
+   "note": "Trazo del círculo sobre la bandera. Recortado a 0,5 s. Pico nativo -17,4 dB.",
+   "sync_s": 0.0,
+   "trim_dur_s": 0.5,
+   "trim_start_s": 0.0,
+   "underVO": true
+  },
+  {
+   "at_s": 21.418,
+   "event_s": 22.4,
+   "file": "audio/sfx/riser-1s-soft.wav",
+   "gain_db": 10,
+   "id": "riser-1s-soft",
+   "note": "Sube durante la pausa dramática y se corta en seco al llegar a FALSO. Recortado a 0,982 s. Pico nativo -18,1 dB.",
+   "sync_s": 0.982,
+   "trim_dur_s": 0.982,
+   "trim_start_s": 0.0,
+   "underVO": true
+  },
+  {
+   "at_s": 22.922,
+   "event_s": 23.21,
+   "file": "audio/sfx/stamp-rubber-seal.wav",
+   "gain_db": 0,
+   "id": "stamp-rubber-seal",
+   "note": "Veredicto. Clip 3,3-4,0 s del archivo (el golpe principal está a 3,588 s del original; 0,288 s dentro del clip). El golpe cae 60 ms DESPUÉS del onset de 'FALSO' (23,15) para no tapar el ataque de la palabra (check i5). Pico nativo -5,6 dB.",
+   "sync_s": 0.288,
+   "trim_dur_s": 0.7,
+   "trim_start_s": 3.3,
+   "underVO": true
+  }
+ ],
+ "title": "El Libreto — Messi nunca dijo esto sobre Cuba (Facebook)",
+ "vo_lines": [
+  {
+   "end": 2.24,
+   "id": "L1",
+   "start": 0.18,
+   "text": "Messi nunca dijo esto sobre Cuba."
+  },
+  {
+   "end": 9.58,
+   "id": "L2",
+   "start": 2.72,
+   "text": "Este post tiene 62.000 reacciones. Lo publicó una página con 750.000 seguidores que se llama José Forever."
+  },
+  {
+   "end": 14.94,
+   "id": "L3",
+   "start": 10.44,
+   "text": "La pista es la foto. Es de 2022. La bandera se la pusieron después."
+  },
+  {
+   "end": 19.42,
+   "id": "L4",
+   "start": 15.48,
+   "text": "El 5 de marzo, Messi estuvo en la Casa Blanca. Pero no habló de Cuba."
+  },
+  {
+   "end": 22.4,
+   "id": "L5",
+   "start": 19.76,
+   "text": "Lo mismo con Bukele, con Musk, con Bad Bunny."
+  },
+  {
+   "end": 23.62,
+   "id": "L6",
+   "start": 23.15,
+   "text": "FALSO."
+  },
+  {
+   "end": 25.12,
+   "id": "L7",
+   "start": 24.14,
+   "text": "¿Quién escribió el libreto?"
+  }
+ ],
+ "vo_placement": [
+  {
+   "head_keep_s": 0.18,
+   "id": "L1",
+   "speech_start_s": 0.18,
+   "tail_keep_s": 0.21,
+   "trim_end_s": 2.45,
+   "trim_start_s": 0.0
+  },
+  {
+   "head_keep_s": 0.27,
+   "id": "L2",
+   "speech_start_s": 2.72,
+   "tail_keep_s": 0.1,
+   "trim_end_s": 9.68,
+   "trim_start_s": 2.45
+  },
+  {
+   "head_keep_s": 0.76,
+   "id": "L3",
+   "speech_start_s": 10.44,
+   "tail_keep_s": 0.22,
+   "trim_end_s": 15.16,
+   "trim_start_s": 9.68
+  },
+  {
+   "head_keep_s": 0.32,
+   "id": "L4",
+   "speech_start_s": 15.48,
+   "tail_keep_s": 0.11,
+   "trim_end_s": 19.53,
+   "trim_start_s": 15.16
+  },
+  {
+   "head_keep_s": 0.23,
+   "id": "L5",
+   "speech_start_s": 19.76,
+   "tail_keep_s": 0.23,
+   "trim_end_s": 22.63,
+   "trim_start_s": 19.53
+  },
+  {
+   "head_keep_s": 0.52,
+   "id": "L6",
+   "speech_start_s": 23.15,
+   "tail_keep_s": 0.28,
+   "trim_end_s": 23.9,
+   "trim_start_s": 22.63
+  },
+  {
+   "head_keep_s": 0.24,
+   "id": "L7",
+   "speech_start_s": 24.14,
+   "tail_keep_s": 0.58,
+   "trim_end_s": 25.7,
+   "trim_start_s": 23.9
+  }
+ ]
+}

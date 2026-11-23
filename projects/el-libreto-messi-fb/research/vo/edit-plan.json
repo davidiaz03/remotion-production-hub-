@@ -1,0 +1,187 @@
+{
+ "version": "el-libreto-messi-fb v1 (VO toma única, 7 líneas; solo recorte de cola, sin stretch)",
+ "total": 30.0,
+ "pad": 0.03,
+ "fade": 0.005,
+ "lines": [
+  {
+   "linea": 1,
+   "slot": 0.0,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "prosody_gaps": [],
+   "segs": [
+    {
+     "orig_start": 0.0,
+     "orig_end": 2.45,
+     "orig_word_start": 0.18,
+     "orig_word_end": 2.24,
+     "edited_start": 0.0,
+     "edited_end": 2.45,
+     "head_keep": 0.18,
+     "tail_keep": 0.21,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 2,
+   "slot": 2.45,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "prosody_gaps": [
+    [
+     3.31,
+     3.53
+    ],
+    [
+     5.09,
+     5.59
+    ]
+   ],
+   "segs": [
+    {
+     "orig_start": 2.45,
+     "orig_end": 9.68,
+     "orig_word_start": 2.72,
+     "orig_word_end": 9.58,
+     "edited_start": 2.45,
+     "edited_end": 9.68,
+     "head_keep": 0.27,
+     "tail_keep": 0.1,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 3,
+   "slot": 9.68,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "prosody_gaps": [
+    [
+     11.73,
+     12.07
+    ],
+    [
+     13.26,
+     13.69
+    ]
+   ],
+   "segs": [
+    {
+     "orig_start": 9.68,
+     "orig_end": 15.16,
+     "orig_word_start": 10.44,
+     "orig_word_end": 14.94,
+     "edited_start": 9.68,
+     "edited_end": 15.16,
+     "head_keep": 0.76,
+     "tail_keep": 0.22,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 4,
+   "slot": 15.16,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "prosody_gaps": [
+    [
+     16.43,
+     16.79
+    ],
+    [
+     18.11,
+     18.54
+    ]
+   ],
+   "segs": [
+    {
+     "orig_start": 15.16,
+     "orig_end": 19.53,
+     "orig_word_start": 15.48,
+     "orig_word_end": 19.42,
+     "edited_start": 15.16,
+     "edited_end": 19.53,
+     "head_keep": 0.32,
+     "tail_keep": 0.11,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 5,
+   "slot": 19.53,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "prosody_gaps": [
+    [
+     20.77,
+     21.02
+    ]
+   ],
+   "segs": [
+    {
+     "orig_start": 19.53,
+     "orig_end": 22.63,
+     "orig_word_start": 19.76,
+     "orig_word_end": 22.4,
+     "edited_start": 19.53,
+     "edited_end": 22.63,
+     "head_keep": 0.23,
+     "tail_keep": 0.23,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 6,
+   "slot": 22.63,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "prosody_gaps": [],
+   "segs": [
+    {
+     "orig_start": 22.63,
+     "orig_end": 23.9,
+     "orig_word_start": 23.15,
+     "orig_word_end": 23.62,
+     "edited_start": 22.63,
+     "edited_end": 23.9,
+     "head_keep": 0.52,
+     "tail_keep": 0.28,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  },
+  {
+   "linea": 7,
+   "slot": 23.9,
+   "factor_uniforme": 1.0,
+   "gaps": [],
+   "prosody_gaps": [],
+   "segs": [
+    {
+     "orig_start": 23.9,
+     "orig_end": 25.7,
+     "orig_word_start": 24.14,
+     "orig_word_end": 25.12,
+     "edited_start": 23.9,
+     "edited_end": 25.7,
+     "head_keep": 0.24,
+     "tail_keep": 0.58,
+     "merged_subphrases": null
+    }
+   ],
+   "merged_gaps": []
+  }
+ ]
+}
