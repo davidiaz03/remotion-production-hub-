@@ -125,8 +125,8 @@ en `video-templates/` (ver catálogo). Formatos en pico ahora mismo:
 | Imagen absurda con IA (Pollinations) | ✅ | `gen-absurd.py --prompt "…"` |
 | Reacción (clip + caption) | ✅ | `meme-video.py --input clip.mp4 --caption "…"` |
 | Silent face caption | ✅ | `meme-video.py --input clip-quieto.mp4 --caption "…"` |
-| Plantillas de vídeo reales (27) | ✅ (19-nov) | `meme-video.py --video-template <slug>` / `--list-video-templates` |
-| Green screen (19 de 27) | ✅ (19-nov) | `meme-video.py --video-template <slug> --chroma-key` |
+| Plantillas de vídeo reales (37) | ✅ (23-nov) | `meme-video.py --video-template <slug>` / `--list-video-templates` |
+| Green screen (26 de 37) | ✅ (23-nov) | `meme-video.py --video-template <slug> --chroma-key` |
 | Vídeo meme con IA (Veo/Omni) | 📝 receta | Ver README § «Vídeo meme con IA» (Pollinations vídeo = pago; Flow web = gratis) |
 
 ## La ola de 2026: vídeo con IA
@@ -149,4 +149,14 @@ freeze, música— se hace aquí con `meme-video.py`.
   el refresh añade clips, pero origen/uso/caption los completa un humano.
 - **Historial**: primera versión 18-nov-2026 (mañana); refresco
   18-nov-2026 (mediodía); banco de vídeo + refresco 19-nov-2026 — este
-  documento.
+  documento; refresco semanal 23-nov-2026: +10 plantillas de vídeo
+  (37 en total, 26 green screen): thug-life-by-green-screen (audio
+  eliminado por música comercial), michael-rosen-screaming, cat-crying,
+  hasbulla-eating-and-staring, spongebob-a-few-minutes-later,
+  the-office-michael-no-god-please-no, minecraft-tnt-explosion-effect,
+  tv-glitch, shocked-guy-guy-twitter-reaction, mutahar-laughing.
+  Rechazado: cristiano-ronaldo-siuuu (logo beIN + letterbox + calidad SD);
+  horse-on-toilet sin MP4 directo. KYM trending sin vídeo directo
+  (revisar a mano): aloralynnsavasta3s-who-has-the-best-girlfriend-ever-tiktok,
+  frutiger-aero-yams, hunter2, huss-huss-huss…,
+  lucia-will-appreciate-this, meximutt-o-algo, while-they-are-out-partying.
