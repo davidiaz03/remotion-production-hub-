@@ -45,7 +45,7 @@ Sugerencia (FORMATOS.md §1.2): la opción 1 es «Cita textual del protagonista�
 
 ## Guion (~70–75 s, 120–170 palabras habladas)
 
-Las líneas numeradas son voz en off (Adriana) y cuentan como palabras habladas (169 palabras). Las líneas `>` son el plan visual y no cuentan. Formato: documental faceless, continuidad con la parte 1 (misma voz, misma marca de agua blanca del logotipo completo desde el fotograma 0, mismo karaoke, tono DINÁMICO).
+Las líneas numeradas son voz en off (Adriana) y cuentan como palabras habladas (170 palabras). Las líneas `>` son el plan visual y no cuentan. Formato: documental faceless, continuidad con la parte 1 (misma voz, misma marca de agua blanca del logotipo completo desde el fotograma 0, mismo karaoke, tono DINÁMICO).
 
 1. «Dicen que no hay bloqueo. Pero en 1960 lo dejaron por escrito: provocar hambre, desesperación y el derrocamiento del gobierno.»
 > Visual: el memorando real (FRUS vol. VI, doc. 499) a pantalla completa; zoom al párrafo final; resaltado en «hunger, desperation and overthrow of government». Cabecera fija: «DICEN QUE NO HAY BLOQUEO». Fecha en el fotograma: «6 DE ABRIL DE 1960».
@@ -59,7 +59,7 @@ Las líneas numeradas son voz en off (Adriana) y cuentan como palabras habladas 
 > Visual: la cita completa resaltada en el memorando; beat de «HAMBRE» a pantalla completa en rojo sobre el documento; karaoke con HAMBRE en rojo.
 6. «Tres meses después cortaron la cuota azucarera: de 739 mil toneladas a menos de 40 mil. En 1962, Kennedy firmó el bloqueo total. En 1996, lo convirtieron en ley.»
 > Visual: línea de tiempo animada (3 hitos, ~5 s cada uno): 6-jul-1960 cuota azucarera (zafra cubana de la época, video NARA/CIA 1959 + Proclamación 3355, Federal Register) → 3-feb-1962 Proclamación 3447 («EMBARGO ON ALL TRADE WITH CUBA», Federal Register) → 1996 ley Helms-Burton (tarjeta motion graphics, sin asset de archivo). Cada hito con su sello de fuente.
-7. «Hoy, 66 años después, el plan sigue corriendo: combustible que no llega, apagones, y una ONU que vota 130 a 17 que esto termine.»
+7. «Hoy, 66 años después, el plan sigue corriendo: combustible que no llega, apagones. La ONU vota 130 a 17 para que termine, y no termina.»
 > Visual: Cuba a oscuras (foto NOAA, mar-2026, ya verificada en la parte 1) + overlay «ONU 130–17 · 28 OCT 2026». Sin plano general del salón de la Asamblea (V3).
 8. «Dos de las tres cosas pasaron. La tercera, no. El memo es público. Léelo tú mismo.»
 > Visual: el memorando vuelve a pantalla completa; tarjeta «EL MEMO ES PÚBLICO» + «history.state.gov · FRUS VI, doc. 499»; cierre con el logo animado del Memorial y fade-out de la música (el final no se trunca, según SULERIS.md G5).
@@ -78,7 +78,7 @@ Se mantiene la sugerencia: es el formato de la parte 1 (aprobada por Suleris y p
 
 Cada regla con estado `pass` o `flag` y evidencia escrita antes de enviar el pack. `flag` = revisado y con riesgo anotado, no sin revisar.
 
-- [x] V1 · Las cifras de una votación NO pueden ser la espina del reel: una votación, un recuento o una cifra es contexto breve, nunca la estructura. — estado: pass — evidencia: la espina es el memorando de 1960 y la línea de tiempo 1960 → 1962 → 1996; la votación ONU 130-17 es una cláusula de la línea 7, contexto breve al final.
+- [x] V1 · Las cifras de una votación NO pueden ser la espina del reel: una votación, un recuento o una cifra es contexto breve, nunca la estructura. — estado: pass — evidencia: la espina es el memorando de 1960 y la línea de tiempo 1960 → 1962 → 1996; la votación ONU 130-17 es una frase de la línea 7, contexto breve al final.
 - [x] V2 · No enmarcar en «los que no votaron / no se presentaron»: el guion no es un inventario de la votación (quién votó, quién se abstuvo, quién faltó). — estado: pass — evidencia: sin inventario de votos, abstenciones ni ausencias; no aparecen «no votaron» ni «no se presentaron».
 - [x] V3 · Las primeras imágenes NUNCA son la Asamblea de la ONU: el gancho sale del ensayo o del dato, nunca del salón de la Asamblea. — estado: pass — evidencia: la escena 1 es el memorando real a pantalla completa; la ONU aparece solo en la línea 7 como overlay de cifras sobre la foto de Cuba a oscuras, sin plano general del salón en ningún fotograma.
 - [x] V4 · El «19» autónomo está PROHIBIDO en voz, pantalla y mapa: ni «19 gobiernos», ni «diecinueve», ni el desglose 6-7-6, ni el marco «mayoría/minoría» construido sobre él. — estado: pass — evidencia: sin ningún «19» autónomo en guion, ganchos ni plan visual (verificado por check mecánico); «1960», «1962» y «1996» son años y están excluidos por el patrón.

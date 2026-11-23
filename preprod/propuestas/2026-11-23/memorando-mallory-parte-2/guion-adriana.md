@@ -4,5 +4,5 @@ Que la mayoría de los cubanos apoyaba a Castro. Que no había oposición. Y que
 Así que propuso otra cosa: debilitar la vida económica de Cuba. Negarle dinero y suministros.
 Su objetivo, escrito en el papel: provocar hambre, desesperación y el derrocamiento del gobierno. Una sola palabra lo resume: hambre.
 Tres meses después cortaron la cuota azucarera: de 739 mil toneladas a menos de 40 mil. En 1962, Kennedy firmó el bloqueo total. En 1996, lo convirtieron en ley.
-Hoy, 66 años después, el plan sigue corriendo: combustible que no llega, apagones, y una ONU que vota 130 a 17 que esto termine.
+Hoy, 66 años después, el plan sigue corriendo: combustible que no llega, apagones. La ONU vota 130 a 17 para que termine, y no termina.
 Dos de las tres cosas pasaron. La tercera, no. El memo es público. Léelo tú mismo.
