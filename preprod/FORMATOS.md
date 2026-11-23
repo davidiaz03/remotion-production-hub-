@@ -30,6 +30,13 @@ la mediana — https://www.instagram.com/reel/Df-s8UmvPSR/ [VERIFICADO].
 La medición se repite cada lunes (`scripts/preprod/measure.py measure`); los
 hallazgos verificados actualizan esta sección con nota de fecha.
 
+**Actualización 23-nov-2026** (`preprod/research/medicion-2026-11-23.md`):
+los hallazgos del 21-nov se confirman sin cambio. Instagram: mediana 21 likes
+(base 84), reels 62 (n=39) vs carruseles 14 (n=38) — **4,4x confirmado**;
+seguidores 4.735 (+53). El reel del caso Pilar sigue destacado y creciendo:
+**237 likes, 11,29x la mediana**. Facebook: 0 publicaciones nuevas
+descubribles; medianas sin cambio (17 reacciones; reels 60, fotos 14,5).
+
 ---
 
 ## 1. Principios de gancho
@@ -71,7 +78,8 @@ palabras tiene 3,1x la mediana de vistas de uno de 19+ palabras [SEGÚN FUENTE].
 | **Denuncia en vivo / contradicción** | El protagonista dice la contradicción en el lugar de los hechos | Estudiante en Oaxaca: «Nos piden a los jóvenes que no consumamos, pero ellos no detienen a los que venden» — 20.216 likes — https://www.instagram.com/reel/Df-5JYsKMbS/ [VERIFICADO] |
 | **Cita textual del protagonista** | La frase exacta de quien tiene el poder, sin intermediario | Trump: «¿Qué Venezuela es qué? Esto es lo que dijo Donald Trump» — 1.010 comentarios — https://www.instagram.com/reel/Df8bN8boHy0/ [VERIFICADO] |
 | **Afirmación + pregunta** | Un hecho sorprendente seguido de la pregunta que abre el video | Awá: «Esta tribu aislada en Brasil hizo contacto con el pueblo por comida. ¿Fue esto un acto de desesperación?» — https://www.instagram.com/reel/Df8UWoQJPxB/ [VERIFICADO] |
-| **Pregunta contraintuitiva** | Una pregunta que choca con lo que el espectador cree saber | «¿Franco no quiso la bomba nuclear?» — 352 likes con 1.115 seguidores — https://www.instagram.com/reel/Df7SBLrkeQm/ [VERIFICADO] |
+| **Pregunta contraintuitiva** | Una pregunta que choca con lo que el espectador cree saber | «¿Franco no quiso la bomba nuclear?» — 352 likes con 1.115 seguidores — https://www.instagram.com/reel/Df7SBLrkeQm/ [VERIFICADO]; variante: la pregunta llega tras una cadena de contradicciones y se cierra con la promesa «la respuesta es incómoda» — El Orden Mundial, «¿Por qué nadie quiere que Corea del Norte caiga?», 652.887 vistas — https://www.youtube.com/watch?v=OtRKNf7bzv4 [VERIFICADO, 23-nov-2026; en video largo la pregunta espera al segundo 45, en reel debe llegar en 0–3 s] |
+| **Reacción rápida a la polémica del día (<24 h)** | El reel sale al día siguiente del hecho y el gancho nombra la polémica en la primera frase («No han pasado ni 24 horas…») | AJ+ Español reacciona al debate «woke» por el lanzamiento de GTA VI: «No han pasado ni 24 horas y el chat ya se llenó de hombres diciendo que el GTA 6 se volvió woke» — 59.847 likes, 18,81x, presentadora en recuadro sobre el metraje del juego, karaoke desde 0,5 s — https://www.instagram.com/reel/Df8Nf0SKF9h/ [VERIFICADO, 23-nov-2026] |
 | **Pregunta + promesa** | Pregunta con «¿sabías que…?» + «ahora te lo cuento» | «¿Sabías que Estados Unidos le debe su independencia a España? Ahora te lo cuento.» — 172.096 vistas — https://www.youtube.com/shorts/3KtVaN5E_4c [VERIFICADO] |
 | **Lista numerada + gesto** | El número de ítems + el primer ítem inmediato, sin esperar | «Las cinco razones por las que Cuba ha colapsado. Uno, se quedó sin energía.» — 30.899 vistas — https://www.youtube.com/shorts/kX8hi41Aj34 [VERIFICADO] |
 | **Pregunta personal + objeto** | Segunda persona + el objeto físico en la mano | «¿Eres de las que siempre pide el ticket en papel?» (ticket en mano) — 272.429 vistas — https://www.youtube.com/shorts/gq0kZogoyVQ [VERIFICADO] |
@@ -112,7 +120,7 @@ palabras tiene 3,1x la mediana de vistas de uno de 19+ palabras [SEGÚN FUENTE].
 | **Documental faceless** (narración sobre metraje/fotos, nadie en cámara) | Historia o denuncia con buen archivo y sin presentadora disponible | 45–90 s (mediana 72 s en TikTok [SEGÚN FUENTE]) | Awá (77 s) https://www.instagram.com/reel/Df8UWoQJPxB/ [VERIFICADO]; build ganador más numeroso en EditorOP (38/75, múltiplo 134,6x) [SEGÚN FUENTE] |
 | **Presentador a cámara + evidencia** (talking head + B-roll/mapas que cambian con cada hecho) | Explicativo de historia/geopolítica; el formato central del Memorial | 60–96 s | Pez EE.UU./España (96 s, 172.096 vistas) https://www.youtube.com/shorts/3KtVaN5E_4c [VERIFICADO]; Pez Cuba (82 s, 52 cambios de plano) https://www.youtube.com/shorts/kX8hi41Aj34 [VERIFICADO] |
 | **Presentadoras en diálogo a cámara** | El formato viral probado del Memorial | ~60–90 s | Dato propio: 14K/9,1K reacciones, 115K/119K vistas (MEMORY.md) |
-| **Pantalla dividida** (presentador + archivo/mapa) | Cuando el archivo y la voz deben verse a la vez | 19–78 s | Delcy/Hegseth (52 s) https://www.instagram.com/reel/Df73mM5MSAg/ [VERIFICADO]; @psychopoly_official (5,2M vistas) y @matt_forrest (3,1M) [SEGÚN FUENTE, EditorOP] |
+| **Pantalla dividida** (presentador + archivo/mapa) | Cuando el archivo y la voz deben verse a la vez | 19–78 s | Delcy/Hegseth (52 s) https://www.instagram.com/reel/Df73mM5MSAg/ [VERIFICADO]; @psychopoly_official (5,2M vistas) y @matt_forrest (3,1M) [SEGÚN FUENTE, EditorOP]; La Base: presentadora arriba + foto de la hija del presidente de Paraguay con la camiseta «Tax the Poor» abajo, karaoke palabra por palabra desde 0,5 s — 34 s, 22.103 likes, 21,74x https://www.instagram.com/reel/Dfh-U_Ho7fO/ [VERIFICADO, 23-nov-2026] |
 | **Testimonio selfie desde el lugar** | Testigo-protagonista en el lugar de los hechos | 60–70 s | Flotilla Gaza (68 s, 95.404 likes) https://www.instagram.com/reel/DOB20ooiiPO/ [VERIFICADO] |
 | **Clip de podcast con tarjeta-pregunta** | Debate entre 2–3 voces; la pregunta en pantalla hace el gancho | 52–94 s | Franco/bomba (52 s) https://www.instagram.com/reel/Df7SBLrkeQm/ [VERIFICADO]; Iglesias/Ucrania (94 s) https://www.instagram.com/reel/DfXpjv9oPMr/ [VERIFICADO] |
 | **Pregunta personal + objeto + acción** | Denuncia con un objeto físico (documento, foto, libro) | 60–65 s | Ticket en papel (64 s, 272.429 vistas) https://www.youtube.com/shorts/gq0kZogoyVQ [VERIFICADO] |
@@ -301,6 +309,14 @@ por EditorOP (octubre 2026) y citados como [SEGÚN FUENTE].
   estudios EditorOP oct-2026 y Scrptly 8-nov-2026; investigación previa
   19-nov-2026). Investigación cruda completa:
   `preprod/research/tendencias-2026-11-21.md`.
+- **Actualización semanal 23-nov-2026** (`preprod/research/tendencias-2026-11-23.md`):
+  escáner de outliers (YT 25 outliers/10 breakout, IG 50/3, FB 0) + medición
+  propia (reels 4,4x carruseles en IG confirmado; Pilar 237 likes, 11,29x).
+  Cambios en este documento: nuevo tipo de gancho «Reacción rápida a la polémica
+  del día (<24 h)» (AJ+, GTA VI); ejemplo verificado de pantalla dividida con
+  foto como evidencia (La Base, Constanza Peña); matiz «la respuesta es incómoda»
+  en la pregunta contraintuitiva (El Orden Mundial). Ningún principio anterior
+  queda «en revisión» (texto en 0–3 s en los 2 cortos revisados).
 - **Escaneo semanal (cada lunes):**
   1. Correr `python3 scripts/preprod/outliers.py scan --platform all
      --max 30` (con la lista de URLs de Facebook preparada, ver

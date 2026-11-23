@@ -1,0 +1,723 @@
+{
+  "fecha": "2026-11-23",
+  "plataforma": "instagram",
+  "backend": "instagram-cli",
+  "unidades_api": 0,
+  "top_global": [
+    {
+      "titulo": "Un saludito a Constanza Peña, producto fino de la oligarquía paraguaya 🇵🇾",
+      "url": "https://www.instagram.com/reel/Dfh-U_Ho7fO/",
+      "multiplicador": 21.74,
+      "clasificacion": "breakout",
+      "publicado": "2026-11-09",
+      "likes": 22103,
+      "comentarios": 676,
+      "media_type": "video"
+    },
+    {
+      "titulo": "La #vivienda es la principal preocupación de los españoles.",
+      "url": "https://www.instagram.com/p/Ddl1F0HjJfd/",
+      "multiplicador": 13.28,
+      "clasificacion": "breakout",
+      "publicado": "2026-09-22",
+      "likes": 15970,
+      "comentarios": 1270,
+      "media_type": "carousel"
+    },
+    {
+      "titulo": "#Europa ha vivido un fin de semana lleno de protestas.",
+      "url": "https://www.instagram.com/p/DersNHIjB7u/",
+      "multiplicador": 13.24,
+      "clasificacion": "breakout",
+      "publicado": "2026-10-19",
+      "likes": 15921,
+      "comentarios": 1020,
+      "media_type": "carousel"
+    }
+  ],
+  "canales": [
+    {
+      "canal": "AJ+ Español",
+      "mediana": 3181.0,
+      "n_publicaciones": 90,
+      "n_base": 48,
+      "mediana_fiable": true,
+      "outliers": [
+        {
+          "titulo": "Las elecciones de medio mandato de este 3 de noviembre en Estados Unidos han si…",
+          "url": "https://www.instagram.com/p/DfVGynPgen3/",
+          "multiplicador": 8.02,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-04",
+          "likes": 25522,
+          "comentarios": 166,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Maryam Ahmed Ghanem, de tres años, fue rescatada de un edificio en llamas en la…",
+          "url": "https://www.instagram.com/p/DfnExS9IGd1/",
+          "multiplicador": 7.29,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-11",
+          "likes": 23193,
+          "comentarios": 1233,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "¡Las mariposas monarca ya están aquí y en redes sociales no dejaron pasar el mo…",
+          "url": "https://www.instagram.com/p/DfYYF4qASDZ/",
+          "multiplicador": 7.29,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-05",
+          "likes": 23204,
+          "comentarios": 193,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "“Es un derecho y un deber de los ciudadanos participar en los procesos democrát…",
+          "url": "https://www.instagram.com/p/DfIw8sEgTQN/",
+          "multiplicador": 7.18,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-30",
+          "likes": 22837,
+          "comentarios": 242,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Detox digital, ¿nueva brecha de clase?⁣",
+          "url": "https://www.instagram.com/reel/Dfppm_evCvz/",
+          "multiplicador": 7.11,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-12",
+          "likes": 22620,
+          "comentarios": 209,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Un grupo de activistas anónimos llamado los Capytistas afirma que va a divulgar…",
+          "url": "https://www.instagram.com/p/DfaDqi6E2WN/",
+          "multiplicador": 5.1,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-06",
+          "likes": 16228,
+          "comentarios": 307,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "¿Cómo se ve la dignidad cuando te lo arrebatan todo frente a tus propios ojos?⁣",
+          "url": "https://www.instagram.com/p/DfBTzmHAYql/",
+          "multiplicador": 4.04,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-27",
+          "likes": 12839,
+          "comentarios": 141,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Este adolescente palestino m*rió de hambre en una prisión israelí.⁣",
+          "url": "https://www.instagram.com/p/Dfpgbn1gQsf/",
+          "multiplicador": 3.72,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-12",
+          "likes": 11834,
+          "comentarios": 982,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Las películas de DC de James Gunn parecían incluir paralelismos con Gaza y el i…",
+          "url": "https://www.instagram.com/p/DfscHzcE5TK/",
+          "multiplicador": 3.6,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-13",
+          "likes": 11436,
+          "comentarios": 357,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "\"Brasil también es Latinoamérica\". ⁣",
+          "url": "https://www.instagram.com/reel/DfstSVJhdLG/",
+          "multiplicador": 3.57,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-13",
+          "likes": 11362,
+          "comentarios": 269,
+          "media_type": "video"
+        },
+        {
+          "titulo": "¿Cómo convertir una simple tormenta de lluvia en un arm* de exterminio masivo?…",
+          "url": "https://www.instagram.com/reel/DfvOp0GhGqF/",
+          "multiplicador": 3.33,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-14",
+          "likes": 10589,
+          "comentarios": 563,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Dejar de pelear con la derecha: la estrategia digital que aprendieron los progr…",
+          "url": "https://www.instagram.com/reel/Dfsi_zRzOqR/",
+          "multiplicador": 3.16,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-13",
+          "likes": 10063,
+          "comentarios": 324,
+          "media_type": "video"
+        }
+      ],
+      "recientes_a_vigilar": [
+        {
+          "titulo": "13 años de desarrollo y más de mil millones de dólares después, el mayor obstác…",
+          "url": "https://www.instagram.com/reel/Df8Nf0SKF9h/",
+          "multiplicador": 18.81,
+          "clasificacion": null,
+          "publicado": "2026-11-19",
+          "likes": 59847,
+          "comentarios": 1098,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Se ha difundido un video del empresario Ricardo Salinas Pliego, uno de los homb…",
+          "url": "https://www.instagram.com/reel/Df5jnknRNwy/",
+          "multiplicador": 16.23,
+          "clasificacion": null,
+          "publicado": "2026-11-18",
+          "likes": 51619,
+          "comentarios": 7144,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Le quitaron la playa a los pescadores y el mar ahora se llevó el hotel.⁣",
+          "url": "https://www.instagram.com/reel/Df52bSIMQ2i/",
+          "multiplicador": 9.17,
+          "clasificacion": null,
+          "publicado": "2026-11-18",
+          "likes": 29177,
+          "comentarios": 528,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Rayan Abu M’alla tenía solo 16 años: era un chico amable y cariñoso al que le e…",
+          "url": "https://www.instagram.com/p/DgBRLwMkemj/",
+          "multiplicador": 8.09,
+          "clasificacion": null,
+          "publicado": "2026-11-21",
+          "likes": 25727,
+          "comentarios": 925,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Trece años separan GTA V de GTA VI, que ha salido a la venta hace unas horas. ⁣",
+          "url": "https://www.instagram.com/p/Df8Gn4mk-AA/",
+          "multiplicador": 7.74,
+          "clasificacion": null,
+          "publicado": "2026-11-19",
+          "likes": 24617,
+          "comentarios": 160,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Durante una campaña escolar contra las adicciones, este joven estudiante de pre…",
+          "url": "https://www.instagram.com/reel/Df-5JYsKMbS/",
+          "multiplicador": 7.66,
+          "clasificacion": null,
+          "publicado": "2026-11-20",
+          "likes": 24379,
+          "comentarios": 539,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Mientras Gal Gadot ofrece un discurso en Beverly Hills lamentando el odio hacia…",
+          "url": "https://www.instagram.com/reel/Df0Du9xh1lN/",
+          "multiplicador": 7.62,
+          "clasificacion": null,
+          "publicado": "2026-11-16",
+          "likes": 24244,
+          "comentarios": 2532,
+          "media_type": "video"
+        },
+        {
+          "titulo": "¿Perderías tu carrera por una postura política? Einat Weizman dice que apoyar p…",
+          "url": "https://www.instagram.com/p/Df7_wy-E_pi/",
+          "multiplicador": 6.25,
+          "clasificacion": null,
+          "publicado": "2026-11-19",
+          "likes": 19886,
+          "comentarios": 461,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "“¿Quién se beneficia de que la mayoría no accedamos al derecho a la vivienda?”.⁣",
+          "url": "https://www.instagram.com/reel/Dfz8yiLhrTc/",
+          "multiplicador": 5.56,
+          "clasificacion": null,
+          "publicado": "2026-11-16",
+          "likes": 17678,
+          "comentarios": 344,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Shirley Manson, vocalista de Garbage, se pronunció a favor de Palestina ante 90…",
+          "url": "https://www.instagram.com/reel/Df2g6uCoNvn/",
+          "multiplicador": 5.03,
+          "clasificacion": null,
+          "publicado": "2026-11-17",
+          "likes": 16008,
+          "comentarios": 194,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Además de la basura espacial provocada por la empresa SpaceX, ambientalistas y…",
+          "url": "https://www.instagram.com/reel/Df25S1kA6Jf/",
+          "multiplicador": 4.43,
+          "clasificacion": null,
+          "publicado": "2026-11-17",
+          "likes": 14083,
+          "comentarios": 1110,
+          "media_type": "video"
+        }
+      ]
+    },
+    {
+      "canal": "Memorias de Pez",
+      "mediana": 977,
+      "n_publicaciones": 72,
+      "n_base": 69,
+      "mediana_fiable": true,
+      "outliers": [
+        {
+          "titulo": "Evolución de la gran potencia mundial #historia #imperios",
+          "url": "https://www.instagram.com/reel/DSes_MoDPNE/",
+          "multiplicador": 8.71,
+          "clasificacion": "outlier",
+          "publicado": "2025-12-20",
+          "likes": 8511,
+          "comentarios": 204,
+          "media_type": "video"
+        },
+        {
+          "titulo": "¿Por qué Noruega es la economía perfecta?",
+          "url": "https://www.instagram.com/p/C_-cZJdo-mv/",
+          "multiplicador": 6.24,
+          "clasificacion": "outlier",
+          "publicado": "2024-09-16",
+          "likes": 6093,
+          "comentarios": 219,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "La historia de como el gran genio de la propaganda alemana sumó a millones de a…",
+          "url": "https://www.instagram.com/p/C9xtuFxogNz/",
+          "multiplicador": 5.77,
+          "clasificacion": "outlier",
+          "publicado": "2024-07-23",
+          "likes": 5637,
+          "comentarios": 157,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Las DELIRANTES declaraciones de TRUMP",
+          "url": "https://www.instagram.com/reel/DWqapvTjJk8/",
+          "multiplicador": 5.56,
+          "clasificacion": "outlier",
+          "publicado": "2026-04-03",
+          "likes": 5435,
+          "comentarios": 363,
+          "media_type": "video"
+        },
+        {
+          "titulo": "¿Cómo se convirtió China en una potencia?",
+          "url": "https://www.instagram.com/p/C_XcxHZo4qx/",
+          "multiplicador": 5.56,
+          "clasificacion": "outlier",
+          "publicado": "2024-09-01",
+          "likes": 5433,
+          "comentarios": 115,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Charlando de geopolítica con Pedro Sánchez. Domingo 12:00 en YouTube",
+          "url": "https://www.instagram.com/reel/DfacfyeInQR/",
+          "multiplicador": 5.4,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-06",
+          "likes": 5276,
+          "comentarios": 503,
+          "media_type": "video"
+        },
+        {
+          "titulo": "😂",
+          "url": "https://www.instagram.com/reel/DTHD1b-DD9T/",
+          "multiplicador": 4.08,
+          "clasificacion": "outlier",
+          "publicado": "2026-01-04",
+          "likes": 3990,
+          "comentarios": 101,
+          "media_type": "video"
+        },
+        {
+          "titulo": "No war, yes peace",
+          "url": "https://www.instagram.com/p/DTD35-vDGcr/",
+          "multiplicador": 3.87,
+          "clasificacion": "outlier",
+          "publicado": "2026-01-03",
+          "likes": 3782,
+          "comentarios": 77,
+          "media_type": "image"
+        },
+        {
+          "titulo": "¿Por qué colapsó la Unión Soviética?",
+          "url": "https://www.instagram.com/p/C_gm0b9I0Zw/",
+          "multiplicador": 3.3,
+          "clasificacion": "outlier",
+          "publicado": "2024-09-04",
+          "likes": 3220,
+          "comentarios": 64,
+          "media_type": "carousel"
+        }
+      ],
+      "recientes_a_vigilar": []
+    },
+    {
+      "canal": "La Hiperactina",
+      "mediana": 10879,
+      "n_publicaciones": 90,
+      "n_base": 89,
+      "mediana_fiable": true,
+      "outliers": [
+        {
+          "titulo": "otro añito de ciencia en el rewind🥹❤️",
+          "url": "https://www.instagram.com/p/C1KwyyftNO5/",
+          "multiplicador": 4.66,
+          "clasificacion": "outlier",
+          "publicado": "2023-12-22",
+          "likes": 50733,
+          "comentarios": 248,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "la de ciencias🧫🔬🧬👩‍🔬🧪",
+          "url": "https://www.instagram.com/p/C6b56EUNlI2/",
+          "multiplicador": 3.64,
+          "clasificacion": "outlier",
+          "publicado": "2024-05-01",
+          "likes": 39609,
+          "comentarios": 255,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "algunos moods de 2023, feliz año y mil mil mil (o sea tres mil) gracias por aco…",
+          "url": "https://www.instagram.com/p/C1h6pfbNZJz/",
+          "multiplicador": 3.56,
+          "clasificacion": "outlier",
+          "publicado": "2023-12-31",
+          "likes": 38709,
+          "comentarios": 116,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "la echo un poco de menos",
+          "url": "https://www.instagram.com/p/C84vF9ttrli/",
+          "multiplicador": 3.48,
+          "clasificacion": "outlier",
+          "publicado": "2024-07-01",
+          "likes": 37899,
+          "comentarios": 206,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "después de 3 meses fuera, vuelvo a casa con el corazoncito lleno❤️",
+          "url": "https://www.instagram.com/p/DE5Z2Q7iOqp/",
+          "multiplicador": 3.19,
+          "clasificacion": "outlier",
+          "publicado": "2025-01-16",
+          "likes": 34652,
+          "comentarios": 130,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Una sesión de fotos improvisada en el @talentlandesp de la mano de @pablopole ✨…",
+          "url": "https://www.instagram.com/p/C9IJ4FPNLXM/",
+          "multiplicador": 3.12,
+          "clasificacion": "outlier",
+          "publicado": "2024-07-07",
+          "likes": 33893,
+          "comentarios": 172,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "✨️REWIND IS OUT AAAAAAA✨️",
+          "url": "https://www.instagram.com/p/CmuTmP5NhMr/",
+          "multiplicador": 3.02,
+          "clasificacion": "outlier",
+          "publicado": "2022-12-28",
+          "likes": 32815,
+          "comentarios": 129,
+          "media_type": "carousel"
+        }
+      ],
+      "recientes_a_vigilar": []
+    },
+    {
+      "canal": "La Base",
+      "mediana": 1016.5,
+      "n_publicaciones": 80,
+      "n_base": 70,
+      "mediana_fiable": true,
+      "outliers": [
+        {
+          "titulo": "Un saludito a Constanza Peña, producto fino de la oligarquía paraguaya 🇵🇾",
+          "url": "https://www.instagram.com/reel/Dfh-U_Ho7fO/",
+          "multiplicador": 21.74,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-09",
+          "likes": 22103,
+          "comentarios": 676,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Socorro: Javier Milei está en Madrid 🆘🛟🇦🇷",
+          "url": "https://www.instagram.com/reel/Dew93Q4IL37/",
+          "multiplicador": 7.7,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-21",
+          "likes": 7824,
+          "comentarios": 662,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Gostosas com Lula 🤪",
+          "url": "https://www.instagram.com/p/DezJzOooI-7/",
+          "multiplicador": 6.9,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-22",
+          "likes": 7017,
+          "comentarios": 289,
+          "media_type": "image"
+        },
+        {
+          "titulo": "¡Vota a La Base en los Premios iVoox 2025!",
+          "url": "https://www.instagram.com/p/DQbiJaCjE1Q/",
+          "multiplicador": 4.42,
+          "clasificacion": "outlier",
+          "publicado": "2025-10-30",
+          "likes": 4496,
+          "comentarios": 140,
+          "media_type": "image"
+        },
+        {
+          "titulo": "Tres certezas sobre las revueltas en Europa: el capitalismo no funciona y Europ…",
+          "url": "https://www.instagram.com/reel/Derq4mnIOq6/",
+          "multiplicador": 4.08,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-19",
+          "likes": 4145,
+          "comentarios": 155,
+          "media_type": "video"
+        },
+        {
+          "titulo": "Si no tenías claro qué está pasando con la ley del solo sí es sí tenemos un pos…",
+          "url": "https://www.instagram.com/p/Cop3_dfqICb/",
+          "multiplicador": 3.22,
+          "clasificacion": "outlier",
+          "publicado": "2023-02-14",
+          "likes": 3270,
+          "comentarios": 119,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Aquellos maravillosos años",
+          "url": "https://www.instagram.com/reel/Dfko3tqMK_Q/",
+          "multiplicador": 3.06,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-10",
+          "likes": 3108,
+          "comentarios": 176,
+          "media_type": "video"
+        }
+      ],
+      "recientes_a_vigilar": [
+        {
+          "titulo": "Se olvidan de contar la historia completa.",
+          "url": "https://www.instagram.com/reel/Df2j010M9B_/",
+          "multiplicador": 8.32,
+          "clasificacion": null,
+          "publicado": "2026-11-17",
+          "likes": 8456,
+          "comentarios": 537,
+          "media_type": "video"
+        }
+      ]
+    },
+    {
+      "canal": "El Orden Mundial",
+      "mediana": 1202.5,
+      "n_publicaciones": 90,
+      "n_base": 80,
+      "mediana_fiable": true,
+      "outliers": [
+        {
+          "titulo": "La #vivienda es la principal preocupación de los españoles.",
+          "url": "https://www.instagram.com/p/Ddl1F0HjJfd/",
+          "multiplicador": 13.28,
+          "clasificacion": "breakout",
+          "publicado": "2026-09-22",
+          "likes": 15970,
+          "comentarios": 1270,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "#Europa ha vivido un fin de semana lleno de protestas.",
+          "url": "https://www.instagram.com/p/DersNHIjB7u/",
+          "multiplicador": 13.24,
+          "clasificacion": "breakout",
+          "publicado": "2026-10-19",
+          "likes": 15921,
+          "comentarios": 1020,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "🇨🇳 China ve el mundo en vertical.",
+          "url": "https://www.instagram.com/p/DeoYk2kDCZ_/",
+          "multiplicador": 7.4,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-18",
+          "likes": 8895,
+          "comentarios": 208,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Los fondos buitre ya controlan más de un millón de viviendas en España 🏡",
+          "url": "https://www.instagram.com/p/DdowyTWjEY1/",
+          "multiplicador": 7.39,
+          "clasificacion": "outlier",
+          "publicado": "2026-09-23",
+          "likes": 8890,
+          "comentarios": 126,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Gran derrota de #Trump en las #midterms.",
+          "url": "https://www.instagram.com/p/DfUFv4CjPpl/",
+          "multiplicador": 6.8,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-04",
+          "likes": 8173,
+          "comentarios": 165,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "🗳 Menos de un mes para las #elecciones.",
+          "url": "https://www.instagram.com/p/Dfhjj68DNm4/",
+          "multiplicador": 6.27,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-09",
+          "likes": 7537,
+          "comentarios": 256,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "'La Bola Negra' ha sido un éxito en España.",
+          "url": "https://www.instagram.com/p/Dely0GBiMq9/",
+          "multiplicador": 5.74,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-17",
+          "likes": 6905,
+          "comentarios": 110,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "#España es el país más prochino de Europa.",
+          "url": "https://www.instagram.com/p/DdrI9cijGuu/",
+          "multiplicador": 4.88,
+          "clasificacion": "outlier",
+          "publicado": "2026-09-24",
+          "likes": 5867,
+          "comentarios": 221,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "La #crisis de la #vivienda tiene múltiples causas.",
+          "url": "https://www.instagram.com/p/DdvvD59jEBn/",
+          "multiplicador": 4.68,
+          "clasificacion": "outlier",
+          "publicado": "2026-09-26",
+          "likes": 5622,
+          "comentarios": 442,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Xi Jinping tiene un plan.",
+          "url": "https://www.instagram.com/p/DdyTT25jKr-/",
+          "multiplicador": 4.65,
+          "clasificacion": "outlier",
+          "publicado": "2026-09-27",
+          "likes": 5593,
+          "comentarios": 195,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Si eres #inquilino, seguro que lo sabes.",
+          "url": "https://www.instagram.com/p/Dd1cYOyjLC9/",
+          "multiplicador": 4.63,
+          "clasificacion": "outlier",
+          "publicado": "2026-09-28",
+          "likes": 5565,
+          "comentarios": 234,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "#China era una gran potencia y dejó de serlo 🇨🇳",
+          "url": "https://www.instagram.com/p/DfwiL8EDMbr/",
+          "multiplicador": 4.16,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-15",
+          "likes": 5008,
+          "comentarios": 223,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "En #España protestamos mucho.",
+          "url": "https://www.instagram.com/p/DfmKecrDHDF/",
+          "multiplicador": 3.93,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-11",
+          "likes": 4726,
+          "comentarios": 52,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "Pagas más #impuestos que un multimillonario 💸",
+          "url": "https://www.instagram.com/p/De9p21vjEVP/",
+          "multiplicador": 3.6,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-26",
+          "likes": 4326,
+          "comentarios": 167,
+          "media_type": "carousel"
+        },
+        {
+          "titulo": "#Rusia incluye en sus mapas a territorios ucranianos.",
+          "url": "https://www.instagram.com/p/DeWVRnljDze/",
+          "multiplicador": 3.5,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-11",
+          "likes": 4213,
+          "comentarios": 80,
+          "media_type": "carousel"
+        }
+      ],
+      "recientes_a_vigilar": []
+    }
+  ],
+  "omitidos": [
+    {
+      "nombre": "RT en Español",
+      "motivo": "estado: no_disponible"
+    },
+    {
+      "nombre": "DW Documental",
+      "motivo": "estado: no_disponible"
+    }
+  ],
+  "fallos": []
+}

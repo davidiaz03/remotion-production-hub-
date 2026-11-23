@@ -1,0 +1,426 @@
+{
+  "fecha": "2026-11-23",
+  "plataforma": "youtube",
+  "backend": "ytdlp",
+  "unidades_api": 0,
+  "top_global": [
+    {
+      "titulo": "¿Por qué nadie quiere que Corea del Norte caiga?",
+      "url": "https://www.youtube.com/watch?v=OtRKNf7bzv4",
+      "multiplicador": 334.56,
+      "clasificacion": "breakout",
+      "publicado": "2026-09-25",
+      "vistas": 652887,
+      "duracion_s": 856
+    },
+    {
+      "titulo": "Europa repite el error que humilló a China durante un siglo",
+      "url": "https://www.youtube.com/watch?v=5V8LuC3vjgw",
+      "multiplicador": 130.99,
+      "clasificacion": "breakout",
+      "publicado": "2026-11-06",
+      "vistas": 255633,
+      "duracion_s": 834
+    },
+    {
+      "titulo": "Quién gobierna China de verdad: Wang Huning, el asesor de Xi Jinping",
+      "url": "https://www.youtube.com/watch?v=MwwCdo7fCHQ",
+      "multiplicador": 55.31,
+      "clasificacion": "breakout",
+      "publicado": "2026-10-09",
+      "vistas": 107934,
+      "duracion_s": 716
+    }
+  ],
+  "canales": [
+    {
+      "canal": "DW Documental",
+      "mediana": 288870.5,
+      "n_videos": 30,
+      "n_base": 24,
+      "mediana_fiable": true,
+      "outliers": [
+        {
+          "titulo": "Corea del Norte y su alianza con China y Rusia | DW Documental",
+          "url": "https://www.youtube.com/watch?v=psaKHith4GI",
+          "multiplicador": 5.88,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-28",
+          "vistas": 1698534,
+          "duracion_s": 2541
+        },
+        {
+          "titulo": "Corea del Norte - Propaganda para la dictadura | DW Documental",
+          "url": "https://www.youtube.com/watch?v=6Df2pTGbC2c",
+          "multiplicador": 5.82,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-04",
+          "vistas": 1680035,
+          "duracion_s": 2631
+        }
+      ],
+      "recientes_a_vigilar": [
+        {
+          "titulo": "¿IA fuera de control? Los expertos en inteligencia artificial hacen sonar la alarma | DW Documental",
+          "url": "https://www.youtube.com/watch?v=eYtkBCrMKUc",
+          "multiplicador": 4.26,
+          "clasificacion": null,
+          "publicado": "2026-11-21",
+          "vistas": 1229194,
+          "duracion_s": 5331
+        }
+      ]
+    },
+    {
+      "canal": "VisualPolitik",
+      "mediana": 79805,
+      "n_videos": 30,
+      "n_base": 21,
+      "mediana_fiable": true,
+      "outliers": [
+        {
+          "titulo": "La guerra de BUKELE en HAITÍ es PEOR de lo que pensábamos: no queda ni una CÁRCEL @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=LJLGVfzj0nY",
+          "multiplicador": 23.13,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-11",
+          "vistas": 1846142,
+          "duracion_s": 1330
+        },
+        {
+          "titulo": "El caso de la espía CHINA de NVIDIA es PEOR de lo que pensábamos: TRUMP lo sabía @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=mIPIl8eHECM",
+          "multiplicador": 16.09,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-10",
+          "vistas": 1284110,
+          "duracion_s": 1350
+        },
+        {
+          "titulo": "El FIN del orden de EEUU en Oriente Medio: EGIPTO entra en la GUERRA @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=3HJyH9hUfAQ",
+          "multiplicador": 7.73,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-13",
+          "vistas": 616610,
+          "duracion_s": 1397
+        },
+        {
+          "titulo": "Los REPUBLICANOS entran en PÁNICO: TRUMP pierde los ESTADOS que decidirán 2028 @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=K4W9JplFudQ",
+          "multiplicador": 5.82,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-12",
+          "vistas": 464615,
+          "duracion_s": 1518
+        },
+        {
+          "titulo": "TERREMOTO en el PENTÁGONO: El jefe de GUERRA de TRUMP está contra las cuerdas @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=Ih78EUAA0Dc",
+          "multiplicador": 5.49,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-14",
+          "vistas": 438231,
+          "duracion_s": 1402
+        },
+        {
+          "titulo": "EEUU sabía que 51 SISTEMAS de su CONTROL AÉREO no aguantaban… y no los cambió a tiempo",
+          "url": "https://www.youtube.com/watch?v=19d6EiwP028",
+          "multiplicador": 3.19,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-14",
+          "vistas": 254543,
+          "duracion_s": 743
+        }
+      ],
+      "recientes_a_vigilar": [
+        {
+          "titulo": "La ONU gastó 7.000 MILLONES en HAITÍ sin estabilizarlo… y ahora BUKELE la deja fuera @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=L9HGIfHbof8",
+          "multiplicador": 14.56,
+          "clasificacion": null,
+          "publicado": "2026-11-18",
+          "vistas": 1162239,
+          "duracion_s": 1398
+        },
+        {
+          "titulo": "¿Está TRUMP a punto de cometer su MAYOR ERROR con IRÁN? @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=bLpJvzv1Ouc",
+          "multiplicador": 12.58,
+          "clasificacion": null,
+          "publicado": "2026-11-16",
+          "vistas": 1003668,
+          "duracion_s": 1380
+        },
+        {
+          "titulo": "PUTIN exige lo IMPOSIBLE para acabar la GUERRA: ¿qué está tramando? @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=_-GTKio1UDE",
+          "multiplicador": 7.96,
+          "clasificacion": null,
+          "publicado": "2026-11-20",
+          "vistas": 635126,
+          "duracion_s": 1322
+        },
+        {
+          "titulo": "El régimen de CUBA tiene de repente un PROBLEMA: su GASOLINA ya solo llega de EEUU @VisualPolitik",
+          "url": "https://www.youtube.com/watch?v=wSMWeYz4tHk",
+          "multiplicador": 5.34,
+          "clasificacion": null,
+          "publicado": "2026-11-17",
+          "vistas": 425894,
+          "duracion_s": 1128
+        }
+      ]
+    },
+    {
+      "canal": "La Hiperactina",
+      "mediana": 161285,
+      "n_videos": 30,
+      "n_base": 29,
+      "mediana_fiable": true,
+      "outliers": [
+        {
+          "titulo": "Tu cerebro no está roto: puedes recuperar tu atención",
+          "url": "https://www.youtube.com/watch?v=LucAKHmzioI",
+          "multiplicador": 9.57,
+          "clasificacion": "outlier",
+          "publicado": "2026-10-13",
+          "vistas": 1544100,
+          "duracion_s": 1055
+        },
+        {
+          "titulo": "La MEJOR forma de aprender un IDIOMA (según la ciencia)",
+          "url": "https://www.youtube.com/watch?v=g5RWtknrp_M",
+          "multiplicador": 5.6,
+          "clasificacion": "outlier",
+          "publicado": "2026-09-14",
+          "vistas": 903210,
+          "duracion_s": 1039
+        },
+        {
+          "titulo": "Analizo los 5 SUPLEMENTOS más vendidos: ¿FUNCIONAN?",
+          "url": "https://www.youtube.com/watch?v=NAOsWhI4aVc",
+          "multiplicador": 5.25,
+          "clasificacion": "outlier",
+          "publicado": "2026-06-04",
+          "vistas": 847077,
+          "duracion_s": 1285
+        },
+        {
+          "titulo": "Disruptores endocrinos: ¿Nos están envenenando?",
+          "url": "https://www.youtube.com/watch?v=bqKDZrFUFRY",
+          "multiplicador": 3.68,
+          "clasificacion": "outlier",
+          "publicado": "2026-07-28",
+          "vistas": 593225,
+          "duracion_s": 1109
+        }
+      ],
+      "recientes_a_vigilar": []
+    },
+    {
+      "canal": "El Orden Mundial",
+      "mediana": 1951.5,
+      "n_videos": 30,
+      "n_base": 24,
+      "mediana_fiable": true,
+      "outliers": [
+        {
+          "titulo": "¿Por qué nadie quiere que Corea del Norte caiga?",
+          "url": "https://www.youtube.com/watch?v=OtRKNf7bzv4",
+          "multiplicador": 334.56,
+          "clasificacion": "breakout",
+          "publicado": "2026-09-25",
+          "vistas": 652887,
+          "duracion_s": 856
+        },
+        {
+          "titulo": "Europa repite el error que humilló a China durante un siglo",
+          "url": "https://www.youtube.com/watch?v=5V8LuC3vjgw",
+          "multiplicador": 130.99,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-06",
+          "vistas": 255633,
+          "duracion_s": 834
+        },
+        {
+          "titulo": "Quién gobierna China de verdad: Wang Huning, el asesor de Xi Jinping",
+          "url": "https://www.youtube.com/watch?v=MwwCdo7fCHQ",
+          "multiplicador": 55.31,
+          "clasificacion": "breakout",
+          "publicado": "2026-10-09",
+          "vistas": 107934,
+          "duracion_s": 716
+        },
+        {
+          "titulo": "Así está TRUMP convirtiendo a Estados Unidos en una DICTADURA",
+          "url": "https://www.youtube.com/watch?v=atZGvX3PgdE",
+          "multiplicador": 18.01,
+          "clasificacion": "breakout",
+          "publicado": "2026-10-02",
+          "vistas": 35153,
+          "duracion_s": 779
+        },
+        {
+          "titulo": "Netanyahu y el Gran Israel: por qué Israel quiere expandirse",
+          "url": "https://www.youtube.com/watch?v=zpeafOgb3Gk",
+          "multiplicador": 16.23,
+          "clasificacion": "breakout",
+          "publicado": "2026-10-23",
+          "vistas": 31670,
+          "duracion_s": 641
+        },
+        {
+          "titulo": "Europa está en guerra con Rusia y todavía no lo sabe",
+          "url": "https://www.youtube.com/watch?v=r8VAw6mpQ20",
+          "multiplicador": 12.72,
+          "clasificacion": "breakout",
+          "publicado": "2026-10-30",
+          "vistas": 24831,
+          "duracion_s": 833
+        },
+        {
+          "titulo": "Trump S.L.: el NEGOCIO de ser presidente",
+          "url": "https://www.youtube.com/watch?v=THpqZBmqcGk",
+          "multiplicador": 11.03,
+          "clasificacion": "breakout",
+          "publicado": "2026-10-16",
+          "vistas": 21527,
+          "duracion_s": 749
+        },
+        {
+          "titulo": "De PROPIETARIOS a ESCLAVOS del alquiler: La HISTORIA de la vivienda en España",
+          "url": "https://www.youtube.com/watch?v=USrVcflhQtg",
+          "multiplicador": 5.7,
+          "clasificacion": "outlier",
+          "publicado": "2026-09-28",
+          "vistas": 11133,
+          "duracion_s": 455
+        },
+        {
+          "titulo": "Qué hay dentro de tu móvil: China, Taiwán y el Congo",
+          "url": "https://www.youtube.com/watch?v=TaRAEGdMz7M",
+          "multiplicador": 3.95,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-13",
+          "vistas": 7705,
+          "duracion_s": 845
+        }
+      ],
+      "recientes_a_vigilar": []
+    },
+    {
+      "canal": "La Base",
+      "mediana": 22160.0,
+      "n_videos": 30,
+      "n_base": 14,
+      "mediana_fiable": true,
+      "outliers": [
+        {
+          "titulo": "Un saludito a Constanza Peña, producto fino de la oligarquía paraguaya 🇵🇾",
+          "url": "https://www.youtube.com/watch?v=1_Uc5XW56ok",
+          "multiplicador": 11.41,
+          "clasificacion": "breakout",
+          "publicado": "2026-11-09",
+          "vistas": 252768,
+          "duracion_s": 34
+        },
+        {
+          "titulo": "La Base 7x37 | Paraguay, de milagro a ruina",
+          "url": "https://www.youtube.com/watch?v=6xVNbk5rV58",
+          "multiplicador": 7.59,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-09",
+          "vistas": 168288,
+          "duracion_s": 1986
+        },
+        {
+          "titulo": "La Base 7x36 | Ucrania secuestra reclutas",
+          "url": "https://www.youtube.com/watch?v=PlbMRrK9E60",
+          "multiplicador": 4.63,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-05",
+          "vistas": 102630,
+          "duracion_s": 2651
+        },
+        {
+          "titulo": "La Base 7x39 | La Huelga General detiene el país",
+          "url": "https://www.youtube.com/watch?v=EyOyM86AyQ8",
+          "multiplicador": 3.46,
+          "clasificacion": "outlier",
+          "publicado": "2026-11-12",
+          "vistas": 76642,
+          "duracion_s": 2545
+        }
+      ],
+      "recientes_a_vigilar": [
+        {
+          "titulo": "La Base 7x43 | Trump, Xi y Putin en China",
+          "url": "https://www.youtube.com/watch?v=AzjYmwQ4OmA",
+          "multiplicador": 7.08,
+          "clasificacion": null,
+          "publicado": "2026-11-19",
+          "vistas": 156851,
+          "duracion_s": 2615
+        },
+        {
+          "titulo": "Sobre lo qué se juega en estas elecciones 👇",
+          "url": "https://www.youtube.com/watch?v=YcuNzENE2To",
+          "multiplicador": 6.18,
+          "clasificacion": null,
+          "publicado": "2026-11-16",
+          "vistas": 136968,
+          "duracion_s": 180
+        },
+        {
+          "titulo": "La Base 7x41 | ¿Quién protege a Núcleo Nacional?",
+          "url": "https://www.youtube.com/watch?v=nxr78sm9EA4",
+          "multiplicador": 4.45,
+          "clasificacion": null,
+          "publicado": "2026-11-17",
+          "vistas": 98708,
+          "duracion_s": 1979
+        },
+        {
+          "titulo": "La Base 7x40 | 29N: empieza la campaña",
+          "url": "https://www.youtube.com/watch?v=wOaCah7DCoQ",
+          "multiplicador": 3.33,
+          "clasificacion": null,
+          "publicado": "2026-11-16",
+          "vistas": 73758,
+          "duracion_s": 2662
+        },
+        {
+          "titulo": "Trump, Xi y Putin en 🇨🇳",
+          "url": "https://www.youtube.com/watch?v=QG8ADAHdK-8",
+          "multiplicador": 3.23,
+          "clasificacion": null,
+          "publicado": "2026-11-19",
+          "vistas": 71536,
+          "duracion_s": 169
+        }
+      ]
+    },
+    {
+      "canal": "AJ+ Español",
+      "mediana": null,
+      "n_videos": 30,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": []
+    }
+  ],
+  "omitidos": [
+    {
+      "nombre": "RT en Español",
+      "motivo": "estado: no_disponible"
+    }
+  ],
+  "fallos": [
+    {
+      "canal": "Memorias de Pez",
+      "error": "error: yt-dlp (Memorias de Pez) falló (código 1): WARNING: [youtube] tuOhkfM2gBQ: Some android client https formats have been skipped as they are missing a URL. YouTube may have enabled the SABR-only streaming experiment for the current session. See "
+    }
+  ]
+}

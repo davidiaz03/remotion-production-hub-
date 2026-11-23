@@ -1,0 +1,2481 @@
+{
+  "fecha": "2026-11-23",
+  "plataforma": "facebook",
+  "backend": "facebook-cli",
+  "unidades_api": 0,
+  "top_global": [],
+  "canales": [
+    {
+      "canal": "23GamersX (facebook.com/23GamersX)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "433 (facebook.com/official433)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Abejas memes (facebook.com/abejasmemes)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Abel Argüello (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Ada Colau (facebook.com/ada.colau)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Ada Downs (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Adilson De Marchi (facebook.com/adilson.de.marchi)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Afk Lnd (facebook.com/septi.septina.5)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "AJ+ Español (facebook.com/ajplusespanol)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "AJulio Flynn (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Alan Rodrigues (facebook.com/alanrodriguesistoe)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Alanbarossoclips2 (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Alanbarrosoclips (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Alberto Núñez Feijóo (facebook.com/NunezFeijoo)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Alejandro Ernesto Santamaria Tasende (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Alex Sancho (facebook.com/alex.sancho.9026)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Alfred E. Newman (facebook.com/Noquarter1969)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "All Gaming Areas (facebook.com/Gaming.Area.Ma)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Andrea Levy Soler (facebook.com/andrea.levy.soler)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Andrés Savonis (facebook.com/AndresSavonis)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Arab News (facebook.com/ArabNews)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "ArabHardware (facebook.com/arabhardware)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Arlene MC (facebook.com/LaOfficialArleneMC)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Asere-Cuba (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Bangladeshi mum Spain (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Bareknuckle Christine Misfit Ferea (facebook.com/BAREKNUCKLEMISFIT)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Bayern Munich Updates (facebook.com/MiaSanMiaUpdates)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "BeastBoy Mx (facebook.com/beastboymx98)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "beIN Sports Hong Kong (facebook.com/beinsportsHongKong)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Being Liberal (facebook.com/beingliberal.org)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Bleacher Report Football (facebook.com/BleacherReportFootball)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Brandon Weber (facebook.com/weberlegacy)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Bundesliga (facebook.com/BundesligaOfficial)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "C5N (facebook.com/C5N.Noticias)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "CHV Noticias (facebook.com/chvnoticias)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Cimarrón (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Clark Simons (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "clips wpp (facebook.com/clips.wpp)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Comedia Geopolítica (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Computer Hoy (facebook.com/ComputerHoy)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Conservative Tribune by WJ (facebook.com/theconservativetribune)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Contralínea (facebook.com/contralinea)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Cristina López Schlichting (facebook.com/CristinaFindeSemana)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Cuba en Miami (facebook.com/CubaenMiami)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Cuba Support Group Ireland CSGI (facebook.com/CSGIreland)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "CubaNet Noticias (facebook.com/cubanetnoticias)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Cubano Gallo Rebelde (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Cubano Rojo (facebook.com/cubano.rojo.2025)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "CubaPress New York (facebook.com/PatriayVidaNYC)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Cubavsbloqueo (facebook.com/cubavsbloqueo)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Dani La Chepi (facebook.com/danielalachepi)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "David G. Sanchez (facebook.com/david.sanchez.951295)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Dedication Lovers S.V. (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Defeat Democrats (facebook.com/DefeatTheDemocrats)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Deportes RCN (facebook.com/deportesrcn)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Deportes TVC (facebook.com/DeportesTVC)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "DeporTicos News CR (facebook.com/DeporTNews)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Diario El Salvador (facebook.com/DiarioElSalvador)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Dream Team (facebook.com/dreamteamfc)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Dynamo Dresden Addict - Alle SGD Neuigkeiten (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Edith Susana Amador Donoso (facebook.com/edithsusana)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Ehis Harry Isibor (facebook.com/harry.white.77312)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "El Aldeanito Cubano (facebook.com/elaldeanitocubano)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "El Cartel del Gaming (facebook.com/elcarteldelgaming90)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "El fútbol es un arte 2.0 (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "El Nuevo Herald (facebook.com/elnuevoherald)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "El Toque (facebook.com/eltoquecom)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "El virus \"Rojo\" (facebook.com/elvirusrojoo)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Elizabeth Ferrer (facebook.com/ElyPeluza)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Embajada de Cuba en Estados Unidos (facebook.com/EmbaCubaUS)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Emisoras Unidas (facebook.com/emisorasunidas)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "En Silencio Ha Tenido Que Ser (facebook.com/ESHTQS)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Eric Omar Caballero B (facebook.com/EricOmarCaballeroB)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Erly flow clips (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Ernesto Morales (facebook.com/ErnestomoralesNEWS)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Eryck Ferrer (facebook.com/erick.uplif.1555)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "España Diario (facebook.com/EspanaDiario.es)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "España en el Corazón (facebook.com/EspanaenelCorazonES)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "ESPN UK (facebook.com/ESPNUK)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Expansión (facebook.com/ExpansionMex)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Express Sport (facebook.com/DailyExpressSport)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Fabrizio Romano (facebook.com/fabrizioromanoherewego)",
+      "mediana": null,
+      "n_publicaciones": 3,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "FC Bayern Munich (facebook.com/FCBayernUS)",
+      "mediana": 466,
+      "n_publicaciones": 5,
+      "n_base": 1,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [
+        {
+          "titulo": "Harry adding goal kicks to the resume 📝",
+          "url": "https://facebook.com/reel/1671519737844984/",
+          "multiplicador": 4.89,
+          "clasificacion": null,
+          "publicado": "2026-11-18",
+          "reacciones": 2278,
+          "comentarios": 4,
+          "media_type": "entfbstatusupdatevideo"
+        },
+        {
+          "titulo": "Back and ready for Friday 👊",
+          "url": "https://facebook.com/reel/3027932510880566/",
+          "multiplicador": 3.75,
+          "clasificacion": null,
+          "publicado": "2026-11-19",
+          "reacciones": 1747,
+          "comentarios": 3,
+          "media_type": "entfbstatusupdatevideo"
+        },
+        {
+          "titulo": "Harry Kane has to be substituted off after 20 minutes, with Tom Bischof coming…",
+          "url": "https://facebook.com/100044217350101/posts/pfbid0KfbseYV25NF7k4BCZJEWL2Uc4HhscnNgpD9Mninim2NUrXVsdu1WYAn8KGNKCJfGl/",
+          "multiplicador": 3.18,
+          "clasificacion": null,
+          "publicado": "2026-11-20",
+          "reacciones": 1482,
+          "comentarios": 35,
+          "media_type": null
+        }
+      ],
+      "configurada": false
+    },
+    {
+      "canal": "FC Bayern München (facebook.com/fcbayern.arab)",
+      "mediana": 436,
+      "n_publicaciones": 1,
+      "n_base": 1,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "FC Bayern München (facebook.com/fcbayern.en)",
+      "mediana": 5183.5,
+      "n_publicaciones": 3,
+      "n_base": 2,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "FC Bayern München (facebook.com/fcbayern.es)",
+      "mediana": 314,
+      "n_publicaciones": 3,
+      "n_base": 1,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [
+        {
+          "titulo": "¡Miren quiénes ya están de vuelta en Múnich! 👀🔥",
+          "url": "https://facebook.com/reel/1440673278240621/",
+          "multiplicador": 9.53,
+          "clasificacion": null,
+          "publicado": "2026-11-18",
+          "reacciones": 2992,
+          "comentarios": 9,
+          "media_type": "entfbstatusupdatevideo"
+        }
+      ],
+      "configurada": false
+    },
+    {
+      "canal": "FC Bayern München Fans Bangladesh (facebook.com/fcbayernbangla)",
+      "mediana": 155,
+      "n_publicaciones": 1,
+      "n_base": 1,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Felix Borrallo Vazquez (facebook.com/felix.borrallovazquez)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Fernando Ravsberg (facebook.com/ravsberg)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Fidelista por Siempre (facebook.com/FidelistaPorSiempre)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Football Fans Tribe (facebook.com/FansTribeHQ)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Footboom Worldwide (facebook.com/footboom.english)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Futbolred.com (facebook.com/futbolred)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Gabriel Mangalhes (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Gamers-Life.ru (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Gemma Vegilia (facebook.com/gemma.vegilia)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Germany Ahead (facebook.com/Happymind1989)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Gloria Alvarez (facebook.com/GloriaAlvarez)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Granma (facebook.com/granmadigital)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Grupo Parlamentario Popular en el Congreso de los Diputados (facebook.com/GPPopular)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Gustavo Valdigarcia (facebook.com/valdigarcia)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Herminio Luis Cardona Martinez (facebook.com/herminioluis.cardona)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Hold the Line (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Hugo René (facebook.com/hugo.rene.148)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Ignacio Chen (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Infobae España (facebook.com/InfobaeEspana)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Infobae Perú (facebook.com/infobaeperu)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Infos sport (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "International affairs (facebook.com/international.affairs.2026)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Iyawo Oni Oni (facebook.com/iyawo.oni.oni.573490)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Jorge Azcón (facebook.com/JorgeAzcon)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Jorge Carrizosa (facebook.com/jorge.carri.9022)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Jorge Luis Ninguno (facebook.com/jorge.luis.ninguno)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Jose Luis Gonzalez (facebook.com/joseluis.gonzalez.1460)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Juan Despecho (facebook.com/Juandespechooficial)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Jugando con Isis (facebook.com/Isis0606)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "K24 TV (facebook.com/K24TVNews)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Keith Martinez (facebook.com/keith.martinez.66947)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Kenelmo Mena (facebook.com/kenelmo.mena)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Keña Neto (facebook.com/KenaNeto8)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "La Jornada (facebook.com/lajornadaonline)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "La Patria Grande (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "La Resolana (facebook.com/LaResolanaConElCapi)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Laurie Campbell (facebook.com/laurie.campbell.7)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Leonel Estíu (facebook.com/danger.ross.370)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "LomaxUp (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Loren M. Lambert (facebook.com/lorenml)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Lucio Hernandez (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "LuzGamingxd (facebook.com/luzgamingxd)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Mabel.504 (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Mag Jorge Castro (facebook.com/MagJorgeCastro)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Malcolm Yeates (facebook.com/malcolm.yeates3)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Marcus DiPaola (facebook.com/marcusdipaola123)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Mariano y punto (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Match of the Day (facebook.com/BBCMOTD)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Match updates & news with Boltzmann (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Melk Luis (facebook.com/melk.luis.311)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Mia Hernández (facebook.com/mia.hernandez.84395)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "MILENIO (facebook.com/MilenioDiario)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Mirror Football (facebook.com/mirrorfootball)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "MMC news (facebook.com/MahunguYaMisavaChannel)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Moisés Rosario Hernández (facebook.com/moises.rosario.5268)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Monte Talksports (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Mrock254 sportsmedia (facebook.com/Mrock254.SportsMedia)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Mundial Style - Vintage Football (facebook.com/mundialstyle)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Mundo Deportivo (facebook.com/MundoDeportivo.com)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "N+ UNIVISION (facebook.com/nmasunivision)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Nahuel Olivares (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "NaNi Casals (facebook.com/ultimanoticia1)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "News Alert W/ Kevin Boulandier (facebook.com/newsalertkb)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Noob Gamer (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Noticiero Univision Edicion Digital (facebook.com/NoticieroUnivisionEdicionDigital)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Nova Visuals (facebook.com/raeoso.brazy)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "NTN24 (facebook.com/NTN24)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Nuno Oliveira (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Oh My Goal (facebook.com/OhMyGoal.KeliNetwork)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Olga Lambea (facebook.com/olga.lambea)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Once Noticias (facebook.com/11noticias)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Onefootball (facebook.com/OneFootball)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Partido Popular (facebook.com/pp)",
+      "mediana": null,
+      "n_publicaciones": 3,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Partido Popular Comunitat Valenciana (facebook.com/PartidoPopularCV)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Pedro Sánchez Pérez-Castejón (facebook.com/pedro.sanchezperezcastejon)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Pejgrrb //& (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Pepin Cuba (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Periódico Cubano (facebook.com/PeriodicoCubano)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Peter Murray (facebook.com/peter.murray.1690)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Phyllis Thorkelson (facebook.com/phyllis.thorkelson.1)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Piwi247 (facebook.com/piwi247official)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Politiqueandoo (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "PortalGDA (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Potiguara Marques (facebook.com/potiguara.marques)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Predicador (facebook.com/PredicadorGG)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "PSOE (facebook.com/psoe)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Publimetro México (facebook.com/publimetromx)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Radio Bio Bio (facebook.com/RadioBioBio)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Ramon Moreno Viko (facebook.com/ramon.morenoviko)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "ran (facebook.com/ransport)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Ryan Fournier (facebook.com/RyanAFournier)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "S8 Quân Sự Thế Giới (facebook.com/S8QuanSuTheGioi)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Salim Lamrani officiel (facebook.com/SalimLamraniOfficiel)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Salvajey Real Vision (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Santos Domínguez Ramos (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Seguidores de la Rikura (facebook.com/SeguidoresRikura)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Series Roy (facebook.com/CreadorAI)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Shahidul Munna (facebook.com/aphagana.yabaka.manana)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "ShiftDelete.Net (facebook.com/ShiftDelete.Net)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Soccer News With General (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Sovereign Media (facebook.com/SovereignMedia)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "SPORT1 (facebook.com/SPORT1News)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Sports Extra (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Sportskeeda Football (facebook.com/SportskeedaFootball)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Switch Media Kenya (facebook.com/switchtvkenya)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "talkSPORT (facebook.com/talkSPORT)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Teleamazonas (facebook.com/TeleamazonasEcuador)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Telegrafista Cubano (facebook.com/TelegrafistaC)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Televicentro HN (facebook.com/televicentrohon)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Teodoro Blanco Dos (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "The Independent Sport (facebook.com/TheIndependentSport)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "The Sun Football (facebook.com/TheSunFootball)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "The Tea Party Community by WJ (facebook.com/TeaPartyCommunityByWJ)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Theatre Of Dreams (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Third Rail Sports (facebook.com/thirdrailsports)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Thomas C. Moffatt (facebook.com/T.C.Moffatt)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Tocororo Cubano (facebook.com/TocororoQbano)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Today's Top News (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Transfermarkt (facebook.com/transfermarkt.global)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Trurtgloltfuldse Thuhustaft (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Tuko.co.ke (facebook.com/tuko.co.ke)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "TV Azteca Chiapas (facebook.com/aztecachiapas)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "TV Azteca Estado de México (facebook.com/aztecaedomex)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "TVV Noticias (facebook.com/TVVNoticias)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "UEFA Champions League (facebook.com/ChampionsLeague)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Uniscore (facebook.com/Uniscore.Official)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "UniVista TV (facebook.com/UniVistaTV)",
+      "mediana": 172.5,
+      "n_publicaciones": 5,
+      "n_base": 2,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Upsocl Video (facebook.com/upsoclvideo)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "USA Security Network (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "USA Security Pulse (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Ventas Y Negocios de Autos y Motos (facebook.com/RachidAutos)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Vintage Sport (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Vosslon (facebook.com/VOSSLON)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Wenderfis (facebook.com/Wenderfis)",
+      "mediana": null,
+      "n_publicaciones": 3,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Wigo TV (facebook.com/wigotvperu)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Wirenna (facebook.com/wirennanews)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "WISNA (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "World & Africa Women’s Football With OSE (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "X CUBA LIBRE (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Xavier Rius (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Yoshev E. Mikael (facebook.com/Y3Mikael)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Yosvany Del Rio (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Çàrīñö Zâyñ (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "Última Hora Ecuador (facebook.com/ultimahoraecuador)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "الجزيرة - صحة (facebook.com/AlJazeeraHealth)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "خالد جاسم (facebook.com/khalidjassim74)",
+      "mediana": null,
+      "n_publicaciones": 2,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "سبورت 360 عربية (facebook.com/sport360Arabiya)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "遊戲情報局 (facebook.com/profile.php)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    },
+    {
+      "canal": "𝔻𝕀𝔾𝕀𝕋𝔸𝕃 𝟚𝟜-𝟟 (facebook.com/diarioOnline.digital.247)",
+      "mediana": null,
+      "n_publicaciones": 1,
+      "n_base": 0,
+      "mediana_fiable": false,
+      "outliers": [],
+      "recientes_a_vigilar": [],
+      "configurada": false
+    }
+  ],
+  "omitidos": [
+    {
+      "nombre": "AJ+ Español",
+      "motivo": "estado: pendiente_verificacion"
+    },
+    {
+      "nombre": "La Hiperactina",
+      "motivo": "estado: no_disponible"
+    },
+    {
+      "nombre": "RT en Español",
+      "motivo": "estado: no_disponible"
+    }
+  ],
+  "fallos": [
+    {
+      "canal": "https://www.facebook.com/reel/2145405623015872/",
+      "error": "error: facebook-cli post read (https://www.facebook.com/reel/2145405623015872/) falló (código 1): Error: request failed (HTTP 404 Not Found): This post isn't available to this account (deleted or not visible). Don't retry or guess IDs; tell the user. (POST_NOT_FOUND)\nHint: Don't retry this; tell t"
+    },
+    {
+      "canal": "https://www.facebook.com/permalink.php?story_fbid=pfbid0Z3Y7rmBNuJnPfiBAofpJcV6XvKG34TV7yTMkEc9ieRnxdnLph5Ka5uRwuwkwfQc1l&id=100063909227260",
+      "error": "error: facebook-cli post read (https://www.facebook.com/permalink.php?story_fbid=pfbid0Z3Y7rmBNuJnPfiBAofpJcV6XvKG34TV7yTMkEc9ieRnxdnLph5Ka5uRwuwkwfQc1l&id=100063909227260) falló (código 1): Error: request failed (HTTP 404 Not Found): This post isn't available to this account (deleted or not visible). Don't retry or guess IDs; tell the user. (POST_NOT_FOUND)\nHint: Don't retry this; tell t"
+    },
+    {
+      "canal": "https://www.facebook.com/DjZantOfficial/posts/pfbid02b77y8E5LCBkXa1zk2fYAB1mfNWcJhUt9Bxk4qUHmexNrQCLhNYdGGfNxWxQNhnr7l",
+      "error": "error: facebook-cli post read (https://www.facebook.com/DjZantOfficial/posts/pfbid02b77y8E5LCBkXa1zk2fYAB1mfNWcJhUt9Bxk4qUHmexNrQCLhNYdGGfNxWxQNhnr7l) falló (código 1): Error: request failed (HTTP 404 Not Found): This post isn't available to this account (deleted or not visible). Don't retry or guess IDs; tell the user. (POST_NOT_FOUND)\nHint: Don't retry this; tell t"
+    },
+    {
+      "canal": "https://www.facebook.com/reel/4130386337270797/",
+      "error": "error: facebook-cli post read (https://www.facebook.com/reel/4130386337270797/) falló (código 1): Error: request failed (HTTP 404 Not Found): This post isn't available to this account (deleted or not visible). Don't retry or guess IDs; tell the user. (POST_NOT_FOUND)\nHint: Don't retry this; tell t"
+    },
+    {
+      "canal": "https://www.facebook.com/reel/1456751259768969/",
+      "error": "error: facebook-cli post read (https://www.facebook.com/reel/1456751259768969/) falló (código 1): Error: request failed (HTTP 404 Not Found): This post isn't available to this account (deleted or not visible). Don't retry or guess IDs; tell the user. (POST_NOT_FOUND)\nHint: Don't retry this; tell t"
+    },
+    {
+      "canal": "https://www.facebook.com/reel/1103421368985734/",
+      "error": "error: facebook-cli post read (https://www.facebook.com/reel/1103421368985734/) falló (código 1): Error: request failed (HTTP 404 Not Found): This post isn't available to this account (deleted or not visible). Don't retry or guess IDs; tell the user. (POST_NOT_FOUND)\nHint: Don't retry this; tell t"
+    },
+    {
+      "canal": "https://www.facebook.com/ZantMusica/posts/pfbid0S1CYgWwr3eczFLFaZgc33XuSiDrU7aXniR2XZRbq1ZbQPXhJtbWJpMvKArK6uEiPl",
+      "error": "error: facebook-cli post read (https://www.facebook.com/ZantMusica/posts/pfbid0S1CYgWwr3eczFLFaZgc33XuSiDrU7aXniR2XZRbq1ZbQPXhJtbWJpMvKArK6uEiPl) falló (código 1): Error: request failed (HTTP 404 Not Found): This post isn't available to this account (deleted or not visible). Don't retry or guess IDs; tell the user. (POST_NOT_FOUND)\nHint: Don't retry this; tell t"
+    },
+    {
+      "canal": "https://www.facebook.com/reel/1366293892111411/",
+      "error": "error: facebook-cli post read (https://www.facebook.com/reel/1366293892111411/) falló (código 1): Error: request failed (HTTP 404 Not Found): This post isn't available to this account (deleted or not visible). Don't retry or guess IDs; tell the user. (POST_NOT_FOUND)\nHint: Don't retry this; tell t"
+    },
+    {
+      "canal": "https://www.facebook.com/footballtodaygg/posts/pfbid02sUbTXvfExRactqGVbDx28YZHeAkvZtcXHNVCtrBJHsZZY73CBznyWhves7rQPM1Zl",
+      "error": "error: facebook-cli post read (https://www.facebook.com/footballtodaygg/posts/pfbid02sUbTXvfExRactqGVbDx28YZHeAkvZtcXHNVCtrBJHsZZY73CBznyWhves7rQPM1Zl) falló (código 1): Error: request failed (HTTP 404 Not Found): This post isn't available to this account (deleted or not visible). Don't retry or guess IDs; tell the user. (POST_NOT_FOUND)\nHint: Don't retry this; tell t"
+    }
+  ],
+  "paginas_sin_urls": [
+    {
+      "nombre": "Memorias de Pez",
+      "facebook_handle": "MemoriasdPez"
+    },
+    {
+      "nombre": "La Base",
+      "facebook_handle": "canalredtelevision"
+    },
+    {
+      "nombre": "El Orden Mundial",
+      "facebook_handle": "elordenmundial"
+    },
+    {
+      "nombre": "DW Documental",
+      "facebook_handle": "dwdocumental"
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+{
+  "fecha": "2026-11-23",
+  "perfil": "Memorial de la Denuncia",
+  "ventana": {
+    "desde": "2026-11-16",
+    "hasta": "2026-11-23"
+  },
+  "plataformas": [
+    {
+      "plataforma": "Facebook",
+      "via": "lectura pública por URL (post read + reactions read)",
+      "senial": "reacciones",
+      "seguidores": null,
+      "n_ventana": 0,
+      "n_base": 49,
+      "mediana": 17,
+      "mediana_fiable": true,
+      "medianas_tipo": {
+        "reel": {
+          "mediana": 60.0,
+          "n": 12
+        },
+        "carrusel": {
+          "mediana": 18.5,
+          "n": 4
+        },
+        "foto": {
+          "mediana": 14.5,
+          "n": 32
+        }
+      },
+      "ventana": [],
+      "top": [],
+      "bottom": [],
+      "patron_hora_dia": null
+    },
+    {
+      "plataforma": "Instagram",
+      "via": "lectura pública del perfil (likes)",
+      "senial": "likes",
+      "seguidores": 4735,
+      "n_ventana": 6,
+      "n_base": 84,
+      "mediana": 21.0,
+      "mediana_fiable": true,
+      "medianas_tipo": {
+        "reel": {
+          "mediana": 62,
+          "n": 39
+        },
+        "carrusel": {
+          "mediana": 14.0,
+          "n": 38
+        },
+        "foto": {
+          "mediana": 15,
+          "n": 7
+        }
+      },
+      "ventana": [
+        {
+          "titulo": "El 20 de noviembre de 1997, TV Martí intentó amplió sus transmisiones a la band…",
+          "url": "https://www.instagram.com/p/Df90f8SlK2S/",
+          "tipo": "carrusel",
+          "publicado": "2026-11-20",
+          "senial": 16,
+          "multiplicador": 0.76,
+          "multiplicador_tipo": 1.14,
+          "clasificacion": null,
+          "comentarios": 0,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        },
+        {
+          "titulo": "Una b*mba camuflada en un libro fue enviada a una embajada cubana en 1974.",
+          "url": "https://www.instagram.com/reel/Df-s8UmvPSR/",
+          "tipo": "reel",
+          "publicado": "2026-11-20",
+          "senial": 237,
+          "multiplicador": 11.29,
+          "multiplicador_tipo": 3.82,
+          "clasificacion": "destacado",
+          "comentarios": 21,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        },
+        {
+          "titulo": "El 18 de noviembre de 1983, bajo la administración de Ronald Reagan, se creó la…",
+          "url": "https://www.instagram.com/p/Df4xxNelCBM/",
+          "tipo": "carrusel",
+          "publicado": "2026-11-18",
+          "senial": 11,
+          "multiplicador": 0.52,
+          "multiplicador_tipo": 0.79,
+          "clasificacion": null,
+          "comentarios": 1,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        },
+        {
+          "titulo": "El 17 de noviembre se conmemora el día internacional del estudiante.",
+          "url": "https://www.instagram.com/p/Df21IoNlEHu/",
+          "tipo": "carrusel",
+          "publicado": "2026-11-17",
+          "senial": 26,
+          "multiplicador": 1.24,
+          "multiplicador_tipo": 1.86,
+          "clasificacion": null,
+          "comentarios": 0,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        },
+        {
+          "titulo": "El 17 de noviembre del año 2000, el Comandante en Jefe Fidel Castro Ruz denunci…",
+          "url": "https://www.instagram.com/p/Df2M8XZFom4/",
+          "tipo": "carrusel",
+          "publicado": "2026-11-17",
+          "senial": 13,
+          "multiplicador": 0.62,
+          "multiplicador_tipo": 0.93,
+          "clasificacion": null,
+          "comentarios": 0,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        },
+        {
+          "titulo": "El 17 de noviembre de 2003, la Oficina de Control de Activos Extranjeros (OFAC)…",
+          "url": "https://www.instagram.com/p/Df15sgclrvz/",
+          "tipo": "carrusel",
+          "publicado": "2026-11-17",
+          "senial": 22,
+          "multiplicador": 1.05,
+          "multiplicador_tipo": 1.57,
+          "clasificacion": null,
+          "comentarios": 0,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        }
+      ],
+      "top": [
+        {
+          "titulo": "Una b*mba camuflada en un libro fue enviada a una embajada cubana en 1974.",
+          "url": "https://www.instagram.com/reel/Df-s8UmvPSR/",
+          "tipo": "reel",
+          "publicado": "2026-11-20",
+          "senial": 237,
+          "multiplicador": 11.29,
+          "multiplicador_tipo": 3.82,
+          "clasificacion": "destacado",
+          "comentarios": 21,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        },
+        {
+          "titulo": "El 17 de noviembre se conmemora el día internacional del estudiante.",
+          "url": "https://www.instagram.com/p/Df21IoNlEHu/",
+          "tipo": "carrusel",
+          "publicado": "2026-11-17",
+          "senial": 26,
+          "multiplicador": 1.24,
+          "multiplicador_tipo": 1.86,
+          "clasificacion": null,
+          "comentarios": 0,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        },
+        {
+          "titulo": "El 17 de noviembre de 2003, la Oficina de Control de Activos Extranjeros (OFAC)…",
+          "url": "https://www.instagram.com/p/Df15sgclrvz/",
+          "tipo": "carrusel",
+          "publicado": "2026-11-17",
+          "senial": 22,
+          "multiplicador": 1.05,
+          "multiplicador_tipo": 1.57,
+          "clasificacion": null,
+          "comentarios": 0,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        }
+      ],
+      "bottom": [
+        {
+          "titulo": "El 18 de noviembre de 1983, bajo la administración de Ronald Reagan, se creó la…",
+          "url": "https://www.instagram.com/p/Df4xxNelCBM/",
+          "tipo": "carrusel",
+          "publicado": "2026-11-18",
+          "senial": 11,
+          "multiplicador": 0.52,
+          "multiplicador_tipo": 0.79,
+          "clasificacion": null,
+          "comentarios": 1,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        },
+        {
+          "titulo": "El 17 de noviembre del año 2000, el Comandante en Jefe Fidel Castro Ruz denunci…",
+          "url": "https://www.instagram.com/p/Df2M8XZFom4/",
+          "tipo": "carrusel",
+          "publicado": "2026-11-17",
+          "senial": 13,
+          "multiplicador": 0.62,
+          "multiplicador_tipo": 0.93,
+          "clasificacion": null,
+          "comentarios": 0,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        },
+        {
+          "titulo": "El 20 de noviembre de 1997, TV Martí intentó amplió sus transmisiones a la band…",
+          "url": "https://www.instagram.com/p/Df90f8SlK2S/",
+          "tipo": "carrusel",
+          "publicado": "2026-11-20",
+          "senial": 16,
+          "multiplicador": 0.76,
+          "multiplicador_tipo": 1.14,
+          "clasificacion": null,
+          "comentarios": 0,
+          "compartidos": null,
+          "visualizaciones": null,
+          "alcance": null,
+          "interacciones": null,
+          "fuente": "instagram-publico"
+        }
+      ],
+      "patron_hora_dia": null
+    }
+  ],
+  "hallazgos": [
+    {
+      "texto": "En Facebook, los reels rinden 4.1x la mediana de fotos",
+      "evidencia": "mediana reel: 60 reacciones (n=12); mediana foto: 14.5 reacciones (n=32); base >7 días"
+    },
+    {
+      "texto": "En Instagram, los reels rinden 4.4x la mediana de carruseles",
+      "evidencia": "mediana reel: 62 likes (n=39); mediana carrusel: 14 likes (n=38); base >7 días"
+    },
+    {
+      "texto": "El mejor post de la semana en Instagram fue «Una b*mba camuflada en un libro fue enviada a una embajada cubana en 1974.» (11.29x la mediana)",
+      "evidencia": "237 likes frente a una mediana de 21 (n base=84); https://www.instagram.com/reel/Df-s8UmvPSR/"
+    }
+  ],
+  "bloqueos": [
+    {
+      "plataforma": "Facebook",
+      "via": "pages",
+      "error": "pages list devolvió 1 Página y ninguna coincide con el perfil 'Memorial de la Denuncia'",
+      "que_falta": "que el conector descubra la Página en pages list; mientras, la medición usa la vía de URLs"
+    },
+    {
+      "plataforma": "Instagram",
+      "via": "owned-insights",
+      "error": "no intentado: falta --instagram-owned-id (la sesión del perfil no está activa)",
+      "que_falta": "reactivar la sesión del perfil en Instagram (código nuevo al correo del perfil) y pasar su ID con --instagram-owned-id; sin eso, la medición usa likes públicos, sin Views ni Accounts reached"
+    }
+  ],
+  "fallos": [
+    {
+      "plataforma": "Facebook",
+      "error": "https://facebook.com/memorialdenuncia/posts/pfbid0AztXSzSDeWjz99hQu5jptpHENMxHrnkLreQX24Fzoic5sH5ZG3DXkXTa9SwhPeCl: error: facebook-cli post read (https://facebook.com/memorialdenuncia/posts/pfbid0AztXSzSDeWjz99hQu5jptpHENMxHrnkLreQX24Fzoic5sH5ZG3DXkXTa9SwhPeCl) falló (código 1): Error: request failed (HTTP 400 Bad Request): Invalid Post ID (INVALID_POST_ID)\nHint: Fix the parameter and try again.\n"
+    }
+  ]
+}
