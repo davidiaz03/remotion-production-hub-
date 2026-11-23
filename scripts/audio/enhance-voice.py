@@ -330,10 +330,27 @@ def correct_loudness(path, target_lufs, target_tp):
 # ----------------------------- análisis (numpy) -----------------------------
 
 def read_mono(path):
-    """WAV -> (muestras float32 mono, sr)."""
+    """Audio -> (muestras float32 mono, sr).
+
+    Decodifica con ffmpeg los formatos que libsndfile no lee (m4a/mp3/ogg
+    de grabadoras de celular): sin esto, la entrada natural del módulo
+    (una grabación de teléfono) fallaba en el análisis. (Bug encontrado
+    22-nov-2026 con la primera prueba real del usuario.)
+    """
     if sf is None:
         raise RuntimeError("soundfile no disponible en este venv")
-    data, sr = sf.read(path, always_2d=False)
+    try:
+        data, sr = sf.read(path, always_2d=False)
+    except Exception:
+        tmp = tempfile.NamedTemporaryFile(suffix=".wav", delete=False)
+        tmp.close()
+        try:
+            run(["ffmpeg", "-y", "-hide_banner", "-nostats", "-nostdin",
+                 "-i", path, "-ac", "1", "-ar", str(DEFAULT_SR),
+                 "-c:a", "pcm_s16le", tmp.name])
+            data, sr = sf.read(tmp.name, always_2d=False)
+        finally:
+            os.unlink(tmp.name)
     if data.ndim > 1:
         data = data.mean(axis=1)
     return np.asarray(data, dtype=np.float32), sr
