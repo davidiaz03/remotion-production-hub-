@@ -83,5 +83,22 @@ limpia: alucinación conocida, NO voz). Veredicto FAIL = elegir otra
 ventana o generar otra pista; nunca mezclar una cama FAIL.
 Ver `scripts/audio/README.md` § «Escaneo de camas».
 
+## Mejora de voz de celular — `enhance-voice.py` (22-nov-2026)
+El usuario graba la VO de su marca personal con el celular:
+`scripts/audio/enhance-voice.py --preset phone` la deja con sonido
+de micrófono profesional (denoise afftdn + expansor + EQ +
+compresor + deesser + limitador + loudnorm lineal a −18 LUFS, el
+`voice_lufs` de `mix.py`). Salida WAV mono 48 kHz lista para
+`mix.py`. La cadena NUNCA recorta: duración exacta y pausas
+intactas (regla 18-nov, verificada con VAD por energía +
+periodicidad, solo sobre pausas medibles en el original). Uso:
+`--compare` genera el A/B antes/después a igual sonoridad.
+Límites: no elimina eco fuerte dentro de la palabra ni recupera
+voz tapada por ruido (SNR < ~5 dB) ni saturación. DeepFilterNet
+no instalable en esta VM (falta toolchain Rust); queda como
+mejora futura. Suite: 18 tests
+(`scripts/audio/test_enhance_voice.py`). Ver
+`scripts/audio/README.md` § «Mejora de voz de celular».
+
 ## Al cerrar
 Actualiza el historial editorial y siguiente acción, guarda la fuente en Git, comprueba SHA remoto y notifica rama, commit y revisión. Detén Codespaces para reducir consumo gratuito.
