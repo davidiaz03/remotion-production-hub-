@@ -102,7 +102,7 @@ compararlo con nada). Desde entonces:
   construye: re-ejecutar el paso audio y reintentar.
 - Suite: `scripts/audio/test_bed_identity.py` (7 pruebas).
 
-## Mejora de voz de celular — `enhance-voice.py` (22-nov-2026)
+## Mejora de voz de celular — `enhance-voice.py` (22-nov-2026; preset `pro` 23-nov-2026)
 El usuario graba la VO de su marca personal con el celular:
 `scripts/audio/enhance-voice.py --preset phone` la deja con sonido
 de micrófono profesional (denoise afftdn + expansor + EQ +
@@ -114,8 +114,11 @@ periodicidad, solo sobre pausas medibles en el original). Uso:
 `--compare` genera el A/B antes/después a igual sonoridad.
 Límites: no elimina eco fuerte dentro de la palabra ni recupera
 voz tapada por ruido (SNR < ~5 dB) ni saturación. DeepFilterNet
-no instalable en esta VM (falta toolchain Rust); queda como
-mejora futura. Suite: 18 tests
+instalado 23-nov-2026 por binario estático oficial (`deep-filter`
+0.5.6, `~/workspace/.voice-env/bin/`, modelo embebido; la ruta pip
+no existe en Python 3.12): preset `pro`, aprobado por el usuario
+de oído en la VO de Messi YT (ruido en huecos −10,2 dB, voz y
+pausas intactas). Suite: 30 tests
 (`scripts/audio/test_enhance_voice.py`). Ver
 `scripts/audio/README.md` § «Mejora de voz de celular».
 

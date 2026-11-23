@@ -40,8 +40,8 @@ sobre el ritmo, antes de fijar la escaleta.
 | `microcut.py` | **Detector de microcortes de voz a nivel de forma de onda (18-nov-2026, sección (i) de la auditoría):** calidad de empalme, dips dentro de palabras (editada vs original), pausas recortadas, contigüidad de segmentos y SFX que entierran ataques de palabra. CLI propia + `detect_all()` para tests y auditoría. (i2) corregida 20-nov-2026 (V4.1): la mediana del original se toma sobre el tramo de la palabra, no sobre la ventana con márgenes. |
 | `vo_build.py` | **Construcción de VO sin microcortes (18-nov-2026):** sustituye el patrón `edit_line` + `fade_edges` (fundido de salida + fundido de entrada, que deja un hueco de ~10 ms a −85 dBFS) por crossfades de igual potencia, cortes ajustados a cruces por cero, validación contra los timestamps de Whisper (nunca recortar dentro de una palabra, margen 30 ms) y suelo de pausa (regla 18-nov: ≥0,25 s y ≤50% de pérdida). |
 | `test_microcut.py` | Suite de `microcut.py` + `vo_build.py` (29 tests): microcortes sintéticos inyectados (huecos de 5/10/20/30/50 ms, empalme brusco, pausa exprimida, segmento mal mapeado, SFX sobre onset) + casos reales V2.2/V2.3/baseline (se saltan si faltan los audios, que son salidas de build no versionadas; los edit-plan y predicciones están vendorizados en `tests/fixtures/`) + regresión V4.1 de (i4) sobre el audio real. |
-| `enhance-voice.py` | **Mejora profesional de voz grabada con celular (22-nov-2026, marca personal):** denoise afftdn + expansor (colas de reverb en pausas) + EQ (presencia/aire) + compresor + deesser + limitador + loudnorm lineal a −18 LUFS (el `voice_lufs` de `mix.py`). Presets `phone` y `clean`; `--compare` genera A/B antes/después; verificación de pausas con VAD por energía + periodicidad (regla 18-nov). Informe JSON + veredicto PASS/FAIL. |
-| `test_enhance_voice.py` | Suite de `enhance-voice.py` (18 tests): sintéticos (objetivo de sonoridad, duración, pausas, recuperación de audio degradado con ruido rosa + eco, afftdn vs off con ruido HF en voz) + integración con las líneas reales de negacion-embargo (se saltan si faltan los audios). |
+| `enhance-voice.py` | **Mejora profesional de voz grabada con celular (22-nov-2026, marca personal; preset `pro` con DeepFilterNet 23-nov-2026):** denoise afftdn + expansor (colas de reverb en pausas) + EQ (presencia/aire) + compresor + deesser + limitador + loudnorm lineal a −18 LUFS (el `voice_lufs` de `mix.py`). Presets `phone`, `clean` y `pro` (DeepFilterNet, binario `deep-filter` 0.5.6, modelo embebido, sin expansor); `--compare` genera A/B antes/después; verificación de pausas con VAD por energía + periodicidad (regla 18-nov). Informe JSON + veredicto PASS/FAIL. |
+| `test_enhance_voice.py` | Suite de `enhance-voice.py` (30 tests): sintéticos (objetivo de sonoridad, duración, pausas, recuperación de audio degradado con ruido rosa + eco, afftdn vs off con ruido HF en voz) + integración con las líneas reales de negacion-embargo (se saltan si faltan los audios) + preset `pro` (cadena sin expansor, binario ausente, humo sintético y calidad sobre voz real) + check de pausas por envolventes (3 tests) + fallback a loudnorm dinámico (1 test) + tolerancia de medida de 0,02 s en pausas (2 tests). |
 
 ## Auditoría de audio (`audit-audio.py`)
 
@@ -400,7 +400,7 @@ usuario.
 
 ```bash
 ~/workspace/remotion-hub/.venv/bin/python scripts/audio/enhance-voice.py \
-    --in vo-celular.m4a --out vo-limpia.wav [--preset phone|clean] \
+    --in vo-celular.m4a --out vo-limpia.wav [--preset phone|clean|pro] \
     [--compare] [--force]
 # --compare escribe <out-stem>-ab.wav: antes (solo igualado en
 # sonoridad) + 0,5 s de silencio + después, para escuchar la
@@ -419,7 +419,27 @@ lineal queda > 0,3 dB fuera (en clips cortos el loudnorm lineal
 desvía ±0,5 dB). `clean`: sin denoise, expansor ni compresor
 (el makeup levantaba el suelo de un audio ya limpio: −5,2 dB de
 SNR estimada en L3 con ratio 2:1); solo EQ ligero + deesser +
-loudnorm.
+loudnorm. `pro` (23-nov-2026, aprobado por el usuario de oído):
+DeepFilterNet ANTES de la cadena (binario estático oficial
+`deep-filter` 0.5.6 en `~/workspace/.voice-env/bin/`, modelo
+DeepFilterNet3 embebido, offline, RTF 0,22; la ruta pip NO
+funciona en esta VM, sin wheel de deepfilterlib para Python
+3.12) + cadena pulida sin expansor (DF ya limpia las pausas; el
+compand recortó pausas en la VO de Messi FB) y compresor ligero
+2:1 con makeup +2. DF recorta ~30 ms de cola: la salida se
+rellena con silencio hasta la duración exacta de la entrada. Sin
+binario, el preset `pro` falla con instrucciones de instalación
+(nunca cae a `phone` en silencio). Medido en la VO de Messi YT:
+ruido en huecos −35,7 → −45,9 dBFS (−10,2 dB), voz intacta
+(−0,9 dB), 28/28 pausas en las mismas posiciones. Dos detalles de
+la integración (23-nov-2026): la cadena se construye sobre la
+entrada REAL (la salida de DF es mono; construirla con los canales
+del original estéreo metía un pan=mono que atenuaba ~6 dB) y el
+loudnorm lineal tiene fallback a dinámico si no alcanza el
+objetivo por factor de cresta alto. La verificación de pausas de
+`pro` es por envolventes RMS relativas (el VAD da FAIL espurios
+con DF); ambas verificaciones toleran 0,02 s de desplazamiento
+de borde.
 
 Reglas duras: la cadena es muestra a muestra y NUNCA recorta
 nada (sin silenceremove ni trim): duración exacta y pausas
@@ -434,10 +454,11 @@ el veredicto no falla por pausas.
 
 Herramientas evaluadas: afftdn (elegido: sin modelo,
 determinista); arnndn opcional con `--rnnoise-model` (esta build
-de ffmpeg no trae modelo embebido); DeepFilterNet NO instalable
-en esta VM (pip falla generando metadatos de deepfilterlib:
-necesita toolchain Rust) — queda como mejora futura; pedalboard /
-noisereduce / pyloudnorm no añaden nada que ffmpeg no haga.
+de ffmpeg no trae modelo embebido); DeepFilterNet por binario
+estático oficial (la ruta pip no funciona: deepfilterlib no
+tiene wheel para Python 3.12 y compilarlo pide toolchain Rust);
+pedalboard / noisereduce / pyloudnorm no añaden nada que ffmpeg
+no haga.
 
 Calibración (22-nov-2026, líneas reales negacion-embargo):
 - 8/8 líneas con preset `phone`: PASS, −18,0/−17,8 LUFS, TP

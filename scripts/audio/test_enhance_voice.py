@@ -29,6 +29,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import zlib
 
 import numpy as np
 import soundfile as sf
@@ -138,6 +139,15 @@ class EnhanceCase(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
+        # Cada test con su propia realización de ruido, derivada de
+        # su id (crc32, determinista): independiente del orden de
+        # ejecución. Sin esto, añadir un test que consuma RNG cambia
+        # el ruido de todos los siguientes y rompe tests sensibles
+        # como test_real_degraded_recovers (23-nov-2026: los tests
+        # de TestPro desplazaron el stream compartido y ese test
+        # falló sin que nadie tocara el preset phone).
+        global RNG
+        RNG = np.random.default_rng(zlib.crc32(self.id().encode()))
 
     def enhance(self, in_path, preset="phone", **kw):
         out = os.path.join(self.tmp.name, "out.wav")
@@ -196,6 +206,16 @@ class TestPauses(EnhanceCase):
         _, r = self.enhance(src, preset="phone")
         self.assertTrue(r["pauses"]["ok"], r["pauses"]["findings"])
 
+    def test_vad_tolerates_20ms_shift(self):
+        # Misma tolerancia de medida que el check por envolventes:
+        # 0,26 → 0,24 s es desplazamiento de borde, no recorte.
+        orig = three_words(gap=0.26)
+        out = three_words(gap=0.24)
+        ok, findings, reliable, stats = ev.check_pauses(
+            orig, out, SR)
+        self.assertTrue(reliable)
+        self.assertTrue(ok, findings)
+
 
 class TestQuality(EnhanceCase):
     def test_clean_keeps_clean_audio(self):
@@ -246,6 +266,126 @@ class TestQuality(EnhanceCase):
         gap = hf_noise_db(s_off, sr) - hf_noise_db(s_on, sr)
         self.assertGreaterEqual(
             gap, 5.0, f"afftdn no limpia el ruido en voz: {gap:.1f} dB")
+
+
+class TestPro(EnhanceCase):
+    """Preset `pro` (DeepFilterNet + cadena pulida, 23-nov-2026).
+
+    Los tests de audio se saltan si falta el binario (la VM de CI
+    puede no tenerlo); el test de cadena y el de binario ausente
+    corren siempre.
+    """
+
+    def test_pro_chain_has_no_expander(self):
+        chain = ev.build_chain("pro")
+        self.assertFalse(any("compand" in f for f in chain),
+                         "el preset pro no lleva expansor (DF ya "
+                         "limpia las pausas; el compand recortó "
+                         "pausas en la VO de Messi FB)")
+        comp = [f for f in chain if f.startswith("acompressor")]
+        self.assertEqual(len(comp), 1)
+        self.assertIn("ratio=2", comp[0])
+        self.assertIn("makeup=2", comp[0])
+
+    def test_pro_missing_binary_raises(self):
+        src = write(self.tmp.name, "in.wav", three_words())
+        out = os.path.join(self.tmp.name, "out.wav")
+        with self.assertRaises((ValueError, RuntimeError)):
+            ev.enhance(src, out, preset="pro",
+                       deepfilter_bin="/no/existe/deep-filter")
+
+    @unittest.skipUnless(ev.find_deepfilter() is not None,
+                         "falta el binario deep-filter")
+    def test_pro_runs_on_synthetic(self):
+        # Humo de la ruta DF sobre señal sintética: solo verifica
+        # que la ruta corre de punta a punta, que el informe
+        # registra DeepFilterNet y que la duración se preserva
+        # (el relleno de cola). NO verifica sonoridad ni pausas:
+        # la voz sintética (armónicos perfectamente estacionarios)
+        # NO es voz real y DF la trata como ruido estacionario y
+        # la atenúa (medido 23-nov-2026: la salida se apaga tras
+        # ~1 s). La calidad del preset pro se verifica sobre
+        # voz REAL en TestProReal.
+        src = write(self.tmp.name, "in.wav", three_words())
+        _, r = self.enhance(src, preset="pro")
+        self.assertIsNotNone(r.get("deepfilter"))
+        self.assertIn("deep_filter", r["deepfilter"]["version"])
+        self.assertAlmostEqual(r["output"]["duration_s"],
+                              r["input"]["duration_s"], delta=0.01)
+
+
+class TestEnvelopeCheck(EnhanceCase):
+    """check_pauses_envelope: verificación de pausas del preset pro."""
+
+    def test_envelope_finds_pauses(self):
+        x = three_words(gap=0.45)
+        ok, findings, reliable, stats = ev.check_pauses_envelope(
+            x, x, SR)
+        self.assertTrue(reliable)
+        self.assertTrue(ok, findings)
+        self.assertEqual(stats["verified_gaps"], 2)
+
+    def test_envelope_detects_cut_pause(self):
+        # Rellenar la segunda pausa con voz: el check debe fallar
+        # con exactamente 1 hallazgo.
+        w = voiced(1.2)
+        g = room(int(0.45 * SR))
+        lead = room(int(0.3 * SR))
+        tail = room(int(0.3 * SR))
+        orig = np.concatenate([lead, w, g, w, g, w, tail])
+        cut = np.concatenate([lead, w, g, w, voiced(0.45), w, tail])
+        ok, findings, reliable, stats = ev.check_pauses_envelope(
+            orig, cut, SR)
+        self.assertTrue(reliable)
+        self.assertFalse(ok)
+        self.assertEqual(len(findings), 1)
+        self.assertEqual(findings[0]["out_s"], 0.0)
+
+    def test_envelope_ignores_short_gaps(self):
+        # Pausas de 0,20 s (< 0,25): no son pausas naturales
+        # verificables; fiable=False y no se falla.
+        x = three_words(gap=0.20)
+        ok, findings, reliable, stats = ev.check_pauses_envelope(
+            x, x, SR)
+        self.assertFalse(reliable)
+        self.assertTrue(ok, findings)
+        self.assertEqual(stats["verified_gaps"], 0)
+
+    def test_envelope_tolerates_20ms_shift(self):
+        # Una pausa de 0,26 s medida como 0,24 s es desplazamiento
+        # de borde por el cambio de perfil energético, no un
+        # recorte (caso real: VO de Messi FB, 23-nov-2026). La
+        # tolerancia de medida (0,02 s) lo acepta.
+        orig = three_words(gap=0.26)
+        out = three_words(gap=0.24)
+        ok, findings, reliable, stats = ev.check_pauses_envelope(
+            orig, out, SR)
+        self.assertTrue(reliable)
+        self.assertTrue(ok, findings)
+
+
+class TestLoudnormFallback(EnhanceCase):
+    """Fallback a loudnorm dinámico cuando el lineal no alcanza."""
+
+    def test_high_crest_falls_back_to_dynamic(self):
+        # Ráfagas cortas y fuertes con mucho silencio: factor de
+        # cresta alto, como la salida de DeepFilterNet. Con objetivo
+        # −14 LUFS el lineal no puede llegar sin superar el TP (el
+        # techo deja solo 12 dB de cresta); run_chain debe repetir
+        # en dinámico y alcanzar el objetivo. Con −18 el lineal sí
+        # llega (el gating excluye el silencio de la medida), así
+        # que el disparo del fallback se verifica a −14.
+        burst = voiced(0.1, level=0.5)
+        sil = np.zeros(int(0.9 * SR), dtype=np.float32)
+        x = np.concatenate([burst, sil] * 10)
+        src = write(self.tmp.name, "bursts.wav", x)
+        out = os.path.join(self.tmp.name, "out.wav")
+        mode, _ = ev.run_chain(src, out, ["aresample=48000"],
+                               -14.0, -2.0, 9.0)
+        self.assertIn("dynamic", mode)
+        info = ev.analyze(out)
+        self.assertAlmostEqual(info["lufs"], -14.0, delta=1.0)
+        self.assertLessEqual(info["true_peak_dbtp"], -1.7)
 
 
 class TestModes(EnhanceCase):
@@ -323,6 +463,51 @@ class TestRealLines(EnhanceCase):
                            always_2d=False)
         src = write(self.tmp.name, "deg.wav", degrade(clean))
         out, r = self.enhance(src, preset="phone")
+        self.assertEqual(r["verdict"], "PASS", r["verdict_reasons"])
+        gain = r["output"]["snr_db"] - r["input"]["snr_db"]
+        self.assertGreaterEqual(gain, 3.0,
+                                f"mejora de SNR insuficiente: {gain:+.1f} dB")
+        # Verificación de pausas contra el original limpio (el
+        # check del informe no es fiable con entrada ruidosa).
+        rec, sr = sf.read(out, always_2d=False)
+        ok, findings, reliable, stats = ev.check_pauses(clean, rec, sr)
+        self.assertTrue(reliable)
+        self.assertTrue(ok, findings)
+
+
+@unittest.skipUnless(_lines_exist() and ev.find_deepfilter() is not None,
+                     "faltan las líneas de VO reales o el binario "
+                     "deep-filter")
+class TestProReal(EnhanceCase):
+    """Calidad del preset `pro` sobre voz REAL (líneas de Adriana).
+
+    DF es un modelo de voz: sobre la señal sintética (armónicos
+    estacionarios) la atenúa como si fuera ruido, así que la
+    sonoridad, las pausas y la recuperación solo se verifican
+    aquí, con voz real.
+    """
+
+    def test_real_line_pro_pass(self):
+        _, r = self.enhance(os.path.join(LINES, "L1.wav"),
+                            preset="pro")
+        self.assertEqual(r["verdict"], "PASS", r["verdict_reasons"])
+        self.assertAlmostEqual(r["output"]["lufs"], -18.0, delta=1.0)
+        self.assertLessEqual(r["output"]["true_peak_dbtp"], -1.7)
+        self.assertAlmostEqual(r["output"]["duration_s"],
+                              r["input"]["duration_s"], delta=0.01)
+        self.assertTrue(r["pauses"]["ok"], r["pauses"]["findings"])
+
+    def test_real_line_stereo_pro_pass(self):
+        _, r = self.enhance(os.path.join(LINES, "L4.wav"),
+                            preset="pro")
+        self.assertEqual(r["verdict"], "PASS", r["verdict_reasons"])
+        self.assertTrue(r["pauses"]["ok"], r["pauses"]["findings"])
+
+    def test_real_degraded_pro_recovers(self):
+        clean, _ = sf.read(os.path.join(LINES, "L1.wav"),
+                           always_2d=False)
+        src = write(self.tmp.name, "deg.wav", degrade(clean))
+        out, r = self.enhance(src, preset="pro")
         self.assertEqual(r["verdict"], "PASS", r["verdict_reasons"])
         gain = r["output"]["snr_db"] - r["input"]["snr_db"]
         self.assertGreaterEqual(gain, 3.0,

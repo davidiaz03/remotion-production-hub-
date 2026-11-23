@@ -10,7 +10,7 @@ numpy, sin nube ni coste por uso) y deja la VO lista para `mix.py`
 Uso:
 
     ~/workspace/remotion-hub/.venv/bin/python scripts/audio/enhance-voice.py \\
-        --in vo-celular.m4a --out vo-limpia.wav [--preset phone|clean] \\
+        --in vo-celular.m4a --out vo-limpia.wav [--preset phone|clean|pro] \\
         [--compare] [--report informe.json] [--force]
 
     # Solo ver qué haría, sin escribir nada:
@@ -44,11 +44,42 @@ entorno doméstico):
        de maquillaje y NO limita)
     9. loudnorm en DOS PASES (lineal) a -18 LUFS / TP -2 / LRA 9 —
        el pase único de loudnorm es DINÁMICO y deshace la dinámica
-       que el compresor acaba de fijar (lección de mix.py)
+       que el compresor acaba de fijar (lección de mix.py). Si el
+       lineal no puede alcanzar el objetivo (factor de cresta alto:
+       la ganancia choca con el techo de TP), run_chain repite con
+       loudnorm dinámico de un pase para llegar al objetivo
+       (23-nov-2026: la salida de DF tiene cresta ~19 dB y el
+       lineal la dejaba en −19,8 LUFS).
 
 Preset `clean` (audio ya bueno, solo pulir): sin denoise, sin
 expansor ni compresor; highpass 70 Hz, presencia ligera (+1,5 dB
 @ 3,5 kHz), deesser ligero, limitador y loudnorm.
+
+Preset `pro` (23-nov-2026, aprobado por el usuario de oído):
+DeepFilterNet (binario `deep-filter` 0.5.6, modelo DeepFilterNet3
+embebido) ANTES de la cadena ffmpeg. Es la receta de la muestra
+A/B aprobada: DF quita el tono de sala y la reverberación que
+delatan «celular en un cuarto» (ruido en huecos −10 dB medido en
+la VO de Messi YT, voz intacta, pausas intactas) y la cadena
+pulida pone el color: highpass 80 Hz, afftdn nr=12, EQ (−2 dB @
+250 Hz, +3 dB @ 3,5 kHz, aire +1,5 dB @ 10 kHz), compresor
+ligero 2:1 (thr −20 dB, makeup +2 dB), deesser, limitador y
+loudnorm dos pases a −18 LUFS. SIN expansor: el compand del
+preset phone recortó pausas en la VO de Messi FB (2 FAIL) y DF
+ya limpia las pausas mejor que él. El binario se busca en
+`--deepfilter-bin`, `DEEPFILTER_BIN`, `~/workspace/.voice-env/bin/
+deep-filter` o el PATH; sin él, el preset `pro` falla con
+instrucciones de instalación (no cae a `phone` en silencio: el
+usuario pidió el sonido DF y un fallback silencioso lo traicionaría).
+DF recorta ~30 ms de cola: la salida se rellena con silencio
+hasta la duración exacta de la entrada (la cadena NUNCA recorta).
+La verificación de pausas del preset `pro` es por envolventes RMS
+relativas (check_pauses_envelope), no por VAD: DF cambia la SNR
+tanto que el VAD desplaza los bordes ~0,1 s y da FAIL espurios
+(la versión aprobada por el usuario fallaba 4-5 pausas con el
+VAD; con envolventes, 30/30 huecos en su sitio). Ambas
+verificaciones toleran 0,02 s de desplazamiento de borde
+(resolución de la medida en ventanas de 10 ms).
 
 REGLAS DURAS (heredadas del repo):
   - NUNCA se recorta nada: ningún silenceremove, trim ni fade. La
@@ -67,10 +98,15 @@ Herramientas evaluadas (22-nov-2026) y por qué la cadena es ffmpeg:
     de ffmpeg no trae modelo embebido); suena bien con ruido
     estacionario pero puede dejar la voz «acuosa». Opcional con
     --denoiser arnndn --rnnoise-model <modelo.rnnn>.
-  - DeepFilterNet: el mejor denoise/dereverb local, pero NO se pudo
-    instalar en esta VM (pip falla generando metadatos de
-    deepfilterlib: necesita toolchain Rust). Queda como mejora
-    futura opcional, no como dependencia.
+  - DeepFilterNet: el mejor denoise/dereverb local. La ruta pip
+    NO funciona en esta VM (deepfilterlib no tiene wheel para
+    Python 3.12, solo cp38–cp311; compilarlo pide toolchain Rust),
+    pero el binario estático oficial `deep-filter` 0.5.6 (musl,
+    GitHub releases de Rikorose/DeepFilterNet) SÍ funciona:
+    modelo DeepFilterNet3 embebido, offline, RTF 0,22. Instalado
+    23-nov-2026 en `~/workspace/.voice-env/bin/deep-filter` y
+    cableado como preset `pro` (ver arriba). La nota del 22-nov
+    («no instalable») quedó corregida.
   - pedalboard / noisereduce / pyloudnorm: no instalados; no añaden
     nada que ffmpeg no haga ya para esta cadena.
   - speechnorm: normalizador de voz de ffmpeg; menos predecible que
@@ -78,9 +114,10 @@ Herramientas evaluadas (22-nov-2026) y por qué la cadena es ffmpeg:
 
 Limitaciones honestas (lo que NO puede arreglar):
   - Eco fuerte de habitación vacía dentro de la palabra (la cola
-    que se oye MIENTRAS se habla). El expansor solo limpia pausas.
-    La solución real es grabar en un cuarto con cortinas/ropa
-    cerca, no en un baño o cocina vacía.
+    que se oye MIENTRAS se habla). El expansor solo limpia pausas;
+    DeepFilterNet (preset `pro`) lo reduce mucho, pero no lo
+    elimina del todo. La solución real sigue siendo grabar en un
+    cuarto con cortinas/ropa cerca, no en un baño o cocina vacía.
   - Ruido que tapa la voz (TV alta, calle, ventilador pegado):
     afftdn lo baja, pero si la SNR de entrada es < ~5 dB la voz
     sale con artefactos («burbujeo» espectral).
@@ -103,6 +140,7 @@ import json
 import math
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -131,6 +169,13 @@ DURATION_TOLERANCE_S = 0.01
 # puede quedar < 0,25 s ni perder > 50%.
 PAUSE_MIN_S = 0.25
 PAUSE_MAX_LOSS = 0.50
+# Tolerancia de medida de la regla: la duración de una pausa se mide
+# en ventanas de 10 ms y cada borde puede moverse una ventana por el
+# cambio de perfil energético del procesado (DF desplaza el cruce de
+# umbral ~10-20 ms sin recortar nada: VO de Messi FB 23-nov-2026,
+# 0,26 → 0,24 s). Un recorte real (el expansor comiéndose 100 ms o
+# más, o una pausa que desaparece) supera con mucho esta tolerancia.
+PAUSE_MEASURE_TOL_S = 0.02
 
 # VAD por energía para el check de pausas y la SNR estimada:
 # ventana de 10 ms; voz si RMS > -40 dBFS (misma regla que
@@ -141,8 +186,19 @@ VAD_THRESHOLD_DBFS = -40.0
 VAD_MERGE_GAP_S = 0.15   # une cierres de plosivas dentro de palabra
 VAD_MIN_SEGMENT_S = 0.08  # descarta respiros y clics aislados
 
-PRESETS = ("phone", "clean")
+PRESETS = ("phone", "clean", "pro")
 DENOISERS = ("afftdn", "arnndn", "off")
+
+# Binario DeepFilterNet (preset `pro`): ruta instalada 23-nov-2026.
+# La ruta pip no existe en esta VM (sin wheel de deepfilterlib para
+# Python 3.12); el binario estático oficial es la única vía.
+DEEPFILTER_BIN_DEFAULT = os.path.expanduser(
+    "~/workspace/.voice-env/bin/deep-filter")
+DEEPFILTER_BIN_ENV = "DEEPFILTER_BIN"
+DEEPFILTER_INSTALL_HINT = (
+    "descarga deep-filter 0.5.6 (musl x86_64) de github.com/"
+    "Rikorose/DeepFilterNet/releases a ~/workspace/.voice-env/bin/ "
+    "o define DEEPFILTER_BIN con su ruta")
 
 
 # ----------------------------- utilidades ffmpeg -----------------------------
@@ -224,7 +280,24 @@ def build_chain(preset, denoiser="afftdn", rnnoise_model=None,
     if channels > 1:
         chain.append("pan=mono|c0=0.5*c0+0.5*c1")
 
-    if preset == "phone":
+    if preset == "pro":
+        # Receta aprobada 23-nov-2026 (muestra A/B con DeepFilterNet):
+        # igual que `phone` pero SIN expansor (DF ya limpia las
+        # pausas; el compand recortó pausas en la VO de Messi FB)
+        # y compresor ligero 2:1 con makeup +2 (no 3:1/+4).
+        chain.append("highpass=f=80")
+        if denoiser == "afftdn":
+            chain.append("afftdn=nr=12:nf=-55")
+        elif denoiser == "arnndn":
+            chain.append(f"arnndn=m={rnnoise_model}:mix=0.85")
+        chain.append("equalizer=f=250:width_type=o:width=1.2:g=-2")
+        chain.append("equalizer=f=3500:width_type=o:width=1:g=3")
+        chain.append("highshelf=f=10000:g=1.5")
+        chain.append(
+            "acompressor=threshold=-20dB:ratio=2:attack=8:release=200:"
+            "knee=6:makeup=2")
+        chain.append("deesser=i=0.5:f=0.7:m=0.5")
+    elif preset == "phone":
         chain.append("highpass=f=80")
         if denoiser == "afftdn":
             chain.append("afftdn=nr=12:nf=-55")
@@ -295,6 +368,24 @@ def run_chain(in_path, out_path, chain, target_lufs, target_tp,
     run(["ffmpeg", "-y", "-hide_banner", "-nostats", "-nostdin",
          "-i", in_path, "-af", filt, "-ac", "1",
          "-ar", str(DEFAULT_SR), "-c:a", "pcm_s16le", out_path])
+    if measured is not None:
+        # El lineal es solo ganancia: no puede alcanzar el objetivo
+        # cuando el factor de cresta es alto, porque la ganancia
+        # choca con el techo de TP (caso del preset `pro`: la salida
+        # de DF es silenciosa, factor de cresta ~19 dB; medido
+        # 23-nov-2026: el lineal dejó la VO de Messi YT en −19,8
+        # LUFS). Si queda >0,5 dB por debajo, repetir con loudnorm
+        # dinámico de un pase, que comprime los picos para llegar
+        # al objetivo (la misma vía del fallback sin medición).
+        lufs_out, _, _ = ebur128(out_path)
+        if lufs_out < target_lufs - 0.5:
+            mode = "single-pass (dynamic, linear no alcanzó)"
+            filt = ",".join(chain) + "," + loudnorm_filter(
+                target_lufs, target_tp, target_lra, None)
+            run(["ffmpeg", "-y", "-hide_banner", "-nostats", "-nostdin",
+                 "-i", in_path, "-af", filt, "-ac", "1",
+                 "-ar", str(DEFAULT_SR), "-c:a", "pcm_s16le",
+                 out_path])
     return mode, measured
 
 
@@ -325,6 +416,64 @@ def correct_loudness(path, target_lufs, target_tp):
          tmp])
     os.replace(tmp, path)
     return round(gain, 2)
+
+
+# ----------------------------- DeepFilterNet (preset pro) -----------------------------
+
+def find_deepfilter(explicit=None):
+    """Localiza el binario `deep-filter` o devuelve None.
+
+    Orden: argumento explícito, variable DEEPFILTER_BIN, ruta
+    instalada 23-nov-2026, PATH. Una ruta explícita que no existe
+    es un error (no se cae a otra en silencio: el usuario pidió
+    ESE binario).
+    """
+    if explicit:
+        if os.path.isfile(explicit) and os.access(explicit, os.X_OK):
+            return explicit
+        raise ValueError(
+            f"deep-filter no encontrado en la ruta indicada: {explicit}")
+    cands = []
+    env = os.environ.get(DEEPFILTER_BIN_ENV)
+    if env:
+        cands.append(env)
+    cands.append(DEEPFILTER_BIN_DEFAULT)
+    for c in cands:
+        if c and os.path.isfile(c) and os.access(c, os.X_OK):
+            return c
+    return shutil.which("deep-filter")
+
+
+def run_deepfilter(in_wav, out_wav, binary):
+    """Aplica DeepFilterNet a un WAV 48 kHz mono.
+
+    `deep-filter -D` compensa el retardo del STFT y del lookahead
+    del modelo para no desplazar la voz. El binario escribe
+    `<stem>_DeepFilterNet3.wav` en el directorio de salida.
+    DF recorta ~30 ms de cola: la salida se rellena con silencio
+    hasta la duración exacta de la entrada (la cadena NUNCA
+    recorta). Devuelve info para el informe.
+    """
+    p = subprocess.run([binary, "--version"], capture_output=True,
+                       text=True, timeout=30)
+    version = (p.stdout or "").strip().splitlines()
+    version = version[0] if version else "?"
+    _, _, dur_in = probe(in_wav)
+    with tempfile.TemporaryDirectory() as td:
+        run([binary, "-D", "-o", td, in_wav], timeout=900)
+        outs = [f for f in os.listdir(td) if f.endswith(".wav")]
+        if len(outs) != 1:
+            raise RuntimeError(
+                f"deep-filter: se esperaba 1 salida, hay {len(outs)}")
+        df_raw = os.path.join(td, outs[0])
+        _, _, dur_df = probe(df_raw)
+        run(["ffmpeg", "-y", "-hide_banner", "-nostats", "-nostdin",
+             "-i", df_raw, "-af", f"apad,atrim=0:{dur_in:.3f}",
+             "-ac", "1", "-ar", str(DEFAULT_SR),
+             "-c:a", "pcm_s16le", out_wav])
+    return {"binary": binary, "version": version,
+            "df_duration_s": round(dur_df, 3),
+            "df_delta_s": round(dur_df - dur_in, 3)}
 
 
 # ----------------------------- análisis (numpy) -----------------------------
@@ -516,7 +665,110 @@ def check_pauses(orig_samples, out_samples, sr):
             continue
         out_dur = best[1] - best[0]
         loss = 1 - out_dur / dur
-        if out_dur < PAUSE_MIN_S or loss > PAUSE_MAX_LOSS:
+        if (out_dur < PAUSE_MIN_S - PAUSE_MEASURE_TOL_S
+                or loss > PAUSE_MAX_LOSS + PAUSE_MEASURE_TOL_S / dur):
+            findings.append(
+                {"pause_at_s": round(s, 2), "orig_s": round(dur, 2),
+                 "out_s": round(out_dur, 2), "verdict": "FAIL",
+                 "reason": f"pausa recortada: {loss * 100:.0f}% de "
+                           f"pérdida"})
+    reliable = stats["verified_gaps"] > 0
+    return len(findings) == 0, findings, reliable, stats
+
+
+def check_pauses_envelope(orig_samples, out_samples, sr):
+    """Verifica la regla de pausas por envolventes RMS RELATIVAS.
+
+    Alternativa a check_pauses para el preset `pro`: DeepFilterNet
+    cambia la SNR tanto (suelo −56 → −82 dBFS en la VO de Messi
+    YT) que el VAD por energía+periodicidad desplaza los bordes de
+    las pausas ~0,1 s y alucina voz en el ruido del arranque del
+    original — medido 23-nov-2026: el VAD fallaba 4-5 pausas en la
+    versión APROBADA por el usuario de oído, mientras las
+    envolventes relativas mostraban 30/30 huecos en las mismas
+    posiciones con la misma duración o más.
+
+    Método: envolvente RMS por ventanas de 10 ms, normalizada por
+    el percentil 90 de cada archivo (nivel de voz propio); hueco =
+    tramo ≥0,15 s por debajo de −20 dB relativos. Solo se verifican
+    pausas originales ≥0,25 s (la regla del 18-nov es sobre pausas
+    naturales; lo más corto es intersilábico) y DENTRO del tramo de
+    voz (entre el primer y el último tramo sonoro sostenido ≥0,5 s):
+    el silencio inicial/final no es una pausa, y el ruido de
+    manipulación del arranque fragmenta el lead-in en «huecos»
+    falsos que la limpieza hace desaparecer sin haber recortado
+    nada (VO de Messi YT, 23-nov-2026). Misma forma de retorno que
+    check_pauses. Si el original es tan ruidoso que sus pausas no
+    bajan de −20 dB relativos, o no hay tramo sonoro sostenido, no
+    hay huecos verificables y fiable=False: no se falla lo que no
+    se puede medir.
+    """
+    def gaps_rel(samples):
+        db = window_rms_db(samples, sr)
+        level = float(np.percentile(db, 90))
+        quiet = db < level - 20.0
+        out = []
+        a = None
+        for i, v in enumerate(quiet):
+            if v and a is None:
+                a = i
+            elif not v and a is not None:
+                if (i - a) * VAD_WINDOW_S >= 0.15:
+                    out.append((a * VAD_WINDOW_S, i * VAD_WINDOW_S))
+                a = None
+        if a is not None and (len(quiet) - a) * VAD_WINDOW_S >= 0.15:
+            out.append((a * VAD_WINDOW_S, len(quiet) * VAD_WINDOW_S))
+        return out, quiet
+
+    def speech_span(quiet):
+        """(inicio, fin) del tramo de voz: primer y último tramo
+        sonoro sostenido (≥0,5 s). Los ruidos cortos del arranque
+        (manipulación del teléfono) no cuentan como voz."""
+        runs = []
+        a = None
+        for i, v in enumerate(quiet):
+            if not v and a is None:
+                a = i
+            elif v and a is not None:
+                if (i - a) * VAD_WINDOW_S >= 0.5:
+                    runs.append((a * VAD_WINDOW_S, i * VAD_WINDOW_S))
+                a = None
+        if a is not None and (len(quiet) - a) * VAD_WINDOW_S >= 0.5:
+            runs.append((a * VAD_WINDOW_S, len(quiet) * VAD_WINDOW_S))
+        if not runs:
+            return None
+        return runs[0][0], runs[-1][1]
+
+    orig_gaps, orig_quiet = gaps_rel(orig_samples)
+    out_gaps, _ = gaps_rel(out_samples)
+    span = speech_span(orig_quiet)
+    if span is None:
+        return True, [], False, {"verified_gaps": 0,
+                                 "skipped_gaps": 0}
+    orig_gaps = [(s, e) for s, e in orig_gaps
+                 if e - s >= PAUSE_MIN_S
+                 and s >= span[0] and e <= span[1]]
+    findings = []
+    stats = {"verified_gaps": len(orig_gaps), "skipped_gaps": 0}
+    for s, e in orig_gaps:
+        dur = e - s
+        mid = (s + e) / 2
+        best = None
+        for os_, oe in out_gaps:
+            if os_ - 0.15 <= mid <= oe + 0.15:
+                if best is None or abs((os_ + oe) / 2 - mid) < abs(
+                        (best[0] + best[1]) / 2 - mid):
+                    best = (os_, oe)
+        if best is None:
+            findings.append(
+                {"pause_at_s": round(s, 2), "orig_s": round(dur, 2),
+                 "out_s": 0.0, "verdict": "FAIL",
+                 "reason": "la pausa desapareció en el procesado"})
+            continue
+        out_dur = best[1] - best[0]
+        loss = 1 - out_dur / dur
+        if (out_dur < PAUSE_MIN_S - PAUSE_MEASURE_TOL_S
+                or loss > PAUSE_MAX_LOSS + PAUSE_MEASURE_TOL_S / dur):
             findings.append(
                 {"pause_at_s": round(s, 2), "orig_s": round(dur, 2),
                  "out_s": round(out_dur, 2), "verdict": "FAIL",
@@ -551,17 +803,48 @@ def enhance(in_path, out_path, preset="phone", denoiser="afftdn",
             rnnoise_model=None, target_lufs=DEFAULT_TARGET_LUFS,
             target_tp=DEFAULT_TARGET_TP,
             target_lra=DEFAULT_TARGET_LRA, compare=False,
-            verify=True):
+            verify=True, deepfilter_bin=None):
     """Procesa in_path -> out_path. Devuelve el informe (dict)."""
     t0 = time.perf_counter()
     sr_in, ch, _ = probe(in_path)
-    chain = build_chain(preset, denoiser, rnnoise_model, ch)
-    mode, measured = run_chain(in_path, out_path, chain,
-                               target_lufs, target_tp, target_lra)
+    df_info = None
+    chain_input = in_path
+    tmpdir = None
+    try:
+        if preset == "pro":
+            binary = find_deepfilter(deepfilter_bin)
+            if binary is None:
+                raise RuntimeError(
+                    "preset pro necesita el binario deep-filter: "
+                    + DEEPFILTER_INSTALL_HINT)
+            # DF solo lee WAV: decodificar primero (m4a/mp3 de
+            # grabadoras de celular) a 48 kHz mono.
+            tmpdir = tempfile.TemporaryDirectory()
+            decoded = os.path.join(tmpdir.name, "decoded.wav")
+            run(["ffmpeg", "-y", "-hide_banner", "-nostats", "-nostdin",
+                 "-i", in_path, "-ac", "1", "-ar", str(DEFAULT_SR),
+                 "-c:a", "pcm_s16le", decoded])
+            df_wav = os.path.join(tmpdir.name, "df.wav")
+            df_info = run_deepfilter(decoded, df_wav, binary)
+            chain_input = df_wav
+        # La cadena se construye sobre la entrada REAL de la cadena:
+        # con `pro` es la salida de DF (siempre mono), no el
+        # original (que puede ser estéreo). Construirla con los
+        # canales del original metía un pan=mono sobre audio ya
+        # mono que atenuaba ~6 dB (23-nov-2026: la salida de la
+        # cadena quedó en −26,7 LUFS en vez de −22,4).
+        _, ch_chain, _ = probe(chain_input)
+        chain = build_chain(preset, denoiser, rnnoise_model, ch_chain)
+        mode, measured = run_chain(chain_input, out_path, chain,
+                                   target_lufs, target_tp, target_lra)
+    finally:
+        if tmpdir is not None:
+            tmpdir.cleanup()
     corr_db = correct_loudness(out_path, target_lufs, target_tp)
     report = {
         "preset": preset,
         "denoiser": denoiser,
+        "deepfilter": df_info,
         "chain": chain,
         "loudness_correction_db": corr_db,
         "loudnorm": {
@@ -595,16 +878,27 @@ def enhance(in_path, out_path, preset="phone", denoiser="afftdn",
             f"<= {target_tp}")
     pause_ok, pause_findings, pause_reliable, pause_stats = (
         True, [], True, {"verified_gaps": 0, "skipped_gaps": 0})
+    pause_method = "vad"
     if verify:
         orig, sr = read_mono(in_path)
         out, _ = read_mono(out_path)
-        (pause_ok, pause_findings, pause_reliable,
-         pause_stats) = check_pauses(orig, out, sr)
+        if preset == "pro":
+            # DF cambia la SNR tanto que el VAD desplaza los bordes
+            # de las pausas y da FAIL espurios (ver docstring de
+            # check_pauses_envelope); la verificación es por
+            # envolventes relativas.
+            pause_method = "envelope"
+            (pause_ok, pause_findings, pause_reliable,
+             pause_stats) = check_pauses_envelope(orig, out, sr)
+        else:
+            (pause_ok, pause_findings, pause_reliable,
+             pause_stats) = check_pauses(orig, out, sr)
         if pause_reliable and not pause_ok:
             verdicts.append(
                 f"FAIL pausas: {len(pause_findings)} pausa(s) "
                 f"recortada(s)")
-    report["pauses"] = {"checked": verify, "ok": pause_ok,
+    report["pauses"] = {"checked": verify, "method": pause_method,
+                        "ok": pause_ok,
                         "reliable": pause_reliable,
                         "verified_gaps": pause_stats["verified_gaps"],
                         "skipped_gaps": pause_stats["skipped_gaps"],
@@ -644,7 +938,13 @@ def main():
                    help="WAV de salida (mono 48 kHz s16le)")
     p.add_argument("--preset", default="phone", choices=PRESETS,
                    help="phone = grabación de celular (defecto); "
-                   "clean = audio ya bueno, solo pulir")
+                   "clean = audio ya bueno, solo pulir; "
+                   "pro = DeepFilterNet + cadena pulida (necesita "
+                   "el binario deep-filter)")
+    p.add_argument("--deepfilter-bin",
+                   help="Ruta al binario deep-filter (preset pro). "
+                   "Por defecto busca DEEPFILTER_BIN, "
+                   "~/workspace/.voice-env/bin/deep-filter y el PATH")
     p.add_argument("--denoiser", default="afftdn", choices=DENOISERS,
                    help="afftdn (defecto), arnndn (necesita modelo) u off")
     p.add_argument("--rnnoise-model",
@@ -679,10 +979,21 @@ def main():
         p.error("la salida ya existe; usa --force para sobrescribir")
 
     sr_in, ch, _ = probe(a.inp)
-    chain = build_chain(a.preset, a.denoiser, a.rnnoise_model, ch)
+    # Con `pro` la cadena corre sobre la salida de DF (mono), no
+    # sobre el original: la vista previa se construye igual.
+    chain = build_chain(a.preset, a.denoiser, a.rnnoise_model,
+                        1 if a.preset == "pro" else ch)
     print(f"Entrada: {a.inp} ({sr_in} Hz, {ch} canal(es))")
     print(f"Preset: {a.preset} · denoiser: {a.denoiser}")
+    if a.preset == "pro":
+        binary = find_deepfilter(a.deepfilter_bin)
+        if binary is None:
+            p.error("preset pro necesita el binario deep-filter: "
+                    + DEEPFILTER_INSTALL_HINT)
+        print(f"DeepFilterNet: {binary}")
     print("Cadena:")
+    if a.preset == "pro":
+        print("  deep-filter -D (DeepFilterNet3, antes de ffmpeg)")
     for f in chain:
         print(f"  {f}")
     print(f"  loudnorm=I={a.target_lufs}:TP={a.target_tp}:"
@@ -704,7 +1015,8 @@ def main():
                          target_tp=a.target_tp,
                          target_lra=a.target_lra,
                          compare=a.compare,
-                         verify=not a.no_verify)
+                         verify=not a.no_verify,
+                         deepfilter_bin=a.deepfilter_bin)
     except (RuntimeError, ValueError) as e:
         print(f"ERROR: {e}", file=sys.stderr)
         return 2
