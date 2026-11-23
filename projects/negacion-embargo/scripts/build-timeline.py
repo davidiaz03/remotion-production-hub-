@@ -65,7 +65,7 @@ SCENES = [
     {"id": 2, "name": "Panel T2 Waltz 7-jul", "start_f": 297, "end_f": 465,
      "note": "Video Waltz 10,9–16,5 s; «IT'S FAKE. IT'S FALSE. IT'S A "
              "LIE. PERIOD.» + «ES FALSO. ES MENTIRA. PUNTO.»; slam en "
-             "«PUNTO.» a 13,32 s (J-cut: el audio T2 arranca en 9,5 s); "
+             "«PUNTO.» a 14,1 s (f423; J-cut: el audio T2 arranca en 9,5 s); "
              "punto 2/4."},
     {"id": 3, "name": "Panel T3 Waltz 27-oct", "start_f": 465, "end_f": 585,
      "note": "Video Waltz 0,3–2,8 s CON RAMPA (2,9 s, mudo) + "
@@ -117,10 +117,12 @@ PANEL = {
                   "clip_start": 10.9, "clip_end": 16.5,
                   "scene_start_s": 9.9, "audio_start_s": 9.5,
                   "phrase_s": [11.18, 16.16],
-                  "punto_s": 13.32,
+                  "punto_s": 14.08,
                   "note": "Pausa de 1,44 s antes de «Period.». J-cut: "
                           "el audio arranca en 9,5 s, 0,4 s antes que "
-                          "la imagen; «Period.» se oye a 13,32 s."},
+                          "la imagen; «Period.» se oye a 14,08 s "
+                          "(f423; medido: 4,58 s del clip + J-cut 9,5 s; "
+                          "ver research/audio-times.json)."},
     "t3_waltz27": {"file": "video/waltz-27oct-no-blockade-soundbite33.mp4",
                    "clip_start": 0.3, "clip_end": 2.8,
                    "freeze_s": 1.1, "scene_start_s": 15.5,
@@ -186,8 +188,8 @@ SFX_EVENTS = [
     ("impact-medium-hard", 5.70, False),
     ("whoosh-fast-hard", 9.90, False),
     ("impact-medium-hard", 9.90, False),
-    ("riser-1s-soft", 13.32, False),  # riser T3 antes de «PUNTO.»
-    ("impact-heavy-hard", 13.32, False),  # J-cut: «Period.» a 13,32 s
+    ("riser-1s-soft", 14.10, False),  # riser T3 antes de «PUNTO.»
+    ("impact-heavy-hard", 14.10, False),  # «Period.» a 14,08 s (f423)
     ("whoosh-fast-hard", 15.50, False),
     ("impact-medium-hard", 15.50, False),
     ("mechanical-shutter-light", 18.40, True),  # aterrizaje freeze T3 (f552)
@@ -219,7 +221,7 @@ SFX_EVENTS = [
 # --- Hitos visuales (s) ---------------------------------------------------
 BEATS = {
     "title_slam_s": 0.30,
-    "punto_slam_s": 13.32,
+    "punto_slam_s": 14.10,
     "grid_pops_s": [23.57, 23.83, 24.10, 24.37],
     "t3_freeze_s": 18.40,  # aterrizaje del freeze (SFX obturador)
     "l4_punch_s": 32.70,
