@@ -1,7 +1,7 @@
 {
  "_notes": {
   "derived_from": "research/timeline.json scenes + beats de research/audio-times.json. El fotograma de cada escena es el indicado (frame), no el punto medio: captura el estado clave del beat.",
-  "faces": "Caras medidas con YuNet (visual-preflight.py): la captura del post tiene las caras en y 1110-1239 si se muestra entera, justo sobre la banda de karaoke (1100-1240): por eso la captura va RECORTADA (solo encabezado + texto) en el gancho y el cierre. La foto de la Casa Blanca tiene caras de fondo hasta y 866: el texto de la negación va en y 950-1120 y el karaoke se oculta durante ese beat (18,54-19,5 s)."
+  "faces": "Caras medidas con YuNet (visual-preflight.py): la captura del post tiene las caras en y 1110-1239 si se muestra entera, justo sobre la banda de karaoke (1100-1240): por eso la captura va RECORTADA (solo encabezado + texto) en el gancho y el cierre. V2: la escena de la Casa Blanca es VIDEO REAL (clip 640x360, recortado a 1080x500 para esconder el faldón); sus caras están en y ~556-739 y la foto DT-1261 queda como fondo difuminado: el texto de la negación va en y 950-1120 y el karaoke se oculta durante ese beat (18,54-19,5 s)."
  },
  "fps": 30,
  "project": "el-libreto-messi-fb",

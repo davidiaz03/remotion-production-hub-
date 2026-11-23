@@ -7,6 +7,11 @@
 // que empieza en y=1248). Las palabras aparecen una a una en su `s`
 // con pop de 0,1 s; el chunk se oculta 0,4 s después de su última
 // palabra (igual que asume la auditoría de audio).
+// V2 (auditoría H3/H8): el karaoke se OCULTA en los beats donde un
+// texto grande YA ES el caption (HIDE_RANGES); el pop baja a 1,15 con
+// más aire entre palabras; las micropalabras (<0,18 s) aparecen junto
+// a la palabra anterior y SIN pop (el pop se cortaba antes de terminar
+// y pegaba palabras: «MESSIESTUVO»).
 import React from 'react';
 import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {CAPTIONS, CapChunk} from './captions';
@@ -16,6 +21,18 @@ const TINTA = '#1A1A2E';
 const ROJO = '#C0392B';
 const RESALTADOR = '#FFD60A';
 
+// Ventanas sin karaoke (el texto grande ES el caption):
+// 0-5,6 gancho («MESSI NUNCA LO DIJO») + contador («62.000
+// REACCIONES»); 6,6-8,36 píldora «750.000 SEGUIDORES» (el chunk
+// entero «CON 750.000 SEGUIDORES»); 18,54-19,5 negación («PERO NO
+// HABLÓ DE CUBA»); 23,15-24,14 sello «FALSO» (el chunk L6).
+const HIDE_RANGES: Array<[number, number]> = [
+	[0, 5.6],
+	[6.6, 8.36],
+	[18.54, 19.5],
+	[23.15, 24.14],
+];
+
 const ALL_CHUNKS: CapChunk[] = CAPTIONS.flatMap((s) => s.chunks);
 
 export const LibretoKaraoke: React.FC = () => {
@@ -23,10 +40,9 @@ export const LibretoKaraoke: React.FC = () => {
 	const {fps} = useVideoConfig();
 	const t = frame / fps;
 
-	// Durante el beat de la negación (18,54-19,5 s) el texto grande
-	// «PERO NO HABLÓ DE CUBA» ES el caption: el karaoke se oculta
-	// para no duplicarlo ni cubrir las caras de fondo de la foto.
-	if (t >= 18.54 && t < 19.5) return null;
+	for (const [a, b] of HIDE_RANGES) {
+		if (t >= a && t < b) return null;
+	}
 	// Chunk activo: el último que ya empezó.
 	let active: CapChunk | null = null;
 	for (const c of ALL_CHUNKS) {
@@ -68,13 +84,20 @@ export const LibretoKaraoke: React.FC = () => {
 				}}
 			>
 				{active.words.map((w, i) => {
-					const shown = t >= w.s;
-					const pop = shown
-						? interpolate(t - w.s, [0, 0.1], [1.3, 1], {
-								extrapolateLeft: 'clamp',
-								extrapolateRight: 'clamp',
-						  })
-						: 1;
+					// Micropalabra (<0,18 s): aparece junto a la palabra
+					// anterior y sin pop (el pop de 0,1 s se cortaba
+					// antes de terminar y pegaba palabras).
+					const isMicro = w.e - w.s < 0.18;
+					const showAt =
+						isMicro && i > 0 ? active.words[i - 1].s : w.s;
+					const shown = t >= showAt;
+					const pop =
+						shown && !isMicro
+							? interpolate(t - w.s, [0, 0.1], [1.15, 1], {
+									extrapolateLeft: 'clamp',
+									extrapolateRight: 'clamp',
+								})
+							: 1;
 					const isVerdict = w.t === 'FALSO.';
 					return (
 						<span
@@ -82,7 +105,7 @@ export const LibretoKaraoke: React.FC = () => {
 							style={{
 								opacity: shown ? 1 : 0,
 								transform: `scale(${pop})`,
-								margin: '0 7px',
+								margin: '0 10px',
 								padding: w.kw ? '2px 12px' : '2px 0',
 								borderRadius: 8,
 								backgroundColor: isVerdict

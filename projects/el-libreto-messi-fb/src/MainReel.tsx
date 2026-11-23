@@ -1,14 +1,22 @@
 // El Libreto — Messi nunca dijo esto sobre Cuba (Facebook Reel, 30 s).
-// 1080x1920, 30 fps, 900 fotogramas. Sin música: toda la banda sonora
-// está en la mezcla (mix.wav); la composición es solo video.
+// 1080x1920, 30 fps, 900 fotogramas. Toda la banda sonora está en la
+// mezcla (mix.wav: VO + cama Flow Music + SFX); la composición es
+// solo video. El video de la Casa Blanca va MUDO (OffthreadVideo con
+// volume 0): aporta imagen en movimiento, nunca audio.
 // Zonas seguras Meta: texto dentro de x 65-1015, y 269-1248.
 // NUNCA texto sobre una cara. La foto de la Casa Blanca (DT-1261) se
 // muestra ENTERA (fondo difuminado detrás), nunca recortada dentro.
+// V2 (auditoría H1-H11, 23-nov-2026): video real en la Casa Blanca,
+// karaoke oculto donde el texto grande ES el caption, contador
+// sincronizado, placa reposicionada, cierre rediseñado con CTA con
+// motivo, push-in en el veredicto y transiciones rápidas.
 import React from 'react';
 import {
 	AbsoluteFill,
 	Easing,
 	Img,
+	OffthreadVideo,
+	Sequence,
 	interpolate,
 	staticFile,
 	useCurrentFrame,
@@ -24,6 +32,7 @@ const RESALTADOR = '#FFD60A';
 const POST = 'img/post-messi-cuba-falso.jpg';
 const COMPARACION = 'img/messi-foto-98c58e7b73.jpg';
 const CASA_BLANCA = 'img/casa-blanca-dt1261-messi-camiseta-47.jpg';
+const CASA_BLANCA_VIDEO = 'video/casa-blanca-bienvenida-messi-15s.mp4';
 const BUKELE = 'img/post-bukele-1.jpg';
 const MUSK = 'img/post-musk.jpg';
 const BAD_BUNNY = 'img/post-bad-bunny.jpg';
@@ -107,8 +116,11 @@ const PostScenes: React.FC<{t: number}> = ({t}) => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	// H4 (v2): la caja aparece CON el inicio de la cuenta (3,66 s),
+	// no 0,7 s antes: en la v1 se leía «0 REACCIONES». Al aparecer,
+	// el número ya está subiendo (a 3,81 s va por ~19.000).
 	const counterOpacity =
-		interpolate(t, [2.7, 2.85], [0, 1], {
+		interpolate(t, [3.66, 3.81], [0, 1], {
 			extrapolateLeft: 'clamp',
 			extrapolateRight: 'clamp',
 		}) *
@@ -319,8 +331,12 @@ const PostScenes: React.FC<{t: number}> = ({t}) => {
 
 // ─── Escena 4: la comparación (10,3-15,2 s) ──────────────────────────────
 const Comparacion: React.FC<{t: number}> = ({t}) => {
-	// Mitades que entran desde lados opuestos (10,3-10,7 s).
-	const slide = interpolate(t, [10.3, 10.7], [0, 1], {
+	// Mitades que entran desde lados opuestos (10,07-10,37 s). El slide
+	// arranca con la transición T1 (f302) y termina en f311: en el
+	// corte f309 las mitades ya están al ~99% (ease-out cúbico), que
+	// es lo que ghost-frames exige (la escena nueva completa en
+	// B..B+3). Además sincroniza con la VO: L3 empieza a 10,44 s.
+	const slide = interpolate(t, [10.07, 10.37], [0, 1], {
 		easing: Easing.out(Easing.cubic),
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -346,9 +362,9 @@ const Comparacion: React.FC<{t: number}> = ({t}) => {
 	});
 	const dashOffset = 516 * (1 - circleP);
 
-	// Etiquetas 10,7-12,8; placa 12,8-13,9; sello 2022 cae a 12,4.
+	// Etiquetas 10,4-12,8; placa 12,8-13,9; sello 2022 cae a 12,4.
 	const labelsOpacity =
-		interpolate(t, [10.7, 10.85], [0, 1], {
+		interpolate(t, [10.4, 10.55], [0, 1], {
 			extrapolateLeft: 'clamp',
 			extrapolateRight: 'clamp',
 		}) *
@@ -491,13 +507,39 @@ const Comparacion: React.FC<{t: number}> = ({t}) => {
 				2022
 			</div>
 
-			{/* Placa con la fuente de la foto original. */}
-			<Pill
-				fontSize={26}
-				style={{position: 'absolute', left: 190, top: 435, opacity: plateOpacity}}
+			{/* Placa con la fuente de la foto original. H5 (v2): en la v1
+			    iba en una línea a la izquierda (x 190, y 435) y tapaba
+			    la píldora «Original» de la imagen fuente (x 568-670).
+			    Ahora va en DOS líneas arriba a la derecha (x ~550-1015,
+			    y 320-409): fuera de la imagen (empieza en y 420), a la
+			    derecha de la marca de agua (termina en x 514, medida
+			    en el still f505) y sin tocar ninguna cara. Fuente 24
+			    (mínimo de píldora de fuente) + padding 18: a 26 px la
+			    placa medía ~509 px y su borde izquierdo (x~506)
+			    tapaba el extremo derecho de la píldora de la marca de
+			    agua. Las etiquetas «EL POST» / «DIC 2022»
+			    ya se desvanecieron a 12,8 s; la píldora de Gemini no
+			    aparece hasta 14,5 s: sin solapes temporales. */}
+			<div
+				style={{
+					position: 'absolute',
+					right: 65,
+					top: 320,
+					opacity: plateOpacity,
+					backgroundColor: 'rgba(26,26,46,0.85)',
+					borderRadius: 16,
+					padding: '12px 18px',
+					textAlign: 'center',
+					fontFamily: "'Noto Sans', sans-serif",
+					fontWeight: 700,
+					fontSize: 24,
+					lineHeight: 1.35,
+					color: PAPEL,
+				}}
 			>
-				4-DIC-2022 · INSTAGRAM DE ANTONELA ROCCUZZO
-			</Pill>
+				<div>4-DIC-2022</div>
+				<div>INSTAGRAM DE ANTONELA ROCCUZZO</div>
+			</div>
 
 			{/* Marca de agua de Gemini. */}
 			<Pill
@@ -511,10 +553,23 @@ const Comparacion: React.FC<{t: number}> = ({t}) => {
 };
 
 // ─── Escena 5: la Casa Blanca (15,2-19,5 s) ──────────────────────────────
-// Foto DT-1261 ENTERA (1920x1280 -> 1080x720, y=450), fondo difuminado.
-// Condiciones EXIF: publicación periodística, NO manipular.
+// H1 (v2): VIDEO REAL de la bienvenida en la Casa Blanca (dominio
+// público, corte 575-590 s del acto del 5-mar-2026), MUDO (volume 0:
+// todo el audio está en mix.wav). La v1 usaba solo la foto DT-1261.
+// El clip es 640x360 y lleva el faldón oficial «TEXT POTUS TO 45470»
+// en el tercio inferior: el contenedor recorta a 480 px de alto
+// (1080x480, y 465-945) para no mostrarlo. El faldón blanco empieza
+// en y~493 del video a 608 de alto (medido en el fotograma f505:
+// una franja blanca de 5 px asomaba con el contenedor a 500 px);
+// con 480 px queda >=13 px por debajo del borde en toda la escena
+// (a escala 1,06 el faldón baja a ~505). Fondo difuminado con la
+// foto DT-1261 detrás (la foto sigue en la escena, como ambiente);
+// nunca estirar el video a pantalla completa. Push-in lento 1->1,06
+// sobre el video. Caras del video en y ~556-739: la negación va en
+// y 950-1120 y el karaoke se oculta durante ese beat (18,54-19,5 s).
+// La Sequence anidada pone el reloj local en 0: el clip corre 0-4,3 s.
 const CasaBlanca: React.FC<{t: number}> = ({t}) => {
-	const zoom = interpolate(t, [15.2, 19.5], [1, 1.08], {
+	const zoom = interpolate(t, [15.2, 19.5], [1, 1.06], {
 		easing: Easing.inOut(Easing.quad),
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -531,33 +586,52 @@ const CasaBlanca: React.FC<{t: number}> = ({t}) => {
 	return (
 		<AbsoluteFill>
 			<BlurFill src={CASA_BLANCA} brightness={0.5} />
-			<div style={{position: 'absolute', left: 0, top: 450, width: 1080, height: 720}}>
-				<Img
-					src={staticFile(CASA_BLANCA)}
-					style={{
-						width: 1080,
-						height: 720,
-						transform: `scale(${zoom})`,
-						transformOrigin: '540px 360px',
-					}}
-				/>
-				<div
-					style={{
-						position: 'absolute',
-						inset: 0,
-						backgroundColor: 'rgba(0,0,0,0.35)',
-						opacity: negOpacity,
-					}}
-				/>
+			{/* Video 1080x608 dentro de un contenedor de 480 px: el
+			    recorte inferior esconde el faldón «TEXT POTUS» (su
+			    borde blanco empieza en y~493 del video; con 500 px
+			    asomaban 5 px). Con el push-in (escala sobre el
+			    centro) el faldón baja aún más: nunca asoma. */}
+			<div style={{position: 'absolute', left: 0, top: 465, width: 1080, height: 480, overflow: 'hidden'}}>
+				<Sequence from={456} durationInFrames={129} name="CasaBlancaVideo">
+					<div
+						style={{
+							width: 1080,
+							height: 608,
+							transform: `scale(${zoom})`,
+							transformOrigin: '540px 304px',
+						}}
+					>
+						<OffthreadVideo
+							src={staticFile(CASA_BLANCA_VIDEO)}
+							muted
+							volume={0}
+							style={{width: 1080, height: 608, objectFit: 'fill'}}
+						/>
+					</div>
+				</Sequence>
 			</div>
+			{/* Velo para la negación: oscurece el pie del video y la
+			    zona del texto (465-1140) con degradado, sin tocar las
+			    caras (terminan en y ~739). */}
+			<div
+				style={{
+					position: 'absolute',
+					left: 0,
+					top: 465,
+					width: 1080,
+					height: 675,
+					background:
+						'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.55) 100%)',
+					opacity: negOpacity,
+				}}
+			/>
 
 			<Pill fontSize={28} style={{position: 'absolute', left: 230, top: 410}}>
 				5 DE MARZO DE 2026 · CASA BLANCA
 			</Pill>
 
-			{/* La negación: debajo de las caras de fondo (la más baja
-			    termina en y 866 + margen de barbilla; el texto va en
-			    y 950-1120). El karaoke se oculta durante este beat
+			{/* La negación: debajo del video (termina en y 945) y de
+			    las caras. El karaoke se oculta durante este beat
 			    (18,54-19,5 s): el texto grande ES el caption. */}
 			<div
 				style={{
@@ -671,6 +745,13 @@ const Veredicto: React.FC<{t: number}> = ({t}) => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	// H7 (v2): push-in lento 1->1,06 tras la caída del sello (23,27 s):
+	// en la v1 la escena quedaba congelada 1,9 s.
+	const pushIn = interpolate(t, [23.27, 25.15], [1, 1.06], {
+		easing: Easing.out(Easing.quad),
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
 	return (
 		<AbsoluteFill style={{backgroundColor: PAPEL}}>
 			{t >= 23.15 && (
@@ -691,7 +772,7 @@ const Veredicto: React.FC<{t: number}> = ({t}) => {
 						fontSize: 200,
 						letterSpacing: 4,
 						color: ROJO,
-						transform: `rotate(-8deg) scale(${stampScale})`,
+						transform: `rotate(-8deg) scale(${stampScale * pushIn})`,
 					}}
 				>
 					FALSO
@@ -702,9 +783,32 @@ const Veredicto: React.FC<{t: number}> = ({t}) => {
 };
 
 // ─── Escena 8: cierre (25,15-30 s) ───────────────────────────────────────
+// H6 (v2): rediseño completo. Problemas de la v1: logo LIBRETO dos veces
+// (marca de agua + logo grande — la marca de agua se desvanece a 27,5,
+// ver MainReel), tercio inferior vacío, últimos 2 s congelados, CTA
+// débil («COMPARTE» sin motivo) y pregunta sobre el texto del post.
+// V2: la pregunta va en panel sólido (nada de texto sobre texto); un
+// solo CTA con motivo («SÍGUENOS» + «El próximo bulo, desmentido
+// aquí.»); composición vertical con ritmo (pregunta, logo, CTA,
+// motivo, fuente) hasta y 1130; movimiento continuo hasta f900 (zoom
+// lento del post, pulso del CTA, respiración del logo); la end card
+// deja traslucir el post al 12% para que el último fotograma rime con
+// el primero (loop) y la cama sigue sonando bajo el corte. La end card
+// señalizada dura 2,5 s (27,5-30); el veredicto respira antes del CTA.
+// T3 (H9): el corte en 25,15 s es duro (ghost-frames exige la escena
+// nueva completa en el fotograma del corte; el fundido de papel que
+// había aquí marcaba GHOST en f754). La entrada con movimiento la dan
+// el viaje del sello y la deriva lenta del post.
 const Cierre: React.FC<{t: number}> = ({t}) => {
+	// Deriva lenta del post hasta f900.
+	const postZoom = interpolate(t, [25.15, 30], [1, 1.04], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+
 	// El sello viaja del centro a la esquina inferior derecha (25,15-25,6)
-	// y se desvanece con la end card (27,5).
+	// y se desvanece ANTES de la end card (26,8-27,1) para no cruzarse
+	// con el CTA.
 	const travel = interpolate(t, [25.15, 25.6], [0, 1], {
 		easing: Easing.inOut(Easing.cubic),
 		extrapolateLeft: 'clamp',
@@ -713,13 +817,12 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 	const miniTx = 340 * travel;
 	const miniTy = 245 * travel;
 	const miniScale = 1 - 0.68 * travel;
-	const miniOpacity = interpolate(t, [27.5, 27.7], [1, 0], {
+	const miniOpacity = interpolate(t, [26.8, 27.1], [1, 0], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
 
-	// La pregunta aparece a 25,6 (cuando se oculta el karaoke) y sube
-	// a 27,5 para dejar sitio al logo.
+	// La pregunta aparece a 25,6 y sube a 27,5 para dejar sitio al logo.
 	const qOpacity = interpolate(t, [25.6, 25.8], [0, 1], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -738,8 +841,13 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 		extrapolateRight: 'clamp',
 	});
 
-	// End card: fondo Tinta + logo + CTA (27,5-30).
-	const endOpacity = interpolate(t, [27.5, 27.8], [0, 1], {
+	// End card (27,5-30): el fondo Tinta llega al 0,88 (el post se
+	// trasluce: rima con el primer fotograma); el contenido, al 1.
+	const endBg = interpolate(t, [27.5, 27.8], [0, 0.88], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+	const endFg = interpolate(t, [27.5, 27.8], [0, 1], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
@@ -748,12 +856,22 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	// Respiración lenta del logo hasta f900.
+	const logoBreathe = interpolate(t, [27.8, 30], [1, 1.02], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+	// Pulso sutil del CTA (periodo 1 s) hasta f900.
+	const ctaPulse =
+		t >= 27.8
+			? 1 + 0.03 * (0.5 + 0.5 * Math.sin(2 * Math.PI * (t - 27.8)))
+			: 1;
 
 	return (
 		<AbsoluteFill>
 			<BlurFill src={POST} brightness={0.35} />
 			{/* Captura atenuada con el mismo recorte vertical que el
-			    gancho (sin las caras de la foto). */}
+			    gancho (sin las caras de la foto), con deriva lenta. */}
 			<div style={{position: 'absolute', left: 0, top: 420, width: 1080, height: 613, overflow: 'hidden'}}>
 			<Img
 				src={staticFile(POST)}
@@ -765,6 +883,8 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 					height: 1003,
 					opacity: 0.5,
 					filter: 'brightness(0.6)',
+					transform: `scale(${postZoom})`,
+					transformOrigin: '540px 501.5px',
 				}}
 			/>
 			</div>
@@ -774,7 +894,7 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 					position: 'absolute',
 					inset: 0,
 					backgroundColor: TINTA,
-					opacity: endOpacity,
+					opacity: endBg,
 				}}
 			/>
 
@@ -804,7 +924,8 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 				FALSO
 			</div>
 
-			{/* Pregunta de marca. */}
+			{/* Pregunta de marca, en panel sólido (nada de texto sobre
+			    el texto del post). */}
 			<div
 				style={{
 					position: 'absolute',
@@ -812,13 +933,15 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 					right: 65,
 					top: qTop + qRise,
 					opacity: qOpacity,
+					backgroundColor: 'rgba(26,26,46,0.85)',
+					borderRadius: 18,
+					padding: '20px 28px',
 					textAlign: 'center',
 					fontFamily: "'Noto Serif Display', serif",
 					fontWeight: 900,
 					fontSize: 72,
 					lineHeight: 1.15,
 					color: PAPEL,
-					textShadow: '0 4px 24px rgba(0,0,0,0.7)',
 				}}
 			>
 				<div>¿QUIÉN ESCRIBIÓ</div>
@@ -832,40 +955,116 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 					left: 190,
 					top: 650,
 					width: 700,
-					opacity: endOpacity,
-					transform: `scale(${logoScale})`,
+					opacity: endFg,
+					transform: `scale(${logoScale * logoBreathe})`,
 					transformOrigin: 'center center',
 				}}
 			>
 				<Img src={staticFile(LOCKUP)} style={{width: 700}} />
 			</div>
 
+			{/* CTA con motivo: un solo objetivo, una sola acción. */}
+			<div
+				style={{
+					position: 'absolute',
+					left: 0,
+					right: 0,
+					top: 880,
+					display: 'flex',
+					justifyContent: 'center',
+					opacity: endFg,
+					transform: `scale(${ctaPulse})`,
+					transformOrigin: 'center center',
+				}}
+			>
+				<Pill bg={RESALTADOR} color={TINTA} fontSize={40}>
+					SÍGUENOS
+				</Pill>
+			</div>
+			<div
+				style={{
+					position: 'absolute',
+					left: 65,
+					right: 65,
+					top: 975,
+					opacity: endFg,
+					textAlign: 'center',
+					fontFamily: "'Noto Sans', sans-serif",
+					fontWeight: 700,
+					fontSize: 30,
+					color: PAPEL,
+				}}
+			>
+				El próximo bulo, desmentido aquí.
+			</div>
+
 			{/* Fuente. */}
 			<Pill
 				fontSize={28}
-				style={{position: 'absolute', left: 240, top: 1050, opacity: sourceOpacity}}
+				style={{position: 'absolute', left: 240, top: 1080, opacity: sourceOpacity}}
 			>
 				Verificado por elTOQUE, 17-mar-2026
-			</Pill>
-
-			{/* CTA. */}
-			<Pill
-				bg={RESALTADOR}
-				color={TINTA}
-				fontSize={32}
-				style={{position: 'absolute', left: 400, top: 1150, opacity: endOpacity}}
-			>
-				COMPARTE
 			</Pill>
 		</AbsoluteFill>
 	);
 };
 
 // ─── Composición ─────────────────────────────────────────────────────────
+// Envoltorio para transiciones: escala + opacidad sobre la escena.
+const XScene: React.FC<{
+	scale?: number;
+	opacity?: number;
+	children: React.ReactNode;
+}> = ({scale = 1, opacity = 1, children}) => (
+	<div
+		style={{
+			position: 'absolute',
+			inset: 0,
+			transform: `scale(${scale})`,
+			transformOrigin: '540px 960px',
+			opacity,
+		}}
+	>
+		{children}
+	</div>
+);
+
 export const MainReel: React.FC = () => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 	const t = frame / fps;
+
+	// H9 (v2): transiciones zoom-cross rápidas (0,23 s) en los dos
+	// cortes de más contraste. T1: post -> comparación (f302-309).
+	// T2: trío -> veredicto (f671-678). La transición TERMINA en el
+	// corte: en el fotograma B la escena nueva ya está completa.
+	// (ghost-frames exige d_nueva < 0,07 en B..B+3: una transición
+	// que empezara en B dejaría B como la escena vieja y el check
+	// la marcaría GHOST. El fundido previo al corte es invisible
+	// para el check: solo examina B..B+3 y la ref previa no decide
+	// el veredicto cuando d_nueva es OK.) El whoosh de T1 barre
+	// justo sobre la transición (10,07-10,3 s) y pica al llegar la
+	// escena nueva. T3: el cierre entra con corte duro (como en la
+	// v1, que pasaba el check) + el viaje del sello y la deriva del
+	// post como movimiento de entrada. Los límites de escena
+	// coinciden con preflight-scenes.json.
+	const t1p = interpolate(frame, [302, 309], [0, 1], {
+		easing: Easing.inOut(Easing.quad),
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+	const t2p = interpolate(frame, [671, 678], [0, 1], {
+		easing: Easing.inOut(Easing.quad),
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+
+	// H6 (v2): la marca de agua se desvanece cuando entra el logo grande
+	// de la end card (27,5 s): nada de LIBRETO dos veces.
+	const wmOpacity = interpolate(t, [27.5, 27.8], [1, 0], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
 
 	return (
 		<AbsoluteFill style={{backgroundColor: TINTA}}>
@@ -873,11 +1072,27 @@ export const MainReel: React.FC = () => {
 			    f754 y f755 (754,5) y un condicional por tiempo retrasa
 			    el corte un fotograma, lo que ghost-frames marca como
 			    GHOST. Los límites coinciden con preflight-scenes.json. */}
-			{frame < 309 && <PostScenes t={t} />}
-			{frame >= 309 && frame < 456 && <Comparacion t={t} />}
+			{frame < 309 && (
+				<XScene scale={interpolate(t1p, [0, 1], [1, 1.12])} opacity={1 - t1p}>
+					<PostScenes t={t} />
+				</XScene>
+			)}
+			{frame >= 302 && frame < 456 && (
+				<XScene scale={interpolate(t1p, [0, 1], [0.94, 1])} opacity={t1p}>
+					<Comparacion t={t} />
+				</XScene>
+			)}
 			{frame >= 456 && frame < 585 && <CasaBlanca t={t} />}
-			{frame >= 585 && frame < 678 && <Trio t={t} frame={frame} fps={fps} />}
-			{frame >= 678 && frame < 754 && <Veredicto t={t} />}
+			{frame >= 585 && frame < 678 && (
+				<XScene scale={interpolate(t2p, [0, 1], [1, 1.1])} opacity={1 - t2p}>
+					<Trio t={t} frame={frame} fps={fps} />
+				</XScene>
+			)}
+			{frame >= 671 && frame < 754 && (
+				<XScene scale={interpolate(t2p, [0, 1], [1.08, 1])} opacity={t2p}>
+					<Veredicto t={t} />
+				</XScene>
+			)}
 			{frame >= 754 && <Cierre t={t} />}
 
 			<LibretoKaraoke />
@@ -885,7 +1100,7 @@ export const MainReel: React.FC = () => {
 			{/* Marca de agua: lockup, arriba-izquierda, desde el fotograma 0. */}
 			<Img
 				src={staticFile(LOCKUP)}
-				style={{position: 'absolute', left: 65, top: 300, height: 100}}
+				style={{position: 'absolute', left: 65, top: 300, height: 100, opacity: wmOpacity}}
 			/>
 
 			{/* Barra de progreso. */}
