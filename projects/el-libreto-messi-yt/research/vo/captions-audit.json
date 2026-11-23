@@ -1,0 +1,686 @@
+[
+ {
+  "text": "MESSI",
+  "startMs": 530,
+  "endMs": 800,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NUNCA",
+  "startMs": 800,
+  "endMs": 1080,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DIJO",
+  "startMs": 1080,
+  "endMs": 1380,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ESTO",
+  "startMs": 1380,
+  "endMs": 1640,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "SOBRE",
+  "startMs": 1640,
+  "endMs": 1940,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CUBA.",
+  "startMs": 1940,
+  "endMs": 2200,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ESTE",
+  "startMs": 2640,
+  "endMs": 2840,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "POST",
+  "startMs": 2840,
+  "endMs": 3060,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "TIENE",
+  "startMs": 3060,
+  "endMs": 3520,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "62.000",
+  "startMs": 3520,
+  "endMs": 4300,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "REACCIONES,",
+  "startMs": 4300,
+  "endMs": 4820,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LO",
+  "startMs": 5240,
+  "endMs": 5400,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PUBLICÓ",
+  "startMs": 5400,
+  "endMs": 5860,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "UNA",
+  "startMs": 5860,
+  "endMs": 6320,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PÁGINA",
+  "startMs": 6320,
+  "endMs": 6540,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "CON",
+  "startMs": 6540,
+  "endMs": 6740,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "750.000",
+  "startMs": 6740,
+  "endMs": 7820,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "SEGUIDORES",
+  "startMs": 7820,
+  "endMs": 8200,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "QUE",
+  "startMs": 8200,
+  "endMs": 8400,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "SE",
+  "startMs": 8400,
+  "endMs": 8540,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LLAMA",
+  "startMs": 8540,
+  "endMs": 8780,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "JOSÉ",
+  "startMs": 8780,
+  "endMs": 9080,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "FOREVER.",
+  "startMs": 9080,
+  "endMs": 9560,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "USA",
+  "startMs": 10130,
+  "endMs": 10260,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EL",
+  "startMs": 10260,
+  "endMs": 10380,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NOMBRE",
+  "startMs": 10380,
+  "endMs": 10560,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 10560,
+  "endMs": 10700,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EL",
+  "startMs": 10700,
+  "endMs": 10820,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "TAIGER,",
+  "startMs": 10820,
+  "endMs": 11020,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "NO",
+  "startMs": 11420,
+  "endMs": 11600,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "TIENE",
+  "startMs": 11600,
+  "endMs": 11820,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NADA",
+  "startMs": 11820,
+  "endMs": 12000,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "QUE",
+  "startMs": 12000,
+  "endMs": 12160,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "VER",
+  "startMs": 12160,
+  "endMs": 12260,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CON",
+  "startMs": 12260,
+  "endMs": 12480,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ÉL.",
+  "startMs": 12480,
+  "endMs": 12640,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "MIRA",
+  "startMs": 13000,
+  "endMs": 13120,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LA",
+  "startMs": 13120,
+  "endMs": 13280,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "FOTO,",
+  "startMs": 13280,
+  "endMs": 13560,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ES",
+  "startMs": 14000,
+  "endMs": 14160,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 14160,
+  "endMs": 14260,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "2022.",
+  "startMs": 14260,
+  "endMs": 14660,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LA",
+  "startMs": 15870,
+  "endMs": 15960,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "BANDERA",
+  "startMs": 15960,
+  "endMs": 16340,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "SE",
+  "startMs": 16340,
+  "endMs": 16540,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LA",
+  "startMs": 16540,
+  "endMs": 16640,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PUSIERON",
+  "startMs": 16640,
+  "endMs": 16920,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "DESPUÉS.",
+  "startMs": 16920,
+  "endMs": 17260,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "Y",
+  "startMs": 17870,
+  "endMs": 17940,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "TIENE",
+  "startMs": 17940,
+  "endMs": 18100,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LA",
+  "startMs": 18100,
+  "endMs": 18220,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MARCA",
+  "startMs": 18220,
+  "endMs": 18380,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 18380,
+  "endMs": 18600,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "AGUA",
+  "startMs": 18600,
+  "endMs": 18720,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "DE",
+  "startMs": 18720,
+  "endMs": 18900,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "GEMINI.",
+  "startMs": 18900,
+  "endMs": 19260,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "MESSI",
+  "startMs": 19630,
+  "endMs": 19800,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NO",
+  "startMs": 19800,
+  "endMs": 20000,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DIJO",
+  "startMs": 20000,
+  "endMs": 20180,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NADA,",
+  "startMs": 20180,
+  "endMs": 20480,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "NI",
+  "startMs": 20940,
+  "endMs": 21100,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EN",
+  "startMs": 21100,
+  "endMs": 21180,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "SUS",
+  "startMs": 21180,
+  "endMs": 21320,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CUENTAS.",
+  "startMs": 21320,
+  "endMs": 21840,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "¿POR",
+  "startMs": 22370,
+  "endMs": 22440,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "QUÉ",
+  "startMs": 22440,
+  "endMs": 22620,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "SE",
+  "startMs": 22620,
+  "endMs": 22740,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LO",
+  "startMs": 22740,
+  "endMs": 22990,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CREYÓ",
+  "startMs": 22990,
+  "endMs": 23090,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "TANTA",
+  "startMs": 23090,
+  "endMs": 23230,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "GENTE?",
+  "startMs": 23230,
+  "endMs": 23650,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "PARA",
+  "startMs": 23990,
+  "endMs": 24150,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MÍ",
+  "startMs": 24150,
+  "endMs": 24350,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "HAY",
+  "startMs": 24760,
+  "endMs": 24870,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "UN",
+  "startMs": 24870,
+  "endMs": 24990,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NÚCLEO",
+  "startMs": 24990,
+  "endMs": 25230,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "REAL.",
+  "startMs": 25230,
+  "endMs": 25470,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "EL",
+  "startMs": 25750,
+  "endMs": 25870,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "5",
+  "startMs": 25870,
+  "endMs": 26070,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 26070,
+  "endMs": 26270,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MARZO",
+  "startMs": 26270,
+  "endMs": 26610,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "MESSI",
+  "startMs": 26610,
+  "endMs": 26930,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESTUVO",
+  "startMs": 26930,
+  "endMs": 27290,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EN",
+  "startMs": 27290,
+  "endMs": 27370,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LA",
+  "startMs": 27370,
+  "endMs": 27450,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CASA",
+  "startMs": 27450,
+  "endMs": 27610,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "BLANCA,",
+  "startMs": 27610,
+  "endMs": 28050,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "PERO",
+  "startMs": 28510,
+  "endMs": 28650,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NO",
+  "startMs": 28650,
+  "endMs": 28810,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "HABLÓ",
+  "startMs": 28810,
+  "endMs": 29050,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 29050,
+  "endMs": 29150,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CUBA.",
+  "startMs": 29150,
+  "endMs": 29370,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LO",
+  "startMs": 29910,
+  "endMs": 29990,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MISMO",
+  "startMs": 29990,
+  "endMs": 30170,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CON",
+  "startMs": 30170,
+  "endMs": 30350,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "BUKELE,",
+  "startMs": 30350,
+  "endMs": 30770,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "CON",
+  "startMs": 31010,
+  "endMs": 31070,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MUSK,",
+  "startMs": 31070,
+  "endMs": 31410,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "CON",
+  "startMs": 31710,
+  "endMs": 31730,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "BAD",
+  "startMs": 31730,
+  "endMs": 31890,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "BUNNY.",
+  "startMs": 31890,
+  "endMs": 32210,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "FALSO.",
+  "startMs": 32810,
+  "endMs": 33170,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "EL",
+  "startMs": 33720,
+  "endMs": 33810,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MENSAJE",
+  "startMs": 33810,
+  "endMs": 34190,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NO",
+  "startMs": 34190,
+  "endMs": 34310,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EXISTE,",
+  "startMs": 34310,
+  "endMs": 34630,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LA",
+  "startMs": 35010,
+  "endMs": 35110,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "FOTO",
+  "startMs": 35110,
+  "endMs": 35430,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESTÁ",
+  "startMs": 35430,
+  "endMs": 35870,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EDITADA.",
+  "startMs": 35870,
+  "endMs": 36330,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "¿QUIÉN",
+  "startMs": 36860,
+  "endMs": 37030,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESCRIBIÓ",
+  "startMs": 37030,
+  "endMs": 37410,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EL",
+  "startMs": 37410,
+  "endMs": 37450,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LIBRETO?",
+  "startMs": 37450,
+  "endMs": 37810,
+  "pageBreakAfter": true
+ }
+]

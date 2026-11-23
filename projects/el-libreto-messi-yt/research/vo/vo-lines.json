@@ -1,0 +1,61 @@
+{
+ "_notes": {
+  "time_base": "Tiempos en segundos de la VO limpia (vo-yt-limpia-clean.wav). La edición coloca la toma en 0 sin offsets: edited time = original time. Las 114 palabras coinciden exactamente con src/captions.ts (normalizadas)."
+ },
+ "lines": [
+  {
+   "end": 2.2,
+   "id": "L1",
+   "start": 0.53,
+   "text": "Messi nunca dijo esto sobre Cuba."
+  },
+  {
+   "end": 9.56,
+   "id": "L2",
+   "start": 2.65,
+   "text": "Este post tiene 62.000 reacciones. Lo publicó una página con 750.000 seguidores que se llama José Forever."
+  },
+  {
+   "end": 12.64,
+   "id": "L3",
+   "start": 10.13,
+   "text": "Usa el nombre de El Taiger. No tiene nada que ver con él."
+  },
+  {
+   "end": 21.84,
+   "id": "L4",
+   "start": 13.02,
+   "text": "Mira la foto. Es de 2022. La bandera se la pusieron después. Y tiene la marca de agua de Gemini. Messi no dijo nada. Ni en sus cuentas."
+  },
+  {
+   "end": 29.37,
+   "id": "L5",
+   "start": 22.37,
+   "text": "¿Por qué se lo creyó tanta gente? Para mí, hay un núcleo real. El 5 de marzo, Messi estuvo en la Casa Blanca. Pero no habló de Cuba."
+  },
+  {
+   "end": 32.21,
+   "id": "L6",
+   "start": 29.89,
+   "text": "Lo mismo con Bukele, con Musk, con Bad Bunny."
+  },
+  {
+   "end": 33.17,
+   "id": "L7",
+   "start": 32.81,
+   "text": "FALSO."
+  },
+  {
+   "end": 36.33,
+   "id": "L8",
+   "start": 33.72,
+   "text": "El mensaje no existe. La foto está editada."
+  },
+  {
+   "end": 37.81,
+   "id": "L9",
+   "start": 36.86,
+   "text": "¿Quién escribió el libreto?"
+  }
+ ]
+}

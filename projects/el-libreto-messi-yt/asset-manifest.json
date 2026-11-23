@@ -1,0 +1,119 @@
+{
+ "formatVersion": 1,
+ "files": [
+  {
+   "path": "public/audio/amb-room-tone.wav",
+   "sha256": "61e5cc8fc4a62124b268625c7b3576adde0eda09ebeb9d76b567e967526f22e5",
+   "bytes": 8640102,
+   "note": "tono de sala, suelo de la mezcla (bucle 30 s)"
+  },
+  {
+   "path": "public/audio/real/vo-yt-limpia-clean.wav",
+   "sha256": "c5df154b3af27a9fb8fa345cf600fe0119b93c7fa837b1d576ce15eecb09089e",
+   "bytes": 3657678,
+   "note": "VO limpia aprobada (voz del usuario)"
+  },
+  {
+   "path": "public/audio/real/vo-yt-original.m4a",
+   "sha256": "c7dfe2a9a0988478e107759b4237f578eacabf7eb8141901749a9fe91c282152",
+   "bytes": 712280,
+   "note": "VO original sin procesar (referencia)"
+  },
+  {
+   "path": "public/audio/sfx/bass-sub-drop-short.wav",
+   "sha256": "85b87d3a9f772626ff6914bfbd153b07cb3681871b97e147a1a8a15154a29f09",
+   "bytes": 169398,
+   "note": "SFX de la biblioteca del hub (CC0/dominio público)"
+  },
+  {
+   "path": "public/audio/sfx/data-number-land.wav",
+   "sha256": "5a8af582b3bea2dba401afa55b223cafa8d6a3d1259e72e57dc701b6fc0d82fa",
+   "bytes": 33746,
+   "note": "SFX de la biblioteca del hub (CC0/dominio público)"
+  },
+  {
+   "path": "public/audio/sfx/digital-scan-subtle.wav",
+   "sha256": "1514c7e5b059db4683d168e52dc5515fca7888c675ad5091458ccbd44840d07f",
+   "bytes": 121232,
+   "note": "SFX de la biblioteca del hub (CC0/dominio público)"
+  },
+  {
+   "path": "public/audio/sfx/paper-card-slide-2.wav",
+   "sha256": "f1b011d517ac2bc8956a74b1d5c0e6e66ee6af4d9689bbff9fe51795508f7ad9",
+   "bytes": 172362,
+   "note": "SFX de la biblioteca del hub (CC0/dominio público)"
+  },
+  {
+   "path": "public/audio/sfx/props-page-turn.wav",
+   "sha256": "816a38d1987dbb1cb3ca5a712a74675c819fabeea058f81f18835443a16fa6ef",
+   "bytes": 77954,
+   "note": "SFX de la biblioteca del hub (CC0/dominio público)"
+  },
+  {
+   "path": "public/audio/sfx/riser-1s-soft.wav",
+   "sha256": "fca1d503b69d4ac32cd7f307cf497fa36c2db8589b878b075c8d372ac3f4fe61",
+   "bytes": 342920,
+   "note": "SFX de la biblioteca del hub (CC0/dominio público)"
+  },
+  {
+   "path": "public/audio/sfx/stamp-rubber-seal.wav",
+   "sha256": "63090b4c608d878ab9793e8a4ab0a83b5ca9fe16895d3fd4b407f53f60f4d4ec",
+   "bytes": 1152102,
+   "note": "SFX de la biblioteca del hub (CC0/dominio público)"
+  },
+  {
+   "path": "public/audio/sfx/whoosh-medium-soft.wav",
+   "sha256": "a114611a09e02ab26cfbd8d796279eac358b6df4c3923db3f269ac34c340eeac",
+   "bytes": 156440,
+   "note": "SFX de la biblioteca del hub (CC0/dominio público)"
+  },
+  {
+   "path": "public/audio/sfx/writing-pencil-draw.wav",
+   "sha256": "d70df183a5267ad0434bc51e1477b089aadbf6690b383ebd8a4014843dbaaff9",
+   "bytes": 208640,
+   "note": "SFX de la biblioteca del hub (CC0/dominio público)"
+  },
+  {
+   "path": "public/img/casa-blanca-dt1261-messi-camiseta-47.jpg",
+   "sha256": "99ec8b1d81b13681a00286ebd2d383a86ed78de0c9e7ff2e646c83548ad8a285",
+   "bytes": 501453,
+   "note": "foto oficial Casa Blanca DT-1261, 5-mar-2026"
+  },
+  {
+   "path": "public/img/messi-foto-98c58e7b73.jpg",
+   "sha256": "076163d209f61f40e82aab60965d280710de385ac843acf301f861a286e86cee",
+   "bytes": 104763,
+   "note": "comparación manipulado/original (elTOQUE)"
+  },
+  {
+   "path": "public/img/post-bad-bunny.jpg",
+   "sha256": "134ea347a64c4288acb3ac3300021be04c4bdba7f4ccf6b2032c7a7a9d6e4d97",
+   "bytes": 50855,
+   "note": "mini-captura patrón Bad Bunny"
+  },
+  {
+   "path": "public/img/post-bukele-1.jpg",
+   "sha256": "65dd3b4dfec4bea282525253cbda172aae069fc6d97209cfe74e3923d5a17500",
+   "bytes": 87238,
+   "note": "mini-captura patrón Bukele"
+  },
+  {
+   "path": "public/img/post-messi-cuba-falso.jpg",
+   "sha256": "19ea5c79ec635d7374ae5368f9e98658c8848b3ad16838803974f77511e2a569",
+   "bytes": 63598,
+   "note": "captura del post falso (elTOQUE)"
+  },
+  {
+   "path": "public/img/post-musk.jpg",
+   "sha256": "e7fda1aeae922cfc5549ca3fcb22bcb6801793d37bbf7d89d9db82e57e7f4edd",
+   "bytes": 23318,
+   "note": "mini-captura patrón Musk"
+  },
+  {
+   "path": "public/img/watermark-lockup-libreto.png",
+   "sha256": "e53ec7e422e391a30593ac028b8bdcfb63de329a4240bda0628547508e10925f",
+   "bytes": 35165,
+   "note": "lockup marca El Libreto"
+  }
+ ]
+}

@@ -1,0 +1,208 @@
+{
+  "approvedRevision": null,
+  "completed": [],
+  "compositionId": "MainReel",
+  "id": "el-libreto-messi-yt",
+  "latestSnapshot": null,
+  "nextTask": "EN PAUSA por cambio de dirección 23-nov: el reel lleva música de Flow Music. Pre-vuelo OK (0 bloqueantes, 15 stills revisados a ojo). Falta: recibir la cama de Flow + dirección del cierre nuevo; escanear la cama (scan-bed.py), definir bed.id en timeline.json, verificar identidad (bed_identity.py), rehacer la mezcla y correr render → master → qa → ghost → audit. NO renderizar una v1 sin música.",
+  "objective": "El Libreto — Messi nunca dijo esto sobre Cuba (YouTube)",
+  "pending": [],
+  "phase": "editing",
+  "pipeline": {
+    "milestones": [
+      {
+        "at": "2026-11-23T16:49:53.489Z",
+        "phase": "vo",
+        "event": "audio completado por reel (2s)",
+        "artifacts": [
+          "public/audio/voice-placed.wav",
+          "public/audio/music-bed.wav",
+          "public/audio/sfx-mix"
+        ]
+      },
+      {
+        "at": "2026-11-23T16:49:59.930Z",
+        "phase": "mix",
+        "event": "mix completado por reel (6s)",
+        "artifacts": [
+          "public/audio/mix.wav"
+        ]
+      },
+      {
+        "at": "2026-11-23T16:50:22.317Z",
+        "phase": "mix",
+        "event": "audit-inputs completado por reel (22s)",
+        "artifacts": [
+          "research/vo/voice-orig.wav",
+          "research/vo/vo-orig-transcription.json",
+          "research/vo/vo-editada-prediccion.json",
+          "research/vo/edit-plan.json",
+          "research/vo/captions-audit.json",
+          "research/vo/vo-edited-transcription.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T16:50:32.508Z",
+        "phase": "qa",
+        "event": "pre-audit: falló — pre-auditoría falló (código 1)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T16:57:47.461Z",
+        "phase": "mix",
+        "event": "mix: artefactos ya presentes (salto)",
+        "artifacts": [
+          "public/audio/mix.wav"
+        ]
+      },
+      {
+        "at": "2026-11-23T16:58:14.580Z",
+        "phase": "mix",
+        "event": "mix completado por reel (7s)",
+        "artifacts": [
+          "public/audio/mix.wav"
+        ]
+      },
+      {
+        "at": "2026-11-23T16:58:36.186Z",
+        "phase": "mix",
+        "event": "audit-inputs completado por reel (22s)",
+        "artifacts": [
+          "research/vo/voice-orig.wav",
+          "research/vo/vo-orig-transcription.json",
+          "research/vo/vo-editada-prediccion.json",
+          "research/vo/edit-plan.json",
+          "research/vo/captions-audit.json",
+          "research/vo/vo-edited-transcription.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T16:58:45.828Z",
+        "phase": "qa",
+        "event": "pre-audit: falló — pre-auditoría falló (código 1)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T17:01:11.688Z",
+        "phase": "mix",
+        "event": "audit-inputs: falló — build-audit-inputs falló (código 1)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T17:01:50.375Z",
+        "phase": "mix",
+        "event": "audit-inputs completado por reel (24s)",
+        "artifacts": [
+          "research/vo/voice-orig.wav",
+          "research/vo/vo-orig-transcription.json",
+          "research/vo/vo-editada-prediccion.json",
+          "research/vo/edit-plan.json",
+          "research/vo/captions-audit.json",
+          "research/vo/vo-edited-transcription.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:02:01.196Z",
+        "phase": "qa",
+        "event": "pre-audit completado por reel (11s)",
+        "artifacts": [
+          "research/audit-pre/audio-audit-pre.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:04:42.688Z",
+        "phase": "render",
+        "event": "preflight: falló — visual-preflight falló (código 1)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T17:12:52.600Z",
+        "phase": "render",
+        "event": "preflight completado por reel (183s)",
+        "artifacts": [
+          "reports/preflight.json"
+        ]
+      }
+    ],
+    "phases": {
+      "assets": {
+        "artifacts": [],
+        "note": "",
+        "startedAt": null,
+        "status": "pending",
+        "updatedAt": null
+      },
+      "captions": {
+        "artifacts": [],
+        "note": "",
+        "startedAt": null,
+        "status": "pending",
+        "updatedAt": null
+      },
+      "delivery": {
+        "artifacts": [],
+        "note": "",
+        "startedAt": null,
+        "status": "pending",
+        "updatedAt": null
+      },
+      "mix": {
+        "artifacts": [
+          "public/audio/mix.wav",
+          "research/vo/voice-orig.wav",
+          "research/vo/vo-orig-transcription.json",
+          "research/vo/vo-editada-prediccion.json",
+          "research/vo/edit-plan.json",
+          "research/vo/captions-audit.json",
+          "research/vo/vo-edited-transcription.json"
+        ],
+        "note": "",
+        "startedAt": "2026-11-23T16:49:53.492Z",
+        "status": "done",
+        "updatedAt": "2026-11-23T17:01:50.375Z"
+      },
+      "qa": {
+        "artifacts": [
+          "research/audit-pre/audio-audit-pre.json"
+        ],
+        "note": "",
+        "startedAt": "2026-11-23T16:50:22.318Z",
+        "status": "done",
+        "updatedAt": "2026-11-23T17:02:01.196Z"
+      },
+      "render": {
+        "artifacts": [
+          "reports/preflight.json"
+        ],
+        "note": "",
+        "startedAt": "2026-11-23T17:02:01.198Z",
+        "status": "done",
+        "updatedAt": "2026-11-23T17:12:52.600Z",
+        "chunks": {
+          "total": 0,
+          "done": 0,
+          "completed": [],
+          "framesDone": 0,
+          "framesTotal": 0,
+          "percent": 0,
+          "chunkSize": 150,
+          "resumeCommand": ""
+        }
+      },
+      "vo": {
+        "artifacts": [
+          "public/audio/voice-placed.wav",
+          "public/audio/music-bed.wav",
+          "public/audio/sfx-mix"
+        ],
+        "note": "",
+        "startedAt": "2026-11-23T16:49:51.348Z",
+        "status": "done",
+        "updatedAt": "2026-11-23T16:49:53.489Z"
+      }
+    }
+  },
+  "schema": "remotion-hub.state/v1",
+  "title": "El Libreto — Messi nunca dijo esto sobre Cuba (YouTube)",
+  "updatedAt": "2026-11-23T17:12:52.600Z"
+}
