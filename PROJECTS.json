@@ -55,6 +55,14 @@
       "approvedRevision": null,
       "nextTask": "Esperar el visto bueno FINAL de Suleris (puerta dura) y las capturas de state.gov; al aprobar: VO Kokoro, cama Flow Music (scan-bed.py), luego editar",
       "updatedAt": "2026-11-22T16:00:00Z"
+    },
+    {
+      "id": "el-libreto-messi-fb",
+      "title": "El Libreto — Messi nunca dijo esto sobre Cuba (Facebook)",
+      "latestSnapshot": null,
+      "approvedRevision": null,
+      "nextTask": "Investigar referentes, escribir estrategia y prompts propios en CREATIVE_BRIEF.md; luego editar y guardar",
+      "updatedAt": "2026-11-23T15:35:11.506Z"
     }
   ]
 }
