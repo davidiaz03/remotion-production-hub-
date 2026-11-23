@@ -71,35 +71,68 @@
       "render": {
         "status": "done",
         "startedAt": "2026-11-23T22:38:59.111Z",
-        "updatedAt": "2026-11-23T22:43:25.771Z",
+        "updatedAt": "2026-11-23T23:18:51.310Z",
         "artifacts": [
-          "reports/preflight.json"
+          "reports/preflight.json",
+          "out/libreto-pagina-62mil-chunks.mkv"
         ],
-        "note": "preflight en curso (pipeline)",
+        "note": "out/libreto-pagina-62mil-chunks.mkv",
         "chunks": {
-          "total": 0,
-          "done": 0,
-          "completed": [],
-          "framesDone": 0,
-          "framesTotal": 0,
-          "percent": 0,
-          "chunkSize": 150,
-          "resumeCommand": ""
+          "total": 19,
+          "done": 19,
+          "completed": [
+            "out/chunks/chunk_01.mkv",
+            "out/chunks/chunk_02.mkv",
+            "out/chunks/chunk_03.mkv",
+            "out/chunks/chunk_04.mkv",
+            "out/chunks/chunk_05.mkv",
+            "out/chunks/chunk_06.mkv",
+            "out/chunks/chunk_07.mkv",
+            "out/chunks/chunk_08.mkv",
+            "out/chunks/chunk_09.mkv",
+            "out/chunks/chunk_10.mkv",
+            "out/chunks/chunk_11.mkv",
+            "out/chunks/chunk_12.mkv",
+            "out/chunks/chunk_13.mkv",
+            "out/chunks/chunk_14.mkv",
+            "out/chunks/chunk_15.mkv",
+            "out/chunks/chunk_16.mkv",
+            "out/chunks/chunk_17.mkv",
+            "out/chunks/chunk_18.mkv",
+            "out/chunks/chunk_19.mkv"
+          ],
+          "framesDone": 16449,
+          "framesTotal": 16449,
+          "percent": 100,
+          "chunkSize": 900,
+          "resumeCommand": "node scripts/render-chunks.mjs libreto-pagina-62mil --frames 0-16448 --chunk 900 --resume --video-only --crf 19 --concat-out /home/hatch/workspace/remotion-hub/worktrees/longform-v2/projects/libreto-pagina-62mil/out/libreto-pagina-62mil-chunks.mkv --lock"
         }
       },
       "qa": {
-        "status": "pending",
-        "startedAt": null,
-        "updatedAt": null,
-        "artifacts": [],
-        "note": ""
+        "status": "done",
+        "startedAt": "2026-11-23T23:18:51.313Z",
+        "updatedAt": "2026-11-23T23:48:56.911Z",
+        "artifacts": [
+          "out/libreto-pagina-62mil-MASTER.mp4",
+          "reports/technical-qa-master.json",
+          "reports/technical-qa-360p.json",
+          "out/libreto-pagina-62mil-360p.mp4",
+          "reports/technical-qa-720p.json",
+          "out/libreto-pagina-62mil-720p.mp4"
+        ],
+        "note": "-15.5 LUFS, TP -4.1 dBTP"
       },
       "delivery": {
-        "status": "pending",
-        "startedAt": null,
-        "updatedAt": null,
-        "artifacts": [],
-        "note": "NUNCA publicar sin confirmación explícita del usuario"
+        "status": "done",
+        "startedAt": "2026-11-23T23:25:13.189Z",
+        "updatedAt": "2026-11-23T23:34:50.535Z",
+        "artifacts": [
+          "out/libreto-pagina-62mil-720p.mp4",
+          "out/libreto-pagina-62mil-360p.mp4",
+          "out/libreto-pagina-62mil-chapters.txt",
+          "out/libreto-pagina-62mil-chapters.json"
+        ],
+        "note": "chapters en curso (pipeline)"
       }
     },
     "milestones": [
@@ -110,8 +143,242 @@
         "artifacts": [
           "reports/preflight.json"
         ]
+      },
+      {
+        "at": "2026-11-23T22:47:52.643Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-16448 en 19 tramos de 900",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T22:49:35.923Z",
+        "phase": "render",
+        "event": "Tramo 1/19 verificado (chunk_01.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_01.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T22:52:46.815Z",
+        "phase": "render",
+        "event": "Tramo 2/19 verificado (chunk_02.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_02.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T22:54:10.455Z",
+        "phase": "render",
+        "event": "Tramo 3/19 verificado (chunk_03.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_03.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T22:55:22.867Z",
+        "phase": "render",
+        "event": "Tramo 4/19 verificado (chunk_04.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_04.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T22:56:26.299Z",
+        "phase": "render",
+        "event": "Tramo 5/19 verificado (chunk_05.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_05.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T22:57:59.539Z",
+        "phase": "render",
+        "event": "Tramo 6/19 verificado (chunk_06.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_06.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T22:59:20.439Z",
+        "phase": "render",
+        "event": "Tramo 7/19 verificado (chunk_07.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_07.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:00:48.833Z",
+        "phase": "render",
+        "event": "Tramo 8/19 verificado (chunk_08.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_08.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:02:16.972Z",
+        "phase": "render",
+        "event": "Tramo 9/19 verificado (chunk_09.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_09.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:03:50.182Z",
+        "phase": "render",
+        "event": "Tramo 10/19 verificado (chunk_10.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_10.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:05:06.828Z",
+        "phase": "render",
+        "event": "Tramo 11/19 verificado (chunk_11.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_11.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:06:35.382Z",
+        "phase": "render",
+        "event": "Tramo 12/19 verificado (chunk_12.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_12.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:10:40.312Z",
+        "phase": "render",
+        "event": "Tramo 13/19 verificado (chunk_13.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_13.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:11:57.075Z",
+        "phase": "render",
+        "event": "Tramo 14/19 verificado (chunk_14.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_14.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:13:11.241Z",
+        "phase": "render",
+        "event": "Tramo 15/19 verificado (chunk_15.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_15.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:14:17.654Z",
+        "phase": "render",
+        "event": "Tramo 16/19 verificado (chunk_16.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_16.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:15:46.296Z",
+        "phase": "render",
+        "event": "Tramo 17/19 verificado (chunk_17.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_17.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:17:04.593Z",
+        "phase": "render",
+        "event": "Tramo 18/19 verificado (chunk_18.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_18.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:17:32.170Z",
+        "phase": "render",
+        "event": "Tramo 19/19 verificado (chunk_19.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_19.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:18:51.248Z",
+        "phase": "render",
+        "event": "Render completo: 19 tramos concatenados (out/libreto-pagina-62mil-chunks.mkv)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T23:18:51.310Z",
+        "phase": "render",
+        "event": "render completado por pipeline (1859s)",
+        "artifacts": [
+          "out/libreto-pagina-62mil-chunks.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:25:13.176Z",
+        "phase": "qa",
+        "event": "master completado por pipeline (305s)",
+        "artifacts": [
+          "out/libreto-pagina-62mil-MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:34:36.428Z",
+        "phase": "delivery",
+        "event": "encode completado por pipeline (563s)",
+        "artifacts": [
+          "out/libreto-pagina-62mil-720p.mp4",
+          "out/libreto-pagina-62mil-360p.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:34:50.535Z",
+        "phase": "delivery",
+        "event": "chapters completado por pipeline (0s)",
+        "artifacts": [
+          "out/libreto-pagina-62mil-chapters.txt",
+          "out/libreto-pagina-62mil-chapters.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:37:09.478Z",
+        "phase": "qa",
+        "event": "QA técnico passed — libreto-pagina-62mil-MASTER.mp4",
+        "artifacts": [
+          "reports/technical-qa-master.json",
+          "out/libreto-pagina-62mil-MASTER.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:37:39.148Z",
+        "phase": "qa",
+        "event": "QA técnico passed — libreto-pagina-62mil-360p.mp4",
+        "artifacts": [
+          "reports/technical-qa-360p.json",
+          "out/libreto-pagina-62mil-360p.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:47:33.865Z",
+        "phase": "qa",
+        "event": "qa completado por pipeline (763s)",
+        "artifacts": [
+          "reports/technical-qa-master.json",
+          "reports/technical-qa-360p.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:48:56.911Z",
+        "phase": "qa",
+        "event": "QA técnico passed — libreto-pagina-62mil-720p.mp4",
+        "artifacts": [
+          "reports/technical-qa-720p.json",
+          "out/libreto-pagina-62mil-720p.mp4"
+        ]
       }
     ]
   },
-  "updatedAt": "2026-11-23T22:43:25.771Z"
+  "updatedAt": "2026-11-23T23:48:56.912Z"
 }
