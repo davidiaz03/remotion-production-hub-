@@ -1,0 +1,113 @@
+# Propuesta de reel — Memorando Mallory (parte 2 de «Dicen que no hay bloqueo») — 2026-11-23
+
+> Pack de propuesta para Suleris Coss Diaz · Memorial de la Denuncia.
+> Fecha: 2026-11-23 · Estado: redactado — listo para enviar a Suleris.
+> Puerta dura: este pack no dispara edición. La edición empieza
+> solo cuando el usuario confirma la aprobación de Suleris
+> (ver la sección Aprobación).
+
+## Ficha
+
+- Noticia: El 6 de abril de 1960, Lester D. Mallory, subsecretario adjunto de Estado para Asuntos Interamericanos, escribió a su superior Roy R. Rubottom el memorando «The Decline and Fall of Castro» (FRUS 1958–1960, vol. VI, doc. 499): propuso debilitar la vida económica de Cuba para «provocar hambre, desesperación y el derrocamiento del gobierno». Tres meses después, Estados Unidos cortó la cuota azucarera de 739.752 a 39.752 toneladas; en 1962 Kennedy proclamó el bloqueo total; en 1996 el Congreso lo convirtió en ley. La primera parte del reel demostró que el bloqueo existe; esta segunda parte muestra el documento que lo diseñó.
+- Fuente: memorando Mallory, FRUS vol. VI doc. 499 — https://history.state.gov/historicaldocuments/frus1958-60v06/d499 — y fuentes primarias verificadas: FRUS vol. IV doc. 308 (cuota azucarera); Proclamación 3447, National Archives; National Security Archive (GWU), briefing book del 2-feb-2022.
+- Clasificación: hecho confirmado — el memorando, la cuota azucarera, la Proclamación 3447 y la ley Helms-Burton están verificados contra sus fuentes primarias; el memorando se presenta como la PROPUESTA interna que fue, no como una orden.
+- Sección: Cuba-EE.UU.
+- Fecha de la noticia: 1960-04-06 (el documento); el arco cubre 1960 → 1962 → 1996 → 2026.
+- Fuente primaria: verificada — texto íntegro del memorando leído en history.state.gov (FRUS vol. VI, doc. 499); fecha 6-abr-1960 corroborada por el original escaneado y la signatura de archivo (Central Files, 737.00/4–660).
+- Dossier: ../../../investigacion/memorando-mallory/dossier.md
+
+## Hechos (de la fuente; no añadir hechos sin fuente)
+
+- El 6-abr-1960, Lester D. Mallory, subsecretario adjunto de Estado para Asuntos Interamericanos, escribió a su superior, el subsecretario Roy R. Rubottom, el memorando «The Decline and Fall of Castro» (FRUS 1958–1960, vol. VI, doc. 499; original clasificado SECRET, desclasificado en 1991).
+- El memorando reconoce que «la mayoría de los cubanos apoya a Castro (la estimación más baja que he visto es 50 por ciento)» y que «no hay oposición política efectiva».
+- El punto 5 del memorando dice: «Militant opposition to Castro from without Cuba would only serve his and the communist cause» — por eso el plan que propone no es militar sino económico.
+- El memorando propone «emprender prontamente todos los medios posibles para debilitar la vida económica de Cuba» para «provocar hambre, desesperación y el derrocamiento del gobierno» («to bring about hunger, desperation and overthrow of government»), y señala como «principal item en nuestro carcaj económico» la autoridad flexible en la legislación azucarera.
+- El memorando es una PROPUESTA interna, no una orden: Mallory pregunta a Rubottom si desea que se prepare una propuesta para el Secretario de Estado. Rubottom respondió que SÍ (nota 2 de FRUS: «Rubottom initialed the "yes" space provided on the source text»). El guion dice «propuso» y muestra que la propuesta se cumplió.
+- El 6-jul-1960, tres meses después del memorando, Eisenhower redujo la cuota azucarera de Cuba de 739.752 a 39.752 toneladas cortas (recorte de 700.000 toneladas), tras la enmienda a la Sugar Act aprobada ese mismo día por el Congreso (P.L. 86–592). La herramienta que pide el memo es la que se usó. La Proclamación 3355 («Determination of Cuban Sugar Quota»), firmada ese día, fijó la cuota en 39.752 toneladas (Federal Register del 8-jul-1960, 25 FR 6414).
+- El 3-feb-1962, Kennedy firmó la Proclamación 3447, que proclamó «un embargo sobre el comercio entre los Estados Unidos y Cuba» y prohibió, desde el 7-feb-1962, la importación de todos los bienes de origen cubano.
+- En 1996, el presidente Clinton firmó la Cuban Liberty and Democratic Solidarity Act (ley Helms-Burton), que «wrote the embargo into law» y dispuso que solo pudiera levantarse cuando Cuba se convirtiera en una democracia multipartidista de libre mercado.
+- Un estudio de caso secreto de la CIA (1982), «US/OAS Sanctions Against Cuba (1962–Present)», concluyó que las sanciones fueron «significantly damaging to Cuba's growth and general development» pero que «have not met any of their objectives».
+- La página «Cuba Sanctions» del Departamento de Estado dice que EE. UU. «maintains a comprehensive economic embargo on the Republic of Cuba», proclamado por Kennedy en febrero de 1962, «which remains in place today».
+- La votación ONU 130-17-25 (28-oct-2026) es hecho congelado del primer dossier (NARRATIVA.md): la Asamblea General votó que el bloqueo termine. En el guion es contexto de una cláusula, nunca la espina.
+- Nota de verificación: el memorando, la cuota azucarera, la Proclamación 3447 y la ley Helms-Burton se verificaron contra fuentes primarias (FRUS, National Archives, National Security Archive). La anécdota de los 1.200 puros de Kennedy NO está verificada en fuente primaria y NO entra en el guion (dossier, hecho NO VERIFICADO).
+
+## Por qué ahora
+
+La primera parte («Dicen que no hay bloqueo», V4) ya demostró que el bloqueo existe y fue aprobada por Suleris y por el usuario; este reel responde a la pregunta que quedó abierta: el documento que lo diseñó. El memorando Mallory está en plena oleada de contenido (sep-nov 2026) por la crisis de combustible y la votación ONU del 28 de octubre, pero casi todo lo que circula es animación narrada por IA sin el documento real y con engagement bajo (2–4 likes); en español corto no hay ningún competidor fuerte. El Memorial puede ser el primero en mostrar el documento real, con voz humana real y edición dinámica. Suleris ya aprobó el concepto («Perfecta»).
+
+## Ganchos (3 opciones — se elige una al aprobar)
+
+1. «Dicen que no hay bloqueo. Pero en 1960 lo dejaron por escrito: provocar hambre, desesperación y el derrocamiento del gobierno.»
+2. «En 1960, Estados Unidos escribió el plan para tumbar al gobierno de Cuba. Una sola palabra lo resume: hambre.»
+3. «Todos conocen los planes para matar a Fidel: puros explosivos, trajes envenenados. Pero el plan más brutal no era contra un hombre. Era contra un pueblo entero.»
+
+Sugerencia (FORMATOS.md §1.2): la opción 1 es «Cita textual del protagonista» + contradicción; la opción 2 es «Narración con fecha exacta» + beat de «una sola palabra»; la opción 3 es «Pregunta contraintuitiva» (lo conocido → lo desconocido). Recomendada la opción 1: es la respuesta directa a la parte 1, cita el documento en los primeros 3 segundos y funciona también para quien no vio el reel anterior. Nota: la opción 3 requiere verificación adicional de los complots citados (Comité Church, 1975) antes de usarse; esos hechos no están en el dossier. El guion borrador usa la opción 1; si Suleris elige otra, solo cambia la línea 1.
+
+## Guion (~70–75 s, 120–170 palabras habladas)
+
+Las líneas numeradas son voz en off (Adriana) y cuentan como palabras habladas (169 palabras). Las líneas `>` son el plan visual y no cuentan. Formato: documental faceless, continuidad con la parte 1 (misma voz, misma marca de agua blanca del logotipo completo desde el fotograma 0, mismo karaoke, tono DINÁMICO).
+
+1. «Dicen que no hay bloqueo. Pero en 1960 lo dejaron por escrito: provocar hambre, desesperación y el derrocamiento del gobierno.»
+> Visual: el memorando real (FRUS vol. VI, doc. 499) a pantalla completa; zoom al párrafo final; resaltado en «hunger, desperation and overthrow of government». Cabecera fija: «DICEN QUE NO HAY BLOQUEO». Fecha en el fotograma: «6 DE ABRIL DE 1960».
+2. «El 6 de abril de 1960, Lester Mallory, del Departamento de Estado, escribió un memorando. Y lo primero que admitía era esto:»
+> Visual: cabecera del memorando («Washington, April 6, 1960» / «SUBJECT: The Decline and Fall of Castro» / «MEMORANDUM FOR MR. RUBOTTOM»); sello SECRET visible.
+3. «Que la mayoría de los cubanos apoyaba a Castro. Que no había oposición. Y que atacarlo desde fuera solo serviría a su causa.»
+> Visual: puntos 1, 2 y 5 del memorando, resaltados uno a uno al ritmo de la voz (técnica Zale: el espectador lee lo mismo que escucha).
+4. «Así que propuso otra cosa: debilitar la vida económica de Cuba. Negarle dinero y suministros.»
+> Visual: párrafo «every possible means… to weaken the economic life of Cuba» resaltado; golpe de máquina de escribir en cada resaltado.
+5. «Su objetivo, escrito en el papel: provocar hambre, desesperación y el derrocamiento del gobierno. Una sola palabra lo resume: hambre.»
+> Visual: la cita completa resaltada en el memorando; beat de «HAMBRE» a pantalla completa en rojo sobre el documento; karaoke con HAMBRE en rojo.
+6. «Tres meses después cortaron la cuota azucarera: de 739 mil toneladas a menos de 40 mil. En 1962, Kennedy firmó el bloqueo total. En 1996, lo convirtieron en ley.»
+> Visual: línea de tiempo animada (3 hitos, ~5 s cada uno): 6-jul-1960 cuota azucarera (zafra cubana de la época, video NARA/CIA 1959 + Proclamación 3355, Federal Register) → 3-feb-1962 Proclamación 3447 («EMBARGO ON ALL TRADE WITH CUBA», Federal Register) → 1996 ley Helms-Burton (tarjeta motion graphics, sin asset de archivo). Cada hito con su sello de fuente.
+7. «Hoy, 66 años después, el plan sigue corriendo: combustible que no llega, apagones, y una ONU que vota 130 a 17 que esto termine.»
+> Visual: Cuba a oscuras (foto NOAA, mar-2026, ya verificada en la parte 1) + overlay «ONU 130–17 · 28 OCT 2026». Sin plano general del salón de la Asamblea (V3).
+8. «Dos de las tres cosas pasaron. La tercera, no. El memo es público. Léelo tú mismo.»
+> Visual: el memorando vuelve a pantalla completa; tarjeta «EL MEMO ES PÚBLICO» + «history.state.gov · FRUS VI, doc. 499»; cierre con el logo animado del Memorial y fade-out de la música (el final no se trunca, según SULERIS.md G5).
+
+## Recursos visuales
+
+Manifiesto de assets recopilados (procedencia y licencia por asset): `../../../investigacion/memorando-mallory/asset-manifest.json` — **28 assets verificados, 131,9 MB: 7 documentos, 12 fotos, 9 videos**, todos de dominio público o CC0, todo archivo real, SHA256 verificado. Protagonista visual: el memorando real (captura de página completa FRUS vol. VI, doc. 499, 1280×3124, texto íntegro legible + notas al pie; escaneos impresos págs. 885–886 en baja resolución, solo para plano de documento con zoom). Documentos de la línea de tiempo: Proclamación 3355 (cuota azucarera, 6-jul-1960), Public Law 86-592 (ley azucarera), Proclamación 3447 (bloqueo total, 1962). Video: zafra real 1959 (NARA/CIA, 40 s), noticieros Universal 1960–1961 (ruptura de relaciones, Jruschov y Fidel en la ONU). Caveats: las dos postales (corte de caña 1909, puerto c.1914) NO se presentan como 1960; la pág. 886 del FRUS lleva el doc. 500 en su mitad inferior (recortar a la mitad superior); el hito 1996 no tiene asset de archivo (tarjeta motion graphics). Foto NOAA de Cuba a oscuras: reutilizada de la parte 1, ya verificada. Sin recreaciones sintéticas presentadas como archivo real: la IA solo para tratamiento gráfico y animación (línea de tiempo, resaltados).
+
+## Formato
+
+Sugerencia automática: **Documental faceless** — el documento es el protagonista visual y la voz de Adriana lo narra (FORMATOS.md §2).
+
+Se mantiene la sugerencia: es el formato de la parte 1 (aprobada por Suleris y por el usuario) y el que la competencia valida: el único reel sobre el memo con engagement real (@isaaczale, 352 likes) muestra el documento a pantalla completa con resaltado sincronizado con la voz; los reels animados por IA sin documento real tienen 2–4 likes. Sin presentadora, el motion graphics y el dato hacen TODO el trabajo de atención (R30): un beat cada 3–5 s, karaoke con HAMBRE en rojo, cabecera fija con el gancho, golpe de máquina de escribir en cada resaltado. Duración prevista: 70–75 s (en línea con los 77,5 s de la parte 1). Descripción del reel: enlace al FRUS doc. 499 + mención al National Security Archive, para que el CTA «léelo tú mismo» se pueda cumplir.
+
+## Checklist Suleris
+
+Cada regla con estado `pass` o `flag` y evidencia escrita antes de enviar el pack. `flag` = revisado y con riesgo anotado, no sin revisar.
+
+- [x] V1 · Las cifras de una votación NO pueden ser la espina del reel: una votación, un recuento o una cifra es contexto breve, nunca la estructura. — estado: pass — evidencia: la espina es el memorando de 1960 y la línea de tiempo 1960 → 1962 → 1996; la votación ONU 130-17 es una cláusula de la línea 7, contexto breve al final.
+- [x] V2 · No enmarcar en «los que no votaron / no se presentaron»: el guion no es un inventario de la votación (quién votó, quién se abstuvo, quién faltó). — estado: pass — evidencia: sin inventario de votos, abstenciones ni ausencias; no aparecen «no votaron» ni «no se presentaron».
+- [x] V3 · Las primeras imágenes NUNCA son la Asamblea de la ONU: el gancho sale del ensayo o del dato, nunca del salón de la Asamblea. — estado: pass — evidencia: la escena 1 es el memorando real a pantalla completa; la ONU aparece solo en la línea 7 como overlay de cifras sobre la foto de Cuba a oscuras, sin plano general del salón en ningún fotograma.
+- [x] V4 · El «19» autónomo está PROHIBIDO en voz, pantalla y mapa: ni «19 gobiernos», ni «diecinueve», ni el desglose 6-7-6, ni el marco «mayoría/minoría» construido sobre él. — estado: pass — evidencia: sin ningún «19» autónomo en guion, ganchos ni plan visual (verificado por check mecánico); «1960», «1962» y «1996» son años y están excluidos por el patrón.
+- [x] V5 · Ninguna acusación en primera persona del plural: las acusaciones van en tercera persona («muchos…»), nunca en «nosotros». — estado: pass — evidencia: revisadas las 8 líneas: ninguna acusación en primera persona del plural; no aparecen «nosotros», «nosotras» ni «dejamos de». «Léelo tú mismo» (L8) es segunda persona del singular, un CTA, no una acusación.
+- [x] V6 · La tesis NO se atribuye a Martí (ni se firma): «Cuando un pueblo olvida su historia, está condenado a volverla a vivir» es formulación de Suleris, no cita de Martí; se presenta como tesis del reel, sin atribución y sin firma «— Suleris». — estado: pass — evidencia: la tesis del reel («Dos de las tres cosas pasaron. La tercera, no.») es formulación propia del pack, sin atribución a Martí ni firma.
+- [x] V7 · NO al sello «PATIO TRASERO» ni al círculo sobre el mapa: nunca marcar visualmente a Cuba/el Caribe con el marco del imperio. — estado: pass — evidencia: el plan visual no incluye mapa ni sello «PATIO TRASERO» ni círculo sobre mapa.
+- [x] V8 · La pantalla nunca contradice a la voz: donde la voz dice «árboles», se ven árboles de verdad, no palmas ni palmeras. — estado: pass — evidencia: cruce línea por línea hecho: L1-L5 el memorando real con las líneas exactas que la voz cita; L6 línea de tiempo con los tres hitos que la voz nombra; L7 Cuba a oscuras con la votación que la voz cita; L8 el memorando de vuelta con su referencia. Nada de lo que se ve contradice la voz.
+- [x] V9 · El retrato de Fidel debe mirarlo al frente o hacia arriba, nunca hacia abajo. — estado: pass — evidencia: sin retrato de Fidel en el plan visual.
+- [x] E1 · El marco correcto es CARICOM cuando el dato es CARICOM: la unanimidad rota de 33 años es la del bloque CARICOM, no la del «Caribe geográfico» ni la de «América Latina». Rep. Dominicana NO es CARICOM (es CARIFORUM); Guyana SÍ lo es. — estado: pass — evidencia: no aplica: el pack no trata el dato CARICOM.
+- [x] E2a · Ninguna línea de voz en off empieza con «Y»: al decirlo en voz alta suena repetitivo aunque las líneas estén en párrafos diferentes. — estado: pass — evidencia: verificado por check mecánico: ninguna de las 8 líneas abre con «Y» (la línea 7 se redactó «Hoy, 66 años después…» para cumplirla).
+- [x] E2b · Solo una línea de voz en off abre con «Martí»: dos o más aperturas con «Martí» suenan repetitivas al decirlas. — estado: pass — evidencia: ninguna línea abre con «Martí».
+- [x] E3 · Las ideas con peso, no comprimidas a una frase: cuando Suleris marca ideas esenciales, cada una queda con su peso en el guion, no apretada en una línea. — estado: pass — evidencia: la idea central aprobada por Suleris (el memo diseñó el bloqueo para provocar hambre) ocupa las líneas 4–5 completas más el beat de «HAMBRE» a pantalla completa, no una frase apretada.
+- [x] E4 · Orden de trabajo: guion primero, confirmación de Suleris, voz en off, y solo entonces edición final. No se pide grabación definitiva ni se toca la edición antes de que ella confirme el guion. — estado: pass — evidencia: este pack ES el paso 1: guion antes de VO y de edición; nada grabado ni editado.
+- [x] R1 · Mirar desde las dos posiciones: todo lo que se hace se mira desde nuestra posición y desde la posición opuesta (cómo lo leerá el adversario, si se puede manipular, si se puede virar en contra). — estado: pass — evidencia: lectura desde la posición opuesta hecha: el contrario dirá que el memo era solo una propuesta interna sin adoptar — el guion dice «propuso» (L4) y muestra que la propuesta se cumplió (cuota azucarera 3 meses después, 1962, 1996). También dirá que «hambre» era retórica y el objetivo era el cambio de régimen — el guion cita el memo textualmente y la propia CIA (1982) admite que las sanciones fueron «significativamente dañinas» y no cumplieron sus objetivos. La cita es textual y verificable en history.state.gov.
+- [x] R2 · Anti-tergiversación: antes de entregar, revisar el guion línea por línea buscando los puntos donde el mensaje se puede tergiversar o sacar de contexto. — estado: pass — evidencia: auditoría línea por línea hecha. Riesgo alto corregido: la línea 3 inicial («una invasión solo lo haría más popular») se cambió por «atacarlo desde fuera solo serviría a su causa» para ceñirse al punto 5 del memo («Militant opposition to Castro from without Cuba would only serve his and the communist cause»). Riesgo medio: «Dos de las tres cosas pasaron» (L8) es formulación editorial del Memorial sobre efectos documentados (la CIA admite el daño; el derrocamiento no ocurrió) — se presenta como cierre del Memorial, no como cita. La anécdota de los 1.200 puros queda fuera del guion por no estar verificada. Sin líneas de riesgo alto pendientes.
+- [x] R5 · El ensayo manda; la actualidad es contexto, no espina: cuando el reel nace de un ensayo o documento, la esencia de ese documento es la espina y la noticia es contexto breve y evidencia. — estado: pass — evidencia: la espina es el memorando de 1960 (líneas 1–6); la actualidad (combustible, apagones, ONU) es contexto breve en la línea 7.
+- [x] R6 · Una sola idea por reel: un dato, una cita, una pregunta. Si el guion necesita un «y también», es otro reel. — estado: pass — evidencia: una sola idea: el bloqueo se diseñó por escrito en 1960 para provocar hambre y desesperación. Sin «y también».
+- [x] R15 · Overlays de evidencia con atribución completa: cada hecho que se afirma lleva su overlay de evidencia en pantalla (tarjeta de cita con nombre, cargo, medio y fecha; o sello de fuente con acta, fecha y lugar). — estado: pass — evidencia: tarjeta del memorando con autor, destinatario y fecha (escenas 1–2); puntos del memo resaltados con su numeración (escena 3); hitos de la línea de tiempo con fecha y fuente (escena 6: FRUS IV doc. 308 y Proclamación 3355, Proclamación 3447 del Federal Register, ley Helms-Burton 1996); overlay ONU 130–17 con fecha (escena 7); referencia FRUS VI doc. 499 en el cierre (escena 8).
+- [x] R17 · Congruencia visual: lo que se ve en pantalla no puede contradecir lo que dice la voz en ese instante; cada gráfico aparece cuando se dice la idea y se va cuando termina. — estado: pass — evidencia: cada escena muestra lo que la voz dice en ese instante: el memorando con la línea citada, la línea de tiempo con el hito nombrado, Cuba a oscuras con la votación citada. Los resaltados aparecen al ritmo de la voz (técnica Zale).
+- [x] R19 · Gancho en los primeros 1–3 segundos: afirmación corta en texto (primera línea de 7–10 palabras) + imagen que la prueba. Nada de intro institucional, logo animado ni «El Memorial presenta» al inicio. — estado: pass — evidencia: opción 1 de gancho: tarjeta «DICEN QUE NO HAY BLOQUEO» (5 palabras) + el memorando real con la cita resaltada, legible sin sonido en 1–3 s. Ninguna opción es intro institucional ni saludo.
+- [x] R21 · IA y motion graphics permitidos donde eleven el video; PROHIBIDO IA para retratos o «archivo» sintético: ningún retrato o foto generada de Martí, Fidel o Browne, ni ningún «archivo» sintético presentado como real. — estado: pass — evidencia: sin retratos ni archivo generado: todo el plan visual es el documento real (FRUS), documentos oficiales (NARA), foto real (NOAA) y fotografía de época de dominio público; la IA/motion graphics solo para la línea de tiempo y los resaltados.
+- [x] R27 · Cifras verificadas contra la fuente primaria antes de usarlas: cada cifra del guion se verifica contra su fuente primaria (acta oficial, texto íntegro) y se documenta la verificación. — estado: pass — evidencia: 739.752 → 39.752 toneladas — FRUS vol. IV doc. 308, fuente primaria; 3-feb-1962 Proclamación 3447 — National Archives; 1996 ley Helms-Burton — National Security Archive (cronología LeoGrande); 130–17 — hecho congelado del primer dossier (votación ONU 28-oct-2026); 66 años — aritmética 1960 → 2026.
+- [x] R30 · La receta que rindió: presentadoras a cámara en diálogo + karaoke con clave en rojo + overlays de evidencia + tema indignante. Sin presentadora, el motion graphics y el dato tienen que hacer TODO el trabajo de atención. — estado: pass — evidencia: formato faceless como la parte 1 (aprobada por Suleris y por el usuario): el documento como protagonista + resaltado sincronizado + un beat cada 3–5 s + karaoke con HAMBRE en rojo + overlays de evidencia hacen el trabajo de atención. La competencia lo valida: Zale (documento real + resaltado) es el único reel del tema con engagement real.
+
+## Aprobación
+
+- Estado: pendiente
+- Fecha de aprobación: —
+- Medio: — (WhatsApp de Suleris Coss Diaz)
+- Notas de Suleris: —
+
+Concepto aprobado por Suleris («Perfecta», 22-nov-2026); este pack con el guion completo está pendiente de su aprobación. La edición empieza SOLO cuando el usuario confirma que Suleris aprobó este pack. Al confirmar, el agente actualiza el estado, la fecha y el medio aquí, y solo entonces el pack pasa a producción.
