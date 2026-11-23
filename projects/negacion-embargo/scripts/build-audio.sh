@@ -109,27 +109,30 @@ with wave.open("public/audio/music-bed.wav", "wb") as w:
 print(f"   music-bed.wav OK ({n / SR:.1f} s, dips aplicados)")
 PYEOF
 echo "== 5) SFX con uvo (bajo VO) =="
-mkdir -p public/audio/sfx-mix
-gain_sfx() { # $1=cat $2=id $3=db
-  ffmpeg -y -v error -i "public/audio/sfx/$1/$2.wav" \
-    -af "volume=${3}dB" -c:a pcm_s16le "public/audio/sfx-mix/$2.wav"
-}
-gain_sfx cinematic-hits cinematic-drum-big -8
-gain_sfx whooshes whoosh-medium-hard -4
-gain_sfx impacts impact-medium-hard -3
-gain_sfx impacts impact-heavy-hard -4
-gain_sfx pops pop-medium-in -2
-gain_sfx bounce-spin-zoom move-zoom-in -3
-gain_sfx whooshes whoosh-medium-soft -2
-gain_sfx impacts impact-light-soft -2
-gain_sfx interface click-hover-medium -1
-gain_sfx swishes-and-zips swish-hard -4
-gain_sfx booms-and-bass bass-808-short -8
-gain_sfx cinematic-hits cinematic-slam-big -8
-gain_sfx writing-and-drawing writing-marker-draw -1
+# Los SFX bajo VO llevan su ganancia en research/timeline.json (uvo_db,
+# tabla SFX_SYNC de scripts/build-timeline.py): se generan TODOS desde
+# ahí. La lista fija anterior tenía 14 de 29 y los otros 15 solo
+# existían por copias a mano — un --force del orquestador (P0-1) los
+# borró y la mezcla falló. El directorio se limpia primero: el paso
+# audio es dueño exclusivo de sfx-mix/ (si un SFX sale de la
+# timeline, su copia no debe quedar).
 # El obturador usa la vía uvo por NIVEL (-6 dB: cae en el silencio del
-# freeze), no por ducking; los risers van a ganancia 1 (pico -18,1 dB,
-# ya bajo la mitad de la VO) y usan el original.
-gain_sfx mechanical mechanical-shutter-light -6
-echo "   12 SFX con uvo en public/audio/sfx-mix/"
+# freeze), no por ducking; los risers NO underVO van a ganancia 1
+# (pico -18,1 dB, ya bajo la mitad de la VO) y usan el original.
+mkdir -p public/audio/sfx-mix
+rm -f public/audio/sfx-mix/*.wav
+"$HUB_PY" - << 'PYEOF'
+import json, subprocess
+t = json.load(open("research/timeline.json"))
+seen = {}
+for s in t["sfx"]:
+    if s.get("underVO"):
+        seen[s["id"]] = (s["file"], s["uvo_db"])
+for sid, (f, db) in sorted(seen.items()):
+    subprocess.run(["ffmpeg", "-y", "-v", "error",
+                    "-i", f"public/{f}",
+                    "-af", f"volume={db}dB", "-c:a", "pcm_s16le",
+                    f"public/audio/sfx-mix/{sid}.wav"], check=True)
+print(f"   {len(seen)} SFX con uvo en public/audio/sfx-mix/")
+PYEOF
 echo "TODO OK"

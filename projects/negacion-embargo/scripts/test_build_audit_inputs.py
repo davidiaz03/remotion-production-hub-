@@ -135,5 +135,86 @@ class TestRunAuditArgs(unittest.TestCase):
         self.assertTrue(out_dir.endswith("research/audit-v4"))
 
 
+class TestFixSnaps(unittest.TestCase):
+    """fix_snaps() con archivos sintéticos (P0-1)."""
+    def setUp(self):
+        self.td = tempfile.TemporaryDirectory()
+        self.d = self.td.name
+        # Predicción: 4 palabras; la 3ª es primera palabra de segmento.
+        self.pred = os.path.join(self.d, "pred.json")
+        json.dump({"palabras": [
+            {"w": "El", "s": 0.50, "e": 1.00},
+            {"w": "Gobierno", "s": 1.00, "e": 1.50},
+            {"w": "Esta", "s": 29.16, "e": 29.40},
+            {"w": "es", "s": 29.40, "e": 29.60},
+        ]}, open(self.pred, "w"))
+        # Editada: "Esta" con snap a 28,40 (0,76 s antes, como en v4).
+        self.ed = os.path.join(self.d, "ed.json")
+        json.dump([
+            {"text": "El Gobierno", "start": 0.5, "end": 1.5, "words": [
+                {"w": "El", "s": 0.50, "e": 1.00},
+                {"w": "Gobierno", "s": 1.00, "e": 1.50}]},
+            {"text": "Esta es", "start": 28.4, "end": 29.6, "words": [
+                {"w": "Esta", "s": 28.40, "e": 29.40},
+                {"w": "es", "s": 29.40, "e": 29.60}]},
+        ], open(self.ed, "w"))
+
+    def tearDown(self):
+        self.td.cleanup()
+
+    def test_corrige_solo_la_primera_palabra_del_segmento(self):
+        fixed = bai.fix_snaps(self.pred, self.ed)
+        self.assertEqual(len(fixed), 1)
+        self.assertEqual(fixed[0][0], "Esta")
+        self.assertAlmostEqual(fixed[0][1], 28.40, places=2)
+        self.assertAlmostEqual(fixed[0][2], 29.16, places=2)
+        ed = json.load(open(self.ed))
+        self.assertAlmostEqual(ed[1]["words"][0]["s"], 29.16, places=2)
+        # Las demás palabras intactas.
+        self.assertAlmostEqual(ed[0]["words"][0]["s"], 0.50, places=2)
+        self.assertAlmostEqual(ed[1]["words"][1]["s"], 29.40, places=2)
+
+    def test_desvio_menor_no_se_corrige(self):
+        ed = json.load(open(self.ed))
+        ed[1]["words"][0]["s"] = 29.10  # desvío 0,06 s < 0,15
+        json.dump(ed, open(self.ed, "w"))
+        fixed = bai.fix_snaps(self.pred, self.ed)
+        self.assertEqual(fixed, [])
+
+    def test_numero_de_palabras_distinto_aborta(self):
+        ed = json.load(open(self.ed))
+        ed[1]["words"] = ed[1]["words"][:1]  # 3 palabras en vez de 4
+        json.dump(ed, open(self.ed, "w"))
+        with self.assertRaises(AssertionError) as ctx:
+            bai.fix_snaps(self.pred, self.ed)
+        self.assertIn("3 palabras", str(ctx.exception))
+
+
+class TestTranscribeEdited(unittest.TestCase):
+    """transcribe_edited() sobre la VO real (P0-1). Lento (~1 min):
+    corre solo si voice-placed.wav y el venv STT están en disco."""
+
+    @unittest.skipUnless(
+        os.path.isfile(os.path.join(PROJ, "public/audio/voice-placed.wav"))
+        and os.path.isfile(bai.WHISPER_VENV)
+        and os.path.isdir(bai.WHISPER_MODEL),
+        "falta voice-placed.wav o el venv/modelo STT en disco")
+    def test_transcribe_la_vo_real(self):
+        with tempfile.TemporaryDirectory() as td:
+            out = os.path.join(td, "vo-edited-transcription.json")
+            segs = bai.transcribe_edited(
+                os.path.join(PROJ, "public/audio/voice-placed.wav"), out)
+            n_words = sum(len(s["words"]) for s in segs)
+            # El guion tiene 125 palabras; Whisper small las transcribe
+            # todas en esta VO (v4: 10 segmentos / 125 palabras).
+            self.assertEqual(n_words, 125)
+            self.assertGreaterEqual(len(segs), 8)
+            text = " ".join(s["text"] for s in segs).lower()
+            # Casing de Whisper no determinista entre corridas: comparar
+            # en minúsculas.
+            self.assertIn("gobierno", text)
+            self.assertIn("bloqueo", text)
+
+
 if __name__ == "__main__":
     unittest.main()

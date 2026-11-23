@@ -19,11 +19,11 @@ Salidas (research/vo/):
   captions-audit.json         — palabras planas desde src/captions.ts
                                 (ALINEADAS) con pageBreakAfter al final
                                 de cada chunk.
-  vo-edited-transcription.json — se genera aparte con faster-whisper
-                                sobre voice-placed.wav (ver final) y
-                                después se corrigen los snaps de
-                                frontera de segmento con fix_snaps()
-                                (abajo).
+  vo-edited-transcription.json — transcripción de voice-placed.wav con
+                                faster-whisper (flag --transcribe-edited,
+                                P0-1: antes se generaba ad-hoc en v4 sin
+                                script) + corrección de snaps de frontera
+                                con fix_snaps() (abajo).
 
 Snaps de segmento: faster-whisper asigna a la primera palabra de cada
 segmento el inicio del segmento cuando el borde VAD es impreciso
@@ -37,11 +37,17 @@ import json
 import os
 import re
 import subprocess
+import tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
 VO_DIR = os.path.join(PROJ, "research", "vo")
 FPS = 30
+# faster-whisper vive en el venv STT, no en el del hub (mismo patrón
+# que scripts/audio/audit-audio.py).
+WHISPER_VENV = os.path.expanduser("~/workspace/.stt-env/bin/python")
+WHISPER_MODEL = os.path.expanduser(
+    "~/workspace/.stt-models/faster-whisper-small")
 
 
 def load_words():
@@ -247,31 +253,89 @@ def main():
               ensure_ascii=False, indent=1)
     print(f"predicción: {len(pred)} palabras; captions: {len(flat)} palabras; "
           f"plan: {len(lines)} líneas")
-    print("Falta: vo-edited-transcription.json (Whisper sobre "
-          "voice-placed.wav)")
+    print("Falta: vo-edited-transcription.json (generar con "
+          "--transcribe-edited)")
 
 
-def fix_snaps():
+def transcribe_edited(voice_path, out_path, model=WHISPER_MODEL,
+                      stt_py=WHISPER_VENV):
+    """Transcribe la VO editada (voice-placed.wav) con faster-whisper.
+
+    P0-1: en v4 este paso se hizo ad-hoc, sin script, y el orquestador
+    no podía reproducirlo. Escribe segmentos [{text, start, end,
+    words: [{w, s, e}]}] (mismo formato que el archivo de v4, 10
+    segmentos / 125 palabras). Devuelve la lista de segmentos.
+    """
+    if not os.path.isfile(voice_path):
+        raise SystemExit(f"No existe la VO editada: {voice_path} "
+                         f"(primero scripts/build-audio.sh)")
+    if not os.path.isfile(stt_py):
+        raise SystemExit(f"No existe el venv STT: {stt_py}")
+    script = (
+        "import json, sys\n"
+        "from faster_whisper import WhisperModel\n"
+        "m = WhisperModel(sys.argv[1], device='cpu', "
+        "compute_type='int8', local_files_only=True)\n"
+        "segs, _ = m.transcribe(sys.argv[2], language='es', "
+        "word_timestamps=True)\n"
+        "out = []\n"
+        "for s in segs:\n"
+        "    out.append({'text': s.text.strip(), "
+        "'start': round(s.start, 3), 'end': round(s.end, 3), "
+        "'words': [{'w': w.word.strip(), 's': round(w.start, 3), "
+        "'e': round(w.end, 3)} for w in s.words]})\n"
+        "json.dump(out, open(sys.argv[3], 'w'), ensure_ascii=False, "
+        "indent=1)\n"
+    )
+    with tempfile.TemporaryDirectory() as td:
+        sp = os.path.join(td, "te.py")
+        open(sp, "w").write(script)
+        subprocess.run([stt_py, sp, model, voice_path, out_path],
+                       check=True, capture_output=True, timeout=900)
+    segs = json.load(open(out_path))
+    n_words = sum(len(s["words"]) for s in segs)
+    print(f"transcripción editada: {len(segs)} segmentos, {n_words} palabras")
+    return segs
+
+
+def fix_snaps(pred_path=None, edited_path=None):
     """Corrige los snaps de frontera de segmento en
-    vo-edited-transcription.json (ver docstring del módulo)."""
-    pred = json.load(open(os.path.join(
-        VO_DIR, "vo-editada-prediccion.json")))["palabras"]
-    path = os.path.join(VO_DIR, "vo-edited-transcription.json")
-    ed = json.load(open(path))
+    vo-edited-transcription.json (ver docstring del módulo).
+
+    Las rutas son parámetros para poder testearla con archivos
+    sintéticos; por defecto usa las del proyecto. Devuelve la lista
+    de correcciones [(palabra, antes, después)].
+    """
+    pred_path = pred_path or os.path.join(
+        VO_DIR, "vo-editada-prediccion.json")
+    edited_path = edited_path or os.path.join(
+        VO_DIR, "vo-edited-transcription.json")
+    pred = json.load(open(pred_path))["palabras"]
+    ed = json.load(open(edited_path))
     flat = [(wi, w) for s in ed for wi, w in enumerate(s["words"])]
-    assert len(flat) == len(pred), "la transcripción editada debe tener "
+    if len(flat) != len(pred):
+        raise AssertionError(
+            f"la transcripción editada tiene {len(flat)} palabras y la "
+            f"predicción {len(pred)}: no se pueden corregir los snaps "
+            f"sin alinear palabra a palabra")
     fixed = []
     for idx, (wi, w) in enumerate(flat):
         if wi == 0 and abs(w["s"] - pred[idx]["s"]) > 0.15:
             fixed.append((w["w"], w["s"], pred[idx]["s"]))
             w["s"] = pred[idx]["s"]
-    json.dump(ed, open(path, "w"), ensure_ascii=False, indent=1)
+    json.dump(ed, open(edited_path, "w"), ensure_ascii=False, indent=1)
     print("snaps corregidos:", fixed)
+    return fixed
 
 
 if __name__ == "__main__":
     import sys
-    if "--fix-snaps" in sys.argv:
+    if "--transcribe-edited" in sys.argv:
+        transcribe_edited(
+            os.path.join(PROJ, "public/audio/voice-placed.wav"),
+            os.path.join(VO_DIR, "vo-edited-transcription.json"))
+        fix_snaps()
+    elif "--fix-snaps" in sys.argv:
         fix_snaps()
     else:
         main()

@@ -29,3 +29,6 @@ node_modules/
 
 # Copias temporales del test de tramos por hash (P0-3)
 projects/render-hash-test-tmp-*/
+
+# Copias temporales del test del orquestador (P0-1)
+projects/reel-orch-test-tmp-*/
