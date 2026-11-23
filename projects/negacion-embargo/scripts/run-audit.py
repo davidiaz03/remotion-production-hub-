@@ -1,7 +1,18 @@
 #!/usr/bin/env python3
 """Auditoría de audio completa del reel (scripts/audio/audit-audio.py).
 
-Uso: python3 scripts/run-audit.py <master.mp4> [--tag v1] [--force]
+Uso:
+  python3 scripts/run-audit.py <master.mp4> [--tag v1]
+  python3 scripts/run-audit.py --pre [--tag pre]   # pre-auditoría (P0-2)
+
+La pre-auditoría corre SIN máster: audita la mezcla + captions + VO
+colocada antes de renderizar (el patrón v4-pre2, que demostró 0 FAIL
+sobre insumos antes del render v4). Es una puerta ADICIONAL, no un
+reemplazo: la auditoría final sobre el máster sigue siendo obligatoria
+(la pre-auditoría no ve deriva A/V, agujeros de frontera ni la
+alineación karaoke/onset del máster). Con --pre se pasa --no-master
+para que audit-audio.py NO recoja un out/*_MASTER.mp4 viejo.
+
 Lee research/timeline.json para los tiempos de SFX (tiempos de EVENTO,
 no de inicio de archivo) y usa los mismos parámetros de ducking y
 volumen de música que run-mix.py, para que la simulación del check
@@ -22,21 +33,22 @@ AUDIT = os.path.expanduser(
     "~/workspace/remotion-hub/repo/scripts/audio/audit-audio.py")
 
 
-def main() -> int:
-    if len(sys.argv) < 2:
-        print("uso: run-audit.py <master.mp4> [--tag v1]", file=sys.stderr)
-        return 2
-    master = sys.argv[1]
-    tag = "v1"
-    if "--tag" in sys.argv:
-        tag = sys.argv[sys.argv.index("--tag") + 1]
-    t = json.load(open(os.path.join(PROJ, "research/timeline.json")))
+def build_args(master=None, tag="v1", pre=False):
+    """Argumentos para audit-audio.py. Con pre=True no se pasa máster
+    (ni --expected-frames: el conteo de fotogramas es del máster)."""
+    with open(os.path.join(PROJ, "research/timeline.json")) as f:
+        t = json.load(f)
     vo = os.path.join(PROJ, "research/vo")
     pub = os.path.join(PROJ, "public")
     out_dir = os.path.join(PROJ, "research", f"audit-{tag}")
     args = [HUB_PY, AUDIT,
-            "--project", "negacion-embargo", "--tag", tag,
-            "--master", master,
+            "--project", "negacion-embargo", "--tag", tag]
+    if pre:
+        args += ["--no-master"]
+    else:
+        args += ["--master", master,
+                 "--expected-frames", "2325"]
+    args += [
             "--mix", os.path.join(pub, "audio/mix.wav"),
             "--voice-orig", os.path.join(vo, "voice-orig.wav"),
             "--voice-edited", os.path.join(pub, "audio/voice-placed.wav"),
@@ -54,7 +66,6 @@ def main() -> int:
             "--duck-threshold", "0.08",
             "--duck-ratio", "5",
             "--seconds", "77.5",
-            "--expected-frames", "2325",
             "--out-dir", out_dir]
     for s in t["sfx"]:
         if s["underVO"]:
@@ -62,7 +73,27 @@ def main() -> int:
         else:
             path = os.path.join(pub, s["file"])
         args += ["--sfx", f"{path}@{s['event_s']}"]
-    print(f"auditando {master} (tag {tag}, {len(t['sfx'])} SFX)")
+    return args, out_dir, len(t["sfx"])
+
+
+def main() -> int:
+    pre = "--pre" in sys.argv
+    argv = [a for a in sys.argv[1:] if a != "--pre"]
+    if pre:
+        master = None
+        tag = "pre"
+    else:
+        if not argv:
+            print("uso: run-audit.py <master.mp4> [--tag v1] | "
+                  "run-audit.py --pre [--tag pre]", file=sys.stderr)
+            return 2
+        master = argv[0]
+        tag = "v1"
+    if "--tag" in argv:
+        tag = argv[argv.index("--tag") + 1]
+    args, out_dir, n_sfx = build_args(master, tag, pre)
+    print(f"auditando {'insumos (pre-auditoría)' if pre else master} "
+          f"(tag {tag}, {n_sfx} SFX)")
     return subprocess.run(args, cwd=PROJ).returncode
 
 

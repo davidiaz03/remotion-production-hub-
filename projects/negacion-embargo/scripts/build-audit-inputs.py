@@ -64,6 +64,57 @@ def file_dur(path: str) -> float:
     return float(out)
 
 
+def probe_audio(path: str):
+    """(canales, sample_rate, duración) de un audio con ffprobe."""
+    out = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries",
+         "stream=channels,sample_rate", "-show_entries",
+         "format=duration", "-of", "json", path],
+        capture_output=True, text=True, check=True).stdout
+    d = json.loads(out)
+    st = d["streams"][0]
+    return int(st["channels"]), int(st["sample_rate"]), \
+        float(d["format"]["duration"])
+
+
+def validate_voice_orig(orig_path: str, line_paths, tol: float = 0.1):
+    """Validación dura de la VO original concatenada (P0-2).
+
+    El bug del 22-nov (auditoría v3, 111 FAIL falsos): L1 es mono y
+    L2–L8 estéreo; el concat `-c copy` no convertía y la cabecera
+    declaraba mono, así que voice-orig.wav salió con 116,71 s en vez
+    de 61,78 s y la auditoría comparó contra un original corrupto.
+    Esta validación caza ese fallo en segundos, antes de generar un
+    solo insumo de auditoría:
+      - voice-orig.wav debe ser mono 48 kHz (el formato del concat);
+      - su duración debe ser la suma de las líneas (±tol).
+    Devuelve (esperada, real) en segundos; lanza ValueError con un
+    mensaje claro si algo no cuadra.
+    """
+    channels, rate, actual = probe_audio(orig_path)
+    if channels != 1:
+        raise ValueError(
+            f"voice-orig.wav corrupta: {channels} canales (debe ser mono); "
+            f"probable concat sin convertir mono/estéreo")
+    if rate != 48000:
+        raise ValueError(
+            f"voice-orig.wav a {rate} Hz (debe ser 48000)")
+    expected = 0.0
+    for p in line_paths:
+        if not os.path.isfile(p):
+            raise ValueError(f"falta la línea de VO: {p}")
+        d = file_dur(p)
+        if d <= 0:
+            raise ValueError(f"línea de VO vacía: {p}")
+        expected += d
+    if abs(actual - expected) > tol:
+        raise ValueError(
+            f"voice-orig.wav corrupta: duración {actual:.2f} s, suma de "
+            f"líneas {expected:.2f} s (desvío {actual - expected:+.2f} s, "
+            f"tolerancia ±{tol} s). No se generan insumos de auditoría.")
+    return expected, actual
+
+
 def main():
     words = load_words()
     timeline = json.load(open(os.path.join(PROJ, "research/timeline.json")))
@@ -94,6 +145,21 @@ def main():
                     os.path.join(VO_DIR, "voice-orig.wav")], check=True)
     for p in conv:
         os.remove(p)
+
+    # Validación dura (P0-2): la duración del concat debe ser la suma
+    # de las líneas (±0,1 s) y el archivo mono 48k. Si no cuadra, se
+    # borra el archivo corrupto y se aborta ANTES de generar insumos:
+    # nada aguas abajo debe comparar contra un original corrupto.
+    orig_path = os.path.join(VO_DIR, "voice-orig.wav")
+    line_paths = [os.path.join(PROJ, "public/audio/real/lines",
+                               f"L{n}.wav") for n in range(1, 9)]
+    try:
+        expected, actual = validate_voice_orig(orig_path, line_paths)
+    except ValueError as exc:
+        os.remove(orig_path)
+        raise SystemExit(f"ERROR: {exc}")
+    print(f"VO original validada: {actual:.2f} s "
+          f"(suma de líneas {expected:.2f} s, mono 48k)")
 
     # Offsets de cada línea en la concatenación.
     offsets, acc = {}, 0.0

@@ -1748,6 +1748,11 @@ def main() -> int:
     p.add_argument("--tag", default="vX",
                    help="Etiqueta de versión para los informes")
     p.add_argument("--master", help="MP4 del máster")
+    p.add_argument("--no-master", action="store_true",
+                   help="Pre-auditoría: no auditar ningún máster; "
+                   "desactiva la búsqueda automática de out/*_MASTER.mp4 "
+                   "(sin esto, una pre-auditoría recogería un máster "
+                   "viejo de una versión anterior)")
     p.add_argument("--mix", help="WAV de la mezcla")
     p.add_argument("--voice-orig", help="VO original (WAV)")
     p.add_argument("--voice-edited", help="VO editada (WAV)")
@@ -1800,7 +1805,7 @@ def main() -> int:
                     "public/audio/vo-definitiva-editada.wav")
     mix_p = pick(a.mix, "public/audio/mix.wav")
     master_p = a.master
-    if not master_p:
+    if not master_p and not a.no_master:
         outs = [os.path.join(proj, "out", f)
                 for f in sorted(os.listdir(os.path.join(proj, "out")))
                 if f.endswith("_MASTER.mp4")] if os.path.isdir(
