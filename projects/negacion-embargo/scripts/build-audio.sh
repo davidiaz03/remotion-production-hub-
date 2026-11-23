@@ -67,47 +67,16 @@ ffmpeg -y -v error -ss 2.7 -i public/video/waltz-27oct-no-blockade-soundbite33.m
 echo "   waltz-27oct-freeze.jpg OK"
 
 echo "== 4) Cama: bucle + dips horneados =="
-"$HUB_PY" ../../scripts/audio/bed-loop.py --bed documentary-flow-a \
-  --seconds 77.5 --xfade 3.0 --target-lufs -19.74 --force \
-  --out public/audio/music-bed-loop.wav
-"$HUB_PY" - << 'PYEOF'
-# Aplica los dips de timeline.json al stem bucleado con rampas de
-# coseno alzado (sin clics): panel -6 dB (5,7-23,5 s), giro -12 dB
-# (23,5-28,7 s). El giro NO llega a silencio digital: el check (g)
-# de la auditoría falla con >=0,3 s bajo -45 dB.
-import wave
-import numpy as np
-
-SR = 48000
-with wave.open("public/audio/music-bed-loop.wav", "rb") as w:
-    assert w.getframerate() == SR and w.getnchannels() == 1, "stem debe ser mono 48k"
-    n = w.getnframes()
-    a = np.frombuffer(w.readframes(n), dtype=np.int16).astype(np.float64)
-
-# Transiciones (centro, duración, ganancia antes -> después).
-TRANS = [
-    (5.7, 0.3, 1.0, 10 ** (-6 / 20)),    # entrada al panel
-    (23.5, 0.3, 10 ** (-6 / 20), 10 ** (-12 / 20)),  # panel -> giro
-    (28.7, 0.5, 10 ** (-12 / 20), 1.0),  # giro -> documento (subida)
-]
-t = np.arange(n) / SR
-gain = np.ones(n)
-# Nivel por tramo (antes de suavizar): 1.0 | 0.5012 | 0.2512 | 1.0
-gain[(t >= 5.7) & (t < 23.5)] = 10 ** (-6 / 20)
-gain[(t >= 23.5) & (t < 28.7)] = 10 ** (-12 / 20)
-for c, d, g0, g1 in TRANS:
-    m = (t >= c - d / 2) & (t <= c + d / 2)
-    x = (t[m] - (c - d / 2)) / d  # 0..1
-    gain[m] = g0 + (g1 - g0) * 0.5 * (1 - np.cos(np.pi * x))
-
-out = np.clip(a * gain, -32768, 32767).astype(np.int16)
-with wave.open("public/audio/music-bed.wav", "wb") as w:
-    w.setnchannels(1)
-    w.setsampwidth(2)
-    w.setframerate(SR)
-    w.writeframes(out.tobytes())
-print(f"   music-bed.wav OK ({n / SR:.1f} s, dips aplicados)")
-PYEOF
+# La cama la define research/timeline.json (bed.id): FUENTE ÚNICA.
+# 23-nov-2026: este paso tenía hardcodeado --bed documentary-flow-a
+# (la cama temporal) y un duplicado del código de dips con solo 3
+# transiciones; el V4 salió con la cama vieja y sin los micro-drops
+# de v3 aunque timeline.json pedía memorial-cama-documental. Se
+# delega en build-bed.sh: buclea a nivel nativo del registro y
+# aplica TODOS los dips de timeline.json (apply-bed-dips.py). No
+# volver a hardcodear una cama ni a duplicar los dips aquí.
+BED_ID=$(python3 -c "import json; print(json.load(open('research/timeline.json'))['bed']['id'])")
+bash scripts/build-bed.sh "$BED_ID"
 echo "== 5) SFX con uvo (bajo VO) =="
 # Los SFX bajo VO llevan su ganancia en research/timeline.json (uvo_db,
 # tabla SFX_SYNC de scripts/build-timeline.py): se generan TODOS desde

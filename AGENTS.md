@@ -83,5 +83,24 @@ limpia: alucinación conocida, NO voz). Veredicto FAIL = elegir otra
 ventana o generar otra pista; nunca mezclar una cama FAIL.
 Ver `scripts/audio/README.md` § «Escaneo de camas».
 
+## Identidad de cama: el stem debe ser la cama configurada (23-nov-2026, V4)
+**Regla permanente: en cada proyecto, verificar que la música usada
+sea la creada en Flow (la nueva), no una cama vieja de la biblioteca.**
+El V4 de negacion-embargo salió con `documentary-flow-a` aunque
+`timeline.json` pedía `memorial-cama-documental`: `build-audio.sh`
+tenía la cama hardcodeada desde la mezcla temporal y ningún chequeo
+comparaba el stem con la configuración (la auditoría mide niveles,
+no identidad; `mix.wav.json` guardaba el sha256 del stem sin
+compararlo con nada). Desde entonces:
+- La cama la define `research/timeline.json` (`bed.id`): fuente
+  única. `build-audio.sh` la construye con `build-bed.sh`; prohibido
+  hardcodear una cama o duplicar los dips en el script de audio
+  (el duplicado también perdió los micro-drops de v3).
+- `run-mix.py` verifica la identidad del stem antes de mezclar
+  (`scripts/audio/bed_identity.py`: NCC contra la cama de
+  biblioteca, umbral 0,99). Si no coincide, la mezcla NO se
+  construye: re-ejecutar el paso audio y reintentar.
+- Suite: `scripts/audio/test_bed_identity.py` (7 pruebas).
+
 ## Al cerrar
 Actualiza el historial editorial y siguiente acción, guarda la fuente en Git, comprueba SHA remoto y notifica rama, commit y revisión. Detén Codespaces para reducir consumo gratuito.

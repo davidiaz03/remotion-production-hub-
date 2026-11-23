@@ -21,6 +21,35 @@ MIX = os.path.expanduser("~/workspace/remotion-hub/repo/scripts/audio/mix.py")
 
 def main() -> int:
     t = json.load(open(os.path.join(PROJ, "research/timeline.json")))
+    # Puerta de identidad de cama (incidente V4, 23-nov-2026): el stem
+    # debe ser la cama que pide timeline.json (bed.id). Si no coincide,
+    # la mezcla NO se construye: re-ejecutar el paso audio
+    # (build-audio.sh lee bed.id de timeline.json) y reintentar. La
+    # verificación es acústica (NCC contra la cama de biblioteca), no
+    # por nombre de archivo: un stem con el nombre correcto y el
+    # contenido equivocado también falla.
+    bed_id = t.get("bed", {}).get("id")
+    if not bed_id:
+        print("ERROR: research/timeline.json no declara bed.id",
+              file=sys.stderr)
+        return 1
+    repo = os.path.dirname(os.path.dirname(PROJ))
+    sys.path.insert(0, os.path.join(repo, "scripts", "audio"))
+    import bed_identity
+    stem = os.path.join(PROJ, "public/audio/music-bed.wav")
+    try:
+        r = bed_identity.verify_bed_stem(
+            stem, bed_id, os.path.join(PROJ, "research/timeline.json"))
+    except (FileNotFoundError, ValueError) as e:
+        print(f"ERROR: verificación de cama: {e}", file=sys.stderr)
+        return 1
+    if not r["ok"]:
+        print(f"ERROR: public/audio/music-bed.wav NO es '{bed_id}' "
+              f"(NCC {r['ncc']:.3f}, umbral {r['threshold']}): "
+              "la cama del stem no es la configurada; re-ejecuta "
+              "el paso audio y vuelve a mezclar", file=sys.stderr)
+        return 1
+    print(f"cama verificada: '{bed_id}' (NCC {r['ncc']:.3f})")
     # Ducking: receta probada de marti-fidel V1.5+ (threshold 0,08,
     # ratio 5, release 250 ms): bombeo 20,1 -> 9,1 dB, profundidad
     # media -11,8 -> -3,4 dB, recuperación perfecta. Los defaults de
