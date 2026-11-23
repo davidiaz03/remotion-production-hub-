@@ -28,7 +28,7 @@
       "name": "Panel T2 Waltz 7-jul",
       "start_f": 297,
       "end_f": 465,
-      "note": "Video Waltz 10,9–16,5 s; «IT'S FAKE. IT'S FALSE. IT'S A LIE. PERIOD.» + «ES FALSO. ES MENTIRA. PUNTO.»; slam en «PUNTO.» a 13,32 s (J-cut: el audio T2 arranca en 9,5 s); punto 2/4.",
+      "note": "Video Waltz 10,9–16,5 s; «IT'S FAKE. IT'S FALSE. IT'S A LIE. PERIOD.» + «ES FALSO. ES MENTIRA. PUNTO.»; slam en «PUNTO.» a 14,1 s (f423; J-cut: el audio T2 arranca en 9,5 s); punto 2/4.",
       "start_s": 9.9,
       "end_s": 15.5
     },
@@ -202,8 +202,8 @@
         11.18,
         16.16
       ],
-      "punto_s": 13.32,
-      "note": "Pausa de 1,44 s antes de «Period.». J-cut: el audio arranca en 9,5 s, 0,4 s antes que la imagen; «Period.» se oye a 13,32 s."
+      "punto_s": 14.08,
+      "note": "Pausa de 1,44 s antes de «Period.». J-cut: el audio arranca en 9,5 s, 0,4 s antes que la imagen; «Period.» se oye a 14,08 s (f423; medido: 4,58 s del clip + J-cut 9,5 s; ver research/audio-times.json)."
     },
     "t3_waltz27": {
       "file": "video/waltz-27oct-no-blockade-soundbite33.mp4",
