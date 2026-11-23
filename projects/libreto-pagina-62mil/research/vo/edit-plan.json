@@ -1,0 +1,61 @@
+{
+ "source": "vo-original.m4a",
+ "segments": [
+  {
+   "start": 8.92,
+   "end": 89.67,
+   "label": "acto1 + pausa cambio de acto (1,01 s)"
+  },
+  {
+   "start": 94.78,
+   "end": 219.44,
+   "label": "acto2 inicio - 'Starlink en Cuba'"
+  },
+  {
+   "start": 225.18,
+   "end": 392.73,
+   "label": "tuit inglés intento 2 - 'era deseable'"
+  },
+  {
+   "start": 395.79,
+   "end": 418.75,
+   "label": "'Y eso es lo que lo hace peligroso' - '10 de julio'"
+  },
+  {
+   "start": 421.63,
+   "end": 495.9,
+   "label": "'La confirmación llegó' - 'Ahora cuesta segundos' + [P]"
+  },
+  {
+   "start": 502.0,
+   "end": 518.01,
+   "label": "'Por eso, tres comprobaciones' intento 2 - 'el caso se cae'"
+  },
+  {
+   "start": 520.05,
+   "end": 555.85,
+   "label": "'Segunda: revisa' - 'un texto que quieres creer'"
+  },
+  {
+   "start": 561.09,
+   "end": 562.6,
+   "label": "'y una imagen que parece real' intento 3"
+  },
+  {
+   "start": 562.6,
+   "end": 564.55,
+   "label": "'La única defensa es la verificación' intento 1"
+  },
+  {
+   "start": 7.0,
+   "end": 7.35,
+   "label": "tono de sala (pausa [P] 0,35 s)"
+  },
+  {
+   "start": 567.67,
+   "end": 587.15,
+   "label": "'Y la verificación empieza por ti' - cierre + fade-out"
+  }
+ ],
+ "total_duration_s": 545.29
+}

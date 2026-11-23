@@ -34,8 +34,24 @@ export type BottomKaraokeProps = {
   fontFamily?: string;
   /** Color de la palabra clave. */
   keywordColor?: string;
+  /**
+   * Fondo de la palabra clave (opcional): si se pasa, la palabra clave
+   * lleva ese fondo con bordes redondeados y SIN contorno (p. ej. El
+   * Libreto: fondo Resaltador + texto Tinta). Sin él, solo cambia el
+   * color del texto (comportamiento clásico).
+   */
+  keywordBackground?: string;
   /** Color de las palabras normales. */
   color?: string;
+  /**
+   * Fondo de la banda del subtítulo (opcional): si se pasa, las
+   * palabras van sobre una banda redondeada de ese color (p. ej. El
+   * Libreto: tinta semitransparente). Sin él, texto suelto con
+   * contorno (comportamiento clásico).
+   */
+  bandBackground?: string;
+  /** Relleno de la banda (solo si hay `bandBackground`). */
+  bandPadding?: number;
   /** Grosor del contorno negro. */
   outlinePx?: number;
   /** Margen lateral. */
@@ -67,7 +83,10 @@ export const BottomKaraoke: React.FC<BottomKaraokeProps> = ({
   longThreshold = 28,
   fontFamily = ARCHIVO_BLACK,
   keywordColor = MEMORIAL_RED,
+  keywordBackground,
   color = '#FFFFFF',
+  bandBackground,
+  bandPadding = 18,
   outlinePx = 3,
   sideMargin = 40,
 }) => {
@@ -104,6 +123,13 @@ export const BottomKaraoke: React.FC<BottomKaraokeProps> = ({
           fontFamily,
           fontSize,
           lineHeight: 1.18,
+          ...(bandBackground
+            ? {
+                background: bandBackground,
+                padding: `${bandPadding}px ${Math.round(bandPadding * 1.5)}px`,
+                borderRadius: 18,
+              }
+            : null),
         }}
       >
         {active.words.map((w, i) => {
@@ -119,6 +145,7 @@ export const BottomKaraoke: React.FC<BottomKaraokeProps> = ({
                 extrapolateRight: 'clamp',
               })
             : 1;
+          const kwBg = w.kw && keywordBackground;
           return (
             <span
               key={i}
@@ -129,7 +156,15 @@ export const BottomKaraoke: React.FC<BottomKaraokeProps> = ({
                 transform: `scale(${pop})`,
                 transformOrigin: '0% 50%',
                 margin: '0 12px',
-                textShadow: textOutline(outlinePx),
+                // Con fondo de resaltado, sin contorno (ensuciaría el fondo).
+                textShadow: kwBg ? 'none' : textOutline(outlinePx),
+                ...(kwBg
+                  ? {
+                      background: keywordBackground,
+                      borderRadius: 10,
+                      padding: '0 14px',
+                    }
+                  : null),
               }}
             >
               {w.t}

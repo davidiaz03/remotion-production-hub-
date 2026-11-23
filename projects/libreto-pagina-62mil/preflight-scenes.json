@@ -1,0 +1,147 @@
+{
+  "project": "libreto-pagina-62mil",
+  "fps": 30,
+  "scenes": [
+    {
+      "name": "S1-document-zoom",
+      "start": 0,
+      "end": 420
+    },
+    {
+      "name": "S2-document-counter",
+      "start": 420,
+      "end": 811
+    },
+    {
+      "name": "S3-document-comparison",
+      "start": 811,
+      "end": 1259
+    },
+    {
+      "name": "S4-document-quote",
+      "start": 1259,
+      "end": 1377
+    },
+    {
+      "name": "S5-document-photo-video",
+      "start": 1377,
+      "end": 1886
+    },
+    {
+      "name": "S6-title-card",
+      "start": 1886,
+      "end": 1997
+    },
+    {
+      "name": "S7-question",
+      "start": 1997,
+      "end": 2420
+    },
+    {
+      "name": "S8-document-quote",
+      "start": 2420,
+      "end": 3257
+    },
+    {
+      "name": "S9-data-strip",
+      "start": 3257,
+      "end": 4032
+    },
+    {
+      "name": "S10-list",
+      "start": 4032,
+      "end": 4985
+    },
+    {
+      "name": "S11-document-zoom",
+      "start": 4985,
+      "end": 5503
+    },
+    {
+      "name": "S12-document-trio",
+      "start": 5503,
+      "end": 5803
+    },
+    {
+      "name": "S13-document-quote",
+      "start": 5803,
+      "end": 7049
+    },
+    {
+      "name": "S14-document-quote",
+      "start": 7049,
+      "end": 8027
+    },
+    {
+      "name": "S15-document-quote",
+      "start": 8027,
+      "end": 9124
+    },
+    {
+      "name": "S16-document-quote",
+      "start": 9124,
+      "end": 9964
+    },
+    {
+      "name": "S17-document-quote",
+      "start": 9964,
+      "end": 10839
+    },
+    {
+      "name": "S18-big-statement",
+      "start": 10839,
+      "end": 11381
+    },
+    {
+      "name": "S19-document-quote",
+      "start": 11381,
+      "end": 12785
+    },
+    {
+      "name": "S20-question",
+      "start": 12785,
+      "end": 12837
+    },
+    {
+      "name": "S21-document-trio",
+      "start": 12837,
+      "end": 13293
+    },
+    {
+      "name": "S22-list",
+      "start": 13293,
+      "end": 13795
+    },
+    {
+      "name": "S23-big-statement",
+      "start": 13795,
+      "end": 14201
+    },
+    {
+      "name": "S24-document-zoom",
+      "start": 14201,
+      "end": 14612
+    },
+    {
+      "name": "S25-document-checklist",
+      "start": 14612,
+      "end": 14987
+    },
+    {
+      "name": "S26-document-zoom",
+      "start": 14987,
+      "end": 15292
+    },
+    {
+      "name": "S27-document-zoom",
+      "start": 15292,
+      "end": 15910
+    },
+    {
+      "name": "S28-summary-card",
+      "start": 15910,
+      "end": 16359
+    }
+  ],
+  "logo_skip_scenes": []
+}

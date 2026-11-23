@@ -1,0 +1,33 @@
+{
+ "input": "/home/hatch/workspace/browser_downloads/sess-542453001/browser-download-20261123T210543.796118148Z-13-libreto-largo-intriga.mp3",
+ "window_start_s": 0.0,
+ "window_duration_s": 121.98,
+ "passes": {
+  "vad": [],
+  "raw": [
+   {
+    "start": 90.0,
+    "end": 95.0,
+    "text": "Subtítulos realizados por la comunidad de Amara.org",
+    "no_speech_prob": 0.866,
+    "avg_logprob": -0.645,
+    "class": "HALLUCINATION",
+    "reason": "patrón conocido de alucinación",
+    "start_abs": 90.0,
+    "end_abs": 95.0
+   },
+   {
+    "start": 120.0,
+    "end": 125.0,
+    "text": "Subtítulos realizados por la comunidad de Amara.org",
+    "no_speech_prob": 0.943,
+    "avg_logprob": -0.217,
+    "class": "HALLUCINATION",
+    "reason": "patrón conocido de alucinación",
+    "start_abs": 120.0,
+    "end_abs": 125.0
+   }
+  ]
+ },
+ "verdict": "PASS"
+}

@@ -1,0 +1,9050 @@
+[
+ {
+  "linea": 1,
+  "texto": "Si buscas hoy en facebook la página joseph forever tiger no la vas a encontrar. La dirección ya no carga y facebook dice que el contenido no está disponible y si buscas el nombre exacto no aparece ninguna página con ese nombre.",
+  "palabras": [
+   {
+    "palabra": "Si",
+    "inicio": 0.21,
+    "fin": 0.65,
+    "probabilidad": 0.51
+   },
+   {
+    "palabra": "buscas",
+    "inicio": 0.65,
+    "fin": 0.95,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "hoy",
+    "inicio": 0.95,
+    "fin": 1.27,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "en",
+    "inicio": 1.27,
+    "fin": 1.37,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "facebook",
+    "inicio": 1.37,
+    "fin": 1.75,
+    "probabilidad": 0.28
+   },
+   {
+    "palabra": "la",
+    "inicio": 1.75,
+    "fin": 2.05,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "página",
+    "inicio": 2.05,
+    "fin": 2.29,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "joseph",
+    "inicio": 2.29,
+    "fin": 2.75,
+    "probabilidad": 0.78
+   },
+   {
+    "palabra": "forever",
+    "inicio": 2.75,
+    "fin": 3.01,
+    "probabilidad": 0.23
+   },
+   {
+    "palabra": "tiger",
+    "inicio": 3.01,
+    "fin": 3.41,
+    "probabilidad": 0.12
+   },
+   {
+    "palabra": "no",
+    "inicio": 3.41,
+    "fin": 4.07,
+    "probabilidad": 0.68
+   },
+   {
+    "palabra": "la",
+    "inicio": 4.07,
+    "fin": 4.19,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "vas",
+    "inicio": 4.19,
+    "fin": 4.33,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "a",
+    "inicio": 4.33,
+    "fin": 4.41,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "encontrar.",
+    "inicio": 4.41,
+    "fin": 4.75,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "La",
+    "inicio": 5.11,
+    "fin": 5.59,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "dirección",
+    "inicio": 5.59,
+    "fin": 6.05,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "ya",
+    "inicio": 6.05,
+    "fin": 6.25,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "no",
+    "inicio": 6.25,
+    "fin": 6.35,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "carga",
+    "inicio": 6.35,
+    "fin": 6.57,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "y",
+    "inicio": 6.57,
+    "fin": 6.79,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "facebook",
+    "inicio": 6.79,
+    "fin": 7.11,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "dice",
+    "inicio": 7.11,
+    "fin": 7.33,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 7.33,
+    "fin": 7.47,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 7.47,
+    "fin": 7.57,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "contenido",
+    "inicio": 7.57,
+    "fin": 7.91,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "no",
+    "inicio": 7.91,
+    "fin": 8.13,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "está",
+    "inicio": 8.13,
+    "fin": 8.29,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "disponible",
+    "inicio": 8.29,
+    "fin": 8.87,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 8.87,
+    "fin": 9.21,
+    "probabilidad": 0.49
+   },
+   {
+    "palabra": "si",
+    "inicio": 9.21,
+    "fin": 9.33,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "buscas",
+    "inicio": 9.33,
+    "fin": 9.57,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "el",
+    "inicio": 9.57,
+    "fin": 9.71,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "nombre",
+    "inicio": 9.71,
+    "fin": 9.87,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "exacto",
+    "inicio": 9.87,
+    "fin": 10.77,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "no",
+    "inicio": 10.77,
+    "fin": 11.01,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "aparece",
+    "inicio": 11.01,
+    "fin": 11.27,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "ninguna",
+    "inicio": 11.27,
+    "fin": 11.65,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "página",
+    "inicio": 11.65,
+    "fin": 11.95,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "con",
+    "inicio": 11.95,
+    "fin": 12.21,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "ese",
+    "inicio": 12.21,
+    "fin": 12.37,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "nombre.",
+    "inicio": 12.37,
+    "fin": 12.67,
+    "probabilidad": 1.0
+   }
+  ]
+ },
+ {
+  "linea": 2,
+  "texto": "Esta es la página que en malso publicó un mensaje falso atribuido a mesi sobre cuba 62 mil reacciones 3300 compartidos más de 5000 comentarios y todo era falso.",
+  "palabras": [
+   {
+    "palabra": "Esta",
+    "inicio": 14.01,
+    "fin": 14.57,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "es",
+    "inicio": 14.57,
+    "fin": 14.67,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "la",
+    "inicio": 14.67,
+    "fin": 14.77,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "página",
+    "inicio": 14.77,
+    "fin": 14.99,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 14.99,
+    "fin": 15.19,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "en",
+    "inicio": 15.19,
+    "fin": 15.31,
+    "probabilidad": 0.21
+   },
+   {
+    "palabra": "malso",
+    "inicio": 15.31,
+    "fin": 15.59,
+    "probabilidad": 0.68
+   },
+   {
+    "palabra": "publicó",
+    "inicio": 15.59,
+    "fin": 16.07,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "un",
+    "inicio": 16.07,
+    "fin": 16.35,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "mensaje",
+    "inicio": 16.35,
+    "fin": 16.75,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "falso",
+    "inicio": 16.75,
+    "fin": 17.21,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "atribuido",
+    "inicio": 17.21,
+    "fin": 17.75,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "a",
+    "inicio": 17.75,
+    "fin": 17.87,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "mesi",
+    "inicio": 17.87,
+    "fin": 18.13,
+    "probabilidad": 0.82
+   },
+   {
+    "palabra": "sobre",
+    "inicio": 18.13,
+    "fin": 18.37,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "cuba",
+    "inicio": 18.37,
+    "fin": 19.15,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "62",
+    "inicio": 19.15,
+    "fin": 19.65,
+    "probabilidad": 0.55
+   },
+   {
+    "palabra": "mil",
+    "inicio": 19.65,
+    "fin": 20.17,
+    "probabilidad": 0.43
+   },
+   {
+    "palabra": "reacciones",
+    "inicio": 20.17,
+    "fin": 20.79,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "3300",
+    "inicio": 20.79,
+    "fin": 22.19,
+    "probabilidad": 0.63
+   },
+   {
+    "palabra": "compartidos",
+    "inicio": 22.19,
+    "fin": 22.95,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "más",
+    "inicio": 22.95,
+    "fin": 23.31,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "de",
+    "inicio": 23.31,
+    "fin": 23.51,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "5000",
+    "inicio": 23.51,
+    "fin": 23.73,
+    "probabilidad": 0.68
+   },
+   {
+    "palabra": "comentarios",
+    "inicio": 23.73,
+    "fin": 24.43,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 24.43,
+    "fin": 25.31,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "todo",
+    "inicio": 25.31,
+    "fin": 25.59,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "era",
+    "inicio": 25.59,
+    "fin": 26.07,
+    "probabilidad": 0.03
+   },
+   {
+    "palabra": "falso.",
+    "inicio": 26.07,
+    "fin": 26.51,
+    "probabilidad": 0.9
+   }
+  ]
+ },
+ {
+  "linea": 3,
+  "texto": "En mensaje no lo escribió mesi la foto era de 2022 de la cuenta de antonela rocuzzo sin ninguna bandera cubana. La bandera la añadieron después con inteligencia artificial y la foto llevaba la marca de agua de yemení. Lo verificaron el toque e infoberitas.",
+  "palabras": [
+   {
+    "palabra": "En",
+    "inicio": 27.03,
+    "fin": 27.49,
+    "probabilidad": 0.71
+   },
+   {
+    "palabra": "mensaje",
+    "inicio": 27.49,
+    "fin": 27.85,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "no",
+    "inicio": 27.85,
+    "fin": 27.99,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "lo",
+    "inicio": 27.99,
+    "fin": 28.07,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "escribió",
+    "inicio": 28.07,
+    "fin": 28.45,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "mesi",
+    "inicio": 28.45,
+    "fin": 28.79,
+    "probabilidad": 0.48
+   },
+   {
+    "palabra": "la",
+    "inicio": 28.79,
+    "fin": 29.15,
+    "probabilidad": 0.14
+   },
+   {
+    "palabra": "foto",
+    "inicio": 29.15,
+    "fin": 29.47,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "era",
+    "inicio": 29.47,
+    "fin": 29.83,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "de",
+    "inicio": 29.83,
+    "fin": 29.97,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "2022",
+    "inicio": 29.97,
+    "fin": 30.71,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "de",
+    "inicio": 30.71,
+    "fin": 31.17,
+    "probabilidad": 0.84
+   },
+   {
+    "palabra": "la",
+    "inicio": 31.17,
+    "fin": 31.27,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "cuenta",
+    "inicio": 31.27,
+    "fin": 31.53,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "de",
+    "inicio": 31.53,
+    "fin": 31.75,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "antonela",
+    "inicio": 31.75,
+    "fin": 32.15,
+    "probabilidad": 0.6
+   },
+   {
+    "palabra": "rocuzzo",
+    "inicio": 32.15,
+    "fin": 32.83,
+    "probabilidad": 0.55
+   },
+   {
+    "palabra": "sin",
+    "inicio": 32.83,
+    "fin": 33.23,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "ninguna",
+    "inicio": 33.23,
+    "fin": 33.65,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "bandera",
+    "inicio": 33.65,
+    "fin": 34.01,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "cubana.",
+    "inicio": 34.01,
+    "fin": 34.41,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "La",
+    "inicio": 34.95,
+    "fin": 35.23,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "bandera",
+    "inicio": 35.23,
+    "fin": 35.71,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "la",
+    "inicio": 35.71,
+    "fin": 35.99,
+    "probabilidad": 0.84
+   },
+   {
+    "palabra": "añadieron",
+    "inicio": 35.99,
+    "fin": 36.35,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "después",
+    "inicio": 36.35,
+    "fin": 36.69,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "con",
+    "inicio": 36.69,
+    "fin": 37.15,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "inteligencia",
+    "inicio": 37.15,
+    "fin": 37.73,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "artificial",
+    "inicio": 37.73,
+    "fin": 38.09,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 38.09,
+    "fin": 38.89,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "la",
+    "inicio": 38.89,
+    "fin": 39.01,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "foto",
+    "inicio": 39.01,
+    "fin": 39.31,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "llevaba",
+    "inicio": 39.31,
+    "fin": 40.13,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "la",
+    "inicio": 40.13,
+    "fin": 40.27,
+    "probabilidad": 0.84
+   },
+   {
+    "palabra": "marca",
+    "inicio": 40.27,
+    "fin": 40.51,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 40.51,
+    "fin": 40.75,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "agua",
+    "inicio": 40.75,
+    "fin": 40.93,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "de",
+    "inicio": 40.93,
+    "fin": 41.13,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "yemení.",
+    "inicio": 41.13,
+    "fin": 41.95,
+    "probabilidad": 0.67
+   },
+   {
+    "palabra": "Lo",
+    "inicio": 41.95,
+    "fin": 42.31,
+    "probabilidad": 0.73
+   },
+   {
+    "palabra": "verificaron",
+    "inicio": 42.31,
+    "fin": 42.89,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 42.89,
+    "fin": 43.11,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "toque",
+    "inicio": 43.11,
+    "fin": 43.51,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "e",
+    "inicio": 43.51,
+    "fin": 43.91,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "infoberitas.",
+    "inicio": 43.91,
+    "fin": 44.57,
+    "probabilidad": 0.78
+   }
+  ]
+ },
+ {
+  "linea": 4,
+  "texto": "En mensaje tenía un núcleo real. El 5 de malso trun recibió a linton mayami en la casa blanca y mesi estuvo allí. Eso sí pasó. Lo que no pasó es que mesi hablara de cuba. Ese núcleo real es parte de la fórmula y la fórmula se repitió durante meses.",
+  "palabras": [
+   {
+    "palabra": "En",
+    "inicio": 45.91,
+    "fin": 46.53,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "mensaje",
+    "inicio": 46.53,
+    "fin": 46.85,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "tenía",
+    "inicio": 46.85,
+    "fin": 47.11,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "un",
+    "inicio": 47.11,
+    "fin": 47.29,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "núcleo",
+    "inicio": 47.29,
+    "fin": 47.69,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "real.",
+    "inicio": 47.69,
+    "fin": 48.11,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "El",
+    "inicio": 48.97,
+    "fin": 49.15,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "5",
+    "inicio": 49.15,
+    "fin": 49.35,
+    "probabilidad": 0.76
+   },
+   {
+    "palabra": "de",
+    "inicio": 49.35,
+    "fin": 49.55,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "malso",
+    "inicio": 49.55,
+    "fin": 49.87,
+    "probabilidad": 0.22
+   },
+   {
+    "palabra": "trun",
+    "inicio": 49.87,
+    "fin": 50.37,
+    "probabilidad": 0.39
+   },
+   {
+    "palabra": "recibió",
+    "inicio": 50.37,
+    "fin": 51.17,
+    "probabilidad": 0.84
+   },
+   {
+    "palabra": "a",
+    "inicio": 51.17,
+    "fin": 51.45,
+    "probabilidad": 0.37
+   },
+   {
+    "palabra": "linton",
+    "inicio": 51.45,
+    "fin": 51.65,
+    "probabilidad": 0.26
+   },
+   {
+    "palabra": "mayami",
+    "inicio": 51.65,
+    "fin": 52.09,
+    "probabilidad": 0.79
+   },
+   {
+    "palabra": "en",
+    "inicio": 52.09,
+    "fin": 52.23,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "la",
+    "inicio": 52.23,
+    "fin": 52.29,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "casa",
+    "inicio": 52.29,
+    "fin": 52.45,
+    "probabilidad": 0.59
+   },
+   {
+    "palabra": "blanca",
+    "inicio": 52.45,
+    "fin": 52.89,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "y",
+    "inicio": 52.89,
+    "fin": 53.15,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "mesi",
+    "inicio": 53.15,
+    "fin": 53.41,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "estuvo",
+    "inicio": 53.41,
+    "fin": 53.67,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "allí.",
+    "inicio": 53.67,
+    "fin": 53.89,
+    "probabilidad": 0.05
+   },
+   {
+    "palabra": "Eso",
+    "inicio": 54.29,
+    "fin": 54.49,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "sí",
+    "inicio": 54.49,
+    "fin": 54.67,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "pasó.",
+    "inicio": 54.67,
+    "fin": 54.93,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "Lo",
+    "inicio": 55.39,
+    "fin": 55.47,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "que",
+    "inicio": 55.47,
+    "fin": 55.59,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "no",
+    "inicio": 55.59,
+    "fin": 55.73,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "pasó",
+    "inicio": 55.73,
+    "fin": 55.95,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "es",
+    "inicio": 55.95,
+    "fin": 56.15,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "que",
+    "inicio": 56.15,
+    "fin": 56.27,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "mesi",
+    "inicio": 56.27,
+    "fin": 56.53,
+    "probabilidad": 0.04
+   },
+   {
+    "palabra": "hablara",
+    "inicio": 56.53,
+    "fin": 56.89,
+    "probabilidad": 0.63
+   },
+   {
+    "palabra": "de",
+    "inicio": 56.89,
+    "fin": 57.05,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "cuba.",
+    "inicio": 57.05,
+    "fin": 57.39,
+    "probabilidad": 0.49
+   },
+   {
+    "palabra": "Ese",
+    "inicio": 57.61,
+    "fin": 57.79,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "núcleo",
+    "inicio": 57.79,
+    "fin": 58.15,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "real",
+    "inicio": 58.15,
+    "fin": 58.35,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "es",
+    "inicio": 58.35,
+    "fin": 58.59,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "parte",
+    "inicio": 58.59,
+    "fin": 58.75,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 58.75,
+    "fin": 58.97,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "la",
+    "inicio": 58.97,
+    "fin": 59.07,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "fórmula",
+    "inicio": 59.07,
+    "fin": 59.53,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "y",
+    "inicio": 59.53,
+    "fin": 59.73,
+    "probabilidad": 0.49
+   },
+   {
+    "palabra": "la",
+    "inicio": 59.73,
+    "fin": 59.83,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "fórmula",
+    "inicio": 59.83,
+    "fin": 60.21,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "se",
+    "inicio": 60.21,
+    "fin": 60.35,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "repitió",
+    "inicio": 60.35,
+    "fin": 60.77,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "durante",
+    "inicio": 60.77,
+    "fin": 61.11,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "meses.",
+    "inicio": 61.11,
+    "fin": 61.59,
+    "probabilidad": 1.0
+   }
+  ]
+ },
+ {
+  "linea": 5,
+  "texto": "En el short te prometimos el patrón completo. Este es el vídeo y la primera pregunta es la obvia. ¿Fue un error aislado o era una fábrica?",
+  "palabras": [
+   {
+    "palabra": "En",
+    "inicio": 62.87,
+    "fin": 63.09,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "el",
+    "inicio": 63.09,
+    "fin": 63.21,
+    "probabilidad": 0.75
+   },
+   {
+    "palabra": "short",
+    "inicio": 63.21,
+    "fin": 63.45,
+    "probabilidad": 0.53
+   },
+   {
+    "palabra": "te",
+    "inicio": 63.45,
+    "fin": 63.95,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "prometimos",
+    "inicio": 63.95,
+    "fin": 64.45,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 64.45,
+    "fin": 64.75,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "patrón",
+    "inicio": 64.75,
+    "fin": 65.09,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "completo.",
+    "inicio": 65.09,
+    "fin": 65.49,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Este",
+    "inicio": 65.89,
+    "fin": 66.09,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "es",
+    "inicio": 66.09,
+    "fin": 66.21,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 66.21,
+    "fin": 66.33,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "vídeo",
+    "inicio": 66.33,
+    "fin": 66.57,
+    "probabilidad": 0.54
+   },
+   {
+    "palabra": "y",
+    "inicio": 66.57,
+    "fin": 66.97,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "la",
+    "inicio": 66.97,
+    "fin": 67.07,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "primera",
+    "inicio": 67.07,
+    "fin": 67.29,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "pregunta",
+    "inicio": 67.29,
+    "fin": 67.61,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "es",
+    "inicio": 67.61,
+    "fin": 67.85,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "la",
+    "inicio": 67.85,
+    "fin": 67.97,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "obvia.",
+    "inicio": 67.97,
+    "fin": 68.29,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "¿Fue",
+    "inicio": 68.75,
+    "fin": 68.85,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "un",
+    "inicio": 68.85,
+    "fin": 68.99,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "error",
+    "inicio": 68.99,
+    "fin": 69.19,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "aislado",
+    "inicio": 69.19,
+    "fin": 69.69,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "o",
+    "inicio": 69.69,
+    "fin": 70.03,
+    "probabilidad": 0.64
+   },
+   {
+    "palabra": "era",
+    "inicio": 70.03,
+    "fin": 70.15,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "una",
+    "inicio": 70.15,
+    "fin": 70.29,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "fábrica?",
+    "inicio": 70.29,
+    "fin": 70.77,
+    "probabilidad": 1.0
+   }
+  ]
+ },
+ {
+  "linea": 6,
+  "texto": "Y al final te enseño tres comprobaciones que tardan menos de un minuto y habrían desmontado cada uno de estos casos.",
+  "palabras": [
+   {
+    "palabra": "Y",
+    "inicio": 73.77,
+    "fin": 73.89,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "al",
+    "inicio": 73.89,
+    "fin": 73.97,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "final",
+    "inicio": 73.97,
+    "fin": 74.27,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "te",
+    "inicio": 74.27,
+    "fin": 74.59,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "enseño",
+    "inicio": 74.59,
+    "fin": 75.01,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "tres",
+    "inicio": 75.01,
+    "fin": 75.23,
+    "probabilidad": 0.61
+   },
+   {
+    "palabra": "comprobaciones",
+    "inicio": 75.23,
+    "fin": 75.83,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 75.83,
+    "fin": 76.33,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "tardan",
+    "inicio": 76.33,
+    "fin": 76.65,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "menos",
+    "inicio": 76.65,
+    "fin": 76.91,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 76.91,
+    "fin": 77.05,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "un",
+    "inicio": 77.05,
+    "fin": 77.13,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "minuto",
+    "inicio": 77.13,
+    "fin": 77.53,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 77.53,
+    "fin": 77.71,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "habrían",
+    "inicio": 77.71,
+    "fin": 78.03,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "desmontado",
+    "inicio": 78.03,
+    "fin": 78.65,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "cada",
+    "inicio": 78.65,
+    "fin": 78.83,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "uno",
+    "inicio": 78.83,
+    "fin": 79.11,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 79.11,
+    "fin": 79.25,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "estos",
+    "inicio": 79.25,
+    "fin": 79.39,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "casos.",
+    "inicio": 79.39,
+    "fin": 79.73,
+    "probabilidad": 1.0
+   }
+  ]
+ },
+ {
+  "linea": 7,
+  "texto": "La página se llama joseph forever tiger. Se creó el 10 de noviembre de 2024, exactamente un mes después de la muerte del tiger. El artista falleció el 10 de octubre en mayami a los 37 años.",
+  "palabras": [
+   {
+    "palabra": "La",
+    "inicio": 80.65,
+    "fin": 80.95,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "página",
+    "inicio": 80.95,
+    "fin": 81.11,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "se",
+    "inicio": 81.11,
+    "fin": 81.35,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "llama",
+    "inicio": 81.35,
+    "fin": 81.51,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "joseph",
+    "inicio": 81.51,
+    "fin": 82.13,
+    "probabilidad": 0.37
+   },
+   {
+    "palabra": "forever",
+    "inicio": 82.13,
+    "fin": 82.39,
+    "probabilidad": 0.14
+   },
+   {
+    "palabra": "tiger.",
+    "inicio": 82.39,
+    "fin": 82.79,
+    "probabilidad": 0.0
+   },
+   {
+    "palabra": "Se",
+    "inicio": 83.27,
+    "fin": 83.41,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "creó",
+    "inicio": 83.41,
+    "fin": 83.77,
+    "probabilidad": 0.46
+   },
+   {
+    "palabra": "el",
+    "inicio": 83.77,
+    "fin": 83.97,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "10",
+    "inicio": 83.97,
+    "fin": 84.07,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "de",
+    "inicio": 84.07,
+    "fin": 84.21,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "noviembre",
+    "inicio": 84.21,
+    "fin": 84.55,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 84.55,
+    "fin": 84.67,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "2024,",
+    "inicio": 84.67,
+    "fin": 85.39,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "exactamente",
+    "inicio": 85.67,
+    "fin": 86.03,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "un",
+    "inicio": 86.03,
+    "fin": 86.49,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "mes",
+    "inicio": 86.49,
+    "fin": 86.59,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "después",
+    "inicio": 86.59,
+    "fin": 86.91,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 86.91,
+    "fin": 87.05,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "la",
+    "inicio": 87.05,
+    "fin": 87.15,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "muerte",
+    "inicio": 87.15,
+    "fin": 87.43,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "del",
+    "inicio": 87.43,
+    "fin": 87.61,
+    "probabilidad": 0.61
+   },
+   {
+    "palabra": "tiger.",
+    "inicio": 87.61,
+    "fin": 87.87,
+    "probabilidad": 0.05
+   },
+   {
+    "palabra": "El",
+    "inicio": 88.15,
+    "fin": 88.23,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "artista",
+    "inicio": 88.23,
+    "fin": 88.57,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "falleció",
+    "inicio": 88.57,
+    "fin": 89.07,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "el",
+    "inicio": 89.07,
+    "fin": 89.39,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "10",
+    "inicio": 89.39,
+    "fin": 89.47,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "de",
+    "inicio": 89.47,
+    "fin": 89.59,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "octubre",
+    "inicio": 89.59,
+    "fin": 89.87,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "en",
+    "inicio": 89.87,
+    "fin": 89.99,
+    "probabilidad": 0.78
+   },
+   {
+    "palabra": "mayami",
+    "inicio": 89.99,
+    "fin": 90.31,
+    "probabilidad": 0.29
+   },
+   {
+    "palabra": "a",
+    "inicio": 90.31,
+    "fin": 90.53,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "los",
+    "inicio": 90.53,
+    "fin": 90.65,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "37",
+    "inicio": 90.65,
+    "fin": 91.05,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "años.",
+    "inicio": 91.05,
+    "fin": 91.49,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 8,
+  "texto": "Use el nombre del tiger. No tiene nada que ver con él. El toque lo escribió así. El contenido que publicaba no guardaba relación con su trayectoria ni con su legado. cubayama lo dijo más directo. Era una página creada para desinformar, no para homenajear.",
+  "palabras": [
+   {
+    "palabra": "Use",
+    "inicio": 92.45,
+    "fin": 92.63,
+    "probabilidad": 0.26
+   },
+   {
+    "palabra": "el",
+    "inicio": 92.63,
+    "fin": 92.79,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "nombre",
+    "inicio": 92.79,
+    "fin": 92.97,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "del",
+    "inicio": 92.97,
+    "fin": 93.19,
+    "probabilidad": 0.65
+   },
+   {
+    "palabra": "tiger.",
+    "inicio": 93.19,
+    "fin": 93.49,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "No",
+    "inicio": 93.97,
+    "fin": 94.05,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "tiene",
+    "inicio": 94.05,
+    "fin": 94.29,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "nada",
+    "inicio": 94.29,
+    "fin": 94.47,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 94.47,
+    "fin": 94.61,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "ver",
+    "inicio": 94.61,
+    "fin": 94.73,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "con",
+    "inicio": 94.73,
+    "fin": 94.93,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "él.",
+    "inicio": 94.93,
+    "fin": 95.09,
+    "probabilidad": 0.64
+   },
+   {
+    "palabra": "El",
+    "inicio": 95.49,
+    "fin": 95.63,
+    "probabilidad": 0.67
+   },
+   {
+    "palabra": "toque",
+    "inicio": 95.63,
+    "fin": 95.99,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "lo",
+    "inicio": 95.99,
+    "fin": 96.27,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "escribió",
+    "inicio": 96.27,
+    "fin": 96.75,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "así.",
+    "inicio": 96.75,
+    "fin": 96.95,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "El",
+    "inicio": 98.05,
+    "fin": 98.13,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "contenido",
+    "inicio": 98.13,
+    "fin": 98.59,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 98.59,
+    "fin": 98.77,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "publicaba",
+    "inicio": 98.77,
+    "fin": 99.31,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "no",
+    "inicio": 99.31,
+    "fin": 99.57,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "guardaba",
+    "inicio": 99.57,
+    "fin": 99.97,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "relación",
+    "inicio": 99.97,
+    "fin": 100.35,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "con",
+    "inicio": 100.35,
+    "fin": 100.59,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "su",
+    "inicio": 100.59,
+    "fin": 100.71,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "trayectoria",
+    "inicio": 100.71,
+    "fin": 101.33,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "ni",
+    "inicio": 101.33,
+    "fin": 101.49,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "con",
+    "inicio": 101.49,
+    "fin": 101.67,
+    "probabilidad": 0.58
+   },
+   {
+    "palabra": "su",
+    "inicio": 101.67,
+    "fin": 101.81,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "legado.",
+    "inicio": 101.81,
+    "fin": 102.17,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "cubayama",
+    "inicio": 102.85,
+    "fin": 103.23,
+    "probabilidad": 0.61
+   },
+   {
+    "palabra": "lo",
+    "inicio": 103.23,
+    "fin": 103.41,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "dijo",
+    "inicio": 103.41,
+    "fin": 103.57,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "más",
+    "inicio": 103.57,
+    "fin": 103.75,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "directo.",
+    "inicio": 103.75,
+    "fin": 104.45,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Era",
+    "inicio": 104.65,
+    "fin": 104.75,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "una",
+    "inicio": 104.75,
+    "fin": 104.89,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "página",
+    "inicio": 104.89,
+    "fin": 105.09,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "creada",
+    "inicio": 105.09,
+    "fin": 105.55,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "para",
+    "inicio": 105.55,
+    "fin": 105.77,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "desinformar,",
+    "inicio": 105.77,
+    "fin": 106.57,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "no",
+    "inicio": 106.89,
+    "fin": 106.97,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "para",
+    "inicio": 106.97,
+    "fin": 107.13,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "homenajear.",
+    "inicio": 107.13,
+    "fin": 107.75,
+    "probabilidad": 0.9
+   }
+  ]
+ },
+ {
+  "linea": 9,
+  "texto": "La página creció mientras publicaba contenido false. En agosto de 2025 tenía 600 .000 seguidores. En marzo de 2026 cuando salió el caso Messi ya basaba de 748 .000. Y la última cifra confuente de julio es de más de 770 .000. Las denuncias no la frenaron. En dos semanas ganó unos 5 .000 seguidores mientras el toque publicaba dos verificaciones en su contra.",
+  "palabras": [
+   {
+    "palabra": "La",
+    "inicio": 108.57,
+    "fin": 108.71,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "página",
+    "inicio": 108.71,
+    "fin": 108.95,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "creció",
+    "inicio": 108.95,
+    "fin": 109.41,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "mientras",
+    "inicio": 109.41,
+    "fin": 109.71,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "publicaba",
+    "inicio": 109.71,
+    "fin": 110.37,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "contenido",
+    "inicio": 110.37,
+    "fin": 110.75,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "false.",
+    "inicio": 110.75,
+    "fin": 111.15,
+    "probabilidad": 0.21
+   },
+   {
+    "palabra": "En",
+    "inicio": 111.85,
+    "fin": 111.97,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "agosto",
+    "inicio": 111.97,
+    "fin": 112.27,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 112.27,
+    "fin": 112.43,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "2025",
+    "inicio": 112.43,
+    "fin": 113.07,
+    "probabilidad": 0.05
+   },
+   {
+    "palabra": "tenía",
+    "inicio": 113.07,
+    "fin": 113.57,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "600",
+    "inicio": 113.57,
+    "fin": 113.97,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": ".000",
+    "inicio": 113.97,
+    "fin": 114.47,
+    "probabilidad": 0.77
+   },
+   {
+    "palabra": "seguidores.",
+    "inicio": 114.47,
+    "fin": 114.91,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "En",
+    "inicio": 115.37,
+    "fin": 115.47,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "marzo",
+    "inicio": 115.47,
+    "fin": 115.77,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "de",
+    "inicio": 115.77,
+    "fin": 115.85,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "2026",
+    "inicio": 115.85,
+    "fin": 116.53,
+    "probabilidad": 0.75
+   },
+   {
+    "palabra": "cuando",
+    "inicio": 116.53,
+    "fin": 116.85,
+    "probabilidad": 0.5
+   },
+   {
+    "palabra": "salió",
+    "inicio": 116.85,
+    "fin": 117.31,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "el",
+    "inicio": 117.31,
+    "fin": 117.39,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "caso",
+    "inicio": 117.39,
+    "fin": 117.61,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "Messi",
+    "inicio": 117.61,
+    "fin": 117.95,
+    "probabilidad": 0.77
+   },
+   {
+    "palabra": "ya",
+    "inicio": 117.95,
+    "fin": 118.77,
+    "probabilidad": 0.6
+   },
+   {
+    "palabra": "basaba",
+    "inicio": 118.77,
+    "fin": 119.25,
+    "probabilidad": 0.61
+   },
+   {
+    "palabra": "de",
+    "inicio": 119.25,
+    "fin": 119.95,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "748",
+    "inicio": 119.95,
+    "fin": 121.01,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": ".000.",
+    "inicio": 121.01,
+    "fin": 121.51,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "Y",
+    "inicio": 121.93,
+    "fin": 122.29,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "la",
+    "inicio": 122.29,
+    "fin": 122.39,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "última",
+    "inicio": 122.39,
+    "fin": 122.63,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "cifra",
+    "inicio": 122.63,
+    "fin": 123.13,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "confuente",
+    "inicio": 123.13,
+    "fin": 123.81,
+    "probabilidad": 0.79
+   },
+   {
+    "palabra": "de",
+    "inicio": 123.81,
+    "fin": 124.19,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "julio",
+    "inicio": 124.19,
+    "fin": 124.59,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "es",
+    "inicio": 124.59,
+    "fin": 124.93,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "de",
+    "inicio": 124.93,
+    "fin": 125.07,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "más",
+    "inicio": 125.07,
+    "fin": 125.19,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "de",
+    "inicio": 125.19,
+    "fin": 125.35,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "770",
+    "inicio": 125.35,
+    "fin": 126.21,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": ".000.",
+    "inicio": 126.21,
+    "fin": 126.59,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "Las",
+    "inicio": 126.91,
+    "fin": 127.17,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "denuncias",
+    "inicio": 127.17,
+    "fin": 127.67,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "no",
+    "inicio": 127.67,
+    "fin": 127.77,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "la",
+    "inicio": 127.77,
+    "fin": 127.89,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "frenaron.",
+    "inicio": 127.89,
+    "fin": 128.35,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "En",
+    "inicio": 128.71,
+    "fin": 128.83,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "dos",
+    "inicio": 128.83,
+    "fin": 128.97,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "semanas",
+    "inicio": 128.97,
+    "fin": 129.23,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "ganó",
+    "inicio": 129.23,
+    "fin": 129.61,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "unos",
+    "inicio": 129.61,
+    "fin": 129.79,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "5",
+    "inicio": 129.79,
+    "fin": 130.07,
+    "probabilidad": 0.83
+   },
+   {
+    "palabra": ".000",
+    "inicio": 130.07,
+    "fin": 130.31,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "seguidores",
+    "inicio": 130.31,
+    "fin": 130.69,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "mientras",
+    "inicio": 130.69,
+    "fin": 130.97,
+    "probabilidad": 0.52
+   },
+   {
+    "palabra": "el",
+    "inicio": 130.97,
+    "fin": 131.29,
+    "probabilidad": 0.45
+   },
+   {
+    "palabra": "toque",
+    "inicio": 131.29,
+    "fin": 131.41,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "publicaba",
+    "inicio": 131.41,
+    "fin": 131.91,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "dos",
+    "inicio": 131.91,
+    "fin": 132.17,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "verificaciones",
+    "inicio": 132.17,
+    "fin": 132.79,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "en",
+    "inicio": 132.79,
+    "fin": 132.99,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "su",
+    "inicio": 132.99,
+    "fin": 133.11,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "contra.",
+    "inicio": 133.11,
+    "fin": 133.35,
+    "probabilidad": 0.82
+   }
+  ]
+ },
+ {
+  "linea": 10,
+  "texto": "El toque describió el método en abril. La página mezclaba hechos reales con afirmaciones falsas sin ninguna aclaración. Cuatro pasos. Primero, una figura que el público quiere escuchar. Segundo, un texto emocional en primera persona atribuido a esa figura. Tercero, una imagen real manipulada o creada con inteligencia artificial. Casi siempre con una bandera cubana. Y cuarto, un núcleo real que hace creíble bulo sin aclaración de ningún tipo.",
+  "palabras": [
+   {
+    "palabra": "El",
+    "inicio": 134.41,
+    "fin": 134.75,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "toque",
+    "inicio": 134.75,
+    "fin": 135.07,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "describió",
+    "inicio": 135.07,
+    "fin": 135.65,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "el",
+    "inicio": 135.65,
+    "fin": 135.73,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "método",
+    "inicio": 135.73,
+    "fin": 136.07,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "en",
+    "inicio": 136.07,
+    "fin": 136.25,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "abril.",
+    "inicio": 136.25,
+    "fin": 136.55,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "La",
+    "inicio": 136.89,
+    "fin": 136.95,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "página",
+    "inicio": 136.95,
+    "fin": 137.13,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "mezclaba",
+    "inicio": 137.13,
+    "fin": 137.65,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "hechos",
+    "inicio": 137.65,
+    "fin": 137.91,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "reales",
+    "inicio": 137.91,
+    "fin": 138.43,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "con",
+    "inicio": 138.43,
+    "fin": 138.51,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "afirmaciones",
+    "inicio": 138.51,
+    "fin": 139.03,
+    "probabilidad": 0.54
+   },
+   {
+    "palabra": "falsas",
+    "inicio": 139.03,
+    "fin": 139.57,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "sin",
+    "inicio": 139.57,
+    "fin": 139.81,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "ninguna",
+    "inicio": 139.81,
+    "fin": 140.21,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "aclaración.",
+    "inicio": 140.21,
+    "fin": 141.01,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Cuatro",
+    "inicio": 141.83,
+    "fin": 142.27,
+    "probabilidad": 0.69
+   },
+   {
+    "palabra": "pasos.",
+    "inicio": 142.27,
+    "fin": 143.09,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "Primero,",
+    "inicio": 143.29,
+    "fin": 143.67,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "una",
+    "inicio": 144.21,
+    "fin": 144.55,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "figura",
+    "inicio": 144.55,
+    "fin": 144.87,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "que",
+    "inicio": 144.87,
+    "fin": 145.09,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 145.09,
+    "fin": 145.19,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "público",
+    "inicio": 145.19,
+    "fin": 145.43,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "quiere",
+    "inicio": 145.43,
+    "fin": 145.75,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "escuchar.",
+    "inicio": 145.75,
+    "fin": 146.37,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Segundo,",
+    "inicio": 146.57,
+    "fin": 147.19,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "un",
+    "inicio": 147.75,
+    "fin": 147.83,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "texto",
+    "inicio": 147.83,
+    "fin": 148.11,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "emocional",
+    "inicio": 148.11,
+    "fin": 148.69,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "en",
+    "inicio": 148.69,
+    "fin": 148.95,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "primera",
+    "inicio": 148.95,
+    "fin": 149.21,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "persona",
+    "inicio": 149.21,
+    "fin": 149.71,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "atribuido",
+    "inicio": 149.71,
+    "fin": 150.47,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "a",
+    "inicio": 150.47,
+    "fin": 150.63,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "esa",
+    "inicio": 150.63,
+    "fin": 150.75,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "figura.",
+    "inicio": 150.75,
+    "fin": 151.09,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Tercero,",
+    "inicio": 151.59,
+    "fin": 152.25,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "una",
+    "inicio": 152.69,
+    "fin": 152.73,
+    "probabilidad": 0.76
+   },
+   {
+    "palabra": "imagen",
+    "inicio": 152.73,
+    "fin": 152.97,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "real",
+    "inicio": 152.97,
+    "fin": 153.25,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "manipulada",
+    "inicio": 153.25,
+    "fin": 153.89,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "o",
+    "inicio": 153.89,
+    "fin": 154.15,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "creada",
+    "inicio": 154.15,
+    "fin": 154.41,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "con",
+    "inicio": 154.41,
+    "fin": 154.57,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "inteligencia",
+    "inicio": 154.57,
+    "fin": 155.13,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "artificial.",
+    "inicio": 155.13,
+    "fin": 155.67,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Casi",
+    "inicio": 156.13,
+    "fin": 156.39,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "siempre",
+    "inicio": 156.39,
+    "fin": 156.73,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "con",
+    "inicio": 156.73,
+    "fin": 156.97,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "una",
+    "inicio": 156.97,
+    "fin": 157.09,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "bandera",
+    "inicio": 157.09,
+    "fin": 157.37,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "cubana.",
+    "inicio": 157.37,
+    "fin": 157.77,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Y",
+    "inicio": 158.09,
+    "fin": 158.13,
+    "probabilidad": 0.84
+   },
+   {
+    "palabra": "cuarto,",
+    "inicio": 158.13,
+    "fin": 158.45,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "un",
+    "inicio": 159.07,
+    "fin": 159.07,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "núcleo",
+    "inicio": 159.07,
+    "fin": 159.43,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "real",
+    "inicio": 159.43,
+    "fin": 159.99,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "que",
+    "inicio": 159.99,
+    "fin": 160.49,
+    "probabilidad": 0.82
+   },
+   {
+    "palabra": "hace",
+    "inicio": 160.49,
+    "fin": 160.65,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "creíble",
+    "inicio": 160.65,
+    "fin": 161.05,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "bulo",
+    "inicio": 161.05,
+    "fin": 162.17,
+    "probabilidad": 0.41
+   },
+   {
+    "palabra": "sin",
+    "inicio": 162.17,
+    "fin": 162.53,
+    "probabilidad": 0.58
+   },
+   {
+    "palabra": "aclaración",
+    "inicio": 162.53,
+    "fin": 163.15,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 163.15,
+    "fin": 163.31,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "ningún",
+    "inicio": 163.31,
+    "fin": 163.51,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "tipo.",
+    "inicio": 163.51,
+    "fin": 163.87,
+    "probabilidad": 0.02
+   }
+  ]
+ },
+ {
+  "linea": 11,
+  "texto": "Una semana después del caso Messi, el 23 de marzo, la misma fórmula con Nahid Bukele, presidente del zambadoll. Un texto firmado con su nombre y un collage de tres fotos con banderas cubanas. Más de 7 .800 reacciones, el toque verificó que las declaraciones citadas no eran ciertas.",
+  "palabras": [
+   {
+    "palabra": "Una",
+    "inicio": 166.18,
+    "fin": 166.44,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "semana",
+    "inicio": 166.44,
+    "fin": 166.74,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "después",
+    "inicio": 166.74,
+    "fin": 167.0,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "del",
+    "inicio": 167.0,
+    "fin": 167.2,
+    "probabilidad": 0.4
+   },
+   {
+    "palabra": "caso",
+    "inicio": 167.2,
+    "fin": 167.5,
+    "probabilidad": 0.82
+   },
+   {
+    "palabra": "Messi,",
+    "inicio": 167.5,
+    "fin": 167.84,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "el",
+    "inicio": 168.14,
+    "fin": 168.22,
+    "probabilidad": 0.76
+   },
+   {
+    "palabra": "23",
+    "inicio": 168.22,
+    "fin": 168.46,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 168.46,
+    "fin": 168.74,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "marzo,",
+    "inicio": 168.74,
+    "fin": 169.08,
+    "probabilidad": 0.69
+   },
+   {
+    "palabra": "la",
+    "inicio": 169.36,
+    "fin": 169.4,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "misma",
+    "inicio": 169.4,
+    "fin": 169.56,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "fórmula",
+    "inicio": 169.56,
+    "fin": 170.12,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "con",
+    "inicio": 170.12,
+    "fin": 170.32,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Nahid",
+    "inicio": 170.32,
+    "fin": 170.58,
+    "probabilidad": 0.53
+   },
+   {
+    "palabra": "Bukele,",
+    "inicio": 170.58,
+    "fin": 170.98,
+    "probabilidad": 0.82
+   },
+   {
+    "palabra": "presidente",
+    "inicio": 171.18,
+    "fin": 171.54,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "del",
+    "inicio": 171.54,
+    "fin": 171.84,
+    "probabilidad": 0.77
+   },
+   {
+    "palabra": "zambadoll.",
+    "inicio": 171.84,
+    "fin": 172.38,
+    "probabilidad": 0.59
+   },
+   {
+    "palabra": "Un",
+    "inicio": 172.84,
+    "fin": 172.98,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "texto",
+    "inicio": 172.98,
+    "fin": 173.14,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "firmado",
+    "inicio": 173.14,
+    "fin": 173.64,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "con",
+    "inicio": 173.64,
+    "fin": 173.82,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "su",
+    "inicio": 173.82,
+    "fin": 173.96,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "nombre",
+    "inicio": 173.96,
+    "fin": 174.24,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "y",
+    "inicio": 174.24,
+    "fin": 174.46,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "un",
+    "inicio": 174.46,
+    "fin": 174.56,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "collage",
+    "inicio": 174.56,
+    "fin": 175.04,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "de",
+    "inicio": 175.04,
+    "fin": 175.28,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "tres",
+    "inicio": 175.28,
+    "fin": 175.52,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "fotos",
+    "inicio": 175.52,
+    "fin": 175.92,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "con",
+    "inicio": 175.92,
+    "fin": 176.26,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "banderas",
+    "inicio": 176.26,
+    "fin": 176.56,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "cubanas.",
+    "inicio": 176.56,
+    "fin": 177.08,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Más",
+    "inicio": 177.36,
+    "fin": 177.46,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 177.46,
+    "fin": 177.58,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "7",
+    "inicio": 177.58,
+    "fin": 177.7,
+    "probabilidad": 0.81
+   },
+   {
+    "palabra": ".800",
+    "inicio": 177.7,
+    "fin": 178.08,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "reacciones,",
+    "inicio": 178.08,
+    "fin": 178.98,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 179.44,
+    "fin": 179.6,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "toque",
+    "inicio": 179.6,
+    "fin": 179.8,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "verificó",
+    "inicio": 179.8,
+    "fin": 180.36,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "que",
+    "inicio": 180.36,
+    "fin": 180.46,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "las",
+    "inicio": 180.46,
+    "fin": 180.6,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "declaraciones",
+    "inicio": 180.6,
+    "fin": 181.12,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "citadas",
+    "inicio": 181.12,
+    "fin": 181.6,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "no",
+    "inicio": 181.6,
+    "fin": 181.96,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "eran",
+    "inicio": 181.96,
+    "fin": 182.16,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "ciertas.",
+    "inicio": 182.16,
+    "fin": 182.74,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 12,
+  "texto": "Ese mismo mes, la página atribuyó declaraciones falsas a Elon Musk, a Ari Yankee y a Bad Bunny. El toque lo verificó en grupo. Las declaraciones citadas no son ciertas.",
+  "palabras": [
+   {
+    "palabra": "Ese",
+    "inicio": 183.42,
+    "fin": 183.8,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "mismo",
+    "inicio": 183.8,
+    "fin": 184.04,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "mes,",
+    "inicio": 184.04,
+    "fin": 184.24,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "la",
+    "inicio": 184.34,
+    "fin": 184.38,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "página",
+    "inicio": 184.38,
+    "fin": 184.54,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "atribuyó",
+    "inicio": 184.54,
+    "fin": 185.1,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "declaraciones",
+    "inicio": 185.1,
+    "fin": 185.62,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "falsas",
+    "inicio": 185.62,
+    "fin": 186.14,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "a",
+    "inicio": 186.14,
+    "fin": 186.48,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "Elon",
+    "inicio": 186.48,
+    "fin": 186.62,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Musk,",
+    "inicio": 186.62,
+    "fin": 187.02,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "a",
+    "inicio": 187.52,
+    "fin": 187.54,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "Ari",
+    "inicio": 187.54,
+    "fin": 187.72,
+    "probabilidad": 0.75
+   },
+   {
+    "palabra": "Yankee",
+    "inicio": 187.72,
+    "fin": 188.12,
+    "probabilidad": 0.71
+   },
+   {
+    "palabra": "y",
+    "inicio": 188.12,
+    "fin": 188.48,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "a",
+    "inicio": 188.48,
+    "fin": 188.56,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "Bad",
+    "inicio": 188.56,
+    "fin": 188.7,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "Bunny.",
+    "inicio": 188.7,
+    "fin": 188.98,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "El",
+    "inicio": 189.5,
+    "fin": 189.68,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "toque",
+    "inicio": 189.68,
+    "fin": 189.98,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "lo",
+    "inicio": 189.98,
+    "fin": 190.18,
+    "probabilidad": 0.54
+   },
+   {
+    "palabra": "verificó",
+    "inicio": 190.18,
+    "fin": 190.66,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "en",
+    "inicio": 190.66,
+    "fin": 190.76,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "grupo.",
+    "inicio": 190.76,
+    "fin": 191.04,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "Las",
+    "inicio": 191.3,
+    "fin": 191.4,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "declaraciones",
+    "inicio": 191.4,
+    "fin": 191.9,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "citadas",
+    "inicio": 191.9,
+    "fin": 192.32,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "no",
+    "inicio": 192.32,
+    "fin": 192.58,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "son",
+    "inicio": 192.58,
+    "fin": 192.88,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "ciertas.",
+    "inicio": 192.88,
+    "fin": 193.44,
+    "probabilidad": 0.98
+   }
+  ]
+ },
+ {
+  "linea": 13,
+  "texto": "Con Musk, hay un matiz que no se puede saltar. Musk si dijo a correar sobre Cuba. El 16 de marzo, el mismo día del post de Messi. Musk escribió en X sobre Starlink en Cuba. Works in Cuba. Just can't be sold there. Funciona en Cuba, pero no se puede vender allí. Los falsos son las declaraciones políticas que la página la atribuyó. Si este vídeo dijera que Musk nunca ha dicho nada sobre Cuba, estaría mintiendo. Ese es el punto. El bulo funcionaba porque tenía un núcleo real. Ese día, Cuba sufrió además el sexto colapso total del sistema eléctrico, Twitter real. Apagó un real y cita inventado. Todo el mismo día.",
+  "palabras": [
+   {
+    "palabra": "Con",
+    "inicio": 193.44,
+    "fin": 194.38,
+    "probabilidad": 0.04
+   },
+   {
+    "palabra": "Musk,",
+    "inicio": 194.38,
+    "fin": 194.76,
+    "probabilidad": 0.19
+   },
+   {
+    "palabra": "hay",
+    "inicio": 195.12,
+    "fin": 195.32,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "un",
+    "inicio": 195.32,
+    "fin": 195.46,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "matiz",
+    "inicio": 195.46,
+    "fin": 195.76,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "que",
+    "inicio": 195.76,
+    "fin": 195.98,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "no",
+    "inicio": 195.98,
+    "fin": 196.1,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "se",
+    "inicio": 196.1,
+    "fin": 196.22,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "puede",
+    "inicio": 196.22,
+    "fin": 196.46,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "saltar.",
+    "inicio": 196.46,
+    "fin": 197.06,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Musk",
+    "inicio": 197.38,
+    "fin": 197.6,
+    "probabilidad": 0.07
+   },
+   {
+    "palabra": "si",
+    "inicio": 197.6,
+    "fin": 197.86,
+    "probabilidad": 0.41
+   },
+   {
+    "palabra": "dijo",
+    "inicio": 197.86,
+    "fin": 198.14,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "a",
+    "inicio": 198.14,
+    "fin": 198.38,
+    "probabilidad": 0.47
+   },
+   {
+    "palabra": "correar",
+    "inicio": 198.38,
+    "fin": 198.66,
+    "probabilidad": 0.65
+   },
+   {
+    "palabra": "sobre",
+    "inicio": 198.66,
+    "fin": 198.9,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Cuba.",
+    "inicio": 198.9,
+    "fin": 199.22,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "El",
+    "inicio": 199.62,
+    "fin": 199.74,
+    "probabilidad": 0.79
+   },
+   {
+    "palabra": "16",
+    "inicio": 199.74,
+    "fin": 200.04,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "de",
+    "inicio": 200.04,
+    "fin": 200.3,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "marzo,",
+    "inicio": 200.3,
+    "fin": 200.66,
+    "probabilidad": 0.63
+   },
+   {
+    "palabra": "el",
+    "inicio": 200.86,
+    "fin": 200.94,
+    "probabilidad": 0.6
+   },
+   {
+    "palabra": "mismo",
+    "inicio": 200.94,
+    "fin": 201.12,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "día",
+    "inicio": 201.12,
+    "fin": 201.4,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "del",
+    "inicio": 201.4,
+    "fin": 201.56,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "post",
+    "inicio": 201.56,
+    "fin": 201.8,
+    "probabilidad": 0.62
+   },
+   {
+    "palabra": "de",
+    "inicio": 201.8,
+    "fin": 202.02,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Messi.",
+    "inicio": 202.02,
+    "fin": 202.26,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "Musk",
+    "inicio": 202.68,
+    "fin": 203.1,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "escribió",
+    "inicio": 203.1,
+    "fin": 203.7,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "en",
+    "inicio": 203.7,
+    "fin": 203.8,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "X",
+    "inicio": 203.8,
+    "fin": 203.98,
+    "probabilidad": 0.7
+   },
+   {
+    "palabra": "sobre",
+    "inicio": 203.98,
+    "fin": 204.32,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Starlink",
+    "inicio": 204.32,
+    "fin": 204.82,
+    "probabilidad": 0.54
+   },
+   {
+    "palabra": "en",
+    "inicio": 204.82,
+    "fin": 205.06,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "Cuba.",
+    "inicio": 205.06,
+    "fin": 205.38,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Works",
+    "inicio": 206.0,
+    "fin": 206.26,
+    "probabilidad": 0.6
+   },
+   {
+    "palabra": "in",
+    "inicio": 206.26,
+    "fin": 206.68,
+    "probabilidad": 0.33
+   },
+   {
+    "palabra": "Cuba.",
+    "inicio": 206.68,
+    "fin": 207.02,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Just",
+    "inicio": 207.38,
+    "fin": 207.48,
+    "probabilidad": 0.54
+   },
+   {
+    "palabra": "can't",
+    "inicio": 207.48,
+    "fin": 207.82,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "be",
+    "inicio": 207.82,
+    "fin": 207.88,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "sold",
+    "inicio": 207.88,
+    "fin": 208.14,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "there.",
+    "inicio": 208.14,
+    "fin": 208.5,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Funciona",
+    "inicio": 209.0,
+    "fin": 209.48,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "en",
+    "inicio": 209.48,
+    "fin": 209.58,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Cuba,",
+    "inicio": 209.58,
+    "fin": 209.88,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "pero",
+    "inicio": 210.3,
+    "fin": 210.32,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "no",
+    "inicio": 210.32,
+    "fin": 210.48,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "se",
+    "inicio": 210.48,
+    "fin": 210.64,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "puede",
+    "inicio": 210.64,
+    "fin": 210.84,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "vender",
+    "inicio": 210.84,
+    "fin": 211.14,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "allí.",
+    "inicio": 211.14,
+    "fin": 211.42,
+    "probabilidad": 0.73
+   },
+   {
+    "palabra": "Los",
+    "inicio": 211.76,
+    "fin": 211.92,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "falsos",
+    "inicio": 211.92,
+    "fin": 212.38,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "son",
+    "inicio": 212.38,
+    "fin": 212.52,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "las",
+    "inicio": 212.52,
+    "fin": 212.66,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "declaraciones",
+    "inicio": 212.66,
+    "fin": 213.1,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "políticas",
+    "inicio": 213.1,
+    "fin": 213.7,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 213.7,
+    "fin": 214.08,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "la",
+    "inicio": 214.08,
+    "fin": 214.22,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "página",
+    "inicio": 214.22,
+    "fin": 214.46,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "la",
+    "inicio": 214.46,
+    "fin": 214.68,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "atribuyó.",
+    "inicio": 214.68,
+    "fin": 215.12,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "Si",
+    "inicio": 215.68,
+    "fin": 215.84,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "este",
+    "inicio": 215.84,
+    "fin": 216.04,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "vídeo",
+    "inicio": 216.04,
+    "fin": 216.28,
+    "probabilidad": 0.48
+   },
+   {
+    "palabra": "dijera",
+    "inicio": 216.28,
+    "fin": 216.62,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 216.62,
+    "fin": 216.78,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Musk",
+    "inicio": 216.78,
+    "fin": 217.1,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "nunca",
+    "inicio": 217.1,
+    "fin": 217.52,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "ha",
+    "inicio": 217.52,
+    "fin": 217.88,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "dicho",
+    "inicio": 217.88,
+    "fin": 218.08,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "nada",
+    "inicio": 218.08,
+    "fin": 218.26,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "sobre",
+    "inicio": 218.26,
+    "fin": 218.56,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Cuba,",
+    "inicio": 218.56,
+    "fin": 218.9,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "estaría",
+    "inicio": 219.0,
+    "fin": 219.4,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "mintiendo.",
+    "inicio": 219.4,
+    "fin": 219.94,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "Ese",
+    "inicio": 220.16,
+    "fin": 220.32,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "es",
+    "inicio": 220.32,
+    "fin": 220.44,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "el",
+    "inicio": 220.44,
+    "fin": 220.56,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "punto.",
+    "inicio": 220.56,
+    "fin": 220.88,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "El",
+    "inicio": 221.16,
+    "fin": 221.3,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "bulo",
+    "inicio": 221.3,
+    "fin": 221.62,
+    "probabilidad": 0.63
+   },
+   {
+    "palabra": "funcionaba",
+    "inicio": 221.62,
+    "fin": 222.16,
+    "probabilidad": 0.76
+   },
+   {
+    "palabra": "porque",
+    "inicio": 222.16,
+    "fin": 222.44,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "tenía",
+    "inicio": 222.44,
+    "fin": 222.8,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "un",
+    "inicio": 222.8,
+    "fin": 223.12,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "núcleo",
+    "inicio": 223.12,
+    "fin": 223.58,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "real.",
+    "inicio": 223.58,
+    "fin": 224.0,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "Ese",
+    "inicio": 224.68,
+    "fin": 225.02,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "día,",
+    "inicio": 225.02,
+    "fin": 225.2,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Cuba",
+    "inicio": 225.34,
+    "fin": 225.56,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "sufrió",
+    "inicio": 225.56,
+    "fin": 225.94,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "además",
+    "inicio": 225.94,
+    "fin": 226.28,
+    "probabilidad": 0.77
+   },
+   {
+    "palabra": "el",
+    "inicio": 226.28,
+    "fin": 226.68,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "sexto",
+    "inicio": 226.68,
+    "fin": 227.1,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "colapso",
+    "inicio": 227.1,
+    "fin": 227.44,
+    "probabilidad": 0.82
+   },
+   {
+    "palabra": "total",
+    "inicio": 227.44,
+    "fin": 227.76,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "del",
+    "inicio": 227.76,
+    "fin": 227.92,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "sistema",
+    "inicio": 227.92,
+    "fin": 228.22,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "eléctrico,",
+    "inicio": 228.22,
+    "fin": 228.82,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Twitter",
+    "inicio": 229.18,
+    "fin": 229.34,
+    "probabilidad": 0.18
+   },
+   {
+    "palabra": "real.",
+    "inicio": 229.34,
+    "fin": 229.78,
+    "probabilidad": 0.56
+   },
+   {
+    "palabra": "Apagó",
+    "inicio": 230.08,
+    "fin": 230.44,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "un",
+    "inicio": 230.44,
+    "fin": 230.54,
+    "probabilidad": 0.83
+   },
+   {
+    "palabra": "real",
+    "inicio": 230.54,
+    "fin": 230.78,
+    "probabilidad": 0.73
+   },
+   {
+    "palabra": "y",
+    "inicio": 230.78,
+    "fin": 231.2,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "cita",
+    "inicio": 231.2,
+    "fin": 231.4,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "inventado.",
+    "inicio": 231.4,
+    "fin": 232.02,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "Todo",
+    "inicio": 232.48,
+    "fin": 232.74,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "el",
+    "inicio": 232.74,
+    "fin": 233.1,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "mismo",
+    "inicio": 233.1,
+    "fin": 233.38,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "día.",
+    "inicio": 233.38,
+    "fin": 233.66,
+    "probabilidad": 0.98
+   }
+  ]
+ },
+ {
+  "linea": 14,
+  "texto": "El patrón ya era visible. En enero, dos meses antes del caso Messi, la página, 11 millones de cubanos con más de un millón de seguidores ya la había denunciado en público. Noticias falsas de muertes, contenido robado, denuncias de copyright falsas. Y en 20 de marzo, cuatro días después del post de Messi, un usuario Carlos Pérez publicó un colacht con Messi, Musk y Bukele, declaraciones inventadas y realidades manipuladas. No era un fact -checker, era una persona que ya la había visto.",
+  "palabras": [
+   {
+    "palabra": "El",
+    "inicio": 234.96,
+    "fin": 235.16,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "patrón",
+    "inicio": 235.16,
+    "fin": 235.58,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "ya",
+    "inicio": 235.58,
+    "fin": 235.76,
+    "probabilidad": 0.78
+   },
+   {
+    "palabra": "era",
+    "inicio": 235.76,
+    "fin": 235.84,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "visible.",
+    "inicio": 235.84,
+    "fin": 236.24,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "En",
+    "inicio": 236.7,
+    "fin": 236.78,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "enero,",
+    "inicio": 236.78,
+    "fin": 237.12,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "dos",
+    "inicio": 237.36,
+    "fin": 237.44,
+    "probabilidad": 0.83
+   },
+   {
+    "palabra": "meses",
+    "inicio": 237.44,
+    "fin": 237.68,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "antes",
+    "inicio": 237.68,
+    "fin": 238.02,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "del",
+    "inicio": 238.02,
+    "fin": 238.36,
+    "probabilidad": 0.83
+   },
+   {
+    "palabra": "caso",
+    "inicio": 238.36,
+    "fin": 238.74,
+    "probabilidad": 0.81
+   },
+   {
+    "palabra": "Messi,",
+    "inicio": 238.74,
+    "fin": 239.1,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "la",
+    "inicio": 239.38,
+    "fin": 239.46,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "página,",
+    "inicio": 239.46,
+    "fin": 239.76,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "11",
+    "inicio": 240.6,
+    "fin": 240.8,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "millones",
+    "inicio": 240.8,
+    "fin": 241.1,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "de",
+    "inicio": 241.1,
+    "fin": 241.3,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "cubanos",
+    "inicio": 241.3,
+    "fin": 241.68,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "con",
+    "inicio": 241.68,
+    "fin": 241.94,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "más",
+    "inicio": 241.94,
+    "fin": 242.1,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 242.1,
+    "fin": 242.28,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "un",
+    "inicio": 242.28,
+    "fin": 242.96,
+    "probabilidad": 0.67
+   },
+   {
+    "palabra": "millón",
+    "inicio": 242.96,
+    "fin": 243.24,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 243.24,
+    "fin": 243.34,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "seguidores",
+    "inicio": 243.34,
+    "fin": 243.78,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "ya",
+    "inicio": 243.78,
+    "fin": 244.24,
+    "probabilidad": 0.47
+   },
+   {
+    "palabra": "la",
+    "inicio": 244.24,
+    "fin": 244.38,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "había",
+    "inicio": 244.38,
+    "fin": 244.82,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "denunciado",
+    "inicio": 244.82,
+    "fin": 245.42,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "en",
+    "inicio": 245.42,
+    "fin": 245.56,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "público.",
+    "inicio": 245.56,
+    "fin": 245.92,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "Noticias",
+    "inicio": 246.38,
+    "fin": 246.6,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "falsas",
+    "inicio": 246.6,
+    "fin": 247.02,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "de",
+    "inicio": 247.02,
+    "fin": 247.14,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "muertes,",
+    "inicio": 247.14,
+    "fin": 247.64,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "contenido",
+    "inicio": 248.06,
+    "fin": 248.34,
+    "probabilidad": 0.69
+   },
+   {
+    "palabra": "robado,",
+    "inicio": 248.34,
+    "fin": 248.94,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "denuncias",
+    "inicio": 249.22,
+    "fin": 249.58,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "de",
+    "inicio": 249.58,
+    "fin": 249.7,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "copyright",
+    "inicio": 249.7,
+    "fin": 249.96,
+    "probabilidad": 0.65
+   },
+   {
+    "palabra": "falsas.",
+    "inicio": 249.96,
+    "fin": 250.78,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "Y",
+    "inicio": 250.78,
+    "fin": 251.42,
+    "probabilidad": 0.05
+   },
+   {
+    "palabra": "en",
+    "inicio": 251.42,
+    "fin": 251.52,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "20",
+    "inicio": 251.52,
+    "fin": 251.72,
+    "probabilidad": 0.84
+   },
+   {
+    "palabra": "de",
+    "inicio": 251.72,
+    "fin": 251.9,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "marzo,",
+    "inicio": 251.9,
+    "fin": 252.22,
+    "probabilidad": 0.63
+   },
+   {
+    "palabra": "cuatro",
+    "inicio": 252.38,
+    "fin": 252.56,
+    "probabilidad": 0.82
+   },
+   {
+    "palabra": "días",
+    "inicio": 252.56,
+    "fin": 252.8,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "después",
+    "inicio": 252.8,
+    "fin": 253.08,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "del",
+    "inicio": 253.08,
+    "fin": 253.28,
+    "probabilidad": 0.29
+   },
+   {
+    "palabra": "post",
+    "inicio": 253.28,
+    "fin": 253.48,
+    "probabilidad": 0.52
+   },
+   {
+    "palabra": "de",
+    "inicio": 253.48,
+    "fin": 253.7,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "Messi,",
+    "inicio": 253.7,
+    "fin": 253.9,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "un",
+    "inicio": 254.32,
+    "fin": 254.44,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "usuario",
+    "inicio": 254.44,
+    "fin": 254.9,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Carlos",
+    "inicio": 254.9,
+    "fin": 255.42,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "Pérez",
+    "inicio": 255.42,
+    "fin": 255.86,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "publicó",
+    "inicio": 255.86,
+    "fin": 256.44,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "un",
+    "inicio": 256.44,
+    "fin": 256.6,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "colacht",
+    "inicio": 256.6,
+    "fin": 256.94,
+    "probabilidad": 0.26
+   },
+   {
+    "palabra": "con",
+    "inicio": 256.94,
+    "fin": 257.18,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "Messi,",
+    "inicio": 257.18,
+    "fin": 257.5,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Musk",
+    "inicio": 258.04,
+    "fin": 258.18,
+    "probabilidad": 0.3
+   },
+   {
+    "palabra": "y",
+    "inicio": 258.18,
+    "fin": 258.44,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "Bukele,",
+    "inicio": 258.44,
+    "fin": 258.84,
+    "probabilidad": 0.79
+   },
+   {
+    "palabra": "declaraciones",
+    "inicio": 259.32,
+    "fin": 259.86,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "inventadas",
+    "inicio": 259.86,
+    "fin": 260.78,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 260.78,
+    "fin": 261.0,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "realidades",
+    "inicio": 261.0,
+    "fin": 261.42,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "manipuladas.",
+    "inicio": 261.42,
+    "fin": 262.04,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "No",
+    "inicio": 262.56,
+    "fin": 262.76,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "era",
+    "inicio": 262.76,
+    "fin": 262.82,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "un",
+    "inicio": 262.82,
+    "fin": 262.92,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "fact",
+    "inicio": 262.92,
+    "fin": 263.06,
+    "probabilidad": 0.3
+   },
+   {
+    "palabra": "-checker,",
+    "inicio": 263.06,
+    "fin": 263.56,
+    "probabilidad": 0.59
+   },
+   {
+    "palabra": "era",
+    "inicio": 263.78,
+    "fin": 263.96,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "una",
+    "inicio": 263.96,
+    "fin": 264.1,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "persona",
+    "inicio": 264.1,
+    "fin": 264.52,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "que",
+    "inicio": 264.52,
+    "fin": 264.82,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "ya",
+    "inicio": 264.82,
+    "fin": 264.98,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "la",
+    "inicio": 264.98,
+    "fin": 265.08,
+    "probabilidad": 0.41
+   },
+   {
+    "palabra": "había",
+    "inicio": 265.08,
+    "fin": 265.24,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "visto.",
+    "inicio": 265.24,
+    "fin": 265.52,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 15,
+  "texto": "En abril, el patrón tocó a personas reales. La página publicó que el reggaetonero Onien Bebeschito y su esposa habían viajado a Cuba en secreto, con imágenes generadas con inteligencia artificial. Bebeschito con su residencia estadounidense antes de abordar un vuelo de cubana de aviación y la pareja frente al hotel Havana Libre. Todo fabricado.",
+  "palabras": [
+   {
+    "palabra": "En",
+    "inicio": 267.56,
+    "fin": 267.86,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "abril,",
+    "inicio": 267.86,
+    "fin": 268.22,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 268.42,
+    "fin": 268.52,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "patrón",
+    "inicio": 268.52,
+    "fin": 268.92,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "tocó",
+    "inicio": 268.92,
+    "fin": 269.32,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "a",
+    "inicio": 269.32,
+    "fin": 269.38,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "personas",
+    "inicio": 269.38,
+    "fin": 269.7,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "reales.",
+    "inicio": 269.7,
+    "fin": 270.32,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "La",
+    "inicio": 270.52,
+    "fin": 270.6,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "página",
+    "inicio": 270.6,
+    "fin": 270.8,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "publicó",
+    "inicio": 270.8,
+    "fin": 271.36,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 271.36,
+    "fin": 271.46,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 271.46,
+    "fin": 271.54,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "reggaetonero",
+    "inicio": 271.54,
+    "fin": 272.14,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "Onien",
+    "inicio": 272.14,
+    "fin": 272.44,
+    "probabilidad": 0.29
+   },
+   {
+    "palabra": "Bebeschito",
+    "inicio": 272.44,
+    "fin": 273.02,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "y",
+    "inicio": 273.02,
+    "fin": 273.22,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "su",
+    "inicio": 273.22,
+    "fin": 273.36,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "esposa",
+    "inicio": 273.36,
+    "fin": 273.8,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "habían",
+    "inicio": 273.8,
+    "fin": 274.12,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "viajado",
+    "inicio": 274.12,
+    "fin": 274.62,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "a",
+    "inicio": 274.62,
+    "fin": 274.72,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Cuba",
+    "inicio": 274.72,
+    "fin": 274.84,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "en",
+    "inicio": 274.84,
+    "fin": 275.06,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "secreto,",
+    "inicio": 275.06,
+    "fin": 275.62,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "con",
+    "inicio": 275.72,
+    "fin": 275.88,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "imágenes",
+    "inicio": 275.88,
+    "fin": 276.2,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "generadas",
+    "inicio": 276.2,
+    "fin": 276.64,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "con",
+    "inicio": 276.64,
+    "fin": 276.84,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "inteligencia",
+    "inicio": 276.84,
+    "fin": 277.32,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "artificial.",
+    "inicio": 277.32,
+    "fin": 277.8,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Bebeschito",
+    "inicio": 278.48,
+    "fin": 279.02,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "con",
+    "inicio": 279.02,
+    "fin": 279.18,
+    "probabilidad": 0.69
+   },
+   {
+    "palabra": "su",
+    "inicio": 279.18,
+    "fin": 279.36,
+    "probabilidad": 0.17
+   },
+   {
+    "palabra": "residencia",
+    "inicio": 279.36,
+    "fin": 279.92,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "estadounidense",
+    "inicio": 279.92,
+    "fin": 280.72,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "antes",
+    "inicio": 280.72,
+    "fin": 281.08,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "de",
+    "inicio": 281.08,
+    "fin": 281.4,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "abordar",
+    "inicio": 281.4,
+    "fin": 281.8,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "un",
+    "inicio": 281.8,
+    "fin": 281.94,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "vuelo",
+    "inicio": 281.94,
+    "fin": 282.36,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 282.36,
+    "fin": 282.76,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "cubana",
+    "inicio": 282.76,
+    "fin": 283.04,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "de",
+    "inicio": 283.04,
+    "fin": 283.22,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "aviación",
+    "inicio": 283.22,
+    "fin": 283.62,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "y",
+    "inicio": 283.62,
+    "fin": 283.88,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "la",
+    "inicio": 283.88,
+    "fin": 283.98,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "pareja",
+    "inicio": 283.98,
+    "fin": 284.36,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "frente",
+    "inicio": 284.36,
+    "fin": 284.62,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "al",
+    "inicio": 284.62,
+    "fin": 284.9,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "hotel",
+    "inicio": 284.9,
+    "fin": 285.1,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "Havana",
+    "inicio": 285.1,
+    "fin": 285.46,
+    "probabilidad": 0.53
+   },
+   {
+    "palabra": "Libre.",
+    "inicio": 285.46,
+    "fin": 285.84,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "Todo",
+    "inicio": 286.58,
+    "fin": 286.78,
+    "probabilidad": 0.83
+   },
+   {
+    "palabra": "fabricado.",
+    "inicio": 286.78,
+    "fin": 287.44,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 16,
+  "texto": "Bebeschito tuvo que desmentirlo en persona. Un creador de la plataforma familia cubana lo abordó mientras preparaba un videoclip y respondió. Esto también es falso. No he salido de Estados Unidos. Un artista teniendo que demostrar que no hizo un viaje que nunca hizo.",
+  "palabras": [
+   {
+    "palabra": "Bebeschito",
+    "inicio": 288.46,
+    "fin": 289.0,
+    "probabilidad": 0.57
+   },
+   {
+    "palabra": "tuvo",
+    "inicio": 289.0,
+    "fin": 289.18,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 289.18,
+    "fin": 289.32,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "desmentirlo",
+    "inicio": 289.32,
+    "fin": 289.98,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "en",
+    "inicio": 289.98,
+    "fin": 290.06,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "persona.",
+    "inicio": 290.06,
+    "fin": 290.46,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Un",
+    "inicio": 290.82,
+    "fin": 290.92,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "creador",
+    "inicio": 290.92,
+    "fin": 291.26,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 291.26,
+    "fin": 291.4,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "la",
+    "inicio": 291.4,
+    "fin": 291.5,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "plataforma",
+    "inicio": 291.5,
+    "fin": 291.82,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "familia",
+    "inicio": 291.82,
+    "fin": 292.24,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "cubana",
+    "inicio": 292.24,
+    "fin": 292.72,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "lo",
+    "inicio": 292.72,
+    "fin": 292.88,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "abordó",
+    "inicio": 292.88,
+    "fin": 293.3,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "mientras",
+    "inicio": 293.3,
+    "fin": 293.5,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "preparaba",
+    "inicio": 293.5,
+    "fin": 294.26,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "un",
+    "inicio": 294.26,
+    "fin": 294.46,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "videoclip",
+    "inicio": 294.46,
+    "fin": 294.94,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 294.94,
+    "fin": 295.1,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "respondió.",
+    "inicio": 295.1,
+    "fin": 295.64,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Esto",
+    "inicio": 296.2,
+    "fin": 296.52,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "también",
+    "inicio": 296.52,
+    "fin": 296.78,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "es",
+    "inicio": 296.78,
+    "fin": 297.1,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "falso.",
+    "inicio": 297.1,
+    "fin": 297.44,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "No",
+    "inicio": 297.82,
+    "fin": 297.92,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "he",
+    "inicio": 297.92,
+    "fin": 298.02,
+    "probabilidad": 0.5
+   },
+   {
+    "palabra": "salido",
+    "inicio": 298.02,
+    "fin": 298.36,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "de",
+    "inicio": 298.36,
+    "fin": 298.48,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Estados",
+    "inicio": 298.48,
+    "fin": 298.68,
+    "probabilidad": 0.71
+   },
+   {
+    "palabra": "Unidos.",
+    "inicio": 298.68,
+    "fin": 299.12,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Un",
+    "inicio": 299.74,
+    "fin": 299.92,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "artista",
+    "inicio": 299.92,
+    "fin": 300.3,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "teniendo",
+    "inicio": 300.3,
+    "fin": 300.68,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "que",
+    "inicio": 300.68,
+    "fin": 300.84,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "demostrar",
+    "inicio": 300.84,
+    "fin": 301.32,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "que",
+    "inicio": 301.32,
+    "fin": 301.54,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "no",
+    "inicio": 301.54,
+    "fin": 301.68,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "hizo",
+    "inicio": 301.68,
+    "fin": 301.9,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "un",
+    "inicio": 301.9,
+    "fin": 302.04,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "viaje",
+    "inicio": 302.04,
+    "fin": 302.28,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "que",
+    "inicio": 302.28,
+    "fin": 302.64,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "nunca",
+    "inicio": 302.64,
+    "fin": 302.88,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "hizo.",
+    "inicio": 302.88,
+    "fin": 303.3,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 17,
+  "texto": "En junio, el bulo salió del fit y llegó a una institución pública. La página originó la historia de que Cristiano Ronaldo había donado 250 paneles solares a Cuba. Dos fuentes independientes la señalan como el origen y hacer puto y el poder digital. El toque la verificó como falso. No había evidencia en los canales oficiales de Ronaldo ni en su fundación ni en ninguna agencia de prensa. El analista Daguito Valdés lo llamó el fake del año.",
+  "palabras": [
+   {
+    "palabra": "En",
+    "inicio": 304.12,
+    "fin": 304.58,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "junio,",
+    "inicio": 304.58,
+    "fin": 304.94,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "el",
+    "inicio": 305.12,
+    "fin": 305.16,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "bulo",
+    "inicio": 305.16,
+    "fin": 305.4,
+    "probabilidad": 0.62
+   },
+   {
+    "palabra": "salió",
+    "inicio": 305.4,
+    "fin": 305.7,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "del",
+    "inicio": 305.7,
+    "fin": 305.84,
+    "probabilidad": 0.63
+   },
+   {
+    "palabra": "fit",
+    "inicio": 305.84,
+    "fin": 306.08,
+    "probabilidad": 0.25
+   },
+   {
+    "palabra": "y",
+    "inicio": 306.08,
+    "fin": 306.4,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "llegó",
+    "inicio": 306.4,
+    "fin": 306.62,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "a",
+    "inicio": 306.62,
+    "fin": 306.88,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "una",
+    "inicio": 306.88,
+    "fin": 307.02,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "institución",
+    "inicio": 307.02,
+    "fin": 307.7,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "pública.",
+    "inicio": 307.7,
+    "fin": 308.18,
+    "probabilidad": 0.09
+   },
+   {
+    "palabra": "La",
+    "inicio": 308.48,
+    "fin": 308.58,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "página",
+    "inicio": 308.58,
+    "fin": 308.76,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "originó",
+    "inicio": 308.76,
+    "fin": 309.32,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "la",
+    "inicio": 309.32,
+    "fin": 309.48,
+    "probabilidad": 0.75
+   },
+   {
+    "palabra": "historia",
+    "inicio": 309.48,
+    "fin": 309.82,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 309.82,
+    "fin": 310.08,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "que",
+    "inicio": 310.08,
+    "fin": 310.18,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Cristiano",
+    "inicio": 310.18,
+    "fin": 310.56,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Ronaldo",
+    "inicio": 310.56,
+    "fin": 311.08,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "había",
+    "inicio": 311.08,
+    "fin": 311.4,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "donado",
+    "inicio": 311.4,
+    "fin": 311.8,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "250",
+    "inicio": 311.8,
+    "fin": 312.26,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "paneles",
+    "inicio": 312.26,
+    "fin": 313.1,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "solares",
+    "inicio": 313.1,
+    "fin": 313.36,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "a",
+    "inicio": 313.36,
+    "fin": 313.56,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Cuba.",
+    "inicio": 313.56,
+    "fin": 313.8,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Dos",
+    "inicio": 314.5,
+    "fin": 314.72,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "fuentes",
+    "inicio": 314.72,
+    "fin": 314.98,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "independientes",
+    "inicio": 314.98,
+    "fin": 315.62,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "la",
+    "inicio": 315.62,
+    "fin": 315.84,
+    "probabilidad": 0.77
+   },
+   {
+    "palabra": "señalan",
+    "inicio": 315.84,
+    "fin": 316.28,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "como",
+    "inicio": 316.28,
+    "fin": 316.52,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "el",
+    "inicio": 316.52,
+    "fin": 316.66,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "origen",
+    "inicio": 316.66,
+    "fin": 317.0,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "y",
+    "inicio": 317.0,
+    "fin": 317.22,
+    "probabilidad": 0.68
+   },
+   {
+    "palabra": "hacer",
+    "inicio": 317.22,
+    "fin": 317.42,
+    "probabilidad": 0.82
+   },
+   {
+    "palabra": "puto",
+    "inicio": 317.42,
+    "fin": 317.96,
+    "probabilidad": 0.62
+   },
+   {
+    "palabra": "y",
+    "inicio": 317.96,
+    "fin": 318.08,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "el",
+    "inicio": 318.08,
+    "fin": 318.2,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "poder",
+    "inicio": 318.2,
+    "fin": 318.36,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "digital.",
+    "inicio": 318.36,
+    "fin": 318.78,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "El",
+    "inicio": 319.2,
+    "fin": 319.38,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "toque",
+    "inicio": 319.38,
+    "fin": 319.64,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "la",
+    "inicio": 319.64,
+    "fin": 319.74,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "verificó",
+    "inicio": 319.74,
+    "fin": 320.2,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "como",
+    "inicio": 320.2,
+    "fin": 320.36,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "falso.",
+    "inicio": 320.36,
+    "fin": 320.92,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "No",
+    "inicio": 321.1,
+    "fin": 321.26,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "había",
+    "inicio": 321.26,
+    "fin": 321.46,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "evidencia",
+    "inicio": 321.46,
+    "fin": 322.02,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "en",
+    "inicio": 322.02,
+    "fin": 322.5,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "los",
+    "inicio": 322.5,
+    "fin": 322.6,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "canales",
+    "inicio": 322.6,
+    "fin": 322.9,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "oficiales",
+    "inicio": 322.9,
+    "fin": 323.66,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 323.66,
+    "fin": 323.78,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Ronaldo",
+    "inicio": 323.78,
+    "fin": 324.26,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "ni",
+    "inicio": 324.26,
+    "fin": 324.58,
+    "probabilidad": 0.83
+   },
+   {
+    "palabra": "en",
+    "inicio": 324.58,
+    "fin": 324.66,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "su",
+    "inicio": 324.66,
+    "fin": 324.8,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "fundación",
+    "inicio": 324.8,
+    "fin": 325.44,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "ni",
+    "inicio": 325.44,
+    "fin": 326.2,
+    "probabilidad": 0.61
+   },
+   {
+    "palabra": "en",
+    "inicio": 326.2,
+    "fin": 326.28,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "ninguna",
+    "inicio": 326.28,
+    "fin": 326.6,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "agencia",
+    "inicio": 326.6,
+    "fin": 327.04,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 327.04,
+    "fin": 327.24,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "prensa.",
+    "inicio": 327.24,
+    "fin": 327.64,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "El",
+    "inicio": 327.86,
+    "fin": 327.98,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "analista",
+    "inicio": 327.98,
+    "fin": 328.36,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Daguito",
+    "inicio": 328.36,
+    "fin": 328.66,
+    "probabilidad": 0.54
+   },
+   {
+    "palabra": "Valdés",
+    "inicio": 328.66,
+    "fin": 329.12,
+    "probabilidad": 0.61
+   },
+   {
+    "palabra": "lo",
+    "inicio": 329.12,
+    "fin": 329.34,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "llamó",
+    "inicio": 329.34,
+    "fin": 329.74,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "el",
+    "inicio": 329.74,
+    "fin": 329.96,
+    "probabilidad": 0.39
+   },
+   {
+    "palabra": "fake",
+    "inicio": 329.96,
+    "fin": 330.26,
+    "probabilidad": 0.13
+   },
+   {
+    "palabra": "del",
+    "inicio": 330.26,
+    "fin": 330.7,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "año.",
+    "inicio": 330.7,
+    "fin": 331.0,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 18,
+  "texto": "Pero antes de que el desmentido llegara, una institución del Estado lo publicó como cierto. En 22 de junio, la Dirección Provisial de Salud de Cienfuegos publicó en su cuenta oficial que Ronaldo había sellado una alianza histórica con el gobierno cubano para donar 250 paneles solares, baterías y repuestos. Horas después, la institución borró pos sin dar explicaciones. Pero el toque documentó que el bulo ya se había replicado en grupos y en otras cuentas vinculadas a instituciones estatales.",
+  "palabras": [
+   {
+    "palabra": "Pero",
+    "inicio": 332.14,
+    "fin": 332.44,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "antes",
+    "inicio": 332.44,
+    "fin": 332.62,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "de",
+    "inicio": 332.62,
+    "fin": 332.78,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "que",
+    "inicio": 332.78,
+    "fin": 332.86,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "el",
+    "inicio": 332.86,
+    "fin": 333.02,
+    "probabilidad": 0.77
+   },
+   {
+    "palabra": "desmentido",
+    "inicio": 333.02,
+    "fin": 333.54,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "llegara,",
+    "inicio": 333.54,
+    "fin": 333.96,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "una",
+    "inicio": 333.96,
+    "fin": 334.3,
+    "probabilidad": 0.17
+   },
+   {
+    "palabra": "institución",
+    "inicio": 334.3,
+    "fin": 334.74,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "del",
+    "inicio": 334.74,
+    "fin": 334.92,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "Estado",
+    "inicio": 334.92,
+    "fin": 335.36,
+    "probabilidad": 0.49
+   },
+   {
+    "palabra": "lo",
+    "inicio": 335.36,
+    "fin": 335.58,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "publicó",
+    "inicio": 335.58,
+    "fin": 336.02,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "como",
+    "inicio": 336.02,
+    "fin": 336.2,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "cierto.",
+    "inicio": 336.2,
+    "fin": 336.7,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "En",
+    "inicio": 337.1,
+    "fin": 337.2,
+    "probabilidad": 0.61
+   },
+   {
+    "palabra": "22",
+    "inicio": 337.2,
+    "fin": 337.56,
+    "probabilidad": 0.44
+   },
+   {
+    "palabra": "de",
+    "inicio": 337.56,
+    "fin": 337.7,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "junio,",
+    "inicio": 337.7,
+    "fin": 338.0,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "la",
+    "inicio": 338.16,
+    "fin": 338.18,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "Dirección",
+    "inicio": 338.18,
+    "fin": 338.6,
+    "probabilidad": 0.82
+   },
+   {
+    "palabra": "Provisial",
+    "inicio": 338.6,
+    "fin": 339.08,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "de",
+    "inicio": 339.08,
+    "fin": 339.22,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Salud",
+    "inicio": 339.22,
+    "fin": 339.5,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "de",
+    "inicio": 339.5,
+    "fin": 339.64,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "Cienfuegos",
+    "inicio": 339.64,
+    "fin": 340.16,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "publicó",
+    "inicio": 340.16,
+    "fin": 340.64,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "en",
+    "inicio": 340.64,
+    "fin": 340.72,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "su",
+    "inicio": 340.72,
+    "fin": 340.84,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "cuenta",
+    "inicio": 340.84,
+    "fin": 341.12,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "oficial",
+    "inicio": 341.12,
+    "fin": 341.58,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "que",
+    "inicio": 341.58,
+    "fin": 341.94,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "Ronaldo",
+    "inicio": 341.94,
+    "fin": 342.3,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "había",
+    "inicio": 342.3,
+    "fin": 342.58,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "sellado",
+    "inicio": 342.58,
+    "fin": 343.06,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "una",
+    "inicio": 343.06,
+    "fin": 343.7,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "alianza",
+    "inicio": 343.7,
+    "fin": 344.4,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "histórica",
+    "inicio": 344.4,
+    "fin": 345.06,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "con",
+    "inicio": 345.06,
+    "fin": 345.34,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "el",
+    "inicio": 345.34,
+    "fin": 345.46,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "gobierno",
+    "inicio": 345.46,
+    "fin": 345.66,
+    "probabilidad": 0.75
+   },
+   {
+    "palabra": "cubano",
+    "inicio": 345.66,
+    "fin": 346.12,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "para",
+    "inicio": 346.12,
+    "fin": 346.34,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "donar",
+    "inicio": 346.34,
+    "fin": 346.66,
+    "probabilidad": 0.73
+   },
+   {
+    "palabra": "250",
+    "inicio": 346.66,
+    "fin": 347.02,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "paneles",
+    "inicio": 347.02,
+    "fin": 347.84,
+    "probabilidad": 0.76
+   },
+   {
+    "palabra": "solares,",
+    "inicio": 347.84,
+    "fin": 348.14,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "baterías",
+    "inicio": 348.34,
+    "fin": 348.74,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 348.74,
+    "fin": 348.96,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "repuestos.",
+    "inicio": 348.96,
+    "fin": 349.48,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "Horas",
+    "inicio": 350.08,
+    "fin": 350.4,
+    "probabilidad": 0.66
+   },
+   {
+    "palabra": "después,",
+    "inicio": 350.4,
+    "fin": 350.72,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "la",
+    "inicio": 351.06,
+    "fin": 351.08,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "institución",
+    "inicio": 351.08,
+    "fin": 351.68,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "borró",
+    "inicio": 351.68,
+    "fin": 352.0,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "pos",
+    "inicio": 352.0,
+    "fin": 352.32,
+    "probabilidad": 0.3
+   },
+   {
+    "palabra": "sin",
+    "inicio": 352.32,
+    "fin": 352.72,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "dar",
+    "inicio": 352.72,
+    "fin": 352.84,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "explicaciones.",
+    "inicio": 352.84,
+    "fin": 353.46,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Pero",
+    "inicio": 353.96,
+    "fin": 354.14,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "el",
+    "inicio": 354.14,
+    "fin": 354.34,
+    "probabilidad": 0.61
+   },
+   {
+    "palabra": "toque",
+    "inicio": 354.34,
+    "fin": 354.52,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "documentó",
+    "inicio": 354.52,
+    "fin": 355.06,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 355.06,
+    "fin": 355.16,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 355.16,
+    "fin": 355.3,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "bulo",
+    "inicio": 355.3,
+    "fin": 355.68,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "ya",
+    "inicio": 355.68,
+    "fin": 355.84,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "se",
+    "inicio": 355.84,
+    "fin": 355.96,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "había",
+    "inicio": 355.96,
+    "fin": 356.14,
+    "probabilidad": 0.83
+   },
+   {
+    "palabra": "replicado",
+    "inicio": 356.14,
+    "fin": 356.76,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "en",
+    "inicio": 356.76,
+    "fin": 356.9,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "grupos",
+    "inicio": 356.9,
+    "fin": 357.14,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 357.14,
+    "fin": 357.38,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "en",
+    "inicio": 357.38,
+    "fin": 357.48,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "otras",
+    "inicio": 357.48,
+    "fin": 357.62,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "cuentas",
+    "inicio": 357.62,
+    "fin": 358.0,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "vinculadas",
+    "inicio": 358.0,
+    "fin": 358.5,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "a",
+    "inicio": 358.5,
+    "fin": 358.64,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "instituciones",
+    "inicio": 358.64,
+    "fin": 359.16,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "estatales.",
+    "inicio": 359.16,
+    "fin": 359.94,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 19,
+  "texto": "Cuba atravesaba una crisis energética con apagones de más de 30 horas seguidas. La promesa de 250 paneles solares no se compartió porque fuera creíble, se compartió porque era deseable. Y eso es lo que lo hace peligroso. No apela la razón, apela a la esperanza.",
+  "palabras": [
+   {
+    "palabra": "Cuba",
+    "inicio": 361.3,
+    "fin": 361.94,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "atravesaba",
+    "inicio": 361.94,
+    "fin": 362.48,
+    "probabilidad": 0.7
+   },
+   {
+    "palabra": "una",
+    "inicio": 362.48,
+    "fin": 362.68,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "crisis",
+    "inicio": 362.68,
+    "fin": 362.88,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "energética",
+    "inicio": 362.88,
+    "fin": 363.46,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "con",
+    "inicio": 363.46,
+    "fin": 363.7,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "apagones",
+    "inicio": 363.7,
+    "fin": 364.28,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 364.28,
+    "fin": 364.52,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "más",
+    "inicio": 364.52,
+    "fin": 364.64,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "de",
+    "inicio": 364.64,
+    "fin": 364.78,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "30",
+    "inicio": 364.78,
+    "fin": 365.02,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "horas",
+    "inicio": 365.02,
+    "fin": 365.3,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "seguidas.",
+    "inicio": 365.3,
+    "fin": 365.82,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "La",
+    "inicio": 366.4,
+    "fin": 366.6,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "promesa",
+    "inicio": 366.6,
+    "fin": 367.06,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 367.06,
+    "fin": 367.38,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "250",
+    "inicio": 367.38,
+    "fin": 367.8,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "paneles",
+    "inicio": 367.8,
+    "fin": 368.56,
+    "probabilidad": 0.84
+   },
+   {
+    "palabra": "solares",
+    "inicio": 368.56,
+    "fin": 368.9,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "no",
+    "inicio": 368.9,
+    "fin": 369.16,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "se",
+    "inicio": 369.16,
+    "fin": 369.28,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "compartió",
+    "inicio": 369.28,
+    "fin": 369.9,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "porque",
+    "inicio": 369.9,
+    "fin": 370.12,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "fuera",
+    "inicio": 370.12,
+    "fin": 370.38,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "creíble,",
+    "inicio": 370.38,
+    "fin": 370.94,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "se",
+    "inicio": 371.1,
+    "fin": 371.16,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "compartió",
+    "inicio": 371.16,
+    "fin": 371.64,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "porque",
+    "inicio": 371.64,
+    "fin": 371.88,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "era",
+    "inicio": 371.88,
+    "fin": 372.1,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "deseable.",
+    "inicio": 372.1,
+    "fin": 372.9,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "Y",
+    "inicio": 373.26,
+    "fin": 373.46,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "eso",
+    "inicio": 373.46,
+    "fin": 373.74,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "es",
+    "inicio": 373.74,
+    "fin": 373.96,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "lo",
+    "inicio": 373.96,
+    "fin": 374.08,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "que",
+    "inicio": 374.08,
+    "fin": 374.18,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "lo",
+    "inicio": 374.18,
+    "fin": 374.3,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "hace",
+    "inicio": 374.3,
+    "fin": 374.52,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "peligroso.",
+    "inicio": 374.52,
+    "fin": 375.38,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "No",
+    "inicio": 375.62,
+    "fin": 375.84,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "apela",
+    "inicio": 375.84,
+    "fin": 376.08,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "la",
+    "inicio": 376.08,
+    "fin": 376.24,
+    "probabilidad": 0.56
+   },
+   {
+    "palabra": "razón,",
+    "inicio": 376.24,
+    "fin": 376.62,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "apela",
+    "inicio": 377.06,
+    "fin": 377.44,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "a",
+    "inicio": 377.44,
+    "fin": 377.88,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "la",
+    "inicio": 377.88,
+    "fin": 377.98,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "esperanza.",
+    "inicio": 377.98,
+    "fin": 378.68,
+    "probabilidad": 1.0
+   }
+  ]
+ },
+ {
+  "linea": 20,
+  "texto": "Y el último caso documentado es en más grave. En julio, la página publicó que Damian Valdés Galloso, el acusado de asesinar al Tiger, había sido condenado a 60 años. Falso. El juicio ni siquiera había empezado. Teresa María Padrón lo denunció en un reel del 10 de julio.",
+  "palabras": [
+   {
+    "palabra": "Y",
+    "inicio": 379.36,
+    "fin": 379.52,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "el",
+    "inicio": 379.52,
+    "fin": 379.6,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "último",
+    "inicio": 379.6,
+    "fin": 379.82,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "caso",
+    "inicio": 379.82,
+    "fin": 380.08,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "documentado",
+    "inicio": 380.08,
+    "fin": 380.78,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "es",
+    "inicio": 380.78,
+    "fin": 380.98,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "en",
+    "inicio": 380.98,
+    "fin": 381.1,
+    "probabilidad": 0.61
+   },
+   {
+    "palabra": "más",
+    "inicio": 381.1,
+    "fin": 381.26,
+    "probabilidad": 0.63
+   },
+   {
+    "palabra": "grave.",
+    "inicio": 381.26,
+    "fin": 381.58,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "En",
+    "inicio": 381.88,
+    "fin": 382.0,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "julio,",
+    "inicio": 382.0,
+    "fin": 382.48,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "la",
+    "inicio": 382.66,
+    "fin": 382.68,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "página",
+    "inicio": 382.68,
+    "fin": 382.86,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "publicó",
+    "inicio": 382.86,
+    "fin": 383.38,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 383.38,
+    "fin": 383.5,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Damian",
+    "inicio": 383.5,
+    "fin": 383.84,
+    "probabilidad": 0.61
+   },
+   {
+    "palabra": "Valdés",
+    "inicio": 383.84,
+    "fin": 384.34,
+    "probabilidad": 0.28
+   },
+   {
+    "palabra": "Galloso,",
+    "inicio": 384.34,
+    "fin": 384.8,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "el",
+    "inicio": 385.04,
+    "fin": 385.14,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "acusado",
+    "inicio": 385.14,
+    "fin": 385.5,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 385.5,
+    "fin": 385.62,
+    "probabilidad": 0.69
+   },
+   {
+    "palabra": "asesinar",
+    "inicio": 385.62,
+    "fin": 385.96,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "al",
+    "inicio": 385.96,
+    "fin": 386.14,
+    "probabilidad": 0.43
+   },
+   {
+    "palabra": "Tiger,",
+    "inicio": 386.14,
+    "fin": 386.52,
+    "probabilidad": 0.55
+   },
+   {
+    "palabra": "había",
+    "inicio": 387.12,
+    "fin": 387.36,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "sido",
+    "inicio": 387.36,
+    "fin": 387.72,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "condenado",
+    "inicio": 387.72,
+    "fin": 388.26,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "a",
+    "inicio": 388.26,
+    "fin": 388.32,
+    "probabilidad": 0.65
+   },
+   {
+    "palabra": "60",
+    "inicio": 388.32,
+    "fin": 388.58,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "años.",
+    "inicio": 388.58,
+    "fin": 389.1,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Falso.",
+    "inicio": 389.58,
+    "fin": 390.06,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "El",
+    "inicio": 390.66,
+    "fin": 390.82,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "juicio",
+    "inicio": 390.82,
+    "fin": 391.08,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "ni",
+    "inicio": 391.08,
+    "fin": 391.28,
+    "probabilidad": 0.12
+   },
+   {
+    "palabra": "siquiera",
+    "inicio": 391.28,
+    "fin": 391.54,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "había",
+    "inicio": 391.54,
+    "fin": 391.72,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "empezado.",
+    "inicio": 391.72,
+    "fin": 392.36,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Teresa",
+    "inicio": 392.6,
+    "fin": 392.76,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "María",
+    "inicio": 392.76,
+    "fin": 393.16,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "Padrón",
+    "inicio": 393.16,
+    "fin": 393.62,
+    "probabilidad": 0.78
+   },
+   {
+    "palabra": "lo",
+    "inicio": 393.62,
+    "fin": 393.76,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "denunció",
+    "inicio": 393.76,
+    "fin": 394.38,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "en",
+    "inicio": 394.38,
+    "fin": 394.6,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "un",
+    "inicio": 394.6,
+    "fin": 394.76,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "reel",
+    "inicio": 394.76,
+    "fin": 394.98,
+    "probabilidad": 0.29
+   },
+   {
+    "palabra": "del",
+    "inicio": 394.98,
+    "fin": 395.3,
+    "probabilidad": 0.41
+   },
+   {
+    "palabra": "10",
+    "inicio": 395.3,
+    "fin": 395.44,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 395.44,
+    "fin": 395.6,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "julio.",
+    "inicio": 395.6,
+    "fin": 395.92,
+    "probabilidad": 0.91
+   }
+  ]
+ },
+ {
+  "linea": 21,
+  "texto": "La confirmación llegó en noviembre. La Corte Criminal de Miami -Dade fijó el inicio del juicio para el 1º de marzo de 2027. Es decir, cuando la página publicó la condena faltaban 8 meses para que el juicio empezara. Ninguna condena existía en julio de 2026. Y ninguna existe hoy. El acusado se declaró no culpable y permanece detenido sin fianza.",
+  "palabras": [
+   {
+    "palabra": "La",
+    "inicio": 396.24,
+    "fin": 396.42,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "confirmación",
+    "inicio": 396.42,
+    "fin": 397.0,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "llegó",
+    "inicio": 397.0,
+    "fin": 397.38,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "en",
+    "inicio": 397.38,
+    "fin": 397.7,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "noviembre.",
+    "inicio": 397.7,
+    "fin": 398.22,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "La",
+    "inicio": 398.52,
+    "fin": 398.6,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "Corte",
+    "inicio": 398.6,
+    "fin": 398.78,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "Criminal",
+    "inicio": 398.78,
+    "fin": 399.14,
+    "probabilidad": 0.43
+   },
+   {
+    "palabra": "de",
+    "inicio": 399.14,
+    "fin": 399.36,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Miami",
+    "inicio": 399.36,
+    "fin": 399.58,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "-Dade",
+    "inicio": 399.58,
+    "fin": 399.96,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "fijó",
+    "inicio": 399.96,
+    "fin": 400.56,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "el",
+    "inicio": 400.56,
+    "fin": 401.18,
+    "probabilidad": 0.81
+   },
+   {
+    "palabra": "inicio",
+    "inicio": 401.18,
+    "fin": 401.62,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "del",
+    "inicio": 401.62,
+    "fin": 401.8,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "juicio",
+    "inicio": 401.8,
+    "fin": 402.12,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "para",
+    "inicio": 402.12,
+    "fin": 402.36,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "el",
+    "inicio": 402.36,
+    "fin": 402.48,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "1º",
+    "inicio": 402.48,
+    "fin": 402.74,
+    "probabilidad": 0.51
+   },
+   {
+    "palabra": "de",
+    "inicio": 402.74,
+    "fin": 402.82,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "marzo",
+    "inicio": 402.82,
+    "fin": 403.12,
+    "probabilidad": 0.7
+   },
+   {
+    "palabra": "de",
+    "inicio": 403.12,
+    "fin": 403.24,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "2027.",
+    "inicio": 403.24,
+    "fin": 403.98,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "Es",
+    "inicio": 404.48,
+    "fin": 404.64,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "decir,",
+    "inicio": 404.64,
+    "fin": 404.96,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "cuando",
+    "inicio": 405.4,
+    "fin": 405.58,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "la",
+    "inicio": 405.58,
+    "fin": 405.76,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "página",
+    "inicio": 405.76,
+    "fin": 405.94,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "publicó",
+    "inicio": 405.94,
+    "fin": 406.48,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "la",
+    "inicio": 406.48,
+    "fin": 406.58,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "condena",
+    "inicio": 406.58,
+    "fin": 407.02,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "faltaban",
+    "inicio": 407.02,
+    "fin": 407.5,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "8",
+    "inicio": 407.5,
+    "fin": 407.76,
+    "probabilidad": 0.69
+   },
+   {
+    "palabra": "meses",
+    "inicio": 407.76,
+    "fin": 408.04,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "para",
+    "inicio": 408.04,
+    "fin": 408.34,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 408.34,
+    "fin": 408.46,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 408.46,
+    "fin": 408.56,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "juicio",
+    "inicio": 408.56,
+    "fin": 408.84,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "empezara.",
+    "inicio": 408.84,
+    "fin": 409.48,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Ninguna",
+    "inicio": 410.08,
+    "fin": 410.58,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "condena",
+    "inicio": 410.58,
+    "fin": 410.96,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "existía",
+    "inicio": 410.96,
+    "fin": 411.42,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "en",
+    "inicio": 411.42,
+    "fin": 411.54,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "julio",
+    "inicio": 411.54,
+    "fin": 411.84,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "de",
+    "inicio": 411.84,
+    "fin": 411.94,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "2026.",
+    "inicio": 411.94,
+    "fin": 412.64,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "Y",
+    "inicio": 413.0,
+    "fin": 413.24,
+    "probabilidad": 0.65
+   },
+   {
+    "palabra": "ninguna",
+    "inicio": 413.24,
+    "fin": 413.5,
+    "probabilidad": 0.56
+   },
+   {
+    "palabra": "existe",
+    "inicio": 413.5,
+    "fin": 413.92,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "hoy.",
+    "inicio": 413.92,
+    "fin": 414.18,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "El",
+    "inicio": 414.6,
+    "fin": 414.78,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "acusado",
+    "inicio": 414.78,
+    "fin": 415.18,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "se",
+    "inicio": 415.18,
+    "fin": 415.34,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "declaró",
+    "inicio": 415.34,
+    "fin": 415.72,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "no",
+    "inicio": 415.72,
+    "fin": 415.98,
+    "probabilidad": 0.81
+   },
+   {
+    "palabra": "culpable",
+    "inicio": 415.98,
+    "fin": 416.5,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 416.5,
+    "fin": 416.7,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "permanece",
+    "inicio": 416.7,
+    "fin": 417.14,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "detenido",
+    "inicio": 417.14,
+    "fin": 417.58,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "sin",
+    "inicio": 417.58,
+    "fin": 417.8,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "fianza.",
+    "inicio": 417.8,
+    "fin": 418.3,
+    "probabilidad": 0.98
+   }
+  ]
+ },
+ {
+  "linea": 22,
+  "texto": "La condena era inventada y la página que la inventó llevaba en nombre de la artista al que supuestamente homenagiaba.",
+  "palabras": [
+   {
+    "palabra": "La",
+    "inicio": 419.04,
+    "fin": 419.42,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "condena",
+    "inicio": 419.42,
+    "fin": 419.76,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "era",
+    "inicio": 419.76,
+    "fin": 419.84,
+    "probabilidad": 0.84
+   },
+   {
+    "palabra": "inventada",
+    "inicio": 419.84,
+    "fin": 420.52,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "y",
+    "inicio": 420.52,
+    "fin": 420.8,
+    "probabilidad": 0.4
+   },
+   {
+    "palabra": "la",
+    "inicio": 420.8,
+    "fin": 420.9,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "página",
+    "inicio": 420.9,
+    "fin": 421.06,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "que",
+    "inicio": 421.06,
+    "fin": 421.26,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "la",
+    "inicio": 421.26,
+    "fin": 421.36,
+    "probabilidad": 0.27
+   },
+   {
+    "palabra": "inventó",
+    "inicio": 421.36,
+    "fin": 421.84,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "llevaba",
+    "inicio": 421.84,
+    "fin": 422.1,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "en",
+    "inicio": 422.1,
+    "fin": 422.28,
+    "probabilidad": 0.59
+   },
+   {
+    "palabra": "nombre",
+    "inicio": 422.28,
+    "fin": 422.52,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 422.52,
+    "fin": 422.66,
+    "probabilidad": 0.4
+   },
+   {
+    "palabra": "la",
+    "inicio": 422.66,
+    "fin": 422.74,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "artista",
+    "inicio": 422.74,
+    "fin": 423.3,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "al",
+    "inicio": 423.3,
+    "fin": 423.6,
+    "probabilidad": 0.66
+   },
+   {
+    "palabra": "que",
+    "inicio": 423.6,
+    "fin": 423.72,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "supuestamente",
+    "inicio": 423.72,
+    "fin": 424.42,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "homenagiaba.",
+    "inicio": 424.42,
+    "fin": 425.32,
+    "probabilidad": 0.84
+   }
+  ]
+ },
+ {
+  "linea": 23,
+  "texto": "¿Por qué funcionó? Porque bulo no se comparte porque sea creíble, se comparte porque es deseable. Mésipo fina hablando de Cuba, Ronaldo donando paneles en medio de apagones de 30 horas. El asesino de Tiger ya condenado, cada caso decía lo que su público quería oír.",
+  "palabras": [
+   {
+    "palabra": "¿Por",
+    "inicio": 426.16,
+    "fin": 426.72,
+    "probabilidad": 0.85
+   },
+   {
+    "palabra": "qué",
+    "inicio": 426.72,
+    "fin": 426.86,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "funcionó?",
+    "inicio": 426.86,
+    "fin": 427.42,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "Porque",
+    "inicio": 427.9,
+    "fin": 428.22,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "bulo",
+    "inicio": 428.22,
+    "fin": 428.66,
+    "probabilidad": 0.46
+   },
+   {
+    "palabra": "no",
+    "inicio": 428.66,
+    "fin": 428.86,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "se",
+    "inicio": 428.86,
+    "fin": 428.98,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "comparte",
+    "inicio": 428.98,
+    "fin": 429.4,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "porque",
+    "inicio": 429.4,
+    "fin": 429.56,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "sea",
+    "inicio": 429.56,
+    "fin": 429.82,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "creíble,",
+    "inicio": 429.82,
+    "fin": 430.34,
+    "probabilidad": 0.77
+   },
+   {
+    "palabra": "se",
+    "inicio": 430.5,
+    "fin": 430.66,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "comparte",
+    "inicio": 430.66,
+    "fin": 431.18,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "porque",
+    "inicio": 431.18,
+    "fin": 431.46,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "es",
+    "inicio": 431.46,
+    "fin": 431.62,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "deseable.",
+    "inicio": 431.62,
+    "fin": 432.26,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "Mésipo",
+    "inicio": 432.62,
+    "fin": 432.98,
+    "probabilidad": 0.78
+   },
+   {
+    "palabra": "fina",
+    "inicio": 432.98,
+    "fin": 433.26,
+    "probabilidad": 0.53
+   },
+   {
+    "palabra": "hablando",
+    "inicio": 433.26,
+    "fin": 433.44,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 433.44,
+    "fin": 433.76,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Cuba,",
+    "inicio": 433.76,
+    "fin": 434.04,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Ronaldo",
+    "inicio": 434.44,
+    "fin": 434.72,
+    "probabilidad": 0.81
+   },
+   {
+    "palabra": "donando",
+    "inicio": 434.72,
+    "fin": 435.26,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "paneles",
+    "inicio": 435.26,
+    "fin": 435.7,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "en",
+    "inicio": 435.7,
+    "fin": 435.82,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "medio",
+    "inicio": 435.82,
+    "fin": 435.98,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "de",
+    "inicio": 435.98,
+    "fin": 436.14,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "apagones",
+    "inicio": 436.14,
+    "fin": 436.46,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 436.46,
+    "fin": 436.64,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "30",
+    "inicio": 436.64,
+    "fin": 436.94,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "horas.",
+    "inicio": 436.94,
+    "fin": 437.22,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "El",
+    "inicio": 437.86,
+    "fin": 437.98,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "asesino",
+    "inicio": 437.98,
+    "fin": 438.36,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 438.36,
+    "fin": 438.48,
+    "probabilidad": 0.75
+   },
+   {
+    "palabra": "Tiger",
+    "inicio": 438.48,
+    "fin": 438.78,
+    "probabilidad": 0.07
+   },
+   {
+    "palabra": "ya",
+    "inicio": 438.78,
+    "fin": 439.02,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "condenado,",
+    "inicio": 439.02,
+    "fin": 439.56,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "cada",
+    "inicio": 439.78,
+    "fin": 439.92,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "caso",
+    "inicio": 439.92,
+    "fin": 440.2,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "decía",
+    "inicio": 440.2,
+    "fin": 440.6,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "lo",
+    "inicio": 440.6,
+    "fin": 440.74,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "que",
+    "inicio": 440.74,
+    "fin": 440.84,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "su",
+    "inicio": 440.84,
+    "fin": 441.04,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "público",
+    "inicio": 441.04,
+    "fin": 441.42,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "quería",
+    "inicio": 441.42,
+    "fin": 441.92,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "oír.",
+    "inicio": 441.92,
+    "fin": 442.44,
+    "probabilidad": 0.93
+   }
+  ]
+ },
+ {
+  "linea": 24,
+  "texto": "Y porque tenía un escudo en nombre de un artista muerto al que el público le prestaba su confianza y porque desmentido no llega al fin donde circula el bulo. El toque verificó el caso de mesi al día siguiente, pero la réplica de post sigue en vivo 8 meses después con cientos de comentarios.",
+  "palabras": [
+   {
+    "palabra": "Y",
+    "inicio": 443.1,
+    "fin": 443.32,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "porque",
+    "inicio": 443.32,
+    "fin": 443.5,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "tenía",
+    "inicio": 443.5,
+    "fin": 443.74,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "un",
+    "inicio": 443.74,
+    "fin": 443.9,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "escudo",
+    "inicio": 443.9,
+    "fin": 444.34,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "en",
+    "inicio": 444.34,
+    "fin": 444.64,
+    "probabilidad": 0.59
+   },
+   {
+    "palabra": "nombre",
+    "inicio": 444.64,
+    "fin": 444.88,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "de",
+    "inicio": 444.88,
+    "fin": 445.06,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "un",
+    "inicio": 445.06,
+    "fin": 445.16,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "artista",
+    "inicio": 445.16,
+    "fin": 445.56,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "muerto",
+    "inicio": 445.56,
+    "fin": 446.0,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "al",
+    "inicio": 446.0,
+    "fin": 446.24,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "que",
+    "inicio": 446.24,
+    "fin": 446.4,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 446.4,
+    "fin": 446.58,
+    "probabilidad": 0.54
+   },
+   {
+    "palabra": "público",
+    "inicio": 446.58,
+    "fin": 446.78,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "le",
+    "inicio": 446.78,
+    "fin": 447.06,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "prestaba",
+    "inicio": 447.06,
+    "fin": 447.52,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "su",
+    "inicio": 447.52,
+    "fin": 447.7,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "confianza",
+    "inicio": 447.7,
+    "fin": 448.26,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "y",
+    "inicio": 448.26,
+    "fin": 448.44,
+    "probabilidad": 0.79
+   },
+   {
+    "palabra": "porque",
+    "inicio": 448.44,
+    "fin": 448.7,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "desmentido",
+    "inicio": 448.7,
+    "fin": 449.46,
+    "probabilidad": 0.56
+   },
+   {
+    "palabra": "no",
+    "inicio": 449.46,
+    "fin": 449.7,
+    "probabilidad": 0.64
+   },
+   {
+    "palabra": "llega",
+    "inicio": 449.7,
+    "fin": 450.1,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "al",
+    "inicio": 450.1,
+    "fin": 450.54,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "fin",
+    "inicio": 450.54,
+    "fin": 450.8,
+    "probabilidad": 0.08
+   },
+   {
+    "palabra": "donde",
+    "inicio": 450.8,
+    "fin": 450.98,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "circula",
+    "inicio": 450.98,
+    "fin": 451.46,
+    "probabilidad": 0.82
+   },
+   {
+    "palabra": "el",
+    "inicio": 451.46,
+    "fin": 451.56,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "bulo.",
+    "inicio": 451.56,
+    "fin": 451.92,
+    "probabilidad": 0.62
+   },
+   {
+    "palabra": "El",
+    "inicio": 452.22,
+    "fin": 452.34,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "toque",
+    "inicio": 452.34,
+    "fin": 452.54,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "verificó",
+    "inicio": 452.54,
+    "fin": 453.0,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "el",
+    "inicio": 453.0,
+    "fin": 453.12,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "caso",
+    "inicio": 453.12,
+    "fin": 453.32,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "de",
+    "inicio": 453.32,
+    "fin": 453.54,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "mesi",
+    "inicio": 453.54,
+    "fin": 453.8,
+    "probabilidad": 0.26
+   },
+   {
+    "palabra": "al",
+    "inicio": 453.8,
+    "fin": 453.9,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "día",
+    "inicio": 453.9,
+    "fin": 454.0,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "siguiente,",
+    "inicio": 454.0,
+    "fin": 454.44,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "pero",
+    "inicio": 455.0,
+    "fin": 455.2,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "la",
+    "inicio": 455.2,
+    "fin": 455.36,
+    "probabilidad": 0.58
+   },
+   {
+    "palabra": "réplica",
+    "inicio": 455.36,
+    "fin": 455.8,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 455.8,
+    "fin": 455.9,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "post",
+    "inicio": 455.9,
+    "fin": 456.18,
+    "probabilidad": 0.2
+   },
+   {
+    "palabra": "sigue",
+    "inicio": 456.18,
+    "fin": 456.62,
+    "probabilidad": 0.58
+   },
+   {
+    "palabra": "en",
+    "inicio": 456.62,
+    "fin": 456.74,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "vivo",
+    "inicio": 456.74,
+    "fin": 456.9,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "8",
+    "inicio": 456.9,
+    "fin": 457.14,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "meses",
+    "inicio": 457.14,
+    "fin": 457.36,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "después",
+    "inicio": 457.36,
+    "fin": 457.72,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "con",
+    "inicio": 457.72,
+    "fin": 458.1,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "cientos",
+    "inicio": 458.1,
+    "fin": 458.36,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 458.36,
+    "fin": 458.54,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "comentarios.",
+    "inicio": 458.54,
+    "fin": 459.06,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 25,
+  "texto": "Y la inteligencia artificial cambió el costo de fabricar. Una foto real, más una bandera añadida, una imagen generada entera, antes costaba tiempo de dinero. Ahora cuesta segundos.",
+  "palabras": [
+   {
+    "palabra": "Y",
+    "inicio": 459.84,
+    "fin": 460.04,
+    "probabilidad": 0.11
+   },
+   {
+    "palabra": "la",
+    "inicio": 460.04,
+    "fin": 460.1,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "inteligencia",
+    "inicio": 460.1,
+    "fin": 460.58,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "artificial",
+    "inicio": 460.58,
+    "fin": 461.1,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "cambió",
+    "inicio": 461.1,
+    "fin": 461.5,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "el",
+    "inicio": 461.5,
+    "fin": 461.62,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "costo",
+    "inicio": 461.62,
+    "fin": 461.94,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 461.94,
+    "fin": 462.02,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "fabricar.",
+    "inicio": 462.02,
+    "fin": 462.52,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Una",
+    "inicio": 462.76,
+    "fin": 462.9,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "foto",
+    "inicio": 462.9,
+    "fin": 463.1,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "real,",
+    "inicio": 463.1,
+    "fin": 463.52,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "más",
+    "inicio": 463.72,
+    "fin": 463.9,
+    "probabilidad": 0.63
+   },
+   {
+    "palabra": "una",
+    "inicio": 463.9,
+    "fin": 464.22,
+    "probabilidad": 0.82
+   },
+   {
+    "palabra": "bandera",
+    "inicio": 464.22,
+    "fin": 464.56,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "añadida,",
+    "inicio": 464.56,
+    "fin": 465.14,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "una",
+    "inicio": 465.26,
+    "fin": 465.38,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "imagen",
+    "inicio": 465.38,
+    "fin": 465.68,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "generada",
+    "inicio": 465.68,
+    "fin": 466.22,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "entera,",
+    "inicio": 466.22,
+    "fin": 466.66,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "antes",
+    "inicio": 467.06,
+    "fin": 467.44,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "costaba",
+    "inicio": 467.44,
+    "fin": 467.86,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "tiempo",
+    "inicio": 467.86,
+    "fin": 468.06,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "de",
+    "inicio": 468.06,
+    "fin": 468.24,
+    "probabilidad": 0.42
+   },
+   {
+    "palabra": "dinero.",
+    "inicio": 468.24,
+    "fin": 468.52,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Ahora",
+    "inicio": 468.8,
+    "fin": 468.92,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "cuesta",
+    "inicio": 468.92,
+    "fin": 469.34,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "segundos.",
+    "inicio": 469.34,
+    "fin": 469.8,
+    "probabilidad": 0.82
+   }
+  ]
+ },
+ {
+  "linea": 26,
+  "texto": "Por eso 3 comprobaciones, tardan menos de un minuto.",
+  "palabras": [
+   {
+    "palabra": "Por",
+    "inicio": 470.2,
+    "fin": 470.36,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "eso",
+    "inicio": 470.36,
+    "fin": 470.64,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "3",
+    "inicio": 470.64,
+    "fin": 471.0,
+    "probabilidad": 0.37
+   },
+   {
+    "palabra": "comprobaciones,",
+    "inicio": 471.0,
+    "fin": 471.68,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "tardan",
+    "inicio": 472.1,
+    "fin": 472.42,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "menos",
+    "inicio": 472.42,
+    "fin": 472.66,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 472.66,
+    "fin": 472.8,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "un",
+    "inicio": 472.8,
+    "fin": 472.9,
+    "probabilidad": 0.68
+   },
+   {
+    "palabra": "minuto.",
+    "inicio": 472.9,
+    "fin": 473.38,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 27,
+  "texto": "Primero, busca de inversa de la imagen. Sube la foto a un buscador de imágenes y mira cuando apareció por primera vez. La foto de Messi circulaba de 2022 sin bandera, un minuto y el caso se cae.",
+  "palabras": [
+   {
+    "palabra": "Primero,",
+    "inicio": 473.38,
+    "fin": 474.2,
+    "probabilidad": 0.4
+   },
+   {
+    "palabra": "busca",
+    "inicio": 474.44,
+    "fin": 475.08,
+    "probabilidad": 0.48
+   },
+   {
+    "palabra": "de",
+    "inicio": 475.08,
+    "fin": 475.24,
+    "probabilidad": 0.72
+   },
+   {
+    "palabra": "inversa",
+    "inicio": 475.24,
+    "fin": 475.72,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "de",
+    "inicio": 475.72,
+    "fin": 475.82,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "la",
+    "inicio": 475.82,
+    "fin": 475.9,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "imagen.",
+    "inicio": 475.9,
+    "fin": 476.18,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Sube",
+    "inicio": 476.64,
+    "fin": 476.92,
+    "probabilidad": 0.66
+   },
+   {
+    "palabra": "la",
+    "inicio": 476.92,
+    "fin": 477.04,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "foto",
+    "inicio": 477.04,
+    "fin": 477.26,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "a",
+    "inicio": 477.26,
+    "fin": 477.48,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "un",
+    "inicio": 477.48,
+    "fin": 477.58,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "buscador",
+    "inicio": 477.58,
+    "fin": 477.9,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 477.9,
+    "fin": 478.04,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "imágenes",
+    "inicio": 478.04,
+    "fin": 478.36,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 478.36,
+    "fin": 478.66,
+    "probabilidad": 0.68
+   },
+   {
+    "palabra": "mira",
+    "inicio": 478.66,
+    "fin": 478.84,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "cuando",
+    "inicio": 478.84,
+    "fin": 479.1,
+    "probabilidad": 0.49
+   },
+   {
+    "palabra": "apareció",
+    "inicio": 479.1,
+    "fin": 479.64,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "por",
+    "inicio": 479.64,
+    "fin": 479.8,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "primera",
+    "inicio": 479.8,
+    "fin": 480.08,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "vez.",
+    "inicio": 480.08,
+    "fin": 480.38,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "La",
+    "inicio": 481.08,
+    "fin": 481.26,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "foto",
+    "inicio": 481.26,
+    "fin": 481.44,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 481.44,
+    "fin": 481.62,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Messi",
+    "inicio": 481.62,
+    "fin": 481.76,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "circulaba",
+    "inicio": 481.76,
+    "fin": 482.4,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 482.4,
+    "fin": 482.58,
+    "probabilidad": 0.27
+   },
+   {
+    "palabra": "2022",
+    "inicio": 482.58,
+    "fin": 483.22,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "sin",
+    "inicio": 483.22,
+    "fin": 483.7,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "bandera,",
+    "inicio": 483.7,
+    "fin": 484.18,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "un",
+    "inicio": 484.38,
+    "fin": 484.52,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "minuto",
+    "inicio": 484.52,
+    "fin": 484.94,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 484.94,
+    "fin": 485.38,
+    "probabilidad": 0.55
+   },
+   {
+    "palabra": "el",
+    "inicio": 485.38,
+    "fin": 485.52,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "caso",
+    "inicio": 485.52,
+    "fin": 485.76,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "se",
+    "inicio": 485.76,
+    "fin": 485.96,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "cae.",
+    "inicio": 485.96,
+    "fin": 486.24,
+    "probabilidad": 0.98
+   }
+  ]
+ },
+ {
+  "linea": 28,
+  "texto": "Segunda, revisa los canales oficiales de la figura. Si Messi o Ronaldo hubieran dicho algo así, estarían sus cuentas. No estaba en ninguna. El silencio oficial también es un dato.",
+  "palabras": [
+   {
+    "palabra": "Segunda,",
+    "inicio": 487.06,
+    "fin": 487.58,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "revisa",
+    "inicio": 488.4,
+    "fin": 488.62,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "los",
+    "inicio": 488.62,
+    "fin": 488.78,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "canales",
+    "inicio": 488.78,
+    "fin": 489.08,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "oficiales",
+    "inicio": 489.08,
+    "fin": 489.74,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "de",
+    "inicio": 489.74,
+    "fin": 489.8,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "la",
+    "inicio": 489.8,
+    "fin": 489.9,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "figura.",
+    "inicio": 489.9,
+    "fin": 490.2,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Si",
+    "inicio": 490.56,
+    "fin": 490.66,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "Messi",
+    "inicio": 490.66,
+    "fin": 490.88,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "o",
+    "inicio": 490.88,
+    "fin": 491.02,
+    "probabilidad": 0.45
+   },
+   {
+    "palabra": "Ronaldo",
+    "inicio": 491.02,
+    "fin": 491.42,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "hubieran",
+    "inicio": 491.42,
+    "fin": 491.88,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "dicho",
+    "inicio": 491.88,
+    "fin": 492.26,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "algo",
+    "inicio": 492.26,
+    "fin": 492.52,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "así,",
+    "inicio": 492.52,
+    "fin": 492.76,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "estarían",
+    "inicio": 493.02,
+    "fin": 493.36,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "sus",
+    "inicio": 493.36,
+    "fin": 493.58,
+    "probabilidad": 0.81
+   },
+   {
+    "palabra": "cuentas.",
+    "inicio": 493.58,
+    "fin": 494.1,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "No",
+    "inicio": 494.38,
+    "fin": 494.44,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "estaba",
+    "inicio": 494.44,
+    "fin": 495.72,
+    "probabilidad": 0.79
+   },
+   {
+    "palabra": "en",
+    "inicio": 495.72,
+    "fin": 495.92,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "ninguna.",
+    "inicio": 495.92,
+    "fin": 496.22,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "El",
+    "inicio": 496.66,
+    "fin": 496.8,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "silencio",
+    "inicio": 496.8,
+    "fin": 497.12,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "oficial",
+    "inicio": 497.12,
+    "fin": 497.62,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "también",
+    "inicio": 497.62,
+    "fin": 498.14,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "es",
+    "inicio": 498.14,
+    "fin": 498.34,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "un",
+    "inicio": 498.34,
+    "fin": 498.44,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "dato.",
+    "inicio": 498.44,
+    "fin": 498.66,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 29,
+  "texto": "Tercera, busca las señales de inteligencia artificial. La foto de Messi llevaba la marca de agua de Yemeni. Estaba ahí, a la vista, para quien supiera buscarla.",
+  "palabras": [
+   {
+    "palabra": "Tercera,",
+    "inicio": 499.56,
+    "fin": 500.04,
+    "probabilidad": 0.5
+   },
+   {
+    "palabra": "busca",
+    "inicio": 500.44,
+    "fin": 500.6,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "las",
+    "inicio": 500.6,
+    "fin": 500.76,
+    "probabilidad": 0.89
+   },
+   {
+    "palabra": "señales",
+    "inicio": 500.76,
+    "fin": 501.12,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "de",
+    "inicio": 501.12,
+    "fin": 501.24,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "inteligencia",
+    "inicio": 501.24,
+    "fin": 501.72,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "artificial.",
+    "inicio": 501.72,
+    "fin": 502.2,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "La",
+    "inicio": 502.84,
+    "fin": 503.02,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "foto",
+    "inicio": 503.02,
+    "fin": 503.2,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "de",
+    "inicio": 503.2,
+    "fin": 503.4,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "Messi",
+    "inicio": 503.4,
+    "fin": 503.54,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "llevaba",
+    "inicio": 503.54,
+    "fin": 503.92,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "la",
+    "inicio": 503.92,
+    "fin": 504.1,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "marca",
+    "inicio": 504.1,
+    "fin": 504.28,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 504.28,
+    "fin": 504.52,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "agua",
+    "inicio": 504.52,
+    "fin": 504.66,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "de",
+    "inicio": 504.66,
+    "fin": 504.86,
+    "probabilidad": 0.87
+   },
+   {
+    "palabra": "Yemeni.",
+    "inicio": 504.86,
+    "fin": 505.26,
+    "probabilidad": 0.64
+   },
+   {
+    "palabra": "Estaba",
+    "inicio": 505.34,
+    "fin": 505.7,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "ahí,",
+    "inicio": 505.7,
+    "fin": 505.92,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "a",
+    "inicio": 506.14,
+    "fin": 506.22,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "la",
+    "inicio": 506.22,
+    "fin": 506.28,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "vista,",
+    "inicio": 506.28,
+    "fin": 506.58,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "para",
+    "inicio": 506.84,
+    "fin": 507.06,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "quien",
+    "inicio": 507.06,
+    "fin": 507.28,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "supiera",
+    "inicio": 507.28,
+    "fin": 507.82,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "buscarla.",
+    "inicio": 507.82,
+    "fin": 508.46,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 30,
+  "texto": "La página ya no está disponible en Facebook. No sabemos por qué desapareció y no vamos a inventarlo, pero la fórmula sigue viva. Otras páginas usan la misma receta a una figura que quiere escuchar un texto que quieres creer y una imagen que parece real. La única defensa es la verificación y la verificación empieza por ti antes de compartir.",
+  "palabras": [
+   {
+    "palabra": "La",
+    "inicio": 509.72,
+    "fin": 510.2,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "página",
+    "inicio": 510.2,
+    "fin": 510.44,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "ya",
+    "inicio": 510.44,
+    "fin": 510.86,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "no",
+    "inicio": 510.86,
+    "fin": 510.96,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "está",
+    "inicio": 510.96,
+    "fin": 511.1,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "disponible",
+    "inicio": 511.1,
+    "fin": 511.56,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "en",
+    "inicio": 511.56,
+    "fin": 511.7,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Facebook.",
+    "inicio": 511.7,
+    "fin": 511.98,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "No",
+    "inicio": 512.38,
+    "fin": 512.48,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "sabemos",
+    "inicio": 512.48,
+    "fin": 512.72,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "por",
+    "inicio": 512.72,
+    "fin": 513.0,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "qué",
+    "inicio": 513.0,
+    "fin": 513.24,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "desapareció",
+    "inicio": 513.24,
+    "fin": 513.88,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 513.88,
+    "fin": 514.08,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "no",
+    "inicio": 514.08,
+    "fin": 514.22,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "vamos",
+    "inicio": 514.22,
+    "fin": 514.42,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "a",
+    "inicio": 514.42,
+    "fin": 514.52,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "inventarlo,",
+    "inicio": 514.52,
+    "fin": 515.1,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "pero",
+    "inicio": 515.34,
+    "fin": 515.5,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "la",
+    "inicio": 515.5,
+    "fin": 515.64,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "fórmula",
+    "inicio": 515.64,
+    "fin": 516.06,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "sigue",
+    "inicio": 516.06,
+    "fin": 516.32,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "viva.",
+    "inicio": 516.32,
+    "fin": 516.64,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "Otras",
+    "inicio": 517.24,
+    "fin": 517.52,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "páginas",
+    "inicio": 517.52,
+    "fin": 517.9,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "usan",
+    "inicio": 517.9,
+    "fin": 518.16,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "la",
+    "inicio": 518.16,
+    "fin": 518.26,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "misma",
+    "inicio": 518.26,
+    "fin": 518.44,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "receta",
+    "inicio": 518.44,
+    "fin": 519.02,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "a",
+    "inicio": 519.02,
+    "fin": 519.12,
+    "probabilidad": 0.23
+   },
+   {
+    "palabra": "una",
+    "inicio": 519.12,
+    "fin": 519.24,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "figura",
+    "inicio": 519.24,
+    "fin": 519.52,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "que",
+    "inicio": 519.52,
+    "fin": 519.8,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "quiere",
+    "inicio": 519.8,
+    "fin": 520.02,
+    "probabilidad": 0.67
+   },
+   {
+    "palabra": "escuchar",
+    "inicio": 520.02,
+    "fin": 520.6,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "un",
+    "inicio": 520.6,
+    "fin": 520.74,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "texto",
+    "inicio": 520.74,
+    "fin": 520.96,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "que",
+    "inicio": 520.96,
+    "fin": 521.16,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "quieres",
+    "inicio": 521.16,
+    "fin": 521.44,
+    "probabilidad": 0.93
+   },
+   {
+    "palabra": "creer",
+    "inicio": 521.44,
+    "fin": 522.06,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "y",
+    "inicio": 522.06,
+    "fin": 522.24,
+    "probabilidad": 0.86
+   },
+   {
+    "palabra": "una",
+    "inicio": 522.24,
+    "fin": 522.36,
+    "probabilidad": 0.76
+   },
+   {
+    "palabra": "imagen",
+    "inicio": 522.36,
+    "fin": 522.64,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "que",
+    "inicio": 522.64,
+    "fin": 522.82,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "parece",
+    "inicio": 522.82,
+    "fin": 523.08,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "real.",
+    "inicio": 523.08,
+    "fin": 523.48,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "La",
+    "inicio": 523.84,
+    "fin": 524.08,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "única",
+    "inicio": 524.08,
+    "fin": 524.26,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "defensa",
+    "inicio": 524.26,
+    "fin": 524.74,
+    "probabilidad": 0.62
+   },
+   {
+    "palabra": "es",
+    "inicio": 524.74,
+    "fin": 524.88,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "la",
+    "inicio": 524.88,
+    "fin": 524.98,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "verificación",
+    "inicio": 524.98,
+    "fin": 525.42,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "y",
+    "inicio": 525.42,
+    "fin": 526.34,
+    "probabilidad": 0.79
+   },
+   {
+    "palabra": "la",
+    "inicio": 526.34,
+    "fin": 526.46,
+    "probabilidad": 0.96
+   },
+   {
+    "palabra": "verificación",
+    "inicio": 526.46,
+    "fin": 527.12,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "empieza",
+    "inicio": 527.12,
+    "fin": 527.68,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "por",
+    "inicio": 527.68,
+    "fin": 528.0,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "ti",
+    "inicio": 528.0,
+    "fin": 528.22,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "antes",
+    "inicio": 528.22,
+    "fin": 528.86,
+    "probabilidad": 0.88
+   },
+   {
+    "palabra": "de",
+    "inicio": 528.86,
+    "fin": 529.04,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "compartir.",
+    "inicio": 529.04,
+    "fin": 529.46,
+    "probabilidad": 0.99
+   }
+  ]
+ },
+ {
+  "linea": 31,
+  "texto": "En el show te prometimos el patrón completo. Aquí está. Si quieres que el próximo vídeo no te lo cuente nadie, si no ves lo con tus propios ojos, suscríbete al libreto. Geopolítica con las fuentes del antes. ¿Quién escribió el libreto?",
+  "palabras": [
+   {
+    "palabra": "En",
+    "inicio": 530.32,
+    "fin": 530.44,
+    "probabilidad": 0.95
+   },
+   {
+    "palabra": "el",
+    "inicio": 530.44,
+    "fin": 530.56,
+    "probabilidad": 0.41
+   },
+   {
+    "palabra": "show",
+    "inicio": 530.56,
+    "fin": 530.76,
+    "probabilidad": 0.21
+   },
+   {
+    "palabra": "te",
+    "inicio": 530.76,
+    "fin": 531.16,
+    "probabilidad": 0.8
+   },
+   {
+    "palabra": "prometimos",
+    "inicio": 531.16,
+    "fin": 531.78,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 531.78,
+    "fin": 532.14,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "patrón",
+    "inicio": 532.14,
+    "fin": 532.48,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "completo.",
+    "inicio": 532.48,
+    "fin": 532.88,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "Aquí",
+    "inicio": 533.28,
+    "fin": 533.4,
+    "probabilidad": 0.74
+   },
+   {
+    "palabra": "está.",
+    "inicio": 533.4,
+    "fin": 533.7,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "Si",
+    "inicio": 534.2,
+    "fin": 534.24,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "quieres",
+    "inicio": 534.24,
+    "fin": 534.44,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "que",
+    "inicio": 534.44,
+    "fin": 534.6,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "el",
+    "inicio": 534.6,
+    "fin": 534.7,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "próximo",
+    "inicio": 534.7,
+    "fin": 534.82,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "vídeo",
+    "inicio": 534.82,
+    "fin": 535.3,
+    "probabilidad": 0.52
+   },
+   {
+    "palabra": "no",
+    "inicio": 535.3,
+    "fin": 535.54,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "te",
+    "inicio": 535.54,
+    "fin": 535.62,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "lo",
+    "inicio": 535.62,
+    "fin": 535.76,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "cuente",
+    "inicio": 535.76,
+    "fin": 536.04,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "nadie,",
+    "inicio": 536.04,
+    "fin": 536.34,
+    "probabilidad": 0.94
+   },
+   {
+    "palabra": "si",
+    "inicio": 536.6,
+    "fin": 536.66,
+    "probabilidad": 0.81
+   },
+   {
+    "palabra": "no",
+    "inicio": 536.66,
+    "fin": 536.78,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "ves",
+    "inicio": 536.78,
+    "fin": 536.9,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "lo",
+    "inicio": 536.9,
+    "fin": 537.02,
+    "probabilidad": 0.58
+   },
+   {
+    "palabra": "con",
+    "inicio": 537.02,
+    "fin": 537.18,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "tus",
+    "inicio": 537.18,
+    "fin": 537.3,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "propios",
+    "inicio": 537.3,
+    "fin": 537.58,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "ojos,",
+    "inicio": 537.58,
+    "fin": 537.96,
+    "probabilidad": 1.0
+   },
+   {
+    "palabra": "suscríbete",
+    "inicio": 538.38,
+    "fin": 539.02,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "al",
+    "inicio": 539.02,
+    "fin": 539.18,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "libreto.",
+    "inicio": 539.18,
+    "fin": 539.64,
+    "probabilidad": 0.52
+   },
+   {
+    "palabra": "Geopolítica",
+    "inicio": 540.7,
+    "fin": 541.26,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "con",
+    "inicio": 541.26,
+    "fin": 541.56,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "las",
+    "inicio": 541.56,
+    "fin": 541.72,
+    "probabilidad": 0.9
+   },
+   {
+    "palabra": "fuentes",
+    "inicio": 541.72,
+    "fin": 542.02,
+    "probabilidad": 0.98
+   },
+   {
+    "palabra": "del",
+    "inicio": 542.02,
+    "fin": 542.22,
+    "probabilidad": 0.97
+   },
+   {
+    "palabra": "antes.",
+    "inicio": 542.22,
+    "fin": 542.48,
+    "probabilidad": 0.51
+   },
+   {
+    "palabra": "¿Quién",
+    "inicio": 543.06,
+    "fin": 543.3,
+    "probabilidad": 0.92
+   },
+   {
+    "palabra": "escribió",
+    "inicio": 543.3,
+    "fin": 543.72,
+    "probabilidad": 0.99
+   },
+   {
+    "palabra": "el",
+    "inicio": 543.72,
+    "fin": 543.78,
+    "probabilidad": 0.91
+   },
+   {
+    "palabra": "libreto?",
+    "inicio": 543.78,
+    "fin": 544.18,
+    "probabilidad": 0.98
+   }
+  ]
+ }
+]

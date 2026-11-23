@@ -32,6 +32,10 @@ faster-whisper word_timestamps (es)
   visible hasta que empieza la siguiente; pop 1.2→1 en 0,1 s desde el
   borde izquierdo; líneas >28 caracteres bajan a 52. No cambiar estos
   números sin verificar contra el máster V1.3.
+- **Props opcionales de estilo (23-nov-2026, El Libreto)**: `bandBackground`
+  pone las palabras sobre una banda redondeada y `keywordBackground` da
+  fondo a la palabra clave (sin contorno en ese caso). Ambos son
+  opcionales y sin ellos el comportamiento es el clásico.
 
 ## Proyectos antiguos
 

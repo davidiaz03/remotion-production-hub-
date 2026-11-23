@@ -1,0 +1,32 @@
+{
+  "chapters": [
+    {
+      "estimated_s": 80,
+      "key_idea": "La página que publicó el bulo de Messi ya no está disponible en Facebook. El caso Messi fue real en alcance y falso en contenido.",
+      "number": 0,
+      "short_title": "La página que ya no existe",
+      "title": "La página que ya no existe"
+    },
+    {
+      "estimated_s": 186,
+      "key_idea": "El caso Messi fue uno más de una serie: la página usaba una fórmula en 4 pasos con Bukele, Musk, Daddy Yankee y Bad Bunny.",
+      "number": 1,
+      "short_title": "La fábrica",
+      "title": "La fábrica"
+    },
+    {
+      "estimated_s": 160,
+      "key_idea": "El patrón tocó a personas reales (Bebeshito), a una institución pública (Cienfuegos) y fabricó una condena (Valdez Galloso).",
+      "number": 2,
+      "short_title": "Cuando el bulo sale del feed",
+      "title": "Cuando el bulo sale del feed"
+    },
+    {
+      "estimated_s": 123,
+      "key_idea": "El bulo se comparte porque es deseable, no porque sea creíble. Tres comprobaciones de menos de un minuto lo desmontan.",
+      "number": 3,
+      "short_title": "Por qué funciona",
+      "title": "Por qué funciona y cómo detectarlo"
+    }
+  ]
+}

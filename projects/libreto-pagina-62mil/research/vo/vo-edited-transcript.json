@@ -1,0 +1,9526 @@
+{
+ "duration": 545.29,
+ "language": "es",
+ "segments": [
+  {
+   "start": 0.21,
+   "end": 6.35,
+   "text": " Si buscas hoy en facebook la página joseph forever tiger no la vas a encontrar. La dirección ya no",
+   "words": [
+    {
+     "start": 0.21,
+     "end": 0.65,
+     "word": " Si",
+     "probability": 0.5073387026786804
+    },
+    {
+     "start": 0.65,
+     "end": 0.95,
+     "word": " buscas",
+     "probability": 0.9567267596721649
+    },
+    {
+     "start": 0.95,
+     "end": 1.27,
+     "word": " hoy",
+     "probability": 0.9248652458190918
+    },
+    {
+     "start": 1.27,
+     "end": 1.37,
+     "word": " en",
+     "probability": 0.9760103821754456
+    },
+    {
+     "start": 1.37,
+     "end": 1.75,
+     "word": " facebook",
+     "probability": 0.2810474932193756
+    },
+    {
+     "start": 1.75,
+     "end": 2.05,
+     "word": " la",
+     "probability": 0.8998445272445679
+    },
+    {
+     "start": 2.05,
+     "end": 2.29,
+     "word": " página",
+     "probability": 0.9585925340652466
+    },
+    {
+     "start": 2.29,
+     "end": 2.75,
+     "word": " joseph",
+     "probability": 0.7757578790187836
+    },
+    {
+     "start": 2.75,
+     "end": 3.01,
+     "word": " forever",
+     "probability": 0.22811229526996613
+    },
+    {
+     "start": 3.01,
+     "end": 3.41,
+     "word": " tiger",
+     "probability": 0.1184782162308693
+    },
+    {
+     "start": 3.41,
+     "end": 4.07,
+     "word": " no",
+     "probability": 0.6843693852424622
+    },
+    {
+     "start": 4.07,
+     "end": 4.19,
+     "word": " la",
+     "probability": 0.9638849496841431
+    },
+    {
+     "start": 4.19,
+     "end": 4.33,
+     "word": " vas",
+     "probability": 0.9883632063865662
+    },
+    {
+     "start": 4.33,
+     "end": 4.41,
+     "word": " a",
+     "probability": 0.953846275806427
+    },
+    {
+     "start": 4.41,
+     "end": 4.75,
+     "word": " encontrar.",
+     "probability": 0.9977418184280396
+    },
+    {
+     "start": 5.11,
+     "end": 5.59,
+     "word": " La",
+     "probability": 0.8549632430076599
+    },
+    {
+     "start": 5.59,
+     "end": 6.05,
+     "word": " dirección",
+     "probability": 0.9767314791679382
+    },
+    {
+     "start": 6.05,
+     "end": 6.25,
+     "word": " ya",
+     "probability": 0.9371231198310852
+    },
+    {
+     "start": 6.25,
+     "end": 6.35,
+     "word": " no",
+     "probability": 0.9968996047973633
+    }
+   ]
+  },
+  {
+   "start": 6.35,
+   "end": 11.27,
+   "text": " carga y facebook dice que el contenido no está disponible y si buscas el nombre exacto no aparece",
+   "words": [
+    {
+     "start": 6.35,
+     "end": 6.57,
+     "word": " carga",
+     "probability": 0.8910350799560547
+    },
+    {
+     "start": 6.57,
+     "end": 6.79,
+     "word": " y",
+     "probability": 0.888487696647644
+    },
+    {
+     "start": 6.79,
+     "end": 7.11,
+     "word": " facebook",
+     "probability": 0.9086835980415344
+    },
+    {
+     "start": 7.11,
+     "end": 7.33,
+     "word": " dice",
+     "probability": 0.988456130027771
+    },
+    {
+     "start": 7.33,
+     "end": 7.47,
+     "word": " que",
+     "probability": 0.9913212656974792
+    },
+    {
+     "start": 7.47,
+     "end": 7.57,
+     "word": " el",
+     "probability": 0.9107019901275635
+    },
+    {
+     "start": 7.57,
+     "end": 7.91,
+     "word": " contenido",
+     "probability": 0.9957813024520874
+    },
+    {
+     "start": 7.91,
+     "end": 8.13,
+     "word": " no",
+     "probability": 0.9948583841323853
+    },
+    {
+     "start": 8.13,
+     "end": 8.29,
+     "word": " está",
+     "probability": 0.9396072626113892
+    },
+    {
+     "start": 8.29,
+     "end": 8.87,
+     "word": " disponible",
+     "probability": 0.9948046207427979
+    },
+    {
+     "start": 8.87,
+     "end": 9.21,
+     "word": " y",
+     "probability": 0.48611581325531006
+    },
+    {
+     "start": 9.21,
+     "end": 9.33,
+     "word": " si",
+     "probability": 0.9850823879241943
+    },
+    {
+     "start": 9.33,
+     "end": 9.57,
+     "word": " buscas",
+     "probability": 0.9696140587329865
+    },
+    {
+     "start": 9.57,
+     "end": 9.71,
+     "word": " el",
+     "probability": 0.9372122287750244
+    },
+    {
+     "start": 9.71,
+     "end": 9.87,
+     "word": " nombre",
+     "probability": 0.9976829290390015
+    },
+    {
+     "start": 9.87,
+     "end": 10.77,
+     "word": " exacto",
+     "probability": 0.9889717102050781
+    },
+    {
+     "start": 10.77,
+     "end": 11.01,
+     "word": " no",
+     "probability": 0.8693872690200806
+    },
+    {
+     "start": 11.01,
+     "end": 11.27,
+     "word": " aparece",
+     "probability": 0.8995789885520935
+    }
+   ]
+  },
+  {
+   "start": 11.27,
+   "end": 17.21,
+   "text": " ninguna página con ese nombre. Esta es la página que en malso publicó un mensaje falso",
+   "words": [
+    {
+     "start": 11.27,
+     "end": 11.65,
+     "word": " ninguna",
+     "probability": 0.971091091632843
+    },
+    {
+     "start": 11.65,
+     "end": 11.95,
+     "word": " página",
+     "probability": 0.9928344488143921
+    },
+    {
+     "start": 11.95,
+     "end": 12.21,
+     "word": " con",
+     "probability": 0.9887332916259766
+    },
+    {
+     "start": 12.21,
+     "end": 12.37,
+     "word": " ese",
+     "probability": 0.9562048316001892
+    },
+    {
+     "start": 12.37,
+     "end": 12.67,
+     "word": " nombre.",
+     "probability": 0.9961510896682739
+    },
+    {
+     "start": 14.01,
+     "end": 14.57,
+     "word": " Esta",
+     "probability": 0.9080339074134827
+    },
+    {
+     "start": 14.57,
+     "end": 14.67,
+     "word": " es",
+     "probability": 0.9901005625724792
+    },
+    {
+     "start": 14.67,
+     "end": 14.77,
+     "word": " la",
+     "probability": 0.9966816306114197
+    },
+    {
+     "start": 14.77,
+     "end": 14.99,
+     "word": " página",
+     "probability": 0.9941887855529785
+    },
+    {
+     "start": 14.99,
+     "end": 15.19,
+     "word": " que",
+     "probability": 0.9783731698989868
+    },
+    {
+     "start": 15.19,
+     "end": 15.31,
+     "word": " en",
+     "probability": 0.21434183418750763
+    },
+    {
+     "start": 15.31,
+     "end": 15.59,
+     "word": " malso",
+     "probability": 0.6769023537635803
+    },
+    {
+     "start": 15.59,
+     "end": 16.07,
+     "word": " publicó",
+     "probability": 0.9292966425418854
+    },
+    {
+     "start": 16.07,
+     "end": 16.35,
+     "word": " un",
+     "probability": 0.9409716725349426
+    },
+    {
+     "start": 16.35,
+     "end": 16.75,
+     "word": " mensaje",
+     "probability": 0.9979879558086395
+    },
+    {
+     "start": 16.75,
+     "end": 17.21,
+     "word": " falso",
+     "probability": 0.9891620874404907
+    }
+   ]
+  },
+  {
+   "start": 17.21,
+   "end": 25.59,
+   "text": " atribuido a mesi sobre cuba 62 mil reacciones 3300 compartidos más de 5000 comentarios y todo",
+   "words": [
+    {
+     "start": 17.21,
+     "end": 17.75,
+     "word": " atribuido",
+     "probability": 0.9634465277194977
+    },
+    {
+     "start": 17.75,
+     "end": 17.87,
+     "word": " a",
+     "probability": 0.995827853679657
+    },
+    {
+     "start": 17.87,
+     "end": 18.13,
+     "word": " mesi",
+     "probability": 0.8173661231994629
+    },
+    {
+     "start": 18.13,
+     "end": 18.37,
+     "word": " sobre",
+     "probability": 0.9937528967857361
+    },
+    {
+     "start": 18.37,
+     "end": 19.15,
+     "word": " cuba",
+     "probability": 0.862698882818222
+    },
+    {
+     "start": 19.15,
+     "end": 19.65,
+     "word": " 62",
+     "probability": 0.5541809797286987
+    },
+    {
+     "start": 19.65,
+     "end": 20.17,
+     "word": " mil",
+     "probability": 0.4254383444786072
+    },
+    {
+     "start": 20.17,
+     "end": 20.79,
+     "word": " reacciones",
+     "probability": 0.9922225673993429
+    },
+    {
+     "start": 20.79,
+     "end": 22.19,
+     "word": " 3300",
+     "probability": 0.6326170265674591
+    },
+    {
+     "start": 22.19,
+     "end": 22.95,
+     "word": " compartidos",
+     "probability": 0.9948160350322723
+    },
+    {
+     "start": 22.95,
+     "end": 23.31,
+     "word": " más",
+     "probability": 0.880075991153717
+    },
+    {
+     "start": 23.31,
+     "end": 23.51,
+     "word": " de",
+     "probability": 0.9974244832992554
+    },
+    {
+     "start": 23.51,
+     "end": 23.73,
+     "word": " 5000",
+     "probability": 0.6769860982894897
+    },
+    {
+     "start": 23.73,
+     "end": 24.43,
+     "word": " comentarios",
+     "probability": 0.9860866069793701
+    },
+    {
+     "start": 24.43,
+     "end": 25.31,
+     "word": " y",
+     "probability": 0.8667488694190979
+    },
+    {
+     "start": 25.31,
+     "end": 25.59,
+     "word": " todo",
+     "probability": 0.9937114715576172
+    }
+   ]
+  },
+  {
+   "start": 25.59,
+   "end": 32.83,
+   "text": " era falso. En mensaje no lo escribió mesi la foto era de 2022 de la cuenta de antonela rocuzzo",
+   "words": [
+    {
+     "start": 25.59,
+     "end": 26.07,
+     "word": " era",
+     "probability": 0.030673546716570854
+    },
+    {
+     "start": 26.07,
+     "end": 26.51,
+     "word": " falso.",
+     "probability": 0.9028809070587158
+    },
+    {
+     "start": 27.03,
+     "end": 27.49,
+     "word": " En",
+     "probability": 0.7127493023872375
+    },
+    {
+     "start": 27.49,
+     "end": 27.85,
+     "word": " mensaje",
+     "probability": 0.9722581207752228
+    },
+    {
+     "start": 27.85,
+     "end": 27.99,
+     "word": " no",
+     "probability": 0.9517561197280884
+    },
+    {
+     "start": 27.99,
+     "end": 28.07,
+     "word": " lo",
+     "probability": 0.9233265519142151
+    },
+    {
+     "start": 28.07,
+     "end": 28.45,
+     "word": " escribió",
+     "probability": 0.9593303004900614
+    },
+    {
+     "start": 28.45,
+     "end": 28.79,
+     "word": " mesi",
+     "probability": 0.4847263107076287
+    },
+    {
+     "start": 28.79,
+     "end": 29.15,
+     "word": " la",
+     "probability": 0.13506831228733063
+    },
+    {
+     "start": 29.15,
+     "end": 29.47,
+     "word": " foto",
+     "probability": 0.9868473410606384
+    },
+    {
+     "start": 29.47,
+     "end": 29.83,
+     "word": " era",
+     "probability": 0.96346515417099
+    },
+    {
+     "start": 29.83,
+     "end": 29.97,
+     "word": " de",
+     "probability": 0.9714919924736023
+    },
+    {
+     "start": 29.97,
+     "end": 30.71,
+     "word": " 2022",
+     "probability": 0.950264573097229
+    },
+    {
+     "start": 30.71,
+     "end": 31.17,
+     "word": " de",
+     "probability": 0.8400471210479736
+    },
+    {
+     "start": 31.17,
+     "end": 31.27,
+     "word": " la",
+     "probability": 0.9869601726531982
+    },
+    {
+     "start": 31.27,
+     "end": 31.53,
+     "word": " cuenta",
+     "probability": 0.969296395778656
+    },
+    {
+     "start": 31.53,
+     "end": 31.75,
+     "word": " de",
+     "probability": 0.9913626313209534
+    },
+    {
+     "start": 31.75,
+     "end": 32.15,
+     "word": " antonela",
+     "probability": 0.5980784595012665
+    },
+    {
+     "start": 32.15,
+     "end": 32.83,
+     "word": " rocuzzo",
+     "probability": 0.5492577664554119
+    }
+   ]
+  },
+  {
+   "start": 32.83,
+   "end": 39.31,
+   "text": " sin ninguna bandera cubana. La bandera la añadieron después con inteligencia artificial y la foto",
+   "words": [
+    {
+     "start": 32.83,
+     "end": 33.23,
+     "word": " sin",
+     "probability": 0.9735591411590576
+    },
+    {
+     "start": 33.23,
+     "end": 33.65,
+     "word": " ninguna",
+     "probability": 0.9941847920417786
+    },
+    {
+     "start": 33.65,
+     "end": 34.01,
+     "word": " bandera",
+     "probability": 0.99546879529953
+    },
+    {
+     "start": 34.01,
+     "end": 34.41,
+     "word": " cubana.",
+     "probability": 0.8634176254272461
+    },
+    {
+     "start": 34.95,
+     "end": 35.23,
+     "word": " La",
+     "probability": 0.8007381558418274
+    },
+    {
+     "start": 35.23,
+     "end": 35.71,
+     "word": " bandera",
+     "probability": 0.9965078234672546
+    },
+    {
+     "start": 35.71,
+     "end": 35.99,
+     "word": " la",
+     "probability": 0.8379979729652405
+    },
+    {
+     "start": 35.99,
+     "end": 36.35,
+     "word": " añadieron",
+     "probability": 0.9891135096549988
+    },
+    {
+     "start": 36.35,
+     "end": 36.69,
+     "word": " después",
+     "probability": 0.9654854536056519
+    },
+    {
+     "start": 36.69,
+     "end": 37.15,
+     "word": " con",
+     "probability": 0.9802808165550232
+    },
+    {
+     "start": 37.15,
+     "end": 37.73,
+     "word": " inteligencia",
+     "probability": 0.9820780158042908
+    },
+    {
+     "start": 37.73,
+     "end": 38.09,
+     "word": " artificial",
+     "probability": 0.9930207133293152
+    },
+    {
+     "start": 38.09,
+     "end": 38.89,
+     "word": " y",
+     "probability": 0.7972316145896912
+    },
+    {
+     "start": 38.89,
+     "end": 39.01,
+     "word": " la",
+     "probability": 0.9929903745651245
+    },
+    {
+     "start": 39.01,
+     "end": 39.31,
+     "word": " foto",
+     "probability": 0.9928507804870605
+    }
+   ]
+  },
+  {
+   "start": 39.31,
+   "end": 47.29,
+   "text": " llevaba la marca de agua de yemení. Lo verificaron el toque e infoberitas. En mensaje tenía un",
+   "words": [
+    {
+     "start": 39.31,
+     "end": 40.13,
+     "word": " llevaba",
+     "probability": 0.9868834316730499
+    },
+    {
+     "start": 40.13,
+     "end": 40.27,
+     "word": " la",
+     "probability": 0.8412945866584778
+    },
+    {
+     "start": 40.27,
+     "end": 40.51,
+     "word": " marca",
+     "probability": 0.9901099801063538
+    },
+    {
+     "start": 40.51,
+     "end": 40.75,
+     "word": " de",
+     "probability": 0.9835090041160583
+    },
+    {
+     "start": 40.75,
+     "end": 40.93,
+     "word": " agua",
+     "probability": 0.9971318244934082
+    },
+    {
+     "start": 40.93,
+     "end": 41.13,
+     "word": " de",
+     "probability": 0.9331297874450684
+    },
+    {
+     "start": 41.13,
+     "end": 41.95,
+     "word": " yemení.",
+     "probability": 0.6683596968650818
+    },
+    {
+     "start": 41.95,
+     "end": 42.31,
+     "word": " Lo",
+     "probability": 0.7336233854293823
+    },
+    {
+     "start": 42.31,
+     "end": 42.89,
+     "word": " verificaron",
+     "probability": 0.9902007778485616
+    },
+    {
+     "start": 42.89,
+     "end": 43.11,
+     "word": " el",
+     "probability": 0.9203794598579407
+    },
+    {
+     "start": 43.11,
+     "end": 43.51,
+     "word": " toque",
+     "probability": 0.9901269376277924
+    },
+    {
+     "start": 43.51,
+     "end": 43.91,
+     "word": " e",
+     "probability": 0.9752421975135803
+    },
+    {
+     "start": 43.91,
+     "end": 44.57,
+     "word": " infoberitas.",
+     "probability": 0.7795051634311676
+    },
+    {
+     "start": 45.91,
+     "end": 46.53,
+     "word": " En",
+     "probability": 0.8725928068161011
+    },
+    {
+     "start": 46.53,
+     "end": 46.85,
+     "word": " mensaje",
+     "probability": 0.9885432422161102
+    },
+    {
+     "start": 46.85,
+     "end": 47.11,
+     "word": " tenía",
+     "probability": 0.8492097854614258
+    },
+    {
+     "start": 47.11,
+     "end": 47.29,
+     "word": " un",
+     "probability": 0.9914753437042236
+    }
+   ]
+  },
+  {
+   "start": 47.29,
+   "end": 53.67,
+   "text": " núcleo real. El 5 de malso trun recibió a linton mayami en la casa blanca y mesi estuvo",
+   "words": [
+    {
+     "start": 47.29,
+     "end": 47.69,
+     "word": " núcleo",
+     "probability": 0.9910760720570883
+    },
+    {
+     "start": 47.69,
+     "end": 48.11,
+     "word": " real.",
+     "probability": 0.9597728848457336
+    },
+    {
+     "start": 48.97,
+     "end": 49.15,
+     "word": " El",
+     "probability": 0.9257287979125977
+    },
+    {
+     "start": 49.15,
+     "end": 49.35,
+     "word": " 5",
+     "probability": 0.7578938007354736
+    },
+    {
+     "start": 49.35,
+     "end": 49.55,
+     "word": " de",
+     "probability": 0.9865856170654297
+    },
+    {
+     "start": 49.55,
+     "end": 49.87,
+     "word": " malso",
+     "probability": 0.22475963085889816
+    },
+    {
+     "start": 49.87,
+     "end": 50.37,
+     "word": " trun",
+     "probability": 0.38629932701587677
+    },
+    {
+     "start": 50.37,
+     "end": 51.17,
+     "word": " recibió",
+     "probability": 0.8367611169815063
+    },
+    {
+     "start": 51.17,
+     "end": 51.45,
+     "word": " a",
+     "probability": 0.37129881978034973
+    },
+    {
+     "start": 51.45,
+     "end": 51.65,
+     "word": " linton",
+     "probability": 0.2565145120024681
+    },
+    {
+     "start": 51.65,
+     "end": 52.09,
+     "word": " mayami",
+     "probability": 0.7904924154281616
+    },
+    {
+     "start": 52.09,
+     "end": 52.23,
+     "word": " en",
+     "probability": 0.9764785766601562
+    },
+    {
+     "start": 52.23,
+     "end": 52.29,
+     "word": " la",
+     "probability": 0.9798706769943237
+    },
+    {
+     "start": 52.29,
+     "end": 52.45,
+     "word": " casa",
+     "probability": 0.5886673331260681
+    },
+    {
+     "start": 52.45,
+     "end": 52.89,
+     "word": " blanca",
+     "probability": 0.9638939797878265
+    },
+    {
+     "start": 52.89,
+     "end": 53.15,
+     "word": " y",
+     "probability": 0.9697121977806091
+    },
+    {
+     "start": 53.15,
+     "end": 53.41,
+     "word": " mesi",
+     "probability": 0.887400895357132
+    },
+    {
+     "start": 53.41,
+     "end": 53.67,
+     "word": " estuvo",
+     "probability": 0.9855689108371735
+    }
+   ]
+  },
+  {
+   "start": 53.67,
+   "end": 59.07,
+   "text": " allí. Eso sí pasó. Lo que no pasó es que mesi hablara de cuba. Ese núcleo real es parte de la",
+   "words": [
+    {
+     "start": 53.67,
+     "end": 53.89,
+     "word": " allí.",
+     "probability": 0.04609818756580353
+    },
+    {
+     "start": 54.29,
+     "end": 54.49,
+     "word": " Eso",
+     "probability": 0.9326395988464355
+    },
+    {
+     "start": 54.49,
+     "end": 54.67,
+     "word": " sí",
+     "probability": 0.8667528033256531
+    },
+    {
+     "start": 54.67,
+     "end": 54.93,
+     "word": " pasó.",
+     "probability": 0.9158141016960144
+    },
+    {
+     "start": 55.39,
+     "end": 55.47,
+     "word": " Lo",
+     "probability": 0.9811822772026062
+    },
+    {
+     "start": 55.47,
+     "end": 55.59,
+     "word": " que",
+     "probability": 0.9966321587562561
+    },
+    {
+     "start": 55.59,
+     "end": 55.73,
+     "word": " no",
+     "probability": 0.9941855072975159
+    },
+    {
+     "start": 55.73,
+     "end": 55.95,
+     "word": " pasó",
+     "probability": 0.9848663210868835
+    },
+    {
+     "start": 55.95,
+     "end": 56.15,
+     "word": " es",
+     "probability": 0.966079592704773
+    },
+    {
+     "start": 56.15,
+     "end": 56.27,
+     "word": " que",
+     "probability": 0.9975243210792542
+    },
+    {
+     "start": 56.27,
+     "end": 56.53,
+     "word": " mesi",
+     "probability": 0.0415662513114512
+    },
+    {
+     "start": 56.53,
+     "end": 56.89,
+     "word": " hablara",
+     "probability": 0.6309792399406433
+    },
+    {
+     "start": 56.89,
+     "end": 57.05,
+     "word": " de",
+     "probability": 0.9899044632911682
+    },
+    {
+     "start": 57.05,
+     "end": 57.39,
+     "word": " cuba.",
+     "probability": 0.48839648347347975
+    },
+    {
+     "start": 57.61,
+     "end": 57.79,
+     "word": " Ese",
+     "probability": 0.9644926190376282
+    },
+    {
+     "start": 57.79,
+     "end": 58.15,
+     "word": " núcleo",
+     "probability": 0.9805883169174194
+    },
+    {
+     "start": 58.15,
+     "end": 58.35,
+     "word": " real",
+     "probability": 0.868496298789978
+    },
+    {
+     "start": 58.35,
+     "end": 58.59,
+     "word": " es",
+     "probability": 0.9920597076416016
+    },
+    {
+     "start": 58.59,
+     "end": 58.75,
+     "word": " parte",
+     "probability": 0.9843590259552002
+    },
+    {
+     "start": 58.75,
+     "end": 58.97,
+     "word": " de",
+     "probability": 0.9968158602714539
+    },
+    {
+     "start": 58.97,
+     "end": 59.07,
+     "word": " la",
+     "probability": 0.9922267198562622
+    }
+   ]
+  },
+  {
+   "start": 59.07,
+   "end": 65.49,
+   "text": " fórmula y la fórmula se repitió durante meses. En el short te prometimos el patrón completo.",
+   "words": [
+    {
+     "start": 59.07,
+     "end": 59.53,
+     "word": " fórmula",
+     "probability": 0.9825102984905243
+    },
+    {
+     "start": 59.53,
+     "end": 59.73,
+     "word": " y",
+     "probability": 0.49377354979515076
+    },
+    {
+     "start": 59.73,
+     "end": 59.83,
+     "word": " la",
+     "probability": 0.9875668287277222
+    },
+    {
+     "start": 59.83,
+     "end": 60.21,
+     "word": " fórmula",
+     "probability": 0.9975181668996811
+    },
+    {
+     "start": 60.21,
+     "end": 60.35,
+     "word": " se",
+     "probability": 0.9951305389404297
+    },
+    {
+     "start": 60.35,
+     "end": 60.77,
+     "word": " repitió",
+     "probability": 0.8710325161616007
+    },
+    {
+     "start": 60.77,
+     "end": 61.11,
+     "word": " durante",
+     "probability": 0.9871152639389038
+    },
+    {
+     "start": 61.11,
+     "end": 61.59,
+     "word": " meses.",
+     "probability": 0.9977664947509766
+    },
+    {
+     "start": 62.87,
+     "end": 63.09,
+     "word": " En",
+     "probability": 0.9373925924301147
+    },
+    {
+     "start": 63.09,
+     "end": 63.21,
+     "word": " el",
+     "probability": 0.7540062069892883
+    },
+    {
+     "start": 63.21,
+     "end": 63.45,
+     "word": " short",
+     "probability": 0.5257355570793152
+    },
+    {
+     "start": 63.45,
+     "end": 63.95,
+     "word": " te",
+     "probability": 0.7433900237083435
+    },
+    {
+     "start": 63.95,
+     "end": 64.45,
+     "word": " prometimos",
+     "probability": 0.9927622973918915
+    },
+    {
+     "start": 64.45,
+     "end": 64.75,
+     "word": " el",
+     "probability": 0.9802320003509521
+    },
+    {
+     "start": 64.75,
+     "end": 65.09,
+     "word": " patrón",
+     "probability": 0.9831887682278951
+    },
+    {
+     "start": 65.09,
+     "end": 65.49,
+     "word": " completo.",
+     "probability": 0.9900845289230347
+    }
+   ]
+  },
+  {
+   "start": 65.89,
+   "end": 70.77,
+   "text": " Este es el vídeo y la primera pregunta es la obvia. ¿Fue un error aislado o era una fábrica?",
+   "words": [
+    {
+     "start": 65.89,
+     "end": 66.09,
+     "word": " Este",
+     "probability": 0.900614857673645
+    },
+    {
+     "start": 66.09,
+     "end": 66.21,
+     "word": " es",
+     "probability": 0.9940713047981262
+    },
+    {
+     "start": 66.21,
+     "end": 66.33,
+     "word": " el",
+     "probability": 0.989523708820343
+    },
+    {
+     "start": 66.33,
+     "end": 66.57,
+     "word": " vídeo",
+     "probability": 0.5413899421691895
+    },
+    {
+     "start": 66.57,
+     "end": 66.97,
+     "word": " y",
+     "probability": 0.7383463978767395
+    },
+    {
+     "start": 66.97,
+     "end": 67.07,
+     "word": " la",
+     "probability": 0.991155743598938
+    },
+    {
+     "start": 67.07,
+     "end": 67.29,
+     "word": " primera",
+     "probability": 0.9952738881111145
+    },
+    {
+     "start": 67.29,
+     "end": 67.61,
+     "word": " pregunta",
+     "probability": 0.9946131110191345
+    },
+    {
+     "start": 67.61,
+     "end": 67.85,
+     "word": " es",
+     "probability": 0.984966516494751
+    },
+    {
+     "start": 67.85,
+     "end": 67.97,
+     "word": " la",
+     "probability": 0.9864323735237122
+    },
+    {
+     "start": 67.97,
+     "end": 68.29,
+     "word": " obvia.",
+     "probability": 0.8914155066013336
+    },
+    {
+     "start": 68.75,
+     "end": 68.85,
+     "word": " ¿Fue",
+     "probability": 0.8806760907173157
+    },
+    {
+     "start": 68.85,
+     "end": 68.99,
+     "word": " un",
+     "probability": 0.9899867177009583
+    },
+    {
+     "start": 68.99,
+     "end": 69.19,
+     "word": " error",
+     "probability": 0.976912260055542
+    },
+    {
+     "start": 69.19,
+     "end": 69.69,
+     "word": " aislado",
+     "probability": 0.9829293290774027
+    },
+    {
+     "start": 69.69,
+     "end": 70.03,
+     "word": " o",
+     "probability": 0.6359440684318542
+    },
+    {
+     "start": 70.03,
+     "end": 70.15,
+     "word": " era",
+     "probability": 0.9229263663291931
+    },
+    {
+     "start": 70.15,
+     "end": 70.29,
+     "word": " una",
+     "probability": 0.9657866954803467
+    },
+    {
+     "start": 70.29,
+     "end": 70.77,
+     "word": " fábrica?",
+     "probability": 0.9959651827812195
+    }
+   ]
+  },
+  {
+   "start": 73.77,
+   "end": 78.03,
+   "text": " Y al final te enseño tres comprobaciones que tardan menos de un minuto y habrían",
+   "words": [
+    {
+     "start": 73.77,
+     "end": 73.89,
+     "word": " Y",
+     "probability": 0.8763842582702637
+    },
+    {
+     "start": 73.89,
+     "end": 73.97,
+     "word": " al",
+     "probability": 0.9942541718482971
+    },
+    {
+     "start": 73.97,
+     "end": 74.27,
+     "word": " final",
+     "probability": 0.9986793398857117
+    },
+    {
+     "start": 74.27,
+     "end": 74.59,
+     "word": " te",
+     "probability": 0.9190797209739685
+    },
+    {
+     "start": 74.59,
+     "end": 75.01,
+     "word": " enseño",
+     "probability": 0.9370530247688293
+    },
+    {
+     "start": 75.01,
+     "end": 75.23,
+     "word": " tres",
+     "probability": 0.6075716614723206
+    },
+    {
+     "start": 75.23,
+     "end": 75.83,
+     "word": " comprobaciones",
+     "probability": 0.9929789503415426
+    },
+    {
+     "start": 75.83,
+     "end": 76.33,
+     "word": " que",
+     "probability": 0.9761887788772583
+    },
+    {
+     "start": 76.33,
+     "end": 76.65,
+     "word": " tardan",
+     "probability": 0.9894225597381592
+    },
+    {
+     "start": 76.65,
+     "end": 76.91,
+     "word": " menos",
+     "probability": 0.9946308135986328
+    },
+    {
+     "start": 76.91,
+     "end": 77.05,
+     "word": " de",
+     "probability": 0.9831647276878357
+    },
+    {
+     "start": 77.05,
+     "end": 77.13,
+     "word": " un",
+     "probability": 0.9151574969291687
+    },
+    {
+     "start": 77.13,
+     "end": 77.53,
+     "word": " minuto",
+     "probability": 0.9929809868335724
+    },
+    {
+     "start": 77.53,
+     "end": 77.71,
+     "word": " y",
+     "probability": 0.9679853916168213
+    },
+    {
+     "start": 77.71,
+     "end": 78.03,
+     "word": " habrían",
+     "probability": 0.9906202852725983
+    }
+   ]
+  },
+  {
+   "start": 78.03,
+   "end": 83.41,
+   "text": " desmontado cada uno de estos casos. La página se llama joseph forever tiger. Se",
+   "words": [
+    {
+     "start": 78.03,
+     "end": 78.65,
+     "word": " desmontado",
+     "probability": 0.9907490412394205
+    },
+    {
+     "start": 78.65,
+     "end": 78.83,
+     "word": " cada",
+     "probability": 0.95383620262146
+    },
+    {
+     "start": 78.83,
+     "end": 79.11,
+     "word": " uno",
+     "probability": 0.9940617680549622
+    },
+    {
+     "start": 79.11,
+     "end": 79.25,
+     "word": " de",
+     "probability": 0.9896809458732605
+    },
+    {
+     "start": 79.25,
+     "end": 79.39,
+     "word": " estos",
+     "probability": 0.9640379548072815
+    },
+    {
+     "start": 79.39,
+     "end": 79.73,
+     "word": " casos.",
+     "probability": 0.9974761605262756
+    },
+    {
+     "start": 80.65,
+     "end": 80.95,
+     "word": " La",
+     "probability": 0.9622117280960083
+    },
+    {
+     "start": 80.95,
+     "end": 81.11,
+     "word": " página",
+     "probability": 0.7424258589744568
+    },
+    {
+     "start": 81.11,
+     "end": 81.35,
+     "word": " se",
+     "probability": 0.9894500374794006
+    },
+    {
+     "start": 81.35,
+     "end": 81.51,
+     "word": " llama",
+     "probability": 0.9765195846557617
+    },
+    {
+     "start": 81.51,
+     "end": 82.13,
+     "word": " joseph",
+     "probability": 0.37249106898282963
+    },
+    {
+     "start": 82.13,
+     "end": 82.39,
+     "word": " forever",
+     "probability": 0.13945919275283813
+    },
+    {
+     "start": 82.39,
+     "end": 82.79,
+     "word": " tiger.",
+     "probability": 3.8269590731943026e-05
+    },
+    {
+     "start": 83.27,
+     "end": 83.41,
+     "word": " Se",
+     "probability": 0.9764165282249451
+    }
+   ]
+  },
+  {
+   "start": 83.41,
+   "end": 88.57,
+   "text": " creó el 10 de noviembre de 2024, exactamente un mes después de la muerte del tiger. El artista",
+   "words": [
+    {
+     "start": 83.41,
+     "end": 83.77,
+     "word": " creó",
+     "probability": 0.4638272523880005
+    },
+    {
+     "start": 83.77,
+     "end": 83.97,
+     "word": " el",
+     "probability": 0.8752701282501221
+    },
+    {
+     "start": 83.97,
+     "end": 84.07,
+     "word": " 10",
+     "probability": 0.7429180145263672
+    },
+    {
+     "start": 84.07,
+     "end": 84.21,
+     "word": " de",
+     "probability": 0.9948378205299377
+    },
+    {
+     "start": 84.21,
+     "end": 84.55,
+     "word": " noviembre",
+     "probability": 0.9809697469075521
+    },
+    {
+     "start": 84.55,
+     "end": 84.67,
+     "word": " de",
+     "probability": 0.9368886947631836
+    },
+    {
+     "start": 84.67,
+     "end": 85.39,
+     "word": " 2024,",
+     "probability": 0.9164520502090454
+    },
+    {
+     "start": 85.67,
+     "end": 86.03,
+     "word": " exactamente",
+     "probability": 0.9355201721191406
+    },
+    {
+     "start": 86.03,
+     "end": 86.49,
+     "word": " un",
+     "probability": 0.9775236248970032
+    },
+    {
+     "start": 86.49,
+     "end": 86.59,
+     "word": " mes",
+     "probability": 0.9892442226409912
+    },
+    {
+     "start": 86.59,
+     "end": 86.91,
+     "word": " después",
+     "probability": 0.9876294136047363
+    },
+    {
+     "start": 86.91,
+     "end": 87.05,
+     "word": " de",
+     "probability": 0.9942096471786499
+    },
+    {
+     "start": 87.05,
+     "end": 87.15,
+     "word": " la",
+     "probability": 0.9828832745552063
+    },
+    {
+     "start": 87.15,
+     "end": 87.43,
+     "word": " muerte",
+     "probability": 0.9940478801727295
+    },
+    {
+     "start": 87.43,
+     "end": 87.61,
+     "word": " del",
+     "probability": 0.6062767505645752
+    },
+    {
+     "start": 87.61,
+     "end": 87.87,
+     "word": " tiger.",
+     "probability": 0.05027274042367935
+    },
+    {
+     "start": 88.15,
+     "end": 88.23,
+     "word": " El",
+     "probability": 0.9264923334121704
+    },
+    {
+     "start": 88.23,
+     "end": 88.57,
+     "word": " artista",
+     "probability": 0.9422295391559601
+    }
+   ]
+  },
+  {
+   "start": 88.57,
+   "end": 94.93,
+   "text": " falleció el 10 de octubre en mayami a los 37 años. Use el nombre del tiger. No tiene nada que ver con",
+   "words": [
+    {
+     "start": 88.57,
+     "end": 89.07,
+     "word": " falleció",
+     "probability": 0.8852513631184896
+    },
+    {
+     "start": 89.07,
+     "end": 89.39,
+     "word": " el",
+     "probability": 0.9248140454292297
+    },
+    {
+     "start": 89.39,
+     "end": 89.47,
+     "word": " 10",
+     "probability": 0.914245069026947
+    },
+    {
+     "start": 89.47,
+     "end": 89.59,
+     "word": " de",
+     "probability": 0.9883661866188049
+    },
+    {
+     "start": 89.59,
+     "end": 89.87,
+     "word": " octubre",
+     "probability": 0.9816014965375265
+    },
+    {
+     "start": 89.87,
+     "end": 89.99,
+     "word": " en",
+     "probability": 0.7750915288925171
+    },
+    {
+     "start": 89.99,
+     "end": 90.31,
+     "word": " mayami",
+     "probability": 0.29399219155311584
+    },
+    {
+     "start": 90.31,
+     "end": 90.53,
+     "word": " a",
+     "probability": 0.9215772151947021
+    },
+    {
+     "start": 90.53,
+     "end": 90.65,
+     "word": " los",
+     "probability": 0.9963064193725586
+    },
+    {
+     "start": 90.65,
+     "end": 91.05,
+     "word": " 37",
+     "probability": 0.9449199438095093
+    },
+    {
+     "start": 91.05,
+     "end": 91.49,
+     "word": " años.",
+     "probability": 0.9930892586708069
+    },
+    {
+     "start": 92.45,
+     "end": 92.63,
+     "word": " Use",
+     "probability": 0.26317816972732544
+    },
+    {
+     "start": 92.63,
+     "end": 92.79,
+     "word": " el",
+     "probability": 0.959253191947937
+    },
+    {
+     "start": 92.79,
+     "end": 92.97,
+     "word": " nombre",
+     "probability": 0.9975253939628601
+    },
+    {
+     "start": 92.97,
+     "end": 93.19,
+     "word": " del",
+     "probability": 0.6470277905464172
+    },
+    {
+     "start": 93.19,
+     "end": 93.49,
+     "word": " tiger.",
+     "probability": 0.8631468415260315
+    },
+    {
+     "start": 93.97,
+     "end": 94.05,
+     "word": " No",
+     "probability": 0.950047492980957
+    },
+    {
+     "start": 94.05,
+     "end": 94.29,
+     "word": " tiene",
+     "probability": 0.9890156388282776
+    },
+    {
+     "start": 94.29,
+     "end": 94.47,
+     "word": " nada",
+     "probability": 0.990549623966217
+    },
+    {
+     "start": 94.47,
+     "end": 94.61,
+     "word": " que",
+     "probability": 0.9511664509773254
+    },
+    {
+     "start": 94.61,
+     "end": 94.73,
+     "word": " ver",
+     "probability": 0.9967631101608276
+    },
+    {
+     "start": 94.73,
+     "end": 94.93,
+     "word": " con",
+     "probability": 0.9954925775527954
+    }
+   ]
+  },
+  {
+   "start": 94.93,
+   "end": 101.33,
+   "text": " él. El toque lo escribió así. El contenido que publicaba no guardaba relación con su trayectoria",
+   "words": [
+    {
+     "start": 94.93,
+     "end": 95.09,
+     "word": " él.",
+     "probability": 0.63847815990448
+    },
+    {
+     "start": 95.49,
+     "end": 95.63,
+     "word": " El",
+     "probability": 0.6738818287849426
+    },
+    {
+     "start": 95.63,
+     "end": 95.99,
+     "word": " toque",
+     "probability": 0.9617235660552979
+    },
+    {
+     "start": 95.99,
+     "end": 96.27,
+     "word": " lo",
+     "probability": 0.9330949187278748
+    },
+    {
+     "start": 96.27,
+     "end": 96.75,
+     "word": " escribió",
+     "probability": 0.9953670501708984
+    },
+    {
+     "start": 96.75,
+     "end": 96.95,
+     "word": " así.",
+     "probability": 0.9487612247467041
+    },
+    {
+     "start": 98.05,
+     "end": 98.13,
+     "word": " El",
+     "probability": 0.8022091388702393
+    },
+    {
+     "start": 98.13,
+     "end": 98.59,
+     "word": " contenido",
+     "probability": 0.992993175983429
+    },
+    {
+     "start": 98.59,
+     "end": 98.77,
+     "word": " que",
+     "probability": 0.9876991510391235
+    },
+    {
+     "start": 98.77,
+     "end": 99.31,
+     "word": " publicaba",
+     "probability": 0.9851398169994354
+    },
+    {
+     "start": 99.31,
+     "end": 99.57,
+     "word": " no",
+     "probability": 0.8655376434326172
+    },
+    {
+     "start": 99.57,
+     "end": 99.97,
+     "word": " guardaba",
+     "probability": 0.8554068207740784
+    },
+    {
+     "start": 99.97,
+     "end": 100.35,
+     "word": " relación",
+     "probability": 0.9692363739013672
+    },
+    {
+     "start": 100.35,
+     "end": 100.59,
+     "word": " con",
+     "probability": 0.9916219711303711
+    },
+    {
+     "start": 100.59,
+     "end": 100.71,
+     "word": " su",
+     "probability": 0.9963416457176208
+    },
+    {
+     "start": 100.71,
+     "end": 101.33,
+     "word": " trayectoria",
+     "probability": 0.9694920778274536
+    }
+   ]
+  },
+  {
+   "start": 101.33,
+   "end": 106.57,
+   "text": " ni con su legado. cubayama lo dijo más directo. Era una página creada para desinformar,",
+   "words": [
+    {
+     "start": 101.33,
+     "end": 101.49,
+     "word": " ni",
+     "probability": 0.9399736523628235
+    },
+    {
+     "start": 101.49,
+     "end": 101.67,
+     "word": " con",
+     "probability": 0.5836991667747498
+    },
+    {
+     "start": 101.67,
+     "end": 101.81,
+     "word": " su",
+     "probability": 0.9914354681968689
+    },
+    {
+     "start": 101.81,
+     "end": 102.17,
+     "word": " legado.",
+     "probability": 0.9228132963180542
+    },
+    {
+     "start": 102.85,
+     "end": 103.23,
+     "word": " cubayama",
+     "probability": 0.6117736026644707
+    },
+    {
+     "start": 103.23,
+     "end": 103.41,
+     "word": " lo",
+     "probability": 0.9697678089141846
+    },
+    {
+     "start": 103.41,
+     "end": 103.57,
+     "word": " dijo",
+     "probability": 0.9881851673126221
+    },
+    {
+     "start": 103.57,
+     "end": 103.75,
+     "word": " más",
+     "probability": 0.9342309236526489
+    },
+    {
+     "start": 103.75,
+     "end": 104.45,
+     "word": " directo.",
+     "probability": 0.9953411221504211
+    },
+    {
+     "start": 104.65,
+     "end": 104.75,
+     "word": " Era",
+     "probability": 0.8452537059783936
+    },
+    {
+     "start": 104.75,
+     "end": 104.89,
+     "word": " una",
+     "probability": 0.9970775842666626
+    },
+    {
+     "start": 104.89,
+     "end": 105.09,
+     "word": " página",
+     "probability": 0.9857613444328308
+    },
+    {
+     "start": 105.09,
+     "end": 105.55,
+     "word": " creada",
+     "probability": 0.9925501942634583
+    },
+    {
+     "start": 105.55,
+     "end": 105.77,
+     "word": " para",
+     "probability": 0.9932350516319275
+    },
+    {
+     "start": 105.77,
+     "end": 106.57,
+     "word": " desinformar,",
+     "probability": 0.9722929000854492
+    }
+   ]
+  },
+  {
+   "start": 106.89,
+   "end": 112.43,
+   "text": " no para homenajear. La página creció mientras publicaba contenido false. En agosto de",
+   "words": [
+    {
+     "start": 106.89,
+     "end": 106.97,
+     "word": " no",
+     "probability": 0.9916464686393738
+    },
+    {
+     "start": 106.97,
+     "end": 107.13,
+     "word": " para",
+     "probability": 0.9970491528511047
+    },
+    {
+     "start": 107.13,
+     "end": 107.75,
+     "word": " homenajear.",
+     "probability": 0.8970730900764465
+    },
+    {
+     "start": 108.57,
+     "end": 108.71,
+     "word": " La",
+     "probability": 0.9027016758918762
+    },
+    {
+     "start": 108.71,
+     "end": 108.95,
+     "word": " página",
+     "probability": 0.9859191179275513
+    },
+    {
+     "start": 108.95,
+     "end": 109.41,
+     "word": " creció",
+     "probability": 0.9866852462291718
+    },
+    {
+     "start": 109.41,
+     "end": 109.71,
+     "word": " mientras",
+     "probability": 0.9873524904251099
+    },
+    {
+     "start": 109.71,
+     "end": 110.37,
+     "word": " publicaba",
+     "probability": 0.9873173534870148
+    },
+    {
+     "start": 110.37,
+     "end": 110.75,
+     "word": " contenido",
+     "probability": 0.8959532976150513
+    },
+    {
+     "start": 110.75,
+     "end": 111.15,
+     "word": " false.",
+     "probability": 0.20792779326438904
+    },
+    {
+     "start": 111.85,
+     "end": 111.97,
+     "word": " En",
+     "probability": 0.8925619721412659
+    },
+    {
+     "start": 111.97,
+     "end": 112.27,
+     "word": " agosto",
+     "probability": 0.9888139963150024
+    },
+    {
+     "start": 112.27,
+     "end": 112.43,
+     "word": " de",
+     "probability": 0.9865656495094299
+    }
+   ]
+  },
+  {
+   "start": 112.43,
+   "end": 121.51,
+   "text": " 2025 tenía 600.000 seguidores. En marzo de 2026 cuando salió el caso Messi ya basaba de 748.000.",
+   "words": [
+    {
+     "start": 112.43,
+     "end": 113.07,
+     "word": " 2025",
+     "probability": 0.051615167409181595
+    },
+    {
+     "start": 113.07,
+     "end": 113.57,
+     "word": " tenía",
+     "probability": 0.8596465587615967
+    },
+    {
+     "start": 113.57,
+     "end": 113.97,
+     "word": " 600",
+     "probability": 0.961972177028656
+    },
+    {
+     "start": 113.97,
+     "end": 114.47,
+     "word": ".000",
+     "probability": 0.767151266336441
+    },
+    {
+     "start": 114.47,
+     "end": 114.91,
+     "word": " seguidores.",
+     "probability": 0.8766332268714905
+    },
+    {
+     "start": 115.37,
+     "end": 115.47,
+     "word": " En",
+     "probability": 0.953986644744873
+    },
+    {
+     "start": 115.47,
+     "end": 115.77,
+     "word": " marzo",
+     "probability": 0.8595850765705109
+    },
+    {
+     "start": 115.77,
+     "end": 115.85,
+     "word": " de",
+     "probability": 0.971592903137207
+    },
+    {
+     "start": 115.85,
+     "end": 116.53,
+     "word": " 2026",
+     "probability": 0.7546248733997345
+    },
+    {
+     "start": 116.53,
+     "end": 116.85,
+     "word": " cuando",
+     "probability": 0.5004541873931885
+    },
+    {
+     "start": 116.85,
+     "end": 117.31,
+     "word": " salió",
+     "probability": 0.9752551317214966
+    },
+    {
+     "start": 117.31,
+     "end": 117.39,
+     "word": " el",
+     "probability": 0.9141315817832947
+    },
+    {
+     "start": 117.39,
+     "end": 117.61,
+     "word": " caso",
+     "probability": 0.9284815788269043
+    },
+    {
+     "start": 117.61,
+     "end": 117.95,
+     "word": " Messi",
+     "probability": 0.7707014083862305
+    },
+    {
+     "start": 117.95,
+     "end": 118.77,
+     "word": " ya",
+     "probability": 0.5975610017776489
+    },
+    {
+     "start": 118.77,
+     "end": 119.25,
+     "word": " basaba",
+     "probability": 0.6144962906837463
+    },
+    {
+     "start": 119.25,
+     "end": 119.95,
+     "word": " de",
+     "probability": 0.9281173944473267
+    },
+    {
+     "start": 119.95,
+     "end": 121.01,
+     "word": " 748",
+     "probability": 0.9165535867214203
+    },
+    {
+     "start": 121.01,
+     "end": 121.51,
+     "word": ".000.",
+     "probability": 0.8950080573558807
+    }
+   ]
+  },
+  {
+   "start": 121.93,
+   "end": 128.83,
+   "text": " Y la última cifra confuente de julio es de más de 770.000. Las denuncias no la frenaron. En",
+   "words": [
+    {
+     "start": 121.93,
+     "end": 122.29,
+     "word": " Y",
+     "probability": 0.869125485420227
+    },
+    {
+     "start": 122.29,
+     "end": 122.39,
+     "word": " la",
+     "probability": 0.9868780970573425
+    },
+    {
+     "start": 122.39,
+     "end": 122.63,
+     "word": " última",
+     "probability": 0.9814479947090149
+    },
+    {
+     "start": 122.63,
+     "end": 123.13,
+     "word": " cifra",
+     "probability": 0.9960874120394388
+    },
+    {
+     "start": 123.13,
+     "end": 123.81,
+     "word": " confuente",
+     "probability": 0.7881209552288055
+    },
+    {
+     "start": 123.81,
+     "end": 124.19,
+     "word": " de",
+     "probability": 0.9423080086708069
+    },
+    {
+     "start": 124.19,
+     "end": 124.59,
+     "word": " julio",
+     "probability": 0.8495155870914459
+    },
+    {
+     "start": 124.59,
+     "end": 124.93,
+     "word": " es",
+     "probability": 0.9368992447853088
+    },
+    {
+     "start": 124.93,
+     "end": 125.07,
+     "word": " de",
+     "probability": 0.9745715260505676
+    },
+    {
+     "start": 125.07,
+     "end": 125.19,
+     "word": " más",
+     "probability": 0.970304012298584
+    },
+    {
+     "start": 125.19,
+     "end": 125.35,
+     "word": " de",
+     "probability": 0.9964773058891296
+    },
+    {
+     "start": 125.35,
+     "end": 126.21,
+     "word": " 770",
+     "probability": 0.9676682353019714
+    },
+    {
+     "start": 126.21,
+     "end": 126.59,
+     "word": ".000.",
+     "probability": 0.9705723524093628
+    },
+    {
+     "start": 126.91,
+     "end": 127.17,
+     "word": " Las",
+     "probability": 0.9479395151138306
+    },
+    {
+     "start": 127.17,
+     "end": 127.67,
+     "word": " denuncias",
+     "probability": 0.9960703253746033
+    },
+    {
+     "start": 127.67,
+     "end": 127.77,
+     "word": " no",
+     "probability": 0.9192419052124023
+    },
+    {
+     "start": 127.77,
+     "end": 127.89,
+     "word": " la",
+     "probability": 0.8712179064750671
+    },
+    {
+     "start": 127.89,
+     "end": 128.35,
+     "word": " frenaron.",
+     "probability": 0.9855029881000519
+    },
+    {
+     "start": 128.71,
+     "end": 128.83,
+     "word": " En",
+     "probability": 0.9934216141700745
+    }
+   ]
+  },
+  {
+   "start": 128.83,
+   "end": 133.11,
+   "text": " dos semanas ganó unos 5.000 seguidores mientras el toque publicaba dos verificaciones en su",
+   "words": [
+    {
+     "start": 128.83,
+     "end": 128.97,
+     "word": " dos",
+     "probability": 0.9079504609107971
+    },
+    {
+     "start": 128.97,
+     "end": 129.23,
+     "word": " semanas",
+     "probability": 0.9985842704772949
+    },
+    {
+     "start": 129.23,
+     "end": 129.61,
+     "word": " ganó",
+     "probability": 0.9831779897212982
+    },
+    {
+     "start": 129.61,
+     "end": 129.79,
+     "word": " unos",
+     "probability": 0.8575968146324158
+    },
+    {
+     "start": 129.79,
+     "end": 130.07,
+     "word": " 5",
+     "probability": 0.8343983292579651
+    },
+    {
+     "start": 130.07,
+     "end": 130.31,
+     "word": ".000",
+     "probability": 0.9426490962505341
+    },
+    {
+     "start": 130.31,
+     "end": 130.69,
+     "word": " seguidores",
+     "probability": 0.9981004297733307
+    },
+    {
+     "start": 130.69,
+     "end": 130.97,
+     "word": " mientras",
+     "probability": 0.5190845727920532
+    },
+    {
+     "start": 130.97,
+     "end": 131.29,
+     "word": " el",
+     "probability": 0.44925835728645325
+    },
+    {
+     "start": 131.29,
+     "end": 131.41,
+     "word": " toque",
+     "probability": 0.8971068561077118
+    },
+    {
+     "start": 131.41,
+     "end": 131.91,
+     "word": " publicaba",
+     "probability": 0.9708485305309296
+    },
+    {
+     "start": 131.91,
+     "end": 132.17,
+     "word": " dos",
+     "probability": 0.9504234194755554
+    },
+    {
+     "start": 132.17,
+     "end": 132.79,
+     "word": " verificaciones",
+     "probability": 0.9960437615712484
+    },
+    {
+     "start": 132.79,
+     "end": 132.99,
+     "word": " en",
+     "probability": 0.984320878982544
+    },
+    {
+     "start": 132.99,
+     "end": 133.11,
+     "word": " su",
+     "probability": 0.9874380230903625
+    }
+   ]
+  },
+  {
+   "start": 133.11,
+   "end": 138.51,
+   "text": " contra. El toque describió el método en abril. La página mezclaba hechos reales con",
+   "words": [
+    {
+     "start": 133.11,
+     "end": 133.35,
+     "word": " contra.",
+     "probability": 0.8243697285652161
+    },
+    {
+     "start": 134.41,
+     "end": 134.75,
+     "word": " El",
+     "probability": 0.877988874912262
+    },
+    {
+     "start": 134.75,
+     "end": 135.07,
+     "word": " toque",
+     "probability": 0.9851713478565216
+    },
+    {
+     "start": 135.07,
+     "end": 135.65,
+     "word": " describió",
+     "probability": 0.9797352949778239
+    },
+    {
+     "start": 135.65,
+     "end": 135.73,
+     "word": " el",
+     "probability": 0.8767403960227966
+    },
+    {
+     "start": 135.73,
+     "end": 136.07,
+     "word": " método",
+     "probability": 0.9773557782173157
+    },
+    {
+     "start": 136.07,
+     "end": 136.25,
+     "word": " en",
+     "probability": 0.9474475979804993
+    },
+    {
+     "start": 136.25,
+     "end": 136.55,
+     "word": " abril.",
+     "probability": 0.9653126299381256
+    },
+    {
+     "start": 136.89,
+     "end": 136.95,
+     "word": " La",
+     "probability": 0.9483098983764648
+    },
+    {
+     "start": 136.95,
+     "end": 137.13,
+     "word": " página",
+     "probability": 0.9815772175788879
+    },
+    {
+     "start": 137.13,
+     "end": 137.65,
+     "word": " mezclaba",
+     "probability": 0.9569899241129557
+    },
+    {
+     "start": 137.65,
+     "end": 137.91,
+     "word": " hechos",
+     "probability": 0.9728207886219025
+    },
+    {
+     "start": 137.91,
+     "end": 138.43,
+     "word": " reales",
+     "probability": 0.9904767870903015
+    },
+    {
+     "start": 138.43,
+     "end": 138.51,
+     "word": " con",
+     "probability": 0.9849633574485779
+    }
+   ]
+  },
+  {
+   "start": 138.51,
+   "end": 145.43,
+   "text": " afirmaciones falsas sin ninguna aclaración. Cuatro pasos. Primero, una figura que el público",
+   "words": [
+    {
+     "start": 138.51,
+     "end": 139.03,
+     "word": " afirmaciones",
+     "probability": 0.5418550173441569
+    },
+    {
+     "start": 139.03,
+     "end": 139.57,
+     "word": " falsas",
+     "probability": 0.9944608509540558
+    },
+    {
+     "start": 139.57,
+     "end": 139.81,
+     "word": " sin",
+     "probability": 0.8640322089195251
+    },
+    {
+     "start": 139.81,
+     "end": 140.21,
+     "word": " ninguna",
+     "probability": 0.9898455142974854
+    },
+    {
+     "start": 140.21,
+     "end": 141.01,
+     "word": " aclaración.",
+     "probability": 0.9947511156400045
+    },
+    {
+     "start": 141.83,
+     "end": 142.27,
+     "word": " Cuatro",
+     "probability": 0.6933404952287674
+    },
+    {
+     "start": 142.27,
+     "end": 143.09,
+     "word": " pasos.",
+     "probability": 0.9255369305610657
+    },
+    {
+     "start": 143.29,
+     "end": 143.67,
+     "word": " Primero,",
+     "probability": 0.8660025000572205
+    },
+    {
+     "start": 144.21,
+     "end": 144.55,
+     "word": " una",
+     "probability": 0.9203842878341675
+    },
+    {
+     "start": 144.55,
+     "end": 144.87,
+     "word": " figura",
+     "probability": 0.9964078068733215
+    },
+    {
+     "start": 144.87,
+     "end": 145.09,
+     "word": " que",
+     "probability": 0.987154483795166
+    },
+    {
+     "start": 145.09,
+     "end": 145.19,
+     "word": " el",
+     "probability": 0.9873303174972534
+    },
+    {
+     "start": 145.19,
+     "end": 145.43,
+     "word": " público",
+     "probability": 0.9787924885749817
+    }
+   ]
+  },
+  {
+   "start": 145.43,
+   "end": 151.09,
+   "text": " quiere escuchar. Segundo, un texto emocional en primera persona atribuido a esa figura.",
+   "words": [
+    {
+     "start": 145.43,
+     "end": 145.75,
+     "word": " quiere",
+     "probability": 0.9647017121315002
+    },
+    {
+     "start": 145.75,
+     "end": 146.37,
+     "word": " escuchar.",
+     "probability": 0.9978607296943665
+    },
+    {
+     "start": 146.57,
+     "end": 147.19,
+     "word": " Segundo,",
+     "probability": 0.9868982434272766
+    },
+    {
+     "start": 147.75,
+     "end": 147.83,
+     "word": " un",
+     "probability": 0.988911509513855
+    },
+    {
+     "start": 147.83,
+     "end": 148.11,
+     "word": " texto",
+     "probability": 0.9968460202217102
+    },
+    {
+     "start": 148.11,
+     "end": 148.69,
+     "word": " emocional",
+     "probability": 0.9980132579803467
+    },
+    {
+     "start": 148.69,
+     "end": 148.95,
+     "word": " en",
+     "probability": 0.9620092511177063
+    },
+    {
+     "start": 148.95,
+     "end": 149.21,
+     "word": " primera",
+     "probability": 0.9930757284164429
+    },
+    {
+     "start": 149.21,
+     "end": 149.71,
+     "word": " persona",
+     "probability": 0.9957084655761719
+    },
+    {
+     "start": 149.71,
+     "end": 150.47,
+     "word": " atribuido",
+     "probability": 0.9152723550796509
+    },
+    {
+     "start": 150.47,
+     "end": 150.63,
+     "word": " a",
+     "probability": 0.9910203814506531
+    },
+    {
+     "start": 150.63,
+     "end": 150.75,
+     "word": " esa",
+     "probability": 0.9527609944343567
+    },
+    {
+     "start": 150.75,
+     "end": 151.09,
+     "word": " figura.",
+     "probability": 0.998556911945343
+    }
+   ]
+  },
+  {
+   "start": 151.59,
+   "end": 157.09,
+   "text": " Tercero, una imagen real manipulada o creada con inteligencia artificial. Casi siempre con una",
+   "words": [
+    {
+     "start": 151.59,
+     "end": 152.25,
+     "word": " Tercero,",
+     "probability": 0.9346713821093241
+    },
+    {
+     "start": 152.69,
+     "end": 152.73,
+     "word": " una",
+     "probability": 0.7559671401977539
+    },
+    {
+     "start": 152.73,
+     "end": 152.97,
+     "word": " imagen",
+     "probability": 0.9962700605392456
+    },
+    {
+     "start": 152.97,
+     "end": 153.25,
+     "word": " real",
+     "probability": 0.9469531178474426
+    },
+    {
+     "start": 153.25,
+     "end": 153.89,
+     "word": " manipulada",
+     "probability": 0.997943659623464
+    },
+    {
+     "start": 153.89,
+     "end": 154.15,
+     "word": " o",
+     "probability": 0.9868608117103577
+    },
+    {
+     "start": 154.15,
+     "end": 154.41,
+     "word": " creada",
+     "probability": 0.9899684488773346
+    },
+    {
+     "start": 154.41,
+     "end": 154.57,
+     "word": " con",
+     "probability": 0.9953118562698364
+    },
+    {
+     "start": 154.57,
+     "end": 155.13,
+     "word": " inteligencia",
+     "probability": 0.987466037273407
+    },
+    {
+     "start": 155.13,
+     "end": 155.67,
+     "word": " artificial.",
+     "probability": 0.9862929582595825
+    },
+    {
+     "start": 156.13,
+     "end": 156.39,
+     "word": " Casi",
+     "probability": 0.9825131297111511
+    },
+    {
+     "start": 156.39,
+     "end": 156.73,
+     "word": " siempre",
+     "probability": 0.9970594048500061
+    },
+    {
+     "start": 156.73,
+     "end": 156.97,
+     "word": " con",
+     "probability": 0.8629863858222961
+    },
+    {
+     "start": 156.97,
+     "end": 157.09,
+     "word": " una",
+     "probability": 0.9916621446609497
+    }
+   ]
+  },
+  {
+   "start": 157.09,
+   "end": 163.51,
+   "text": " bandera cubana. Y cuarto, un núcleo real que hace creíble bulo sin aclaración de ningún",
+   "words": [
+    {
+     "start": 157.09,
+     "end": 157.37,
+     "word": " bandera",
+     "probability": 0.8873369097709656
+    },
+    {
+     "start": 157.37,
+     "end": 157.77,
+     "word": " cubana.",
+     "probability": 0.9880213439464569
+    },
+    {
+     "start": 158.09,
+     "end": 158.13,
+     "word": " Y",
+     "probability": 0.8449245691299438
+    },
+    {
+     "start": 158.13,
+     "end": 158.45,
+     "word": " cuarto,",
+     "probability": 0.901289701461792
+    },
+    {
+     "start": 159.07,
+     "end": 159.07,
+     "word": " un",
+     "probability": 0.9944987893104553
+    },
+    {
+     "start": 159.07,
+     "end": 159.43,
+     "word": " núcleo",
+     "probability": 0.9934622049331665
+    },
+    {
+     "start": 159.43,
+     "end": 159.99,
+     "word": " real",
+     "probability": 0.9382886290550232
+    },
+    {
+     "start": 159.99,
+     "end": 160.49,
+     "word": " que",
+     "probability": 0.8163651823997498
+    },
+    {
+     "start": 160.49,
+     "end": 160.65,
+     "word": " hace",
+     "probability": 0.9883847236633301
+    },
+    {
+     "start": 160.65,
+     "end": 161.05,
+     "word": " creíble",
+     "probability": 0.9152151942253113
+    },
+    {
+     "start": 161.05,
+     "end": 162.17,
+     "word": " bulo",
+     "probability": 0.40989556908607483
+    },
+    {
+     "start": 162.17,
+     "end": 162.53,
+     "word": " sin",
+     "probability": 0.5796861052513123
+    },
+    {
+     "start": 162.53,
+     "end": 163.15,
+     "word": " aclaración",
+     "probability": 0.9899426897366842
+    },
+    {
+     "start": 163.15,
+     "end": 163.31,
+     "word": " de",
+     "probability": 0.9835600852966309
+    },
+    {
+     "start": 163.31,
+     "end": 163.51,
+     "word": " ningún",
+     "probability": 0.9613409042358398
+    }
+   ]
+  },
+  {
+   "start": 163.51,
+   "end": 170.98,
+   "text": " tipo. Una semana después del caso Messi, el 23 de marzo, la misma fórmula con Nahid Bukele,",
+   "words": [
+    {
+     "start": 163.51,
+     "end": 163.87,
+     "word": " tipo.",
+     "probability": 0.016161765903234482
+    },
+    {
+     "start": 166.18,
+     "end": 166.44,
+     "word": " Una",
+     "probability": 0.8777976036071777
+    },
+    {
+     "start": 166.44,
+     "end": 166.74,
+     "word": " semana",
+     "probability": 0.9963945746421814
+    },
+    {
+     "start": 166.74,
+     "end": 167.0,
+     "word": " después",
+     "probability": 0.9858593344688416
+    },
+    {
+     "start": 167.0,
+     "end": 167.2,
+     "word": " del",
+     "probability": 0.4040006101131439
+    },
+    {
+     "start": 167.2,
+     "end": 167.5,
+     "word": " caso",
+     "probability": 0.8219243288040161
+    },
+    {
+     "start": 167.5,
+     "end": 167.84,
+     "word": " Messi,",
+     "probability": 0.8940466046333313
+    },
+    {
+     "start": 168.14,
+     "end": 168.22,
+     "word": " el",
+     "probability": 0.7620495557785034
+    },
+    {
+     "start": 168.22,
+     "end": 168.46,
+     "word": " 23",
+     "probability": 0.9827121496200562
+    },
+    {
+     "start": 168.46,
+     "end": 168.74,
+     "word": " de",
+     "probability": 0.9917941689491272
+    },
+    {
+     "start": 168.74,
+     "end": 169.08,
+     "word": " marzo,",
+     "probability": 0.6893990784883499
+    },
+    {
+     "start": 169.36,
+     "end": 169.4,
+     "word": " la",
+     "probability": 0.9716078042984009
+    },
+    {
+     "start": 169.4,
+     "end": 169.56,
+     "word": " misma",
+     "probability": 0.9965961575508118
+    },
+    {
+     "start": 169.56,
+     "end": 170.12,
+     "word": " fórmula",
+     "probability": 0.9915656298398972
+    },
+    {
+     "start": 170.12,
+     "end": 170.32,
+     "word": " con",
+     "probability": 0.9789450764656067
+    },
+    {
+     "start": 170.32,
+     "end": 170.58,
+     "word": " Nahid",
+     "probability": 0.5341584384441376
+    },
+    {
+     "start": 170.58,
+     "end": 170.98,
+     "word": " Bukele,",
+     "probability": 0.8207128643989563
+    }
+   ]
+  },
+  {
+   "start": 171.18,
+   "end": 176.56,
+   "text": " presidente del zambadoll. Un texto firmado con su nombre y un collage de tres fotos con banderas",
+   "words": [
+    {
+     "start": 171.18,
+     "end": 171.54,
+     "word": " presidente",
+     "probability": 0.9334055185317993
+    },
+    {
+     "start": 171.54,
+     "end": 171.84,
+     "word": " del",
+     "probability": 0.7719592452049255
+    },
+    {
+     "start": 171.84,
+     "end": 172.38,
+     "word": " zambadoll.",
+     "probability": 0.5947731398046017
+    },
+    {
+     "start": 172.84,
+     "end": 172.98,
+     "word": " Un",
+     "probability": 0.9881848096847534
+    },
+    {
+     "start": 172.98,
+     "end": 173.14,
+     "word": " texto",
+     "probability": 0.9914131164550781
+    },
+    {
+     "start": 173.14,
+     "end": 173.64,
+     "word": " firmado",
+     "probability": 0.73796546459198
+    },
+    {
+     "start": 173.64,
+     "end": 173.82,
+     "word": " con",
+     "probability": 0.983002245426178
+    },
+    {
+     "start": 173.82,
+     "end": 173.96,
+     "word": " su",
+     "probability": 0.9942485094070435
+    },
+    {
+     "start": 173.96,
+     "end": 174.24,
+     "word": " nombre",
+     "probability": 0.9991313815116882
+    },
+    {
+     "start": 174.24,
+     "end": 174.46,
+     "word": " y",
+     "probability": 0.9486458897590637
+    },
+    {
+     "start": 174.46,
+     "end": 174.56,
+     "word": " un",
+     "probability": 0.9927307963371277
+    },
+    {
+     "start": 174.56,
+     "end": 175.04,
+     "word": " collage",
+     "probability": 0.9200635552406311
+    },
+    {
+     "start": 175.04,
+     "end": 175.28,
+     "word": " de",
+     "probability": 0.9862550497055054
+    },
+    {
+     "start": 175.28,
+     "end": 175.52,
+     "word": " tres",
+     "probability": 0.9008841514587402
+    },
+    {
+     "start": 175.52,
+     "end": 175.92,
+     "word": " fotos",
+     "probability": 0.9913369417190552
+    },
+    {
+     "start": 175.92,
+     "end": 176.26,
+     "word": " con",
+     "probability": 0.9778375029563904
+    },
+    {
+     "start": 176.26,
+     "end": 176.56,
+     "word": " banderas",
+     "probability": 0.9863479435443878
+    }
+   ]
+  },
+  {
+   "start": 176.56,
+   "end": 182.16,
+   "text": " cubanas. Más de 7.800 reacciones, el toque verificó que las declaraciones citadas no eran",
+   "words": [
+    {
+     "start": 176.56,
+     "end": 177.08,
+     "word": " cubanas.",
+     "probability": 0.9766523540019989
+    },
+    {
+     "start": 177.36,
+     "end": 177.46,
+     "word": " Más",
+     "probability": 0.9753141403198242
+    },
+    {
+     "start": 177.46,
+     "end": 177.58,
+     "word": " de",
+     "probability": 0.9973490238189697
+    },
+    {
+     "start": 177.58,
+     "end": 177.7,
+     "word": " 7",
+     "probability": 0.8113654851913452
+    },
+    {
+     "start": 177.7,
+     "end": 178.08,
+     "word": ".800",
+     "probability": 0.7442462146282196
+    },
+    {
+     "start": 178.08,
+     "end": 178.98,
+     "word": " reacciones,",
+     "probability": 0.9903920491536459
+    },
+    {
+     "start": 179.44,
+     "end": 179.6,
+     "word": " el",
+     "probability": 0.9761577844619751
+    },
+    {
+     "start": 179.6,
+     "end": 179.8,
+     "word": " toque",
+     "probability": 0.9862807095050812
+    },
+    {
+     "start": 179.8,
+     "end": 180.36,
+     "word": " verificó",
+     "probability": 0.9730396270751953
+    },
+    {
+     "start": 180.36,
+     "end": 180.46,
+     "word": " que",
+     "probability": 0.9974519610404968
+    },
+    {
+     "start": 180.46,
+     "end": 180.6,
+     "word": " las",
+     "probability": 0.9905248284339905
+    },
+    {
+     "start": 180.6,
+     "end": 181.12,
+     "word": " declaraciones",
+     "probability": 0.998848021030426
+    },
+    {
+     "start": 181.12,
+     "end": 181.6,
+     "word": " citadas",
+     "probability": 0.9990318417549133
+    },
+    {
+     "start": 181.6,
+     "end": 181.96,
+     "word": " no",
+     "probability": 0.9820597171783447
+    },
+    {
+     "start": 181.96,
+     "end": 182.16,
+     "word": " eran",
+     "probability": 0.9883683323860168
+    }
+   ]
+  },
+  {
+   "start": 182.16,
+   "end": 188.12,
+   "text": " ciertas. Ese mismo mes, la página atribuyó declaraciones falsas a Elon Musk, a Ari Yankee",
+   "words": [
+    {
+     "start": 182.16,
+     "end": 182.74,
+     "word": " ciertas.",
+     "probability": 0.9867485165596008
+    },
+    {
+     "start": 183.42,
+     "end": 183.8,
+     "word": " Ese",
+     "probability": 0.9777048230171204
+    },
+    {
+     "start": 183.8,
+     "end": 184.04,
+     "word": " mismo",
+     "probability": 0.9918393492698669
+    },
+    {
+     "start": 184.04,
+     "end": 184.24,
+     "word": " mes,",
+     "probability": 0.9383854866027832
+    },
+    {
+     "start": 184.34,
+     "end": 184.38,
+     "word": " la",
+     "probability": 0.993091344833374
+    },
+    {
+     "start": 184.38,
+     "end": 184.54,
+     "word": " página",
+     "probability": 0.9918838739395142
+    },
+    {
+     "start": 184.54,
+     "end": 185.1,
+     "word": " atribuyó",
+     "probability": 0.7365672355517745
+    },
+    {
+     "start": 185.1,
+     "end": 185.62,
+     "word": " declaraciones",
+     "probability": 0.9969132542610168
+    },
+    {
+     "start": 185.62,
+     "end": 186.14,
+     "word": " falsas",
+     "probability": 0.998632550239563
+    },
+    {
+     "start": 186.14,
+     "end": 186.48,
+     "word": " a",
+     "probability": 0.9075332283973694
+    },
+    {
+     "start": 186.48,
+     "end": 186.62,
+     "word": " Elon",
+     "probability": 0.985704779624939
+    },
+    {
+     "start": 186.62,
+     "end": 187.02,
+     "word": " Musk,",
+     "probability": 0.9897704124450684
+    },
+    {
+     "start": 187.52,
+     "end": 187.54,
+     "word": " a",
+     "probability": 0.9494749903678894
+    },
+    {
+     "start": 187.54,
+     "end": 187.72,
+     "word": " Ari",
+     "probability": 0.7484042644500732
+    },
+    {
+     "start": 187.72,
+     "end": 188.12,
+     "word": " Yankee",
+     "probability": 0.7081314623355865
+    }
+   ]
+  },
+  {
+   "start": 188.12,
+   "end": 193.44,
+   "text": " y a Bad Bunny. El toque lo verificó en grupo. Las declaraciones citadas no son ciertas.",
+   "words": [
+    {
+     "start": 188.12,
+     "end": 188.48,
+     "word": " y",
+     "probability": 0.8898032903671265
+    },
+    {
+     "start": 188.48,
+     "end": 188.56,
+     "word": " a",
+     "probability": 0.946412205696106
+    },
+    {
+     "start": 188.56,
+     "end": 188.7,
+     "word": " Bad",
+     "probability": 0.7400073409080505
+    },
+    {
+     "start": 188.7,
+     "end": 188.98,
+     "word": " Bunny.",
+     "probability": 0.9316158294677734
+    },
+    {
+     "start": 189.5,
+     "end": 189.68,
+     "word": " El",
+     "probability": 0.9925402998924255
+    },
+    {
+     "start": 189.68,
+     "end": 189.98,
+     "word": " toque",
+     "probability": 0.9962356686592102
+    },
+    {
+     "start": 189.98,
+     "end": 190.18,
+     "word": " lo",
+     "probability": 0.5384328961372375
+    },
+    {
+     "start": 190.18,
+     "end": 190.66,
+     "word": " verificó",
+     "probability": 0.9893941283226013
+    },
+    {
+     "start": 190.66,
+     "end": 190.76,
+     "word": " en",
+     "probability": 0.9968060255050659
+    },
+    {
+     "start": 190.76,
+     "end": 191.04,
+     "word": " grupo.",
+     "probability": 0.9594049453735352
+    },
+    {
+     "start": 191.3,
+     "end": 191.4,
+     "word": " Las",
+     "probability": 0.982017993927002
+    },
+    {
+     "start": 191.4,
+     "end": 191.9,
+     "word": " declaraciones",
+     "probability": 0.9991362690925598
+    },
+    {
+     "start": 191.9,
+     "end": 192.32,
+     "word": " citadas",
+     "probability": 0.9984314441680908
+    },
+    {
+     "start": 192.32,
+     "end": 192.58,
+     "word": " no",
+     "probability": 0.9878345727920532
+    },
+    {
+     "start": 192.58,
+     "end": 192.88,
+     "word": " son",
+     "probability": 0.9888448119163513
+    },
+    {
+     "start": 192.88,
+     "end": 193.44,
+     "word": " ciertas.",
+     "probability": 0.9784874022006989
+    }
+   ]
+  },
+  {
+   "start": 193.44,
+   "end": 200.3,
+   "text": " Con Musk, hay un matiz que no se puede saltar. Musk si dijo a correar sobre Cuba. El 16 de",
+   "words": [
+    {
+     "start": 193.44,
+     "end": 194.38,
+     "word": " Con",
+     "probability": 0.039658840745687485
+    },
+    {
+     "start": 194.38,
+     "end": 194.76,
+     "word": " Musk,",
+     "probability": 0.19289492070674896
+    },
+    {
+     "start": 195.12,
+     "end": 195.32,
+     "word": " hay",
+     "probability": 0.9030430316925049
+    },
+    {
+     "start": 195.32,
+     "end": 195.46,
+     "word": " un",
+     "probability": 0.991405725479126
+    },
+    {
+     "start": 195.46,
+     "end": 195.76,
+     "word": " matiz",
+     "probability": 0.9258535206317902
+    },
+    {
+     "start": 195.76,
+     "end": 195.98,
+     "word": " que",
+     "probability": 0.9821023941040039
+    },
+    {
+     "start": 195.98,
+     "end": 196.1,
+     "word": " no",
+     "probability": 0.9895691275596619
+    },
+    {
+     "start": 196.1,
+     "end": 196.22,
+     "word": " se",
+     "probability": 0.9826505780220032
+    },
+    {
+     "start": 196.22,
+     "end": 196.46,
+     "word": " puede",
+     "probability": 0.9943835735321045
+    },
+    {
+     "start": 196.46,
+     "end": 197.06,
+     "word": " saltar.",
+     "probability": 0.9854653775691986
+    },
+    {
+     "start": 197.38,
+     "end": 197.6,
+     "word": " Musk",
+     "probability": 0.06606511771678925
+    },
+    {
+     "start": 197.6,
+     "end": 197.86,
+     "word": " si",
+     "probability": 0.40859583020210266
+    },
+    {
+     "start": 197.86,
+     "end": 198.14,
+     "word": " dijo",
+     "probability": 0.9869484901428223
+    },
+    {
+     "start": 198.14,
+     "end": 198.38,
+     "word": " a",
+     "probability": 0.4712103307247162
+    },
+    {
+     "start": 198.38,
+     "end": 198.66,
+     "word": " correar",
+     "probability": 0.6523163318634033
+    },
+    {
+     "start": 198.66,
+     "end": 198.9,
+     "word": " sobre",
+     "probability": 0.9915046095848083
+    },
+    {
+     "start": 198.9,
+     "end": 199.22,
+     "word": " Cuba.",
+     "probability": 0.9848196506500244
+    },
+    {
+     "start": 199.62,
+     "end": 199.74,
+     "word": " El",
+     "probability": 0.791610836982727
+    },
+    {
+     "start": 199.74,
+     "end": 200.04,
+     "word": " 16",
+     "probability": 0.7958269119262695
+    },
+    {
+     "start": 200.04,
+     "end": 200.3,
+     "word": " de",
+     "probability": 0.9930804371833801
+    }
+   ]
+  },
+  {
+   "start": 200.3,
+   "end": 205.38,
+   "text": " marzo, el mismo día del post de Messi. Musk escribió en X sobre Starlink en Cuba.",
+   "words": [
+    {
+     "start": 200.3,
+     "end": 200.66,
+     "word": " marzo,",
+     "probability": 0.6252978444099426
+    },
+    {
+     "start": 200.86,
+     "end": 200.94,
+     "word": " el",
+     "probability": 0.6028395891189575
+    },
+    {
+     "start": 200.94,
+     "end": 201.12,
+     "word": " mismo",
+     "probability": 0.9929920434951782
+    },
+    {
+     "start": 201.12,
+     "end": 201.4,
+     "word": " día",
+     "probability": 0.9503369331359863
+    },
+    {
+     "start": 201.4,
+     "end": 201.56,
+     "word": " del",
+     "probability": 0.9417746067047119
+    },
+    {
+     "start": 201.56,
+     "end": 201.8,
+     "word": " post",
+     "probability": 0.6220901608467102
+    },
+    {
+     "start": 201.8,
+     "end": 202.02,
+     "word": " de",
+     "probability": 0.9900366067886353
+    },
+    {
+     "start": 202.02,
+     "end": 202.26,
+     "word": " Messi.",
+     "probability": 0.9292591214179993
+    },
+    {
+     "start": 202.68,
+     "end": 203.1,
+     "word": " Musk",
+     "probability": 0.9260342121124268
+    },
+    {
+     "start": 203.1,
+     "end": 203.7,
+     "word": " escribió",
+     "probability": 0.9815376003583273
+    },
+    {
+     "start": 203.7,
+     "end": 203.8,
+     "word": " en",
+     "probability": 0.9921669960021973
+    },
+    {
+     "start": 203.8,
+     "end": 203.98,
+     "word": " X",
+     "probability": 0.7007875442504883
+    },
+    {
+     "start": 203.98,
+     "end": 204.32,
+     "word": " sobre",
+     "probability": 0.9853084683418274
+    },
+    {
+     "start": 204.32,
+     "end": 204.82,
+     "word": " Starlink",
+     "probability": 0.5363184660673141
+    },
+    {
+     "start": 204.82,
+     "end": 205.06,
+     "word": " en",
+     "probability": 0.931321382522583
+    },
+    {
+     "start": 205.06,
+     "end": 205.38,
+     "word": " Cuba.",
+     "probability": 0.9844563603401184
+    }
+   ]
+  },
+  {
+   "start": 206.0,
+   "end": 211.42,
+   "text": " Works in Cuba. Just can't be sold there. Funciona en Cuba, pero no se puede vender allí.",
+   "words": [
+    {
+     "start": 206.0,
+     "end": 206.26,
+     "word": " Works",
+     "probability": 0.5985562205314636
+    },
+    {
+     "start": 206.26,
+     "end": 206.68,
+     "word": " in",
+     "probability": 0.32721373438835144
+    },
+    {
+     "start": 206.68,
+     "end": 207.02,
+     "word": " Cuba.",
+     "probability": 0.9939699172973633
+    },
+    {
+     "start": 207.38,
+     "end": 207.48,
+     "word": " Just",
+     "probability": 0.5415274500846863
+    },
+    {
+     "start": 207.48,
+     "end": 207.82,
+     "word": " can't",
+     "probability": 0.8614759147167206
+    },
+    {
+     "start": 207.82,
+     "end": 207.88,
+     "word": " be",
+     "probability": 0.9849435091018677
+    },
+    {
+     "start": 207.88,
+     "end": 208.14,
+     "word": " sold",
+     "probability": 0.8982841968536377
+    },
+    {
+     "start": 208.14,
+     "end": 208.5,
+     "word": " there.",
+     "probability": 0.9876660108566284
+    },
+    {
+     "start": 209.0,
+     "end": 209.48,
+     "word": " Funciona",
+     "probability": 0.9261606136957804
+    },
+    {
+     "start": 209.48,
+     "end": 209.58,
+     "word": " en",
+     "probability": 0.9971563816070557
+    },
+    {
+     "start": 209.58,
+     "end": 209.88,
+     "word": " Cuba,",
+     "probability": 0.9880361557006836
+    },
+    {
+     "start": 210.3,
+     "end": 210.32,
+     "word": " pero",
+     "probability": 0.9911777377128601
+    },
+    {
+     "start": 210.32,
+     "end": 210.48,
+     "word": " no",
+     "probability": 0.9969854950904846
+    },
+    {
+     "start": 210.48,
+     "end": 210.64,
+     "word": " se",
+     "probability": 0.9947861433029175
+    },
+    {
+     "start": 210.64,
+     "end": 210.84,
+     "word": " puede",
+     "probability": 0.9883988499641418
+    },
+    {
+     "start": 210.84,
+     "end": 211.14,
+     "word": " vender",
+     "probability": 0.9934597015380859
+    },
+    {
+     "start": 211.14,
+     "end": 211.42,
+     "word": " allí.",
+     "probability": 0.7256753444671631
+    }
+   ]
+  },
+  {
+   "start": 211.76,
+   "end": 216.62,
+   "text": " Los falsos son las declaraciones políticas que la página la atribuyó. Si este vídeo dijera",
+   "words": [
+    {
+     "start": 211.76,
+     "end": 211.92,
+     "word": " Los",
+     "probability": 0.9502216577529907
+    },
+    {
+     "start": 211.92,
+     "end": 212.38,
+     "word": " falsos",
+     "probability": 0.9760735630989075
+    },
+    {
+     "start": 212.38,
+     "end": 212.52,
+     "word": " son",
+     "probability": 0.9921378493309021
+    },
+    {
+     "start": 212.52,
+     "end": 212.66,
+     "word": " las",
+     "probability": 0.9917222857475281
+    },
+    {
+     "start": 212.66,
+     "end": 213.1,
+     "word": " declaraciones",
+     "probability": 0.9979551434516907
+    },
+    {
+     "start": 213.1,
+     "end": 213.7,
+     "word": " políticas",
+     "probability": 0.9881723523139954
+    },
+    {
+     "start": 213.7,
+     "end": 214.08,
+     "word": " que",
+     "probability": 0.9259180426597595
+    },
+    {
+     "start": 214.08,
+     "end": 214.22,
+     "word": " la",
+     "probability": 0.9920377731323242
+    },
+    {
+     "start": 214.22,
+     "end": 214.46,
+     "word": " página",
+     "probability": 0.9786942005157471
+    },
+    {
+     "start": 214.46,
+     "end": 214.68,
+     "word": " la",
+     "probability": 0.9414074420928955
+    },
+    {
+     "start": 214.68,
+     "end": 215.12,
+     "word": " atribuyó.",
+     "probability": 0.9010215848684311
+    },
+    {
+     "start": 215.68,
+     "end": 215.84,
+     "word": " Si",
+     "probability": 0.9762275218963623
+    },
+    {
+     "start": 215.84,
+     "end": 216.04,
+     "word": " este",
+     "probability": 0.9884291291236877
+    },
+    {
+     "start": 216.04,
+     "end": 216.28,
+     "word": " vídeo",
+     "probability": 0.4846295118331909
+    },
+    {
+     "start": 216.28,
+     "end": 216.62,
+     "word": " dijera",
+     "probability": 0.9936305582523346
+    }
+   ]
+  },
+  {
+   "start": 216.62,
+   "end": 221.62,
+   "text": " que Musk nunca ha dicho nada sobre Cuba, estaría mintiendo. Ese es el punto. El bulo",
+   "words": [
+    {
+     "start": 216.62,
+     "end": 216.78,
+     "word": " que",
+     "probability": 0.9962389469146729
+    },
+    {
+     "start": 216.78,
+     "end": 217.1,
+     "word": " Musk",
+     "probability": 0.9577521085739136
+    },
+    {
+     "start": 217.1,
+     "end": 217.52,
+     "word": " nunca",
+     "probability": 0.9754870533943176
+    },
+    {
+     "start": 217.52,
+     "end": 217.88,
+     "word": " ha",
+     "probability": 0.9765985012054443
+    },
+    {
+     "start": 217.88,
+     "end": 218.08,
+     "word": " dicho",
+     "probability": 0.9977843165397644
+    },
+    {
+     "start": 218.08,
+     "end": 218.26,
+     "word": " nada",
+     "probability": 0.9943020343780518
+    },
+    {
+     "start": 218.26,
+     "end": 218.56,
+     "word": " sobre",
+     "probability": 0.998417854309082
+    },
+    {
+     "start": 218.56,
+     "end": 218.9,
+     "word": " Cuba,",
+     "probability": 0.9783698916435242
+    },
+    {
+     "start": 219.0,
+     "end": 219.4,
+     "word": " estaría",
+     "probability": 0.9650522470474243
+    },
+    {
+     "start": 219.4,
+     "end": 219.94,
+     "word": " mintiendo.",
+     "probability": 0.9466339945793152
+    },
+    {
+     "start": 220.16,
+     "end": 220.32,
+     "word": " Ese",
+     "probability": 0.9518081843852997
+    },
+    {
+     "start": 220.32,
+     "end": 220.44,
+     "word": " es",
+     "probability": 0.9964855909347534
+    },
+    {
+     "start": 220.44,
+     "end": 220.56,
+     "word": " el",
+     "probability": 0.9964600205421448
+    },
+    {
+     "start": 220.56,
+     "end": 220.88,
+     "word": " punto.",
+     "probability": 0.9982849955558777
+    },
+    {
+     "start": 221.16,
+     "end": 221.3,
+     "word": " El",
+     "probability": 0.9841310381889343
+    },
+    {
+     "start": 221.3,
+     "end": 221.62,
+     "word": " bulo",
+     "probability": 0.6274560689926147
+    }
+   ]
+  },
+  {
+   "start": 221.62,
+   "end": 227.76,
+   "text": " funcionaba porque tenía un núcleo real. Ese día, Cuba sufrió además el sexto colapso total",
+   "words": [
+    {
+     "start": 221.62,
+     "end": 222.16,
+     "word": " funcionaba",
+     "probability": 0.7584089040756226
+    },
+    {
+     "start": 222.16,
+     "end": 222.44,
+     "word": " porque",
+     "probability": 0.904045045375824
+    },
+    {
+     "start": 222.44,
+     "end": 222.8,
+     "word": " tenía",
+     "probability": 0.8652558922767639
+    },
+    {
+     "start": 222.8,
+     "end": 223.12,
+     "word": " un",
+     "probability": 0.9553661942481995
+    },
+    {
+     "start": 223.12,
+     "end": 223.58,
+     "word": " núcleo",
+     "probability": 0.9819511771202087
+    },
+    {
+     "start": 223.58,
+     "end": 224.0,
+     "word": " real.",
+     "probability": 0.856624186038971
+    },
+    {
+     "start": 224.68,
+     "end": 225.02,
+     "word": " Ese",
+     "probability": 0.9015605747699738
+    },
+    {
+     "start": 225.02,
+     "end": 225.2,
+     "word": " día,",
+     "probability": 0.9753343462944031
+    },
+    {
+     "start": 225.34,
+     "end": 225.56,
+     "word": " Cuba",
+     "probability": 0.9898905754089355
+    },
+    {
+     "start": 225.56,
+     "end": 225.94,
+     "word": " sufrió",
+     "probability": 0.8874236941337585
+    },
+    {
+     "start": 225.94,
+     "end": 226.28,
+     "word": " además",
+     "probability": 0.7667077779769897
+    },
+    {
+     "start": 226.28,
+     "end": 226.68,
+     "word": " el",
+     "probability": 0.9504385590553284
+    },
+    {
+     "start": 226.68,
+     "end": 227.1,
+     "word": " sexto",
+     "probability": 0.8969308733940125
+    },
+    {
+     "start": 227.1,
+     "end": 227.44,
+     "word": " colapso",
+     "probability": 0.8165680368741354
+    },
+    {
+     "start": 227.44,
+     "end": 227.76,
+     "word": " total",
+     "probability": 0.9946080446243286
+    }
+   ]
+  },
+  {
+   "start": 227.76,
+   "end": 233.66,
+   "text": " del sistema eléctrico, Twitter real. Apagó un real y cita inventado. Todo el mismo día.",
+   "words": [
+    {
+     "start": 227.76,
+     "end": 227.92,
+     "word": " del",
+     "probability": 0.9334965348243713
+    },
+    {
+     "start": 227.92,
+     "end": 228.22,
+     "word": " sistema",
+     "probability": 0.963573157787323
+    },
+    {
+     "start": 228.22,
+     "end": 228.82,
+     "word": " eléctrico,",
+     "probability": 0.9834404736757278
+    },
+    {
+     "start": 229.18,
+     "end": 229.34,
+     "word": " Twitter",
+     "probability": 0.18320345878601074
+    },
+    {
+     "start": 229.34,
+     "end": 229.78,
+     "word": " real.",
+     "probability": 0.5556883215904236
+    },
+    {
+     "start": 230.08,
+     "end": 230.44,
+     "word": " Apagó",
+     "probability": 0.9719084103902181
+    },
+    {
+     "start": 230.44,
+     "end": 230.54,
+     "word": " un",
+     "probability": 0.825872004032135
+    },
+    {
+     "start": 230.54,
+     "end": 230.78,
+     "word": " real",
+     "probability": 0.7307623028755188
+    },
+    {
+     "start": 230.78,
+     "end": 231.2,
+     "word": " y",
+     "probability": 0.8834848999977112
+    },
+    {
+     "start": 231.2,
+     "end": 231.4,
+     "word": " cita",
+     "probability": 0.8461900353431702
+    },
+    {
+     "start": 231.4,
+     "end": 232.02,
+     "word": " inventado.",
+     "probability": 0.8489784300327301
+    },
+    {
+     "start": 232.48,
+     "end": 232.74,
+     "word": " Todo",
+     "probability": 0.9111865758895874
+    },
+    {
+     "start": 232.74,
+     "end": 233.1,
+     "word": " el",
+     "probability": 0.986173152923584
+    },
+    {
+     "start": 233.1,
+     "end": 233.38,
+     "word": " mismo",
+     "probability": 0.9984064698219299
+    },
+    {
+     "start": 233.38,
+     "end": 233.66,
+     "word": " día.",
+     "probability": 0.9804887771606445
+    }
+   ]
+  },
+  {
+   "start": 234.96,
+   "end": 239.76,
+   "text": " El patrón ya era visible. En enero, dos meses antes del caso Messi, la página,",
+   "words": [
+    {
+     "start": 234.96,
+     "end": 235.16,
+     "word": " El",
+     "probability": 0.8756446242332458
+    },
+    {
+     "start": 235.16,
+     "end": 235.58,
+     "word": " patrón",
+     "probability": 0.9497826894124349
+    },
+    {
+     "start": 235.58,
+     "end": 235.76,
+     "word": " ya",
+     "probability": 0.783099889755249
+    },
+    {
+     "start": 235.76,
+     "end": 235.84,
+     "word": " era",
+     "probability": 0.9972922205924988
+    },
+    {
+     "start": 235.84,
+     "end": 236.24,
+     "word": " visible.",
+     "probability": 0.9691722989082336
+    },
+    {
+     "start": 236.7,
+     "end": 236.78,
+     "word": " En",
+     "probability": 0.9881827235221863
+    },
+    {
+     "start": 236.78,
+     "end": 237.12,
+     "word": " enero,",
+     "probability": 0.984351247549057
+    },
+    {
+     "start": 237.36,
+     "end": 237.44,
+     "word": " dos",
+     "probability": 0.8316498398780823
+    },
+    {
+     "start": 237.44,
+     "end": 237.68,
+     "word": " meses",
+     "probability": 0.9979827404022217
+    },
+    {
+     "start": 237.68,
+     "end": 238.02,
+     "word": " antes",
+     "probability": 0.9910026788711548
+    },
+    {
+     "start": 238.02,
+     "end": 238.36,
+     "word": " del",
+     "probability": 0.8336230516433716
+    },
+    {
+     "start": 238.36,
+     "end": 238.74,
+     "word": " caso",
+     "probability": 0.805592954158783
+    },
+    {
+     "start": 238.74,
+     "end": 239.1,
+     "word": " Messi,",
+     "probability": 0.7978493571281433
+    },
+    {
+     "start": 239.38,
+     "end": 239.46,
+     "word": " la",
+     "probability": 0.9159659147262573
+    },
+    {
+     "start": 239.46,
+     "end": 239.76,
+     "word": " página,",
+     "probability": 0.9905923008918762
+    }
+   ]
+  },
+  {
+   "start": 240.6,
+   "end": 245.92,
+   "text": " 11 millones de cubanos con más de un millón de seguidores ya la había denunciado en público.",
+   "words": [
+    {
+     "start": 240.6,
+     "end": 240.8,
+     "word": " 11",
+     "probability": 0.9187710285186768
+    },
+    {
+     "start": 240.8,
+     "end": 241.1,
+     "word": " millones",
+     "probability": 0.9391829967498779
+    },
+    {
+     "start": 241.1,
+     "end": 241.3,
+     "word": " de",
+     "probability": 0.9945830702781677
+    },
+    {
+     "start": 241.3,
+     "end": 241.68,
+     "word": " cubanos",
+     "probability": 0.9657375812530518
+    },
+    {
+     "start": 241.68,
+     "end": 241.94,
+     "word": " con",
+     "probability": 0.847126305103302
+    },
+    {
+     "start": 241.94,
+     "end": 242.1,
+     "word": " más",
+     "probability": 0.981415867805481
+    },
+    {
+     "start": 242.1,
+     "end": 242.28,
+     "word": " de",
+     "probability": 0.9886288642883301
+    },
+    {
+     "start": 242.28,
+     "end": 242.96,
+     "word": " un",
+     "probability": 0.6711248755455017
+    },
+    {
+     "start": 242.96,
+     "end": 243.24,
+     "word": " millón",
+     "probability": 0.9937706589698792
+    },
+    {
+     "start": 243.24,
+     "end": 243.34,
+     "word": " de",
+     "probability": 0.9963100552558899
+    },
+    {
+     "start": 243.34,
+     "end": 243.78,
+     "word": " seguidores",
+     "probability": 0.9971738159656525
+    },
+    {
+     "start": 243.78,
+     "end": 244.24,
+     "word": " ya",
+     "probability": 0.46560558676719666
+    },
+    {
+     "start": 244.24,
+     "end": 244.38,
+     "word": " la",
+     "probability": 0.948828399181366
+    },
+    {
+     "start": 244.38,
+     "end": 244.82,
+     "word": " había",
+     "probability": 0.9725698828697205
+    },
+    {
+     "start": 244.82,
+     "end": 245.42,
+     "word": " denunciado",
+     "probability": 0.9967138369878134
+    },
+    {
+     "start": 245.42,
+     "end": 245.56,
+     "word": " en",
+     "probability": 0.9754580855369568
+    },
+    {
+     "start": 245.56,
+     "end": 245.92,
+     "word": " público.",
+     "probability": 0.963225781917572
+    }
+   ]
+  },
+  {
+   "start": 246.38,
+   "end": 250.78,
+   "text": " Noticias falsas de muertes, contenido robado, denuncias de copyright falsas.",
+   "words": [
+    {
+     "start": 246.38,
+     "end": 246.6,
+     "word": " Noticias",
+     "probability": 0.9858930706977844
+    },
+    {
+     "start": 246.6,
+     "end": 247.02,
+     "word": " falsas",
+     "probability": 0.9976164102554321
+    },
+    {
+     "start": 247.02,
+     "end": 247.14,
+     "word": " de",
+     "probability": 0.9951468110084534
+    },
+    {
+     "start": 247.14,
+     "end": 247.64,
+     "word": " muertes,",
+     "probability": 0.9628550211588541
+    },
+    {
+     "start": 248.06,
+     "end": 248.34,
+     "word": " contenido",
+     "probability": 0.6939476132392883
+    },
+    {
+     "start": 248.34,
+     "end": 248.94,
+     "word": " robado,",
+     "probability": 0.9875980019569397
+    },
+    {
+     "start": 249.22,
+     "end": 249.58,
+     "word": " denuncias",
+     "probability": 0.9975089430809021
+    },
+    {
+     "start": 249.58,
+     "end": 249.7,
+     "word": " de",
+     "probability": 0.9927691221237183
+    },
+    {
+     "start": 249.7,
+     "end": 249.96,
+     "word": " copyright",
+     "probability": 0.6459811925888062
+    },
+    {
+     "start": 249.96,
+     "end": 250.78,
+     "word": " falsas.",
+     "probability": 0.9169314801692963
+    }
+   ]
+  },
+  {
+   "start": 250.78,
+   "end": 256.6,
+   "text": " Y en 20 de marzo, cuatro días después del post de Messi, un usuario Carlos Pérez publicó un",
+   "words": [
+    {
+     "start": 250.78,
+     "end": 251.42,
+     "word": " Y",
+     "probability": 0.04700007662177086
+    },
+    {
+     "start": 251.42,
+     "end": 251.52,
+     "word": " en",
+     "probability": 0.8542137742042542
+    },
+    {
+     "start": 251.52,
+     "end": 251.72,
+     "word": " 20",
+     "probability": 0.8376647233963013
+    },
+    {
+     "start": 251.72,
+     "end": 251.9,
+     "word": " de",
+     "probability": 0.9881269335746765
+    },
+    {
+     "start": 251.9,
+     "end": 252.22,
+     "word": " marzo,",
+     "probability": 0.6322943270206451
+    },
+    {
+     "start": 252.38,
+     "end": 252.56,
+     "word": " cuatro",
+     "probability": 0.816881000995636
+    },
+    {
+     "start": 252.56,
+     "end": 252.8,
+     "word": " días",
+     "probability": 0.9861490726470947
+    },
+    {
+     "start": 252.8,
+     "end": 253.08,
+     "word": " después",
+     "probability": 0.986318826675415
+    },
+    {
+     "start": 253.08,
+     "end": 253.28,
+     "word": " del",
+     "probability": 0.2946837544441223
+    },
+    {
+     "start": 253.28,
+     "end": 253.48,
+     "word": " post",
+     "probability": 0.518317699432373
+    },
+    {
+     "start": 253.48,
+     "end": 253.7,
+     "word": " de",
+     "probability": 0.9710721969604492
+    },
+    {
+     "start": 253.7,
+     "end": 253.9,
+     "word": " Messi,",
+     "probability": 0.9337292909622192
+    },
+    {
+     "start": 254.32,
+     "end": 254.44,
+     "word": " un",
+     "probability": 0.9800962805747986
+    },
+    {
+     "start": 254.44,
+     "end": 254.9,
+     "word": " usuario",
+     "probability": 0.9990876019001007
+    },
+    {
+     "start": 254.9,
+     "end": 255.42,
+     "word": " Carlos",
+     "probability": 0.73927903175354
+    },
+    {
+     "start": 255.42,
+     "end": 255.86,
+     "word": " Pérez",
+     "probability": 0.89114377895991
+    },
+    {
+     "start": 255.86,
+     "end": 256.44,
+     "word": " publicó",
+     "probability": 0.9571763277053833
+    },
+    {
+     "start": 256.44,
+     "end": 256.6,
+     "word": " un",
+     "probability": 0.9908214807510376
+    }
+   ]
+  },
+  {
+   "start": 256.6,
+   "end": 262.82,
+   "text": " colacht con Messi, Musk y Bukele, declaraciones inventadas y realidades manipuladas. No era",
+   "words": [
+    {
+     "start": 256.6,
+     "end": 256.94,
+     "word": " colacht",
+     "probability": 0.26486923918128014
+    },
+    {
+     "start": 256.94,
+     "end": 257.18,
+     "word": " con",
+     "probability": 0.9637563824653625
+    },
+    {
+     "start": 257.18,
+     "end": 257.5,
+     "word": " Messi,",
+     "probability": 0.9830804467201233
+    },
+    {
+     "start": 258.04,
+     "end": 258.18,
+     "word": " Musk",
+     "probability": 0.30315807461738586
+    },
+    {
+     "start": 258.18,
+     "end": 258.44,
+     "word": " y",
+     "probability": 0.9659634232521057
+    },
+    {
+     "start": 258.44,
+     "end": 258.84,
+     "word": " Bukele,",
+     "probability": 0.79029381275177
+    },
+    {
+     "start": 259.32,
+     "end": 259.86,
+     "word": " declaraciones",
+     "probability": 0.9868745803833008
+    },
+    {
+     "start": 259.86,
+     "end": 260.78,
+     "word": " inventadas",
+     "probability": 0.9894402027130127
+    },
+    {
+     "start": 260.78,
+     "end": 261.0,
+     "word": " y",
+     "probability": 0.9749470353126526
+    },
+    {
+     "start": 261.0,
+     "end": 261.42,
+     "word": " realidades",
+     "probability": 0.946975827217102
+    },
+    {
+     "start": 261.42,
+     "end": 262.04,
+     "word": " manipuladas.",
+     "probability": 0.9969990650812784
+    },
+    {
+     "start": 262.56,
+     "end": 262.76,
+     "word": " No",
+     "probability": 0.9574500918388367
+    },
+    {
+     "start": 262.76,
+     "end": 262.82,
+     "word": " era",
+     "probability": 0.9887031316757202
+    }
+   ]
+  },
+  {
+   "start": 262.82,
+   "end": 269.7,
+   "text": " un fact-checker, era una persona que ya la había visto. En abril, el patrón tocó a personas",
+   "words": [
+    {
+     "start": 262.82,
+     "end": 262.92,
+     "word": " un",
+     "probability": 0.9846940040588379
+    },
+    {
+     "start": 262.92,
+     "end": 263.06,
+     "word": " fact",
+     "probability": 0.30428335070610046
+    },
+    {
+     "start": 263.06,
+     "end": 263.56,
+     "word": "-checker,",
+     "probability": 0.5931423207124075
+    },
+    {
+     "start": 263.78,
+     "end": 263.96,
+     "word": " era",
+     "probability": 0.9731590747833252
+    },
+    {
+     "start": 263.96,
+     "end": 264.1,
+     "word": " una",
+     "probability": 0.9895182251930237
+    },
+    {
+     "start": 264.1,
+     "end": 264.52,
+     "word": " persona",
+     "probability": 0.9965392351150513
+    },
+    {
+     "start": 264.52,
+     "end": 264.82,
+     "word": " que",
+     "probability": 0.9820396304130554
+    },
+    {
+     "start": 264.82,
+     "end": 264.98,
+     "word": " ya",
+     "probability": 0.9810731410980225
+    },
+    {
+     "start": 264.98,
+     "end": 265.08,
+     "word": " la",
+     "probability": 0.4095167815685272
+    },
+    {
+     "start": 265.08,
+     "end": 265.24,
+     "word": " había",
+     "probability": 0.8792778849601746
+    },
+    {
+     "start": 265.24,
+     "end": 265.52,
+     "word": " visto.",
+     "probability": 0.9897502064704895
+    },
+    {
+     "start": 267.56,
+     "end": 267.86,
+     "word": " En",
+     "probability": 0.9721696376800537
+    },
+    {
+     "start": 267.86,
+     "end": 268.22,
+     "word": " abril,",
+     "probability": 0.9885073900222778
+    },
+    {
+     "start": 268.42,
+     "end": 268.52,
+     "word": " el",
+     "probability": 0.9803391098976135
+    },
+    {
+     "start": 268.52,
+     "end": 268.92,
+     "word": " patrón",
+     "probability": 0.9492075244585673
+    },
+    {
+     "start": 268.92,
+     "end": 269.32,
+     "word": " tocó",
+     "probability": 0.9266245663166046
+    },
+    {
+     "start": 269.32,
+     "end": 269.38,
+     "word": " a",
+     "probability": 0.9931913018226624
+    },
+    {
+     "start": 269.38,
+     "end": 269.7,
+     "word": " personas",
+     "probability": 0.9477035999298096
+    }
+   ]
+  },
+  {
+   "start": 269.7,
+   "end": 274.72,
+   "text": " reales. La página publicó que el reggaetonero Onien Bebeschito y su esposa habían viajado a",
+   "words": [
+    {
+     "start": 269.7,
+     "end": 270.32,
+     "word": " reales.",
+     "probability": 0.9935773611068726
+    },
+    {
+     "start": 270.52,
+     "end": 270.6,
+     "word": " La",
+     "probability": 0.9898924827575684
+    },
+    {
+     "start": 270.6,
+     "end": 270.8,
+     "word": " página",
+     "probability": 0.9820192456245422
+    },
+    {
+     "start": 270.8,
+     "end": 271.36,
+     "word": " publicó",
+     "probability": 0.9921566545963287
+    },
+    {
+     "start": 271.36,
+     "end": 271.46,
+     "word": " que",
+     "probability": 0.9929702877998352
+    },
+    {
+     "start": 271.46,
+     "end": 271.54,
+     "word": " el",
+     "probability": 0.9577558636665344
+    },
+    {
+     "start": 271.54,
+     "end": 272.14,
+     "word": " reggaetonero",
+     "probability": 0.9504360407590866
+    },
+    {
+     "start": 272.14,
+     "end": 272.44,
+     "word": " Onien",
+     "probability": 0.2902885675430298
+    },
+    {
+     "start": 272.44,
+     "end": 273.02,
+     "word": " Bebeschito",
+     "probability": 0.8042739778757095
+    },
+    {
+     "start": 273.02,
+     "end": 273.22,
+     "word": " y",
+     "probability": 0.9883643388748169
+    },
+    {
+     "start": 273.22,
+     "end": 273.36,
+     "word": " su",
+     "probability": 0.9963170289993286
+    },
+    {
+     "start": 273.36,
+     "end": 273.8,
+     "word": " esposa",
+     "probability": 0.9916927218437195
+    },
+    {
+     "start": 273.8,
+     "end": 274.12,
+     "word": " habían",
+     "probability": 0.9794120192527771
+    },
+    {
+     "start": 274.12,
+     "end": 274.62,
+     "word": " viajado",
+     "probability": 0.9970265428225199
+    },
+    {
+     "start": 274.62,
+     "end": 274.72,
+     "word": " a",
+     "probability": 0.9972395896911621
+    }
+   ]
+  },
+  {
+   "start": 274.72,
+   "end": 279.18,
+   "text": " Cuba en secreto, con imágenes generadas con inteligencia artificial. Bebeschito con",
+   "words": [
+    {
+     "start": 274.72,
+     "end": 274.84,
+     "word": " Cuba",
+     "probability": 0.99222731590271
+    },
+    {
+     "start": 274.84,
+     "end": 275.06,
+     "word": " en",
+     "probability": 0.9869886636734009
+    },
+    {
+     "start": 275.06,
+     "end": 275.62,
+     "word": " secreto,",
+     "probability": 0.9911343157291412
+    },
+    {
+     "start": 275.72,
+     "end": 275.88,
+     "word": " con",
+     "probability": 0.9927526712417603
+    },
+    {
+     "start": 275.88,
+     "end": 276.2,
+     "word": " imágenes",
+     "probability": 0.9912225206693014
+    },
+    {
+     "start": 276.2,
+     "end": 276.64,
+     "word": " generadas",
+     "probability": 0.8005629181861877
+    },
+    {
+     "start": 276.64,
+     "end": 276.84,
+     "word": " con",
+     "probability": 0.9716944694519043
+    },
+    {
+     "start": 276.84,
+     "end": 277.32,
+     "word": " inteligencia",
+     "probability": 0.9809404412905375
+    },
+    {
+     "start": 277.32,
+     "end": 277.8,
+     "word": " artificial.",
+     "probability": 0.9960623383522034
+    },
+    {
+     "start": 278.48,
+     "end": 279.02,
+     "word": " Bebeschito",
+     "probability": 0.9934333711862564
+    },
+    {
+     "start": 279.02,
+     "end": 279.18,
+     "word": " con",
+     "probability": 0.6925075650215149
+    }
+   ]
+  },
+  {
+   "start": 279.18,
+   "end": 284.62,
+   "text": " su residencia estadounidense antes de abordar un vuelo de cubana de aviación y la pareja frente",
+   "words": [
+    {
+     "start": 279.18,
+     "end": 279.36,
+     "word": " su",
+     "probability": 0.16615979373455048
+    },
+    {
+     "start": 279.36,
+     "end": 279.92,
+     "word": " residencia",
+     "probability": 0.8746469219525655
+    },
+    {
+     "start": 279.92,
+     "end": 280.72,
+     "word": " estadounidense",
+     "probability": 0.9874642193317413
+    },
+    {
+     "start": 280.72,
+     "end": 281.08,
+     "word": " antes",
+     "probability": 0.9098612666130066
+    },
+    {
+     "start": 281.08,
+     "end": 281.4,
+     "word": " de",
+     "probability": 0.9757781028747559
+    },
+    {
+     "start": 281.4,
+     "end": 281.8,
+     "word": " abordar",
+     "probability": 0.935899019241333
+    },
+    {
+     "start": 281.8,
+     "end": 281.94,
+     "word": " un",
+     "probability": 0.9889527559280396
+    },
+    {
+     "start": 281.94,
+     "end": 282.36,
+     "word": " vuelo",
+     "probability": 0.9936935305595398
+    },
+    {
+     "start": 282.36,
+     "end": 282.76,
+     "word": " de",
+     "probability": 0.9727024435997009
+    },
+    {
+     "start": 282.76,
+     "end": 283.04,
+     "word": " cubana",
+     "probability": 0.9600529670715332
+    },
+    {
+     "start": 283.04,
+     "end": 283.22,
+     "word": " de",
+     "probability": 0.9632666707038879
+    },
+    {
+     "start": 283.22,
+     "end": 283.62,
+     "word": " aviación",
+     "probability": 0.9773136576016744
+    },
+    {
+     "start": 283.62,
+     "end": 283.88,
+     "word": " y",
+     "probability": 0.9543935656547546
+    },
+    {
+     "start": 283.88,
+     "end": 283.98,
+     "word": " la",
+     "probability": 0.9717795252799988
+    },
+    {
+     "start": 283.98,
+     "end": 284.36,
+     "word": " pareja",
+     "probability": 0.9811074435710907
+    },
+    {
+     "start": 284.36,
+     "end": 284.62,
+     "word": " frente",
+     "probability": 0.9548532366752625
+    }
+   ]
+  },
+  {
+   "start": 284.62,
+   "end": 291.5,
+   "text": " al hotel Havana Libre. Todo fabricado. Bebeschito tuvo que desmentirlo en persona. Un creador de la",
+   "words": [
+    {
+     "start": 284.62,
+     "end": 284.9,
+     "word": " al",
+     "probability": 0.9561331272125244
+    },
+    {
+     "start": 284.9,
+     "end": 285.1,
+     "word": " hotel",
+     "probability": 0.966944694519043
+    },
+    {
+     "start": 285.1,
+     "end": 285.46,
+     "word": " Havana",
+     "probability": 0.5325479917228222
+    },
+    {
+     "start": 285.46,
+     "end": 285.84,
+     "word": " Libre.",
+     "probability": 0.877264529466629
+    },
+    {
+     "start": 286.58,
+     "end": 286.78,
+     "word": " Todo",
+     "probability": 0.8300684094429016
+    },
+    {
+     "start": 286.78,
+     "end": 287.44,
+     "word": " fabricado.",
+     "probability": 0.9936490654945374
+    },
+    {
+     "start": 288.46,
+     "end": 289.0,
+     "word": " Bebeschito",
+     "probability": 0.5746224671602249
+    },
+    {
+     "start": 289.0,
+     "end": 289.18,
+     "word": " tuvo",
+     "probability": 0.9892264008522034
+    },
+    {
+     "start": 289.18,
+     "end": 289.32,
+     "word": " que",
+     "probability": 0.9966673254966736
+    },
+    {
+     "start": 289.32,
+     "end": 289.98,
+     "word": " desmentirlo",
+     "probability": 0.9767112880945206
+    },
+    {
+     "start": 289.98,
+     "end": 290.06,
+     "word": " en",
+     "probability": 0.9941999912261963
+    },
+    {
+     "start": 290.06,
+     "end": 290.46,
+     "word": " persona.",
+     "probability": 0.9876276254653931
+    },
+    {
+     "start": 290.82,
+     "end": 290.92,
+     "word": " Un",
+     "probability": 0.9926034808158875
+    },
+    {
+     "start": 290.92,
+     "end": 291.26,
+     "word": " creador",
+     "probability": 0.9851686954498291
+    },
+    {
+     "start": 291.26,
+     "end": 291.4,
+     "word": " de",
+     "probability": 0.9962514042854309
+    },
+    {
+     "start": 291.4,
+     "end": 291.5,
+     "word": " la",
+     "probability": 0.975338876247406
+    }
+   ]
+  },
+  {
+   "start": 291.5,
+   "end": 296.52,
+   "text": " plataforma familia cubana lo abordó mientras preparaba un videoclip y respondió. Esto",
+   "words": [
+    {
+     "start": 291.5,
+     "end": 291.82,
+     "word": " plataforma",
+     "probability": 0.9898329973220825
+    },
+    {
+     "start": 291.82,
+     "end": 292.24,
+     "word": " familia",
+     "probability": 0.7970722913742065
+    },
+    {
+     "start": 292.24,
+     "end": 292.72,
+     "word": " cubana",
+     "probability": 0.9869186580181122
+    },
+    {
+     "start": 292.72,
+     "end": 292.88,
+     "word": " lo",
+     "probability": 0.9701913595199585
+    },
+    {
+     "start": 292.88,
+     "end": 293.3,
+     "word": " abordó",
+     "probability": 0.9755427837371826
+    },
+    {
+     "start": 293.3,
+     "end": 293.5,
+     "word": " mientras",
+     "probability": 0.9934123158454895
+    },
+    {
+     "start": 293.5,
+     "end": 294.26,
+     "word": " preparaba",
+     "probability": 0.9937698245048523
+    },
+    {
+     "start": 294.26,
+     "end": 294.46,
+     "word": " un",
+     "probability": 0.9844240546226501
+    },
+    {
+     "start": 294.46,
+     "end": 294.94,
+     "word": " videoclip",
+     "probability": 0.9891686886548996
+    },
+    {
+     "start": 294.94,
+     "end": 295.1,
+     "word": " y",
+     "probability": 0.9616157412528992
+    },
+    {
+     "start": 295.1,
+     "end": 295.64,
+     "word": " respondió.",
+     "probability": 0.983404129743576
+    },
+    {
+     "start": 296.2,
+     "end": 296.52,
+     "word": " Esto",
+     "probability": 0.7371410131454468
+    }
+   ]
+  },
+  {
+   "start": 296.52,
+   "end": 301.9,
+   "text": " también es falso. No he salido de Estados Unidos. Un artista teniendo que demostrar que no hizo",
+   "words": [
+    {
+     "start": 296.52,
+     "end": 296.78,
+     "word": " también",
+     "probability": 0.8499660491943359
+    },
+    {
+     "start": 296.78,
+     "end": 297.1,
+     "word": " es",
+     "probability": 0.9699029326438904
+    },
+    {
+     "start": 297.1,
+     "end": 297.44,
+     "word": " falso.",
+     "probability": 0.9505317807197571
+    },
+    {
+     "start": 297.82,
+     "end": 297.92,
+     "word": " No",
+     "probability": 0.9840641021728516
+    },
+    {
+     "start": 297.92,
+     "end": 298.02,
+     "word": " he",
+     "probability": 0.4977865219116211
+    },
+    {
+     "start": 298.02,
+     "end": 298.36,
+     "word": " salido",
+     "probability": 0.9973478019237518
+    },
+    {
+     "start": 298.36,
+     "end": 298.48,
+     "word": " de",
+     "probability": 0.976696252822876
+    },
+    {
+     "start": 298.48,
+     "end": 298.68,
+     "word": " Estados",
+     "probability": 0.7126650214195251
+    },
+    {
+     "start": 298.68,
+     "end": 299.12,
+     "word": " Unidos.",
+     "probability": 0.9965052604675293
+    },
+    {
+     "start": 299.74,
+     "end": 299.92,
+     "word": " Un",
+     "probability": 0.9765058159828186
+    },
+    {
+     "start": 299.92,
+     "end": 300.3,
+     "word": " artista",
+     "probability": 0.981120377779007
+    },
+    {
+     "start": 300.3,
+     "end": 300.68,
+     "word": " teniendo",
+     "probability": 0.9957612156867981
+    },
+    {
+     "start": 300.68,
+     "end": 300.84,
+     "word": " que",
+     "probability": 0.9985993504524231
+    },
+    {
+     "start": 300.84,
+     "end": 301.32,
+     "word": " demostrar",
+     "probability": 0.9950169026851654
+    },
+    {
+     "start": 301.32,
+     "end": 301.54,
+     "word": " que",
+     "probability": 0.9958413243293762
+    },
+    {
+     "start": 301.54,
+     "end": 301.68,
+     "word": " no",
+     "probability": 0.9943278431892395
+    },
+    {
+     "start": 301.68,
+     "end": 301.9,
+     "word": " hizo",
+     "probability": 0.9631792306900024
+    }
+   ]
+  },
+  {
+   "start": 301.9,
+   "end": 307.7,
+   "text": " un viaje que nunca hizo. En junio, el bulo salió del fit y llegó a una institución",
+   "words": [
+    {
+     "start": 301.9,
+     "end": 302.04,
+     "word": " un",
+     "probability": 0.9948044419288635
+    },
+    {
+     "start": 302.04,
+     "end": 302.28,
+     "word": " viaje",
+     "probability": 0.9983738660812378
+    },
+    {
+     "start": 302.28,
+     "end": 302.64,
+     "word": " que",
+     "probability": 0.9910926222801208
+    },
+    {
+     "start": 302.64,
+     "end": 302.88,
+     "word": " nunca",
+     "probability": 0.9736779928207397
+    },
+    {
+     "start": 302.88,
+     "end": 303.3,
+     "word": " hizo.",
+     "probability": 0.9912582039833069
+    },
+    {
+     "start": 304.12,
+     "end": 304.58,
+     "word": " En",
+     "probability": 0.9819846749305725
+    },
+    {
+     "start": 304.58,
+     "end": 304.94,
+     "word": " junio,",
+     "probability": 0.9793439209461212
+    },
+    {
+     "start": 305.12,
+     "end": 305.16,
+     "word": " el",
+     "probability": 0.7997050285339355
+    },
+    {
+     "start": 305.16,
+     "end": 305.4,
+     "word": " bulo",
+     "probability": 0.6204105913639069
+    },
+    {
+     "start": 305.4,
+     "end": 305.7,
+     "word": " salió",
+     "probability": 0.9786924719810486
+    },
+    {
+     "start": 305.7,
+     "end": 305.84,
+     "word": " del",
+     "probability": 0.6263347864151001
+    },
+    {
+     "start": 305.84,
+     "end": 306.08,
+     "word": " fit",
+     "probability": 0.2525789141654968
+    },
+    {
+     "start": 306.08,
+     "end": 306.4,
+     "word": " y",
+     "probability": 0.9661867022514343
+    },
+    {
+     "start": 306.4,
+     "end": 306.62,
+     "word": " llegó",
+     "probability": 0.9736653566360474
+    },
+    {
+     "start": 306.62,
+     "end": 306.88,
+     "word": " a",
+     "probability": 0.9858897924423218
+    },
+    {
+     "start": 306.88,
+     "end": 307.02,
+     "word": " una",
+     "probability": 0.9939852356910706
+    },
+    {
+     "start": 307.02,
+     "end": 307.7,
+     "word": " institución",
+     "probability": 0.9832899868488312
+    }
+   ]
+  },
+  {
+   "start": 307.7,
+   "end": 313.1,
+   "text": " pública. La página originó la historia de que Cristiano Ronaldo había donado 250 paneles",
+   "words": [
+    {
+     "start": 307.7,
+     "end": 308.18,
+     "word": " pública.",
+     "probability": 0.08692307770252228
+    },
+    {
+     "start": 308.48,
+     "end": 308.58,
+     "word": " La",
+     "probability": 0.9624028205871582
+    },
+    {
+     "start": 308.58,
+     "end": 308.76,
+     "word": " página",
+     "probability": 0.9859172701835632
+    },
+    {
+     "start": 308.76,
+     "end": 309.32,
+     "word": " originó",
+     "probability": 0.9750577211380005
+    },
+    {
+     "start": 309.32,
+     "end": 309.48,
+     "word": " la",
+     "probability": 0.745078980922699
+    },
+    {
+     "start": 309.48,
+     "end": 309.82,
+     "word": " historia",
+     "probability": 0.9928590059280396
+    },
+    {
+     "start": 309.82,
+     "end": 310.08,
+     "word": " de",
+     "probability": 0.975609302520752
+    },
+    {
+     "start": 310.08,
+     "end": 310.18,
+     "word": " que",
+     "probability": 0.9908238649368286
+    },
+    {
+     "start": 310.18,
+     "end": 310.56,
+     "word": " Cristiano",
+     "probability": 0.9892820417881012
+    },
+    {
+     "start": 310.56,
+     "end": 311.08,
+     "word": " Ronaldo",
+     "probability": 0.9925670623779297
+    },
+    {
+     "start": 311.08,
+     "end": 311.4,
+     "word": " había",
+     "probability": 0.9870518445968628
+    },
+    {
+     "start": 311.4,
+     "end": 311.8,
+     "word": " donado",
+     "probability": 0.9642869532108307
+    },
+    {
+     "start": 311.8,
+     "end": 312.26,
+     "word": " 250",
+     "probability": 0.9173073768615723
+    },
+    {
+     "start": 312.26,
+     "end": 313.1,
+     "word": " paneles",
+     "probability": 0.9162829518318176
+    }
+   ]
+  },
+  {
+   "start": 313.1,
+   "end": 318.2,
+   "text": " solares a Cuba. Dos fuentes independientes la señalan como el origen y hacer puto y el",
+   "words": [
+    {
+     "start": 313.1,
+     "end": 313.36,
+     "word": " solares",
+     "probability": 0.8681365847587585
+    },
+    {
+     "start": 313.36,
+     "end": 313.56,
+     "word": " a",
+     "probability": 0.9841601252555847
+    },
+    {
+     "start": 313.56,
+     "end": 313.8,
+     "word": " Cuba.",
+     "probability": 0.9840627908706665
+    },
+    {
+     "start": 314.5,
+     "end": 314.72,
+     "word": " Dos",
+     "probability": 0.8855414986610413
+    },
+    {
+     "start": 314.72,
+     "end": 314.98,
+     "word": " fuentes",
+     "probability": 0.9949018061161041
+    },
+    {
+     "start": 314.98,
+     "end": 315.62,
+     "word": " independientes",
+     "probability": 0.9380947351455688
+    },
+    {
+     "start": 315.62,
+     "end": 315.84,
+     "word": " la",
+     "probability": 0.7706621885299683
+    },
+    {
+     "start": 315.84,
+     "end": 316.28,
+     "word": " señalan",
+     "probability": 0.9296625256538391
+    },
+    {
+     "start": 316.28,
+     "end": 316.52,
+     "word": " como",
+     "probability": 0.9840587973594666
+    },
+    {
+     "start": 316.52,
+     "end": 316.66,
+     "word": " el",
+     "probability": 0.9887906312942505
+    },
+    {
+     "start": 316.66,
+     "end": 317.0,
+     "word": " origen",
+     "probability": 0.9815723299980164
+    },
+    {
+     "start": 317.0,
+     "end": 317.22,
+     "word": " y",
+     "probability": 0.6788150668144226
+    },
+    {
+     "start": 317.22,
+     "end": 317.42,
+     "word": " hacer",
+     "probability": 0.8243396282196045
+    },
+    {
+     "start": 317.42,
+     "end": 317.96,
+     "word": " puto",
+     "probability": 0.6240874230861664
+    },
+    {
+     "start": 317.96,
+     "end": 318.08,
+     "word": " y",
+     "probability": 0.9280049800872803
+    },
+    {
+     "start": 318.08,
+     "end": 318.2,
+     "word": " el",
+     "probability": 0.9193075895309448
+    }
+   ]
+  },
+  {
+   "start": 318.2,
+   "end": 322.9,
+   "text": " poder digital. El toque la verificó como falso. No había evidencia en los canales",
+   "words": [
+    {
+     "start": 318.2,
+     "end": 318.36,
+     "word": " poder",
+     "probability": 0.937244713306427
+    },
+    {
+     "start": 318.36,
+     "end": 318.78,
+     "word": " digital.",
+     "probability": 0.9970152378082275
+    },
+    {
+     "start": 319.2,
+     "end": 319.38,
+     "word": " El",
+     "probability": 0.9852016568183899
+    },
+    {
+     "start": 319.38,
+     "end": 319.64,
+     "word": " toque",
+     "probability": 0.9701308012008667
+    },
+    {
+     "start": 319.64,
+     "end": 319.74,
+     "word": " la",
+     "probability": 0.864239513874054
+    },
+    {
+     "start": 319.74,
+     "end": 320.2,
+     "word": " verificó",
+     "probability": 0.9479293425877889
+    },
+    {
+     "start": 320.2,
+     "end": 320.36,
+     "word": " como",
+     "probability": 0.9936095476150513
+    },
+    {
+     "start": 320.36,
+     "end": 320.92,
+     "word": " falso.",
+     "probability": 0.9748551845550537
+    },
+    {
+     "start": 321.1,
+     "end": 321.26,
+     "word": " No",
+     "probability": 0.9930797219276428
+    },
+    {
+     "start": 321.26,
+     "end": 321.46,
+     "word": " había",
+     "probability": 0.9791892766952515
+    },
+    {
+     "start": 321.46,
+     "end": 322.02,
+     "word": " evidencia",
+     "probability": 0.9813350141048431
+    },
+    {
+     "start": 322.02,
+     "end": 322.5,
+     "word": " en",
+     "probability": 0.9854135513305664
+    },
+    {
+     "start": 322.5,
+     "end": 322.6,
+     "word": " los",
+     "probability": 0.9902571439743042
+    },
+    {
+     "start": 322.6,
+     "end": 322.9,
+     "word": " canales",
+     "probability": 0.9916291534900665
+    }
+   ]
+  },
+  {
+   "start": 322.9,
+   "end": 328.36,
+   "text": " oficiales de Ronaldo ni en su fundación ni en ninguna agencia de prensa. El analista",
+   "words": [
+    {
+     "start": 322.9,
+     "end": 323.66,
+     "word": " oficiales",
+     "probability": 0.9912886321544647
+    },
+    {
+     "start": 323.66,
+     "end": 323.78,
+     "word": " de",
+     "probability": 0.9864816665649414
+    },
+    {
+     "start": 323.78,
+     "end": 324.26,
+     "word": " Ronaldo",
+     "probability": 0.890845000743866
+    },
+    {
+     "start": 324.26,
+     "end": 324.58,
+     "word": " ni",
+     "probability": 0.830168604850769
+    },
+    {
+     "start": 324.58,
+     "end": 324.66,
+     "word": " en",
+     "probability": 0.9301852583885193
+    },
+    {
+     "start": 324.66,
+     "end": 324.8,
+     "word": " su",
+     "probability": 0.9885810017585754
+    },
+    {
+     "start": 324.8,
+     "end": 325.44,
+     "word": " fundación",
+     "probability": 0.9833413064479828
+    },
+    {
+     "start": 325.44,
+     "end": 326.2,
+     "word": " ni",
+     "probability": 0.6093793511390686
+    },
+    {
+     "start": 326.2,
+     "end": 326.28,
+     "word": " en",
+     "probability": 0.9868167042732239
+    },
+    {
+     "start": 326.28,
+     "end": 326.6,
+     "word": " ninguna",
+     "probability": 0.9841206669807434
+    },
+    {
+     "start": 326.6,
+     "end": 327.04,
+     "word": " agencia",
+     "probability": 0.9948756992816925
+    },
+    {
+     "start": 327.04,
+     "end": 327.24,
+     "word": " de",
+     "probability": 0.9910388588905334
+    },
+    {
+     "start": 327.24,
+     "end": 327.64,
+     "word": " prensa.",
+     "probability": 0.9938621918360392
+    },
+    {
+     "start": 327.86,
+     "end": 327.98,
+     "word": " El",
+     "probability": 0.9896979928016663
+    },
+    {
+     "start": 327.98,
+     "end": 328.36,
+     "word": " analista",
+     "probability": 0.9904966354370117
+    }
+   ]
+  },
+  {
+   "start": 328.36,
+   "end": 333.96,
+   "text": " Daguito Valdés lo llamó el fake del año. Pero antes de que el desmentido llegara,",
+   "words": [
+    {
+     "start": 328.36,
+     "end": 328.66,
+     "word": " Daguito",
+     "probability": 0.5429173074662685
+    },
+    {
+     "start": 328.66,
+     "end": 329.12,
+     "word": " Valdés",
+     "probability": 0.6051262120405833
+    },
+    {
+     "start": 329.12,
+     "end": 329.34,
+     "word": " lo",
+     "probability": 0.9714372158050537
+    },
+    {
+     "start": 329.34,
+     "end": 329.74,
+     "word": " llamó",
+     "probability": 0.9687378108501434
+    },
+    {
+     "start": 329.74,
+     "end": 329.96,
+     "word": " el",
+     "probability": 0.3869013786315918
+    },
+    {
+     "start": 329.96,
+     "end": 330.26,
+     "word": " fake",
+     "probability": 0.13127559423446655
+    },
+    {
+     "start": 330.26,
+     "end": 330.7,
+     "word": " del",
+     "probability": 0.9367636442184448
+    },
+    {
+     "start": 330.7,
+     "end": 331.0,
+     "word": " año.",
+     "probability": 0.9865950345993042
+    },
+    {
+     "start": 332.14,
+     "end": 332.44,
+     "word": " Pero",
+     "probability": 0.9595850706100464
+    },
+    {
+     "start": 332.44,
+     "end": 332.62,
+     "word": " antes",
+     "probability": 0.9707684516906738
+    },
+    {
+     "start": 332.62,
+     "end": 332.78,
+     "word": " de",
+     "probability": 0.968421220779419
+    },
+    {
+     "start": 332.78,
+     "end": 332.86,
+     "word": " que",
+     "probability": 0.9951932430267334
+    },
+    {
+     "start": 332.86,
+     "end": 333.02,
+     "word": " el",
+     "probability": 0.7728195786476135
+    },
+    {
+     "start": 333.02,
+     "end": 333.54,
+     "word": " desmentido",
+     "probability": 0.9598562320073446
+    },
+    {
+     "start": 333.54,
+     "end": 333.96,
+     "word": " llegara,",
+     "probability": 0.9697778522968292
+    }
+   ]
+  },
+  {
+   "start": 333.96,
+   "end": 339.64,
+   "text": " una institución del Estado lo publicó como cierto. En 22 de junio, la Dirección Provisial de Salud de",
+   "words": [
+    {
+     "start": 333.96,
+     "end": 334.3,
+     "word": " una",
+     "probability": 0.16938598453998566
+    },
+    {
+     "start": 334.3,
+     "end": 334.74,
+     "word": " institución",
+     "probability": 0.9671278893947601
+    },
+    {
+     "start": 334.74,
+     "end": 334.92,
+     "word": " del",
+     "probability": 0.9271374344825745
+    },
+    {
+     "start": 334.92,
+     "end": 335.36,
+     "word": " Estado",
+     "probability": 0.4921746551990509
+    },
+    {
+     "start": 335.36,
+     "end": 335.58,
+     "word": " lo",
+     "probability": 0.9540223479270935
+    },
+    {
+     "start": 335.58,
+     "end": 336.02,
+     "word": " publicó",
+     "probability": 0.9734140634536743
+    },
+    {
+     "start": 336.02,
+     "end": 336.2,
+     "word": " como",
+     "probability": 0.9687378406524658
+    },
+    {
+     "start": 336.2,
+     "end": 336.7,
+     "word": " cierto.",
+     "probability": 0.9371952414512634
+    },
+    {
+     "start": 337.1,
+     "end": 337.2,
+     "word": " En",
+     "probability": 0.6087990999221802
+    },
+    {
+     "start": 337.2,
+     "end": 337.56,
+     "word": " 22",
+     "probability": 0.4361816942691803
+    },
+    {
+     "start": 337.56,
+     "end": 337.7,
+     "word": " de",
+     "probability": 0.9930211901664734
+    },
+    {
+     "start": 337.7,
+     "end": 338.0,
+     "word": " junio,",
+     "probability": 0.9433272778987885
+    },
+    {
+     "start": 338.16,
+     "end": 338.18,
+     "word": " la",
+     "probability": 0.9551553726196289
+    },
+    {
+     "start": 338.18,
+     "end": 338.6,
+     "word": " Dirección",
+     "probability": 0.8163152039051056
+    },
+    {
+     "start": 338.6,
+     "end": 339.08,
+     "word": " Provisial",
+     "probability": 0.735822856426239
+    },
+    {
+     "start": 339.08,
+     "end": 339.22,
+     "word": " de",
+     "probability": 0.996322751045227
+    },
+    {
+     "start": 339.22,
+     "end": 339.5,
+     "word": " Salud",
+     "probability": 0.8790929317474365
+    },
+    {
+     "start": 339.5,
+     "end": 339.64,
+     "word": " de",
+     "probability": 0.8827835321426392
+    }
+   ]
+  },
+  {
+   "start": 339.64,
+   "end": 345.06,
+   "text": " Cienfuegos publicó en su cuenta oficial que Ronaldo había sellado una alianza histórica",
+   "words": [
+    {
+     "start": 339.64,
+     "end": 340.16,
+     "word": " Cienfuegos",
+     "probability": 0.9100843667984009
+    },
+    {
+     "start": 340.16,
+     "end": 340.64,
+     "word": " publicó",
+     "probability": 0.9756132662296295
+    },
+    {
+     "start": 340.64,
+     "end": 340.72,
+     "word": " en",
+     "probability": 0.9901106953620911
+    },
+    {
+     "start": 340.72,
+     "end": 340.84,
+     "word": " su",
+     "probability": 0.9960500597953796
+    },
+    {
+     "start": 340.84,
+     "end": 341.12,
+     "word": " cuenta",
+     "probability": 0.9566426277160645
+    },
+    {
+     "start": 341.12,
+     "end": 341.58,
+     "word": " oficial",
+     "probability": 0.9816992282867432
+    },
+    {
+     "start": 341.58,
+     "end": 341.94,
+     "word": " que",
+     "probability": 0.9250662326812744
+    },
+    {
+     "start": 341.94,
+     "end": 342.3,
+     "word": " Ronaldo",
+     "probability": 0.9072786569595337
+    },
+    {
+     "start": 342.3,
+     "end": 342.58,
+     "word": " había",
+     "probability": 0.9882309436798096
+    },
+    {
+     "start": 342.58,
+     "end": 343.06,
+     "word": " sellado",
+     "probability": 0.9726720750331879
+    },
+    {
+     "start": 343.06,
+     "end": 343.7,
+     "word": " una",
+     "probability": 0.8552685379981995
+    },
+    {
+     "start": 343.7,
+     "end": 344.4,
+     "word": " alianza",
+     "probability": 0.7403934697310129
+    },
+    {
+     "start": 344.4,
+     "end": 345.06,
+     "word": " histórica",
+     "probability": 0.9975377917289734
+    }
+   ]
+  },
+  {
+   "start": 345.06,
+   "end": 350.72,
+   "text": " con el gobierno cubano para donar 250 paneles solares, baterías y repuestos. Horas después,",
+   "words": [
+    {
+     "start": 345.06,
+     "end": 345.34,
+     "word": " con",
+     "probability": 0.916292667388916
+    },
+    {
+     "start": 345.34,
+     "end": 345.46,
+     "word": " el",
+     "probability": 0.9943470358848572
+    },
+    {
+     "start": 345.46,
+     "end": 345.66,
+     "word": " gobierno",
+     "probability": 0.7525776028633118
+    },
+    {
+     "start": 345.66,
+     "end": 346.12,
+     "word": " cubano",
+     "probability": 0.9673208892345428
+    },
+    {
+     "start": 346.12,
+     "end": 346.34,
+     "word": " para",
+     "probability": 0.9774481654167175
+    },
+    {
+     "start": 346.34,
+     "end": 346.66,
+     "word": " donar",
+     "probability": 0.7304938286542892
+    },
+    {
+     "start": 346.66,
+     "end": 347.02,
+     "word": " 250",
+     "probability": 0.9657253623008728
+    },
+    {
+     "start": 347.02,
+     "end": 347.84,
+     "word": " paneles",
+     "probability": 0.7637102007865906
+    },
+    {
+     "start": 347.84,
+     "end": 348.14,
+     "word": " solares,",
+     "probability": 0.8994132578372955
+    },
+    {
+     "start": 348.34,
+     "end": 348.74,
+     "word": " baterías",
+     "probability": 0.9868510663509369
+    },
+    {
+     "start": 348.74,
+     "end": 348.96,
+     "word": " y",
+     "probability": 0.9671130180358887
+    },
+    {
+     "start": 348.96,
+     "end": 349.48,
+     "word": " repuestos.",
+     "probability": 0.9791804850101471
+    },
+    {
+     "start": 350.08,
+     "end": 350.4,
+     "word": " Horas",
+     "probability": 0.6630701124668121
+    },
+    {
+     "start": 350.4,
+     "end": 350.72,
+     "word": " después,",
+     "probability": 0.9957200884819031
+    }
+   ]
+  },
+  {
+   "start": 351.06,
+   "end": 355.96,
+   "text": " la institución borró pos sin dar explicaciones. Pero el toque documentó que el bulo ya se",
+   "words": [
+    {
+     "start": 351.06,
+     "end": 351.08,
+     "word": " la",
+     "probability": 0.994598388671875
+    },
+    {
+     "start": 351.08,
+     "end": 351.68,
+     "word": " institución",
+     "probability": 0.992228090763092
+    },
+    {
+     "start": 351.68,
+     "end": 352.0,
+     "word": " borró",
+     "probability": 0.9681846499443054
+    },
+    {
+     "start": 352.0,
+     "end": 352.32,
+     "word": " pos",
+     "probability": 0.3044222593307495
+    },
+    {
+     "start": 352.32,
+     "end": 352.72,
+     "word": " sin",
+     "probability": 0.9639891982078552
+    },
+    {
+     "start": 352.72,
+     "end": 352.84,
+     "word": " dar",
+     "probability": 0.9975064396858215
+    },
+    {
+     "start": 352.84,
+     "end": 353.46,
+     "word": " explicaciones.",
+     "probability": 0.9955353438854218
+    },
+    {
+     "start": 353.96,
+     "end": 354.14,
+     "word": " Pero",
+     "probability": 0.9634630680084229
+    },
+    {
+     "start": 354.14,
+     "end": 354.34,
+     "word": " el",
+     "probability": 0.6115113496780396
+    },
+    {
+     "start": 354.34,
+     "end": 354.52,
+     "word": " toque",
+     "probability": 0.9824600517749786
+    },
+    {
+     "start": 354.52,
+     "end": 355.06,
+     "word": " documentó",
+     "probability": 0.9870492517948151
+    },
+    {
+     "start": 355.06,
+     "end": 355.16,
+     "word": " que",
+     "probability": 0.990243136882782
+    },
+    {
+     "start": 355.16,
+     "end": 355.3,
+     "word": " el",
+     "probability": 0.9436023831367493
+    },
+    {
+     "start": 355.3,
+     "end": 355.68,
+     "word": " bulo",
+     "probability": 0.7437138259410858
+    },
+    {
+     "start": 355.68,
+     "end": 355.84,
+     "word": " ya",
+     "probability": 0.9711979627609253
+    },
+    {
+     "start": 355.84,
+     "end": 355.96,
+     "word": " se",
+     "probability": 0.9872783422470093
+    }
+   ]
+  },
+  {
+   "start": 355.96,
+   "end": 361.94,
+   "text": " había replicado en grupos y en otras cuentas vinculadas a instituciones estatales. Cuba",
+   "words": [
+    {
+     "start": 355.96,
+     "end": 356.14,
+     "word": " había",
+     "probability": 0.8346201777458191
+    },
+    {
+     "start": 356.14,
+     "end": 356.76,
+     "word": " replicado",
+     "probability": 0.9784860014915466
+    },
+    {
+     "start": 356.76,
+     "end": 356.9,
+     "word": " en",
+     "probability": 0.9981508851051331
+    },
+    {
+     "start": 356.9,
+     "end": 357.14,
+     "word": " grupos",
+     "probability": 0.9929322004318237
+    },
+    {
+     "start": 357.14,
+     "end": 357.38,
+     "word": " y",
+     "probability": 0.9864621758460999
+    },
+    {
+     "start": 357.38,
+     "end": 357.48,
+     "word": " en",
+     "probability": 0.9421558380126953
+    },
+    {
+     "start": 357.48,
+     "end": 357.62,
+     "word": " otras",
+     "probability": 0.9961776733398438
+    },
+    {
+     "start": 357.62,
+     "end": 358.0,
+     "word": " cuentas",
+     "probability": 0.993074506521225
+    },
+    {
+     "start": 358.0,
+     "end": 358.5,
+     "word": " vinculadas",
+     "probability": 0.987951914469401
+    },
+    {
+     "start": 358.5,
+     "end": 358.64,
+     "word": " a",
+     "probability": 0.982826292514801
+    },
+    {
+     "start": 358.64,
+     "end": 359.16,
+     "word": " instituciones",
+     "probability": 0.9959174692630768
+    },
+    {
+     "start": 359.16,
+     "end": 359.94,
+     "word": " estatales.",
+     "probability": 0.9938941299915314
+    },
+    {
+     "start": 361.3,
+     "end": 361.94,
+     "word": " Cuba",
+     "probability": 0.9818939566612244
+    }
+   ]
+  },
+  {
+   "start": 361.94,
+   "end": 367.38,
+   "text": " atravesaba una crisis energética con apagones de más de 30 horas seguidas. La promesa de",
+   "words": [
+    {
+     "start": 361.94,
+     "end": 362.48,
+     "word": " atravesaba",
+     "probability": 0.7034319291512171
+    },
+    {
+     "start": 362.48,
+     "end": 362.68,
+     "word": " una",
+     "probability": 0.932733416557312
+    },
+    {
+     "start": 362.68,
+     "end": 362.88,
+     "word": " crisis",
+     "probability": 0.9859691858291626
+    },
+    {
+     "start": 362.88,
+     "end": 363.46,
+     "word": " energética",
+     "probability": 0.9850423038005829
+    },
+    {
+     "start": 363.46,
+     "end": 363.7,
+     "word": " con",
+     "probability": 0.9326305389404297
+    },
+    {
+     "start": 363.7,
+     "end": 364.28,
+     "word": " apagones",
+     "probability": 0.9874556263287863
+    },
+    {
+     "start": 364.28,
+     "end": 364.52,
+     "word": " de",
+     "probability": 0.963547945022583
+    },
+    {
+     "start": 364.52,
+     "end": 364.64,
+     "word": " más",
+     "probability": 0.9615095257759094
+    },
+    {
+     "start": 364.64,
+     "end": 364.78,
+     "word": " de",
+     "probability": 0.9953886270523071
+    },
+    {
+     "start": 364.78,
+     "end": 365.02,
+     "word": " 30",
+     "probability": 0.955901026725769
+    },
+    {
+     "start": 365.02,
+     "end": 365.3,
+     "word": " horas",
+     "probability": 0.9898932576179504
+    },
+    {
+     "start": 365.3,
+     "end": 365.82,
+     "word": " seguidas.",
+     "probability": 0.9433624148368835
+    },
+    {
+     "start": 366.4,
+     "end": 366.6,
+     "word": " La",
+     "probability": 0.9766823053359985
+    },
+    {
+     "start": 366.6,
+     "end": 367.06,
+     "word": " promesa",
+     "probability": 0.9864595532417297
+    },
+    {
+     "start": 367.06,
+     "end": 367.38,
+     "word": " de",
+     "probability": 0.976547122001648
+    }
+   ]
+  },
+  {
+   "start": 367.38,
+   "end": 372.9,
+   "text": " 250 paneles solares no se compartió porque fuera creíble, se compartió porque era deseable.",
+   "words": [
+    {
+     "start": 367.38,
+     "end": 367.8,
+     "word": " 250",
+     "probability": 0.9327211976051331
+    },
+    {
+     "start": 367.8,
+     "end": 368.56,
+     "word": " paneles",
+     "probability": 0.8430849611759186
+    },
+    {
+     "start": 368.56,
+     "end": 368.9,
+     "word": " solares",
+     "probability": 0.9609554708003998
+    },
+    {
+     "start": 368.9,
+     "end": 369.16,
+     "word": " no",
+     "probability": 0.9783803820610046
+    },
+    {
+     "start": 369.16,
+     "end": 369.28,
+     "word": " se",
+     "probability": 0.9961928129196167
+    },
+    {
+     "start": 369.28,
+     "end": 369.9,
+     "word": " compartió",
+     "probability": 0.9554661512374878
+    },
+    {
+     "start": 369.9,
+     "end": 370.12,
+     "word": " porque",
+     "probability": 0.9193436503410339
+    },
+    {
+     "start": 370.12,
+     "end": 370.38,
+     "word": " fuera",
+     "probability": 0.9415953755378723
+    },
+    {
+     "start": 370.38,
+     "end": 370.94,
+     "word": " creíble,",
+     "probability": 0.9280213514963785
+    },
+    {
+     "start": 371.1,
+     "end": 371.16,
+     "word": " se",
+     "probability": 0.9434775710105896
+    },
+    {
+     "start": 371.16,
+     "end": 371.64,
+     "word": " compartió",
+     "probability": 0.9707060754299164
+    },
+    {
+     "start": 371.64,
+     "end": 371.88,
+     "word": " porque",
+     "probability": 0.9815105199813843
+    },
+    {
+     "start": 371.88,
+     "end": 372.1,
+     "word": " era",
+     "probability": 0.9947299957275391
+    },
+    {
+     "start": 372.1,
+     "end": 372.9,
+     "word": " deseable.",
+     "probability": 0.9387738704681396
+    }
+   ]
+  },
+  {
+   "start": 373.26,
+   "end": 380.08,
+   "text": " Y eso es lo que lo hace peligroso. No apela la razón, apela a la esperanza. Y el último caso",
+   "words": [
+    {
+     "start": 373.26,
+     "end": 373.46,
+     "word": " Y",
+     "probability": 0.9486653208732605
+    },
+    {
+     "start": 373.46,
+     "end": 373.74,
+     "word": " eso",
+     "probability": 0.9792750477790833
+    },
+    {
+     "start": 373.74,
+     "end": 373.96,
+     "word": " es",
+     "probability": 0.9748731255531311
+    },
+    {
+     "start": 373.96,
+     "end": 374.08,
+     "word": " lo",
+     "probability": 0.9971676468849182
+    },
+    {
+     "start": 374.08,
+     "end": 374.18,
+     "word": " que",
+     "probability": 0.9976609945297241
+    },
+    {
+     "start": 374.18,
+     "end": 374.3,
+     "word": " lo",
+     "probability": 0.9737088680267334
+    },
+    {
+     "start": 374.3,
+     "end": 374.52,
+     "word": " hace",
+     "probability": 0.998490571975708
+    },
+    {
+     "start": 374.52,
+     "end": 375.38,
+     "word": " peligroso.",
+     "probability": 0.9952324827512106
+    },
+    {
+     "start": 375.62,
+     "end": 375.84,
+     "word": " No",
+     "probability": 0.9803789854049683
+    },
+    {
+     "start": 375.84,
+     "end": 376.08,
+     "word": " apela",
+     "probability": 0.9867902994155884
+    },
+    {
+     "start": 376.08,
+     "end": 376.24,
+     "word": " la",
+     "probability": 0.5596868991851807
+    },
+    {
+     "start": 376.24,
+     "end": 376.62,
+     "word": " razón,",
+     "probability": 0.9975041747093201
+    },
+    {
+     "start": 377.06,
+     "end": 377.44,
+     "word": " apela",
+     "probability": 0.9922361373901367
+    },
+    {
+     "start": 377.44,
+     "end": 377.88,
+     "word": " a",
+     "probability": 0.9616777300834656
+    },
+    {
+     "start": 377.88,
+     "end": 377.98,
+     "word": " la",
+     "probability": 0.9950863718986511
+    },
+    {
+     "start": 377.98,
+     "end": 378.68,
+     "word": " esperanza.",
+     "probability": 0.9983654022216797
+    },
+    {
+     "start": 379.36,
+     "end": 379.52,
+     "word": " Y",
+     "probability": 0.9255733489990234
+    },
+    {
+     "start": 379.52,
+     "end": 379.6,
+     "word": " el",
+     "probability": 0.9628732800483704
+    },
+    {
+     "start": 379.6,
+     "end": 379.82,
+     "word": " último",
+     "probability": 0.9976231455802917
+    },
+    {
+     "start": 379.82,
+     "end": 380.08,
+     "word": " caso",
+     "probability": 0.9975078105926514
+    }
+   ]
+  },
+  {
+   "start": 380.08,
+   "end": 384.8,
+   "text": " documentado es en más grave. En julio, la página publicó que Damian Valdés Galloso,",
+   "words": [
+    {
+     "start": 380.08,
+     "end": 380.78,
+     "word": " documentado",
+     "probability": 0.983938604593277
+    },
+    {
+     "start": 380.78,
+     "end": 380.98,
+     "word": " es",
+     "probability": 0.9710312485694885
+    },
+    {
+     "start": 380.98,
+     "end": 381.1,
+     "word": " en",
+     "probability": 0.6091596484184265
+    },
+    {
+     "start": 381.1,
+     "end": 381.26,
+     "word": " más",
+     "probability": 0.6347542405128479
+    },
+    {
+     "start": 381.26,
+     "end": 381.58,
+     "word": " grave.",
+     "probability": 0.9014009237289429
+    },
+    {
+     "start": 381.88,
+     "end": 382.0,
+     "word": " En",
+     "probability": 0.9883424639701843
+    },
+    {
+     "start": 382.0,
+     "end": 382.48,
+     "word": " julio,",
+     "probability": 0.9740657210350037
+    },
+    {
+     "start": 382.66,
+     "end": 382.68,
+     "word": " la",
+     "probability": 0.9934004545211792
+    },
+    {
+     "start": 382.68,
+     "end": 382.86,
+     "word": " página",
+     "probability": 0.9919829964637756
+    },
+    {
+     "start": 382.86,
+     "end": 383.38,
+     "word": " publicó",
+     "probability": 0.9867562651634216
+    },
+    {
+     "start": 383.38,
+     "end": 383.5,
+     "word": " que",
+     "probability": 0.9878771305084229
+    },
+    {
+     "start": 383.5,
+     "end": 383.84,
+     "word": " Damian",
+     "probability": 0.6116091012954712
+    },
+    {
+     "start": 383.84,
+     "end": 384.34,
+     "word": " Valdés",
+     "probability": 0.27864596247673035
+    },
+    {
+     "start": 384.34,
+     "end": 384.8,
+     "word": " Galloso,",
+     "probability": 0.963442474603653
+    }
+   ]
+  },
+  {
+   "start": 385.04,
+   "end": 391.08,
+   "text": " el acusado de asesinar al Tiger, había sido condenado a 60 años. Falso. El juicio",
+   "words": [
+    {
+     "start": 385.04,
+     "end": 385.14,
+     "word": " el",
+     "probability": 0.979786217212677
+    },
+    {
+     "start": 385.14,
+     "end": 385.5,
+     "word": " acusado",
+     "probability": 0.9883408149083456
+    },
+    {
+     "start": 385.5,
+     "end": 385.62,
+     "word": " de",
+     "probability": 0.687666654586792
+    },
+    {
+     "start": 385.62,
+     "end": 385.96,
+     "word": " asesinar",
+     "probability": 0.9540860056877136
+    },
+    {
+     "start": 385.96,
+     "end": 386.14,
+     "word": " al",
+     "probability": 0.43333348631858826
+    },
+    {
+     "start": 386.14,
+     "end": 386.52,
+     "word": " Tiger,",
+     "probability": 0.5503572821617126
+    },
+    {
+     "start": 387.12,
+     "end": 387.36,
+     "word": " había",
+     "probability": 0.9758388996124268
+    },
+    {
+     "start": 387.36,
+     "end": 387.72,
+     "word": " sido",
+     "probability": 0.9986144304275513
+    },
+    {
+     "start": 387.72,
+     "end": 388.26,
+     "word": " condenado",
+     "probability": 0.9932037989298502
+    },
+    {
+     "start": 388.26,
+     "end": 388.32,
+     "word": " a",
+     "probability": 0.6474041938781738
+    },
+    {
+     "start": 388.32,
+     "end": 388.58,
+     "word": " 60",
+     "probability": 0.9082363247871399
+    },
+    {
+     "start": 388.58,
+     "end": 389.1,
+     "word": " años.",
+     "probability": 0.9971703886985779
+    },
+    {
+     "start": 389.58,
+     "end": 390.06,
+     "word": " Falso.",
+     "probability": 0.9118753671646118
+    },
+    {
+     "start": 390.66,
+     "end": 390.82,
+     "word": " El",
+     "probability": 0.9864470958709717
+    },
+    {
+     "start": 390.82,
+     "end": 391.08,
+     "word": " juicio",
+     "probability": 0.9915392100811005
+    }
+   ]
+  },
+  {
+   "start": 391.08,
+   "end": 395.92,
+   "text": " ni siquiera había empezado. Teresa María Padrón lo denunció en un reel del 10 de julio.",
+   "words": [
+    {
+     "start": 391.08,
+     "end": 391.28,
+     "word": " ni",
+     "probability": 0.11626007407903671
+    },
+    {
+     "start": 391.28,
+     "end": 391.54,
+     "word": " siquiera",
+     "probability": 0.9374842047691345
+    },
+    {
+     "start": 391.54,
+     "end": 391.72,
+     "word": " había",
+     "probability": 0.9011446833610535
+    },
+    {
+     "start": 391.72,
+     "end": 392.36,
+     "word": " empezado.",
+     "probability": 0.9903169274330139
+    },
+    {
+     "start": 392.6,
+     "end": 392.76,
+     "word": " Teresa",
+     "probability": 0.8765506148338318
+    },
+    {
+     "start": 392.76,
+     "end": 393.16,
+     "word": " María",
+     "probability": 0.9171306490898132
+    },
+    {
+     "start": 393.16,
+     "end": 393.62,
+     "word": " Padrón",
+     "probability": 0.7802095313866934
+    },
+    {
+     "start": 393.62,
+     "end": 393.76,
+     "word": " lo",
+     "probability": 0.9399734735488892
+    },
+    {
+     "start": 393.76,
+     "end": 394.38,
+     "word": " denunció",
+     "probability": 0.995887021223704
+    },
+    {
+     "start": 394.38,
+     "end": 394.6,
+     "word": " en",
+     "probability": 0.9726109504699707
+    },
+    {
+     "start": 394.6,
+     "end": 394.76,
+     "word": " un",
+     "probability": 0.914467990398407
+    },
+    {
+     "start": 394.76,
+     "end": 394.98,
+     "word": " reel",
+     "probability": 0.28953424096107483
+    },
+    {
+     "start": 394.98,
+     "end": 395.3,
+     "word": " del",
+     "probability": 0.4142601788043976
+    },
+    {
+     "start": 395.3,
+     "end": 395.44,
+     "word": " 10",
+     "probability": 0.9915151596069336
+    },
+    {
+     "start": 395.44,
+     "end": 395.6,
+     "word": " de",
+     "probability": 0.9958718419075012
+    },
+    {
+     "start": 395.6,
+     "end": 395.92,
+     "word": " julio.",
+     "probability": 0.9097979664802551
+    }
+   ]
+  },
+  {
+   "start": 396.24,
+   "end": 402.12,
+   "text": " La confirmación llegó en noviembre. La Corte Criminal de Miami-Dade fijó el inicio del juicio",
+   "words": [
+    {
+     "start": 396.24,
+     "end": 396.42,
+     "word": " La",
+     "probability": 0.9522467255592346
+    },
+    {
+     "start": 396.42,
+     "end": 397.0,
+     "word": " confirmación",
+     "probability": 0.9781286418437958
+    },
+    {
+     "start": 397.0,
+     "end": 397.38,
+     "word": " llegó",
+     "probability": 0.9766383767127991
+    },
+    {
+     "start": 397.38,
+     "end": 397.7,
+     "word": " en",
+     "probability": 0.9662027359008789
+    },
+    {
+     "start": 397.7,
+     "end": 398.22,
+     "word": " noviembre.",
+     "probability": 0.9729676644007365
+    },
+    {
+     "start": 398.52,
+     "end": 398.6,
+     "word": " La",
+     "probability": 0.9463621377944946
+    },
+    {
+     "start": 398.6,
+     "end": 398.78,
+     "word": " Corte",
+     "probability": 0.9091282486915588
+    },
+    {
+     "start": 398.78,
+     "end": 399.14,
+     "word": " Criminal",
+     "probability": 0.43363794684410095
+    },
+    {
+     "start": 399.14,
+     "end": 399.36,
+     "word": " de",
+     "probability": 0.9906045794487
+    },
+    {
+     "start": 399.36,
+     "end": 399.58,
+     "word": " Miami",
+     "probability": 0.9973304271697998
+    },
+    {
+     "start": 399.58,
+     "end": 399.96,
+     "word": "-Dade",
+     "probability": 0.9216804901758829
+    },
+    {
+     "start": 399.96,
+     "end": 400.56,
+     "word": " fijó",
+     "probability": 0.9462312161922455
+    },
+    {
+     "start": 400.56,
+     "end": 401.18,
+     "word": " el",
+     "probability": 0.8072799444198608
+    },
+    {
+     "start": 401.18,
+     "end": 401.62,
+     "word": " inicio",
+     "probability": 0.989152193069458
+    },
+    {
+     "start": 401.62,
+     "end": 401.8,
+     "word": " del",
+     "probability": 0.984135091304779
+    },
+    {
+     "start": 401.8,
+     "end": 402.12,
+     "word": " juicio",
+     "probability": 0.9830817878246307
+    }
+   ]
+  },
+  {
+   "start": 402.12,
+   "end": 408.04,
+   "text": " para el 1º de marzo de 2027. Es decir, cuando la página publicó la condena faltaban 8 meses",
+   "words": [
+    {
+     "start": 402.12,
+     "end": 402.36,
+     "word": " para",
+     "probability": 0.9368374347686768
+    },
+    {
+     "start": 402.36,
+     "end": 402.48,
+     "word": " el",
+     "probability": 0.994371235370636
+    },
+    {
+     "start": 402.48,
+     "end": 402.74,
+     "word": " 1º",
+     "probability": 0.5145248770713806
+    },
+    {
+     "start": 402.74,
+     "end": 402.82,
+     "word": " de",
+     "probability": 0.9713745713233948
+    },
+    {
+     "start": 402.82,
+     "end": 403.12,
+     "word": " marzo",
+     "probability": 0.7040523290634155
+    },
+    {
+     "start": 403.12,
+     "end": 403.24,
+     "word": " de",
+     "probability": 0.9624082446098328
+    },
+    {
+     "start": 403.24,
+     "end": 403.98,
+     "word": " 2027.",
+     "probability": 0.9367577433586121
+    },
+    {
+     "start": 404.48,
+     "end": 404.64,
+     "word": " Es",
+     "probability": 0.9531412720680237
+    },
+    {
+     "start": 404.64,
+     "end": 404.96,
+     "word": " decir,",
+     "probability": 0.9995895028114319
+    },
+    {
+     "start": 405.4,
+     "end": 405.58,
+     "word": " cuando",
+     "probability": 0.9847264885902405
+    },
+    {
+     "start": 405.58,
+     "end": 405.76,
+     "word": " la",
+     "probability": 0.9952504634857178
+    },
+    {
+     "start": 405.76,
+     "end": 405.94,
+     "word": " página",
+     "probability": 0.9859069585800171
+    },
+    {
+     "start": 405.94,
+     "end": 406.48,
+     "word": " publicó",
+     "probability": 0.9838109910488129
+    },
+    {
+     "start": 406.48,
+     "end": 406.58,
+     "word": " la",
+     "probability": 0.9726806282997131
+    },
+    {
+     "start": 406.58,
+     "end": 407.02,
+     "word": " condena",
+     "probability": 0.9580187996228536
+    },
+    {
+     "start": 407.02,
+     "end": 407.5,
+     "word": " faltaban",
+     "probability": 0.9004141986370087
+    },
+    {
+     "start": 407.5,
+     "end": 407.76,
+     "word": " 8",
+     "probability": 0.6918498277664185
+    },
+    {
+     "start": 407.76,
+     "end": 408.04,
+     "word": " meses",
+     "probability": 0.9988229870796204
+    }
+   ]
+  },
+  {
+   "start": 408.04,
+   "end": 414.18,
+   "text": " para que el juicio empezara. Ninguna condena existía en julio de 2026. Y ninguna existe hoy.",
+   "words": [
+    {
+     "start": 408.04,
+     "end": 408.34,
+     "word": " para",
+     "probability": 0.9946445226669312
+    },
+    {
+     "start": 408.34,
+     "end": 408.46,
+     "word": " que",
+     "probability": 0.9948680400848389
+    },
+    {
+     "start": 408.46,
+     "end": 408.56,
+     "word": " el",
+     "probability": 0.8710200786590576
+    },
+    {
+     "start": 408.56,
+     "end": 408.84,
+     "word": " juicio",
+     "probability": 0.998702198266983
+    },
+    {
+     "start": 408.84,
+     "end": 409.48,
+     "word": " empezara.",
+     "probability": 0.9935390949249268
+    },
+    {
+     "start": 410.08,
+     "end": 410.58,
+     "word": " Ninguna",
+     "probability": 0.9849959909915924
+    },
+    {
+     "start": 410.58,
+     "end": 410.96,
+     "word": " condena",
+     "probability": 0.9956549008687338
+    },
+    {
+     "start": 410.96,
+     "end": 411.42,
+     "word": " existía",
+     "probability": 0.9814425110816956
+    },
+    {
+     "start": 411.42,
+     "end": 411.54,
+     "word": " en",
+     "probability": 0.9949625730514526
+    },
+    {
+     "start": 411.54,
+     "end": 411.84,
+     "word": " julio",
+     "probability": 0.9678117632865906
+    },
+    {
+     "start": 411.84,
+     "end": 411.94,
+     "word": " de",
+     "probability": 0.9642460346221924
+    },
+    {
+     "start": 411.94,
+     "end": 412.64,
+     "word": " 2026.",
+     "probability": 0.9727458953857422
+    },
+    {
+     "start": 413.0,
+     "end": 413.24,
+     "word": " Y",
+     "probability": 0.6539639830589294
+    },
+    {
+     "start": 413.24,
+     "end": 413.5,
+     "word": " ninguna",
+     "probability": 0.5612401366233826
+    },
+    {
+     "start": 413.5,
+     "end": 413.92,
+     "word": " existe",
+     "probability": 0.9706187844276428
+    },
+    {
+     "start": 413.92,
+     "end": 414.18,
+     "word": " hoy.",
+     "probability": 0.996674656867981
+    }
+   ]
+  },
+  {
+   "start": 414.6,
+   "end": 420.52,
+   "text": " El acusado se declaró no culpable y permanece detenido sin fianza. La condena era inventada",
+   "words": [
+    {
+     "start": 414.6,
+     "end": 414.78,
+     "word": " El",
+     "probability": 0.9848632216453552
+    },
+    {
+     "start": 414.78,
+     "end": 415.18,
+     "word": " acusado",
+     "probability": 0.985097328821818
+    },
+    {
+     "start": 415.18,
+     "end": 415.34,
+     "word": " se",
+     "probability": 0.9365194439888
+    },
+    {
+     "start": 415.34,
+     "end": 415.72,
+     "word": " declaró",
+     "probability": 0.9832769334316254
+    },
+    {
+     "start": 415.72,
+     "end": 415.98,
+     "word": " no",
+     "probability": 0.811217188835144
+    },
+    {
+     "start": 415.98,
+     "end": 416.5,
+     "word": " culpable",
+     "probability": 0.9912478923797607
+    },
+    {
+     "start": 416.5,
+     "end": 416.7,
+     "word": " y",
+     "probability": 0.9801049828529358
+    },
+    {
+     "start": 416.7,
+     "end": 417.14,
+     "word": " permanece",
+     "probability": 0.953081210454305
+    },
+    {
+     "start": 417.14,
+     "end": 417.58,
+     "word": " detenido",
+     "probability": 0.9507218996683756
+    },
+    {
+     "start": 417.58,
+     "end": 417.8,
+     "word": " sin",
+     "probability": 0.9764569401741028
+    },
+    {
+     "start": 417.8,
+     "end": 418.3,
+     "word": " fianza.",
+     "probability": 0.9814189672470093
+    },
+    {
+     "start": 419.04,
+     "end": 419.42,
+     "word": " La",
+     "probability": 0.979168176651001
+    },
+    {
+     "start": 419.42,
+     "end": 419.76,
+     "word": " condena",
+     "probability": 0.9838504195213318
+    },
+    {
+     "start": 419.76,
+     "end": 419.84,
+     "word": " era",
+     "probability": 0.8418058753013611
+    },
+    {
+     "start": 419.84,
+     "end": 420.52,
+     "word": " inventada",
+     "probability": 0.9951856136322021
+    }
+   ]
+  },
+  {
+   "start": 420.52,
+   "end": 425.32,
+   "text": " y la página que la inventó llevaba en nombre de la artista al que supuestamente homenagiaba.",
+   "words": [
+    {
+     "start": 420.52,
+     "end": 420.8,
+     "word": " y",
+     "probability": 0.39595985412597656
+    },
+    {
+     "start": 420.8,
+     "end": 420.9,
+     "word": " la",
+     "probability": 0.8656797409057617
+    },
+    {
+     "start": 420.9,
+     "end": 421.06,
+     "word": " página",
+     "probability": 0.9722097516059875
+    },
+    {
+     "start": 421.06,
+     "end": 421.26,
+     "word": " que",
+     "probability": 0.9609508514404297
+    },
+    {
+     "start": 421.26,
+     "end": 421.36,
+     "word": " la",
+     "probability": 0.2685092091560364
+    },
+    {
+     "start": 421.36,
+     "end": 421.84,
+     "word": " inventó",
+     "probability": 0.8473048508167267
+    },
+    {
+     "start": 421.84,
+     "end": 422.1,
+     "word": " llevaba",
+     "probability": 0.9224967956542969
+    },
+    {
+     "start": 422.1,
+     "end": 422.28,
+     "word": " en",
+     "probability": 0.593725323677063
+    },
+    {
+     "start": 422.28,
+     "end": 422.52,
+     "word": " nombre",
+     "probability": 0.9932857155799866
+    },
+    {
+     "start": 422.52,
+     "end": 422.66,
+     "word": " de",
+     "probability": 0.39795196056365967
+    },
+    {
+     "start": 422.66,
+     "end": 422.74,
+     "word": " la",
+     "probability": 0.934158205986023
+    },
+    {
+     "start": 422.74,
+     "end": 423.3,
+     "word": " artista",
+     "probability": 0.95846888422966
+    },
+    {
+     "start": 423.3,
+     "end": 423.6,
+     "word": " al",
+     "probability": 0.6645352840423584
+    },
+    {
+     "start": 423.6,
+     "end": 423.72,
+     "word": " que",
+     "probability": 0.9978354573249817
+    },
+    {
+     "start": 423.72,
+     "end": 424.42,
+     "word": " supuestamente",
+     "probability": 0.9936602711677551
+    },
+    {
+     "start": 424.42,
+     "end": 425.32,
+     "word": " homenagiaba.",
+     "probability": 0.8390869349241257
+    }
+   ]
+  },
+  {
+   "start": 426.16,
+   "end": 432.26,
+   "text": " ¿Por qué funcionó? Porque bulo no se comparte porque sea creíble, se comparte porque es deseable.",
+   "words": [
+    {
+     "start": 426.16,
+     "end": 426.72,
+     "word": " ¿Por",
+     "probability": 0.8484748005867004
+    },
+    {
+     "start": 426.72,
+     "end": 426.86,
+     "word": " qué",
+     "probability": 0.955958902835846
+    },
+    {
+     "start": 426.86,
+     "end": 427.42,
+     "word": " funcionó?",
+     "probability": 0.8017836809158325
+    },
+    {
+     "start": 427.9,
+     "end": 428.22,
+     "word": " Porque",
+     "probability": 0.8704832792282104
+    },
+    {
+     "start": 428.22,
+     "end": 428.66,
+     "word": " bulo",
+     "probability": 0.46257325261831284
+    },
+    {
+     "start": 428.66,
+     "end": 428.86,
+     "word": " no",
+     "probability": 0.9359188675880432
+    },
+    {
+     "start": 428.86,
+     "end": 428.98,
+     "word": " se",
+     "probability": 0.99581378698349
+    },
+    {
+     "start": 428.98,
+     "end": 429.4,
+     "word": " comparte",
+     "probability": 0.9817147552967072
+    },
+    {
+     "start": 429.4,
+     "end": 429.56,
+     "word": " porque",
+     "probability": 0.9132580161094666
+    },
+    {
+     "start": 429.56,
+     "end": 429.82,
+     "word": " sea",
+     "probability": 0.9621078968048096
+    },
+    {
+     "start": 429.82,
+     "end": 430.34,
+     "word": " creíble,",
+     "probability": 0.7705533603827158
+    },
+    {
+     "start": 430.5,
+     "end": 430.66,
+     "word": " se",
+     "probability": 0.9753997921943665
+    },
+    {
+     "start": 430.66,
+     "end": 431.18,
+     "word": " comparte",
+     "probability": 0.9949603080749512
+    },
+    {
+     "start": 431.18,
+     "end": 431.46,
+     "word": " porque",
+     "probability": 0.9829351902008057
+    },
+    {
+     "start": 431.46,
+     "end": 431.62,
+     "word": " es",
+     "probability": 0.9932711720466614
+    },
+    {
+     "start": 431.62,
+     "end": 432.26,
+     "word": " deseable.",
+     "probability": 0.9726311266422272
+    }
+   ]
+  },
+  {
+   "start": 432.62,
+   "end": 437.22,
+   "text": " Mésipo fina hablando de Cuba, Ronaldo donando paneles en medio de apagones de 30 horas.",
+   "words": [
+    {
+     "start": 432.62,
+     "end": 432.98,
+     "word": " Mésipo",
+     "probability": 0.7789726927876472
+    },
+    {
+     "start": 432.98,
+     "end": 433.26,
+     "word": " fina",
+     "probability": 0.5284067988395691
+    },
+    {
+     "start": 433.26,
+     "end": 433.44,
+     "word": " hablando",
+     "probability": 0.9849371314048767
+    },
+    {
+     "start": 433.44,
+     "end": 433.76,
+     "word": " de",
+     "probability": 0.9953789710998535
+    },
+    {
+     "start": 433.76,
+     "end": 434.04,
+     "word": " Cuba,",
+     "probability": 0.9914326667785645
+    },
+    {
+     "start": 434.44,
+     "end": 434.72,
+     "word": " Ronaldo",
+     "probability": 0.8128570318222046
+    },
+    {
+     "start": 434.72,
+     "end": 435.26,
+     "word": " donando",
+     "probability": 0.9754361510276794
+    },
+    {
+     "start": 435.26,
+     "end": 435.7,
+     "word": " paneles",
+     "probability": 0.9052296876907349
+    },
+    {
+     "start": 435.7,
+     "end": 435.82,
+     "word": " en",
+     "probability": 0.9923979640007019
+    },
+    {
+     "start": 435.82,
+     "end": 435.98,
+     "word": " medio",
+     "probability": 0.9529318809509277
+    },
+    {
+     "start": 435.98,
+     "end": 436.14,
+     "word": " de",
+     "probability": 0.9727344512939453
+    },
+    {
+     "start": 436.14,
+     "end": 436.46,
+     "word": " apagones",
+     "probability": 0.9846187631289164
+    },
+    {
+     "start": 436.46,
+     "end": 436.64,
+     "word": " de",
+     "probability": 0.991212785243988
+    },
+    {
+     "start": 436.64,
+     "end": 436.94,
+     "word": " 30",
+     "probability": 0.9579977989196777
+    },
+    {
+     "start": 436.94,
+     "end": 437.22,
+     "word": " horas.",
+     "probability": 0.9822226762771606
+    }
+   ]
+  },
+  {
+   "start": 437.86,
+   "end": 443.74,
+   "text": " El asesino de Tiger ya condenado, cada caso decía lo que su público quería oír. Y porque tenía",
+   "words": [
+    {
+     "start": 437.86,
+     "end": 437.98,
+     "word": " El",
+     "probability": 0.9726583361625671
+    },
+    {
+     "start": 437.98,
+     "end": 438.36,
+     "word": " asesino",
+     "probability": 0.9897758563359579
+    },
+    {
+     "start": 438.36,
+     "end": 438.48,
+     "word": " de",
+     "probability": 0.752449631690979
+    },
+    {
+     "start": 438.48,
+     "end": 438.78,
+     "word": " Tiger",
+     "probability": 0.06662140041589737
+    },
+    {
+     "start": 438.78,
+     "end": 439.02,
+     "word": " ya",
+     "probability": 0.894088864326477
+    },
+    {
+     "start": 439.02,
+     "end": 439.56,
+     "word": " condenado,",
+     "probability": 0.985741118590037
+    },
+    {
+     "start": 439.78,
+     "end": 439.92,
+     "word": " cada",
+     "probability": 0.9437292218208313
+    },
+    {
+     "start": 439.92,
+     "end": 440.2,
+     "word": " caso",
+     "probability": 0.9820354580879211
+    },
+    {
+     "start": 440.2,
+     "end": 440.6,
+     "word": " decía",
+     "probability": 0.9722370505332947
+    },
+    {
+     "start": 440.6,
+     "end": 440.74,
+     "word": " lo",
+     "probability": 0.9505898952484131
+    },
+    {
+     "start": 440.74,
+     "end": 440.84,
+     "word": " que",
+     "probability": 0.9963732361793518
+    },
+    {
+     "start": 440.84,
+     "end": 441.04,
+     "word": " su",
+     "probability": 0.9966925382614136
+    },
+    {
+     "start": 441.04,
+     "end": 441.42,
+     "word": " público",
+     "probability": 0.9845662713050842
+    },
+    {
+     "start": 441.42,
+     "end": 441.92,
+     "word": " quería",
+     "probability": 0.9623485207557678
+    },
+    {
+     "start": 441.92,
+     "end": 442.44,
+     "word": " oír.",
+     "probability": 0.9304010570049286
+    },
+    {
+     "start": 443.1,
+     "end": 443.32,
+     "word": " Y",
+     "probability": 0.9459453225135803
+    },
+    {
+     "start": 443.32,
+     "end": 443.5,
+     "word": " porque",
+     "probability": 0.9497628808021545
+    },
+    {
+     "start": 443.5,
+     "end": 443.74,
+     "word": " tenía",
+     "probability": 0.9012721180915833
+    }
+   ]
+  },
+  {
+   "start": 443.74,
+   "end": 448.7,
+   "text": " un escudo en nombre de un artista muerto al que el público le prestaba su confianza y porque",
+   "words": [
+    {
+     "start": 443.74,
+     "end": 443.9,
+     "word": " un",
+     "probability": 0.9972188472747803
+    },
+    {
+     "start": 443.9,
+     "end": 444.34,
+     "word": " escudo",
+     "probability": 0.9913748204708099
+    },
+    {
+     "start": 444.34,
+     "end": 444.64,
+     "word": " en",
+     "probability": 0.5947690010070801
+    },
+    {
+     "start": 444.64,
+     "end": 444.88,
+     "word": " nombre",
+     "probability": 0.967136025428772
+    },
+    {
+     "start": 444.88,
+     "end": 445.06,
+     "word": " de",
+     "probability": 0.9961705803871155
+    },
+    {
+     "start": 445.06,
+     "end": 445.16,
+     "word": " un",
+     "probability": 0.9689680933952332
+    },
+    {
+     "start": 445.16,
+     "end": 445.56,
+     "word": " artista",
+     "probability": 0.9972733855247498
+    },
+    {
+     "start": 445.56,
+     "end": 446.0,
+     "word": " muerto",
+     "probability": 0.9949407875537872
+    },
+    {
+     "start": 446.0,
+     "end": 446.24,
+     "word": " al",
+     "probability": 0.9318505525588989
+    },
+    {
+     "start": 446.24,
+     "end": 446.4,
+     "word": " que",
+     "probability": 0.9914952516555786
+    },
+    {
+     "start": 446.4,
+     "end": 446.58,
+     "word": " el",
+     "probability": 0.5402194261550903
+    },
+    {
+     "start": 446.58,
+     "end": 446.78,
+     "word": " público",
+     "probability": 0.9845116138458252
+    },
+    {
+     "start": 446.78,
+     "end": 447.06,
+     "word": " le",
+     "probability": 0.9934350252151489
+    },
+    {
+     "start": 447.06,
+     "end": 447.52,
+     "word": " prestaba",
+     "probability": 0.9010801017284393
+    },
+    {
+     "start": 447.52,
+     "end": 447.7,
+     "word": " su",
+     "probability": 0.9636003971099854
+    },
+    {
+     "start": 447.7,
+     "end": 448.26,
+     "word": " confianza",
+     "probability": 0.9973377287387848
+    },
+    {
+     "start": 448.26,
+     "end": 448.44,
+     "word": " y",
+     "probability": 0.7909700870513916
+    },
+    {
+     "start": 448.44,
+     "end": 448.7,
+     "word": " porque",
+     "probability": 0.9002371430397034
+    }
+   ]
+  },
+  {
+   "start": 448.7,
+   "end": 454.44,
+   "text": " desmentido no llega al fin donde circula el bulo. El toque verificó el caso de mesi al día siguiente,",
+   "words": [
+    {
+     "start": 448.7,
+     "end": 449.46,
+     "word": " desmentido",
+     "probability": 0.5648992583155632
+    },
+    {
+     "start": 449.46,
+     "end": 449.7,
+     "word": " no",
+     "probability": 0.6358581185340881
+    },
+    {
+     "start": 449.7,
+     "end": 450.1,
+     "word": " llega",
+     "probability": 0.9146166443824768
+    },
+    {
+     "start": 450.1,
+     "end": 450.54,
+     "word": " al",
+     "probability": 0.9612922072410583
+    },
+    {
+     "start": 450.54,
+     "end": 450.8,
+     "word": " fin",
+     "probability": 0.08175524324178696
+    },
+    {
+     "start": 450.8,
+     "end": 450.98,
+     "word": " donde",
+     "probability": 0.9627026915550232
+    },
+    {
+     "start": 450.98,
+     "end": 451.46,
+     "word": " circula",
+     "probability": 0.8203769624233246
+    },
+    {
+     "start": 451.46,
+     "end": 451.56,
+     "word": " el",
+     "probability": 0.9761497378349304
+    },
+    {
+     "start": 451.56,
+     "end": 451.92,
+     "word": " bulo.",
+     "probability": 0.6202316731214523
+    },
+    {
+     "start": 452.22,
+     "end": 452.34,
+     "word": " El",
+     "probability": 0.9229700565338135
+    },
+    {
+     "start": 452.34,
+     "end": 452.54,
+     "word": " toque",
+     "probability": 0.9643089771270752
+    },
+    {
+     "start": 452.54,
+     "end": 453.0,
+     "word": " verificó",
+     "probability": 0.9384727875391642
+    },
+    {
+     "start": 453.0,
+     "end": 453.12,
+     "word": " el",
+     "probability": 0.9527955055236816
+    },
+    {
+     "start": 453.12,
+     "end": 453.32,
+     "word": " caso",
+     "probability": 0.9979775547981262
+    },
+    {
+     "start": 453.32,
+     "end": 453.54,
+     "word": " de",
+     "probability": 0.9758049845695496
+    },
+    {
+     "start": 453.54,
+     "end": 453.8,
+     "word": " mesi",
+     "probability": 0.263704314827919
+    },
+    {
+     "start": 453.8,
+     "end": 453.9,
+     "word": " al",
+     "probability": 0.9380399584770203
+    },
+    {
+     "start": 453.9,
+     "end": 454.0,
+     "word": " día",
+     "probability": 0.9405304193496704
+    },
+    {
+     "start": 454.0,
+     "end": 454.44,
+     "word": " siguiente,",
+     "probability": 0.9938613176345825
+    }
+   ]
+  },
+  {
+   "start": 455.0,
+   "end": 459.06,
+   "text": " pero la réplica de post sigue en vivo 8 meses después con cientos de comentarios.",
+   "words": [
+    {
+     "start": 455.0,
+     "end": 455.2,
+     "word": " pero",
+     "probability": 0.971794068813324
+    },
+    {
+     "start": 455.2,
+     "end": 455.36,
+     "word": " la",
+     "probability": 0.5783904194831848
+    },
+    {
+     "start": 455.36,
+     "end": 455.8,
+     "word": " réplica",
+     "probability": 0.9833408991495768
+    },
+    {
+     "start": 455.8,
+     "end": 455.9,
+     "word": " de",
+     "probability": 0.8955471515655518
+    },
+    {
+     "start": 455.9,
+     "end": 456.18,
+     "word": " post",
+     "probability": 0.2048867791891098
+    },
+    {
+     "start": 456.18,
+     "end": 456.62,
+     "word": " sigue",
+     "probability": 0.5849378108978271
+    },
+    {
+     "start": 456.62,
+     "end": 456.74,
+     "word": " en",
+     "probability": 0.9151791334152222
+    },
+    {
+     "start": 456.74,
+     "end": 456.9,
+     "word": " vivo",
+     "probability": 0.997269332408905
+    },
+    {
+     "start": 456.9,
+     "end": 457.14,
+     "word": " 8",
+     "probability": 0.7412462830543518
+    },
+    {
+     "start": 457.14,
+     "end": 457.36,
+     "word": " meses",
+     "probability": 0.9823598861694336
+    },
+    {
+     "start": 457.36,
+     "end": 457.72,
+     "word": " después",
+     "probability": 0.9434798955917358
+    },
+    {
+     "start": 457.72,
+     "end": 458.1,
+     "word": " con",
+     "probability": 0.7393990159034729
+    },
+    {
+     "start": 458.1,
+     "end": 458.36,
+     "word": " cientos",
+     "probability": 0.9842341542243958
+    },
+    {
+     "start": 458.36,
+     "end": 458.54,
+     "word": " de",
+     "probability": 0.9962753057479858
+    },
+    {
+     "start": 458.54,
+     "end": 459.06,
+     "word": " comentarios.",
+     "probability": 0.9881950616836548
+    }
+   ]
+  },
+  {
+   "start": 459.84,
+   "end": 463.52,
+   "text": " Y la inteligencia artificial cambió el costo de fabricar. Una foto real,",
+   "words": [
+    {
+     "start": 459.84,
+     "end": 460.04,
+     "word": " Y",
+     "probability": 0.10574501007795334
+    },
+    {
+     "start": 460.04,
+     "end": 460.1,
+     "word": " la",
+     "probability": 0.8886557221412659
+    },
+    {
+     "start": 460.1,
+     "end": 460.58,
+     "word": " inteligencia",
+     "probability": 0.971816877524058
+    },
+    {
+     "start": 460.58,
+     "end": 461.1,
+     "word": " artificial",
+     "probability": 0.9902359843254089
+    },
+    {
+     "start": 461.1,
+     "end": 461.5,
+     "word": " cambió",
+     "probability": 0.9478699862957001
+    },
+    {
+     "start": 461.5,
+     "end": 461.62,
+     "word": " el",
+     "probability": 0.8918589949607849
+    },
+    {
+     "start": 461.62,
+     "end": 461.94,
+     "word": " costo",
+     "probability": 0.9908995032310486
+    },
+    {
+     "start": 461.94,
+     "end": 462.02,
+     "word": " de",
+     "probability": 0.9895219206809998
+    },
+    {
+     "start": 462.02,
+     "end": 462.52,
+     "word": " fabricar.",
+     "probability": 0.994067519903183
+    },
+    {
+     "start": 462.76,
+     "end": 462.9,
+     "word": " Una",
+     "probability": 0.872614324092865
+    },
+    {
+     "start": 462.9,
+     "end": 463.1,
+     "word": " foto",
+     "probability": 0.9811966419219971
+    },
+    {
+     "start": 463.1,
+     "end": 463.52,
+     "word": " real,",
+     "probability": 0.970458447933197
+    }
+   ]
+  },
+  {
+   "start": 463.72,
+   "end": 468.92,
+   "text": " más una bandera añadida, una imagen generada entera, antes costaba tiempo de dinero. Ahora",
+   "words": [
+    {
+     "start": 463.72,
+     "end": 463.9,
+     "word": " más",
+     "probability": 0.6319770216941833
+    },
+    {
+     "start": 463.9,
+     "end": 464.22,
+     "word": " una",
+     "probability": 0.8194239735603333
+    },
+    {
+     "start": 464.22,
+     "end": 464.56,
+     "word": " bandera",
+     "probability": 0.9849757254123688
+    },
+    {
+     "start": 464.56,
+     "end": 465.14,
+     "word": " añadida,",
+     "probability": 0.9902527928352356
+    },
+    {
+     "start": 465.26,
+     "end": 465.38,
+     "word": " una",
+     "probability": 0.909881591796875
+    },
+    {
+     "start": 465.38,
+     "end": 465.68,
+     "word": " imagen",
+     "probability": 0.995527446269989
+    },
+    {
+     "start": 465.68,
+     "end": 466.22,
+     "word": " generada",
+     "probability": 0.9657764136791229
+    },
+    {
+     "start": 466.22,
+     "end": 466.66,
+     "word": " entera,",
+     "probability": 0.9899227321147919
+    },
+    {
+     "start": 467.06,
+     "end": 467.44,
+     "word": " antes",
+     "probability": 0.9567263126373291
+    },
+    {
+     "start": 467.44,
+     "end": 467.86,
+     "word": " costaba",
+     "probability": 0.9756385982036591
+    },
+    {
+     "start": 467.86,
+     "end": 468.06,
+     "word": " tiempo",
+     "probability": 0.9625971913337708
+    },
+    {
+     "start": 468.06,
+     "end": 468.24,
+     "word": " de",
+     "probability": 0.4245826303958893
+    },
+    {
+     "start": 468.24,
+     "end": 468.52,
+     "word": " dinero.",
+     "probability": 0.988553524017334
+    },
+    {
+     "start": 468.8,
+     "end": 468.92,
+     "word": " Ahora",
+     "probability": 0.9672329425811768
+    }
+   ]
+  },
+  {
+   "start": 468.92,
+   "end": 473.38,
+   "text": " cuesta segundos. Por eso 3 comprobaciones, tardan menos de un minuto.",
+   "words": [
+    {
+     "start": 468.92,
+     "end": 469.34,
+     "word": " cuesta",
+     "probability": 0.9760866463184357
+    },
+    {
+     "start": 469.34,
+     "end": 469.8,
+     "word": " segundos.",
+     "probability": 0.8189892768859863
+    },
+    {
+     "start": 470.2,
+     "end": 470.36,
+     "word": " Por",
+     "probability": 0.8673020005226135
+    },
+    {
+     "start": 470.36,
+     "end": 470.64,
+     "word": " eso",
+     "probability": 0.9818442463874817
+    },
+    {
+     "start": 470.64,
+     "end": 471.0,
+     "word": " 3",
+     "probability": 0.37343767285346985
+    },
+    {
+     "start": 471.0,
+     "end": 471.68,
+     "word": " comprobaciones,",
+     "probability": 0.9850542346636454
+    },
+    {
+     "start": 472.1,
+     "end": 472.42,
+     "word": " tardan",
+     "probability": 0.8980880677700043
+    },
+    {
+     "start": 472.42,
+     "end": 472.66,
+     "word": " menos",
+     "probability": 0.985247015953064
+    },
+    {
+     "start": 472.66,
+     "end": 472.8,
+     "word": " de",
+     "probability": 0.9807610511779785
+    },
+    {
+     "start": 472.8,
+     "end": 472.9,
+     "word": " un",
+     "probability": 0.6813984513282776
+    },
+    {
+     "start": 472.9,
+     "end": 473.38,
+     "word": " minuto.",
+     "probability": 0.9899696707725525
+    }
+   ]
+  },
+  {
+   "start": 473.38,
+   "end": 479.64,
+   "text": " Primero, busca de inversa de la imagen. Sube la foto a un buscador de imágenes y mira cuando apareció",
+   "words": [
+    {
+     "start": 473.38,
+     "end": 474.2,
+     "word": " Primero,",
+     "probability": 0.4006013199687004
+    },
+    {
+     "start": 474.44,
+     "end": 475.08,
+     "word": " busca",
+     "probability": 0.48054561018943787
+    },
+    {
+     "start": 475.08,
+     "end": 475.24,
+     "word": " de",
+     "probability": 0.7227479815483093
+    },
+    {
+     "start": 475.24,
+     "end": 475.72,
+     "word": " inversa",
+     "probability": 0.9551163613796234
+    },
+    {
+     "start": 475.72,
+     "end": 475.82,
+     "word": " de",
+     "probability": 0.7418727874755859
+    },
+    {
+     "start": 475.82,
+     "end": 475.9,
+     "word": " la",
+     "probability": 0.9644755125045776
+    },
+    {
+     "start": 475.9,
+     "end": 476.18,
+     "word": " imagen.",
+     "probability": 0.9887683391571045
+    },
+    {
+     "start": 476.64,
+     "end": 476.92,
+     "word": " Sube",
+     "probability": 0.656704381108284
+    },
+    {
+     "start": 476.92,
+     "end": 477.04,
+     "word": " la",
+     "probability": 0.974597692489624
+    },
+    {
+     "start": 477.04,
+     "end": 477.26,
+     "word": " foto",
+     "probability": 0.9953973889350891
+    },
+    {
+     "start": 477.26,
+     "end": 477.48,
+     "word": " a",
+     "probability": 0.9510655999183655
+    },
+    {
+     "start": 477.48,
+     "end": 477.58,
+     "word": " un",
+     "probability": 0.9965805411338806
+    },
+    {
+     "start": 477.58,
+     "end": 477.9,
+     "word": " buscador",
+     "probability": 0.9829949935277303
+    },
+    {
+     "start": 477.9,
+     "end": 478.04,
+     "word": " de",
+     "probability": 0.9955631494522095
+    },
+    {
+     "start": 478.04,
+     "end": 478.36,
+     "word": " imágenes",
+     "probability": 0.987404465675354
+    },
+    {
+     "start": 478.36,
+     "end": 478.66,
+     "word": " y",
+     "probability": 0.6821686029434204
+    },
+    {
+     "start": 478.66,
+     "end": 478.84,
+     "word": " mira",
+     "probability": 0.7991654276847839
+    },
+    {
+     "start": 478.84,
+     "end": 479.1,
+     "word": " cuando",
+     "probability": 0.49466264247894287
+    },
+    {
+     "start": 479.1,
+     "end": 479.64,
+     "word": " apareció",
+     "probability": 0.9758895933628082
+    }
+   ]
+  },
+  {
+   "start": 479.64,
+   "end": 486.24,
+   "text": " por primera vez. La foto de Messi circulaba de 2022 sin bandera, un minuto y el caso se cae.",
+   "words": [
+    {
+     "start": 479.64,
+     "end": 479.8,
+     "word": " por",
+     "probability": 0.9703795313835144
+    },
+    {
+     "start": 479.8,
+     "end": 480.08,
+     "word": " primera",
+     "probability": 0.9970563650131226
+    },
+    {
+     "start": 480.08,
+     "end": 480.38,
+     "word": " vez.",
+     "probability": 0.9932067394256592
+    },
+    {
+     "start": 481.08,
+     "end": 481.26,
+     "word": " La",
+     "probability": 0.9326645731925964
+    },
+    {
+     "start": 481.26,
+     "end": 481.44,
+     "word": " foto",
+     "probability": 0.9937194585800171
+    },
+    {
+     "start": 481.44,
+     "end": 481.62,
+     "word": " de",
+     "probability": 0.9874384999275208
+    },
+    {
+     "start": 481.62,
+     "end": 481.76,
+     "word": " Messi",
+     "probability": 0.9480857849121094
+    },
+    {
+     "start": 481.76,
+     "end": 482.4,
+     "word": " circulaba",
+     "probability": 0.9871262311935425
+    },
+    {
+     "start": 482.4,
+     "end": 482.58,
+     "word": " de",
+     "probability": 0.2709081172943115
+    },
+    {
+     "start": 482.58,
+     "end": 483.22,
+     "word": " 2022",
+     "probability": 0.9421926736831665
+    },
+    {
+     "start": 483.22,
+     "end": 483.7,
+     "word": " sin",
+     "probability": 0.9263468384742737
+    },
+    {
+     "start": 483.7,
+     "end": 484.18,
+     "word": " bandera,",
+     "probability": 0.9250189960002899
+    },
+    {
+     "start": 484.38,
+     "end": 484.52,
+     "word": " un",
+     "probability": 0.8810930848121643
+    },
+    {
+     "start": 484.52,
+     "end": 484.94,
+     "word": " minuto",
+     "probability": 0.9907206296920776
+    },
+    {
+     "start": 484.94,
+     "end": 485.38,
+     "word": " y",
+     "probability": 0.5545580387115479
+    },
+    {
+     "start": 485.38,
+     "end": 485.52,
+     "word": " el",
+     "probability": 0.8909262418746948
+    },
+    {
+     "start": 485.52,
+     "end": 485.76,
+     "word": " caso",
+     "probability": 0.9831483364105225
+    },
+    {
+     "start": 485.76,
+     "end": 485.96,
+     "word": " se",
+     "probability": 0.9893910884857178
+    },
+    {
+     "start": 485.96,
+     "end": 486.24,
+     "word": " cae.",
+     "probability": 0.984438419342041
+    }
+   ]
+  },
+  {
+   "start": 487.06,
+   "end": 492.76,
+   "text": " Segunda, revisa los canales oficiales de la figura. Si Messi o Ronaldo hubieran dicho algo así,",
+   "words": [
+    {
+     "start": 487.06,
+     "end": 487.58,
+     "word": " Segunda,",
+     "probability": 0.9523963332176208
+    },
+    {
+     "start": 488.4,
+     "end": 488.62,
+     "word": " revisa",
+     "probability": 0.9407225549221039
+    },
+    {
+     "start": 488.62,
+     "end": 488.78,
+     "word": " los",
+     "probability": 0.9776082634925842
+    },
+    {
+     "start": 488.78,
+     "end": 489.08,
+     "word": " canales",
+     "probability": 0.9979655146598816
+    },
+    {
+     "start": 489.08,
+     "end": 489.74,
+     "word": " oficiales",
+     "probability": 0.9957119226455688
+    },
+    {
+     "start": 489.74,
+     "end": 489.8,
+     "word": " de",
+     "probability": 0.9970779418945312
+    },
+    {
+     "start": 489.8,
+     "end": 489.9,
+     "word": " la",
+     "probability": 0.9639890789985657
+    },
+    {
+     "start": 489.9,
+     "end": 490.2,
+     "word": " figura.",
+     "probability": 0.9960125684738159
+    },
+    {
+     "start": 490.56,
+     "end": 490.66,
+     "word": " Si",
+     "probability": 0.9729828834533691
+    },
+    {
+     "start": 490.66,
+     "end": 490.88,
+     "word": " Messi",
+     "probability": 0.9086896777153015
+    },
+    {
+     "start": 490.88,
+     "end": 491.02,
+     "word": " o",
+     "probability": 0.4536779820919037
+    },
+    {
+     "start": 491.02,
+     "end": 491.42,
+     "word": " Ronaldo",
+     "probability": 0.9652212858200073
+    },
+    {
+     "start": 491.42,
+     "end": 491.88,
+     "word": " hubieran",
+     "probability": 0.9874424636363983
+    },
+    {
+     "start": 491.88,
+     "end": 492.26,
+     "word": " dicho",
+     "probability": 0.9979185461997986
+    },
+    {
+     "start": 492.26,
+     "end": 492.52,
+     "word": " algo",
+     "probability": 0.9849191904067993
+    },
+    {
+     "start": 492.52,
+     "end": 492.76,
+     "word": " así,",
+     "probability": 0.966795802116394
+    }
+   ]
+  },
+  {
+   "start": 493.02,
+   "end": 498.66,
+   "text": " estarían sus cuentas. No estaba en ninguna. El silencio oficial también es un dato.",
+   "words": [
+    {
+     "start": 493.02,
+     "end": 493.36,
+     "word": " estarían",
+     "probability": 0.8568666279315948
+    },
+    {
+     "start": 493.36,
+     "end": 493.58,
+     "word": " sus",
+     "probability": 0.8113844990730286
+    },
+    {
+     "start": 493.58,
+     "end": 494.1,
+     "word": " cuentas.",
+     "probability": 0.9967985153198242
+    },
+    {
+     "start": 494.38,
+     "end": 494.44,
+     "word": " No",
+     "probability": 0.8723830580711365
+    },
+    {
+     "start": 494.44,
+     "end": 495.72,
+     "word": " estaba",
+     "probability": 0.786261260509491
+    },
+    {
+     "start": 495.72,
+     "end": 495.92,
+     "word": " en",
+     "probability": 0.9375574588775635
+    },
+    {
+     "start": 495.92,
+     "end": 496.22,
+     "word": " ninguna.",
+     "probability": 0.8858196139335632
+    },
+    {
+     "start": 496.66,
+     "end": 496.8,
+     "word": " El",
+     "probability": 0.9623221158981323
+    },
+    {
+     "start": 496.8,
+     "end": 497.12,
+     "word": " silencio",
+     "probability": 0.9945414066314697
+    },
+    {
+     "start": 497.12,
+     "end": 497.62,
+     "word": " oficial",
+     "probability": 0.9942737221717834
+    },
+    {
+     "start": 497.62,
+     "end": 498.14,
+     "word": " también",
+     "probability": 0.9104217886924744
+    },
+    {
+     "start": 498.14,
+     "end": 498.34,
+     "word": " es",
+     "probability": 0.9926000833511353
+    },
+    {
+     "start": 498.34,
+     "end": 498.44,
+     "word": " un",
+     "probability": 0.9874787330627441
+    },
+    {
+     "start": 498.44,
+     "end": 498.66,
+     "word": " dato.",
+     "probability": 0.9872548580169678
+    }
+   ]
+  },
+  {
+   "start": 499.56,
+   "end": 504.28,
+   "text": " Tercera, busca las señales de inteligencia artificial. La foto de Messi llevaba la marca",
+   "words": [
+    {
+     "start": 499.56,
+     "end": 500.04,
+     "word": " Tercera,",
+     "probability": 0.4995833933353424
+    },
+    {
+     "start": 500.44,
+     "end": 500.6,
+     "word": " busca",
+     "probability": 0.9566743969917297
+    },
+    {
+     "start": 500.6,
+     "end": 500.76,
+     "word": " las",
+     "probability": 0.8918052911758423
+    },
+    {
+     "start": 500.76,
+     "end": 501.12,
+     "word": " señales",
+     "probability": 0.9950614869594574
+    },
+    {
+     "start": 501.12,
+     "end": 501.24,
+     "word": " de",
+     "probability": 0.9956474900245667
+    },
+    {
+     "start": 501.24,
+     "end": 501.72,
+     "word": " inteligencia",
+     "probability": 0.8838398257891337
+    },
+    {
+     "start": 501.72,
+     "end": 502.2,
+     "word": " artificial.",
+     "probability": 0.9933157563209534
+    },
+    {
+     "start": 502.84,
+     "end": 503.02,
+     "word": " La",
+     "probability": 0.9680988192558289
+    },
+    {
+     "start": 503.02,
+     "end": 503.2,
+     "word": " foto",
+     "probability": 0.9909040331840515
+    },
+    {
+     "start": 503.2,
+     "end": 503.4,
+     "word": " de",
+     "probability": 0.995543897151947
+    },
+    {
+     "start": 503.4,
+     "end": 503.54,
+     "word": " Messi",
+     "probability": 0.8824601769447327
+    },
+    {
+     "start": 503.54,
+     "end": 503.92,
+     "word": " llevaba",
+     "probability": 0.9815211296081543
+    },
+    {
+     "start": 503.92,
+     "end": 504.1,
+     "word": " la",
+     "probability": 0.9534621834754944
+    },
+    {
+     "start": 504.1,
+     "end": 504.28,
+     "word": " marca",
+     "probability": 0.9785414338111877
+    }
+   ]
+  },
+  {
+   "start": 504.28,
+   "end": 508.46,
+   "text": " de agua de Yemeni. Estaba ahí, a la vista, para quien supiera buscarla.",
+   "words": [
+    {
+     "start": 504.28,
+     "end": 504.52,
+     "word": " de",
+     "probability": 0.9874550104141235
+    },
+    {
+     "start": 504.52,
+     "end": 504.66,
+     "word": " agua",
+     "probability": 0.9799731969833374
+    },
+    {
+     "start": 504.66,
+     "end": 504.86,
+     "word": " de",
+     "probability": 0.8723962306976318
+    },
+    {
+     "start": 504.86,
+     "end": 505.26,
+     "word": " Yemeni.",
+     "probability": 0.6413280218839645
+    },
+    {
+     "start": 505.34,
+     "end": 505.7,
+     "word": " Estaba",
+     "probability": 0.9025297164916992
+    },
+    {
+     "start": 505.7,
+     "end": 505.92,
+     "word": " ahí,",
+     "probability": 0.9488872289657593
+    },
+    {
+     "start": 506.14,
+     "end": 506.22,
+     "word": " a",
+     "probability": 0.9607133865356445
+    },
+    {
+     "start": 506.22,
+     "end": 506.28,
+     "word": " la",
+     "probability": 0.9974768757820129
+    },
+    {
+     "start": 506.28,
+     "end": 506.58,
+     "word": " vista,",
+     "probability": 0.9962013363838196
+    },
+    {
+     "start": 506.84,
+     "end": 507.06,
+     "word": " para",
+     "probability": 0.9824811816215515
+    },
+    {
+     "start": 507.06,
+     "end": 507.28,
+     "word": " quien",
+     "probability": 0.9290046095848083
+    },
+    {
+     "start": 507.28,
+     "end": 507.82,
+     "word": " supiera",
+     "probability": 0.9450212717056274
+    },
+    {
+     "start": 507.82,
+     "end": 508.46,
+     "word": " buscarla.",
+     "probability": 0.9901153147220612
+    }
+   ]
+  },
+  {
+   "start": 509.72,
+   "end": 514.52,
+   "text": " La página ya no está disponible en Facebook. No sabemos por qué desapareció y no vamos a",
+   "words": [
+    {
+     "start": 509.72,
+     "end": 510.2,
+     "word": " La",
+     "probability": 0.972685694694519
+    },
+    {
+     "start": 510.2,
+     "end": 510.44,
+     "word": " página",
+     "probability": 0.9961467981338501
+    },
+    {
+     "start": 510.44,
+     "end": 510.86,
+     "word": " ya",
+     "probability": 0.9234590530395508
+    },
+    {
+     "start": 510.86,
+     "end": 510.96,
+     "word": " no",
+     "probability": 0.9982329607009888
+    },
+    {
+     "start": 510.96,
+     "end": 511.1,
+     "word": " está",
+     "probability": 0.9728924036026001
+    },
+    {
+     "start": 511.1,
+     "end": 511.56,
+     "word": " disponible",
+     "probability": 0.9960343539714813
+    },
+    {
+     "start": 511.56,
+     "end": 511.7,
+     "word": " en",
+     "probability": 0.9936546087265015
+    },
+    {
+     "start": 511.7,
+     "end": 511.98,
+     "word": " Facebook.",
+     "probability": 0.9359038472175598
+    },
+    {
+     "start": 512.38,
+     "end": 512.48,
+     "word": " No",
+     "probability": 0.9863622784614563
+    },
+    {
+     "start": 512.48,
+     "end": 512.72,
+     "word": " sabemos",
+     "probability": 0.9974021911621094
+    },
+    {
+     "start": 512.72,
+     "end": 513.0,
+     "word": " por",
+     "probability": 0.9556936025619507
+    },
+    {
+     "start": 513.0,
+     "end": 513.24,
+     "word": " qué",
+     "probability": 0.9617154002189636
+    },
+    {
+     "start": 513.24,
+     "end": 513.88,
+     "word": " desapareció",
+     "probability": 0.986179530620575
+    },
+    {
+     "start": 513.88,
+     "end": 514.08,
+     "word": " y",
+     "probability": 0.8981368541717529
+    },
+    {
+     "start": 514.08,
+     "end": 514.22,
+     "word": " no",
+     "probability": 0.9952374696731567
+    },
+    {
+     "start": 514.22,
+     "end": 514.42,
+     "word": " vamos",
+     "probability": 0.9939045310020447
+    },
+    {
+     "start": 514.42,
+     "end": 514.52,
+     "word": " a",
+     "probability": 0.9986076951026917
+    }
+   ]
+  },
+  {
+   "start": 514.52,
+   "end": 519.52,
+   "text": " inventarlo, pero la fórmula sigue viva. Otras páginas usan la misma receta a una figura",
+   "words": [
+    {
+     "start": 514.52,
+     "end": 515.1,
+     "word": " inventarlo,",
+     "probability": 0.9734309017658234
+    },
+    {
+     "start": 515.34,
+     "end": 515.5,
+     "word": " pero",
+     "probability": 0.9970749616622925
+    },
+    {
+     "start": 515.5,
+     "end": 515.64,
+     "word": " la",
+     "probability": 0.9966036081314087
+    },
+    {
+     "start": 515.64,
+     "end": 516.06,
+     "word": " fórmula",
+     "probability": 0.9905718863010406
+    },
+    {
+     "start": 516.06,
+     "end": 516.32,
+     "word": " sigue",
+     "probability": 0.9934394955635071
+    },
+    {
+     "start": 516.32,
+     "end": 516.64,
+     "word": " viva.",
+     "probability": 0.9704301953315735
+    },
+    {
+     "start": 517.24,
+     "end": 517.52,
+     "word": " Otras",
+     "probability": 0.9604819715023041
+    },
+    {
+     "start": 517.52,
+     "end": 517.9,
+     "word": " páginas",
+     "probability": 0.9938156008720398
+    },
+    {
+     "start": 517.9,
+     "end": 518.16,
+     "word": " usan",
+     "probability": 0.9926609694957733
+    },
+    {
+     "start": 518.16,
+     "end": 518.26,
+     "word": " la",
+     "probability": 0.9953653812408447
+    },
+    {
+     "start": 518.26,
+     "end": 518.44,
+     "word": " misma",
+     "probability": 0.9947962164878845
+    },
+    {
+     "start": 518.44,
+     "end": 519.02,
+     "word": " receta",
+     "probability": 0.9940883219242096
+    },
+    {
+     "start": 519.02,
+     "end": 519.12,
+     "word": " a",
+     "probability": 0.2334602326154709
+    },
+    {
+     "start": 519.12,
+     "end": 519.24,
+     "word": " una",
+     "probability": 0.9974201917648315
+    },
+    {
+     "start": 519.24,
+     "end": 519.52,
+     "word": " figura",
+     "probability": 0.9988935589790344
+    }
+   ]
+  },
+  {
+   "start": 519.52,
+   "end": 524.26,
+   "text": " que quiere escuchar un texto que quieres creer y una imagen que parece real. La única",
+   "words": [
+    {
+     "start": 519.52,
+     "end": 519.8,
+     "word": " que",
+     "probability": 0.9918718338012695
+    },
+    {
+     "start": 519.8,
+     "end": 520.02,
+     "word": " quiere",
+     "probability": 0.6687911152839661
+    },
+    {
+     "start": 520.02,
+     "end": 520.6,
+     "word": " escuchar",
+     "probability": 0.9834034442901611
+    },
+    {
+     "start": 520.6,
+     "end": 520.74,
+     "word": " un",
+     "probability": 0.9435242414474487
+    },
+    {
+     "start": 520.74,
+     "end": 520.96,
+     "word": " texto",
+     "probability": 0.9977595806121826
+    },
+    {
+     "start": 520.96,
+     "end": 521.16,
+     "word": " que",
+     "probability": 0.9810733795166016
+    },
+    {
+     "start": 521.16,
+     "end": 521.44,
+     "word": " quieres",
+     "probability": 0.9269453287124634
+    },
+    {
+     "start": 521.44,
+     "end": 522.06,
+     "word": " creer",
+     "probability": 0.9546552896499634
+    },
+    {
+     "start": 522.06,
+     "end": 522.24,
+     "word": " y",
+     "probability": 0.8641819357872009
+    },
+    {
+     "start": 522.24,
+     "end": 522.36,
+     "word": " una",
+     "probability": 0.756386935710907
+    },
+    {
+     "start": 522.36,
+     "end": 522.64,
+     "word": " imagen",
+     "probability": 0.9979243278503418
+    },
+    {
+     "start": 522.64,
+     "end": 522.82,
+     "word": " que",
+     "probability": 0.9953104853630066
+    },
+    {
+     "start": 522.82,
+     "end": 523.08,
+     "word": " parece",
+     "probability": 0.9912670254707336
+    },
+    {
+     "start": 523.08,
+     "end": 523.48,
+     "word": " real.",
+     "probability": 0.9850882887840271
+    },
+    {
+     "start": 523.84,
+     "end": 524.08,
+     "word": " La",
+     "probability": 0.9896558523178101
+    },
+    {
+     "start": 524.08,
+     "end": 524.26,
+     "word": " única",
+     "probability": 0.998843789100647
+    }
+   ]
+  },
+  {
+   "start": 524.26,
+   "end": 531.16,
+   "text": " defensa es la verificación y la verificación empieza por ti antes de compartir. En el show te",
+   "words": [
+    {
+     "start": 524.26,
+     "end": 524.74,
+     "word": " defensa",
+     "probability": 0.6188456788659096
+    },
+    {
+     "start": 524.74,
+     "end": 524.88,
+     "word": " es",
+     "probability": 0.9561915397644043
+    },
+    {
+     "start": 524.88,
+     "end": 524.98,
+     "word": " la",
+     "probability": 0.9787395000457764
+    },
+    {
+     "start": 524.98,
+     "end": 525.42,
+     "word": " verificación",
+     "probability": 0.9931313097476959
+    },
+    {
+     "start": 525.42,
+     "end": 526.34,
+     "word": " y",
+     "probability": 0.794960081577301
+    },
+    {
+     "start": 526.34,
+     "end": 526.46,
+     "word": " la",
+     "probability": 0.9638152122497559
+    },
+    {
+     "start": 526.46,
+     "end": 527.12,
+     "word": " verificación",
+     "probability": 0.9975762963294983
+    },
+    {
+     "start": 527.12,
+     "end": 527.68,
+     "word": " empieza",
+     "probability": 0.9762172102928162
+    },
+    {
+     "start": 527.68,
+     "end": 528.0,
+     "word": " por",
+     "probability": 0.9922688603401184
+    },
+    {
+     "start": 528.0,
+     "end": 528.22,
+     "word": " ti",
+     "probability": 0.9442751407623291
+    },
+    {
+     "start": 528.22,
+     "end": 528.86,
+     "word": " antes",
+     "probability": 0.8771839141845703
+    },
+    {
+     "start": 528.86,
+     "end": 529.04,
+     "word": " de",
+     "probability": 0.9971494078636169
+    },
+    {
+     "start": 529.04,
+     "end": 529.46,
+     "word": " compartir.",
+     "probability": 0.9936572909355164
+    },
+    {
+     "start": 530.32,
+     "end": 530.44,
+     "word": " En",
+     "probability": 0.9511346220970154
+    },
+    {
+     "start": 530.44,
+     "end": 530.56,
+     "word": " el",
+     "probability": 0.40820643305778503
+    },
+    {
+     "start": 530.56,
+     "end": 530.76,
+     "word": " show",
+     "probability": 0.21365508437156677
+    },
+    {
+     "start": 530.76,
+     "end": 531.16,
+     "word": " te",
+     "probability": 0.8032231330871582
+    }
+   ]
+  },
+  {
+   "start": 531.16,
+   "end": 535.76,
+   "text": " prometimos el patrón completo. Aquí está. Si quieres que el próximo vídeo no te lo",
+   "words": [
+    {
+     "start": 531.16,
+     "end": 531.78,
+     "word": " prometimos",
+     "probability": 0.990060031414032
+    },
+    {
+     "start": 531.78,
+     "end": 532.14,
+     "word": " el",
+     "probability": 0.981968104839325
+    },
+    {
+     "start": 532.14,
+     "end": 532.48,
+     "word": " patrón",
+     "probability": 0.9761598110198975
+    },
+    {
+     "start": 532.48,
+     "end": 532.88,
+     "word": " completo.",
+     "probability": 0.9938380122184753
+    },
+    {
+     "start": 533.28,
+     "end": 533.4,
+     "word": " Aquí",
+     "probability": 0.7411978840827942
+    },
+    {
+     "start": 533.4,
+     "end": 533.7,
+     "word": " está.",
+     "probability": 0.9026168584823608
+    },
+    {
+     "start": 534.2,
+     "end": 534.24,
+     "word": " Si",
+     "probability": 0.9936602711677551
+    },
+    {
+     "start": 534.24,
+     "end": 534.44,
+     "word": " quieres",
+     "probability": 0.9863536953926086
+    },
+    {
+     "start": 534.44,
+     "end": 534.6,
+     "word": " que",
+     "probability": 0.9777705073356628
+    },
+    {
+     "start": 534.6,
+     "end": 534.7,
+     "word": " el",
+     "probability": 0.9149565696716309
+    },
+    {
+     "start": 534.7,
+     "end": 534.82,
+     "word": " próximo",
+     "probability": 0.9985591769218445
+    },
+    {
+     "start": 534.82,
+     "end": 535.3,
+     "word": " vídeo",
+     "probability": 0.522216260433197
+    },
+    {
+     "start": 535.3,
+     "end": 535.54,
+     "word": " no",
+     "probability": 0.9931544065475464
+    },
+    {
+     "start": 535.54,
+     "end": 535.62,
+     "word": " te",
+     "probability": 0.9990826845169067
+    },
+    {
+     "start": 535.62,
+     "end": 535.76,
+     "word": " lo",
+     "probability": 0.9865315556526184
+    }
+   ]
+  },
+  {
+   "start": 535.76,
+   "end": 541.56,
+   "text": " cuente nadie, si no ves lo con tus propios ojos, suscríbete al libreto. Geopolítica con",
+   "words": [
+    {
+     "start": 535.76,
+     "end": 536.04,
+     "word": " cuente",
+     "probability": 0.9711653590202332
+    },
+    {
+     "start": 536.04,
+     "end": 536.34,
+     "word": " nadie,",
+     "probability": 0.9394623637199402
+    },
+    {
+     "start": 536.6,
+     "end": 536.66,
+     "word": " si",
+     "probability": 0.8108521699905396
+    },
+    {
+     "start": 536.66,
+     "end": 536.78,
+     "word": " no",
+     "probability": 0.9969755411148071
+    },
+    {
+     "start": 536.78,
+     "end": 536.9,
+     "word": " ves",
+     "probability": 0.9202840328216553
+    },
+    {
+     "start": 536.9,
+     "end": 537.02,
+     "word": " lo",
+     "probability": 0.5789477825164795
+    },
+    {
+     "start": 537.02,
+     "end": 537.18,
+     "word": " con",
+     "probability": 0.9890345335006714
+    },
+    {
+     "start": 537.18,
+     "end": 537.3,
+     "word": " tus",
+     "probability": 0.981914222240448
+    },
+    {
+     "start": 537.3,
+     "end": 537.58,
+     "word": " propios",
+     "probability": 0.9922147691249847
+    },
+    {
+     "start": 537.58,
+     "end": 537.96,
+     "word": " ojos,",
+     "probability": 0.9953740239143372
+    },
+    {
+     "start": 538.38,
+     "end": 539.02,
+     "word": " suscríbete",
+     "probability": 0.9774275124073029
+    },
+    {
+     "start": 539.02,
+     "end": 539.18,
+     "word": " al",
+     "probability": 0.986167848110199
+    },
+    {
+     "start": 539.18,
+     "end": 539.64,
+     "word": " libreto.",
+     "probability": 0.52194644510746
+    },
+    {
+     "start": 540.7,
+     "end": 541.26,
+     "word": " Geopolítica",
+     "probability": 0.9663948565721512
+    },
+    {
+     "start": 541.26,
+     "end": 541.56,
+     "word": " con",
+     "probability": 0.9732679128646851
+    }
+   ]
+  },
+  {
+   "start": 541.56,
+   "end": 544.18,
+   "text": " las fuentes del antes. ¿Quién escribió el libreto?",
+   "words": [
+    {
+     "start": 541.56,
+     "end": 541.72,
+     "word": " las",
+     "probability": 0.903299868106842
+    },
+    {
+     "start": 541.72,
+     "end": 542.02,
+     "word": " fuentes",
+     "probability": 0.9761646091938019
+    },
+    {
+     "start": 542.02,
+     "end": 542.22,
+     "word": " del",
+     "probability": 0.965630292892456
+    },
+    {
+     "start": 542.22,
+     "end": 542.48,
+     "word": " antes.",
+     "probability": 0.5123759508132935
+    },
+    {
+     "start": 543.06,
+     "end": 543.3,
+     "word": " ¿Quién",
+     "probability": 0.9233218282461166
+    },
+    {
+     "start": 543.3,
+     "end": 543.72,
+     "word": " escribió",
+     "probability": 0.9934178789456686
+    },
+    {
+     "start": 543.72,
+     "end": 543.78,
+     "word": " el",
+     "probability": 0.9062798619270325
+    },
+    {
+     "start": 543.78,
+     "end": 544.18,
+     "word": " libreto?",
+     "probability": 0.979568362236023
+    }
+   ]
+  }
+ ]
+}

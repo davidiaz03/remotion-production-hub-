@@ -1,0 +1,340 @@
+{
+  "_comment": "Escenas de libreto-pagina-62mil. fromLine/toLine = FRASES (1-128) de research/sentences.json (tiempos reales de los word_timestamps de la VO editada; fijado 23-nov-2026; la numeración 1-94 anterior era provisional y no correspondía ni a las 31 líneas del guion ni a los 94 segmentos Whisper). Capítulos: cap 0 = frases 1-21, cap 1 = 22-57, cap 2 = 58-90, cap 3 = 91-128. Los tipos document-* son NUEVOS para este proyecto (no existen en longform-smoke). Ver plan-edicion.md.",
+  "scenes": [
+    {
+      "assets": [
+        "F11",
+        "busqueda-facebook-sin-resultados-paginas.jpg"
+      ],
+      "chapter": 0,
+      "fromLine": 1,
+      "notes": "Cold open: evidencia primero, sin tarjeta de título ni logo. Primer fotograma = URL caída. La búsqueda general (F12) NO se usa: su contenido central es el bulo de 6ix9ine (fuera de guion); la variante -páginas («No encontramos resultados», filtro Páginas) es la prueba limpia.",
+      "toLine": 3,
+      "type": "document-zoom",
+      "urlBar": "facebook.com/foreverjose.taiger"
+    },
+    {
+      "assets": [
+        "post-messi-cuba-falso.jpg"
+      ],
+      "chapter": 0,
+      "countLandAt": 161,
+      "fromLine": 4,
+      "metricAt": [
+        203,
+        268
+      ],
+      "notes": "Contador animado G1 (0 → 62.000) sobre la captura. SFX data-number-land al final del conteo.",
+      "toLine": 8,
+      "type": "document-counter"
+    },
+    {
+      "assets": [
+        "messi-foto-98c58e7b73.jpg"
+      ],
+      "chapter": 0,
+      "fromLine": 9,
+      "notes": "Comparación lado a lado + sello 2022 + círculo rojo sobre la bandera. Lupa sobre la marca de agua (verificar legibilidad en pre-vuelo, P3).",
+      "toLine": 11,
+      "type": "document-comparison"
+    },
+    {
+      "assets": [
+        "eltoque-messi-17mar-articulo.jpg",
+        "infoveritas-messi-19mar-articulo.jpg"
+      ],
+      "chapter": 0,
+      "fromLine": 12,
+      "notes": "Titulares con fecha. Resaltado sobre la línea del veredicto.",
+      "toLine": 12,
+      "type": "document-quote"
+    },
+    {
+      "assets": [
+        "casa-blanca-dt1261-messi-camiseta-47.jpg",
+        "casa-blanca-postcard-38s.mp4"
+      ],
+      "chapter": 0,
+      "fromLine": 13,
+      "notes": "Núcleo real: foto DT-1261 a pantalla completa (fondo difuminado) + clip Postcard 14–20 s con su audio ambiente (J-cut). Placa 5-MAR-2026 · CASA BLANCA.",
+      "toLine": 17,
+      "type": "document-photo-video",
+      "videoAt": 92,
+      "videoFrames": 180
+    },
+    {
+      "chapter": 0,
+      "fromLine": 18,
+      "notes": "Tarjeta de título del video (después del gancho, ~0:40) + promesa del Short.",
+      "subtitle": "El patrón completo, con las fuentes delante",
+      "title": "La página que engañó a 62.000 personas",
+      "toLine": 19,
+      "type": "title-card"
+    },
+    {
+      "chapter": 0,
+      "fromLine": 20,
+      "notes": "Re-gancho de fin de acto + transición al Acto 2 (fundido a negro).",
+      "text": "¿Fue un error aislado, o era una fábrica?",
+      "toLine": 21,
+      "type": "question"
+    },
+    {
+      "assets": [
+        "eltoque-patron-02abr-articulo.jpg"
+      ],
+      "chapter": 1,
+      "fromLine": 22,
+      "notes": "Artículo 2-abr: titular + párrafo de la fórmula resaltado. Cita «no guardaba relación con su trayectoria ni con su legado» en tarjeta.",
+      "toLine": 27,
+      "type": "document-quote"
+    },
+    {
+      "assets": [],
+      "chapter": 1,
+      "fromLine": 28,
+      "itemAt": [
+        150,
+        341,
+        503
+      ],
+      "items": [
+        {
+          "label": "ago-2025",
+          "value": "600.000"
+        },
+        {
+          "label": "17-mar-2026",
+          "value": "748.000+"
+        },
+        {
+          "label": "4-jul-2026",
+          "value": "770.000+"
+        }
+      ],
+      "notes": "Gráfico animado G3: barras 600K → 748K → 770K con fuente y fecha; números que cuentan hacia arriba.",
+      "toLine": 32,
+      "type": "data-strip"
+    },
+    {
+      "chapter": 1,
+      "fromLine": 33,
+      "itemAt": [
+        266,
+        365,
+        515,
+        682
+      ],
+      "items": [
+        "1. Una figura que el público quiere escuchar",
+        "2. Un texto emocional en primera persona",
+        "3. Una imagen real manipulada o creada con IA",
+        "4. Un núcleo real que hace creíble el bulo"
+      ],
+      "notes": "Diagrama G4 que se construye paso a paso (un paso por frase): figura → texto → imagen → núcleo real. El cuarto paso lleva «sin aclaración».",
+      "title": "La fórmula, en cuatro pasos",
+      "toLine": 39,
+      "type": "list",
+      "viralAt": 840
+    },
+    {
+      "assets": [
+        "post-bukele-1.jpg"
+      ],
+      "chapter": 1,
+      "fromLine": 40,
+      "notes": "Mini-captura (1/3 del ancho) + píldora «BUKELE · 23-MAR-2026» + métricas visibles.",
+      "toLine": 42,
+      "type": "document-zoom"
+    },
+    {
+      "assets": [
+        "eltoque-collage-5-casos.jpg",
+        "post-musk.jpg",
+        "post-bad-bunny.jpg"
+      ],
+      "chapter": 1,
+      "fromLine": 43,
+      "notes": "Ráfaga de marzo: collage general + mini-capturas una a una (Musk, Daddy Yankee en enumeración, Bad Bunny). Un solo SFX de slide para el trío.",
+      "toLine": 44,
+      "type": "document-trio"
+    },
+    {
+      "assets": [
+        "musk-tuit-starlink-16mar.jpg"
+      ],
+      "chapter": 1,
+      "fromLine": 45,
+      "notes": "EL MATIZ OBLIGATORIO: tuit real con la cita textual resaltada. La voz dice «Si este video dijera que Musk nunca ha dicho nada sobre Cuba, estaría mintiendo» — el tuit en pantalla lo prueba. Silencio de música en esa frase.",
+      "toLine": 52,
+      "type": "document-quote"
+    },
+    {
+      "assets": [
+        "denuncia-11millones-21ene.jpg",
+        "denuncia-carlos-perez-20mar.jpg"
+      ],
+      "chapter": 1,
+      "fromLine": 53,
+      "notes": "Dos denuncias en un solo bloque: 11 Millones (ene) + Carlos Perez (mar). La segunda entra con swipe lateral.",
+      "toLine": 57,
+      "type": "document-quote"
+    },
+    {
+      "assets": [
+        "cuballama-bebeshito-articulo.jpg"
+      ],
+      "chapter": 2,
+      "fromLine": 58,
+      "notes": "Artículo de Cuballama + imágenes fabricadas con etiqueta «IMAGEN FABRICADA CON IA». Cita en tarjeta: «Es totalmente falso. No he salido de Estados Unidos».",
+      "toLine": 64,
+      "type": "document-quote"
+    },
+    {
+      "assets": [
+        "eltoque-ronaldo-24jun-articulo.jpg"
+      ],
+      "chapter": 2,
+      "fromLine": 65,
+      "notes": "Verificación 24-jun: veredicto resaltado + cita de Yasel Porto + «el fake del año» (Daguito Valdés).",
+      "toLine": 69,
+      "type": "document-quote"
+    },
+    {
+      "assets": [
+        "cuballama-cienfuegos-articulo.jpg"
+      ],
+      "chapter": 2,
+      "fromLine": 70,
+      "notes": "LA REVELACIÓN 1: texto exacto del post borrado + nota «el post fue borrado horas después». Música cortada 0,5 s antes de «una institución del Estado lo publicó como cierto». Impacto grave en la revelación.",
+      "toLine": 73,
+      "type": "document-quote"
+    },
+    {
+      "assets": [],
+      "chapter": 2,
+      "fromLine": 74,
+      "notes": "Contexto: apagones de 30+ horas. B-roll B2 (ciudad a oscuras) o placa de contexto. La frase «no se compartió porque fuera creíble. Se compartió porque era deseable» va como big-statement.",
+      "text": "No se compartió porque fuera creíble. Se compartió porque era deseable.",
+      "toLine": 77,
+      "type": "big-statement",
+      "videoBg": "broll/b2-apagon-ciudad.mp4"
+    },
+    {
+      "assets": [
+        "cuballama-juicio-2027-articulo.jpg",
+        "padron-reel-10jul.jpg"
+      ],
+      "chapter": 2,
+      "fromLine": 78,
+      "notes": "LA REVELACIÓN 2: noticia del juicio con la fecha 1-mar-2027 resaltada. Reel de Padron si se localizó (opcional). Silencio de música en «Falso. El juicio ni siquiera había empezado».",
+      "toLine": 90,
+      "type": "document-quote"
+    },
+    {
+      "chapter": 3,
+      "fromLine": 91,
+      "notes": "Re-gancho de inicio de acto + transición (fundido a negro).",
+      "text": "¿Por qué funcionó?",
+      "toLine": 91,
+      "type": "question"
+    },
+    {
+      "assets": [
+        "post-messi-cuba-falso.jpg",
+        "cuballama-cienfuegos-articulo.jpg",
+        "cuballama-juicio-2027-articulo.jpg"
+      ],
+      "chapter": 3,
+      "fromLine": 92,
+      "notes": "Repaso rápido de los 3 casos en mini-capturas (Messi, Ronaldo, Valdez Galloso): cada uno dice lo que su público quería oír.",
+      "toLine": 97,
+      "type": "document-trio"
+    },
+    {
+      "chapter": 3,
+      "fromLine": 98,
+      "itemAt": [
+        0,
+        6,
+        155
+      ],
+      "items": [
+        "El bulo se comparte porque es deseable",
+        "El nombre de un artista muerto como escudo",
+        "El desmentido no llega al feed donde circula el bulo"
+      ],
+      "notes": "Los 3 mecanismos en lista: deseable / escudo del nombre / el desmentido no llega al feed.",
+      "title": "Tres razones",
+      "toLine": 101,
+      "type": "list"
+    },
+    {
+      "chapter": 3,
+      "fromLine": 102,
+      "notes": "Placa de apertura del bloque de comprobaciones.",
+      "text": "3 comprobaciones. Menos de un minuto.",
+      "toLine": 106,
+      "type": "big-statement"
+    },
+    {
+      "assets": [
+        "busqueda-inversa-foto-messi.jpg"
+      ],
+      "chapter": 3,
+      "fromLine": 107,
+      "notes": "Comprobación 1: búsqueda inversa, resultado 2022 resaltado.",
+      "toLine": 110,
+      "type": "document-zoom"
+    },
+    {
+      "assets": [
+        "cuentas-oficiales-messi-ronaldo.jpg"
+      ],
+      "chapter": 3,
+      "fromLine": 111,
+      "itemAt": [
+        106,
+        133,
+        163
+      ],
+      "markAt": [
+        219,
+        242,
+        264
+      ],
+      "notes": "Comprobación 2: checklist de ausencia (X: NADA ✗ / INSTAGRAM: NADA ✗) + perfiles oficiales si hay captura (opcional).",
+      "toLine": 114,
+      "type": "document-checklist"
+    },
+    {
+      "assets": [
+        "messi-foto-98c58e7b73.jpg"
+      ],
+      "chapter": 3,
+      "fromLine": 115,
+      "notes": "Comprobación 3: lupa sobre la marca de agua de Gemini (2–3 s dentro de la lente). Respaldo F4 si no se lee.",
+      "toLine": 117,
+      "type": "document-zoom"
+    },
+    {
+      "assets": [
+        "pagina-no-disponible-url.jpg"
+      ],
+      "chapter": 3,
+      "fromLine": 118,
+      "notes": "EL CIERRE HONESTO: la URL caída vuelve (bucle con el cold open). Música cortada en «No sabemos por qué desapareció, y no vamos a inventarlo». Línea de tiempo completa con el punto final «HOY: LA FÓRMULA SIGUE VIVA».",
+      "toLine": 123,
+      "type": "document-zoom",
+      "urlBar": "facebook.com/foreverjose.taiger"
+    },
+    {
+      "chapter": 3,
+      "fromLine": 124,
+      "notes": "CTA de una sola línea + pregunta de marca + end screen (1 recomendación: el Short de Messi) + logo animado del cierre (6 s, fondo negro) después del último fotograma útil.",
+      "text": "Suscríbete a El Libreto. Geopolítica con las fuentes delante. ¿Quién escribió el libreto?",
+      "toLine": 128,
+      "type": "summary-card"
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "_comment": "Pipeline de libreto-pagina-62mil (El Libreto, video largo 548.3 s). Voz REAL del usuario (no TTS: arrancar con --from merge; vo-full.wav + vo-full-lines.json ya existen). Música = 3 camas Flow por SECCIONES con crossfades de 3 s en las fronteras de acto reales (79.73 s y 424.42 s) y 4 dips de silencio (ver music.dips); el paso music usa scripts/audio/build-sectioned-bed.py, NO bed-loop (que alterna en ciclo). Mezcla con --fixed-gain (loudnorm dinámico desharía los dips).",
+  "align": {},
+  "captions": {
+    "out": "src/captions.ts",
+    "outJson": "src/captions.json",
+    "script": "vo-captions.json",
+    "threads": 2
+  },
+  "chapters": {},
+  "encode": {
+    "crf360": 24,
+    "crf720": 21,
+    "preset": "medium"
+  },
+  "master": {
+    "gainDb": 0,
+    "noLight": true
+  },
+  "mix": {
+    "duckRatio": 5,
+    "duckRelease": 180,
+    "duckThreshold": 0.08,
+    "musicVolume": 0.38,
+    "targetLufs": -14.5,
+    "fixedGain": true,
+    "sfx": [
+      {
+        "file": "public/audio/sfx/room-tone-loop.wav",
+        "at": 0.0
+      },
+      {
+        "file": "public/audio/sfx/bass-sub-drop-short.wav",
+        "at": 0.0
+      },
+      {
+        "file": "public/audio/sfx/data-number-land.wav",
+        "at": 19.38
+      },
+      {
+        "file": "public/audio/sfx/reverse-whoosh-medium-soft.wav",
+        "at": 27.03
+      },
+      {
+        "file": "public/audio/sfx/writing-pencil-draw-05s.wav",
+        "at": 35.23
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 42.89
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 43.91
+      },
+      {
+        "file": "public/audio/sfx/postcard-ambient-30.wav",
+        "at": 48.47
+      },
+      {
+        "file": "public/audio/sfx/props-page-turn.wav",
+        "at": 62.87
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 83.97
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 113.57
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 119.95
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 125.35
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 143.29
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 146.57
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 151.59
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 158.09
+      },
+      {
+        "file": "public/audio/sfx/paper-card-slide-2.wav",
+        "at": 166.18
+      },
+      {
+        "file": "public/audio/sfx/paper-card-slide-2.wav",
+        "at": 183.42
+      },
+      {
+        "file": "public/audio/sfx/reverse-whoosh-medium-soft.wav",
+        "at": 250.78
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 329.96
+      },
+      {
+        "file": "public/audio/sfx/bass-sub-drop-short.wav",
+        "at": 333.96
+      },
+      {
+        "file": "public/audio/sfx/impact-medium-soft.wav",
+        "at": 389.58
+      },
+      {
+        "file": "public/audio/sfx/props-page-turn.wav",
+        "at": 426.16
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 432.62
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 434.44
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 437.86
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 482.58
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 494.38
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 495.13
+      },
+      {
+        "file": "public/audio/sfx/digital-blip-subtle.wav",
+        "at": 495.92
+      },
+      {
+        "file": "public/audio/sfx/digital-scan-subtle.wav",
+        "at": 502.84
+      },
+      {
+        "file": "public/audio/sfx/props-page-turn.wav",
+        "at": 530.32
+      }
+    ],
+    "_comment_sfx": "33 colocaciones (23-nov-2026, tiempos v3 + onsets acústicos del align). Notas en research/sfx-plan.md."
+  },
+  "music": {
+    "_comment": "Secciones por acto con tiempos REALES de la VO (fronteras: fin acto 0 = 79.73 s, fin acto 2 = 425.32 s). Dips: silencio total con rampas de 0.5 s (D1 Musk frase 50, D2 Cienfuegos frases 70-71, D3 Valdez Galloso frases 80-81, D4 cierre honesto frase 119). Camas verificadas PASS (scan-bed) 23-nov-2026.",
+    "sections": [
+      {
+        "bed": "libreto-largo-intriga",
+        "start": 0,
+        "end": 79.73
+      },
+      {
+        "bed": "libreto-largo-investigacion",
+        "start": 79.73,
+        "end": 425.32
+      },
+      {
+        "bed": "libreto-largo-resolucion",
+        "start": 425.32,
+        "end": 548.3
+      }
+    ],
+    "dips": [
+      {
+        "start": 215.18,
+        "end": 219.94,
+        "note": "Musk: frase 50 (0.5 s antes - fin de frase)"
+      },
+      {
+        "start": 333.46,
+        "end": 349.48,
+        "note": "Cienfuegos: 0.5 s antes de 'una institución...' (frase 70) - fin frase 71"
+      },
+      {
+        "start": 389.08,
+        "end": 392.36,
+        "note": "Valdez Galloso: 0.5 s antes de 'Falso.' (frase 80) - fin frase 81"
+      },
+      {
+        "start": 511.88,
+        "end": 515.1,
+        "note": "Cierre honesto: 0.5 s antes de 'No sabemos por qué...' (frase 119) - fin de frase"
+      }
+    ],
+    "targetLufs": -16,
+    "xfade": 3.0
+  },
+  "preflight": {
+    "args": [],
+    "enabled": true,
+    "manifest": "preflight-scenes.json"
+  },
+  "qa": {
+    "audit": true,
+    "auditArgs": [],
+    "tag": "v1",
+    "trailingSilenceMax": 3.5
+  },
+  "render": {
+    "audioCodec": "pcm-16",
+    "chunk": 900,
+    "concurrency": 2,
+    "crf": 19,
+    "lock": true,
+    "videoOnly": true
+  },
+  "timeline": {
+    "script": "scripts/build-timeline.mjs"
+  },
+  "voice": {
+    "_comment": "Voz REAL del usuario, no TTS. El paso vo del pipeline genera con Kokoro por defecto: para este proyecto se salta y se usa la VO grabada (research/vo/ + enhance-voice.py preset pro/clean). Ver vo-manifest.json.",
+    "manifest": "vo-manifest.json",
+    "seconds": 0
+  }
+}

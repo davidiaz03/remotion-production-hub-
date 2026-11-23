@@ -439,19 +439,36 @@ step('timeline', [timelineJson], () => {
 }, {inputs: [voLines]});
 
 step('music', [musicBed], () => {
+	const seconds = videoSeconds();
+	if (!seconds) throw Error('no se pudo medir la duración del video para la cama musical');
+	const sections = cfg.music?.sections ?? [];
+	if (sections.length) {
+		// Cama por SECCIONES (una cama por acto, con dips de silencio
+		// horneados): build-sectioned-bed.py. bed-loop alterna las
+		// camas en ciclo (A-B-C-A…) y rompería el arco emocional.
+		const args = [path.join(ROOT, 'scripts/audio/build-sectioned-bed.py')];
+		for (const s of sections) args.push('--section', `${s.bed}@${s.start}@${s.end}`);
+		for (const d of cfg.music?.dips ?? []) args.push('--dip', `${d.start}@${d.end}`);
+		args.push('--seconds', String(seconds),
+			'--xfade', String(cfg.music?.xfade ?? 3.0),
+			'--target-lufs', String(cfg.music?.targetLufs ?? -16),
+			'--out', P(musicBed),
+			'--report', P(`${musicBed}.json`),
+			'--force'); // ver captions: la frescura del pipeline manda
+		run(VENV_PY, args, 'build-sectioned-bed');
+		return;
+	}
 	const beds = cfg.music?.beds ?? [];
 	if (!beds.length) throw Error('pipeline.json: music.beds vacío (elige camas de la biblioteca o importa una con scripts/audio/bed-import.py)');
 	const args = [path.join(ROOT, 'scripts/audio/bed-loop.py')];
 	for (const b of beds) args.push('--bed', String(b));
-	const seconds = videoSeconds();
-	if (!seconds) throw Error('no se pudo medir la duración del video para la cama musical');
 	args.push('--seconds', String(seconds),
 		'--xfade', String(cfg.music?.xfade ?? 3.0),
 		'--target-lufs', String(cfg.music?.targetLufs ?? -16),
 		'--out', P(musicBed),
 		'--force'); // ver captions: la frescura del pipeline manda
 	run(VENV_PY, args, 'bed-loop');
-}, {inputs: [voFull]});
+}, {inputs: [voFull, 'pipeline.json']});
 
 step('mix', [mixWav], () => {
 	const m = cfg.mix ?? {};
@@ -465,9 +482,20 @@ step('mix', [mixWav], () => {
 		'--duck-ratio', String(m.duckRatio ?? 5),
 		'--duck-release', String(m.duckRelease ?? 180)];
 	if (m.musicVolume !== undefined) args.push('--music-volume', String(m.musicVolume));
+	// --fixed-gain: ganancia constante en vez de loudnorm dinámico
+	// (el dinámico deshace los dips horneados en la cama; ver
+	// mix.py, lección 22-nov-2026 negacion-embargo). Tiene prioridad
+	// sobre --two-pass.
+	if (m.fixedGain === true) args.push('--fixed-gain');
+	else if (m.twoPass === true) args.push('--two-pass');
+	for (const s of m.sfx ?? []) {
+		const at = Number(s.at ?? s.second ?? s.time);
+		if (!s.file || !Number.isFinite(at)) throw Error(`mix.sfx inválido: ${JSON.stringify(s)} (espera {file, at})`);
+		args.push('--sfx', `${P(String(s.file))}@${at}`);
+	}
 	args.push('--force'); // ver captions: la frescura del pipeline manda
 	run(SYS_PY, args, 'mix');
-}, {inputs: [voFull, musicBed]});
+}, {inputs: [voFull, musicBed, 'pipeline.json']});
 
 step('preflight', ['reports/preflight.json'], (heavy) => {
 	if (cfg.preflight?.enabled !== true) {

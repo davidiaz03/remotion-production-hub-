@@ -1,0 +1,10684 @@
+[
+ {
+  "text": "SI",
+  "startMs": 520,
+  "endMs": 660,
+  "timestampMs": 520,
+  "confidence": null
+ },
+ {
+  "text": " BUSCAS",
+  "startMs": 660,
+  "endMs": 960,
+  "timestampMs": 660,
+  "confidence": null
+ },
+ {
+  "text": " HOY",
+  "startMs": 960,
+  "endMs": 1260,
+  "timestampMs": 960,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 1260,
+  "endMs": 1360,
+  "timestampMs": 1260,
+  "confidence": null
+ },
+ {
+  "text": " FACEBOOK",
+  "startMs": 1360,
+  "endMs": 1760,
+  "timestampMs": 1360,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 1760,
+  "endMs": 2060,
+  "timestampMs": 1760,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 2060,
+  "endMs": 2280,
+  "timestampMs": 2060,
+  "confidence": null
+ },
+ {
+  "text": " «JOSÉ",
+  "startMs": 2280,
+  "endMs": 2600,
+  "timestampMs": 2280,
+  "confidence": null
+ },
+ {
+  "text": " FOREVER",
+  "startMs": 2600,
+  "endMs": 2980,
+  "timestampMs": 2600,
+  "confidence": null
+ },
+ {
+  "text": " -",
+  "startMs": 2980,
+  "endMs": 3133,
+  "timestampMs": 2980,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 3133,
+  "endMs": 3287,
+  "timestampMs": 3133,
+  "confidence": null
+ },
+ {
+  "text": " TAIGER»,",
+  "startMs": 3287,
+  "endMs": 3440,
+  "timestampMs": 3287,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 3440,
+  "endMs": 4080,
+  "timestampMs": 3440,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 4080,
+  "endMs": 4180,
+  "timestampMs": 4080,
+  "confidence": null
+ },
+ {
+  "text": " VAS",
+  "startMs": 4180,
+  "endMs": 4320,
+  "timestampMs": 4180,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 4320,
+  "endMs": 4420,
+  "timestampMs": 4320,
+  "confidence": null
+ },
+ {
+  "text": " ENCONTRAR.",
+  "startMs": 4420,
+  "endMs": 4740,
+  "timestampMs": 4420,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 5380,
+  "endMs": 5580,
+  "timestampMs": 5380,
+  "confidence": null
+ },
+ {
+  "text": " DIRECCIÓN",
+  "startMs": 5580,
+  "endMs": 6060,
+  "timestampMs": 5580,
+  "confidence": null
+ },
+ {
+  "text": " YA",
+  "startMs": 6060,
+  "endMs": 6240,
+  "timestampMs": 6060,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 6240,
+  "endMs": 6340,
+  "timestampMs": 6240,
+  "confidence": null
+ },
+ {
+  "text": " CARGA",
+  "startMs": 6340,
+  "endMs": 6580,
+  "timestampMs": 6340,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 6580,
+  "endMs": 6780,
+  "timestampMs": 6580,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " FACEBOOK",
+  "startMs": 6780,
+  "endMs": 7080,
+  "timestampMs": 6780,
+  "confidence": null
+ },
+ {
+  "text": " DICE",
+  "startMs": 7080,
+  "endMs": 7340,
+  "timestampMs": 7080,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 7340,
+  "endMs": 7460,
+  "timestampMs": 7340,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 7460,
+  "endMs": 7580,
+  "timestampMs": 7460,
+  "confidence": null
+ },
+ {
+  "text": " CONTENIDO",
+  "startMs": 7580,
+  "endMs": 7900,
+  "timestampMs": 7580,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 7900,
+  "endMs": 8140,
+  "timestampMs": 7900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESTÁ",
+  "startMs": 8140,
+  "endMs": 8300,
+  "timestampMs": 8140,
+  "confidence": null
+ },
+ {
+  "text": " DISPONIBLE.",
+  "startMs": 8300,
+  "endMs": 8860,
+  "timestampMs": 8300,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 8860,
+  "endMs": 9200,
+  "timestampMs": 8860,
+  "confidence": null
+ },
+ {
+  "text": " SI",
+  "startMs": 9200,
+  "endMs": 9320,
+  "timestampMs": 9200,
+  "confidence": null
+ },
+ {
+  "text": " BUSCAS",
+  "startMs": 9320,
+  "endMs": 9560,
+  "timestampMs": 9320,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 9560,
+  "endMs": 9720,
+  "timestampMs": 9560,
+  "confidence": null
+ },
+ {
+  "text": " NOMBRE",
+  "startMs": 9720,
+  "endMs": 9880,
+  "timestampMs": 9720,
+  "confidence": null
+ },
+ {
+  "text": " EXACTO,",
+  "startMs": 9880,
+  "endMs": 10560,
+  "timestampMs": 9880,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 10560,
+  "endMs": 11000,
+  "timestampMs": 10560,
+  "confidence": null
+ },
+ {
+  "text": " APARECE",
+  "startMs": 11000,
+  "endMs": 11260,
+  "timestampMs": 11000,
+  "confidence": null
+ },
+ {
+  "text": " NINGUNA",
+  "startMs": 11260,
+  "endMs": 11660,
+  "timestampMs": 11260,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 11660,
+  "endMs": 11980,
+  "timestampMs": 11660,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 11980,
+  "endMs": 12200,
+  "timestampMs": 11980,
+  "confidence": null
+ },
+ {
+  "text": " ESE",
+  "startMs": 12200,
+  "endMs": 12380,
+  "timestampMs": 12200,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NOMBRE.",
+  "startMs": 12380,
+  "endMs": 12680,
+  "timestampMs": 12380,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESTA",
+  "startMs": 13960,
+  "endMs": 14560,
+  "timestampMs": 13960,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 14560,
+  "endMs": 14660,
+  "timestampMs": 14560,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 14660,
+  "endMs": 14780,
+  "timestampMs": 14660,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 14780,
+  "endMs": 14980,
+  "timestampMs": 14780,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 14980,
+  "endMs": 15180,
+  "timestampMs": 14980,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 15180,
+  "endMs": 15370,
+  "timestampMs": 15180,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MARZO",
+  "startMs": 15370,
+  "endMs": 15560,
+  "timestampMs": 15370,
+  "confidence": null
+ },
+ {
+  "text": " PUBLICÓ",
+  "startMs": 15560,
+  "endMs": 16060,
+  "timestampMs": 15560,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 16060,
+  "endMs": 16340,
+  "timestampMs": 16060,
+  "confidence": null
+ },
+ {
+  "text": " MENSAJE",
+  "startMs": 16340,
+  "endMs": 16760,
+  "timestampMs": 16340,
+  "confidence": null
+ },
+ {
+  "text": " FALSO",
+  "startMs": 16760,
+  "endMs": 17200,
+  "timestampMs": 16760,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " ATRIBUIDO",
+  "startMs": 17200,
+  "endMs": 17760,
+  "timestampMs": 17200,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " A",
+  "startMs": 17760,
+  "endMs": 17880,
+  "timestampMs": 17760,
+  "confidence": null
+ },
+ {
+  "text": " MESSI",
+  "startMs": 17880,
+  "endMs": 18000,
+  "timestampMs": 17880,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " SOBRE",
+  "startMs": 18000,
+  "endMs": 18360,
+  "timestampMs": 18000,
+  "confidence": null
+ },
+ {
+  "text": " CUBA.",
+  "startMs": 18360,
+  "endMs": 18740,
+  "timestampMs": 18360,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " 62.000",
+  "startMs": 19380,
+  "endMs": 20170,
+  "timestampMs": 19380,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " REACCIONES.",
+  "startMs": 20180,
+  "endMs": 20760,
+  "timestampMs": 20180,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " 3.300",
+  "startMs": 20760,
+  "endMs": 22060,
+  "timestampMs": 20760,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " COMPARTIDOS.",
+  "startMs": 22060,
+  "endMs": 22960,
+  "timestampMs": 22060,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MÁS",
+  "startMs": 22960,
+  "endMs": 23300,
+  "timestampMs": 22960,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 23300,
+  "endMs": 23480,
+  "timestampMs": 23300,
+  "confidence": null
+ },
+ {
+  "text": " 5.000",
+  "startMs": 23480,
+  "endMs": 23900,
+  "timestampMs": 23480,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " COMENTARIOS.",
+  "startMs": 23900,
+  "endMs": 24440,
+  "timestampMs": 23900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 24440,
+  "endMs": 25320,
+  "timestampMs": 24440,
+  "confidence": null
+ },
+ {
+  "text": " TODO",
+  "startMs": 25320,
+  "endMs": 25600,
+  "timestampMs": 25320,
+  "confidence": null
+ },
+ {
+  "text": " ERA",
+  "startMs": 25600,
+  "endMs": 26080,
+  "timestampMs": 25600,
+  "confidence": null
+ },
+ {
+  "text": " FALSO.",
+  "startMs": 26080,
+  "endMs": 26480,
+  "timestampMs": 26080,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 27030,
+  "endMs": 27460,
+  "timestampMs": 27030,
+  "confidence": null
+ },
+ {
+  "text": " MENSAJE",
+  "startMs": 27460,
+  "endMs": 27860,
+  "timestampMs": 27460,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 27860,
+  "endMs": 28000,
+  "timestampMs": 27860,
+  "confidence": null
+ },
+ {
+  "text": " LO",
+  "startMs": 28000,
+  "endMs": 28080,
+  "timestampMs": 28000,
+  "confidence": null
+ },
+ {
+  "text": " ESCRIBIÓ",
+  "startMs": 28080,
+  "endMs": 28460,
+  "timestampMs": 28080,
+  "confidence": null
+ },
+ {
+  "text": " MESSI.",
+  "startMs": 28460,
+  "endMs": 28620,
+  "timestampMs": 28460,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 29060,
+  "endMs": 29160,
+  "timestampMs": 29060,
+  "confidence": null
+ },
+ {
+  "text": " FOTO",
+  "startMs": 29160,
+  "endMs": 29460,
+  "timestampMs": 29160,
+  "confidence": null
+ },
+ {
+  "text": " ERA",
+  "startMs": 29460,
+  "endMs": 29840,
+  "timestampMs": 29460,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 29840,
+  "endMs": 29960,
+  "timestampMs": 29840,
+  "confidence": null
+ },
+ {
+  "text": " 2022,",
+  "startMs": 29960,
+  "endMs": 30680,
+  "timestampMs": 29960,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 30680,
+  "endMs": 31160,
+  "timestampMs": 30680,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 31160,
+  "endMs": 31260,
+  "timestampMs": 31160,
+  "confidence": null
+ },
+ {
+  "text": " CUENTA",
+  "startMs": 31260,
+  "endMs": 31520,
+  "timestampMs": 31260,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 31520,
+  "endMs": 31740,
+  "timestampMs": 31520,
+  "confidence": null
+ },
+ {
+  "text": " ANTONELA",
+  "startMs": 31740,
+  "endMs": 32140,
+  "timestampMs": 31740,
+  "confidence": null
+ },
+ {
+  "text": " ROCCUZZO,",
+  "startMs": 32140,
+  "endMs": 32680,
+  "timestampMs": 32140,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SIN",
+  "startMs": 32680,
+  "endMs": 33240,
+  "timestampMs": 32680,
+  "confidence": null
+ },
+ {
+  "text": " NINGUNA",
+  "startMs": 33240,
+  "endMs": 33640,
+  "timestampMs": 33240,
+  "confidence": null
+ },
+ {
+  "text": " BANDERA",
+  "startMs": 33640,
+  "endMs": 34000,
+  "timestampMs": 33640,
+  "confidence": null
+ },
+ {
+  "text": " CUBANA.",
+  "startMs": 34000,
+  "endMs": 34400,
+  "timestampMs": 34000,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 35080,
+  "endMs": 35220,
+  "timestampMs": 35080,
+  "confidence": null
+ },
+ {
+  "text": " BANDERA",
+  "startMs": 35220,
+  "endMs": 35700,
+  "timestampMs": 35220,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 35700,
+  "endMs": 35980,
+  "timestampMs": 35700,
+  "confidence": null
+ },
+ {
+  "text": " AÑADIERON",
+  "startMs": 35980,
+  "endMs": 36340,
+  "timestampMs": 35980,
+  "confidence": null
+ },
+ {
+  "text": " DESPUÉS,",
+  "startMs": 36340,
+  "endMs": 36680,
+  "timestampMs": 36340,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CON",
+  "startMs": 36680,
+  "endMs": 37160,
+  "timestampMs": 36680,
+  "confidence": null
+ },
+ {
+  "text": " INTELIGENCIA",
+  "startMs": 37160,
+  "endMs": 37720,
+  "timestampMs": 37160,
+  "confidence": null
+ },
+ {
+  "text": " ARTIFICIAL,",
+  "startMs": 37720,
+  "endMs": 38160,
+  "timestampMs": 37720,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 38160,
+  "endMs": 38880,
+  "timestampMs": 38160,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 38880,
+  "endMs": 39000,
+  "timestampMs": 38880,
+  "confidence": null
+ },
+ {
+  "text": " FOTO",
+  "startMs": 39000,
+  "endMs": 39320,
+  "timestampMs": 39000,
+  "confidence": null
+ },
+ {
+  "text": " LLEVABA",
+  "startMs": 39320,
+  "endMs": 40100,
+  "timestampMs": 39320,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 40100,
+  "endMs": 40260,
+  "timestampMs": 40100,
+  "confidence": null
+ },
+ {
+  "text": " MARCA",
+  "startMs": 40260,
+  "endMs": 40520,
+  "timestampMs": 40260,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 40520,
+  "endMs": 40740,
+  "timestampMs": 40520,
+  "confidence": null
+ },
+ {
+  "text": " AGUA",
+  "startMs": 40740,
+  "endMs": 40920,
+  "timestampMs": 40740,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 40920,
+  "endMs": 41120,
+  "timestampMs": 40920,
+  "confidence": null
+ },
+ {
+  "text": " GEMINI.",
+  "startMs": 41120,
+  "endMs": 41940,
+  "timestampMs": 41120,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LO",
+  "startMs": 41940,
+  "endMs": 42300,
+  "timestampMs": 41940,
+  "confidence": null
+ },
+ {
+  "text": " VERIFICARON",
+  "startMs": 42300,
+  "endMs": 42880,
+  "timestampMs": 42300,
+  "confidence": null
+ },
+ {
+  "text": " ELTOQUE",
+  "startMs": 42880,
+  "endMs": 43480,
+  "timestampMs": 42880,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " E",
+  "startMs": 43480,
+  "endMs": 43920,
+  "timestampMs": 43480,
+  "confidence": null
+ },
+ {
+  "text": " INFOVERITAS.",
+  "startMs": 43920,
+  "endMs": 44570,
+  "timestampMs": 43920,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 45970,
+  "endMs": 46540,
+  "timestampMs": 45970,
+  "confidence": null
+ },
+ {
+  "text": " MENSAJE",
+  "startMs": 46540,
+  "endMs": 46840,
+  "timestampMs": 46540,
+  "confidence": null
+ },
+ {
+  "text": " TENÍA",
+  "startMs": 46840,
+  "endMs": 47080,
+  "timestampMs": 46840,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 47080,
+  "endMs": 47300,
+  "timestampMs": 47080,
+  "confidence": null
+ },
+ {
+  "text": " NÚCLEO",
+  "startMs": 47300,
+  "endMs": 47680,
+  "timestampMs": 47300,
+  "confidence": null
+ },
+ {
+  "text": " REAL.",
+  "startMs": 47680,
+  "endMs": 48100,
+  "timestampMs": 47680,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 49030,
+  "endMs": 49140,
+  "timestampMs": 49030,
+  "confidence": null
+ },
+ {
+  "text": " 5",
+  "startMs": 49140,
+  "endMs": 49340,
+  "timestampMs": 49140,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 49340,
+  "endMs": 49540,
+  "timestampMs": 49340,
+  "confidence": null
+ },
+ {
+  "text": " MARZO,",
+  "startMs": 49540,
+  "endMs": 49940,
+  "timestampMs": 49540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TRUMP",
+  "startMs": 49940,
+  "endMs": 50340,
+  "timestampMs": 49940,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " RECIBIÓ",
+  "startMs": 50340,
+  "endMs": 51140,
+  "timestampMs": 50340,
+  "confidence": null
+ },
+ {
+  "text": " AL",
+  "startMs": 51140,
+  "endMs": 51480,
+  "timestampMs": 51140,
+  "confidence": null
+ },
+ {
+  "text": " INTER",
+  "startMs": 51480,
+  "endMs": 51660,
+  "timestampMs": 51480,
+  "confidence": null
+ },
+ {
+  "text": " MIAMI",
+  "startMs": 52020,
+  "endMs": 52080,
+  "timestampMs": 52020,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 52080,
+  "endMs": 52220,
+  "timestampMs": 52080,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 52220,
+  "endMs": 52300,
+  "timestampMs": 52220,
+  "confidence": null
+ },
+ {
+  "text": " CASA",
+  "startMs": 52300,
+  "endMs": 52460,
+  "timestampMs": 52300,
+  "confidence": null
+ },
+ {
+  "text": " BLANCA,",
+  "startMs": 52460,
+  "endMs": 52880,
+  "timestampMs": 52460,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 52880,
+  "endMs": 53160,
+  "timestampMs": 52880,
+  "confidence": null
+ },
+ {
+  "text": " MESSI",
+  "startMs": 53160,
+  "endMs": 53340,
+  "timestampMs": 53160,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " ESTUVO",
+  "startMs": 53340,
+  "endMs": 53660,
+  "timestampMs": 53340,
+  "confidence": null
+ },
+ {
+  "text": " ALLÍ.",
+  "startMs": 53660,
+  "endMs": 53880,
+  "timestampMs": 53660,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESO",
+  "startMs": 54300,
+  "endMs": 54500,
+  "timestampMs": 54300,
+  "confidence": null
+ },
+ {
+  "text": " SÍ",
+  "startMs": 54500,
+  "endMs": 54660,
+  "timestampMs": 54500,
+  "confidence": null
+ },
+ {
+  "text": " PASÓ.",
+  "startMs": 54660,
+  "endMs": 54920,
+  "timestampMs": 54660,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LO",
+  "startMs": 55380,
+  "endMs": 55480,
+  "timestampMs": 55380,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 55480,
+  "endMs": 55580,
+  "timestampMs": 55480,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 55580,
+  "endMs": 55720,
+  "timestampMs": 55580,
+  "confidence": null
+ },
+ {
+  "text": " PASÓ",
+  "startMs": 55720,
+  "endMs": 55940,
+  "timestampMs": 55720,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 55940,
+  "endMs": 56140,
+  "timestampMs": 55940,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 56140,
+  "endMs": 56260,
+  "timestampMs": 56140,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MESSI",
+  "startMs": 56260,
+  "endMs": 56440,
+  "timestampMs": 56260,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " HABLARA",
+  "startMs": 56440,
+  "endMs": 56880,
+  "timestampMs": 56440,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 56880,
+  "endMs": 57040,
+  "timestampMs": 56880,
+  "confidence": null
+ },
+ {
+  "text": " CUBA.",
+  "startMs": 57040,
+  "endMs": 57280,
+  "timestampMs": 57040,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESE",
+  "startMs": 57580,
+  "endMs": 57780,
+  "timestampMs": 57580,
+  "confidence": null
+ },
+ {
+  "text": " NÚCLEO",
+  "startMs": 57780,
+  "endMs": 58140,
+  "timestampMs": 57780,
+  "confidence": null
+ },
+ {
+  "text": " REAL",
+  "startMs": 58140,
+  "endMs": 58360,
+  "timestampMs": 58140,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 58360,
+  "endMs": 58580,
+  "timestampMs": 58360,
+  "confidence": null
+ },
+ {
+  "text": " PARTE",
+  "startMs": 58580,
+  "endMs": 58740,
+  "timestampMs": 58580,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 58740,
+  "endMs": 58960,
+  "timestampMs": 58740,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 58960,
+  "endMs": 59060,
+  "timestampMs": 58960,
+  "confidence": null
+ },
+ {
+  "text": " FÓRMULA,",
+  "startMs": 59060,
+  "endMs": 59520,
+  "timestampMs": 59060,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 59520,
+  "endMs": 59720,
+  "timestampMs": 59520,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 59720,
+  "endMs": 59820,
+  "timestampMs": 59720,
+  "confidence": null
+ },
+ {
+  "text": " FÓRMULA",
+  "startMs": 59820,
+  "endMs": 60200,
+  "timestampMs": 59820,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 60200,
+  "endMs": 60340,
+  "timestampMs": 60200,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " REPITIÓ",
+  "startMs": 60340,
+  "endMs": 60760,
+  "timestampMs": 60340,
+  "confidence": null
+ },
+ {
+  "text": " DURANTE",
+  "startMs": 60760,
+  "endMs": 61100,
+  "timestampMs": 60760,
+  "confidence": null
+ },
+ {
+  "text": " MESES.",
+  "startMs": 61100,
+  "endMs": 61600,
+  "timestampMs": 61100,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 62840,
+  "endMs": 63080,
+  "timestampMs": 62840,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 63080,
+  "endMs": 63200,
+  "timestampMs": 63080,
+  "confidence": null
+ },
+ {
+  "text": " SHORT",
+  "startMs": 63200,
+  "endMs": 63460,
+  "timestampMs": 63200,
+  "confidence": null
+ },
+ {
+  "text": " TE",
+  "startMs": 63460,
+  "endMs": 63940,
+  "timestampMs": 63460,
+  "confidence": null
+ },
+ {
+  "text": " PROMETIMOS",
+  "startMs": 63940,
+  "endMs": 64440,
+  "timestampMs": 63940,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 64440,
+  "endMs": 64740,
+  "timestampMs": 64440,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PATRÓN",
+  "startMs": 64740,
+  "endMs": 65080,
+  "timestampMs": 64740,
+  "confidence": null
+ },
+ {
+  "text": " COMPLETO.",
+  "startMs": 65080,
+  "endMs": 65480,
+  "timestampMs": 65080,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESTE",
+  "startMs": 65860,
+  "endMs": 66080,
+  "timestampMs": 65860,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 66080,
+  "endMs": 66200,
+  "timestampMs": 66080,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 66200,
+  "endMs": 66320,
+  "timestampMs": 66200,
+  "confidence": null
+ },
+ {
+  "text": " VIDEO.",
+  "startMs": 66320,
+  "endMs": 66560,
+  "timestampMs": 66320,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 66560,
+  "endMs": 66980,
+  "timestampMs": 66560,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 66980,
+  "endMs": 67080,
+  "timestampMs": 66980,
+  "confidence": null
+ },
+ {
+  "text": " PRIMERA",
+  "startMs": 67080,
+  "endMs": 67280,
+  "timestampMs": 67080,
+  "confidence": null
+ },
+ {
+  "text": " PREGUNTA",
+  "startMs": 67280,
+  "endMs": 67600,
+  "timestampMs": 67280,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 67600,
+  "endMs": 67840,
+  "timestampMs": 67600,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 67840,
+  "endMs": 67960,
+  "timestampMs": 67840,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " OBVIA:",
+  "startMs": 67960,
+  "endMs": 68300,
+  "timestampMs": 67960,
+  "confidence": null
+ },
+ {
+  "text": " ¿FUE",
+  "startMs": 68740,
+  "endMs": 68840,
+  "timestampMs": 68740,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 68840,
+  "endMs": 69000,
+  "timestampMs": 68840,
+  "confidence": null
+ },
+ {
+  "text": " ERROR",
+  "startMs": 69000,
+  "endMs": 69200,
+  "timestampMs": 69000,
+  "confidence": null
+ },
+ {
+  "text": " AISLADO,",
+  "startMs": 69200,
+  "endMs": 69680,
+  "timestampMs": 69200,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " O",
+  "startMs": 69680,
+  "endMs": 70020,
+  "timestampMs": 69680,
+  "confidence": null
+ },
+ {
+  "text": " ERA",
+  "startMs": 70020,
+  "endMs": 70140,
+  "timestampMs": 70020,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 70140,
+  "endMs": 70280,
+  "timestampMs": 70140,
+  "confidence": null
+ },
+ {
+  "text": " FÁBRICA?",
+  "startMs": 70280,
+  "endMs": 70760,
+  "timestampMs": 70280,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 73770,
+  "endMs": 73880,
+  "timestampMs": 73770,
+  "confidence": null
+ },
+ {
+  "text": " AL",
+  "startMs": 73880,
+  "endMs": 73980,
+  "timestampMs": 73880,
+  "confidence": null
+ },
+ {
+  "text": " FINAL",
+  "startMs": 73980,
+  "endMs": 74280,
+  "timestampMs": 73980,
+  "confidence": null
+ },
+ {
+  "text": " TE",
+  "startMs": 74280,
+  "endMs": 74580,
+  "timestampMs": 74280,
+  "confidence": null
+ },
+ {
+  "text": " ENSEÑO",
+  "startMs": 74580,
+  "endMs": 75020,
+  "timestampMs": 74580,
+  "confidence": null
+ },
+ {
+  "text": " TRES",
+  "startMs": 75020,
+  "endMs": 75240,
+  "timestampMs": 75020,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " COMPROBACIONES",
+  "startMs": 75240,
+  "endMs": 75840,
+  "timestampMs": 75240,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 75840,
+  "endMs": 76320,
+  "timestampMs": 75840,
+  "confidence": null
+ },
+ {
+  "text": " TARDAN",
+  "startMs": 76320,
+  "endMs": 76660,
+  "timestampMs": 76320,
+  "confidence": null
+ },
+ {
+  "text": " MENOS",
+  "startMs": 76660,
+  "endMs": 76900,
+  "timestampMs": 76660,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 76900,
+  "endMs": 77060,
+  "timestampMs": 76900,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 77060,
+  "endMs": 77160,
+  "timestampMs": 77060,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MINUTO",
+  "startMs": 77160,
+  "endMs": 77520,
+  "timestampMs": 77160,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 77520,
+  "endMs": 77700,
+  "timestampMs": 77520,
+  "confidence": null
+ },
+ {
+  "text": " HABRÍAN",
+  "startMs": 77700,
+  "endMs": 78040,
+  "timestampMs": 77700,
+  "confidence": null
+ },
+ {
+  "text": " DESMONTADO",
+  "startMs": 78040,
+  "endMs": 78660,
+  "timestampMs": 78040,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " CADA",
+  "startMs": 78660,
+  "endMs": 78820,
+  "timestampMs": 78660,
+  "confidence": null
+ },
+ {
+  "text": " UNO",
+  "startMs": 78820,
+  "endMs": 79100,
+  "timestampMs": 78820,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 79100,
+  "endMs": 79240,
+  "timestampMs": 79100,
+  "confidence": null
+ },
+ {
+  "text": " ESTOS",
+  "startMs": 79240,
+  "endMs": 79380,
+  "timestampMs": 79240,
+  "confidence": null
+ },
+ {
+  "text": " CASOS.",
+  "startMs": 79380,
+  "endMs": 79740,
+  "timestampMs": 79380,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 80810,
+  "endMs": 80940,
+  "timestampMs": 80810,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 80940,
+  "endMs": 81100,
+  "timestampMs": 80940,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 81100,
+  "endMs": 81360,
+  "timestampMs": 81100,
+  "confidence": null
+ },
+ {
+  "text": " LLAMABA",
+  "startMs": 81360,
+  "endMs": 81520,
+  "timestampMs": 81360,
+  "confidence": null
+ },
+ {
+  "text": " «JOSÉ",
+  "startMs": 81520,
+  "endMs": 81940,
+  "timestampMs": 81520,
+  "confidence": null
+ },
+ {
+  "text": " FOREVER",
+  "startMs": 81940,
+  "endMs": 82350,
+  "timestampMs": 81940,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " -",
+  "startMs": 82350,
+  "endMs": 82410,
+  "timestampMs": 82350,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 82410,
+  "endMs": 82680,
+  "timestampMs": 82410,
+  "confidence": null
+ },
+ {
+  "text": " TAIGER».",
+  "startMs": 82680,
+  "endMs": 83320,
+  "timestampMs": 82680,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SE",
+  "startMs": 83320,
+  "endMs": 83420,
+  "timestampMs": 83320,
+  "confidence": null
+ },
+ {
+  "text": " CREÓ",
+  "startMs": 83420,
+  "endMs": 83760,
+  "timestampMs": 83420,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 83760,
+  "endMs": 83960,
+  "timestampMs": 83760,
+  "confidence": null
+ },
+ {
+  "text": " 10",
+  "startMs": 83960,
+  "endMs": 84060,
+  "timestampMs": 83960,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 84060,
+  "endMs": 84180,
+  "timestampMs": 84060,
+  "confidence": null
+ },
+ {
+  "text": " NOVIEMBRE",
+  "startMs": 84180,
+  "endMs": 84560,
+  "timestampMs": 84180,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 84560,
+  "endMs": 84660,
+  "timestampMs": 84560,
+  "confidence": null
+ },
+ {
+  "text": " 2024,",
+  "startMs": 84660,
+  "endMs": 85380,
+  "timestampMs": 84660,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " EXACTAMENTE",
+  "startMs": 85640,
+  "endMs": 86020,
+  "timestampMs": 85640,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 86020,
+  "endMs": 86480,
+  "timestampMs": 86020,
+  "confidence": null
+ },
+ {
+  "text": " MES",
+  "startMs": 86480,
+  "endMs": 86580,
+  "timestampMs": 86480,
+  "confidence": null
+ },
+ {
+  "text": " DESPUÉS",
+  "startMs": 86580,
+  "endMs": 86900,
+  "timestampMs": 86580,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 86900,
+  "endMs": 87060,
+  "timestampMs": 86900,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 87060,
+  "endMs": 87140,
+  "timestampMs": 87060,
+  "confidence": null
+ },
+ {
+  "text": " MUERTE",
+  "startMs": 87140,
+  "endMs": 87400,
+  "timestampMs": 87140,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 87400,
+  "endMs": 87653,
+  "timestampMs": 87400,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 87653,
+  "endMs": 87907,
+  "timestampMs": 87653,
+  "confidence": null
+ },
+ {
+  "text": " TAIGER:",
+  "startMs": 87907,
+  "endMs": 88160,
+  "timestampMs": 87907,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 88160,
+  "endMs": 88220,
+  "timestampMs": 88160,
+  "confidence": null
+ },
+ {
+  "text": " ARTISTA",
+  "startMs": 88220,
+  "endMs": 88560,
+  "timestampMs": 88220,
+  "confidence": null
+ },
+ {
+  "text": " FALLECIÓ",
+  "startMs": 88560,
+  "endMs": 89080,
+  "timestampMs": 88560,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 89080,
+  "endMs": 89380,
+  "timestampMs": 89080,
+  "confidence": null
+ },
+ {
+  "text": " 10",
+  "startMs": 89380,
+  "endMs": 89480,
+  "timestampMs": 89380,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 89480,
+  "endMs": 89580,
+  "timestampMs": 89480,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " OCTUBRE",
+  "startMs": 89580,
+  "endMs": 89880,
+  "timestampMs": 89580,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 89880,
+  "endMs": 90000,
+  "timestampMs": 89880,
+  "confidence": null
+ },
+ {
+  "text": " MIAMI,",
+  "startMs": 90000,
+  "endMs": 90280,
+  "timestampMs": 90000,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " A",
+  "startMs": 90280,
+  "endMs": 90540,
+  "timestampMs": 90280,
+  "confidence": null
+ },
+ {
+  "text": " LOS",
+  "startMs": 90540,
+  "endMs": 90640,
+  "timestampMs": 90540,
+  "confidence": null
+ },
+ {
+  "text": " 37",
+  "startMs": 90640,
+  "endMs": 91040,
+  "timestampMs": 90640,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " AÑOS.",
+  "startMs": 91040,
+  "endMs": 91440,
+  "timestampMs": 91040,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " USA",
+  "startMs": 92450,
+  "endMs": 92620,
+  "timestampMs": 92450,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 92620,
+  "endMs": 92800,
+  "timestampMs": 92620,
+  "confidence": null
+ },
+ {
+  "text": " NOMBRE",
+  "startMs": 92800,
+  "endMs": 92980,
+  "timestampMs": 92800,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 92980,
+  "endMs": 93120,
+  "timestampMs": 92980,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 93120,
+  "endMs": 93520,
+  "timestampMs": 93120,
+  "confidence": null
+ },
+ {
+  "text": " TAIGER.",
+  "startMs": 93520,
+  "endMs": 93920,
+  "timestampMs": 93520,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 93920,
+  "endMs": 94060,
+  "timestampMs": 93920,
+  "confidence": null
+ },
+ {
+  "text": " TIENE",
+  "startMs": 94060,
+  "endMs": 94260,
+  "timestampMs": 94060,
+  "confidence": null
+ },
+ {
+  "text": " NADA",
+  "startMs": 94260,
+  "endMs": 94480,
+  "timestampMs": 94260,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 94480,
+  "endMs": 94600,
+  "timestampMs": 94480,
+  "confidence": null
+ },
+ {
+  "text": " VER",
+  "startMs": 94600,
+  "endMs": 94720,
+  "timestampMs": 94600,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 94720,
+  "endMs": 94940,
+  "timestampMs": 94720,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ÉL.",
+  "startMs": 94940,
+  "endMs": 95080,
+  "timestampMs": 94940,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ELTOQUE",
+  "startMs": 95490,
+  "endMs": 95990,
+  "timestampMs": 95490,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " LO",
+  "startMs": 95990,
+  "endMs": 96260,
+  "timestampMs": 95990,
+  "confidence": null
+ },
+ {
+  "text": " ESCRIBIÓ",
+  "startMs": 96260,
+  "endMs": 96740,
+  "timestampMs": 96260,
+  "confidence": null
+ },
+ {
+  "text": " ASÍ:",
+  "startMs": 96740,
+  "endMs": 96960,
+  "timestampMs": 96740,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 98020,
+  "endMs": 98140,
+  "timestampMs": 98020,
+  "confidence": null
+ },
+ {
+  "text": " CONTENIDO",
+  "startMs": 98140,
+  "endMs": 98580,
+  "timestampMs": 98140,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 98580,
+  "endMs": 98780,
+  "timestampMs": 98580,
+  "confidence": null
+ },
+ {
+  "text": " PUBLICABA",
+  "startMs": 98780,
+  "endMs": 99300,
+  "timestampMs": 98780,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 99300,
+  "endMs": 99560,
+  "timestampMs": 99300,
+  "confidence": null
+ },
+ {
+  "text": " GUARDABA",
+  "startMs": 99560,
+  "endMs": 99960,
+  "timestampMs": 99560,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " RELACIÓN",
+  "startMs": 99960,
+  "endMs": 100360,
+  "timestampMs": 99960,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 100360,
+  "endMs": 100560,
+  "timestampMs": 100360,
+  "confidence": null
+ },
+ {
+  "text": " SU",
+  "startMs": 100560,
+  "endMs": 100700,
+  "timestampMs": 100560,
+  "confidence": null
+ },
+ {
+  "text": " TRAYECTORIA",
+  "startMs": 100700,
+  "endMs": 101340,
+  "timestampMs": 100700,
+  "confidence": null
+ },
+ {
+  "text": " NI",
+  "startMs": 101340,
+  "endMs": 101480,
+  "timestampMs": 101340,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 101480,
+  "endMs": 101915,
+  "timestampMs": 101480,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SU",
+  "startMs": 101915,
+  "endMs": 102350,
+  "timestampMs": 101915,
+  "confidence": null
+ },
+ {
+  "text": " LEGADO.",
+  "startMs": 102350,
+  "endMs": 102785,
+  "timestampMs": 102350,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CUBALLAMA",
+  "startMs": 102785,
+  "endMs": 103220,
+  "timestampMs": 102785,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " LO",
+  "startMs": 103220,
+  "endMs": 103400,
+  "timestampMs": 103220,
+  "confidence": null
+ },
+ {
+  "text": " DIJO",
+  "startMs": 103400,
+  "endMs": 103560,
+  "timestampMs": 103400,
+  "confidence": null
+ },
+ {
+  "text": " MÁS",
+  "startMs": 103560,
+  "endMs": 103740,
+  "timestampMs": 103560,
+  "confidence": null
+ },
+ {
+  "text": " DIRECTO:",
+  "startMs": 103740,
+  "endMs": 104240,
+  "timestampMs": 103740,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ERA",
+  "startMs": 104600,
+  "endMs": 104740,
+  "timestampMs": 104600,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 104740,
+  "endMs": 104880,
+  "timestampMs": 104740,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 104880,
+  "endMs": 105100,
+  "timestampMs": 104880,
+  "confidence": null
+ },
+ {
+  "text": " CREADA",
+  "startMs": 105100,
+  "endMs": 105560,
+  "timestampMs": 105100,
+  "confidence": null
+ },
+ {
+  "text": " PARA",
+  "startMs": 105560,
+  "endMs": 105780,
+  "timestampMs": 105560,
+  "confidence": null
+ },
+ {
+  "text": " DESINFORMAR,",
+  "startMs": 105780,
+  "endMs": 106540,
+  "timestampMs": 105780,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 106860,
+  "endMs": 106960,
+  "timestampMs": 106860,
+  "confidence": null
+ },
+ {
+  "text": " PARA",
+  "startMs": 106960,
+  "endMs": 107120,
+  "timestampMs": 106960,
+  "confidence": null
+ },
+ {
+  "text": " HOMENAJEAR.",
+  "startMs": 107120,
+  "endMs": 107720,
+  "timestampMs": 107120,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 108620,
+  "endMs": 108720,
+  "timestampMs": 108620,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 108720,
+  "endMs": 108920,
+  "timestampMs": 108720,
+  "confidence": null
+ },
+ {
+  "text": " CRECIÓ",
+  "startMs": 108920,
+  "endMs": 109400,
+  "timestampMs": 108920,
+  "confidence": null
+ },
+ {
+  "text": " MIENTRAS",
+  "startMs": 109400,
+  "endMs": 109720,
+  "timestampMs": 109400,
+  "confidence": null
+ },
+ {
+  "text": " PUBLICABA",
+  "startMs": 109720,
+  "endMs": 110340,
+  "timestampMs": 109720,
+  "confidence": null
+ },
+ {
+  "text": " CONTENIDO",
+  "startMs": 110340,
+  "endMs": 110740,
+  "timestampMs": 110340,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " FALSO.",
+  "startMs": 110740,
+  "endMs": 111300,
+  "timestampMs": 110740,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 111800,
+  "endMs": 111960,
+  "timestampMs": 111800,
+  "confidence": null
+ },
+ {
+  "text": " AGOSTO",
+  "startMs": 111960,
+  "endMs": 112280,
+  "timestampMs": 111960,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 112280,
+  "endMs": 112420,
+  "timestampMs": 112280,
+  "confidence": null
+ },
+ {
+  "text": " 2025",
+  "startMs": 112420,
+  "endMs": 113060,
+  "timestampMs": 112420,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " TENÍA",
+  "startMs": 113060,
+  "endMs": 113560,
+  "timestampMs": 113060,
+  "confidence": null
+ },
+ {
+  "text": " 600.000",
+  "startMs": 113560,
+  "endMs": 114460,
+  "timestampMs": 113560,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SEGUIDORES.",
+  "startMs": 114460,
+  "endMs": 114900,
+  "timestampMs": 114460,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 115340,
+  "endMs": 115460,
+  "timestampMs": 115340,
+  "confidence": null
+ },
+ {
+  "text": " MARZO",
+  "startMs": 115460,
+  "endMs": 115740,
+  "timestampMs": 115460,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 115740,
+  "endMs": 115860,
+  "timestampMs": 115740,
+  "confidence": null
+ },
+ {
+  "text": " 2026,",
+  "startMs": 115860,
+  "endMs": 116520,
+  "timestampMs": 115860,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CUANDO",
+  "startMs": 116760,
+  "endMs": 116880,
+  "timestampMs": 116760,
+  "confidence": null
+ },
+ {
+  "text": " SALIÓ",
+  "startMs": 116880,
+  "endMs": 117300,
+  "timestampMs": 116880,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 117300,
+  "endMs": 117400,
+  "timestampMs": 117300,
+  "confidence": null
+ },
+ {
+  "text": " CASO",
+  "startMs": 117400,
+  "endMs": 117580,
+  "timestampMs": 117400,
+  "confidence": null
+ },
+ {
+  "text": " MESSI,",
+  "startMs": 117580,
+  "endMs": 117940,
+  "timestampMs": 117580,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " YA",
+  "startMs": 118680,
+  "endMs": 118760,
+  "timestampMs": 118680,
+  "confidence": null
+ },
+ {
+  "text": " PASABA",
+  "startMs": 118760,
+  "endMs": 119260,
+  "timestampMs": 118760,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 119260,
+  "endMs": 119940,
+  "timestampMs": 119260,
+  "confidence": null
+ },
+ {
+  "text": " 748.000.",
+  "startMs": 119940,
+  "endMs": 121860,
+  "timestampMs": 119940,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 121860,
+  "endMs": 122300,
+  "timestampMs": 121860,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 122300,
+  "endMs": 122400,
+  "timestampMs": 122300,
+  "confidence": null
+ },
+ {
+  "text": " ÚLTIMA",
+  "startMs": 122400,
+  "endMs": 122620,
+  "timestampMs": 122400,
+  "confidence": null
+ },
+ {
+  "text": " CIFRA",
+  "startMs": 122620,
+  "endMs": 123120,
+  "timestampMs": 122620,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 123120,
+  "endMs": 123470,
+  "timestampMs": 123120,
+  "confidence": null
+ },
+ {
+  "text": " FUENTE,",
+  "startMs": 123470,
+  "endMs": 123820,
+  "timestampMs": 123470,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 123820,
+  "endMs": 124180,
+  "timestampMs": 123820,
+  "confidence": null
+ },
+ {
+  "text": " JULIO,",
+  "startMs": 124180,
+  "endMs": 124580,
+  "timestampMs": 124180,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 124580,
+  "endMs": 124940,
+  "timestampMs": 124580,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 124940,
+  "endMs": 125060,
+  "timestampMs": 124940,
+  "confidence": null
+ },
+ {
+  "text": " MÁS",
+  "startMs": 125060,
+  "endMs": 125200,
+  "timestampMs": 125060,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 125200,
+  "endMs": 125360,
+  "timestampMs": 125200,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " 770.000.",
+  "startMs": 125360,
+  "endMs": 126900,
+  "timestampMs": 125360,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LAS",
+  "startMs": 126900,
+  "endMs": 127180,
+  "timestampMs": 126900,
+  "confidence": null
+ },
+ {
+  "text": " DENUNCIAS",
+  "startMs": 127180,
+  "endMs": 127660,
+  "timestampMs": 127180,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 127660,
+  "endMs": 127780,
+  "timestampMs": 127660,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 127780,
+  "endMs": 127880,
+  "timestampMs": 127780,
+  "confidence": null
+ },
+ {
+  "text": " FRENARON:",
+  "startMs": 127880,
+  "endMs": 128340,
+  "timestampMs": 127880,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 128700,
+  "endMs": 128840,
+  "timestampMs": 128700,
+  "confidence": null
+ },
+ {
+  "text": " DOS",
+  "startMs": 128840,
+  "endMs": 128960,
+  "timestampMs": 128840,
+  "confidence": null
+ },
+ {
+  "text": " SEMANAS",
+  "startMs": 128960,
+  "endMs": 129220,
+  "timestampMs": 128960,
+  "confidence": null
+ },
+ {
+  "text": " GANÓ",
+  "startMs": 129220,
+  "endMs": 129620,
+  "timestampMs": 129220,
+  "confidence": null
+ },
+ {
+  "text": " UNOS",
+  "startMs": 129620,
+  "endMs": 129780,
+  "timestampMs": 129620,
+  "confidence": null
+ },
+ {
+  "text": " 5.000",
+  "startMs": 129780,
+  "endMs": 130300,
+  "timestampMs": 129780,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SEGUIDORES",
+  "startMs": 130300,
+  "endMs": 130680,
+  "timestampMs": 130300,
+  "confidence": null
+ },
+ {
+  "text": " MIENTRAS",
+  "startMs": 130680,
+  "endMs": 130960,
+  "timestampMs": 130680,
+  "confidence": null
+ },
+ {
+  "text": " ELTOQUE",
+  "startMs": 130960,
+  "endMs": 131420,
+  "timestampMs": 130960,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " PUBLICABA",
+  "startMs": 131420,
+  "endMs": 131920,
+  "timestampMs": 131420,
+  "confidence": null
+ },
+ {
+  "text": " DOS",
+  "startMs": 131920,
+  "endMs": 132160,
+  "timestampMs": 131920,
+  "confidence": null
+ },
+ {
+  "text": " VERIFICACIONES",
+  "startMs": 132160,
+  "endMs": 132780,
+  "timestampMs": 132160,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 132780,
+  "endMs": 132980,
+  "timestampMs": 132780,
+  "confidence": null
+ },
+ {
+  "text": " SU",
+  "startMs": 132980,
+  "endMs": 133100,
+  "timestampMs": 132980,
+  "confidence": null
+ },
+ {
+  "text": " CONTRA.",
+  "startMs": 133100,
+  "endMs": 133380,
+  "timestampMs": 133100,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ELTOQUE",
+  "startMs": 134410,
+  "endMs": 135060,
+  "timestampMs": 134410,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DESCRIBIÓ",
+  "startMs": 135060,
+  "endMs": 135640,
+  "timestampMs": 135060,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 135640,
+  "endMs": 135720,
+  "timestampMs": 135640,
+  "confidence": null
+ },
+ {
+  "text": " MÉTODO",
+  "startMs": 135720,
+  "endMs": 136060,
+  "timestampMs": 135720,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 136060,
+  "endMs": 136260,
+  "timestampMs": 136060,
+  "confidence": null
+ },
+ {
+  "text": " ABRIL:",
+  "startMs": 136260,
+  "endMs": 136580,
+  "timestampMs": 136260,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 136920,
+  "endMs": 136960,
+  "timestampMs": 136920,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 136960,
+  "endMs": 137120,
+  "timestampMs": 136960,
+  "confidence": null
+ },
+ {
+  "text": " MEZCLABA",
+  "startMs": 137120,
+  "endMs": 137640,
+  "timestampMs": 137120,
+  "confidence": null
+ },
+ {
+  "text": " HECHOS",
+  "startMs": 137640,
+  "endMs": 137900,
+  "timestampMs": 137640,
+  "confidence": null
+ },
+ {
+  "text": " REALES",
+  "startMs": 137900,
+  "endMs": 138420,
+  "timestampMs": 137900,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 138420,
+  "endMs": 138500,
+  "timestampMs": 138420,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " AFIRMACIONES",
+  "startMs": 138500,
+  "endMs": 139040,
+  "timestampMs": 138500,
+  "confidence": null
+ },
+ {
+  "text": " FALSAS,",
+  "startMs": 139040,
+  "endMs": 139560,
+  "timestampMs": 139040,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " SIN",
+  "startMs": 139560,
+  "endMs": 139800,
+  "timestampMs": 139560,
+  "confidence": null
+ },
+ {
+  "text": " NINGUNA",
+  "startMs": 139800,
+  "endMs": 140180,
+  "timestampMs": 139800,
+  "confidence": null
+ },
+ {
+  "text": " ACLARACIÓN.",
+  "startMs": 140180,
+  "endMs": 141000,
+  "timestampMs": 140180,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CUATRO",
+  "startMs": 142010,
+  "endMs": 142280,
+  "timestampMs": 142010,
+  "confidence": null
+ },
+ {
+  "text": " PASOS.",
+  "startMs": 142280,
+  "endMs": 142860,
+  "timestampMs": 142280,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PRIMERO,",
+  "startMs": 143340,
+  "endMs": 143680,
+  "timestampMs": 143340,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 144320,
+  "endMs": 144540,
+  "timestampMs": 144320,
+  "confidence": null
+ },
+ {
+  "text": " FIGURA",
+  "startMs": 144540,
+  "endMs": 144860,
+  "timestampMs": 144540,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 144860,
+  "endMs": 145080,
+  "timestampMs": 144860,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 145080,
+  "endMs": 145200,
+  "timestampMs": 145080,
+  "confidence": null
+ },
+ {
+  "text": " PÚBLICO",
+  "startMs": 145200,
+  "endMs": 145440,
+  "timestampMs": 145200,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " QUIERE",
+  "startMs": 145440,
+  "endMs": 145760,
+  "timestampMs": 145440,
+  "confidence": null
+ },
+ {
+  "text": " ESCUCHAR.",
+  "startMs": 145760,
+  "endMs": 146300,
+  "timestampMs": 145760,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SEGUNDO,",
+  "startMs": 146700,
+  "endMs": 147180,
+  "timestampMs": 146700,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 147720,
+  "endMs": 147840,
+  "timestampMs": 147720,
+  "confidence": null
+ },
+ {
+  "text": " TEXTO",
+  "startMs": 147840,
+  "endMs": 148100,
+  "timestampMs": 147840,
+  "confidence": null
+ },
+ {
+  "text": " EMOCIONAL",
+  "startMs": 148100,
+  "endMs": 148680,
+  "timestampMs": 148100,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 148680,
+  "endMs": 148940,
+  "timestampMs": 148680,
+  "confidence": null
+ },
+ {
+  "text": " PRIMERA",
+  "startMs": 148940,
+  "endMs": 149220,
+  "timestampMs": 148940,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PERSONA,",
+  "startMs": 149220,
+  "endMs": 149720,
+  "timestampMs": 149220,
+  "confidence": null
+ },
+ {
+  "text": " ATRIBUIDO",
+  "startMs": 149720,
+  "endMs": 150480,
+  "timestampMs": 149720,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 150480,
+  "endMs": 150620,
+  "timestampMs": 150480,
+  "confidence": null
+ },
+ {
+  "text": " ESA",
+  "startMs": 150620,
+  "endMs": 150740,
+  "timestampMs": 150620,
+  "confidence": null
+ },
+ {
+  "text": " FIGURA.",
+  "startMs": 150740,
+  "endMs": 151080,
+  "timestampMs": 150740,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TERCERO,",
+  "startMs": 151620,
+  "endMs": 152280,
+  "timestampMs": 151620,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 152700,
+  "endMs": 152740,
+  "timestampMs": 152700,
+  "confidence": null
+ },
+ {
+  "text": " IMAGEN",
+  "startMs": 152740,
+  "endMs": 152960,
+  "timestampMs": 152740,
+  "confidence": null
+ },
+ {
+  "text": " REAL",
+  "startMs": 152960,
+  "endMs": 153260,
+  "timestampMs": 152960,
+  "confidence": null
+ },
+ {
+  "text": " MANIPULADA",
+  "startMs": 153260,
+  "endMs": 153880,
+  "timestampMs": 153260,
+  "confidence": null
+ },
+ {
+  "text": " O",
+  "startMs": 153880,
+  "endMs": 154160,
+  "timestampMs": 153880,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CREADA",
+  "startMs": 154160,
+  "endMs": 154420,
+  "timestampMs": 154160,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 154420,
+  "endMs": 154560,
+  "timestampMs": 154420,
+  "confidence": null
+ },
+ {
+  "text": " INTELIGENCIA",
+  "startMs": 154560,
+  "endMs": 155120,
+  "timestampMs": 154560,
+  "confidence": null
+ },
+ {
+  "text": " ARTIFICIAL,",
+  "startMs": 155120,
+  "endMs": 155680,
+  "timestampMs": 155120,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CASI",
+  "startMs": 156140,
+  "endMs": 156380,
+  "timestampMs": 156140,
+  "confidence": null
+ },
+ {
+  "text": " SIEMPRE",
+  "startMs": 156380,
+  "endMs": 156720,
+  "timestampMs": 156380,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 156720,
+  "endMs": 156960,
+  "timestampMs": 156720,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 156960,
+  "endMs": 157100,
+  "timestampMs": 156960,
+  "confidence": null
+ },
+ {
+  "text": " BANDERA",
+  "startMs": 157100,
+  "endMs": 157360,
+  "timestampMs": 157100,
+  "confidence": null
+ },
+ {
+  "text": " CUBANA.",
+  "startMs": 157360,
+  "endMs": 157760,
+  "timestampMs": 157360,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 158100,
+  "endMs": 158140,
+  "timestampMs": 158100,
+  "confidence": null
+ },
+ {
+  "text": " CUARTO,",
+  "startMs": 158140,
+  "endMs": 158440,
+  "timestampMs": 158140,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 158440,
+  "endMs": 159060,
+  "timestampMs": 158440,
+  "confidence": null
+ },
+ {
+  "text": " NÚCLEO",
+  "startMs": 159060,
+  "endMs": 159440,
+  "timestampMs": 159060,
+  "confidence": null
+ },
+ {
+  "text": " REAL",
+  "startMs": 159440,
+  "endMs": 160000,
+  "timestampMs": 159440,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 160000,
+  "endMs": 160500,
+  "timestampMs": 160000,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " HACE",
+  "startMs": 160500,
+  "endMs": 160640,
+  "timestampMs": 160500,
+  "confidence": null
+ },
+ {
+  "text": " CREÍBLE",
+  "startMs": 160640,
+  "endMs": 161030,
+  "timestampMs": 160640,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 161030,
+  "endMs": 161090,
+  "timestampMs": 161030,
+  "confidence": null
+ },
+ {
+  "text": " BULO.",
+  "startMs": 161090,
+  "endMs": 161560,
+  "timestampMs": 161090,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SIN",
+  "startMs": 162400,
+  "endMs": 162530,
+  "timestampMs": 162400,
+  "confidence": null
+ },
+ {
+  "text": " ACLARACIÓN",
+  "startMs": 162540,
+  "endMs": 163140,
+  "timestampMs": 162540,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 163140,
+  "endMs": 163300,
+  "timestampMs": 163140,
+  "confidence": null
+ },
+ {
+  "text": " NINGÚN",
+  "startMs": 163300,
+  "endMs": 163520,
+  "timestampMs": 163300,
+  "confidence": null
+ },
+ {
+  "text": " TIPO.",
+  "startMs": 163520,
+  "endMs": 163880,
+  "timestampMs": 163520,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UNA",
+  "startMs": 166300,
+  "endMs": 166440,
+  "timestampMs": 166300,
+  "confidence": null
+ },
+ {
+  "text": " SEMANA",
+  "startMs": 166440,
+  "endMs": 166720,
+  "timestampMs": 166440,
+  "confidence": null
+ },
+ {
+  "text": " DESPUÉS",
+  "startMs": 166720,
+  "endMs": 167000,
+  "timestampMs": 166720,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 167000,
+  "endMs": 167200,
+  "timestampMs": 167000,
+  "confidence": null
+ },
+ {
+  "text": " CASO",
+  "startMs": 167200,
+  "endMs": 167500,
+  "timestampMs": 167200,
+  "confidence": null
+ },
+ {
+  "text": " MESSI,",
+  "startMs": 167500,
+  "endMs": 167860,
+  "timestampMs": 167500,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 168140,
+  "endMs": 168240,
+  "timestampMs": 168140,
+  "confidence": null
+ },
+ {
+  "text": " 23",
+  "startMs": 168240,
+  "endMs": 168460,
+  "timestampMs": 168240,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 168460,
+  "endMs": 168760,
+  "timestampMs": 168460,
+  "confidence": null
+ },
+ {
+  "text": " MARZO,",
+  "startMs": 168760,
+  "endMs": 169100,
+  "timestampMs": 168760,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 169360,
+  "endMs": 169400,
+  "timestampMs": 169360,
+  "confidence": null
+ },
+ {
+  "text": " MISMA",
+  "startMs": 169400,
+  "endMs": 169580,
+  "timestampMs": 169400,
+  "confidence": null
+ },
+ {
+  "text": " FÓRMULA",
+  "startMs": 169580,
+  "endMs": 170120,
+  "timestampMs": 169580,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 170120,
+  "endMs": 170320,
+  "timestampMs": 170120,
+  "confidence": null
+ },
+ {
+  "text": " NAYIB",
+  "startMs": 170320,
+  "endMs": 170640,
+  "timestampMs": 170320,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " BUKELE,",
+  "startMs": 170640,
+  "endMs": 170980,
+  "timestampMs": 170640,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PRESIDENTE",
+  "startMs": 171120,
+  "endMs": 171560,
+  "timestampMs": 171120,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 171560,
+  "endMs": 171973,
+  "timestampMs": 171560,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 171973,
+  "endMs": 172387,
+  "timestampMs": 171973,
+  "confidence": null
+ },
+ {
+  "text": " SALVADOR:",
+  "startMs": 172387,
+  "endMs": 172800,
+  "timestampMs": 172387,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UN",
+  "startMs": 172800,
+  "endMs": 173000,
+  "timestampMs": 172800,
+  "confidence": null
+ },
+ {
+  "text": " TEXTO",
+  "startMs": 173000,
+  "endMs": 173140,
+  "timestampMs": 173000,
+  "confidence": null
+ },
+ {
+  "text": " FIRMADO",
+  "startMs": 173140,
+  "endMs": 173660,
+  "timestampMs": 173140,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 173660,
+  "endMs": 173820,
+  "timestampMs": 173660,
+  "confidence": null
+ },
+ {
+  "text": " SU",
+  "startMs": 173820,
+  "endMs": 173960,
+  "timestampMs": 173820,
+  "confidence": null
+ },
+ {
+  "text": " NOMBRE",
+  "startMs": 173960,
+  "endMs": 174240,
+  "timestampMs": 173960,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 174240,
+  "endMs": 174460,
+  "timestampMs": 174240,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 174460,
+  "endMs": 174580,
+  "timestampMs": 174460,
+  "confidence": null
+ },
+ {
+  "text": " COLLAGE",
+  "startMs": 174580,
+  "endMs": 175040,
+  "timestampMs": 174580,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 175040,
+  "endMs": 175280,
+  "timestampMs": 175040,
+  "confidence": null
+ },
+ {
+  "text": " TRES",
+  "startMs": 175280,
+  "endMs": 175540,
+  "timestampMs": 175280,
+  "confidence": null
+ },
+ {
+  "text": " FOTOS",
+  "startMs": 175540,
+  "endMs": 175940,
+  "timestampMs": 175540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CON",
+  "startMs": 175940,
+  "endMs": 176240,
+  "timestampMs": 175940,
+  "confidence": null
+ },
+ {
+  "text": " BANDERAS",
+  "startMs": 176240,
+  "endMs": 176560,
+  "timestampMs": 176240,
+  "confidence": null
+ },
+ {
+  "text": " CUBANAS.",
+  "startMs": 176560,
+  "endMs": 177080,
+  "timestampMs": 176560,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MÁS",
+  "startMs": 177360,
+  "endMs": 177460,
+  "timestampMs": 177360,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 177460,
+  "endMs": 177580,
+  "timestampMs": 177460,
+  "confidence": null
+ },
+ {
+  "text": " 7.800",
+  "startMs": 177580,
+  "endMs": 178120,
+  "timestampMs": 177580,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " REACCIONES.",
+  "startMs": 178120,
+  "endMs": 178980,
+  "timestampMs": 178120,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ELTOQUE",
+  "startMs": 179440,
+  "endMs": 179800,
+  "timestampMs": 179440,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " VERIFICÓ",
+  "startMs": 179820,
+  "endMs": 180360,
+  "timestampMs": 179820,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 180360,
+  "endMs": 180460,
+  "timestampMs": 180360,
+  "confidence": null
+ },
+ {
+  "text": " LAS",
+  "startMs": 180460,
+  "endMs": 180600,
+  "timestampMs": 180460,
+  "confidence": null
+ },
+ {
+  "text": " DECLARACIONES",
+  "startMs": 180600,
+  "endMs": 181140,
+  "timestampMs": 180600,
+  "confidence": null
+ },
+ {
+  "text": " CITADAS",
+  "startMs": 181140,
+  "endMs": 181620,
+  "timestampMs": 181140,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 181620,
+  "endMs": 181960,
+  "timestampMs": 181620,
+  "confidence": null
+ },
+ {
+  "text": " ERAN",
+  "startMs": 181960,
+  "endMs": 182160,
+  "timestampMs": 181960,
+  "confidence": null
+ },
+ {
+  "text": " CIERTAS.",
+  "startMs": 182160,
+  "endMs": 182780,
+  "timestampMs": 182160,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESE",
+  "startMs": 183480,
+  "endMs": 183800,
+  "timestampMs": 183480,
+  "confidence": null
+ },
+ {
+  "text": " MISMO",
+  "startMs": 183800,
+  "endMs": 184020,
+  "timestampMs": 183800,
+  "confidence": null
+ },
+ {
+  "text": " MES",
+  "startMs": 184020,
+  "endMs": 184240,
+  "timestampMs": 184020,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 184340,
+  "endMs": 184400,
+  "timestampMs": 184340,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 184400,
+  "endMs": 184540,
+  "timestampMs": 184400,
+  "confidence": null
+ },
+ {
+  "text": " ATRIBUYÓ",
+  "startMs": 184540,
+  "endMs": 185100,
+  "timestampMs": 184540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DECLARACIONES",
+  "startMs": 185100,
+  "endMs": 185620,
+  "timestampMs": 185100,
+  "confidence": null
+ },
+ {
+  "text": " FALSAS",
+  "startMs": 185620,
+  "endMs": 186160,
+  "timestampMs": 185620,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " A",
+  "startMs": 186160,
+  "endMs": 186500,
+  "timestampMs": 186160,
+  "confidence": null
+ },
+ {
+  "text": " ELON",
+  "startMs": 186500,
+  "endMs": 186620,
+  "timestampMs": 186500,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " MUSK,",
+  "startMs": 186620,
+  "endMs": 187020,
+  "timestampMs": 186620,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " A",
+  "startMs": 187020,
+  "endMs": 187520,
+  "timestampMs": 187020,
+  "confidence": null
+ },
+ {
+  "text": " DADDY",
+  "startMs": 187520,
+  "endMs": 187720,
+  "timestampMs": 187520,
+  "confidence": null
+ },
+ {
+  "text": " YANKEE",
+  "startMs": 187720,
+  "endMs": 188120,
+  "timestampMs": 187720,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " Y",
+  "startMs": 188120,
+  "endMs": 188500,
+  "timestampMs": 188120,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 188500,
+  "endMs": 188560,
+  "timestampMs": 188500,
+  "confidence": null
+ },
+ {
+  "text": " BAD",
+  "startMs": 188560,
+  "endMs": 188720,
+  "timestampMs": 188560,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " BUNNY.",
+  "startMs": 188720,
+  "endMs": 189000,
+  "timestampMs": 188720,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ELTOQUE",
+  "startMs": 189500,
+  "endMs": 189980,
+  "timestampMs": 189500,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " LOS",
+  "startMs": 189980,
+  "endMs": 190180,
+  "timestampMs": 189980,
+  "confidence": null
+ },
+ {
+  "text": " VERIFICÓ",
+  "startMs": 190180,
+  "endMs": 190660,
+  "timestampMs": 190180,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 190660,
+  "endMs": 190760,
+  "timestampMs": 190660,
+  "confidence": null
+ },
+ {
+  "text": " GRUPO:",
+  "startMs": 190760,
+  "endMs": 191040,
+  "timestampMs": 190760,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LAS",
+  "startMs": 191300,
+  "endMs": 191420,
+  "timestampMs": 191300,
+  "confidence": null
+ },
+ {
+  "text": " DECLARACIONES",
+  "startMs": 191420,
+  "endMs": 191900,
+  "timestampMs": 191420,
+  "confidence": null
+ },
+ {
+  "text": " CITADAS",
+  "startMs": 191900,
+  "endMs": 192320,
+  "timestampMs": 191900,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 192320,
+  "endMs": 192580,
+  "timestampMs": 192320,
+  "confidence": null
+ },
+ {
+  "text": " SON",
+  "startMs": 192580,
+  "endMs": 192900,
+  "timestampMs": 192580,
+  "confidence": null
+ },
+ {
+  "text": " CIERTAS.",
+  "startMs": 192900,
+  "endMs": 193500,
+  "timestampMs": 192900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CON",
+  "startMs": 194200,
+  "endMs": 194400,
+  "timestampMs": 194200,
+  "confidence": null
+ },
+ {
+  "text": " MUSK",
+  "startMs": 194400,
+  "endMs": 194760,
+  "timestampMs": 194400,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " HAY",
+  "startMs": 195140,
+  "endMs": 195320,
+  "timestampMs": 195140,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 195320,
+  "endMs": 195460,
+  "timestampMs": 195320,
+  "confidence": null
+ },
+ {
+  "text": " MATIZ",
+  "startMs": 195460,
+  "endMs": 195760,
+  "timestampMs": 195460,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 195760,
+  "endMs": 195960,
+  "timestampMs": 195760,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 195960,
+  "endMs": 196100,
+  "timestampMs": 195960,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 196100,
+  "endMs": 196220,
+  "timestampMs": 196100,
+  "confidence": null
+ },
+ {
+  "text": " PUEDE",
+  "startMs": 196220,
+  "endMs": 196460,
+  "timestampMs": 196220,
+  "confidence": null
+ },
+ {
+  "text": " SALTAR.",
+  "startMs": 196460,
+  "endMs": 197060,
+  "timestampMs": 196460,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MUSK",
+  "startMs": 197380,
+  "endMs": 197600,
+  "timestampMs": 197380,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " SÍ",
+  "startMs": 197600,
+  "endMs": 197860,
+  "timestampMs": 197600,
+  "confidence": null
+ },
+ {
+  "text": " DIJO",
+  "startMs": 197880,
+  "endMs": 198100,
+  "timestampMs": 197880,
+  "confidence": null
+ },
+ {
+  "text": " ALGO",
+  "startMs": 198100,
+  "endMs": 198320,
+  "timestampMs": 198100,
+  "confidence": null
+ },
+ {
+  "text": " REAL",
+  "startMs": 198320,
+  "endMs": 198540,
+  "timestampMs": 198320,
+  "confidence": null
+ },
+ {
+  "text": " SOBRE",
+  "startMs": 198540,
+  "endMs": 198880,
+  "timestampMs": 198540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CUBA.",
+  "startMs": 198880,
+  "endMs": 199220,
+  "timestampMs": 198880,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 199620,
+  "endMs": 199740,
+  "timestampMs": 199620,
+  "confidence": null
+ },
+ {
+  "text": " 16",
+  "startMs": 199740,
+  "endMs": 200020,
+  "timestampMs": 199740,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 200020,
+  "endMs": 200300,
+  "timestampMs": 200020,
+  "confidence": null
+ },
+ {
+  "text": " MARZO,",
+  "startMs": 200300,
+  "endMs": 200660,
+  "timestampMs": 200300,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 200860,
+  "endMs": 200940,
+  "timestampMs": 200860,
+  "confidence": null
+ },
+ {
+  "text": " MISMO",
+  "startMs": 200940,
+  "endMs": 201120,
+  "timestampMs": 200940,
+  "confidence": null
+ },
+ {
+  "text": " DÍA",
+  "startMs": 201120,
+  "endMs": 201400,
+  "timestampMs": 201120,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 201400,
+  "endMs": 201560,
+  "timestampMs": 201400,
+  "confidence": null
+ },
+ {
+  "text": " POST",
+  "startMs": 201560,
+  "endMs": 201780,
+  "timestampMs": 201560,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 201780,
+  "endMs": 202020,
+  "timestampMs": 201780,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MESSI,",
+  "startMs": 202020,
+  "endMs": 202280,
+  "timestampMs": 202020,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " MUSK",
+  "startMs": 202830,
+  "endMs": 203100,
+  "timestampMs": 202830,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " ESCRIBIÓ",
+  "startMs": 203100,
+  "endMs": 203700,
+  "timestampMs": 203100,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 203700,
+  "endMs": 203820,
+  "timestampMs": 203700,
+  "confidence": null
+ },
+ {
+  "text": " X",
+  "startMs": 203820,
+  "endMs": 203980,
+  "timestampMs": 203820,
+  "confidence": null
+ },
+ {
+  "text": " SOBRE",
+  "startMs": 203980,
+  "endMs": 204320,
+  "timestampMs": 203980,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " STARLINK",
+  "startMs": 204320,
+  "endMs": 204820,
+  "timestampMs": 204320,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " EN",
+  "startMs": 204820,
+  "endMs": 205060,
+  "timestampMs": 204820,
+  "confidence": null
+ },
+ {
+  "text": " CUBA:",
+  "startMs": 205060,
+  "endMs": 205380,
+  "timestampMs": 205060,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " «WORKS",
+  "startMs": 205980,
+  "endMs": 206280,
+  "timestampMs": 205980,
+  "confidence": null
+ },
+ {
+  "text": " IN",
+  "startMs": 206280,
+  "endMs": 206700,
+  "timestampMs": 206280,
+  "confidence": null
+ },
+ {
+  "text": " CUBA,",
+  "startMs": 206700,
+  "endMs": 207020,
+  "timestampMs": 206700,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " JUST",
+  "startMs": 207360,
+  "endMs": 207480,
+  "timestampMs": 207360,
+  "confidence": null
+ },
+ {
+  "text": " CAN'T",
+  "startMs": 207480,
+  "endMs": 207820,
+  "timestampMs": 207480,
+  "confidence": null
+ },
+ {
+  "text": " BE",
+  "startMs": 207820,
+  "endMs": 207900,
+  "timestampMs": 207820,
+  "confidence": null
+ },
+ {
+  "text": " SOLD",
+  "startMs": 207900,
+  "endMs": 208160,
+  "timestampMs": 207900,
+  "confidence": null
+ },
+ {
+  "text": " THERE».",
+  "startMs": 208160,
+  "endMs": 208500,
+  "timestampMs": 208160,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " FUNCIONA",
+  "startMs": 209000,
+  "endMs": 209480,
+  "timestampMs": 209000,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 209480,
+  "endMs": 209580,
+  "timestampMs": 209480,
+  "confidence": null
+ },
+ {
+  "text": " CUBA,",
+  "startMs": 209580,
+  "endMs": 209880,
+  "timestampMs": 209580,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PERO",
+  "startMs": 210160,
+  "endMs": 210340,
+  "timestampMs": 210160,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 210340,
+  "endMs": 210500,
+  "timestampMs": 210340,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 210500,
+  "endMs": 210660,
+  "timestampMs": 210500,
+  "confidence": null
+ },
+ {
+  "text": " PUEDE",
+  "startMs": 210660,
+  "endMs": 210840,
+  "timestampMs": 210660,
+  "confidence": null
+ },
+ {
+  "text": " VENDER",
+  "startMs": 210840,
+  "endMs": 211160,
+  "timestampMs": 210840,
+  "confidence": null
+ },
+ {
+  "text": " ALLÍ.",
+  "startMs": 211160,
+  "endMs": 211440,
+  "timestampMs": 211160,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LO",
+  "startMs": 211760,
+  "endMs": 211920,
+  "timestampMs": 211760,
+  "confidence": null
+ },
+ {
+  "text": " FALSO",
+  "startMs": 211920,
+  "endMs": 212400,
+  "timestampMs": 211920,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " SON",
+  "startMs": 212400,
+  "endMs": 212520,
+  "timestampMs": 212400,
+  "confidence": null
+ },
+ {
+  "text": " LAS",
+  "startMs": 212520,
+  "endMs": 212640,
+  "timestampMs": 212520,
+  "confidence": null
+ },
+ {
+  "text": " DECLARACIONES",
+  "startMs": 212640,
+  "endMs": 213120,
+  "timestampMs": 212640,
+  "confidence": null
+ },
+ {
+  "text": " POLÍTICAS",
+  "startMs": 213120,
+  "endMs": 213700,
+  "timestampMs": 213120,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " QUE",
+  "startMs": 213700,
+  "endMs": 214080,
+  "timestampMs": 213700,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 214080,
+  "endMs": 214220,
+  "timestampMs": 214080,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 214220,
+  "endMs": 214480,
+  "timestampMs": 214220,
+  "confidence": null
+ },
+ {
+  "text": " LE",
+  "startMs": 214480,
+  "endMs": 214680,
+  "timestampMs": 214480,
+  "confidence": null
+ },
+ {
+  "text": " ATRIBUYÓ.",
+  "startMs": 214680,
+  "endMs": 215140,
+  "timestampMs": 214680,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SI",
+  "startMs": 215680,
+  "endMs": 215840,
+  "timestampMs": 215680,
+  "confidence": null
+ },
+ {
+  "text": " ESTE",
+  "startMs": 215840,
+  "endMs": 216040,
+  "timestampMs": 215840,
+  "confidence": null
+ },
+ {
+  "text": " VIDEO",
+  "startMs": 216040,
+  "endMs": 216300,
+  "timestampMs": 216040,
+  "confidence": null
+ },
+ {
+  "text": " DIJERA",
+  "startMs": 216300,
+  "endMs": 216620,
+  "timestampMs": 216300,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 216620,
+  "endMs": 216800,
+  "timestampMs": 216620,
+  "confidence": null
+ },
+ {
+  "text": " MUSK",
+  "startMs": 216800,
+  "endMs": 217100,
+  "timestampMs": 216800,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NUNCA",
+  "startMs": 217100,
+  "endMs": 217560,
+  "timestampMs": 217100,
+  "confidence": null
+ },
+ {
+  "text": " HA",
+  "startMs": 217560,
+  "endMs": 217900,
+  "timestampMs": 217560,
+  "confidence": null
+ },
+ {
+  "text": " DICHO",
+  "startMs": 217900,
+  "endMs": 218080,
+  "timestampMs": 217900,
+  "confidence": null
+ },
+ {
+  "text": " NADA",
+  "startMs": 218080,
+  "endMs": 218280,
+  "timestampMs": 218080,
+  "confidence": null
+ },
+ {
+  "text": " SOBRE",
+  "startMs": 218280,
+  "endMs": 218580,
+  "timestampMs": 218280,
+  "confidence": null
+ },
+ {
+  "text": " CUBA,",
+  "startMs": 218580,
+  "endMs": 218880,
+  "timestampMs": 218580,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESTARÍA",
+  "startMs": 219000,
+  "endMs": 219400,
+  "timestampMs": 219000,
+  "confidence": null
+ },
+ {
+  "text": " MINTIENDO.",
+  "startMs": 219400,
+  "endMs": 219960,
+  "timestampMs": 219400,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESE",
+  "startMs": 220180,
+  "endMs": 220340,
+  "timestampMs": 220180,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 220340,
+  "endMs": 220440,
+  "timestampMs": 220340,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 220440,
+  "endMs": 220540,
+  "timestampMs": 220440,
+  "confidence": null
+ },
+ {
+  "text": " PUNTO:",
+  "startMs": 220540,
+  "endMs": 220900,
+  "timestampMs": 220540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 221160,
+  "endMs": 221300,
+  "timestampMs": 221160,
+  "confidence": null
+ },
+ {
+  "text": " BULO",
+  "startMs": 221300,
+  "endMs": 221580,
+  "timestampMs": 221300,
+  "confidence": null
+ },
+ {
+  "text": " FUNCIONABA",
+  "startMs": 221580,
+  "endMs": 222180,
+  "timestampMs": 221580,
+  "confidence": null
+ },
+ {
+  "text": " PORQUE",
+  "startMs": 222180,
+  "endMs": 222440,
+  "timestampMs": 222180,
+  "confidence": null
+ },
+ {
+  "text": " TENÍA",
+  "startMs": 222440,
+  "endMs": 222840,
+  "timestampMs": 222440,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 222840,
+  "endMs": 223120,
+  "timestampMs": 222840,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NÚCLEO",
+  "startMs": 223120,
+  "endMs": 223580,
+  "timestampMs": 223120,
+  "confidence": null
+ },
+ {
+  "text": " REAL.",
+  "startMs": 223580,
+  "endMs": 224000,
+  "timestampMs": 223580,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESE",
+  "startMs": 224680,
+  "endMs": 225000,
+  "timestampMs": 224680,
+  "confidence": null
+ },
+ {
+  "text": " DÍA",
+  "startMs": 225000,
+  "endMs": 225220,
+  "timestampMs": 225000,
+  "confidence": null
+ },
+ {
+  "text": " CUBA",
+  "startMs": 225360,
+  "endMs": 225560,
+  "timestampMs": 225360,
+  "confidence": null
+ },
+ {
+  "text": " SUFRIÓ",
+  "startMs": 225560,
+  "endMs": 225960,
+  "timestampMs": 225560,
+  "confidence": null
+ },
+ {
+  "text": " ADEMÁS",
+  "startMs": 225960,
+  "endMs": 226320,
+  "timestampMs": 225960,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 226320,
+  "endMs": 226700,
+  "timestampMs": 226320,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SEXTO",
+  "startMs": 226700,
+  "endMs": 227080,
+  "timestampMs": 226700,
+  "confidence": null
+ },
+ {
+  "text": " COLAPSO",
+  "startMs": 227080,
+  "endMs": 227460,
+  "timestampMs": 227080,
+  "confidence": null
+ },
+ {
+  "text": " TOTAL",
+  "startMs": 227460,
+  "endMs": 227760,
+  "timestampMs": 227460,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 227760,
+  "endMs": 227940,
+  "timestampMs": 227760,
+  "confidence": null
+ },
+ {
+  "text": " SISTEMA",
+  "startMs": 227940,
+  "endMs": 228220,
+  "timestampMs": 227940,
+  "confidence": null
+ },
+ {
+  "text": " ELÉCTRICO:",
+  "startMs": 228220,
+  "endMs": 228820,
+  "timestampMs": 228220,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TUIT",
+  "startMs": 228820,
+  "endMs": 229460,
+  "timestampMs": 228820,
+  "confidence": null
+ },
+ {
+  "text": " REAL,",
+  "startMs": 229460,
+  "endMs": 229760,
+  "timestampMs": 229460,
+  "confidence": null
+ },
+ {
+  "text": " APAGÓN",
+  "startMs": 230160,
+  "endMs": 230480,
+  "timestampMs": 230160,
+  "confidence": null
+ },
+ {
+  "text": " REAL",
+  "startMs": 230480,
+  "endMs": 230800,
+  "timestampMs": 230480,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 230800,
+  "endMs": 231200,
+  "timestampMs": 230800,
+  "confidence": null
+ },
+ {
+  "text": " CITA",
+  "startMs": 231200,
+  "endMs": 231400,
+  "timestampMs": 231200,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " INVENTADA,",
+  "startMs": 231400,
+  "endMs": 232000,
+  "timestampMs": 231400,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " TODO",
+  "startMs": 232540,
+  "endMs": 232740,
+  "timestampMs": 232540,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 232740,
+  "endMs": 233100,
+  "timestampMs": 232740,
+  "confidence": null
+ },
+ {
+  "text": " MISMO",
+  "startMs": 233100,
+  "endMs": 233400,
+  "timestampMs": 233100,
+  "confidence": null
+ },
+ {
+  "text": " DÍA.",
+  "startMs": 233400,
+  "endMs": 233680,
+  "timestampMs": 233400,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 235020,
+  "endMs": 235160,
+  "timestampMs": 235020,
+  "confidence": null
+ },
+ {
+  "text": " PATRÓN",
+  "startMs": 235160,
+  "endMs": 235580,
+  "timestampMs": 235160,
+  "confidence": null
+ },
+ {
+  "text": " YA",
+  "startMs": 235580,
+  "endMs": 235760,
+  "timestampMs": 235580,
+  "confidence": null
+ },
+ {
+  "text": " ERA",
+  "startMs": 235760,
+  "endMs": 235840,
+  "timestampMs": 235760,
+  "confidence": null
+ },
+ {
+  "text": " VISIBLE.",
+  "startMs": 235840,
+  "endMs": 236240,
+  "timestampMs": 235840,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 236640,
+  "endMs": 236780,
+  "timestampMs": 236640,
+  "confidence": null
+ },
+ {
+  "text": " ENERO,",
+  "startMs": 236780,
+  "endMs": 237140,
+  "timestampMs": 236780,
+  "confidence": null
+ },
+ {
+  "text": " DOS",
+  "startMs": 237360,
+  "endMs": 237460,
+  "timestampMs": 237360,
+  "confidence": null
+ },
+ {
+  "text": " MESES",
+  "startMs": 237460,
+  "endMs": 237680,
+  "timestampMs": 237460,
+  "confidence": null
+ },
+ {
+  "text": " ANTES",
+  "startMs": 237680,
+  "endMs": 238020,
+  "timestampMs": 237680,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 238020,
+  "endMs": 238380,
+  "timestampMs": 238020,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CASO",
+  "startMs": 238380,
+  "endMs": 238760,
+  "timestampMs": 238380,
+  "confidence": null
+ },
+ {
+  "text": " MESSI,",
+  "startMs": 238760,
+  "endMs": 239100,
+  "timestampMs": 238760,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " LA",
+  "startMs": 239100,
+  "endMs": 239440,
+  "timestampMs": 239100,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 239440,
+  "endMs": 239740,
+  "timestampMs": 239440,
+  "confidence": null
+ },
+ {
+  "text": " «11",
+  "startMs": 240590,
+  "endMs": 240800,
+  "timestampMs": 240590,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " MILLONES",
+  "startMs": 240800,
+  "endMs": 241120,
+  "timestampMs": 240800,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 241120,
+  "endMs": 241300,
+  "timestampMs": 241120,
+  "confidence": null
+ },
+ {
+  "text": " CUBANOS»,",
+  "startMs": 241300,
+  "endMs": 241680,
+  "timestampMs": 241300,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 241680,
+  "endMs": 241940,
+  "timestampMs": 241680,
+  "confidence": null
+ },
+ {
+  "text": " MÁS",
+  "startMs": 241940,
+  "endMs": 242120,
+  "timestampMs": 241940,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 242120,
+  "endMs": 242280,
+  "timestampMs": 242120,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 242280,
+  "endMs": 242960,
+  "timestampMs": 242280,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MILLÓN",
+  "startMs": 242960,
+  "endMs": 243240,
+  "timestampMs": 242960,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 243240,
+  "endMs": 243340,
+  "timestampMs": 243240,
+  "confidence": null
+ },
+ {
+  "text": " SEGUIDORES,",
+  "startMs": 243340,
+  "endMs": 243820,
+  "timestampMs": 243340,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " YA",
+  "startMs": 244020,
+  "endMs": 244240,
+  "timestampMs": 244020,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 244240,
+  "endMs": 244380,
+  "timestampMs": 244240,
+  "confidence": null
+ },
+ {
+  "text": " HABÍA",
+  "startMs": 244380,
+  "endMs": 244820,
+  "timestampMs": 244380,
+  "confidence": null
+ },
+ {
+  "text": " DENUNCIADO",
+  "startMs": 244820,
+  "endMs": 245440,
+  "timestampMs": 244820,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 245440,
+  "endMs": 245580,
+  "timestampMs": 245440,
+  "confidence": null
+ },
+ {
+  "text": " PÚBLICO:",
+  "startMs": 245580,
+  "endMs": 245920,
+  "timestampMs": 245580,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NOTICIAS",
+  "startMs": 245920,
+  "endMs": 246620,
+  "timestampMs": 245920,
+  "confidence": null
+ },
+ {
+  "text": " FALSAS",
+  "startMs": 246620,
+  "endMs": 247020,
+  "timestampMs": 246620,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 247020,
+  "endMs": 247160,
+  "timestampMs": 247020,
+  "confidence": null
+ },
+ {
+  "text": " MUERTES,",
+  "startMs": 247160,
+  "endMs": 247660,
+  "timestampMs": 247160,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CONTENIDO",
+  "startMs": 247780,
+  "endMs": 248360,
+  "timestampMs": 247780,
+  "confidence": null
+ },
+ {
+  "text": " ROBADO,",
+  "startMs": 248360,
+  "endMs": 248960,
+  "timestampMs": 248360,
+  "confidence": null
+ },
+ {
+  "text": " DENUNCIAS",
+  "startMs": 249220,
+  "endMs": 249580,
+  "timestampMs": 249220,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 249580,
+  "endMs": 249700,
+  "timestampMs": 249580,
+  "confidence": null
+ },
+ {
+  "text": " COPYRIGHT",
+  "startMs": 249700,
+  "endMs": 249980,
+  "timestampMs": 249700,
+  "confidence": null
+ },
+ {
+  "text": " FALSAS.",
+  "startMs": 249980,
+  "endMs": 250800,
+  "timestampMs": 249980,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 251240,
+  "endMs": 251440,
+  "timestampMs": 251240,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 251440,
+  "endMs": 251540,
+  "timestampMs": 251440,
+  "confidence": null
+ },
+ {
+  "text": " 20",
+  "startMs": 251540,
+  "endMs": 251700,
+  "timestampMs": 251540,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 251700,
+  "endMs": 251900,
+  "timestampMs": 251700,
+  "confidence": null
+ },
+ {
+  "text": " MARZO,",
+  "startMs": 251900,
+  "endMs": 252240,
+  "timestampMs": 251900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CUATRO",
+  "startMs": 252400,
+  "endMs": 252560,
+  "timestampMs": 252400,
+  "confidence": null
+ },
+ {
+  "text": " DÍAS",
+  "startMs": 252560,
+  "endMs": 252800,
+  "timestampMs": 252560,
+  "confidence": null
+ },
+ {
+  "text": " DESPUÉS",
+  "startMs": 252800,
+  "endMs": 253080,
+  "timestampMs": 252800,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 253080,
+  "endMs": 253260,
+  "timestampMs": 253080,
+  "confidence": null
+ },
+ {
+  "text": " POST",
+  "startMs": 253260,
+  "endMs": 253500,
+  "timestampMs": 253260,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 253500,
+  "endMs": 253680,
+  "timestampMs": 253500,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MESSI,",
+  "startMs": 253680,
+  "endMs": 253900,
+  "timestampMs": 253680,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " UN",
+  "startMs": 254300,
+  "endMs": 254440,
+  "timestampMs": 254300,
+  "confidence": null
+ },
+ {
+  "text": " USUARIO,",
+  "startMs": 254440,
+  "endMs": 254920,
+  "timestampMs": 254440,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CARLOS",
+  "startMs": 254920,
+  "endMs": 255440,
+  "timestampMs": 254920,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " PEREZ,",
+  "startMs": 255440,
+  "endMs": 255860,
+  "timestampMs": 255440,
+  "confidence": null
+ },
+ {
+  "text": " PUBLICÓ",
+  "startMs": 255860,
+  "endMs": 256440,
+  "timestampMs": 255860,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 256440,
+  "endMs": 256600,
+  "timestampMs": 256440,
+  "confidence": null
+ },
+ {
+  "text": " COLLAGE",
+  "startMs": 256600,
+  "endMs": 257000,
+  "timestampMs": 256600,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 257000,
+  "endMs": 257220,
+  "timestampMs": 257000,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MESSI,",
+  "startMs": 257220,
+  "endMs": 257520,
+  "timestampMs": 257220,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " MUSK",
+  "startMs": 258040,
+  "endMs": 258180,
+  "timestampMs": 258040,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " Y",
+  "startMs": 258180,
+  "endMs": 258460,
+  "timestampMs": 258180,
+  "confidence": null
+ },
+ {
+  "text": " BUKELE:",
+  "startMs": 258460,
+  "endMs": 258840,
+  "timestampMs": 258460,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " «DECLARACIONES",
+  "startMs": 259360,
+  "endMs": 259860,
+  "timestampMs": 259360,
+  "confidence": null
+ },
+ {
+  "text": " INVENTADAS",
+  "startMs": 259860,
+  "endMs": 260800,
+  "timestampMs": 259860,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " Y",
+  "startMs": 260800,
+  "endMs": 261000,
+  "timestampMs": 260800,
+  "confidence": null
+ },
+ {
+  "text": " REALIDADES",
+  "startMs": 261000,
+  "endMs": 261420,
+  "timestampMs": 261000,
+  "confidence": null
+ },
+ {
+  "text": " MANIPULADAS».",
+  "startMs": 261420,
+  "endMs": 262040,
+  "timestampMs": 261420,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 262500,
+  "endMs": 262760,
+  "timestampMs": 262500,
+  "confidence": null
+ },
+ {
+  "text": " ERA",
+  "startMs": 262760,
+  "endMs": 262840,
+  "timestampMs": 262760,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 262840,
+  "endMs": 262920,
+  "timestampMs": 262840,
+  "confidence": null
+ },
+ {
+  "text": " FACT-CHECKER.",
+  "startMs": 262920,
+  "endMs": 263800,
+  "timestampMs": 262920,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ERA",
+  "startMs": 263800,
+  "endMs": 263980,
+  "timestampMs": 263800,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 263980,
+  "endMs": 264100,
+  "timestampMs": 263980,
+  "confidence": null
+ },
+ {
+  "text": " PERSONA",
+  "startMs": 264100,
+  "endMs": 264500,
+  "timestampMs": 264100,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 264500,
+  "endMs": 264820,
+  "timestampMs": 264500,
+  "confidence": null
+ },
+ {
+  "text": " YA",
+  "startMs": 264820,
+  "endMs": 264980,
+  "timestampMs": 264820,
+  "confidence": null
+ },
+ {
+  "text": " LO",
+  "startMs": 264980,
+  "endMs": 265080,
+  "timestampMs": 264980,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " HABÍA",
+  "startMs": 265080,
+  "endMs": 265260,
+  "timestampMs": 265080,
+  "confidence": null
+ },
+ {
+  "text": " VISTO.",
+  "startMs": 265260,
+  "endMs": 265560,
+  "timestampMs": 265260,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 267740,
+  "endMs": 267860,
+  "timestampMs": 267740,
+  "confidence": null
+ },
+ {
+  "text": " ABRIL",
+  "startMs": 267860,
+  "endMs": 268240,
+  "timestampMs": 267860,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 268420,
+  "endMs": 268520,
+  "timestampMs": 268420,
+  "confidence": null
+ },
+ {
+  "text": " PATRÓN",
+  "startMs": 268520,
+  "endMs": 268940,
+  "timestampMs": 268520,
+  "confidence": null
+ },
+ {
+  "text": " TOCÓ",
+  "startMs": 268940,
+  "endMs": 269340,
+  "timestampMs": 268940,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 269340,
+  "endMs": 269380,
+  "timestampMs": 269340,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PERSONAS",
+  "startMs": 269380,
+  "endMs": 269720,
+  "timestampMs": 269380,
+  "confidence": null
+ },
+ {
+  "text": " REALES.",
+  "startMs": 269720,
+  "endMs": 270320,
+  "timestampMs": 269720,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 270520,
+  "endMs": 270600,
+  "timestampMs": 270520,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 270600,
+  "endMs": 270800,
+  "timestampMs": 270600,
+  "confidence": null
+ },
+ {
+  "text": " PUBLICÓ",
+  "startMs": 270800,
+  "endMs": 271360,
+  "timestampMs": 270800,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 271360,
+  "endMs": 271480,
+  "timestampMs": 271360,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 271480,
+  "endMs": 271560,
+  "timestampMs": 271480,
+  "confidence": null
+ },
+ {
+  "text": " REGUETONERO",
+  "startMs": 271560,
+  "endMs": 272047,
+  "timestampMs": 271560,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ONIEL",
+  "startMs": 272047,
+  "endMs": 272533,
+  "timestampMs": 272047,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " BEBESHITO",
+  "startMs": 272533,
+  "endMs": 273020,
+  "timestampMs": 272533,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " Y",
+  "startMs": 273020,
+  "endMs": 273220,
+  "timestampMs": 273020,
+  "confidence": null
+ },
+ {
+  "text": " SU",
+  "startMs": 273220,
+  "endMs": 273360,
+  "timestampMs": 273220,
+  "confidence": null
+ },
+ {
+  "text": " ESPOSA",
+  "startMs": 273360,
+  "endMs": 273820,
+  "timestampMs": 273360,
+  "confidence": null
+ },
+ {
+  "text": " HABÍAN",
+  "startMs": 273820,
+  "endMs": 274140,
+  "timestampMs": 273820,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " VIAJADO",
+  "startMs": 274140,
+  "endMs": 274620,
+  "timestampMs": 274140,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 274620,
+  "endMs": 274720,
+  "timestampMs": 274620,
+  "confidence": null
+ },
+ {
+  "text": " CUBA",
+  "startMs": 274720,
+  "endMs": 274840,
+  "timestampMs": 274720,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 274840,
+  "endMs": 275060,
+  "timestampMs": 274840,
+  "confidence": null
+ },
+ {
+  "text": " SECRETO,",
+  "startMs": 275060,
+  "endMs": 275620,
+  "timestampMs": 275060,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CON",
+  "startMs": 275740,
+  "endMs": 275880,
+  "timestampMs": 275740,
+  "confidence": null
+ },
+ {
+  "text": " IMÁGENES",
+  "startMs": 275880,
+  "endMs": 276200,
+  "timestampMs": 275880,
+  "confidence": null
+ },
+ {
+  "text": " GENERADAS",
+  "startMs": 276200,
+  "endMs": 276640,
+  "timestampMs": 276200,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 276640,
+  "endMs": 276840,
+  "timestampMs": 276640,
+  "confidence": null
+ },
+ {
+  "text": " INTELIGENCIA",
+  "startMs": 276840,
+  "endMs": 277340,
+  "timestampMs": 276840,
+  "confidence": null
+ },
+ {
+  "text": " ARTIFICIAL:",
+  "startMs": 277340,
+  "endMs": 277860,
+  "timestampMs": 277340,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " BEBESHITO",
+  "startMs": 277860,
+  "endMs": 279020,
+  "timestampMs": 277860,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " CON",
+  "startMs": 279020,
+  "endMs": 279200,
+  "timestampMs": 279020,
+  "confidence": null
+ },
+ {
+  "text": " SU",
+  "startMs": 279200,
+  "endMs": 279380,
+  "timestampMs": 279200,
+  "confidence": null
+ },
+ {
+  "text": " RESIDENCIA",
+  "startMs": 279380,
+  "endMs": 279920,
+  "timestampMs": 279380,
+  "confidence": null
+ },
+ {
+  "text": " ESTADOUNIDENSE",
+  "startMs": 279920,
+  "endMs": 280720,
+  "timestampMs": 279920,
+  "confidence": null
+ },
+ {
+  "text": " ANTES",
+  "startMs": 280720,
+  "endMs": 281060,
+  "timestampMs": 280720,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 281060,
+  "endMs": 281400,
+  "timestampMs": 281060,
+  "confidence": null
+ },
+ {
+  "text": " ABORDAR",
+  "startMs": 281400,
+  "endMs": 281800,
+  "timestampMs": 281400,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 281800,
+  "endMs": 281940,
+  "timestampMs": 281800,
+  "confidence": null
+ },
+ {
+  "text": " VUELO",
+  "startMs": 281940,
+  "endMs": 282520,
+  "timestampMs": 281940,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 282520,
+  "endMs": 282780,
+  "timestampMs": 282520,
+  "confidence": null
+ },
+ {
+  "text": " CUBANA",
+  "startMs": 282780,
+  "endMs": 283060,
+  "timestampMs": 282780,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 283060,
+  "endMs": 283200,
+  "timestampMs": 283060,
+  "confidence": null
+ },
+ {
+  "text": " AVIACIÓN,",
+  "startMs": 283200,
+  "endMs": 283620,
+  "timestampMs": 283200,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 283620,
+  "endMs": 283880,
+  "timestampMs": 283620,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 283880,
+  "endMs": 283980,
+  "timestampMs": 283880,
+  "confidence": null
+ },
+ {
+  "text": " PAREJA",
+  "startMs": 283980,
+  "endMs": 284360,
+  "timestampMs": 283980,
+  "confidence": null
+ },
+ {
+  "text": " FRENTE",
+  "startMs": 284360,
+  "endMs": 284640,
+  "timestampMs": 284360,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " AL",
+  "startMs": 284640,
+  "endMs": 284900,
+  "timestampMs": 284640,
+  "confidence": null
+ },
+ {
+  "text": " HOTEL",
+  "startMs": 284900,
+  "endMs": 285100,
+  "timestampMs": 284900,
+  "confidence": null
+ },
+ {
+  "text": " HABANA",
+  "startMs": 285100,
+  "endMs": 285460,
+  "timestampMs": 285100,
+  "confidence": null
+ },
+ {
+  "text": " LIBRE.",
+  "startMs": 285460,
+  "endMs": 285860,
+  "timestampMs": 285460,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TODO",
+  "startMs": 286560,
+  "endMs": 286760,
+  "timestampMs": 286560,
+  "confidence": null
+ },
+ {
+  "text": " FABRICADO.",
+  "startMs": 286760,
+  "endMs": 287440,
+  "timestampMs": 286760,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " BEBESHITO",
+  "startMs": 288460,
+  "endMs": 289000,
+  "timestampMs": 288460,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " TUVO",
+  "startMs": 289000,
+  "endMs": 289180,
+  "timestampMs": 289000,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 289180,
+  "endMs": 289320,
+  "timestampMs": 289180,
+  "confidence": null
+ },
+ {
+  "text": " DESMENTIRLO",
+  "startMs": 289320,
+  "endMs": 289980,
+  "timestampMs": 289320,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " EN",
+  "startMs": 289980,
+  "endMs": 290060,
+  "timestampMs": 289980,
+  "confidence": null
+ },
+ {
+  "text": " PERSONA.",
+  "startMs": 290060,
+  "endMs": 290480,
+  "timestampMs": 290060,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UN",
+  "startMs": 290820,
+  "endMs": 290940,
+  "timestampMs": 290820,
+  "confidence": null
+ },
+ {
+  "text": " CREADOR",
+  "startMs": 290940,
+  "endMs": 291260,
+  "timestampMs": 290940,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 291260,
+  "endMs": 291400,
+  "timestampMs": 291260,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 291400,
+  "endMs": 291520,
+  "timestampMs": 291400,
+  "confidence": null
+ },
+ {
+  "text": " PLATAFORMA",
+  "startMs": 291520,
+  "endMs": 291860,
+  "timestampMs": 291520,
+  "confidence": null
+ },
+ {
+  "text": " FAMILIA",
+  "startMs": 291860,
+  "endMs": 292300,
+  "timestampMs": 291860,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CUBANA",
+  "startMs": 292300,
+  "endMs": 292720,
+  "timestampMs": 292300,
+  "confidence": null
+ },
+ {
+  "text": " LO",
+  "startMs": 292720,
+  "endMs": 292880,
+  "timestampMs": 292720,
+  "confidence": null
+ },
+ {
+  "text": " ABORDÓ",
+  "startMs": 292880,
+  "endMs": 293300,
+  "timestampMs": 292880,
+  "confidence": null
+ },
+ {
+  "text": " MIENTRAS",
+  "startMs": 293300,
+  "endMs": 293500,
+  "timestampMs": 293300,
+  "confidence": null
+ },
+ {
+  "text": " PREPARABA",
+  "startMs": 293500,
+  "endMs": 294260,
+  "timestampMs": 293500,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 294260,
+  "endMs": 294460,
+  "timestampMs": 294260,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " VIDEOCLIP",
+  "startMs": 294460,
+  "endMs": 294940,
+  "timestampMs": 294460,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 294940,
+  "endMs": 295100,
+  "timestampMs": 294940,
+  "confidence": null
+ },
+ {
+  "text": " RESPONDIÓ:",
+  "startMs": 295100,
+  "endMs": 295640,
+  "timestampMs": 295100,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " «ES",
+  "startMs": 296200,
+  "endMs": 296520,
+  "timestampMs": 296200,
+  "confidence": null
+ },
+ {
+  "text": " TOTALMENTE",
+  "startMs": 296520,
+  "endMs": 297100,
+  "timestampMs": 296520,
+  "confidence": null
+ },
+ {
+  "text": " FALSO.",
+  "startMs": 297100,
+  "endMs": 297460,
+  "timestampMs": 297100,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 297800,
+  "endMs": 297920,
+  "timestampMs": 297800,
+  "confidence": null
+ },
+ {
+  "text": " HE",
+  "startMs": 297920,
+  "endMs": 298000,
+  "timestampMs": 297920,
+  "confidence": null
+ },
+ {
+  "text": " SALIDO",
+  "startMs": 298000,
+  "endMs": 298360,
+  "timestampMs": 298000,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 298360,
+  "endMs": 298480,
+  "timestampMs": 298360,
+  "confidence": null
+ },
+ {
+  "text": " ESTADOS",
+  "startMs": 298480,
+  "endMs": 298680,
+  "timestampMs": 298480,
+  "confidence": null
+ },
+ {
+  "text": " UNIDOS».",
+  "startMs": 298680,
+  "endMs": 299120,
+  "timestampMs": 298680,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UN",
+  "startMs": 299760,
+  "endMs": 299920,
+  "timestampMs": 299760,
+  "confidence": null
+ },
+ {
+  "text": " ARTISTA",
+  "startMs": 299920,
+  "endMs": 300300,
+  "timestampMs": 299920,
+  "confidence": null
+ },
+ {
+  "text": " TENIENDO",
+  "startMs": 300300,
+  "endMs": 300680,
+  "timestampMs": 300300,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 300680,
+  "endMs": 300840,
+  "timestampMs": 300680,
+  "confidence": null
+ },
+ {
+  "text": " DEMOSTRAR",
+  "startMs": 300840,
+  "endMs": 301320,
+  "timestampMs": 300840,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 301320,
+  "endMs": 301540,
+  "timestampMs": 301320,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 301540,
+  "endMs": 301680,
+  "timestampMs": 301540,
+  "confidence": null
+ },
+ {
+  "text": " HIZO",
+  "startMs": 301680,
+  "endMs": 301900,
+  "timestampMs": 301680,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 301900,
+  "endMs": 302040,
+  "timestampMs": 301900,
+  "confidence": null
+ },
+ {
+  "text": " VIAJE",
+  "startMs": 302040,
+  "endMs": 302280,
+  "timestampMs": 302040,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 302280,
+  "endMs": 302640,
+  "timestampMs": 302280,
+  "confidence": null
+ },
+ {
+  "text": " NUNCA",
+  "startMs": 302640,
+  "endMs": 302880,
+  "timestampMs": 302640,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " HIZO.",
+  "startMs": 302880,
+  "endMs": 303320,
+  "timestampMs": 302880,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 304380,
+  "endMs": 304580,
+  "timestampMs": 304380,
+  "confidence": null
+ },
+ {
+  "text": " JUNIO",
+  "startMs": 304580,
+  "endMs": 304960,
+  "timestampMs": 304580,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 305100,
+  "endMs": 305180,
+  "timestampMs": 305100,
+  "confidence": null
+ },
+ {
+  "text": " BULO",
+  "startMs": 305180,
+  "endMs": 305400,
+  "timestampMs": 305180,
+  "confidence": null
+ },
+ {
+  "text": " SALIÓ",
+  "startMs": 305400,
+  "endMs": 305700,
+  "timestampMs": 305400,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 305700,
+  "endMs": 305840,
+  "timestampMs": 305700,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " FEED",
+  "startMs": 305840,
+  "endMs": 306080,
+  "timestampMs": 305840,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 306080,
+  "endMs": 306400,
+  "timestampMs": 306080,
+  "confidence": null
+ },
+ {
+  "text": " LLEGÓ",
+  "startMs": 306400,
+  "endMs": 306620,
+  "timestampMs": 306400,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 306620,
+  "endMs": 306860,
+  "timestampMs": 306620,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 306860,
+  "endMs": 307040,
+  "timestampMs": 306860,
+  "confidence": null
+ },
+ {
+  "text": " INSTITUCIÓN",
+  "startMs": 307040,
+  "endMs": 307700,
+  "timestampMs": 307040,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PÚBLICA.",
+  "startMs": 307700,
+  "endMs": 308140,
+  "timestampMs": 307700,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 308500,
+  "endMs": 308580,
+  "timestampMs": 308500,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 308580,
+  "endMs": 308760,
+  "timestampMs": 308580,
+  "confidence": null
+ },
+ {
+  "text": " ORIGINÓ",
+  "startMs": 308760,
+  "endMs": 309300,
+  "timestampMs": 308760,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 309440,
+  "endMs": 309480,
+  "timestampMs": 309440,
+  "confidence": null
+ },
+ {
+  "text": " HISTORIA",
+  "startMs": 309480,
+  "endMs": 309820,
+  "timestampMs": 309480,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 309820,
+  "endMs": 310080,
+  "timestampMs": 309820,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " QUE",
+  "startMs": 310080,
+  "endMs": 310180,
+  "timestampMs": 310080,
+  "confidence": null
+ },
+ {
+  "text": " CRISTIANO",
+  "startMs": 310180,
+  "endMs": 310560,
+  "timestampMs": 310180,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " RONALDO",
+  "startMs": 310560,
+  "endMs": 311060,
+  "timestampMs": 310560,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " HABÍA",
+  "startMs": 311060,
+  "endMs": 311400,
+  "timestampMs": 311060,
+  "confidence": null
+ },
+ {
+  "text": " DONADO",
+  "startMs": 311400,
+  "endMs": 311800,
+  "timestampMs": 311400,
+  "confidence": null
+ },
+ {
+  "text": " 250",
+  "startMs": 311800,
+  "endMs": 312220,
+  "timestampMs": 311800,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PANELES",
+  "startMs": 312220,
+  "endMs": 313100,
+  "timestampMs": 312220,
+  "confidence": null
+ },
+ {
+  "text": " SOLARES",
+  "startMs": 313100,
+  "endMs": 313360,
+  "timestampMs": 313100,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 313360,
+  "endMs": 313560,
+  "timestampMs": 313360,
+  "confidence": null
+ },
+ {
+  "text": " CUBA.",
+  "startMs": 313560,
+  "endMs": 313820,
+  "timestampMs": 313560,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DOS",
+  "startMs": 314500,
+  "endMs": 314720,
+  "timestampMs": 314500,
+  "confidence": null
+ },
+ {
+  "text": " FUENTES",
+  "startMs": 314720,
+  "endMs": 314980,
+  "timestampMs": 314720,
+  "confidence": null
+ },
+ {
+  "text": " INDEPENDIENTES",
+  "startMs": 314980,
+  "endMs": 315620,
+  "timestampMs": 314980,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 315620,
+  "endMs": 315840,
+  "timestampMs": 315620,
+  "confidence": null
+ },
+ {
+  "text": " SEÑALAN",
+  "startMs": 315840,
+  "endMs": 316280,
+  "timestampMs": 315840,
+  "confidence": null
+ },
+ {
+  "text": " COMO",
+  "startMs": 316280,
+  "endMs": 316540,
+  "timestampMs": 316280,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 316540,
+  "endMs": 316640,
+  "timestampMs": 316540,
+  "confidence": null
+ },
+ {
+  "text": " ORIGEN:",
+  "startMs": 316640,
+  "endMs": 317000,
+  "timestampMs": 316640,
+  "confidence": null
+ },
+ {
+  "text": " YASEL",
+  "startMs": 317000,
+  "endMs": 317420,
+  "timestampMs": 317000,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " PORTO",
+  "startMs": 317420,
+  "endMs": 317960,
+  "timestampMs": 317420,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 317960,
+  "endMs": 318080,
+  "timestampMs": 317960,
+  "confidence": null
+ },
+ {
+  "text": " ELPODERDIGITAL.",
+  "startMs": 318080,
+  "endMs": 318780,
+  "timestampMs": 318080,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ELTOQUE",
+  "startMs": 319200,
+  "endMs": 319640,
+  "timestampMs": 319200,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " LO",
+  "startMs": 319640,
+  "endMs": 319740,
+  "timestampMs": 319640,
+  "confidence": null
+ },
+ {
+  "text": " VERIFICÓ",
+  "startMs": 319760,
+  "endMs": 320200,
+  "timestampMs": 319760,
+  "confidence": null
+ },
+ {
+  "text": " COMO",
+  "startMs": 320200,
+  "endMs": 320360,
+  "timestampMs": 320200,
+  "confidence": null
+ },
+ {
+  "text": " FALSO:",
+  "startMs": 320360,
+  "endMs": 320920,
+  "timestampMs": 320360,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 321100,
+  "endMs": 321260,
+  "timestampMs": 321100,
+  "confidence": null
+ },
+ {
+  "text": " HABÍA",
+  "startMs": 321260,
+  "endMs": 321460,
+  "timestampMs": 321260,
+  "confidence": null
+ },
+ {
+  "text": " EVIDENCIA",
+  "startMs": 321460,
+  "endMs": 322020,
+  "timestampMs": 321460,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 322020,
+  "endMs": 322520,
+  "timestampMs": 322020,
+  "confidence": null
+ },
+ {
+  "text": " LOS",
+  "startMs": 322520,
+  "endMs": 322620,
+  "timestampMs": 322520,
+  "confidence": null
+ },
+ {
+  "text": " CANALES",
+  "startMs": 322620,
+  "endMs": 322900,
+  "timestampMs": 322620,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " OFICIALES",
+  "startMs": 322900,
+  "endMs": 323660,
+  "timestampMs": 322900,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 323660,
+  "endMs": 323800,
+  "timestampMs": 323660,
+  "confidence": null
+ },
+ {
+  "text": " RONALDO,",
+  "startMs": 323800,
+  "endMs": 324220,
+  "timestampMs": 323800,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NI",
+  "startMs": 324220,
+  "endMs": 324580,
+  "timestampMs": 324220,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 324580,
+  "endMs": 324680,
+  "timestampMs": 324580,
+  "confidence": null
+ },
+ {
+  "text": " SU",
+  "startMs": 324680,
+  "endMs": 324820,
+  "timestampMs": 324680,
+  "confidence": null
+ },
+ {
+  "text": " FUNDACIÓN,",
+  "startMs": 324820,
+  "endMs": 325460,
+  "timestampMs": 324820,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NI",
+  "startMs": 325960,
+  "endMs": 326200,
+  "timestampMs": 325960,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 326200,
+  "endMs": 326300,
+  "timestampMs": 326200,
+  "confidence": null
+ },
+ {
+  "text": " NINGUNA",
+  "startMs": 326300,
+  "endMs": 326620,
+  "timestampMs": 326300,
+  "confidence": null
+ },
+ {
+  "text": " AGENCIA",
+  "startMs": 326620,
+  "endMs": 327040,
+  "timestampMs": 326620,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 327040,
+  "endMs": 327240,
+  "timestampMs": 327040,
+  "confidence": null
+ },
+ {
+  "text": " PRENSA.",
+  "startMs": 327240,
+  "endMs": 327640,
+  "timestampMs": 327240,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 327880,
+  "endMs": 327980,
+  "timestampMs": 327880,
+  "confidence": null
+ },
+ {
+  "text": " ANALISTA",
+  "startMs": 327980,
+  "endMs": 328360,
+  "timestampMs": 327980,
+  "confidence": null
+ },
+ {
+  "text": " DAGUITO",
+  "startMs": 328360,
+  "endMs": 328740,
+  "timestampMs": 328360,
+  "confidence": null
+ },
+ {
+  "text": " VALDÉS",
+  "startMs": 328740,
+  "endMs": 329120,
+  "timestampMs": 328740,
+  "confidence": null
+ },
+ {
+  "text": " LO",
+  "startMs": 329120,
+  "endMs": 329340,
+  "timestampMs": 329120,
+  "confidence": null
+ },
+ {
+  "text": " LLAMÓ",
+  "startMs": 329340,
+  "endMs": 329720,
+  "timestampMs": 329340,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " «EL",
+  "startMs": 329720,
+  "endMs": 329960,
+  "timestampMs": 329720,
+  "confidence": null
+ },
+ {
+  "text": " FAKE",
+  "startMs": 329960,
+  "endMs": 330260,
+  "timestampMs": 329960,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 330260,
+  "endMs": 330720,
+  "timestampMs": 330260,
+  "confidence": null
+ },
+ {
+  "text": " AÑO».",
+  "startMs": 330720,
+  "endMs": 331000,
+  "timestampMs": 330720,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PERO",
+  "startMs": 332320,
+  "endMs": 332440,
+  "timestampMs": 332320,
+  "confidence": null
+ },
+ {
+  "text": " ANTES",
+  "startMs": 332440,
+  "endMs": 332620,
+  "timestampMs": 332440,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 332620,
+  "endMs": 332800,
+  "timestampMs": 332620,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 332800,
+  "endMs": 332850,
+  "timestampMs": 332800,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 332850,
+  "endMs": 332910,
+  "timestampMs": 332850,
+  "confidence": null
+ },
+ {
+  "text": " DESMENTIDO",
+  "startMs": 332910,
+  "endMs": 333540,
+  "timestampMs": 332910,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LLEGARA,",
+  "startMs": 333540,
+  "endMs": 333940,
+  "timestampMs": 333540,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 334240,
+  "endMs": 334300,
+  "timestampMs": 334240,
+  "confidence": null
+ },
+ {
+  "text": " INSTITUCIÓN",
+  "startMs": 334300,
+  "endMs": 334760,
+  "timestampMs": 334300,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 334760,
+  "endMs": 334920,
+  "timestampMs": 334760,
+  "confidence": null
+ },
+ {
+  "text": " ESTADO",
+  "startMs": 334920,
+  "endMs": 335320,
+  "timestampMs": 334920,
+  "confidence": null
+ },
+ {
+  "text": " LO",
+  "startMs": 335320,
+  "endMs": 335580,
+  "timestampMs": 335320,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PUBLICÓ",
+  "startMs": 335580,
+  "endMs": 336020,
+  "timestampMs": 335580,
+  "confidence": null
+ },
+ {
+  "text": " COMO",
+  "startMs": 336020,
+  "endMs": 336200,
+  "timestampMs": 336020,
+  "confidence": null
+ },
+ {
+  "text": " CIERTO.",
+  "startMs": 336200,
+  "endMs": 336700,
+  "timestampMs": 336200,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 337060,
+  "endMs": 337220,
+  "timestampMs": 337060,
+  "confidence": null
+ },
+ {
+  "text": " 22",
+  "startMs": 337220,
+  "endMs": 337500,
+  "timestampMs": 337220,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 337500,
+  "endMs": 337700,
+  "timestampMs": 337500,
+  "confidence": null
+ },
+ {
+  "text": " JUNIO,",
+  "startMs": 337700,
+  "endMs": 338020,
+  "timestampMs": 337700,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 338140,
+  "endMs": 338200,
+  "timestampMs": 338140,
+  "confidence": null
+ },
+ {
+  "text": " DIRECCIÓN",
+  "startMs": 338200,
+  "endMs": 338600,
+  "timestampMs": 338200,
+  "confidence": null
+ },
+ {
+  "text": " PROVINCIAL",
+  "startMs": 338600,
+  "endMs": 339080,
+  "timestampMs": 338600,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 339080,
+  "endMs": 339220,
+  "timestampMs": 339080,
+  "confidence": null
+ },
+ {
+  "text": " SALUD",
+  "startMs": 339220,
+  "endMs": 339500,
+  "timestampMs": 339220,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 339500,
+  "endMs": 339660,
+  "timestampMs": 339500,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CIENFUEGOS",
+  "startMs": 339660,
+  "endMs": 340160,
+  "timestampMs": 339660,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " PUBLICÓ",
+  "startMs": 340160,
+  "endMs": 340640,
+  "timestampMs": 340160,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 340640,
+  "endMs": 340720,
+  "timestampMs": 340640,
+  "confidence": null
+ },
+ {
+  "text": " SU",
+  "startMs": 340720,
+  "endMs": 340860,
+  "timestampMs": 340720,
+  "confidence": null
+ },
+ {
+  "text": " CUENTA",
+  "startMs": 340860,
+  "endMs": 341080,
+  "timestampMs": 340860,
+  "confidence": null
+ },
+ {
+  "text": " OFICIAL",
+  "startMs": 341080,
+  "endMs": 341580,
+  "timestampMs": 341080,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " QUE",
+  "startMs": 341580,
+  "endMs": 341940,
+  "timestampMs": 341580,
+  "confidence": null
+ },
+ {
+  "text": " RONALDO",
+  "startMs": 341940,
+  "endMs": 342320,
+  "timestampMs": 341940,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " HABÍA",
+  "startMs": 342320,
+  "endMs": 342580,
+  "timestampMs": 342320,
+  "confidence": null
+ },
+ {
+  "text": " SELLADO",
+  "startMs": 342580,
+  "endMs": 343060,
+  "timestampMs": 342580,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 343060,
+  "endMs": 343700,
+  "timestampMs": 343060,
+  "confidence": null
+ },
+ {
+  "text": " «ALIANZA",
+  "startMs": 343700,
+  "endMs": 344380,
+  "timestampMs": 343700,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " HISTÓRICA»",
+  "startMs": 344380,
+  "endMs": 345060,
+  "timestampMs": 344380,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 345060,
+  "endMs": 345340,
+  "timestampMs": 345060,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 345340,
+  "endMs": 345480,
+  "timestampMs": 345340,
+  "confidence": null
+ },
+ {
+  "text": " GOBIERNO",
+  "startMs": 345480,
+  "endMs": 345660,
+  "timestampMs": 345480,
+  "confidence": null
+ },
+ {
+  "text": " CUBANO",
+  "startMs": 345660,
+  "endMs": 346140,
+  "timestampMs": 345660,
+  "confidence": null
+ },
+ {
+  "text": " PARA",
+  "startMs": 346140,
+  "endMs": 346340,
+  "timestampMs": 346140,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DONAR",
+  "startMs": 346340,
+  "endMs": 346640,
+  "timestampMs": 346340,
+  "confidence": null
+ },
+ {
+  "text": " 250",
+  "startMs": 346640,
+  "endMs": 347000,
+  "timestampMs": 346640,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " PANELES",
+  "startMs": 347000,
+  "endMs": 347840,
+  "timestampMs": 347000,
+  "confidence": null
+ },
+ {
+  "text": " SOLARES,",
+  "startMs": 347840,
+  "endMs": 348140,
+  "timestampMs": 347840,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " BATERÍAS",
+  "startMs": 348340,
+  "endMs": 348740,
+  "timestampMs": 348340,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 348740,
+  "endMs": 348960,
+  "timestampMs": 348740,
+  "confidence": null
+ },
+ {
+  "text": " REPUESTOS.",
+  "startMs": 348960,
+  "endMs": 349460,
+  "timestampMs": 348960,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " HORAS",
+  "startMs": 350080,
+  "endMs": 350400,
+  "timestampMs": 350080,
+  "confidence": null
+ },
+ {
+  "text": " DESPUÉS,",
+  "startMs": 350400,
+  "endMs": 350640,
+  "timestampMs": 350400,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 351020,
+  "endMs": 351080,
+  "timestampMs": 351020,
+  "confidence": null
+ },
+ {
+  "text": " INSTITUCIÓN",
+  "startMs": 351080,
+  "endMs": 351680,
+  "timestampMs": 351080,
+  "confidence": null
+ },
+ {
+  "text": " BORRÓ",
+  "startMs": 351680,
+  "endMs": 352000,
+  "timestampMs": 351680,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 352000,
+  "endMs": 352170,
+  "timestampMs": 352000,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " POST",
+  "startMs": 352170,
+  "endMs": 352340,
+  "timestampMs": 352170,
+  "confidence": null
+ },
+ {
+  "text": " SIN",
+  "startMs": 352340,
+  "endMs": 352720,
+  "timestampMs": 352340,
+  "confidence": null
+ },
+ {
+  "text": " DAR",
+  "startMs": 352720,
+  "endMs": 352860,
+  "timestampMs": 352720,
+  "confidence": null
+ },
+ {
+  "text": " EXPLICACIONES.",
+  "startMs": 352860,
+  "endMs": 353460,
+  "timestampMs": 352860,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PERO",
+  "startMs": 354120,
+  "endMs": 354160,
+  "timestampMs": 354120,
+  "confidence": null
+ },
+ {
+  "text": " ELTOQUE",
+  "startMs": 354160,
+  "endMs": 354520,
+  "timestampMs": 354160,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DOCUMENTÓ",
+  "startMs": 354520,
+  "endMs": 355080,
+  "timestampMs": 354520,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 355080,
+  "endMs": 355160,
+  "timestampMs": 355080,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 355160,
+  "endMs": 355300,
+  "timestampMs": 355160,
+  "confidence": null
+ },
+ {
+  "text": " BULO",
+  "startMs": 355300,
+  "endMs": 355660,
+  "timestampMs": 355300,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " YA",
+  "startMs": 355660,
+  "endMs": 355840,
+  "timestampMs": 355660,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 355840,
+  "endMs": 355980,
+  "timestampMs": 355840,
+  "confidence": null
+ },
+ {
+  "text": " HABÍA",
+  "startMs": 355980,
+  "endMs": 356140,
+  "timestampMs": 355980,
+  "confidence": null
+ },
+ {
+  "text": " REPLICADO",
+  "startMs": 356140,
+  "endMs": 356760,
+  "timestampMs": 356140,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 356760,
+  "endMs": 356900,
+  "timestampMs": 356760,
+  "confidence": null
+ },
+ {
+  "text": " GRUPOS",
+  "startMs": 356900,
+  "endMs": 357180,
+  "timestampMs": 356900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 357180,
+  "endMs": 357380,
+  "timestampMs": 357180,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 357380,
+  "endMs": 357480,
+  "timestampMs": 357380,
+  "confidence": null
+ },
+ {
+  "text": " OTRAS",
+  "startMs": 357480,
+  "endMs": 357640,
+  "timestampMs": 357480,
+  "confidence": null
+ },
+ {
+  "text": " CUENTAS",
+  "startMs": 357640,
+  "endMs": 358020,
+  "timestampMs": 357640,
+  "confidence": null
+ },
+ {
+  "text": " VINCULADAS",
+  "startMs": 358020,
+  "endMs": 358500,
+  "timestampMs": 358020,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 358500,
+  "endMs": 358640,
+  "timestampMs": 358500,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " INSTITUCIONES",
+  "startMs": 358640,
+  "endMs": 359160,
+  "timestampMs": 358640,
+  "confidence": null
+ },
+ {
+  "text": " ESTATALES.",
+  "startMs": 359160,
+  "endMs": 359940,
+  "timestampMs": 359160,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CUBA",
+  "startMs": 361400,
+  "endMs": 361960,
+  "timestampMs": 361400,
+  "confidence": null
+ },
+ {
+  "text": " ATRAVESABA",
+  "startMs": 361960,
+  "endMs": 362480,
+  "timestampMs": 361960,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 362480,
+  "endMs": 362680,
+  "timestampMs": 362480,
+  "confidence": null
+ },
+ {
+  "text": " CRISIS",
+  "startMs": 362680,
+  "endMs": 362900,
+  "timestampMs": 362680,
+  "confidence": null
+ },
+ {
+  "text": " ENERGÉTICA",
+  "startMs": 362900,
+  "endMs": 363460,
+  "timestampMs": 362900,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 363460,
+  "endMs": 363720,
+  "timestampMs": 363460,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " APAGONES",
+  "startMs": 363720,
+  "endMs": 364280,
+  "timestampMs": 363720,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 364280,
+  "endMs": 364540,
+  "timestampMs": 364280,
+  "confidence": null
+ },
+ {
+  "text": " MÁS",
+  "startMs": 364540,
+  "endMs": 364640,
+  "timestampMs": 364540,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 364640,
+  "endMs": 364780,
+  "timestampMs": 364640,
+  "confidence": null
+ },
+ {
+  "text": " 30",
+  "startMs": 364780,
+  "endMs": 365060,
+  "timestampMs": 364780,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " HORAS",
+  "startMs": 365060,
+  "endMs": 365300,
+  "timestampMs": 365060,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SEGUIDAS.",
+  "startMs": 365300,
+  "endMs": 365800,
+  "timestampMs": 365300,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 366460,
+  "endMs": 366620,
+  "timestampMs": 366460,
+  "confidence": null
+ },
+ {
+  "text": " PROMESA",
+  "startMs": 366620,
+  "endMs": 367060,
+  "timestampMs": 366620,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 367060,
+  "endMs": 367380,
+  "timestampMs": 367060,
+  "confidence": null
+ },
+ {
+  "text": " 250",
+  "startMs": 367380,
+  "endMs": 367760,
+  "timestampMs": 367380,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " PANELES",
+  "startMs": 367760,
+  "endMs": 368540,
+  "timestampMs": 367760,
+  "confidence": null
+ },
+ {
+  "text": " SOLARES",
+  "startMs": 368540,
+  "endMs": 368900,
+  "timestampMs": 368540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 368900,
+  "endMs": 369160,
+  "timestampMs": 368900,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 369160,
+  "endMs": 369300,
+  "timestampMs": 369160,
+  "confidence": null
+ },
+ {
+  "text": " COMPARTIÓ",
+  "startMs": 369300,
+  "endMs": 369900,
+  "timestampMs": 369300,
+  "confidence": null
+ },
+ {
+  "text": " PORQUE",
+  "startMs": 369900,
+  "endMs": 370100,
+  "timestampMs": 369900,
+  "confidence": null
+ },
+ {
+  "text": " FUERA",
+  "startMs": 370100,
+  "endMs": 370380,
+  "timestampMs": 370100,
+  "confidence": null
+ },
+ {
+  "text": " CREÍBLE.",
+  "startMs": 370380,
+  "endMs": 370940,
+  "timestampMs": 370380,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SE",
+  "startMs": 371080,
+  "endMs": 371180,
+  "timestampMs": 371080,
+  "confidence": null
+ },
+ {
+  "text": " COMPARTIÓ",
+  "startMs": 371180,
+  "endMs": 371640,
+  "timestampMs": 371180,
+  "confidence": null
+ },
+ {
+  "text": " PORQUE",
+  "startMs": 371640,
+  "endMs": 371900,
+  "timestampMs": 371640,
+  "confidence": null
+ },
+ {
+  "text": " ERA",
+  "startMs": 371900,
+  "endMs": 372100,
+  "timestampMs": 371900,
+  "confidence": null
+ },
+ {
+  "text": " DESEABLE.",
+  "startMs": 372100,
+  "endMs": 372900,
+  "timestampMs": 372100,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 373300,
+  "endMs": 373480,
+  "timestampMs": 373300,
+  "confidence": null
+ },
+ {
+  "text": " ESO",
+  "startMs": 373480,
+  "endMs": 373760,
+  "timestampMs": 373480,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 373760,
+  "endMs": 373960,
+  "timestampMs": 373760,
+  "confidence": null
+ },
+ {
+  "text": " LO",
+  "startMs": 373960,
+  "endMs": 374080,
+  "timestampMs": 373960,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 374080,
+  "endMs": 374180,
+  "timestampMs": 374080,
+  "confidence": null
+ },
+ {
+  "text": " LO",
+  "startMs": 374180,
+  "endMs": 374300,
+  "timestampMs": 374180,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " HACE",
+  "startMs": 374300,
+  "endMs": 374520,
+  "timestampMs": 374300,
+  "confidence": null
+ },
+ {
+  "text": " PELIGROSO:",
+  "startMs": 374520,
+  "endMs": 375260,
+  "timestampMs": 374520,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " NO",
+  "startMs": 375260,
+  "endMs": 375840,
+  "timestampMs": 375260,
+  "confidence": null
+ },
+ {
+  "text": " APELA",
+  "startMs": 375840,
+  "endMs": 376050,
+  "timestampMs": 375840,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 376050,
+  "endMs": 376110,
+  "timestampMs": 376050,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 376110,
+  "endMs": 376240,
+  "timestampMs": 376110,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " RAZÓN,",
+  "startMs": 376240,
+  "endMs": 376620,
+  "timestampMs": 376240,
+  "confidence": null
+ },
+ {
+  "text": " APELA",
+  "startMs": 377060,
+  "endMs": 377460,
+  "timestampMs": 377060,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 377460,
+  "endMs": 377860,
+  "timestampMs": 377460,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 377860,
+  "endMs": 377980,
+  "timestampMs": 377860,
+  "confidence": null
+ },
+ {
+  "text": " ESPERANZA.",
+  "startMs": 377980,
+  "endMs": 378700,
+  "timestampMs": 377980,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 379360,
+  "endMs": 379540,
+  "timestampMs": 379360,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 379540,
+  "endMs": 379600,
+  "timestampMs": 379540,
+  "confidence": null
+ },
+ {
+  "text": " ÚLTIMO",
+  "startMs": 379600,
+  "endMs": 379820,
+  "timestampMs": 379600,
+  "confidence": null
+ },
+ {
+  "text": " CASO",
+  "startMs": 379820,
+  "endMs": 380080,
+  "timestampMs": 379820,
+  "confidence": null
+ },
+ {
+  "text": " DOCUMENTADO",
+  "startMs": 380080,
+  "endMs": 380780,
+  "timestampMs": 380080,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 380780,
+  "endMs": 380980,
+  "timestampMs": 380780,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 380980,
+  "endMs": 381100,
+  "timestampMs": 380980,
+  "confidence": null
+ },
+ {
+  "text": " MÁS",
+  "startMs": 381100,
+  "endMs": 381280,
+  "timestampMs": 381100,
+  "confidence": null
+ },
+ {
+  "text": " GRAVE.",
+  "startMs": 381280,
+  "endMs": 381580,
+  "timestampMs": 381280,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 381860,
+  "endMs": 382020,
+  "timestampMs": 381860,
+  "confidence": null
+ },
+ {
+  "text": " JULIO,",
+  "startMs": 382020,
+  "endMs": 382440,
+  "timestampMs": 382020,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 382660,
+  "endMs": 382720,
+  "timestampMs": 382660,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 382720,
+  "endMs": 382880,
+  "timestampMs": 382720,
+  "confidence": null
+ },
+ {
+  "text": " PUBLICÓ",
+  "startMs": 382880,
+  "endMs": 383400,
+  "timestampMs": 382880,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 383400,
+  "endMs": 383500,
+  "timestampMs": 383400,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DAMIÁN",
+  "startMs": 383500,
+  "endMs": 383860,
+  "timestampMs": 383500,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " VALDÉS-GALLOSO,",
+  "startMs": 383860,
+  "endMs": 385100,
+  "timestampMs": 383860,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " EL",
+  "startMs": 385100,
+  "endMs": 385160,
+  "timestampMs": 385100,
+  "confidence": null
+ },
+ {
+  "text": " ACUSADO",
+  "startMs": 385160,
+  "endMs": 385500,
+  "timestampMs": 385160,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 385500,
+  "endMs": 385640,
+  "timestampMs": 385500,
+  "confidence": null
+ },
+ {
+  "text": " ASESINAR",
+  "startMs": 385640,
+  "endMs": 385960,
+  "timestampMs": 385640,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " A",
+  "startMs": 385960,
+  "endMs": 386347,
+  "timestampMs": 385960,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 386347,
+  "endMs": 386733,
+  "timestampMs": 386347,
+  "confidence": null
+ },
+ {
+  "text": " TAIGER,",
+  "startMs": 386733,
+  "endMs": 387120,
+  "timestampMs": 386733,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " HABÍA",
+  "startMs": 387120,
+  "endMs": 387360,
+  "timestampMs": 387120,
+  "confidence": null
+ },
+ {
+  "text": " SIDO",
+  "startMs": 387360,
+  "endMs": 387720,
+  "timestampMs": 387360,
+  "confidence": null
+ },
+ {
+  "text": " CONDENADO",
+  "startMs": 387720,
+  "endMs": 388230,
+  "timestampMs": 387720,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 388230,
+  "endMs": 388290,
+  "timestampMs": 388230,
+  "confidence": null
+ },
+ {
+  "text": " 60",
+  "startMs": 388290,
+  "endMs": 388540,
+  "timestampMs": 388290,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " AÑOS.",
+  "startMs": 388540,
+  "endMs": 389100,
+  "timestampMs": 388540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " FALSO.",
+  "startMs": 389600,
+  "endMs": 390040,
+  "timestampMs": 389600,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 390660,
+  "endMs": 390820,
+  "timestampMs": 390660,
+  "confidence": null
+ },
+ {
+  "text": " JUICIO",
+  "startMs": 390820,
+  "endMs": 391080,
+  "timestampMs": 390820,
+  "confidence": null
+ },
+ {
+  "text": " NI",
+  "startMs": 391080,
+  "endMs": 391300,
+  "timestampMs": 391080,
+  "confidence": null
+ },
+ {
+  "text": " SIQUIERA",
+  "startMs": 391300,
+  "endMs": 391540,
+  "timestampMs": 391300,
+  "confidence": null
+ },
+ {
+  "text": " HABÍA",
+  "startMs": 391540,
+  "endMs": 391720,
+  "timestampMs": 391540,
+  "confidence": null
+ },
+ {
+  "text": " EMPEZADO.",
+  "startMs": 391720,
+  "endMs": 392360,
+  "timestampMs": 391720,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TERESA",
+  "startMs": 392620,
+  "endMs": 392780,
+  "timestampMs": 392620,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " MARIA",
+  "startMs": 392780,
+  "endMs": 393180,
+  "timestampMs": 392780,
+  "confidence": null
+ },
+ {
+  "text": " PADRON",
+  "startMs": 393180,
+  "endMs": 393620,
+  "timestampMs": 393180,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " LO",
+  "startMs": 393620,
+  "endMs": 393760,
+  "timestampMs": 393620,
+  "confidence": null
+ },
+ {
+  "text": " DENUNCIÓ",
+  "startMs": 393760,
+  "endMs": 394380,
+  "timestampMs": 393760,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 394380,
+  "endMs": 394600,
+  "timestampMs": 394380,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UN",
+  "startMs": 394600,
+  "endMs": 394760,
+  "timestampMs": 394600,
+  "confidence": null
+ },
+ {
+  "text": " REEL",
+  "startMs": 394760,
+  "endMs": 394980,
+  "timestampMs": 394760,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 394980,
+  "endMs": 395280,
+  "timestampMs": 394980,
+  "confidence": null
+ },
+ {
+  "text": " 10",
+  "startMs": 395280,
+  "endMs": 395460,
+  "timestampMs": 395280,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 395460,
+  "endMs": 395600,
+  "timestampMs": 395460,
+  "confidence": null
+ },
+ {
+  "text": " JULIO.",
+  "startMs": 395600,
+  "endMs": 395920,
+  "timestampMs": 395600,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 396260,
+  "endMs": 396420,
+  "timestampMs": 396260,
+  "confidence": null
+ },
+ {
+  "text": " CONFIRMACIÓN",
+  "startMs": 396420,
+  "endMs": 397000,
+  "timestampMs": 396420,
+  "confidence": null
+ },
+ {
+  "text": " LLEGÓ",
+  "startMs": 397000,
+  "endMs": 397400,
+  "timestampMs": 397000,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 397400,
+  "endMs": 397700,
+  "timestampMs": 397400,
+  "confidence": null
+ },
+ {
+  "text": " NOVIEMBRE.",
+  "startMs": 397700,
+  "endMs": 398220,
+  "timestampMs": 397700,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 398520,
+  "endMs": 398620,
+  "timestampMs": 398520,
+  "confidence": null
+ },
+ {
+  "text": " CORTE",
+  "startMs": 398620,
+  "endMs": 398780,
+  "timestampMs": 398620,
+  "confidence": null
+ },
+ {
+  "text": " CRIMINAL",
+  "startMs": 398780,
+  "endMs": 399120,
+  "timestampMs": 398780,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 399120,
+  "endMs": 399360,
+  "timestampMs": 399120,
+  "confidence": null
+ },
+ {
+  "text": " MIAMI-DADE",
+  "startMs": 399360,
+  "endMs": 400020,
+  "timestampMs": 399360,
+  "confidence": null
+ },
+ {
+  "text": " FIJÓ",
+  "startMs": 400020,
+  "endMs": 400560,
+  "timestampMs": 400020,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 400560,
+  "endMs": 401180,
+  "timestampMs": 400560,
+  "confidence": null
+ },
+ {
+  "text": " INICIO",
+  "startMs": 401180,
+  "endMs": 401620,
+  "timestampMs": 401180,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 401620,
+  "endMs": 401800,
+  "timestampMs": 401620,
+  "confidence": null
+ },
+ {
+  "text": " JUICIO",
+  "startMs": 401800,
+  "endMs": 402140,
+  "timestampMs": 401800,
+  "confidence": null
+ },
+ {
+  "text": " PARA",
+  "startMs": 402140,
+  "endMs": 402360,
+  "timestampMs": 402140,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 402360,
+  "endMs": 402480,
+  "timestampMs": 402360,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " 1",
+  "startMs": 402480,
+  "endMs": 402680,
+  "timestampMs": 402480,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DE",
+  "startMs": 402680,
+  "endMs": 402860,
+  "timestampMs": 402680,
+  "confidence": null
+ },
+ {
+  "text": " MARZO",
+  "startMs": 402860,
+  "endMs": 403140,
+  "timestampMs": 402860,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 403140,
+  "endMs": 403240,
+  "timestampMs": 403140,
+  "confidence": null
+ },
+ {
+  "text": " 2027.",
+  "startMs": 403240,
+  "endMs": 404020,
+  "timestampMs": 403240,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ES",
+  "startMs": 404460,
+  "endMs": 404640,
+  "timestampMs": 404460,
+  "confidence": null
+ },
+ {
+  "text": " DECIR:",
+  "startMs": 404640,
+  "endMs": 404980,
+  "timestampMs": 404640,
+  "confidence": null
+ },
+ {
+  "text": " CUANDO",
+  "startMs": 405450,
+  "endMs": 405580,
+  "timestampMs": 405450,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 405580,
+  "endMs": 405760,
+  "timestampMs": 405580,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 405760,
+  "endMs": 405940,
+  "timestampMs": 405760,
+  "confidence": null
+ },
+ {
+  "text": " PUBLICÓ",
+  "startMs": 405940,
+  "endMs": 406500,
+  "timestampMs": 405940,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 406500,
+  "endMs": 406580,
+  "timestampMs": 406500,
+  "confidence": null
+ },
+ {
+  "text": " CONDENA,",
+  "startMs": 406580,
+  "endMs": 407020,
+  "timestampMs": 406580,
+  "confidence": null
+ },
+ {
+  "text": " FALTABAN",
+  "startMs": 407020,
+  "endMs": 407500,
+  "timestampMs": 407020,
+  "confidence": null
+ },
+ {
+  "text": " OCHO",
+  "startMs": 407500,
+  "endMs": 407760,
+  "timestampMs": 407500,
+  "confidence": null
+ },
+ {
+  "text": " MESES",
+  "startMs": 407760,
+  "endMs": 408060,
+  "timestampMs": 407760,
+  "confidence": null
+ },
+ {
+  "text": " PARA",
+  "startMs": 408060,
+  "endMs": 408340,
+  "timestampMs": 408060,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " QUE",
+  "startMs": 408340,
+  "endMs": 408460,
+  "timestampMs": 408340,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 408460,
+  "endMs": 408560,
+  "timestampMs": 408460,
+  "confidence": null
+ },
+ {
+  "text": " JUICIO",
+  "startMs": 408560,
+  "endMs": 408840,
+  "timestampMs": 408560,
+  "confidence": null
+ },
+ {
+  "text": " EMPEZARA.",
+  "startMs": 408840,
+  "endMs": 409480,
+  "timestampMs": 408840,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NINGUNA",
+  "startMs": 410020,
+  "endMs": 410580,
+  "timestampMs": 410020,
+  "confidence": null
+ },
+ {
+  "text": " CONDENA",
+  "startMs": 410580,
+  "endMs": 410980,
+  "timestampMs": 410580,
+  "confidence": null
+ },
+ {
+  "text": " EXISTÍA",
+  "startMs": 410980,
+  "endMs": 411440,
+  "timestampMs": 410980,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 411440,
+  "endMs": 411540,
+  "timestampMs": 411440,
+  "confidence": null
+ },
+ {
+  "text": " JULIO",
+  "startMs": 411540,
+  "endMs": 411840,
+  "timestampMs": 411540,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 411840,
+  "endMs": 411940,
+  "timestampMs": 411840,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " 2026.",
+  "startMs": 411940,
+  "endMs": 412660,
+  "timestampMs": 411940,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 413160,
+  "endMs": 413240,
+  "timestampMs": 413160,
+  "confidence": null
+ },
+ {
+  "text": " NINGUNA",
+  "startMs": 413240,
+  "endMs": 413540,
+  "timestampMs": 413240,
+  "confidence": null
+ },
+ {
+  "text": " EXISTE",
+  "startMs": 413540,
+  "endMs": 413900,
+  "timestampMs": 413540,
+  "confidence": null
+ },
+ {
+  "text": " HOY.",
+  "startMs": 413900,
+  "endMs": 414180,
+  "timestampMs": 413900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 414640,
+  "endMs": 414780,
+  "timestampMs": 414640,
+  "confidence": null
+ },
+ {
+  "text": " ACUSADO",
+  "startMs": 414780,
+  "endMs": 415160,
+  "timestampMs": 414780,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 415160,
+  "endMs": 415340,
+  "timestampMs": 415160,
+  "confidence": null
+ },
+ {
+  "text": " DECLARÓ",
+  "startMs": 415340,
+  "endMs": 415720,
+  "timestampMs": 415340,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 415720,
+  "endMs": 415980,
+  "timestampMs": 415720,
+  "confidence": null
+ },
+ {
+  "text": " CULPABLE",
+  "startMs": 415980,
+  "endMs": 416520,
+  "timestampMs": 415980,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 416520,
+  "endMs": 416700,
+  "timestampMs": 416520,
+  "confidence": null
+ },
+ {
+  "text": " PERMANECE",
+  "startMs": 416700,
+  "endMs": 417140,
+  "timestampMs": 416700,
+  "confidence": null
+ },
+ {
+  "text": " DETENIDO",
+  "startMs": 417140,
+  "endMs": 417580,
+  "timestampMs": 417140,
+  "confidence": null
+ },
+ {
+  "text": " SIN",
+  "startMs": 417580,
+  "endMs": 417800,
+  "timestampMs": 417580,
+  "confidence": null
+ },
+ {
+  "text": " FIANZA.",
+  "startMs": 417800,
+  "endMs": 418300,
+  "timestampMs": 417800,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 419140,
+  "endMs": 419440,
+  "timestampMs": 419140,
+  "confidence": null
+ },
+ {
+  "text": " CONDENA",
+  "startMs": 419440,
+  "endMs": 419760,
+  "timestampMs": 419440,
+  "confidence": null
+ },
+ {
+  "text": " ERA",
+  "startMs": 419760,
+  "endMs": 419860,
+  "timestampMs": 419760,
+  "confidence": null
+ },
+ {
+  "text": " INVENTADA.",
+  "startMs": 419860,
+  "endMs": 420520,
+  "timestampMs": 419860,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 420520,
+  "endMs": 420800,
+  "timestampMs": 420520,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 420800,
+  "endMs": 420900,
+  "timestampMs": 420800,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 420900,
+  "endMs": 421100,
+  "timestampMs": 420900,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 421100,
+  "endMs": 421280,
+  "timestampMs": 421100,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 421280,
+  "endMs": 421360,
+  "timestampMs": 421280,
+  "confidence": null
+ },
+ {
+  "text": " INVENTÓ",
+  "startMs": 421360,
+  "endMs": 421840,
+  "timestampMs": 421360,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LLEVABA",
+  "startMs": 421840,
+  "endMs": 422120,
+  "timestampMs": 421840,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 422120,
+  "endMs": 422260,
+  "timestampMs": 422120,
+  "confidence": null
+ },
+ {
+  "text": " NOMBRE",
+  "startMs": 422260,
+  "endMs": 422500,
+  "timestampMs": 422260,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 422500,
+  "endMs": 422700,
+  "timestampMs": 422500,
+  "confidence": null
+ },
+ {
+  "text": " ARTISTA",
+  "startMs": 422700,
+  "endMs": 423280,
+  "timestampMs": 422700,
+  "confidence": null
+ },
+ {
+  "text": " AL",
+  "startMs": 423280,
+  "endMs": 423600,
+  "timestampMs": 423280,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " QUE",
+  "startMs": 423600,
+  "endMs": 423720,
+  "timestampMs": 423600,
+  "confidence": null
+ },
+ {
+  "text": " SUPUESTAMENTE",
+  "startMs": 423720,
+  "endMs": 424420,
+  "timestampMs": 423720,
+  "confidence": null
+ },
+ {
+  "text": " HOMENAJEABA.",
+  "startMs": 424420,
+  "endMs": 425340,
+  "timestampMs": 424420,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ¿POR",
+  "startMs": 426100,
+  "endMs": 426700,
+  "timestampMs": 426100,
+  "confidence": null
+ },
+ {
+  "text": " QUÉ",
+  "startMs": 426700,
+  "endMs": 426860,
+  "timestampMs": 426700,
+  "confidence": null
+ },
+ {
+  "text": " FUNCIONÓ?",
+  "startMs": 426860,
+  "endMs": 427420,
+  "timestampMs": 426860,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PORQUE",
+  "startMs": 427960,
+  "endMs": 428190,
+  "timestampMs": 427960,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 428190,
+  "endMs": 428250,
+  "timestampMs": 428190,
+  "confidence": null
+ },
+ {
+  "text": " BULO",
+  "startMs": 428250,
+  "endMs": 428680,
+  "timestampMs": 428250,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 428680,
+  "endMs": 428860,
+  "timestampMs": 428680,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 428860,
+  "endMs": 428980,
+  "timestampMs": 428860,
+  "confidence": null
+ },
+ {
+  "text": " COMPARTE",
+  "startMs": 428980,
+  "endMs": 429400,
+  "timestampMs": 428980,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PORQUE",
+  "startMs": 429400,
+  "endMs": 429560,
+  "timestampMs": 429400,
+  "confidence": null
+ },
+ {
+  "text": " SEA",
+  "startMs": 429560,
+  "endMs": 429820,
+  "timestampMs": 429560,
+  "confidence": null
+ },
+ {
+  "text": " CREÍBLE.",
+  "startMs": 429820,
+  "endMs": 430340,
+  "timestampMs": 429820,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SE",
+  "startMs": 430340,
+  "endMs": 430660,
+  "timestampMs": 430340,
+  "confidence": null
+ },
+ {
+  "text": " COMPARTE",
+  "startMs": 430660,
+  "endMs": 431200,
+  "timestampMs": 430660,
+  "confidence": null
+ },
+ {
+  "text": " PORQUE",
+  "startMs": 431200,
+  "endMs": 431420,
+  "timestampMs": 431200,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 431420,
+  "endMs": 431620,
+  "timestampMs": 431420,
+  "confidence": null
+ },
+ {
+  "text": " DESEABLE.",
+  "startMs": 431620,
+  "endMs": 432260,
+  "timestampMs": 431620,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MESSI",
+  "startMs": 432620,
+  "endMs": 432850,
+  "timestampMs": 432620,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " POR",
+  "startMs": 432850,
+  "endMs": 432980,
+  "timestampMs": 432850,
+  "confidence": null
+ },
+ {
+  "text": " FIN",
+  "startMs": 432980,
+  "endMs": 433260,
+  "timestampMs": 432980,
+  "confidence": null
+ },
+ {
+  "text": " HABLANDO",
+  "startMs": 433260,
+  "endMs": 433440,
+  "timestampMs": 433260,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 433440,
+  "endMs": 433760,
+  "timestampMs": 433440,
+  "confidence": null
+ },
+ {
+  "text": " CUBA.",
+  "startMs": 433760,
+  "endMs": 434040,
+  "timestampMs": 433760,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " RONALDO",
+  "startMs": 434440,
+  "endMs": 434720,
+  "timestampMs": 434440,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " DONANDO",
+  "startMs": 434720,
+  "endMs": 435280,
+  "timestampMs": 434720,
+  "confidence": null
+ },
+ {
+  "text": " PANELES",
+  "startMs": 435280,
+  "endMs": 435720,
+  "timestampMs": 435280,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 435720,
+  "endMs": 435820,
+  "timestampMs": 435720,
+  "confidence": null
+ },
+ {
+  "text": " MEDIO",
+  "startMs": 435820,
+  "endMs": 435980,
+  "timestampMs": 435820,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 435980,
+  "endMs": 436160,
+  "timestampMs": 435980,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " APAGONES",
+  "startMs": 436160,
+  "endMs": 436480,
+  "timestampMs": 436160,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 436480,
+  "endMs": 436640,
+  "timestampMs": 436480,
+  "confidence": null
+ },
+ {
+  "text": " 30",
+  "startMs": 436640,
+  "endMs": 436920,
+  "timestampMs": 436640,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " HORAS.",
+  "startMs": 436920,
+  "endMs": 437220,
+  "timestampMs": 436920,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 437780,
+  "endMs": 437980,
+  "timestampMs": 437780,
+  "confidence": null
+ },
+ {
+  "text": " ASESINO",
+  "startMs": 437980,
+  "endMs": 438360,
+  "timestampMs": 437980,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 438360,
+  "endMs": 438500,
+  "timestampMs": 438360,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 438500,
+  "endMs": 438640,
+  "timestampMs": 438500,
+  "confidence": null
+ },
+ {
+  "text": " TAIGER",
+  "startMs": 438640,
+  "endMs": 438780,
+  "timestampMs": 438640,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " YA",
+  "startMs": 438780,
+  "endMs": 439020,
+  "timestampMs": 438780,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CONDENADO.",
+  "startMs": 439020,
+  "endMs": 439560,
+  "timestampMs": 439020,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CADA",
+  "startMs": 439760,
+  "endMs": 439940,
+  "timestampMs": 439760,
+  "confidence": null
+ },
+ {
+  "text": " CASO",
+  "startMs": 439940,
+  "endMs": 440220,
+  "timestampMs": 439940,
+  "confidence": null
+ },
+ {
+  "text": " DECÍA",
+  "startMs": 440220,
+  "endMs": 440600,
+  "timestampMs": 440220,
+  "confidence": null
+ },
+ {
+  "text": " LO",
+  "startMs": 440600,
+  "endMs": 440760,
+  "timestampMs": 440600,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 440760,
+  "endMs": 440840,
+  "timestampMs": 440760,
+  "confidence": null
+ },
+ {
+  "text": " SU",
+  "startMs": 440840,
+  "endMs": 441040,
+  "timestampMs": 440840,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PÚBLICO",
+  "startMs": 441040,
+  "endMs": 441440,
+  "timestampMs": 441040,
+  "confidence": null
+ },
+ {
+  "text": " QUERÍA",
+  "startMs": 441440,
+  "endMs": 441920,
+  "timestampMs": 441440,
+  "confidence": null
+ },
+ {
+  "text": " OÍR.",
+  "startMs": 441920,
+  "endMs": 442460,
+  "timestampMs": 441920,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 443100,
+  "endMs": 443340,
+  "timestampMs": 443100,
+  "confidence": null
+ },
+ {
+  "text": " PORQUE",
+  "startMs": 443340,
+  "endMs": 443500,
+  "timestampMs": 443340,
+  "confidence": null
+ },
+ {
+  "text": " TENÍA",
+  "startMs": 443500,
+  "endMs": 443760,
+  "timestampMs": 443500,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 443760,
+  "endMs": 443900,
+  "timestampMs": 443760,
+  "confidence": null
+ },
+ {
+  "text": " ESCUDO:",
+  "startMs": 443900,
+  "endMs": 444340,
+  "timestampMs": 443900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 444340,
+  "endMs": 444660,
+  "timestampMs": 444340,
+  "confidence": null
+ },
+ {
+  "text": " NOMBRE",
+  "startMs": 444660,
+  "endMs": 444880,
+  "timestampMs": 444660,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 444880,
+  "endMs": 445060,
+  "timestampMs": 444880,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 445060,
+  "endMs": 445160,
+  "timestampMs": 445060,
+  "confidence": null
+ },
+ {
+  "text": " ARTISTA",
+  "startMs": 445160,
+  "endMs": 445560,
+  "timestampMs": 445160,
+  "confidence": null
+ },
+ {
+  "text": " MUERTO,",
+  "startMs": 445560,
+  "endMs": 445980,
+  "timestampMs": 445560,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " AL",
+  "startMs": 445980,
+  "endMs": 446260,
+  "timestampMs": 445980,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 446260,
+  "endMs": 446400,
+  "timestampMs": 446260,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 446400,
+  "endMs": 446540,
+  "timestampMs": 446400,
+  "confidence": null
+ },
+ {
+  "text": " PÚBLICO",
+  "startMs": 446540,
+  "endMs": 446800,
+  "timestampMs": 446540,
+  "confidence": null
+ },
+ {
+  "text": " LE",
+  "startMs": 446800,
+  "endMs": 447060,
+  "timestampMs": 446800,
+  "confidence": null
+ },
+ {
+  "text": " PRESTABA",
+  "startMs": 447060,
+  "endMs": 447520,
+  "timestampMs": 447060,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SU",
+  "startMs": 447520,
+  "endMs": 447700,
+  "timestampMs": 447520,
+  "confidence": null
+ },
+ {
+  "text": " CONFIANZA.",
+  "startMs": 447700,
+  "endMs": 448260,
+  "timestampMs": 447700,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 448260,
+  "endMs": 448460,
+  "timestampMs": 448260,
+  "confidence": null
+ },
+ {
+  "text": " PORQUE",
+  "startMs": 448460,
+  "endMs": 448670,
+  "timestampMs": 448460,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 448670,
+  "endMs": 448730,
+  "timestampMs": 448670,
+  "confidence": null
+ },
+ {
+  "text": " DESMENTIDO",
+  "startMs": 448730,
+  "endMs": 449440,
+  "timestampMs": 448730,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " NO",
+  "startMs": 449440,
+  "endMs": 449700,
+  "timestampMs": 449440,
+  "confidence": null
+ },
+ {
+  "text": " LLEGA",
+  "startMs": 449700,
+  "endMs": 450120,
+  "timestampMs": 449700,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " AL",
+  "startMs": 450120,
+  "endMs": 450540,
+  "timestampMs": 450120,
+  "confidence": null
+ },
+ {
+  "text": " FEED",
+  "startMs": 450540,
+  "endMs": 450780,
+  "timestampMs": 450540,
+  "confidence": null
+ },
+ {
+  "text": " DONDE",
+  "startMs": 450780,
+  "endMs": 451000,
+  "timestampMs": 450780,
+  "confidence": null
+ },
+ {
+  "text": " CIRCULA",
+  "startMs": 451000,
+  "endMs": 451460,
+  "timestampMs": 451000,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 451460,
+  "endMs": 451580,
+  "timestampMs": 451460,
+  "confidence": null
+ },
+ {
+  "text": " BULO.",
+  "startMs": 451580,
+  "endMs": 452020,
+  "timestampMs": 451580,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ELTOQUE",
+  "startMs": 452230,
+  "endMs": 452540,
+  "timestampMs": 452230,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " VERIFICÓ",
+  "startMs": 452540,
+  "endMs": 453020,
+  "timestampMs": 452540,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 453020,
+  "endMs": 453120,
+  "timestampMs": 453020,
+  "confidence": null
+ },
+ {
+  "text": " CASO",
+  "startMs": 453120,
+  "endMs": 453340,
+  "timestampMs": 453120,
+  "confidence": null
+ },
+ {
+  "text": " MESSI",
+  "startMs": 453540,
+  "endMs": 453700,
+  "timestampMs": 453540,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " AL",
+  "startMs": 453700,
+  "endMs": 453920,
+  "timestampMs": 453700,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DÍA",
+  "startMs": 453920,
+  "endMs": 454020,
+  "timestampMs": 453920,
+  "confidence": null
+ },
+ {
+  "text": " SIGUIENTE.",
+  "startMs": 454020,
+  "endMs": 454440,
+  "timestampMs": 454020,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PERO",
+  "startMs": 454940,
+  "endMs": 455220,
+  "timestampMs": 454940,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 455220,
+  "endMs": 455360,
+  "timestampMs": 455220,
+  "confidence": null
+ },
+ {
+  "text": " RÉPLICA",
+  "startMs": 455360,
+  "endMs": 455820,
+  "timestampMs": 455360,
+  "confidence": null
+ },
+ {
+  "text": " DEL",
+  "startMs": 455820,
+  "endMs": 456010,
+  "timestampMs": 455820,
+  "confidence": null
+ },
+ {
+  "text": " POST",
+  "startMs": 456010,
+  "endMs": 456200,
+  "timestampMs": 456010,
+  "confidence": null
+ },
+ {
+  "text": " SIGUE",
+  "startMs": 456200,
+  "endMs": 456620,
+  "timestampMs": 456200,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 456620,
+  "endMs": 456740,
+  "timestampMs": 456620,
+  "confidence": null
+ },
+ {
+  "text": " VIVO",
+  "startMs": 456740,
+  "endMs": 456900,
+  "timestampMs": 456740,
+  "confidence": null
+ },
+ {
+  "text": " OCHO",
+  "startMs": 456900,
+  "endMs": 457120,
+  "timestampMs": 456900,
+  "confidence": null
+ },
+ {
+  "text": " MESES",
+  "startMs": 457120,
+  "endMs": 457360,
+  "timestampMs": 457120,
+  "confidence": null
+ },
+ {
+  "text": " DESPUÉS,",
+  "startMs": 457360,
+  "endMs": 457700,
+  "timestampMs": 457360,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CON",
+  "startMs": 457700,
+  "endMs": 458100,
+  "timestampMs": 457700,
+  "confidence": null
+ },
+ {
+  "text": " CIENTOS",
+  "startMs": 458100,
+  "endMs": 458360,
+  "timestampMs": 458100,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 458360,
+  "endMs": 458540,
+  "timestampMs": 458360,
+  "confidence": null
+ },
+ {
+  "text": " COMENTARIOS.",
+  "startMs": 458540,
+  "endMs": 459040,
+  "timestampMs": 458540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 459840,
+  "endMs": 460020,
+  "timestampMs": 459840,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 460020,
+  "endMs": 460100,
+  "timestampMs": 460020,
+  "confidence": null
+ },
+ {
+  "text": " INTELIGENCIA",
+  "startMs": 460100,
+  "endMs": 460580,
+  "timestampMs": 460100,
+  "confidence": null
+ },
+ {
+  "text": " ARTIFICIAL",
+  "startMs": 460580,
+  "endMs": 461100,
+  "timestampMs": 460580,
+  "confidence": null
+ },
+ {
+  "text": " CAMBIÓ",
+  "startMs": 461100,
+  "endMs": 461500,
+  "timestampMs": 461100,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 461500,
+  "endMs": 461620,
+  "timestampMs": 461500,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " COSTO",
+  "startMs": 461620,
+  "endMs": 461940,
+  "timestampMs": 461620,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 461940,
+  "endMs": 462040,
+  "timestampMs": 461940,
+  "confidence": null
+ },
+ {
+  "text": " FABRICAR:",
+  "startMs": 462040,
+  "endMs": 462520,
+  "timestampMs": 462040,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UNA",
+  "startMs": 462720,
+  "endMs": 462900,
+  "timestampMs": 462720,
+  "confidence": null
+ },
+ {
+  "text": " FOTO",
+  "startMs": 462900,
+  "endMs": 463100,
+  "timestampMs": 462900,
+  "confidence": null
+ },
+ {
+  "text": " REAL",
+  "startMs": 463100,
+  "endMs": 463520,
+  "timestampMs": 463100,
+  "confidence": null
+ },
+ {
+  "text": " MÁS",
+  "startMs": 463520,
+  "endMs": 463880,
+  "timestampMs": 463520,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 464100,
+  "endMs": 464240,
+  "timestampMs": 464100,
+  "confidence": null
+ },
+ {
+  "text": " BANDERA",
+  "startMs": 464240,
+  "endMs": 464580,
+  "timestampMs": 464240,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " AÑADIDA,",
+  "startMs": 464580,
+  "endMs": 465140,
+  "timestampMs": 464580,
+  "confidence": null
+ },
+ {
+  "text": " UNA",
+  "startMs": 465280,
+  "endMs": 465380,
+  "timestampMs": 465280,
+  "confidence": null
+ },
+ {
+  "text": " IMAGEN",
+  "startMs": 465380,
+  "endMs": 465700,
+  "timestampMs": 465380,
+  "confidence": null
+ },
+ {
+  "text": " GENERADA",
+  "startMs": 465700,
+  "endMs": 466220,
+  "timestampMs": 465700,
+  "confidence": null
+ },
+ {
+  "text": " ENTERA.",
+  "startMs": 466220,
+  "endMs": 466660,
+  "timestampMs": 466220,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ANTES",
+  "startMs": 467140,
+  "endMs": 467440,
+  "timestampMs": 467140,
+  "confidence": null
+ },
+ {
+  "text": " COSTABA",
+  "startMs": 467440,
+  "endMs": 467860,
+  "timestampMs": 467440,
+  "confidence": null
+ },
+ {
+  "text": " TIEMPO",
+  "startMs": 467860,
+  "endMs": 468040,
+  "timestampMs": 467860,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 468040,
+  "endMs": 468220,
+  "timestampMs": 468040,
+  "confidence": null
+ },
+ {
+  "text": " DINERO.",
+  "startMs": 468220,
+  "endMs": 468500,
+  "timestampMs": 468220,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " AHORA",
+  "startMs": 468780,
+  "endMs": 468920,
+  "timestampMs": 468780,
+  "confidence": null
+ },
+ {
+  "text": " CUESTA",
+  "startMs": 468920,
+  "endMs": 469360,
+  "timestampMs": 468920,
+  "confidence": null
+ },
+ {
+  "text": " SEGUNDOS.",
+  "startMs": 469360,
+  "endMs": 469780,
+  "timestampMs": 469360,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " POR",
+  "startMs": 470220,
+  "endMs": 470380,
+  "timestampMs": 470220,
+  "confidence": null
+ },
+ {
+  "text": " ESO,",
+  "startMs": 470380,
+  "endMs": 470640,
+  "timestampMs": 470380,
+  "confidence": null
+ },
+ {
+  "text": " TRES",
+  "startMs": 470640,
+  "endMs": 471000,
+  "timestampMs": 470640,
+  "confidence": null
+ },
+ {
+  "text": " COMPROBACIONES.",
+  "startMs": 471000,
+  "endMs": 471680,
+  "timestampMs": 471000,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TARDAN",
+  "startMs": 472120,
+  "endMs": 472420,
+  "timestampMs": 472120,
+  "confidence": null
+ },
+ {
+  "text": " MENOS",
+  "startMs": 472420,
+  "endMs": 472660,
+  "timestampMs": 472420,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 472660,
+  "endMs": 472820,
+  "timestampMs": 472660,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 472820,
+  "endMs": 472900,
+  "timestampMs": 472820,
+  "confidence": null
+ },
+ {
+  "text": " MINUTO.",
+  "startMs": 472900,
+  "endMs": 473300,
+  "timestampMs": 472900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PRIMERA:",
+  "startMs": 473380,
+  "endMs": 474840,
+  "timestampMs": 473380,
+  "confidence": null
+ },
+ {
+  "text": " BÚSQUEDA",
+  "startMs": 474900,
+  "endMs": 475200,
+  "timestampMs": 474900,
+  "confidence": null
+ },
+ {
+  "text": " INVERSA",
+  "startMs": 475200,
+  "endMs": 475720,
+  "timestampMs": 475200,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 475720,
+  "endMs": 475840,
+  "timestampMs": 475720,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 475840,
+  "endMs": 475900,
+  "timestampMs": 475840,
+  "confidence": null
+ },
+ {
+  "text": " IMAGEN.",
+  "startMs": 475900,
+  "endMs": 476160,
+  "timestampMs": 475900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SUBE",
+  "startMs": 476640,
+  "endMs": 476920,
+  "timestampMs": 476640,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 476920,
+  "endMs": 477020,
+  "timestampMs": 476920,
+  "confidence": null
+ },
+ {
+  "text": " FOTO",
+  "startMs": 477020,
+  "endMs": 477280,
+  "timestampMs": 477020,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 477280,
+  "endMs": 477480,
+  "timestampMs": 477280,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 477480,
+  "endMs": 477580,
+  "timestampMs": 477480,
+  "confidence": null
+ },
+ {
+  "text": " BUSCADOR",
+  "startMs": 477580,
+  "endMs": 477900,
+  "timestampMs": 477580,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DE",
+  "startMs": 477900,
+  "endMs": 478040,
+  "timestampMs": 477900,
+  "confidence": null
+ },
+ {
+  "text": " IMÁGENES",
+  "startMs": 478040,
+  "endMs": 478360,
+  "timestampMs": 478040,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 478360,
+  "endMs": 478680,
+  "timestampMs": 478360,
+  "confidence": null
+ },
+ {
+  "text": " MIRA",
+  "startMs": 478680,
+  "endMs": 478860,
+  "timestampMs": 478680,
+  "confidence": null
+ },
+ {
+  "text": " CUÁNDO",
+  "startMs": 478860,
+  "endMs": 479120,
+  "timestampMs": 478860,
+  "confidence": null
+ },
+ {
+  "text": " APARECIÓ",
+  "startMs": 479120,
+  "endMs": 479660,
+  "timestampMs": 479120,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " POR",
+  "startMs": 479660,
+  "endMs": 479800,
+  "timestampMs": 479660,
+  "confidence": null
+ },
+ {
+  "text": " PRIMERA",
+  "startMs": 479800,
+  "endMs": 480080,
+  "timestampMs": 479800,
+  "confidence": null
+ },
+ {
+  "text": " VEZ.",
+  "startMs": 480080,
+  "endMs": 480360,
+  "timestampMs": 480080,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 481020,
+  "endMs": 481260,
+  "timestampMs": 481020,
+  "confidence": null
+ },
+ {
+  "text": " FOTO",
+  "startMs": 481260,
+  "endMs": 481460,
+  "timestampMs": 481260,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 481460,
+  "endMs": 481640,
+  "timestampMs": 481460,
+  "confidence": null
+ },
+ {
+  "text": " MESSI",
+  "startMs": 481640,
+  "endMs": 481760,
+  "timestampMs": 481640,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " CIRCULABA",
+  "startMs": 481760,
+  "endMs": 482420,
+  "timestampMs": 481760,
+  "confidence": null
+ },
+ {
+  "text": " DESDE",
+  "startMs": 482420,
+  "endMs": 482600,
+  "timestampMs": 482420,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " 2022,",
+  "startMs": 482600,
+  "endMs": 483220,
+  "timestampMs": 482600,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " SIN",
+  "startMs": 483220,
+  "endMs": 483700,
+  "timestampMs": 483220,
+  "confidence": null
+ },
+ {
+  "text": " BANDERA.",
+  "startMs": 483700,
+  "endMs": 484180,
+  "timestampMs": 483700,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UN",
+  "startMs": 484180,
+  "endMs": 484520,
+  "timestampMs": 484180,
+  "confidence": null
+ },
+ {
+  "text": " MINUTO",
+  "startMs": 484520,
+  "endMs": 485000,
+  "timestampMs": 484520,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 485000,
+  "endMs": 485400,
+  "timestampMs": 485000,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 485400,
+  "endMs": 485520,
+  "timestampMs": 485400,
+  "confidence": null
+ },
+ {
+  "text": " CASO",
+  "startMs": 485520,
+  "endMs": 485760,
+  "timestampMs": 485520,
+  "confidence": null
+ },
+ {
+  "text": " SE",
+  "startMs": 485760,
+  "endMs": 485980,
+  "timestampMs": 485760,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " CAE.",
+  "startMs": 485980,
+  "endMs": 486240,
+  "timestampMs": 485980,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SEGUNDA:",
+  "startMs": 487040,
+  "endMs": 487580,
+  "timestampMs": 487040,
+  "confidence": null
+ },
+ {
+  "text": " REVISA",
+  "startMs": 488200,
+  "endMs": 488640,
+  "timestampMs": 488200,
+  "confidence": null
+ },
+ {
+  "text": " LOS",
+  "startMs": 488640,
+  "endMs": 488780,
+  "timestampMs": 488640,
+  "confidence": null
+ },
+ {
+  "text": " CANALES",
+  "startMs": 488780,
+  "endMs": 489100,
+  "timestampMs": 488780,
+  "confidence": null
+ },
+ {
+  "text": " OFICIALES",
+  "startMs": 489100,
+  "endMs": 489740,
+  "timestampMs": 489100,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 489740,
+  "endMs": 489800,
+  "timestampMs": 489740,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 489800,
+  "endMs": 489900,
+  "timestampMs": 489800,
+  "confidence": null
+ },
+ {
+  "text": " FIGURA.",
+  "startMs": 489900,
+  "endMs": 490200,
+  "timestampMs": 489900,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SI",
+  "startMs": 490560,
+  "endMs": 490680,
+  "timestampMs": 490560,
+  "confidence": null
+ },
+ {
+  "text": " MESSI",
+  "startMs": 490680,
+  "endMs": 490880,
+  "timestampMs": 490680,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " O",
+  "startMs": 490880,
+  "endMs": 491040,
+  "timestampMs": 490880,
+  "confidence": null
+ },
+ {
+  "text": " RONALDO",
+  "startMs": 491040,
+  "endMs": 491420,
+  "timestampMs": 491040,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " HUBIERAN",
+  "startMs": 491420,
+  "endMs": 491880,
+  "timestampMs": 491420,
+  "confidence": null
+ },
+ {
+  "text": " DICHO",
+  "startMs": 491880,
+  "endMs": 492260,
+  "timestampMs": 491880,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ALGO",
+  "startMs": 492260,
+  "endMs": 492520,
+  "timestampMs": 492260,
+  "confidence": null
+ },
+ {
+  "text": " ASÍ,",
+  "startMs": 492520,
+  "endMs": 492780,
+  "timestampMs": 492520,
+  "confidence": null
+ },
+ {
+  "text": " ESTARÍA",
+  "startMs": 492780,
+  "endMs": 493070,
+  "timestampMs": 492780,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 493070,
+  "endMs": 493360,
+  "timestampMs": 493070,
+  "confidence": null
+ },
+ {
+  "text": " SUS",
+  "startMs": 493360,
+  "endMs": 493600,
+  "timestampMs": 493360,
+  "confidence": null
+ },
+ {
+  "text": " CUENTAS.",
+  "startMs": 493600,
+  "endMs": 494120,
+  "timestampMs": 493600,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 494380,
+  "endMs": 494440,
+  "timestampMs": 494380,
+  "confidence": null
+ },
+ {
+  "text": " ESTABA",
+  "startMs": 494440,
+  "endMs": 495740,
+  "timestampMs": 494440,
+  "confidence": null
+ },
+ {
+  "text": " EN",
+  "startMs": 495740,
+  "endMs": 495920,
+  "timestampMs": 495740,
+  "confidence": null
+ },
+ {
+  "text": " NINGUNA.",
+  "startMs": 495920,
+  "endMs": 496240,
+  "timestampMs": 495920,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EL",
+  "startMs": 496700,
+  "endMs": 496820,
+  "timestampMs": 496700,
+  "confidence": null
+ },
+ {
+  "text": " SILENCIO",
+  "startMs": 496820,
+  "endMs": 497140,
+  "timestampMs": 496820,
+  "confidence": null
+ },
+ {
+  "text": " OFICIAL",
+  "startMs": 497140,
+  "endMs": 497620,
+  "timestampMs": 497140,
+  "confidence": null
+ },
+ {
+  "text": " TAMBIÉN",
+  "startMs": 497620,
+  "endMs": 498160,
+  "timestampMs": 497620,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 498160,
+  "endMs": 498340,
+  "timestampMs": 498160,
+  "confidence": null
+ },
+ {
+  "text": " UN",
+  "startMs": 498340,
+  "endMs": 498440,
+  "timestampMs": 498340,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " DATO.",
+  "startMs": 498440,
+  "endMs": 498660,
+  "timestampMs": 498440,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " TERCERA:",
+  "startMs": 499660,
+  "endMs": 500080,
+  "timestampMs": 499660,
+  "confidence": null
+ },
+ {
+  "text": " BUSCA",
+  "startMs": 500480,
+  "endMs": 500580,
+  "timestampMs": 500480,
+  "confidence": null
+ },
+ {
+  "text": " LAS",
+  "startMs": 500580,
+  "endMs": 500760,
+  "timestampMs": 500580,
+  "confidence": null
+ },
+ {
+  "text": " SEÑALES",
+  "startMs": 500760,
+  "endMs": 501120,
+  "timestampMs": 500760,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 501120,
+  "endMs": 501240,
+  "timestampMs": 501120,
+  "confidence": null
+ },
+ {
+  "text": " INTELIGENCIA",
+  "startMs": 501240,
+  "endMs": 501740,
+  "timestampMs": 501240,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ARTIFICIAL.",
+  "startMs": 501740,
+  "endMs": 502160,
+  "timestampMs": 501740,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 502930,
+  "endMs": 503020,
+  "timestampMs": 502930,
+  "confidence": null
+ },
+ {
+  "text": " FOTO",
+  "startMs": 503020,
+  "endMs": 503200,
+  "timestampMs": 503020,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 503200,
+  "endMs": 503420,
+  "timestampMs": 503200,
+  "confidence": null
+ },
+ {
+  "text": " MESSI",
+  "startMs": 503420,
+  "endMs": 503560,
+  "timestampMs": 503420,
+  "confidence": null,
+  "kw": true
+ },
+ {
+  "text": " LLEVABA",
+  "startMs": 503560,
+  "endMs": 503940,
+  "timestampMs": 503560,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 503940,
+  "endMs": 504100,
+  "timestampMs": 503940,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " MARCA",
+  "startMs": 504100,
+  "endMs": 504300,
+  "timestampMs": 504100,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 504300,
+  "endMs": 504520,
+  "timestampMs": 504300,
+  "confidence": null
+ },
+ {
+  "text": " AGUA",
+  "startMs": 504520,
+  "endMs": 504660,
+  "timestampMs": 504520,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 504660,
+  "endMs": 504860,
+  "timestampMs": 504660,
+  "confidence": null
+ },
+ {
+  "text": " GEMINI.",
+  "startMs": 504860,
+  "endMs": 505380,
+  "timestampMs": 504860,
+  "confidence": null,
+  "kw": true,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ESTABA",
+  "startMs": 505380,
+  "endMs": 505680,
+  "timestampMs": 505380,
+  "confidence": null
+ },
+ {
+  "text": " AHÍ,",
+  "startMs": 505680,
+  "endMs": 505920,
+  "timestampMs": 505680,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 505920,
+  "endMs": 506220,
+  "timestampMs": 505920,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 506220,
+  "endMs": 506280,
+  "timestampMs": 506220,
+  "confidence": null
+ },
+ {
+  "text": " VISTA,",
+  "startMs": 506280,
+  "endMs": 506580,
+  "timestampMs": 506280,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PARA",
+  "startMs": 506580,
+  "endMs": 507060,
+  "timestampMs": 506580,
+  "confidence": null
+ },
+ {
+  "text": " QUIEN",
+  "startMs": 507060,
+  "endMs": 507280,
+  "timestampMs": 507060,
+  "confidence": null
+ },
+ {
+  "text": " SUPIERA",
+  "startMs": 507280,
+  "endMs": 507840,
+  "timestampMs": 507280,
+  "confidence": null
+ },
+ {
+  "text": " BUSCARLA.",
+  "startMs": 507840,
+  "endMs": 508460,
+  "timestampMs": 507840,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 510080,
+  "endMs": 510220,
+  "timestampMs": 510080,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINA",
+  "startMs": 510220,
+  "endMs": 510480,
+  "timestampMs": 510220,
+  "confidence": null
+ },
+ {
+  "text": " YA",
+  "startMs": 510480,
+  "endMs": 510860,
+  "timestampMs": 510480,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 510860,
+  "endMs": 510960,
+  "timestampMs": 510860,
+  "confidence": null
+ },
+ {
+  "text": " ESTÁ",
+  "startMs": 510960,
+  "endMs": 511100,
+  "timestampMs": 510960,
+  "confidence": null
+ },
+ {
+  "text": " DISPONIBLE",
+  "startMs": 511100,
+  "endMs": 511560,
+  "timestampMs": 511100,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 511560,
+  "endMs": 511720,
+  "timestampMs": 511560,
+  "confidence": null
+ },
+ {
+  "text": " FACEBOOK.",
+  "startMs": 511720,
+  "endMs": 512000,
+  "timestampMs": 511720,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 512360,
+  "endMs": 512480,
+  "timestampMs": 512360,
+  "confidence": null
+ },
+ {
+  "text": " SABEMOS",
+  "startMs": 512480,
+  "endMs": 512720,
+  "timestampMs": 512480,
+  "confidence": null
+ },
+ {
+  "text": " POR",
+  "startMs": 512720,
+  "endMs": 513020,
+  "timestampMs": 512720,
+  "confidence": null
+ },
+ {
+  "text": " QUÉ",
+  "startMs": 513020,
+  "endMs": 513240,
+  "timestampMs": 513020,
+  "confidence": null
+ },
+ {
+  "text": " DESAPARECIÓ,",
+  "startMs": 513240,
+  "endMs": 513880,
+  "timestampMs": 513240,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 513880,
+  "endMs": 514100,
+  "timestampMs": 513880,
+  "confidence": null
+ },
+ {
+  "text": " NO",
+  "startMs": 514100,
+  "endMs": 514240,
+  "timestampMs": 514100,
+  "confidence": null
+ },
+ {
+  "text": " VAMOS",
+  "startMs": 514240,
+  "endMs": 514420,
+  "timestampMs": 514240,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 514420,
+  "endMs": 514540,
+  "timestampMs": 514420,
+  "confidence": null
+ },
+ {
+  "text": " INVENTARLO.",
+  "startMs": 514540,
+  "endMs": 515100,
+  "timestampMs": 514540,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PERO",
+  "startMs": 515360,
+  "endMs": 515500,
+  "timestampMs": 515360,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 515500,
+  "endMs": 515640,
+  "timestampMs": 515500,
+  "confidence": null
+ },
+ {
+  "text": " FÓRMULA",
+  "startMs": 515640,
+  "endMs": 516060,
+  "timestampMs": 515640,
+  "confidence": null
+ },
+ {
+  "text": " SIGUE",
+  "startMs": 516060,
+  "endMs": 516320,
+  "timestampMs": 516060,
+  "confidence": null
+ },
+ {
+  "text": " VIVA.",
+  "startMs": 516320,
+  "endMs": 516640,
+  "timestampMs": 516320,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " OTRAS",
+  "startMs": 517220,
+  "endMs": 517520,
+  "timestampMs": 517220,
+  "confidence": null
+ },
+ {
+  "text": " PÁGINAS",
+  "startMs": 517520,
+  "endMs": 517900,
+  "timestampMs": 517520,
+  "confidence": null
+ },
+ {
+  "text": " USAN",
+  "startMs": 517900,
+  "endMs": 518160,
+  "timestampMs": 517900,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 518160,
+  "endMs": 518260,
+  "timestampMs": 518160,
+  "confidence": null
+ },
+ {
+  "text": " MISMA",
+  "startMs": 518260,
+  "endMs": 518440,
+  "timestampMs": 518260,
+  "confidence": null
+ },
+ {
+  "text": " RECETA:",
+  "startMs": 518440,
+  "endMs": 519020,
+  "timestampMs": 518440,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UNA",
+  "startMs": 519120,
+  "endMs": 519240,
+  "timestampMs": 519120,
+  "confidence": null
+ },
+ {
+  "text": " FIGURA",
+  "startMs": 519240,
+  "endMs": 519540,
+  "timestampMs": 519240,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 519540,
+  "endMs": 519800,
+  "timestampMs": 519540,
+  "confidence": null
+ },
+ {
+  "text": " QUIERES",
+  "startMs": 519800,
+  "endMs": 520040,
+  "timestampMs": 519800,
+  "confidence": null
+ },
+ {
+  "text": " ESCUCHAR,",
+  "startMs": 520040,
+  "endMs": 520600,
+  "timestampMs": 520040,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UN",
+  "startMs": 520660,
+  "endMs": 520760,
+  "timestampMs": 520660,
+  "confidence": null
+ },
+ {
+  "text": " TEXTO",
+  "startMs": 520760,
+  "endMs": 520960,
+  "timestampMs": 520760,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 520960,
+  "endMs": 521160,
+  "timestampMs": 520960,
+  "confidence": null
+ },
+ {
+  "text": " QUIERES",
+  "startMs": 521160,
+  "endMs": 521440,
+  "timestampMs": 521160,
+  "confidence": null
+ },
+ {
+  "text": " CREER",
+  "startMs": 521440,
+  "endMs": 522040,
+  "timestampMs": 521440,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 522040,
+  "endMs": 522240,
+  "timestampMs": 522040,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " UNA",
+  "startMs": 522240,
+  "endMs": 522380,
+  "timestampMs": 522240,
+  "confidence": null
+ },
+ {
+  "text": " IMAGEN",
+  "startMs": 522380,
+  "endMs": 522640,
+  "timestampMs": 522380,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 522640,
+  "endMs": 522840,
+  "timestampMs": 522640,
+  "confidence": null
+ },
+ {
+  "text": " PARECE",
+  "startMs": 522840,
+  "endMs": 523100,
+  "timestampMs": 522840,
+  "confidence": null
+ },
+ {
+  "text": " REAL.",
+  "startMs": 523100,
+  "endMs": 523480,
+  "timestampMs": 523100,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " LA",
+  "startMs": 523920,
+  "endMs": 524080,
+  "timestampMs": 523920,
+  "confidence": null
+ },
+ {
+  "text": " ÚNICA",
+  "startMs": 524080,
+  "endMs": 524260,
+  "timestampMs": 524080,
+  "confidence": null
+ },
+ {
+  "text": " DEFENSA",
+  "startMs": 524260,
+  "endMs": 524720,
+  "timestampMs": 524260,
+  "confidence": null
+ },
+ {
+  "text": " ES",
+  "startMs": 524720,
+  "endMs": 524880,
+  "timestampMs": 524720,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 524880,
+  "endMs": 524980,
+  "timestampMs": 524880,
+  "confidence": null
+ },
+ {
+  "text": " VERIFICACIÓN.",
+  "startMs": 524980,
+  "endMs": 525440,
+  "timestampMs": 524980,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " Y",
+  "startMs": 525440,
+  "endMs": 526340,
+  "timestampMs": 525440,
+  "confidence": null
+ },
+ {
+  "text": " LA",
+  "startMs": 526340,
+  "endMs": 526440,
+  "timestampMs": 526340,
+  "confidence": null
+ },
+ {
+  "text": " VERIFICACIÓN",
+  "startMs": 526440,
+  "endMs": 527100,
+  "timestampMs": 526440,
+  "confidence": null
+ },
+ {
+  "text": " EMPIEZA",
+  "startMs": 527100,
+  "endMs": 527660,
+  "timestampMs": 527100,
+  "confidence": null
+ },
+ {
+  "text": " POR",
+  "startMs": 527660,
+  "endMs": 528000,
+  "timestampMs": 527660,
+  "confidence": null
+ },
+ {
+  "text": " TI,",
+  "startMs": 528000,
+  "endMs": 528220,
+  "timestampMs": 528000,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ANTES",
+  "startMs": 528220,
+  "endMs": 528880,
+  "timestampMs": 528220,
+  "confidence": null
+ },
+ {
+  "text": " DE",
+  "startMs": 528880,
+  "endMs": 529040,
+  "timestampMs": 528880,
+  "confidence": null
+ },
+ {
+  "text": " COMPARTIR.",
+  "startMs": 529040,
+  "endMs": 529440,
+  "timestampMs": 529040,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " EN",
+  "startMs": 530300,
+  "endMs": 530460,
+  "timestampMs": 530300,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 530460,
+  "endMs": 530580,
+  "timestampMs": 530460,
+  "confidence": null
+ },
+ {
+  "text": " SHORT",
+  "startMs": 530580,
+  "endMs": 530800,
+  "timestampMs": 530580,
+  "confidence": null
+ },
+ {
+  "text": " TE",
+  "startMs": 530800,
+  "endMs": 531180,
+  "timestampMs": 530800,
+  "confidence": null
+ },
+ {
+  "text": " PROMETIMOS",
+  "startMs": 531180,
+  "endMs": 531760,
+  "timestampMs": 531180,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 531760,
+  "endMs": 532160,
+  "timestampMs": 531760,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " PATRÓN",
+  "startMs": 532160,
+  "endMs": 532480,
+  "timestampMs": 532160,
+  "confidence": null
+ },
+ {
+  "text": " COMPLETO.",
+  "startMs": 532480,
+  "endMs": 532860,
+  "timestampMs": 532480,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " AQUÍ",
+  "startMs": 533280,
+  "endMs": 533420,
+  "timestampMs": 533280,
+  "confidence": null
+ },
+ {
+  "text": " ESTÁ.",
+  "startMs": 533420,
+  "endMs": 533700,
+  "timestampMs": 533420,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SI",
+  "startMs": 534180,
+  "endMs": 534260,
+  "timestampMs": 534180,
+  "confidence": null
+ },
+ {
+  "text": " QUIERES",
+  "startMs": 534260,
+  "endMs": 534440,
+  "timestampMs": 534260,
+  "confidence": null
+ },
+ {
+  "text": " QUE",
+  "startMs": 534440,
+  "endMs": 534620,
+  "timestampMs": 534440,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 534620,
+  "endMs": 534700,
+  "timestampMs": 534620,
+  "confidence": null
+ },
+ {
+  "text": " PRÓXIMO",
+  "startMs": 534700,
+  "endMs": 534840,
+  "timestampMs": 534700,
+  "confidence": null
+ },
+ {
+  "text": " VIDEO",
+  "startMs": 534840,
+  "endMs": 535300,
+  "timestampMs": 534840,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " NO",
+  "startMs": 535300,
+  "endMs": 535560,
+  "timestampMs": 535300,
+  "confidence": null
+ },
+ {
+  "text": " TE",
+  "startMs": 535560,
+  "endMs": 535640,
+  "timestampMs": 535560,
+  "confidence": null
+ },
+ {
+  "text": " LO",
+  "startMs": 535640,
+  "endMs": 535760,
+  "timestampMs": 535640,
+  "confidence": null
+ },
+ {
+  "text": " CUENTE",
+  "startMs": 535760,
+  "endMs": 536020,
+  "timestampMs": 535760,
+  "confidence": null
+ },
+ {
+  "text": " NADIE,",
+  "startMs": 536020,
+  "endMs": 536360,
+  "timestampMs": 536020,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SINO",
+  "startMs": 536360,
+  "endMs": 536690,
+  "timestampMs": 536360,
+  "confidence": null
+ },
+ {
+  "text": " VERLO",
+  "startMs": 536690,
+  "endMs": 537020,
+  "timestampMs": 536690,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 537020,
+  "endMs": 537180,
+  "timestampMs": 537020,
+  "confidence": null
+ },
+ {
+  "text": " TUS",
+  "startMs": 537180,
+  "endMs": 537300,
+  "timestampMs": 537180,
+  "confidence": null
+ },
+ {
+  "text": " PROPIOS",
+  "startMs": 537300,
+  "endMs": 537580,
+  "timestampMs": 537300,
+  "confidence": null
+ },
+ {
+  "text": " OJOS,",
+  "startMs": 537580,
+  "endMs": 537960,
+  "timestampMs": 537580,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " SUSCRÍBETE",
+  "startMs": 537960,
+  "endMs": 539020,
+  "timestampMs": 537960,
+  "confidence": null
+ },
+ {
+  "text": " A",
+  "startMs": 539020,
+  "endMs": 539100,
+  "timestampMs": 539020,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 539100,
+  "endMs": 539180,
+  "timestampMs": 539100,
+  "confidence": null
+ },
+ {
+  "text": " LIBRETO.",
+  "startMs": 539180,
+  "endMs": 539640,
+  "timestampMs": 539180,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " GEOPOLÍTICA",
+  "startMs": 540620,
+  "endMs": 541260,
+  "timestampMs": 540620,
+  "confidence": null
+ },
+ {
+  "text": " CON",
+  "startMs": 541260,
+  "endMs": 541580,
+  "timestampMs": 541260,
+  "confidence": null
+ },
+ {
+  "text": " LAS",
+  "startMs": 541580,
+  "endMs": 541740,
+  "timestampMs": 541580,
+  "confidence": null
+ },
+ {
+  "text": " FUENTES",
+  "startMs": 541740,
+  "endMs": 542020,
+  "timestampMs": 541740,
+  "confidence": null
+ },
+ {
+  "text": " DELANTE.",
+  "startMs": 542020,
+  "endMs": 542940,
+  "timestampMs": 542020,
+  "confidence": null,
+  "pageBreakAfter": true
+ },
+ {
+  "text": " ¿QUIÉN",
+  "startMs": 542940,
+  "endMs": 543300,
+  "timestampMs": 542940,
+  "confidence": null
+ },
+ {
+  "text": " ESCRIBIÓ",
+  "startMs": 543300,
+  "endMs": 543720,
+  "timestampMs": 543300,
+  "confidence": null
+ },
+ {
+  "text": " EL",
+  "startMs": 543720,
+  "endMs": 543760,
+  "timestampMs": 543720,
+  "confidence": null
+ },
+ {
+  "text": " LIBRETO?",
+  "startMs": 543760,
+  "endMs": 544180,
+  "timestampMs": 543760,
+  "confidence": null,
+  "pageBreakAfter": true
+ }
+]

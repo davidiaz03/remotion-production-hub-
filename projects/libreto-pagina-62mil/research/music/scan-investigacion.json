@@ -1,0 +1,33 @@
+{
+ "input": "/home/hatch/workspace/browser_downloads/sess-542453001/browser-download-20261123T212830.674935735Z-14-libreto-largo-investigacion.mp3",
+ "window_start_s": 0.0,
+ "window_duration_s": 173.44,
+ "passes": {
+  "vad": [],
+  "raw": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "¡Suscríbete!",
+    "no_speech_prob": 0.587,
+    "avg_logprob": -1.1,
+    "class": "UNCERTAIN",
+    "reason": "palabras reales pero nsp 0.587 (oír)",
+    "start_abs": 0.0,
+    "end_abs": 2.0
+   },
+   {
+    "start": 150.0,
+    "end": 152.0,
+    "text": "¡Suscríbete!",
+    "no_speech_prob": 0.829,
+    "avg_logprob": -0.984,
+    "class": "UNCERTAIN",
+    "reason": "palabras reales pero nsp 0.829 (oír)",
+    "start_abs": 150.0,
+    "end_abs": 152.0
+   }
+  ]
+ },
+ "verdict": "PASS"
+}

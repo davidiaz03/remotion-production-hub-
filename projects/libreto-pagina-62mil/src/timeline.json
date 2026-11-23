@@ -1,0 +1,1366 @@
+{
+  "fps": 30,
+  "tailFrames": 90,
+  "totalFrames": 16449,
+  "mode": "real",
+  "realChapters": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "generatedAt": "2026-11-23T22:35:26.906Z",
+  "lines": [
+    {
+      "line": 1,
+      "chapter": 0,
+      "text": "Si buscas hoy en Facebook la página «José Forever - El Taiger», no la vas a encontrar.",
+      "startFrame": 6,
+      "endFrame": 143
+    },
+    {
+      "line": 2,
+      "chapter": 0,
+      "text": "La dirección ya no carga y Facebook dice que el contenido no está disponible.",
+      "startFrame": 153,
+      "endFrame": 266
+    },
+    {
+      "line": 3,
+      "chapter": 0,
+      "text": "Y si buscas el nombre exacto, no aparece ninguna página con ese nombre.",
+      "startFrame": 266,
+      "endFrame": 380
+    },
+    {
+      "line": 4,
+      "chapter": 0,
+      "text": "Esta es la página que en marzo publicó un mensaje falso atribuido a Messi sobre Cuba.",
+      "startFrame": 420,
+      "endFrame": 575
+    },
+    {
+      "line": 5,
+      "chapter": 0,
+      "text": "62.000 reacciones.",
+      "startFrame": 575,
+      "endFrame": 624
+    },
+    {
+      "line": 6,
+      "chapter": 0,
+      "text": "3.300 compartidos.",
+      "startFrame": 624,
+      "endFrame": 689
+    },
+    {
+      "line": 7,
+      "chapter": 0,
+      "text": "Más de 5.000 comentarios.",
+      "startFrame": 689,
+      "endFrame": 733
+    },
+    {
+      "line": 8,
+      "chapter": 0,
+      "text": "Y todo era falso.",
+      "startFrame": 733,
+      "endFrame": 795
+    },
+    {
+      "line": 9,
+      "chapter": 0,
+      "text": "El mensaje no lo escribió Messi.",
+      "startFrame": 811,
+      "endFrame": 864
+    },
+    {
+      "line": 10,
+      "chapter": 0,
+      "text": "La foto era de 2022, de la cuenta de Antonela Roccuzzo, sin ninguna bandera cubana.",
+      "startFrame": 864,
+      "endFrame": 1032
+    },
+    {
+      "line": 11,
+      "chapter": 0,
+      "text": "La bandera la añadieron después, con inteligencia artificial, y la foto llevaba la marca de agua de Gemini.",
+      "startFrame": 1049,
+      "endFrame": 1259
+    },
+    {
+      "line": 12,
+      "chapter": 0,
+      "text": "Lo verificaron elTOQUE e InfoVeritas.",
+      "startFrame": 1259,
+      "endFrame": 1337
+    },
+    {
+      "line": 13,
+      "chapter": 0,
+      "text": "El mensaje tenía un núcleo real.",
+      "startFrame": 1377,
+      "endFrame": 1443
+    },
+    {
+      "line": 14,
+      "chapter": 0,
+      "text": "El 5 de marzo, Trump recibió al Inter Miami en la Casa Blanca, y Messi estuvo allí.",
+      "startFrame": 1469,
+      "endFrame": 1617
+    },
+    {
+      "line": 15,
+      "chapter": 0,
+      "text": "Eso sí pasó.",
+      "startFrame": 1629,
+      "endFrame": 1648
+    },
+    {
+      "line": 16,
+      "chapter": 0,
+      "text": "Lo que no pasó es que Messi hablara de Cuba.",
+      "startFrame": 1662,
+      "endFrame": 1722
+    },
+    {
+      "line": 17,
+      "chapter": 0,
+      "text": "Ese núcleo real es parte de la fórmula, y la fórmula se repitió durante meses.",
+      "startFrame": 1728,
+      "endFrame": 1848
+    },
+    {
+      "line": 18,
+      "chapter": 0,
+      "text": "En el Short te prometimos el patrón completo.",
+      "startFrame": 1886,
+      "endFrame": 1965
+    },
+    {
+      "line": 19,
+      "chapter": 0,
+      "text": "Este es el video.",
+      "startFrame": 1977,
+      "endFrame": 1997
+    },
+    {
+      "line": 20,
+      "chapter": 0,
+      "text": "Y la primera pregunta es la obvia: ¿fue un error aislado, o era una fábrica?",
+      "startFrame": 1997,
+      "endFrame": 2123
+    },
+    {
+      "line": 21,
+      "chapter": 0,
+      "text": "Y al final te enseño tres comprobaciones que tardan menos de un minuto y habrían desmontado cada uno de estos casos.",
+      "startFrame": 2213,
+      "endFrame": 2392
+    },
+    {
+      "line": 22,
+      "chapter": 1,
+      "text": "La página se llamaba «José Forever - El Taiger».",
+      "startFrame": 2420,
+      "endFrame": 2484
+    },
+    {
+      "line": 23,
+      "chapter": 1,
+      "text": "Se creó el 10 de noviembre de 2024, exactamente un mes después de la muerte de El Taiger: el artista falleció el 10 de octubre en Miami, a los 37 años.",
+      "startFrame": 2498,
+      "endFrame": 2745
+    },
+    {
+      "line": 24,
+      "chapter": 1,
+      "text": "Usa el nombre de El Taiger.",
+      "startFrame": 2774,
+      "endFrame": 2805
+    },
+    {
+      "line": 25,
+      "chapter": 1,
+      "text": "No tiene nada que ver con él.",
+      "startFrame": 2819,
+      "endFrame": 2853
+    },
+    {
+      "line": 26,
+      "chapter": 1,
+      "text": "elTOQUE lo escribió así: el contenido que publicaba no guardaba relación con su trayectoria ni con su legado.",
+      "startFrame": 2865,
+      "endFrame": 3065
+    },
+    {
+      "line": 27,
+      "chapter": 1,
+      "text": "Cuballama lo dijo más directo: era una página creada para desinformar, no para homenajear.",
+      "startFrame": 3086,
+      "endFrame": 3233
+    },
+    {
+      "line": 28,
+      "chapter": 1,
+      "text": "La página creció mientras publicaba contenido falso.",
+      "startFrame": 3257,
+      "endFrame": 3335
+    },
+    {
+      "line": 29,
+      "chapter": 1,
+      "text": "En agosto de 2025 tenía 600.000 seguidores.",
+      "startFrame": 3356,
+      "endFrame": 3447
+    },
+    {
+      "line": 30,
+      "chapter": 1,
+      "text": "En marzo de 2026, cuando salió el caso Messi, ya pasaba de 748.000.",
+      "startFrame": 3461,
+      "endFrame": 3645
+    },
+    {
+      "line": 31,
+      "chapter": 1,
+      "text": "Y la última cifra con fuente, de julio, es de más de 770.000.",
+      "startFrame": 3658,
+      "endFrame": 3798
+    },
+    {
+      "line": 32,
+      "chapter": 1,
+      "text": "Las denuncias no la frenaron: en dos semanas ganó unos 5.000 seguidores mientras elTOQUE publicaba dos verificaciones en su contra.",
+      "startFrame": 3807,
+      "endFrame": 4001
+    },
+    {
+      "line": 33,
+      "chapter": 1,
+      "text": "elTOQUE describió el método en abril: la página mezclaba hechos reales con afirmaciones falsas, sin ninguna aclaración.",
+      "startFrame": 4032,
+      "endFrame": 4230
+    },
+    {
+      "line": 34,
+      "chapter": 1,
+      "text": "Cuatro pasos.",
+      "startFrame": 4255,
+      "endFrame": 4293
+    },
+    {
+      "line": 35,
+      "chapter": 1,
+      "text": "Primero, una figura que el público quiere escuchar.",
+      "startFrame": 4299,
+      "endFrame": 4391
+    },
+    {
+      "line": 36,
+      "chapter": 1,
+      "text": "Segundo, un texto emocional en primera persona, atribuido a esa figura.",
+      "startFrame": 4397,
+      "endFrame": 4533
+    },
+    {
+      "line": 37,
+      "chapter": 1,
+      "text": "Tercero, una imagen real manipulada o creada con inteligencia artificial, casi siempre con una bandera cubana.",
+      "startFrame": 4548,
+      "endFrame": 4733
+    },
+    {
+      "line": 38,
+      "chapter": 1,
+      "text": "Y cuarto, un núcleo real que hace creíble el bulo.",
+      "startFrame": 4743,
+      "endFrame": 4865
+    },
+    {
+      "line": 39,
+      "chapter": 1,
+      "text": "Sin aclaración de ningún tipo.",
+      "startFrame": 4865,
+      "endFrame": 4916
+    },
+    {
+      "line": 40,
+      "chapter": 1,
+      "text": "Una semana después del caso Messi, el 23 de marzo, la misma fórmula con Nayib Bukele, presidente de El Salvador: un texto firmado con su nombre y un collage de tres fotos con banderas cubanas.",
+      "startFrame": 4985,
+      "endFrame": 5312
+    },
+    {
+      "line": 41,
+      "chapter": 1,
+      "text": "Más de 7.800 reacciones.",
+      "startFrame": 5321,
+      "endFrame": 5369
+    },
+    {
+      "line": 42,
+      "chapter": 1,
+      "text": "elTOQUE verificó que las declaraciones citadas no eran ciertas.",
+      "startFrame": 5383,
+      "endFrame": 5482
+    },
+    {
+      "line": 43,
+      "chapter": 1,
+      "text": "Ese mismo mes la página atribuyó declaraciones falsas a Elon Musk, a Daddy Yankee y a Bad Bunny.",
+      "startFrame": 5503,
+      "endFrame": 5669
+    },
+    {
+      "line": 44,
+      "chapter": 1,
+      "text": "elTOQUE los verificó en grupo: las declaraciones citadas no son ciertas.",
+      "startFrame": 5685,
+      "endFrame": 5803
+    },
+    {
+      "line": 45,
+      "chapter": 1,
+      "text": "Con Musk hay un matiz que no se puede saltar.",
+      "startFrame": 5803,
+      "endFrame": 5912
+    },
+    {
+      "line": 46,
+      "chapter": 1,
+      "text": "Musk SÍ dijo algo real sobre Cuba.",
+      "startFrame": 5921,
+      "endFrame": 5977
+    },
+    {
+      "line": 47,
+      "chapter": 1,
+      "text": "El 16 de marzo, el mismo día del post de Messi, Musk escribió en X sobre Starlink en Cuba: «Works in Cuba, just can't be sold there».",
+      "startFrame": 5989,
+      "endFrame": 6255
+    },
+    {
+      "line": 48,
+      "chapter": 1,
+      "text": "Funciona en Cuba, pero no se puede vender allí.",
+      "startFrame": 6270,
+      "endFrame": 6343
+    },
+    {
+      "line": 49,
+      "chapter": 1,
+      "text": "Lo falso son las declaraciones políticas que la página le atribuyó.",
+      "startFrame": 6353,
+      "endFrame": 6454
+    },
+    {
+      "line": 50,
+      "chapter": 1,
+      "text": "Si este video dijera que Musk nunca ha dicho nada sobre Cuba, estaría mintiendo.",
+      "startFrame": 6470,
+      "endFrame": 6598
+    },
+    {
+      "line": 51,
+      "chapter": 1,
+      "text": "Ese es el punto: el bulo funcionaba porque tenía un núcleo real.",
+      "startFrame": 6605,
+      "endFrame": 6720
+    },
+    {
+      "line": 52,
+      "chapter": 1,
+      "text": "Ese día Cuba sufrió además el sexto colapso total del sistema eléctrico: tuit real, apagón real y cita inventada, todo el mismo día.",
+      "startFrame": 6740,
+      "endFrame": 7010
+    },
+    {
+      "line": 53,
+      "chapter": 1,
+      "text": "El patrón ya era visible.",
+      "startFrame": 7049,
+      "endFrame": 7087
+    },
+    {
+      "line": 54,
+      "chapter": 1,
+      "text": "En enero, dos meses antes del caso Messi, la página «11 Millones de Cubanos», con más de un millón de seguidores, ya la había denunciado en público: noticias falsas de muertes, contenido robado, denuncias de copyright falsas.",
+      "startFrame": 7101,
+      "endFrame": 7523
+    },
+    {
+      "line": 55,
+      "chapter": 1,
+      "text": "Y el 20 de marzo, cuatro días después del post de Messi, un usuario, Carlos Perez, publicó un collage con Messi, Musk y Bukele: «DECLARACIONES INVENTADAS Y REALIDADES MANIPULADAS».",
+      "startFrame": 7523,
+      "endFrame": 7861
+    },
+    {
+      "line": 56,
+      "chapter": 1,
+      "text": "No era un fact-checker.",
+      "startFrame": 7877,
+      "endFrame": 7907
+    },
+    {
+      "line": 57,
+      "chapter": 1,
+      "text": "Era una persona que ya lo había visto.",
+      "startFrame": 7913,
+      "endFrame": 7966
+    },
+    {
+      "line": 58,
+      "chapter": 2,
+      "text": "En abril el patrón tocó a personas reales.",
+      "startFrame": 8027,
+      "endFrame": 8110
+    },
+    {
+      "line": 59,
+      "chapter": 2,
+      "text": "La página publicó que el reguetonero Oniel Bebeshito y su esposa habían viajado a Cuba en secreto, con imágenes generadas con inteligencia artificial: Bebeshito con su residencia estadounidense antes de abordar un vuelo de Cubana de Aviación, y la pareja frente al Hotel Habana Libre.",
+      "startFrame": 8116,
+      "endFrame": 8575
+    },
+    {
+      "line": 60,
+      "chapter": 2,
+      "text": "Todo fabricado.",
+      "startFrame": 8597,
+      "endFrame": 8623
+    },
+    {
+      "line": 61,
+      "chapter": 2,
+      "text": "Bebeshito tuvo que desmentirlo en persona.",
+      "startFrame": 8654,
+      "endFrame": 8714
+    },
+    {
+      "line": 62,
+      "chapter": 2,
+      "text": "Un creador de la plataforma Familia Cubana lo abordó mientras preparaba un videoclip y respondió: «Es totalmente falso.",
+      "startFrame": 8725,
+      "endFrame": 8923
+    },
+    {
+      "line": 63,
+      "chapter": 2,
+      "text": "No he salido de Estados Unidos».",
+      "startFrame": 8935,
+      "endFrame": 8974
+    },
+    {
+      "line": 64,
+      "chapter": 2,
+      "text": "Un artista teniendo que demostrar que no hizo un viaje que nunca hizo.",
+      "startFrame": 8992,
+      "endFrame": 9099
+    },
+    {
+      "line": 65,
+      "chapter": 2,
+      "text": "En junio el bulo salió del feed y llegó a una institución pública.",
+      "startFrame": 9124,
+      "endFrame": 9245
+    },
+    {
+      "line": 66,
+      "chapter": 2,
+      "text": "La página originó la historia de que Cristiano Ronaldo había donado 250 paneles solares a Cuba.",
+      "startFrame": 9254,
+      "endFrame": 9414
+    },
+    {
+      "line": 67,
+      "chapter": 2,
+      "text": "Dos fuentes independientes la señalan como el origen: Yasel Porto y elpoderdigital.",
+      "startFrame": 9435,
+      "endFrame": 9563
+    },
+    {
+      "line": 68,
+      "chapter": 2,
+      "text": "elTOQUE lo verificó como falso: no había evidencia en los canales oficiales de Ronaldo, ni en su fundación, ni en ninguna agencia de prensa.",
+      "startFrame": 9576,
+      "endFrame": 9829
+    },
+    {
+      "line": 69,
+      "chapter": 2,
+      "text": "El analista Daguito Valdés lo llamó «el fake del año».",
+      "startFrame": 9836,
+      "endFrame": 9930
+    },
+    {
+      "line": 70,
+      "chapter": 2,
+      "text": "Pero antes de que el desmentido llegara, una institución del Estado lo publicó como cierto.",
+      "startFrame": 9964,
+      "endFrame": 10101
+    },
+    {
+      "line": 71,
+      "chapter": 2,
+      "text": "El 22 de junio, la Dirección Provincial de Salud de Cienfuegos publicó en su cuenta oficial que Ronaldo había sellado una «alianza histórica» con el Gobierno cubano para donar 250 paneles solares, baterías y repuestos.",
+      "startFrame": 10113,
+      "endFrame": 10484
+    },
+    {
+      "line": 72,
+      "chapter": 2,
+      "text": "Horas después, la institución borró el post sin dar explicaciones.",
+      "startFrame": 10502,
+      "endFrame": 10604
+    },
+    {
+      "line": 73,
+      "chapter": 2,
+      "text": "Pero elTOQUE documentó que el bulo ya se había replicado en grupos y en otras cuentas vinculadas a instituciones estatales.",
+      "startFrame": 10619,
+      "endFrame": 10798
+    },
+    {
+      "line": 74,
+      "chapter": 2,
+      "text": "Cuba atravesaba una crisis energética con apagones de más de 30 horas seguidas.",
+      "startFrame": 10839,
+      "endFrame": 10975
+    },
+    {
+      "line": 75,
+      "chapter": 2,
+      "text": "La promesa de 250 paneles solares no se compartió porque fuera creíble.",
+      "startFrame": 10992,
+      "endFrame": 11128
+    },
+    {
+      "line": 76,
+      "chapter": 2,
+      "text": "Se compartió porque era deseable.",
+      "startFrame": 11133,
+      "endFrame": 11187
+    },
+    {
+      "line": 77,
+      "chapter": 2,
+      "text": "Y eso es lo que lo hace peligroso: no apela a la razón, apela a la esperanza.",
+      "startFrame": 11198,
+      "endFrame": 11360
+    },
+    {
+      "line": 78,
+      "chapter": 2,
+      "text": "Y el último caso documentado es el más grave.",
+      "startFrame": 11381,
+      "endFrame": 11447
+    },
+    {
+      "line": 79,
+      "chapter": 2,
+      "text": "En julio, la página publicó que Damián Valdés-Galloso, el acusado de asesinar a El Taiger, había sido condenado a 60 años.",
+      "startFrame": 11456,
+      "endFrame": 11673
+    },
+    {
+      "line": 80,
+      "chapter": 2,
+      "text": "Falso.",
+      "startFrame": 11687,
+      "endFrame": 11702
+    },
+    {
+      "line": 81,
+      "chapter": 2,
+      "text": "El juicio ni siquiera había empezado.",
+      "startFrame": 11720,
+      "endFrame": 11771
+    },
+    {
+      "line": 82,
+      "chapter": 2,
+      "text": "Teresa Maria Padron lo denunció en un reel del 10 de julio.",
+      "startFrame": 11778,
+      "endFrame": 11878
+    },
+    {
+      "line": 83,
+      "chapter": 2,
+      "text": "La confirmación llegó en noviembre.",
+      "startFrame": 11887,
+      "endFrame": 11947
+    },
+    {
+      "line": 84,
+      "chapter": 2,
+      "text": "La Corte Criminal de Miami-Dade fijó el inicio del juicio para el 1 de marzo de 2027.",
+      "startFrame": 11956,
+      "endFrame": 12119
+    },
+    {
+      "line": 85,
+      "chapter": 2,
+      "text": "Es decir: cuando la página publicó la condena, faltaban ocho meses para que el juicio empezara.",
+      "startFrame": 12134,
+      "endFrame": 12284
+    },
+    {
+      "line": 86,
+      "chapter": 2,
+      "text": "Ninguna condena existía en julio de 2026.",
+      "startFrame": 12302,
+      "endFrame": 12379
+    },
+    {
+      "line": 87,
+      "chapter": 2,
+      "text": "Y ninguna existe hoy.",
+      "startFrame": 12390,
+      "endFrame": 12425
+    },
+    {
+      "line": 88,
+      "chapter": 2,
+      "text": "El acusado se declaró no culpable y permanece detenido sin fianza.",
+      "startFrame": 12438,
+      "endFrame": 12549
+    },
+    {
+      "line": 89,
+      "chapter": 2,
+      "text": "La condena era inventada.",
+      "startFrame": 12571,
+      "endFrame": 12616
+    },
+    {
+      "line": 90,
+      "chapter": 2,
+      "text": "Y la página que la inventó llevaba el nombre del artista al que supuestamente homenajeaba.",
+      "startFrame": 12616,
+      "endFrame": 12760
+    },
+    {
+      "line": 91,
+      "chapter": 3,
+      "text": "¿Por qué funcionó?",
+      "startFrame": 12785,
+      "endFrame": 12823
+    },
+    {
+      "line": 92,
+      "chapter": 3,
+      "text": "Porque el bulo no se comparte porque sea creíble.",
+      "startFrame": 12837,
+      "endFrame": 12910
+    },
+    {
+      "line": 93,
+      "chapter": 3,
+      "text": "Se comparte porque es deseable.",
+      "startFrame": 12915,
+      "endFrame": 12968
+    },
+    {
+      "line": 94,
+      "chapter": 3,
+      "text": "Messi por fin hablando de Cuba.",
+      "startFrame": 12979,
+      "endFrame": 13021
+    },
+    {
+      "line": 95,
+      "chapter": 3,
+      "text": "Ronaldo donando paneles en medio de apagones de 30 horas.",
+      "startFrame": 13033,
+      "endFrame": 13117
+    },
+    {
+      "line": 96,
+      "chapter": 3,
+      "text": "El asesino de El Taiger ya condenado.",
+      "startFrame": 13136,
+      "endFrame": 13187
+    },
+    {
+      "line": 97,
+      "chapter": 3,
+      "text": "Cada caso decía lo que su público quería oír.",
+      "startFrame": 13193,
+      "endFrame": 13273
+    },
+    {
+      "line": 98,
+      "chapter": 3,
+      "text": "Y porque tenía un escudo: el nombre de un artista muerto, al que el público le prestaba su confianza.",
+      "startFrame": 13293,
+      "endFrame": 13448
+    },
+    {
+      "line": 99,
+      "chapter": 3,
+      "text": "Y porque el desmentido no llega al feed donde circula el bulo.",
+      "startFrame": 13448,
+      "endFrame": 13558
+    },
+    {
+      "line": 100,
+      "chapter": 3,
+      "text": "elTOQUE verificó el caso Messi al día siguiente.",
+      "startFrame": 13567,
+      "endFrame": 13633
+    },
+    {
+      "line": 101,
+      "chapter": 3,
+      "text": "Pero la réplica del post sigue en vivo ocho meses después, con cientos de comentarios.",
+      "startFrame": 13650,
+      "endFrame": 13772
+    },
+    {
+      "line": 102,
+      "chapter": 3,
+      "text": "Y la inteligencia artificial cambió el costo de fabricar: una foto real más una bandera añadida, una imagen generada entera.",
+      "startFrame": 13795,
+      "endFrame": 14000
+    },
+    {
+      "line": 103,
+      "chapter": 3,
+      "text": "Antes costaba tiempo y dinero.",
+      "startFrame": 14012,
+      "endFrame": 14056
+    },
+    {
+      "line": 104,
+      "chapter": 3,
+      "text": "Ahora cuesta segundos.",
+      "startFrame": 14064,
+      "endFrame": 14094
+    },
+    {
+      "line": 105,
+      "chapter": 3,
+      "text": "Por eso, tres comprobaciones.",
+      "startFrame": 14106,
+      "endFrame": 14150
+    },
+    {
+      "line": 106,
+      "chapter": 3,
+      "text": "Tardan menos de un minuto.",
+      "startFrame": 14163,
+      "endFrame": 14201
+    },
+    {
+      "line": 107,
+      "chapter": 3,
+      "text": "Primera: búsqueda inversa de la imagen.",
+      "startFrame": 14201,
+      "endFrame": 14285
+    },
+    {
+      "line": 108,
+      "chapter": 3,
+      "text": "Sube la foto a un buscador de imágenes y mira cuándo apareció por primera vez.",
+      "startFrame": 14299,
+      "endFrame": 14411
+    },
+    {
+      "line": 109,
+      "chapter": 3,
+      "text": "La foto de Messi circulaba desde 2022, sin bandera.",
+      "startFrame": 14432,
+      "endFrame": 14525
+    },
+    {
+      "line": 110,
+      "chapter": 3,
+      "text": "Un minuto y el caso se cae.",
+      "startFrame": 14531,
+      "endFrame": 14587
+    },
+    {
+      "line": 111,
+      "chapter": 3,
+      "text": "Segunda: revisa los canales oficiales de la figura.",
+      "startFrame": 14612,
+      "endFrame": 14706
+    },
+    {
+      "line": 112,
+      "chapter": 3,
+      "text": "Si Messi o Ronaldo hubieran dicho algo así, estaría en sus cuentas.",
+      "startFrame": 14717,
+      "endFrame": 14823
+    },
+    {
+      "line": 113,
+      "chapter": 3,
+      "text": "No estaba en ninguna.",
+      "startFrame": 14831,
+      "endFrame": 14887
+    },
+    {
+      "line": 114,
+      "chapter": 3,
+      "text": "El silencio oficial también es un dato.",
+      "startFrame": 14900,
+      "endFrame": 14960
+    },
+    {
+      "line": 115,
+      "chapter": 3,
+      "text": "Tercera: busca las señales de inteligencia artificial.",
+      "startFrame": 14987,
+      "endFrame": 15066
+    },
+    {
+      "line": 116,
+      "chapter": 3,
+      "text": "La foto de Messi llevaba la marca de agua de Gemini.",
+      "startFrame": 15085,
+      "endFrame": 15158
+    },
+    {
+      "line": 117,
+      "chapter": 3,
+      "text": "Estaba ahí, a la vista, para quien supiera buscarla.",
+      "startFrame": 15160,
+      "endFrame": 15254
+    },
+    {
+      "line": 118,
+      "chapter": 3,
+      "text": "La página ya no está disponible en Facebook.",
+      "startFrame": 15292,
+      "endFrame": 15359
+    },
+    {
+      "line": 119,
+      "chapter": 3,
+      "text": "No sabemos por qué desapareció, y no vamos a inventarlo.",
+      "startFrame": 15371,
+      "endFrame": 15453
+    },
+    {
+      "line": 120,
+      "chapter": 3,
+      "text": "Pero la fórmula sigue viva.",
+      "startFrame": 15460,
+      "endFrame": 15499
+    },
+    {
+      "line": 121,
+      "chapter": 3,
+      "text": "Otras páginas usan la misma receta: una figura que quieres escuchar, un texto que quieres creer y una imagen que parece real.",
+      "startFrame": 15517,
+      "endFrame": 15704
+    },
+    {
+      "line": 122,
+      "chapter": 3,
+      "text": "La única defensa es la verificación.",
+      "startFrame": 15715,
+      "endFrame": 15763
+    },
+    {
+      "line": 123,
+      "chapter": 3,
+      "text": "Y la verificación empieza por ti, antes de compartir.",
+      "startFrame": 15763,
+      "endFrame": 15884
+    },
+    {
+      "line": 124,
+      "chapter": 3,
+      "text": "En el Short te prometimos el patrón completo.",
+      "startFrame": 15910,
+      "endFrame": 15986
+    },
+    {
+      "line": 125,
+      "chapter": 3,
+      "text": "Aquí está.",
+      "startFrame": 15998,
+      "endFrame": 16011
+    },
+    {
+      "line": 126,
+      "chapter": 3,
+      "text": "Si quieres que el próximo video no te lo cuente nadie, sino verlo con tus propios ojos, suscríbete a El Libreto.",
+      "startFrame": 16026,
+      "endFrame": 16189
+    },
+    {
+      "line": 127,
+      "chapter": 3,
+      "text": "Geopolítica con las fuentes delante.",
+      "startFrame": 16221,
+      "endFrame": 16274
+    },
+    {
+      "line": 128,
+      "chapter": 3,
+      "text": "¿Quién escribió el libreto?",
+      "startFrame": 16292,
+      "endFrame": 16325
+    }
+  ],
+  "chapters": [
+    {
+      "number": 0,
+      "title": "La página que ya no existe",
+      "shortTitle": "La página que ya no existe",
+      "startFrame": 0,
+      "endFrame": 2420,
+      "real": true
+    },
+    {
+      "number": 1,
+      "title": "La fábrica",
+      "shortTitle": "La fábrica",
+      "startFrame": 2420,
+      "endFrame": 8027,
+      "real": true
+    },
+    {
+      "number": 2,
+      "title": "Cuando el bulo sale del feed",
+      "shortTitle": "Cuando el bulo sale del feed",
+      "startFrame": 8027,
+      "endFrame": 12785,
+      "real": true
+    },
+    {
+      "number": 3,
+      "title": "Por qué funciona y cómo detectarlo",
+      "shortTitle": "Por qué funciona",
+      "startFrame": 12785,
+      "endFrame": 16359,
+      "real": true
+    }
+  ],
+  "scenes": [
+    {
+      "assets": [
+        "F11",
+        "busqueda-facebook-sin-resultados-paginas.jpg"
+      ],
+      "chapter": 0,
+      "fromLine": 1,
+      "notes": "Cold open: evidencia primero, sin tarjeta de título ni logo. Primer fotograma = URL caída. La búsqueda general (F12) NO se usa: su contenido central es el bulo de 6ix9ine (fuera de guion); la variante -páginas («No encontramos resultados», filtro Páginas) es la prueba limpia.",
+      "toLine": 3,
+      "type": "document-zoom",
+      "urlBar": "facebook.com/foreverjose.taiger",
+      "startFrame": 0,
+      "endFrame": 420,
+      "durationFrames": 420
+    },
+    {
+      "assets": [
+        "post-messi-cuba-falso.jpg"
+      ],
+      "chapter": 0,
+      "countLandAt": 161,
+      "fromLine": 4,
+      "metricAt": [
+        203,
+        268
+      ],
+      "notes": "Contador animado G1 (0 → 62.000) sobre la captura. SFX data-number-land al final del conteo.",
+      "toLine": 8,
+      "type": "document-counter",
+      "startFrame": 420,
+      "endFrame": 811,
+      "durationFrames": 391
+    },
+    {
+      "assets": [
+        "messi-foto-98c58e7b73.jpg"
+      ],
+      "chapter": 0,
+      "fromLine": 9,
+      "notes": "Comparación lado a lado + sello 2022 + círculo rojo sobre la bandera. Lupa sobre la marca de agua (verificar legibilidad en pre-vuelo, P3).",
+      "toLine": 11,
+      "type": "document-comparison",
+      "startFrame": 811,
+      "endFrame": 1259,
+      "durationFrames": 448
+    },
+    {
+      "assets": [
+        "eltoque-messi-17mar-articulo.jpg",
+        "infoveritas-messi-19mar-articulo.jpg"
+      ],
+      "chapter": 0,
+      "fromLine": 12,
+      "notes": "Titulares con fecha. Resaltado sobre la línea del veredicto.",
+      "toLine": 12,
+      "type": "document-quote",
+      "startFrame": 1259,
+      "endFrame": 1377,
+      "durationFrames": 118
+    },
+    {
+      "assets": [
+        "casa-blanca-dt1261-messi-camiseta-47.jpg",
+        "casa-blanca-postcard-38s.mp4"
+      ],
+      "chapter": 0,
+      "fromLine": 13,
+      "notes": "Núcleo real: foto DT-1261 a pantalla completa (fondo difuminado) + clip Postcard 14–20 s con su audio ambiente (J-cut). Placa 5-MAR-2026 · CASA BLANCA.",
+      "toLine": 17,
+      "type": "document-photo-video",
+      "videoAt": 92,
+      "videoFrames": 180,
+      "startFrame": 1377,
+      "endFrame": 1886,
+      "durationFrames": 509
+    },
+    {
+      "chapter": 0,
+      "fromLine": 18,
+      "notes": "Tarjeta de título del video (después del gancho, ~0:40) + promesa del Short.",
+      "subtitle": "El patrón completo, con las fuentes delante",
+      "title": "La página que engañó a 62.000 personas",
+      "toLine": 19,
+      "type": "title-card",
+      "startFrame": 1886,
+      "endFrame": 1997,
+      "durationFrames": 111
+    },
+    {
+      "chapter": 0,
+      "fromLine": 20,
+      "notes": "Re-gancho de fin de acto + transición al Acto 2 (fundido a negro).",
+      "text": "¿Fue un error aislado, o era una fábrica?",
+      "toLine": 21,
+      "type": "question",
+      "startFrame": 1997,
+      "endFrame": 2420,
+      "durationFrames": 423
+    },
+    {
+      "assets": [
+        "eltoque-patron-02abr-articulo.jpg"
+      ],
+      "chapter": 1,
+      "fromLine": 22,
+      "notes": "Artículo 2-abr: titular + párrafo de la fórmula resaltado. Cita «no guardaba relación con su trayectoria ni con su legado» en tarjeta.",
+      "toLine": 27,
+      "type": "document-quote",
+      "startFrame": 2420,
+      "endFrame": 3257,
+      "durationFrames": 837
+    },
+    {
+      "assets": [],
+      "chapter": 1,
+      "fromLine": 28,
+      "itemAt": [
+        150,
+        341,
+        503
+      ],
+      "items": [
+        {
+          "label": "ago-2025",
+          "value": "600.000"
+        },
+        {
+          "label": "17-mar-2026",
+          "value": "748.000+"
+        },
+        {
+          "label": "4-jul-2026",
+          "value": "770.000+"
+        }
+      ],
+      "notes": "Gráfico animado G3: barras 600K → 748K → 770K con fuente y fecha; números que cuentan hacia arriba.",
+      "toLine": 32,
+      "type": "data-strip",
+      "startFrame": 3257,
+      "endFrame": 4032,
+      "durationFrames": 775
+    },
+    {
+      "chapter": 1,
+      "fromLine": 33,
+      "itemAt": [
+        266,
+        365,
+        515,
+        682
+      ],
+      "items": [
+        "1. Una figura que el público quiere escuchar",
+        "2. Un texto emocional en primera persona",
+        "3. Una imagen real manipulada o creada con IA",
+        "4. Un núcleo real que hace creíble el bulo"
+      ],
+      "notes": "Diagrama G4 que se construye paso a paso (un paso por frase): figura → texto → imagen → núcleo real. El cuarto paso lleva «sin aclaración».",
+      "title": "La fórmula, en cuatro pasos",
+      "toLine": 39,
+      "type": "list",
+      "viralAt": 840,
+      "startFrame": 4032,
+      "endFrame": 4985,
+      "durationFrames": 953
+    },
+    {
+      "assets": [
+        "post-bukele-1.jpg"
+      ],
+      "chapter": 1,
+      "fromLine": 40,
+      "notes": "Mini-captura (1/3 del ancho) + píldora «BUKELE · 23-MAR-2026» + métricas visibles.",
+      "toLine": 42,
+      "type": "document-zoom",
+      "startFrame": 4985,
+      "endFrame": 5503,
+      "durationFrames": 518
+    },
+    {
+      "assets": [
+        "eltoque-collage-5-casos.jpg",
+        "post-musk.jpg",
+        "post-bad-bunny.jpg"
+      ],
+      "chapter": 1,
+      "fromLine": 43,
+      "notes": "Ráfaga de marzo: collage general + mini-capturas una a una (Musk, Daddy Yankee en enumeración, Bad Bunny). Un solo SFX de slide para el trío.",
+      "toLine": 44,
+      "type": "document-trio",
+      "startFrame": 5503,
+      "endFrame": 5803,
+      "durationFrames": 300
+    },
+    {
+      "assets": [
+        "musk-tuit-starlink-16mar.jpg"
+      ],
+      "chapter": 1,
+      "fromLine": 45,
+      "notes": "EL MATIZ OBLIGATORIO: tuit real con la cita textual resaltada. La voz dice «Si este video dijera que Musk nunca ha dicho nada sobre Cuba, estaría mintiendo» — el tuit en pantalla lo prueba. Silencio de música en esa frase.",
+      "toLine": 52,
+      "type": "document-quote",
+      "startFrame": 5803,
+      "endFrame": 7049,
+      "durationFrames": 1246
+    },
+    {
+      "assets": [
+        "denuncia-11millones-21ene.jpg",
+        "denuncia-carlos-perez-20mar.jpg"
+      ],
+      "chapter": 1,
+      "fromLine": 53,
+      "notes": "Dos denuncias en un solo bloque: 11 Millones (ene) + Carlos Perez (mar). La segunda entra con swipe lateral.",
+      "toLine": 57,
+      "type": "document-quote",
+      "startFrame": 7049,
+      "endFrame": 8027,
+      "durationFrames": 978
+    },
+    {
+      "assets": [
+        "cuballama-bebeshito-articulo.jpg"
+      ],
+      "chapter": 2,
+      "fromLine": 58,
+      "notes": "Artículo de Cuballama + imágenes fabricadas con etiqueta «IMAGEN FABRICADA CON IA». Cita en tarjeta: «Es totalmente falso. No he salido de Estados Unidos».",
+      "toLine": 64,
+      "type": "document-quote",
+      "startFrame": 8027,
+      "endFrame": 9124,
+      "durationFrames": 1097
+    },
+    {
+      "assets": [
+        "eltoque-ronaldo-24jun-articulo.jpg"
+      ],
+      "chapter": 2,
+      "fromLine": 65,
+      "notes": "Verificación 24-jun: veredicto resaltado + cita de Yasel Porto + «el fake del año» (Daguito Valdés).",
+      "toLine": 69,
+      "type": "document-quote",
+      "startFrame": 9124,
+      "endFrame": 9964,
+      "durationFrames": 840
+    },
+    {
+      "assets": [
+        "cuballama-cienfuegos-articulo.jpg"
+      ],
+      "chapter": 2,
+      "fromLine": 70,
+      "notes": "LA REVELACIÓN 1: texto exacto del post borrado + nota «el post fue borrado horas después». Música cortada 0,5 s antes de «una institución del Estado lo publicó como cierto». Impacto grave en la revelación.",
+      "toLine": 73,
+      "type": "document-quote",
+      "startFrame": 9964,
+      "endFrame": 10839,
+      "durationFrames": 875
+    },
+    {
+      "assets": [],
+      "chapter": 2,
+      "fromLine": 74,
+      "notes": "Contexto: apagones de 30+ horas. B-roll B2 (ciudad a oscuras) o placa de contexto. La frase «no se compartió porque fuera creíble. Se compartió porque era deseable» va como big-statement.",
+      "text": "No se compartió porque fuera creíble. Se compartió porque era deseable.",
+      "toLine": 77,
+      "type": "big-statement",
+      "videoBg": "broll/b2-apagon-ciudad.mp4",
+      "startFrame": 10839,
+      "endFrame": 11381,
+      "durationFrames": 542
+    },
+    {
+      "assets": [
+        "cuballama-juicio-2027-articulo.jpg",
+        "padron-reel-10jul.jpg"
+      ],
+      "chapter": 2,
+      "fromLine": 78,
+      "notes": "LA REVELACIÓN 2: noticia del juicio con la fecha 1-mar-2027 resaltada. Reel de Padron si se localizó (opcional). Silencio de música en «Falso. El juicio ni siquiera había empezado».",
+      "toLine": 90,
+      "type": "document-quote",
+      "startFrame": 11381,
+      "endFrame": 12785,
+      "durationFrames": 1404
+    },
+    {
+      "chapter": 3,
+      "fromLine": 91,
+      "notes": "Re-gancho de inicio de acto + transición (fundido a negro).",
+      "text": "¿Por qué funcionó?",
+      "toLine": 91,
+      "type": "question",
+      "startFrame": 12785,
+      "endFrame": 12837,
+      "durationFrames": 52
+    },
+    {
+      "assets": [
+        "post-messi-cuba-falso.jpg",
+        "cuballama-cienfuegos-articulo.jpg",
+        "cuballama-juicio-2027-articulo.jpg"
+      ],
+      "chapter": 3,
+      "fromLine": 92,
+      "notes": "Repaso rápido de los 3 casos en mini-capturas (Messi, Ronaldo, Valdez Galloso): cada uno dice lo que su público quería oír.",
+      "toLine": 97,
+      "type": "document-trio",
+      "startFrame": 12837,
+      "endFrame": 13293,
+      "durationFrames": 456
+    },
+    {
+      "chapter": 3,
+      "fromLine": 98,
+      "itemAt": [
+        0,
+        6,
+        155
+      ],
+      "items": [
+        "El bulo se comparte porque es deseable",
+        "El nombre de un artista muerto como escudo",
+        "El desmentido no llega al feed donde circula el bulo"
+      ],
+      "notes": "Los 3 mecanismos en lista: deseable / escudo del nombre / el desmentido no llega al feed.",
+      "title": "Tres razones",
+      "toLine": 101,
+      "type": "list",
+      "startFrame": 13293,
+      "endFrame": 13795,
+      "durationFrames": 502
+    },
+    {
+      "chapter": 3,
+      "fromLine": 102,
+      "notes": "Placa de apertura del bloque de comprobaciones.",
+      "text": "3 comprobaciones. Menos de un minuto.",
+      "toLine": 106,
+      "type": "big-statement",
+      "startFrame": 13795,
+      "endFrame": 14201,
+      "durationFrames": 406
+    },
+    {
+      "assets": [
+        "busqueda-inversa-foto-messi.jpg"
+      ],
+      "chapter": 3,
+      "fromLine": 107,
+      "notes": "Comprobación 1: búsqueda inversa, resultado 2022 resaltado.",
+      "toLine": 110,
+      "type": "document-zoom",
+      "startFrame": 14201,
+      "endFrame": 14612,
+      "durationFrames": 411
+    },
+    {
+      "assets": [
+        "cuentas-oficiales-messi-ronaldo.jpg"
+      ],
+      "chapter": 3,
+      "fromLine": 111,
+      "itemAt": [
+        106,
+        133,
+        163
+      ],
+      "markAt": [
+        219,
+        242,
+        264
+      ],
+      "notes": "Comprobación 2: checklist de ausencia (X: NADA ✗ / INSTAGRAM: NADA ✗) + perfiles oficiales si hay captura (opcional).",
+      "toLine": 114,
+      "type": "document-checklist",
+      "startFrame": 14612,
+      "endFrame": 14987,
+      "durationFrames": 375
+    },
+    {
+      "assets": [
+        "messi-foto-98c58e7b73.jpg"
+      ],
+      "chapter": 3,
+      "fromLine": 115,
+      "notes": "Comprobación 3: lupa sobre la marca de agua de Gemini (2–3 s dentro de la lente). Respaldo F4 si no se lee.",
+      "toLine": 117,
+      "type": "document-zoom",
+      "startFrame": 14987,
+      "endFrame": 15292,
+      "durationFrames": 305
+    },
+    {
+      "assets": [
+        "pagina-no-disponible-url.jpg"
+      ],
+      "chapter": 3,
+      "fromLine": 118,
+      "notes": "EL CIERRE HONESTO: la URL caída vuelve (bucle con el cold open). Música cortada en «No sabemos por qué desapareció, y no vamos a inventarlo». Línea de tiempo completa con el punto final «HOY: LA FÓRMULA SIGUE VIVA».",
+      "toLine": 123,
+      "type": "document-zoom",
+      "urlBar": "facebook.com/foreverjose.taiger",
+      "startFrame": 15292,
+      "endFrame": 15910,
+      "durationFrames": 618
+    },
+    {
+      "chapter": 3,
+      "fromLine": 124,
+      "notes": "CTA de una sola línea + pregunta de marca + end screen (1 recomendación: el Short de Messi) + logo animado del cierre (6 s, fondo negro) después del último fotograma útil.",
+      "text": "Suscríbete a El Libreto. Geopolítica con las fuentes delante. ¿Quién escribió el libreto?",
+      "toLine": 128,
+      "type": "summary-card",
+      "startFrame": 15910,
+      "endFrame": 16359,
+      "durationFrames": 449
+    }
+  ]
+}

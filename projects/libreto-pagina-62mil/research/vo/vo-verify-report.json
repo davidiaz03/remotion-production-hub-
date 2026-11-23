@@ -1,0 +1,1306 @@
+{
+ "veredicto_global": "DISCREPANCIA",
+ "resumen": {
+  "MATCH": 2,
+  "INCIERTO": 27,
+  "DISCREPANCIA": 2
+ },
+ "lineas": [
+  {
+   "linea": 1,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'josé' oído como 'joseph' (prob. ASR 0.23 < 0.5)",
+     "guion": [
+      "josé"
+     ],
+     "asr": [
+      "joseph"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['', 'el', 'taiger'] vs ASR ['tiger']",
+     "guion": [
+      "",
+      "el",
+      "taiger"
+     ],
+     "asr": [
+      "tiger"
+     ]
+    }
+   ],
+   "guion": "Si buscas hoy en Facebook la página «José Forever - El Taiger», no la vas a encontrar. La dirección ya no carga y Facebook dice que el contenido no está disponible. Y si buscas el nombre exacto, no aparece ninguna página con ese nombre.",
+   "asr": "Si buscas hoy en facebook la página joseph forever tiger no la vas a encontrar. La dirección ya no carga y facebook dice que el contenido no está disponible y si buscas el nombre exacto no aparece ninguna página con ese nombre."
+  },
+  {
+   "linea": 2,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'marzo' oído como 'malso' (prob. ASR 0.21 < 0.5)",
+     "guion": [
+      "marzo"
+     ],
+     "asr": [
+      "malso"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'messi' oído como 'mesi' (fonéticamente cercana, ratio 0.89)",
+     "guion": [
+      "messi"
+     ],
+     "asr": [
+      "mesi"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "guion ['62000'] vs ASR ['62', 'mil'] (prob. ASR 0.43 < 0.5)",
+     "guion": [
+      "62000"
+     ],
+     "asr": [
+      "62",
+      "mil"
+     ]
+    }
+   ],
+   "guion": "Esta es la página que en marzo publicó un mensaje falso atribuido a Messi sobre Cuba. 62.000 reacciones. 3.300 compartidos. Más de 5.000 comentarios. Y todo era falso.",
+   "asr": "Esta es la página que en malso publicó un mensaje falso atribuido a mesi sobre cuba 62 mil reacciones 3300 compartidos más de 5000 comentarios y todo era falso."
+  },
+  {
+   "linea": 3,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'el' oído como 'en' (fonéticamente cercana, ratio 0.50)",
+     "guion": [
+      "el"
+     ],
+     "asr": [
+      "en"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'messi' oído como 'mesi' (prob. ASR 0.14 < 0.5)",
+     "guion": [
+      "messi"
+     ],
+     "asr": [
+      "mesi"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'roccuzzo' oído como 'rocuzzo' (fonéticamente cercana, ratio 0.93)",
+     "guion": [
+      "roccuzzo"
+     ],
+     "asr": [
+      "rocuzzo"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'gemini' oído como 'yemení' (fonéticamente cercana, ratio 0.50)",
+     "guion": [
+      "gemini"
+     ],
+     "asr": [
+      "yemení"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['eltoque'] vs ASR ['el', 'toque']",
+     "guion": [
+      "eltoque"
+     ],
+     "asr": [
+      "el",
+      "toque"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'infoveritas' oído como 'infoberitas' (fonéticamente cercana, ratio 0.91)",
+     "guion": [
+      "infoveritas"
+     ],
+     "asr": [
+      "infoberitas"
+     ]
+    }
+   ],
+   "guion": "El mensaje no lo escribió Messi. La foto era de 2022, de la cuenta de Antonela Roccuzzo, sin ninguna bandera cubana. La bandera la añadieron después, con inteligencia artificial, y la foto llevaba la marca de agua de Gemini. Lo verificaron elTOQUE e InfoVeritas.",
+   "asr": "En mensaje no lo escribió mesi la foto era de 2022 de la cuenta de antonela rocuzzo sin ninguna bandera cubana. La bandera la añadieron después con inteligencia artificial y la foto llevaba la marca de agua de yemení. Lo verificaron el toque e infoberitas."
+  },
+  {
+   "linea": 4,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'el' oído como 'en' (fonéticamente cercana, ratio 0.50)",
+     "guion": [
+      "el"
+     ],
+     "asr": [
+      "en"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['marzo', 'trump'] vs ASR ['malso', 'trun']",
+     "guion": [
+      "marzo",
+      "trump"
+     ],
+     "asr": [
+      "malso",
+      "trun"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['al', 'inter', 'miami'] vs ASR ['a', 'linton', 'mayami']",
+     "guion": [
+      "al",
+      "inter",
+      "miami"
+     ],
+     "asr": [
+      "a",
+      "linton",
+      "mayami"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'messi' oído como 'mesi' (fonéticamente cercana, ratio 0.89)",
+     "guion": [
+      "messi"
+     ],
+     "asr": [
+      "mesi"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'messi' oído como 'mesi' (prob. ASR 0.04 < 0.5)",
+     "guion": [
+      "messi"
+     ],
+     "asr": [
+      "mesi"
+     ]
+    }
+   ],
+   "guion": "El mensaje tenía un núcleo real. El 5 de marzo, Trump recibió al Inter Miami en la Casa Blanca, y Messi estuvo allí. Eso sí pasó. Lo que no pasó es que Messi hablara de Cuba. Ese núcleo real es parte de la fórmula, y la fórmula se repitió durante meses.",
+   "asr": "En mensaje tenía un núcleo real. El 5 de malso trun recibió a linton mayami en la casa blanca y mesi estuvo allí. Eso sí pasó. Lo que no pasó es que mesi hablara de cuba. Ese núcleo real es parte de la fórmula y la fórmula se repitió durante meses."
+  },
+  {
+   "linea": 5,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'video' oído como 'vídeo' (fonéticamente cercana, ratio 0.80)",
+     "guion": [
+      "video"
+     ],
+     "asr": [
+      "vídeo"
+     ]
+    }
+   ],
+   "guion": "En el Short te prometimos el patrón completo. Este es el video. Y la primera pregunta es la obvia: ¿fue un error aislado, o era una fábrica?",
+   "asr": "En el short te prometimos el patrón completo. Este es el vídeo y la primera pregunta es la obvia. ¿Fue un error aislado o era una fábrica?"
+  },
+  {
+   "linea": 6,
+   "veredicto": "MATCH",
+   "detalles": [],
+   "guion": "Y al final te enseño tres comprobaciones que tardan menos de un minuto y habrían desmontado cada uno de estos casos.",
+   "asr": "Y al final te enseño tres comprobaciones que tardan menos de un minuto y habrían desmontado cada uno de estos casos."
+  },
+  {
+   "linea": 7,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['llamaba', 'josé'] vs ASR ['llama', 'joseph']",
+     "guion": [
+      "llamaba",
+      "josé"
+     ],
+     "asr": [
+      "llama",
+      "joseph"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['', 'el', 'taiger'] vs ASR ['tiger']",
+     "guion": [
+      "",
+      "el",
+      "taiger"
+     ],
+     "asr": [
+      "tiger"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['de', 'el', 'taiger'] vs ASR ['del', 'tiger']",
+     "guion": [
+      "de",
+      "el",
+      "taiger"
+     ],
+     "asr": [
+      "del",
+      "tiger"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'miami' oído como 'mayami' (prob. ASR 0.29 < 0.5)",
+     "guion": [
+      "miami"
+     ],
+     "asr": [
+      "mayami"
+     ]
+    }
+   ],
+   "guion": "La página se llamaba «José Forever - El Taiger». Se creó el 10 de noviembre de 2024, exactamente un mes después de la muerte de El Taiger: el artista falleció el 10 de octubre en Miami, a los 37 años.",
+   "asr": "La página se llama joseph forever tiger. Se creó el 10 de noviembre de 2024, exactamente un mes después de la muerte del tiger. El artista falleció el 10 de octubre en mayami a los 37 años."
+  },
+  {
+   "linea": 8,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'usa' oído como 'use' (prob. ASR 0.26 < 0.5)",
+     "guion": [
+      "usa"
+     ],
+     "asr": [
+      "use"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['de', 'el', 'taiger'] vs ASR ['del', 'tiger']",
+     "guion": [
+      "de",
+      "el",
+      "taiger"
+     ],
+     "asr": [
+      "del",
+      "tiger"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['eltoque'] vs ASR ['el', 'toque']",
+     "guion": [
+      "eltoque"
+     ],
+     "asr": [
+      "el",
+      "toque"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'cuballama' oído como 'cubayama' (fonéticamente cercana, ratio 0.82)",
+     "guion": [
+      "cuballama"
+     ],
+     "asr": [
+      "cubayama"
+     ]
+    }
+   ],
+   "guion": "Usa el nombre de El Taiger. No tiene nada que ver con él. elTOQUE lo escribió así: el contenido que publicaba no guardaba relación con su trayectoria ni con su legado. Cuballama lo dijo más directo: era una página creada para desinformar, no para homenajear.",
+   "asr": "Use el nombre del tiger. No tiene nada que ver con él. El toque lo escribió así. El contenido que publicaba no guardaba relación con su trayectoria ni con su legado. cubayama lo dijo más directo. Era una página creada para desinformar, no para homenajear."
+  },
+  {
+   "linea": 9,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'falso' oído como 'false' (prob. ASR 0.21 < 0.5)",
+     "guion": [
+      "falso"
+     ],
+     "asr": [
+      "false"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['600000'] vs ASR ['600', '000']",
+     "guion": [
+      "600000"
+     ],
+     "asr": [
+      "600",
+      "000"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'pasaba' oído como 'basaba' (fonéticamente cercana, ratio 0.83)",
+     "guion": [
+      "pasaba"
+     ],
+     "asr": [
+      "basaba"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['748000'] vs ASR ['748', '000']",
+     "guion": [
+      "748000"
+     ],
+     "asr": [
+      "748",
+      "000"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['con', 'fuente'] vs ASR ['confuente']",
+     "guion": [
+      "con",
+      "fuente"
+     ],
+     "asr": [
+      "confuente"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['770000'] vs ASR ['770', '000']",
+     "guion": [
+      "770000"
+     ],
+     "asr": [
+      "770",
+      "000"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['5000'] vs ASR ['5', '000']",
+     "guion": [
+      "5000"
+     ],
+     "asr": [
+      "5",
+      "000"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['eltoque'] vs ASR ['el', 'toque']",
+     "guion": [
+      "eltoque"
+     ],
+     "asr": [
+      "el",
+      "toque"
+     ]
+    }
+   ],
+   "guion": "La página creció mientras publicaba contenido falso. En agosto de 2025 tenía 600.000 seguidores. En marzo de 2026, cuando salió el caso Messi, ya pasaba de 748.000. Y la última cifra con fuente, de julio, es de más de 770.000. Las denuncias no la frenaron: en dos semanas ganó unos 5.000 seguidores mientras elTOQUE publicaba dos verificaciones en su contra.",
+   "asr": "La página creció mientras publicaba contenido false. En agosto de 2025 tenía 600 .000 seguidores. En marzo de 2026 cuando salió el caso Messi ya basaba de 748 .000. Y la última cifra confuente de julio es de más de 770 .000. Las denuncias no la frenaron. En dos semanas ganó unos 5 .000 seguidores mientras el toque publicaba dos verificaciones en su contra."
+  },
+  {
+   "linea": 10,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['eltoque'] vs ASR ['el', 'toque']",
+     "guion": [
+      "eltoque"
+     ],
+     "asr": [
+      "el",
+      "toque"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "palabra 'el' no oída por el ASR (corta/función o prob. 0.41)",
+     "guion": [
+      "el"
+     ],
+     "asr": []
+    }
+   ],
+   "guion": "elTOQUE describió el método en abril: la página mezclaba hechos reales con afirmaciones falsas, sin ninguna aclaración. Cuatro pasos. Primero, una figura que el público quiere escuchar. Segundo, un texto emocional en primera persona, atribuido a esa figura. Tercero, una imagen real manipulada o creada con inteligencia artificial, casi siempre con una bandera cubana. Y cuarto, un núcleo real que hace creíble el bulo. Sin aclaración de ningún tipo.",
+   "asr": "El toque describió el método en abril. La página mezclaba hechos reales con afirmaciones falsas sin ninguna aclaración. Cuatro pasos. Primero, una figura que el público quiere escuchar. Segundo, un texto emocional en primera persona atribuido a esa figura. Tercero, una imagen real manipulada o creada con inteligencia artificial. Casi siempre con una bandera cubana. Y cuarto, un núcleo real que hace creíble bulo sin aclaración de ningún tipo."
+  },
+  {
+   "linea": 11,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'nayib' oído como 'nahid' (fonéticamente cercana, ratio 0.60)",
+     "guion": [
+      "nayib"
+     ],
+     "asr": [
+      "nahid"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['de', 'el', 'salvador'] vs ASR ['del', 'zambadoll']",
+     "guion": [
+      "de",
+      "el",
+      "salvador"
+     ],
+     "asr": [
+      "del",
+      "zambadoll"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['7800'] vs ASR ['7', '800']",
+     "guion": [
+      "7800"
+     ],
+     "asr": [
+      "7",
+      "800"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['eltoque'] vs ASR ['el', 'toque']",
+     "guion": [
+      "eltoque"
+     ],
+     "asr": [
+      "el",
+      "toque"
+     ]
+    }
+   ],
+   "guion": "Una semana después del caso Messi, el 23 de marzo, la misma fórmula con Nayib Bukele, presidente de El Salvador: un texto firmado con su nombre y un collage de tres fotos con banderas cubanas. Más de 7.800 reacciones. elTOQUE verificó que las declaraciones citadas no eran ciertas.",
+   "asr": "Una semana después del caso Messi, el 23 de marzo, la misma fórmula con Nahid Bukele, presidente del zambadoll. Un texto firmado con su nombre y un collage de tres fotos con banderas cubanas. Más de 7 .800 reacciones, el toque verificó que las declaraciones citadas no eran ciertas."
+  },
+  {
+   "linea": 12,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'daddy' oído como 'ari' (discrepancia de una sola palabra)",
+     "guion": [
+      "daddy"
+     ],
+     "asr": [
+      "ari"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['eltoque', 'los'] vs ASR ['el', 'toque', 'lo']",
+     "guion": [
+      "eltoque",
+      "los"
+     ],
+     "asr": [
+      "el",
+      "toque",
+      "lo"
+     ]
+    }
+   ],
+   "guion": "Ese mismo mes la página atribuyó declaraciones falsas a Elon Musk, a Daddy Yankee y a Bad Bunny. elTOQUE los verificó en grupo: las declaraciones citadas no son ciertas.",
+   "asr": "Ese mismo mes, la página atribuyó declaraciones falsas a Elon Musk, a Ari Yankee y a Bad Bunny. El toque lo verificó en grupo. Las declaraciones citadas no son ciertas."
+  },
+  {
+   "linea": 13,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'sí' oído como 'si' (prob. ASR 0.07 < 0.5)",
+     "guion": [
+      "sí"
+     ],
+     "asr": [
+      "si"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['algo', 'real'] vs ASR ['a', 'correar']",
+     "guion": [
+      "algo",
+      "real"
+     ],
+     "asr": [
+      "a",
+      "correar"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['lo', 'falso'] vs ASR ['los', 'falsos']",
+     "guion": [
+      "lo",
+      "falso"
+     ],
+     "asr": [
+      "los",
+      "falsos"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'le' oído como 'la' (fonéticamente cercana, ratio 0.50)",
+     "guion": [
+      "le"
+     ],
+     "asr": [
+      "la"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'video' oído como 'vídeo' (prob. ASR 0.48 < 0.5)",
+     "guion": [
+      "video"
+     ],
+     "asr": [
+      "vídeo"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'tuit' oído como 'twitter' (prob. ASR 0.18 < 0.5)",
+     "guion": [
+      "tuit"
+     ],
+     "asr": [
+      "twitter"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['apagón'] vs ASR ['apagó', 'un']",
+     "guion": [
+      "apagón"
+     ],
+     "asr": [
+      "apagó",
+      "un"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'inventada' oído como 'inventado' (fonéticamente cercana, ratio 0.89)",
+     "guion": [
+      "inventada"
+     ],
+     "asr": [
+      "inventado"
+     ]
+    }
+   ],
+   "guion": "Con Musk hay un matiz que no se puede saltar. Musk SÍ dijo algo real sobre Cuba. El 16 de marzo, el mismo día del post de Messi, Musk escribió en X sobre Starlink en Cuba: «Works in Cuba, just can't be sold there». Funciona en Cuba, pero no se puede vender allí. Lo falso son las declaraciones políticas que la página le atribuyó. Si este video dijera que Musk nunca ha dicho nada sobre Cuba, estaría mintiendo. Ese es el punto: el bulo funcionaba porque tenía un núcleo real. Ese día Cuba sufrió además el sexto colapso total del sistema eléctrico: tuit real, apagón real y cita inventada, todo el mismo día.",
+   "asr": "Con Musk, hay un matiz que no se puede saltar. Musk si dijo a correar sobre Cuba. El 16 de marzo, el mismo día del post de Messi. Musk escribió en X sobre Starlink en Cuba. Works in Cuba. Just can't be sold there. Funciona en Cuba, pero no se puede vender allí. Los falsos son las declaraciones políticas que la página la atribuyó. Si este vídeo dijera que Musk nunca ha dicho nada sobre Cuba, estaría mintiendo. Ese es el punto. El bulo funcionaba porque tenía un núcleo real. Ese día, Cuba sufrió además el sexto colapso total del sistema eléctrico, Twitter real. Apagó un real y cita inventado. Todo el mismo día."
+  },
+  {
+   "linea": 14,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'el' oído como 'en' (prob. ASR 0.05 < 0.5)",
+     "guion": [
+      "el"
+     ],
+     "asr": [
+      "en"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'perez' oído como 'pérez' (fonéticamente cercana, ratio 0.80)",
+     "guion": [
+      "perez"
+     ],
+     "asr": [
+      "pérez"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'collage' oído como 'colacht' (prob. ASR 0.26 < 0.5)",
+     "guion": [
+      "collage"
+     ],
+     "asr": [
+      "colacht"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['factchecker'] vs ASR ['fact', 'checker']",
+     "guion": [
+      "factchecker"
+     ],
+     "asr": [
+      "fact",
+      "checker"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'lo' oído como 'la' (prob. ASR 0.41 < 0.5)",
+     "guion": [
+      "lo"
+     ],
+     "asr": [
+      "la"
+     ]
+    }
+   ],
+   "guion": "El patrón ya era visible. En enero, dos meses antes del caso Messi, la página «11 Millones de Cubanos», con más de un millón de seguidores, ya la había denunciado en público: noticias falsas de muertes, contenido robado, denuncias de copyright falsas. Y el 20 de marzo, cuatro días después del post de Messi, un usuario, Carlos Perez, publicó un collage con Messi, Musk y Bukele: «DECLARACIONES INVENTADAS Y REALIDADES MANIPULADAS». No era un fact-checker. Era una persona que ya lo había visto.",
+   "asr": "El patrón ya era visible. En enero, dos meses antes del caso Messi, la página, 11 millones de cubanos con más de un millón de seguidores ya la había denunciado en público. Noticias falsas de muertes, contenido robado, denuncias de copyright falsas. Y en 20 de marzo, cuatro días después del post de Messi, un usuario Carlos Pérez publicó un colacht con Messi, Musk y Bukele, declaraciones inventadas y realidades manipuladas. No era un fact -checker, era una persona que ya la había visto."
+  },
+  {
+   "linea": 15,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['reguetonero', 'oniel', 'bebeshito'] vs ASR ['reggaetonero', 'onien', 'bebeschito']",
+     "guion": [
+      "reguetonero",
+      "oniel",
+      "bebeshito"
+     ],
+     "asr": [
+      "reggaetonero",
+      "onien",
+      "bebeschito"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'bebeshito' oído como 'bebeschito' (fonéticamente cercana, ratio 0.95)",
+     "guion": [
+      "bebeshito"
+     ],
+     "asr": [
+      "bebeschito"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'habana' oído como 'havana' (fonéticamente cercana, ratio 0.83)",
+     "guion": [
+      "habana"
+     ],
+     "asr": [
+      "havana"
+     ]
+    }
+   ],
+   "guion": "En abril el patrón tocó a personas reales. La página publicó que el reguetonero Oniel Bebeshito y su esposa habían viajado a Cuba en secreto, con imágenes generadas con inteligencia artificial: Bebeshito con su residencia estadounidense antes de abordar un vuelo de Cubana de Aviación, y la pareja frente al Hotel Habana Libre. Todo fabricado.",
+   "asr": "En abril, el patrón tocó a personas reales. La página publicó que el reggaetonero Onien Bebeschito y su esposa habían viajado a Cuba en secreto, con imágenes generadas con inteligencia artificial. Bebeschito con su residencia estadounidense antes de abordar un vuelo de cubana de aviación y la pareja frente al hotel Havana Libre. Todo fabricado."
+  },
+  {
+   "linea": 16,
+   "veredicto": "DISCREPANCIA",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'bebeshito' oído como 'bebeschito' (fonéticamente cercana, ratio 0.95)",
+     "guion": [
+      "bebeshito"
+     ],
+     "asr": [
+      "bebeschito"
+     ]
+    },
+    {
+     "veredicto": "DISCREPANCIA",
+     "detalle": "palabras extra ['esto', 'también'] en el ASR",
+     "guion": [],
+     "asr": [
+      "esto",
+      "también"
+     ]
+    },
+    {
+     "veredicto": "DISCREPANCIA",
+     "detalle": "palabra de contenido 'totalmente' no oída (contexto ASR 0.95 >= 0.8)",
+     "guion": [
+      "totalmente"
+     ],
+     "asr": []
+    }
+   ],
+   "guion": "Bebeshito tuvo que desmentirlo en persona. Un creador de la plataforma Familia Cubana lo abordó mientras preparaba un videoclip y respondió: «Es totalmente falso. No he salido de Estados Unidos». Un artista teniendo que demostrar que no hizo un viaje que nunca hizo.",
+   "asr": "Bebeschito tuvo que desmentirlo en persona. Un creador de la plataforma familia cubana lo abordó mientras preparaba un videoclip y respondió. Esto también es falso. No he salido de Estados Unidos. Un artista teniendo que demostrar que no hizo un viaje que nunca hizo."
+  },
+  {
+   "linea": 17,
+   "veredicto": "DISCREPANCIA",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'feed' oído como 'fit' (prob. ASR 0.25 < 0.5)",
+     "guion": [
+      "feed"
+     ],
+     "asr": [
+      "fit"
+     ]
+    },
+    {
+     "veredicto": "DISCREPANCIA",
+     "detalle": "palabras ['yasel', 'porto'] no oídas por el ASR",
+     "guion": [
+      "yasel",
+      "porto"
+     ],
+     "asr": []
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['elpoderdigital', 'eltoque', 'lo'] vs ASR ['hacer', 'puto', 'y', 'el', 'poder', 'digital', 'el', 'toque', 'la']",
+     "guion": [
+      "elpoderdigital",
+      "eltoque",
+      "lo"
+     ],
+     "asr": [
+      "hacer",
+      "puto",
+      "y",
+      "el",
+      "poder",
+      "digital",
+      "el",
+      "toque",
+      "la"
+     ]
+    }
+   ],
+   "guion": "En junio el bulo salió del feed y llegó a una institución pública. La página originó la historia de que Cristiano Ronaldo había donado 250 paneles solares a Cuba. Dos fuentes independientes la señalan como el origen: Yasel Porto y elpoderdigital. elTOQUE lo verificó como falso: no había evidencia en los canales oficiales de Ronaldo, ni en su fundación, ni en ninguna agencia de prensa. El analista Daguito Valdés lo llamó «el fake del año».",
+   "asr": "En junio, el bulo salió del fit y llegó a una institución pública. La página originó la historia de que Cristiano Ronaldo había donado 250 paneles solares a Cuba. Dos fuentes independientes la señalan como el origen y hacer puto y el poder digital. El toque la verificó como falso. No había evidencia en los canales oficiales de Ronaldo ni en su fundación ni en ninguna agencia de prensa. El analista Daguito Valdés lo llamó el fake del año."
+  },
+  {
+   "linea": 18,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'el' oído como 'en' (prob. ASR 0.44 < 0.5)",
+     "guion": [
+      "el"
+     ],
+     "asr": [
+      "en"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'provincial' oído como 'provisial' (fonéticamente cercana, ratio 0.84)",
+     "guion": [
+      "provincial"
+     ],
+     "asr": [
+      "provisial"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['el', 'post'] vs ASR ['pos']",
+     "guion": [
+      "el",
+      "post"
+     ],
+     "asr": [
+      "pos"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['eltoque'] vs ASR ['el', 'toque']",
+     "guion": [
+      "eltoque"
+     ],
+     "asr": [
+      "el",
+      "toque"
+     ]
+    }
+   ],
+   "guion": "Pero antes de que el desmentido llegara, una institución del Estado lo publicó como cierto. El 22 de junio, la Dirección Provincial de Salud de Cienfuegos publicó en su cuenta oficial que Ronaldo había sellado una «alianza histórica» con el Gobierno cubano para donar 250 paneles solares, baterías y repuestos. Horas después, la institución borró el post sin dar explicaciones. Pero elTOQUE documentó que el bulo ya se había replicado en grupos y en otras cuentas vinculadas a instituciones estatales.",
+   "asr": "Pero antes de que el desmentido llegara, una institución del Estado lo publicó como cierto. En 22 de junio, la Dirección Provisial de Salud de Cienfuegos publicó en su cuenta oficial que Ronaldo había sellado una alianza histórica con el gobierno cubano para donar 250 paneles solares, baterías y repuestos. Horas después, la institución borró pos sin dar explicaciones. Pero el toque documentó que el bulo ya se había replicado en grupos y en otras cuentas vinculadas a instituciones estatales."
+  },
+  {
+   "linea": 19,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "palabra 'a' no oída por el ASR (corta/función o prob. 0.56)",
+     "guion": [
+      "a"
+     ],
+     "asr": []
+    }
+   ],
+   "guion": "Cuba atravesaba una crisis energética con apagones de más de 30 horas seguidas. La promesa de 250 paneles solares no se compartió porque fuera creíble. Se compartió porque era deseable. Y eso es lo que lo hace peligroso: no apela a la razón, apela a la esperanza.",
+   "asr": "Cuba atravesaba una crisis energética con apagones de más de 30 horas seguidas. La promesa de 250 paneles solares no se compartió porque fuera creíble, se compartió porque era deseable. Y eso es lo que lo hace peligroso. No apela la razón, apela a la esperanza."
+  },
+  {
+   "linea": 20,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'el' oído como 'en' (fonéticamente cercana, ratio 0.50)",
+     "guion": [
+      "el"
+     ],
+     "asr": [
+      "en"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['damián', 'valdésgalloso'] vs ASR ['damian', 'valdés', 'galloso']",
+     "guion": [
+      "damián",
+      "valdésgalloso"
+     ],
+     "asr": [
+      "damian",
+      "valdés",
+      "galloso"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['a', 'el', 'taiger'] vs ASR ['al', 'tiger']",
+     "guion": [
+      "a",
+      "el",
+      "taiger"
+     ],
+     "asr": [
+      "al",
+      "tiger"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['maria', 'padron'] vs ASR ['maría', 'padrón']",
+     "guion": [
+      "maria",
+      "padron"
+     ],
+     "asr": [
+      "maría",
+      "padrón"
+     ]
+    }
+   ],
+   "guion": "Y el último caso documentado es el más grave. En julio, la página publicó que Damián Valdés-Galloso, el acusado de asesinar a El Taiger, había sido condenado a 60 años. Falso. El juicio ni siquiera había empezado. Teresa Maria Padron lo denunció en un reel del 10 de julio.",
+   "asr": "Y el último caso documentado es en más grave. En julio, la página publicó que Damian Valdés Galloso, el acusado de asesinar al Tiger, había sido condenado a 60 años. Falso. El juicio ni siquiera había empezado. Teresa María Padrón lo denunció en un reel del 10 de julio."
+  },
+  {
+   "linea": 21,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['miamidade'] vs ASR ['miami', 'dade']",
+     "guion": [
+      "miamidade"
+     ],
+     "asr": [
+      "miami",
+      "dade"
+     ]
+    }
+   ],
+   "guion": "La confirmación llegó en noviembre. La Corte Criminal de Miami-Dade fijó el inicio del juicio para el 1 de marzo de 2027. Es decir: cuando la página publicó la condena, faltaban ocho meses para que el juicio empezara. Ninguna condena existía en julio de 2026. Y ninguna existe hoy. El acusado se declaró no culpable y permanece detenido sin fianza.",
+   "asr": "La confirmación llegó en noviembre. La Corte Criminal de Miami -Dade fijó el inicio del juicio para el 1º de marzo de 2027. Es decir, cuando la página publicó la condena faltaban 8 meses para que el juicio empezara. Ninguna condena existía en julio de 2026. Y ninguna existe hoy. El acusado se declaró no culpable y permanece detenido sin fianza."
+  },
+  {
+   "linea": 22,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'el' oído como 'en' (fonéticamente cercana, ratio 0.50)",
+     "guion": [
+      "el"
+     ],
+     "asr": [
+      "en"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['del'] vs ASR ['de', 'la']",
+     "guion": [
+      "del"
+     ],
+     "asr": [
+      "de",
+      "la"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'homenajeaba' oído como 'homenagiaba' (fonéticamente cercana, ratio 0.82)",
+     "guion": [
+      "homenajeaba"
+     ],
+     "asr": [
+      "homenagiaba"
+     ]
+    }
+   ],
+   "guion": "La condena era inventada. Y la página que la inventó llevaba el nombre del artista al que supuestamente homenajeaba.",
+   "asr": "La condena era inventada y la página que la inventó llevaba en nombre de la artista al que supuestamente homenagiaba."
+  },
+  {
+   "linea": 23,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "palabra 'el' no oída por el ASR (corta/función o prob. 0.46)",
+     "guion": [
+      "el"
+     ],
+     "asr": []
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['messi', 'por', 'fin'] vs ASR ['mésipo', 'fina']",
+     "guion": [
+      "messi",
+      "por",
+      "fin"
+     ],
+     "asr": [
+      "mésipo",
+      "fina"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['el', 'taiger'] vs ASR ['tiger']",
+     "guion": [
+      "el",
+      "taiger"
+     ],
+     "asr": [
+      "tiger"
+     ]
+    }
+   ],
+   "guion": "¿Por qué funcionó? Porque el bulo no se comparte porque sea creíble. Se comparte porque es deseable. Messi por fin hablando de Cuba. Ronaldo donando paneles en medio de apagones de 30 horas. El asesino de El Taiger ya condenado. Cada caso decía lo que su público quería oír.",
+   "asr": "¿Por qué funcionó? Porque bulo no se comparte porque sea creíble, se comparte porque es deseable. Mésipo fina hablando de Cuba, Ronaldo donando paneles en medio de apagones de 30 horas. El asesino de Tiger ya condenado, cada caso decía lo que su público quería oír."
+  },
+  {
+   "linea": 24,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'el' oído como 'en' (fonéticamente cercana, ratio 0.50)",
+     "guion": [
+      "el"
+     ],
+     "asr": [
+      "en"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "palabra 'el' no oída por el ASR (corta/función o prob. 0.56)",
+     "guion": [
+      "el"
+     ],
+     "asr": []
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'feed' oído como 'fin' (prob. ASR 0.08 < 0.5)",
+     "guion": [
+      "feed"
+     ],
+     "asr": [
+      "fin"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['eltoque'] vs ASR ['el', 'toque']",
+     "guion": [
+      "eltoque"
+     ],
+     "asr": [
+      "el",
+      "toque"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['messi'] vs ASR ['de', 'mesi']",
+     "guion": [
+      "messi"
+     ],
+     "asr": [
+      "de",
+      "mesi"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'del' oído como 'de' (prob. ASR 0.20 < 0.5)",
+     "guion": [
+      "del"
+     ],
+     "asr": [
+      "de"
+     ]
+    }
+   ],
+   "guion": "Y porque tenía un escudo: el nombre de un artista muerto, al que el público le prestaba su confianza. Y porque el desmentido no llega al feed donde circula el bulo. elTOQUE verificó el caso Messi al día siguiente. Pero la réplica del post sigue en vivo ocho meses después, con cientos de comentarios.",
+   "asr": "Y porque tenía un escudo en nombre de un artista muerto al que el público le prestaba su confianza y porque desmentido no llega al fin donde circula el bulo. El toque verificó el caso de mesi al día siguiente, pero la réplica de post sigue en vivo 8 meses después con cientos de comentarios."
+  },
+  {
+   "linea": 25,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'y' oído como 'de' (prob. ASR 0.42 < 0.5)",
+     "guion": [
+      "y"
+     ],
+     "asr": [
+      "de"
+     ]
+    }
+   ],
+   "guion": "Y la inteligencia artificial cambió el costo de fabricar: una foto real más una bandera añadida, una imagen generada entera. Antes costaba tiempo y dinero. Ahora cuesta segundos.",
+   "asr": "Y la inteligencia artificial cambió el costo de fabricar. Una foto real, más una bandera añadida, una imagen generada entera, antes costaba tiempo de dinero. Ahora cuesta segundos."
+  },
+  {
+   "linea": 26,
+   "veredicto": "MATCH",
+   "detalles": [],
+   "guion": "Por eso, tres comprobaciones. Tardan menos de un minuto.",
+   "asr": "Por eso 3 comprobaciones, tardan menos de un minuto."
+  },
+  {
+   "linea": 27,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['primera', 'búsqueda'] vs ASR ['primero', 'busca', 'de']",
+     "guion": [
+      "primera",
+      "búsqueda"
+     ],
+     "asr": [
+      "primero",
+      "busca",
+      "de"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'cuándo' oído como 'cuando' (prob. ASR 0.49 < 0.5)",
+     "guion": [
+      "cuándo"
+     ],
+     "asr": [
+      "cuando"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'desde' oído como 'de' (prob. ASR 0.27 < 0.5)",
+     "guion": [
+      "desde"
+     ],
+     "asr": [
+      "de"
+     ]
+    }
+   ],
+   "guion": "Primera: búsqueda inversa de la imagen. Sube la foto a un buscador de imágenes y mira cuándo apareció por primera vez. La foto de Messi circulaba desde 2022, sin bandera. Un minuto y el caso se cae.",
+   "asr": "Primero, busca de inversa de la imagen. Sube la foto a un buscador de imágenes y mira cuando apareció por primera vez. La foto de Messi circulaba de 2022 sin bandera, un minuto y el caso se cae."
+  },
+  {
+   "linea": 28,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['estaría', 'en'] vs ASR ['estarían']",
+     "guion": [
+      "estaría",
+      "en"
+     ],
+     "asr": [
+      "estarían"
+     ]
+    }
+   ],
+   "guion": "Segunda: revisa los canales oficiales de la figura. Si Messi o Ronaldo hubieran dicho algo así, estaría en sus cuentas. No estaba en ninguna. El silencio oficial también es un dato.",
+   "asr": "Segunda, revisa los canales oficiales de la figura. Si Messi o Ronaldo hubieran dicho algo así, estarían sus cuentas. No estaba en ninguna. El silencio oficial también es un dato."
+  },
+  {
+   "linea": 29,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'gemini' oído como 'yemeni' (fonéticamente cercana, ratio 0.67)",
+     "guion": [
+      "gemini"
+     ],
+     "asr": [
+      "yemeni"
+     ]
+    }
+   ],
+   "guion": "Tercera: busca las señales de inteligencia artificial. La foto de Messi llevaba la marca de agua de Gemini. Estaba ahí, a la vista, para quien supiera buscarla.",
+   "asr": "Tercera, busca las señales de inteligencia artificial. La foto de Messi llevaba la marca de agua de Yemeni. Estaba ahí, a la vista, para quien supiera buscarla."
+  },
+  {
+   "linea": 30,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "palabra extra 'a' en el ASR (corta o prob. 0.23)",
+     "guion": [],
+     "asr": [
+      "a"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'quieres' oído como 'quiere' (fonéticamente cercana, ratio 0.92)",
+     "guion": [
+      "quieres"
+     ],
+     "asr": [
+      "quiere"
+     ]
+    }
+   ],
+   "guion": "La página ya no está disponible en Facebook. No sabemos por qué desapareció, y no vamos a inventarlo. Pero la fórmula sigue viva. Otras páginas usan la misma receta: una figura que quieres escuchar, un texto que quieres creer y una imagen que parece real. La única defensa es la verificación. Y la verificación empieza por ti, antes de compartir.",
+   "asr": "La página ya no está disponible en Facebook. No sabemos por qué desapareció y no vamos a inventarlo, pero la fórmula sigue viva. Otras páginas usan la misma receta a una figura que quiere escuchar un texto que quieres creer y una imagen que parece real. La única defensa es la verificación y la verificación empieza por ti antes de compartir."
+  },
+  {
+   "linea": 31,
+   "veredicto": "INCIERTO",
+   "detalles": [
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'short' oído como 'show' (prob. ASR 0.21 < 0.5)",
+     "guion": [
+      "short"
+     ],
+     "asr": [
+      "show"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "'video' oído como 'vídeo' (fonéticamente cercana, ratio 0.80)",
+     "guion": [
+      "video"
+     ],
+     "asr": [
+      "vídeo"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['sino', 'verlo'] vs ASR ['si', 'no', 'ves', 'lo']",
+     "guion": [
+      "sino",
+      "verlo"
+     ],
+     "asr": [
+      "si",
+      "no",
+      "ves",
+      "lo"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['a', 'el'] vs ASR ['al']",
+     "guion": [
+      "a",
+      "el"
+     ],
+     "asr": [
+      "al"
+     ]
+    },
+    {
+     "veredicto": "INCIERTO",
+     "detalle": "posible fusión/tragado: guion ['delante'] vs ASR ['del', 'antes']",
+     "guion": [
+      "delante"
+     ],
+     "asr": [
+      "del",
+      "antes"
+     ]
+    }
+   ],
+   "guion": "En el Short te prometimos el patrón completo. Aquí está. Si quieres que el próximo video no te lo cuente nadie, sino verlo con tus propios ojos, suscríbete a El Libreto. Geopolítica con las fuentes delante. ¿Quién escribió el libreto?",
+   "asr": "En el show te prometimos el patrón completo. Aquí está. Si quieres que el próximo vídeo no te lo cuente nadie, si no ves lo con tus propios ojos, suscríbete al libreto. Geopolítica con las fuentes del antes. ¿Quién escribió el libreto?"
+  }
+ ]
+}

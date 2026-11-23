@@ -1,0 +1,12 @@
+{
+  "_comment": "Video largo El Libreto. durationInFrames REAL desde la VO editada (545.29 s = 16359 f + 90 f de pantalla final = 16449 f = 548.3 s). Fijado 23-nov-2026; la estimación inicial (19260 f) era sobre el guion.",
+  "audioRequired": true,
+  "compositionId": "MainReel",
+  "crf": 19,
+  "durationInFrames": 16449,
+  "fps": 30,
+  "height": 1080,
+  "id": "libreto-pagina-62mil",
+  "title": "El Libreto — La página que engañó a 62.000 personas",
+  "width": 1920
+}

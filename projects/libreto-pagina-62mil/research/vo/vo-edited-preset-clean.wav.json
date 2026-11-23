@@ -1,0 +1,178 @@
+{
+  "preset": "clean",
+  "denoiser": "afftdn",
+  "deepfilter": null,
+  "chain": [
+    "aresample=48000",
+    "pan=mono|c0=0.5*c0+0.5*c1",
+    "highpass=f=70",
+    "equalizer=f=3500:width_type=o:width=1:g=1.5",
+    "deesser=i=0.3:f=0.7:m=0.5",
+    "alimiter=limit=0.95:level=false"
+  ],
+  "loudness_correction_db": 0.0,
+  "loudnorm": {
+    "mode": "two-pass (linear)",
+    "target_lufs": -18.0,
+    "target_tp": -2.0,
+    "target_lra": 9.0,
+    "measured_input_i": "-23.51",
+    "measured_input_tp": "-1.99"
+  },
+  "input": {
+    "path": "/home/hatch/workspace/remotion-hub/worktrees/longform-v2/projects/libreto-pagina-62mil/research/vo/vo-edited.wav",
+    "duration_s": 545.29,
+    "sample_rate": 48000,
+    "channels": 2,
+    "lufs": -18.2,
+    "true_peak_dbtp": 0.0,
+    "lra": 4.8,
+    "snr_db": 32.9,
+    "noise_floor_dbfs": -52.2
+  },
+  "output": {
+    "path": "/home/hatch/workspace/remotion-hub/worktrees/longform-v2/projects/libreto-pagina-62mil/research/vo/vo-edited-preset-clean.wav",
+    "duration_s": 545.29,
+    "sample_rate": 48000,
+    "channels": 1,
+    "lufs": -18.3,
+    "true_peak_dbtp": -2.0,
+    "lra": 4.3,
+    "snr_db": 34.6,
+    "noise_floor_dbfs": -48.6
+  },
+  "elapsed_s": 37.6,
+  "pauses": {
+    "checked": true,
+    "method": "vad",
+    "ok": false,
+    "reliable": true,
+    "verified_gaps": 168,
+    "skipped_gaps": 12,
+    "findings": [
+      {
+        "pause_at_s": 70.81,
+        "orig_s": 2.14,
+        "out_s": 0.0,
+        "verdict": "FAIL",
+        "reason": "la pausa desapareció en el procesado"
+      },
+      {
+        "pause_at_s": 83.05,
+        "orig_s": 0.29,
+        "out_s": 0.22,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 24% de pérdida"
+      },
+      {
+        "pause_at_s": 157.76,
+        "orig_s": 0.25,
+        "out_s": 0.2,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 20% de pérdida"
+      },
+      {
+        "pause_at_s": 159.34,
+        "orig_s": 0.36,
+        "out_s": 0.21,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 42% de pérdida"
+      },
+      {
+        "pause_at_s": 169.06,
+        "orig_s": 0.25,
+        "out_s": 0.17,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 32% de pérdida"
+      },
+      {
+        "pause_at_s": 197.03,
+        "orig_s": 0.28,
+        "out_s": 0.0,
+        "verdict": "FAIL",
+        "reason": "la pausa desapareció en el procesado"
+      },
+      {
+        "pause_at_s": 216.98,
+        "orig_s": 0.28,
+        "out_s": 0.2,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 29% de pérdida"
+      },
+      {
+        "pause_at_s": 258.06,
+        "orig_s": 0.28,
+        "out_s": 0.18,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 36% de pérdida"
+      },
+      {
+        "pause_at_s": 318.88,
+        "orig_s": 0.31,
+        "out_s": 0.0,
+        "verdict": "FAIL",
+        "reason": "la pausa desapareció en el procesado"
+      },
+      {
+        "pause_at_s": 330.25,
+        "orig_s": 0.25,
+        "out_s": 0.2,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 20% de pérdida"
+      },
+      {
+        "pause_at_s": 336.84,
+        "orig_s": 0.25,
+        "out_s": 0.22,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 12% de pérdida"
+      },
+      {
+        "pause_at_s": 359.19,
+        "orig_s": 0.38,
+        "out_s": 0.17,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 55% de pérdida"
+      },
+      {
+        "pause_at_s": 456.19,
+        "orig_s": 0.25,
+        "out_s": 0.0,
+        "verdict": "FAIL",
+        "reason": "la pausa desapareció en el procesado"
+      },
+      {
+        "pause_at_s": 469.12,
+        "orig_s": 0.44,
+        "out_s": 0.21,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 52% de pérdida"
+      },
+      {
+        "pause_at_s": 486.04,
+        "orig_s": 1.1,
+        "out_s": 0.49,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 55% de pérdida"
+      },
+      {
+        "pause_at_s": 516.6,
+        "orig_s": 0.68,
+        "out_s": 0.21,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 69% de pérdida"
+      },
+      {
+        "pause_at_s": 530.86,
+        "orig_s": 0.25,
+        "out_s": 0.21,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 16% de pérdida"
+      }
+    ]
+  },
+  "verdict": "FAIL",
+  "verdict_reasons": [
+    "FAIL pausas: 17 pausa(s) recortada(s)"
+  ]
+}

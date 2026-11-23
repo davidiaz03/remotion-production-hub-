@@ -1,0 +1,110 @@
+{
+  "preset": "pro",
+  "denoiser": "afftdn",
+  "deepfilter": {
+    "binary": "/home/hatch/workspace/.voice-env/bin/deep-filter",
+    "version": "deep_filter 0.5.6",
+    "df_duration_s": 545.26,
+    "df_delta_s": -0.03
+  },
+  "chain": [
+    "aresample=48000",
+    "highpass=f=80",
+    "afftdn=nr=12:nf=-55",
+    "equalizer=f=250:width_type=o:width=1.2:g=-2",
+    "equalizer=f=3500:width_type=o:width=1:g=3",
+    "highshelf=f=10000:g=1.5",
+    "acompressor=threshold=-20dB:ratio=2:attack=8:release=200:knee=6:makeup=2",
+    "deesser=i=0.5:f=0.7:m=0.5",
+    "alimiter=limit=0.95:level=false"
+  ],
+  "loudness_correction_db": 0.0,
+  "loudnorm": {
+    "mode": "two-pass (linear)",
+    "target_lufs": -18.0,
+    "target_tp": -2.0,
+    "target_lra": 9.0,
+    "measured_input_i": "-20.95",
+    "measured_input_tp": "-2.80"
+  },
+  "input": {
+    "path": "/home/hatch/workspace/remotion-hub/worktrees/longform-v2/projects/libreto-pagina-62mil/research/vo/vo-edited.wav",
+    "duration_s": 545.29,
+    "sample_rate": 48000,
+    "channels": 2,
+    "lufs": -18.2,
+    "true_peak_dbtp": 0.0,
+    "lra": 4.8,
+    "snr_db": 32.9,
+    "noise_floor_dbfs": -52.2
+  },
+  "output": {
+    "path": "/home/hatch/workspace/remotion-hub/worktrees/longform-v2/projects/libreto-pagina-62mil/research/vo/vo-edited-clean.wav",
+    "duration_s": 545.29,
+    "sample_rate": 48000,
+    "channels": 1,
+    "lufs": -17.9,
+    "true_peak_dbtp": -2.0,
+    "lra": 3.6,
+    "snr_db": 50.7,
+    "noise_floor_dbfs": -64.6
+  },
+  "elapsed_s": 122.2,
+  "pauses": {
+    "checked": true,
+    "method": "envelope",
+    "ok": false,
+    "reliable": true,
+    "verified_gaps": 176,
+    "skipped_gaps": 0,
+    "findings": [
+      {
+        "pause_at_s": 177.05,
+        "orig_s": 0.27,
+        "out_s": 0.17,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 37% de pérdida"
+      },
+      {
+        "pause_at_s": 179.04,
+        "orig_s": 0.4,
+        "out_s": 0.21,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 47% de pérdida"
+      },
+      {
+        "pause_at_s": 224.4,
+        "orig_s": 0.38,
+        "out_s": 0.18,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 53% de pérdida"
+      },
+      {
+        "pause_at_s": 250.72,
+        "orig_s": 0.61,
+        "out_s": 0.25,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 59% de pérdida"
+      },
+      {
+        "pause_at_s": 379.19,
+        "orig_s": 0.25,
+        "out_s": 0.22,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 12% de pérdida"
+      },
+      {
+        "pause_at_s": 493.98,
+        "orig_s": 0.27,
+        "out_s": 0.18,
+        "verdict": "FAIL",
+        "reason": "pausa recortada: 33% de pérdida"
+      }
+    ]
+  },
+  "verdict": "FAIL",
+  "verdict_reasons": [
+    "FAIL pausas: 6 pausa(s) recortada(s)"
+  ],
+  "compare_ab": "/home/hatch/workspace/remotion-hub/worktrees/longform-v2/projects/libreto-pagina-62mil/research/vo/vo-edited-clean-ab.wav"
+}

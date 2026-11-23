@@ -1,0 +1,117 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "libreto-pagina-62mil",
+  "title": "El Libreto — La página que engañó a 62.000 personas (video largo)",
+  "objective": "Video largo 16:9 (~9:09) de El Libreto: el patrón de desinformación de la página «José Forever - El Taiger» (caso Messi + patrón + 3 comprobaciones + cierre honesto). VO real grabada por el usuario.",
+  "phase": "editing",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [
+    "VO real verificada de oído (545,29 s)",
+    "merge + captions + align acústico",
+    "timeline v3 (128 frases, 28 escenas)",
+    "música por secciones (3 camas Flow PASS)",
+    "mezcla -15,5 LUFS TP -1,9 (33 SFX)",
+    "pre-vuelo visual OK (0 bloqueantes, 3ª corrida)"
+  ],
+  "pending": [
+    "Render completo + máster + encode + capítulos + QA",
+    "Revisión humana del máster y decisión de publicación (usuario)"
+  ],
+  "nextTask": "node scripts/pipeline.mjs libreto-pagina-62mil --from render --to qa",
+  "pipeline": {
+    "phases": {
+      "assets": {
+        "status": "done",
+        "startedAt": "2026-11-23T17:00:00.000Z",
+        "updatedAt": "2026-11-23T21:44:00.000Z",
+        "artifacts": [
+          "asset-manifest.json",
+          "public/images/",
+          "public/video/broll/",
+          "public/audio/postcard-ambient.wav"
+        ],
+        "note": "19 JPG 200dpi + 6 clips B-roll (Coverr) + audio ambiente Postcard"
+      },
+      "vo": {
+        "status": "done",
+        "startedAt": "2026-11-23T16:41:00.000Z",
+        "updatedAt": "2026-11-23T17:04:00.000Z",
+        "artifacts": [
+          "research/vo/vo-edited-clean.wav",
+          "public/audio/vo-full.wav",
+          "research/vo/vo-lines.json"
+        ],
+        "note": "VO real del usuario (no TTS); paso vo del pipeline saltado"
+      },
+      "captions": {
+        "status": "done",
+        "startedAt": "2026-11-23T21:30:00.000Z",
+        "updatedAt": "2026-11-23T22:04:00.000Z",
+        "artifacts": [
+          "src/captions.json",
+          "src/captions.ts",
+          "src/timeline.json",
+          "out/libreto-pagina-62mil.srt",
+          "reports/align-captions.json"
+        ],
+        "note": "1465 palabras; align acústico desvío máx 0,05 s"
+      },
+      "mix": {
+        "status": "done",
+        "startedAt": "2026-11-23T22:08:00.000Z",
+        "updatedAt": "2026-11-23T22:10:00.000Z",
+        "artifacts": [
+          "public/audio/music-bed.wav",
+          "public/audio/mix.wav"
+        ],
+        "note": "cama por secciones + 4 dips; mezcla -15,5 LUFS TP -1,9 PASS_REAL"
+      },
+      "render": {
+        "status": "done",
+        "startedAt": "2026-11-23T22:38:59.111Z",
+        "updatedAt": "2026-11-23T22:43:25.771Z",
+        "artifacts": [
+          "reports/preflight.json"
+        ],
+        "note": "preflight en curso (pipeline)",
+        "chunks": {
+          "total": 0,
+          "done": 0,
+          "completed": [],
+          "framesDone": 0,
+          "framesTotal": 0,
+          "percent": 0,
+          "chunkSize": 150,
+          "resumeCommand": ""
+        }
+      },
+      "qa": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "delivery": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": "NUNCA publicar sin confirmación explícita del usuario"
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-23T22:43:25.771Z",
+        "phase": "render",
+        "event": "preflight completado por pipeline (267s)",
+        "artifacts": [
+          "reports/preflight.json"
+        ]
+      }
+    ]
+  },
+  "updatedAt": "2026-11-23T22:43:25.771Z"
+}
