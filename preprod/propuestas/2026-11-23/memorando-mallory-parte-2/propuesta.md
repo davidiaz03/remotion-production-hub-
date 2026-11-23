@@ -74,6 +74,8 @@ Sugerencia automática: **Documental faceless** — el documento es el protagoni
 
 Se mantiene la sugerencia: es el formato de la parte 1 (aprobada por Suleris y por el usuario) y el que la competencia valida: el único reel sobre el memo con engagement real (@isaaczale, 352 likes) muestra el documento a pantalla completa con resaltado sincronizado con la voz; los reels animados por IA sin documento real tienen 2–4 likes. Sin presentadora, el motion graphics y el dato hacen TODO el trabajo de atención (R30): un beat cada 3–5 s, karaoke con HAMBRE en rojo, cabecera fija con el gancho, golpe de máquina de escribir en cada resaltado. Duración prevista: 70–75 s (en línea con los 77,5 s de la parte 1). Descripción del reel: enlace al FRUS doc. 499 + mención al National Security Archive, para que el CTA «léelo tú mismo» se pueda cumplir.
 
+**Dirección del usuario (23-nov-2026):** el video juega con muchos recursos para poner en contexto y entretener — documentos reales, fotos, videos, transiciones, animaciones, sonidos y efectos, todo al servicio del relato. Técnicas: resaltado sincronizado con la voz (Zale), limpieza visual, congruencia entre lo que se oye y lo que se ve, y SIN sobreposición de elementos (cada plano, un solo foco; nada que tape a otra cosa). Las referencias de técnica están en `competencia.md` (17 piezas) y en el dossier; si durante la edición hace falta más investigación de referentes, se busca entonces.
+
 ## Checklist Suleris
 
 Cada regla con estado `pass` o `flag` y evidencia escrita antes de enviar el pack. `flag` = revisado y con riesgo anotado, no sin revisar.
