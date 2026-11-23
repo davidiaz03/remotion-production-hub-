@@ -26,3 +26,6 @@ node_modules/
 .DS_Store
 
 .worktrees/
+
+# Copias temporales del test de tramos por hash (P0-3)
+projects/render-hash-test-tmp-*/
