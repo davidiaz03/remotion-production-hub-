@@ -8,12 +8,13 @@
  * Ejemplo:
  *   node shared/motion/sfx/add-sfx.mjs motion-demo whoosh-fast-hard pop-soft logo-sting-warm
  *
- * Copia cada WAV desde ~/workspace/remotion-hub/assets/sfx/sounds/ a
- * projects/<proyecto>/public/audio/sfx/<categoría>/, conservando la
- * estructura de carpetas (el componente <Sfx> resuelve ahí). Los WAV
- * no entran en el índice del repo: solo los proyectos que los usan
- * los llevan en su public/ (y public/ está ignorado por git, como los
- * demás audios generados).
+ * Copia cada WAV desde ~/workspace/remotion-hub/assets/sfx/sounds/ (kit
+ * wyzowl, 320) o sounds-extra/ (biblioteca extra, 142) a
+ * projects/<proyecto>/public/audio/sfx/, conservando la estructura de
+ * carpetas (el componente <Sfx> resuelve ahí). Los WAV no entran en el
+ * índice del repo: solo los proyectos que los usan los llevan en su
+ * public/ (y public/ está ignorado por git, como los demás audios
+ * generados).
  */
 import {copyFileSync, existsSync, mkdirSync} from 'node:fs';
 import {dirname, join, resolve} from 'node:path';
@@ -36,7 +37,10 @@ if (!existsSync(projectDir)) {
   process.exit(1);
 }
 const catalog = JSON.parse(readFileSync(join(KIT, 'sounds.json'), 'utf8'));
-const byId = new Map(catalog.sounds.map((s) => [s.id, s]));
+const extra = JSON.parse(readFileSync(join(KIT, 'sounds-extra.json'), 'utf8'));
+const byId = new Map(
+  [...catalog.sounds, ...extra.sounds].map((s) => [s.id, s]),
+);
 
 let copied = 0;
 for (const id of ids) {
