@@ -40,6 +40,8 @@ sobre el ritmo, antes de fijar la escaleta.
 | `microcut.py` | **Detector de microcortes de voz a nivel de forma de onda (18-nov-2026, sección (i) de la auditoría):** calidad de empalme, dips dentro de palabras (editada vs original), pausas recortadas, contigüidad de segmentos y SFX que entierran ataques de palabra. CLI propia + `detect_all()` para tests y auditoría. (i2) corregida 20-nov-2026 (V4.1): la mediana del original se toma sobre el tramo de la palabra, no sobre la ventana con márgenes. |
 | `vo_build.py` | **Construcción de VO sin microcortes (18-nov-2026):** sustituye el patrón `edit_line` + `fade_edges` (fundido de salida + fundido de entrada, que deja un hueco de ~10 ms a −85 dBFS) por crossfades de igual potencia, cortes ajustados a cruces por cero, validación contra los timestamps de Whisper (nunca recortar dentro de una palabra, margen 30 ms) y suelo de pausa (regla 18-nov: ≥0,25 s y ≤50% de pérdida). |
 | `test_microcut.py` | Suite de `microcut.py` + `vo_build.py` (29 tests): microcortes sintéticos inyectados (huecos de 5/10/20/30/50 ms, empalme brusco, pausa exprimida, segmento mal mapeado, SFX sobre onset) + casos reales V2.2/V2.3/baseline (se saltan si faltan los audios, que son salidas de build no versionadas; los edit-plan y predicciones están vendorizados en `tests/fixtures/`) + regresión V4.1 de (i4) sobre el audio real. |
+| `enhance-voice.py` | **Mejora profesional de voz grabada con celular (22-nov-2026, marca personal):** denoise afftdn + expansor (colas de reverb en pausas) + EQ (presencia/aire) + compresor + deesser + limitador + loudnorm lineal a −18 LUFS (el `voice_lufs` de `mix.py`). Presets `phone` y `clean`; `--compare` genera A/B antes/después; verificación de pausas con VAD por energía + periodicidad (regla 18-nov). Informe JSON + veredicto PASS/FAIL. |
+| `test_enhance_voice.py` | Suite de `enhance-voice.py` (18 tests): sintéticos (objetivo de sonoridad, duración, pausas, recuperación de audio degradado con ruido rosa + eco, afftdn vs off con ruido HF en voz) + integración con las líneas reales de negacion-embargo (se saltan si faltan los audios). |
 
 ## Auditoría de audio (`audit-audio.py`)
 
@@ -386,6 +388,74 @@ palabras, no ser una presencia en primer plano.
   audio → 79–181 s; 31 s → 62 s). Paso por lotes, no interactivo.
 - **IDs relativos:** SPEAKER_00 en un audio no es la misma persona
   que SPEAKER_00 en otro audio.
+
+## Mejora de voz de celular (`enhance-voice.py`, 22-nov-2026)
+
+El usuario graba la VO de su marca personal con el celular; este
+módulo la deja sonando como grabada con micrófono profesional y
+lista para `mix.py` (WAV mono 48 kHz, −18 LUFS / TP −2, el mismo
+`voice_lufs` de la mezcla). La VO del Memorial (Adriana) NO pasa
+por aquí salvo que se pida explícitamente: es para la voz del
+usuario.
+
+```bash
+~/workspace/remotion-hub/.venv/bin/python scripts/audio/enhance-voice.py \
+    --in vo-celular.m4a --out vo-limpia.wav [--preset phone|clean] \
+    [--compare] [--force]
+# --compare escribe <out-stem>-ab.wav: antes (solo igualado en
+# sonoridad) + 0,5 s de silencio + después, para escuchar la
+# diferencia a igual volumen. --dry-run muestra la cadena y las
+# medidas sin escribir nada.
+```
+
+Cadena (`phone`): highpass 80 Hz → afftdn (nr=12, nf=−55) →
+expansor suave (compand: empuja hacia abajo el tono de sala y las
+colas de reverb en las pausas; la voz por encima de −40 dB es 1:1)
+→ EQ (barro −2 dB @ 250 Hz, presencia +3 dB @ 3,5 kHz, aire
++1,5 dB @ 10 kHz) → compresor 3:1 (thr −20 dB, makeup +4 dB) →
+deesser → alimiter 0.95 (`level=false`, techo real) → loudnorm en
+dos pases (lineal) a −18 LUFS + corrección fina de ganancia si el
+lineal queda > 0,3 dB fuera (en clips cortos el loudnorm lineal
+desvía ±0,5 dB). `clean`: sin denoise, expansor ni compresor
+(el makeup levantaba el suelo de un audio ya limpio: −5,2 dB de
+SNR estimada en L3 con ratio 2:1); solo EQ ligero + deesser +
+loudnorm.
+
+Reglas duras: la cadena es muestra a muestra y NUNCA recorta
+nada (sin silenceremove ni trim): duración exacta y pausas
+intactas. El informe verifica la regla del 18-nov (ninguna pausa
+< 0,25 s ni > 50% de pérdida) con VAD por energía + periodicidad
+(la misma regla `voiced_span` de audit-audio.py) y solo sobre
+pausas MEDIBLES en el original (interior < −45 dBFS): una pausa
+llena de ruido o eco no se puede medir y el denoise deja el eco
+residual más periódico, lo que daba FAIL espurios. Si no queda
+ninguna pausa verificable, el informe marca `reliable: false` y
+el veredicto no falla por pausas.
+
+Herramientas evaluadas: afftdn (elegido: sin modelo,
+determinista); arnndn opcional con `--rnnoise-model` (esta build
+de ffmpeg no trae modelo embebido); DeepFilterNet NO instalable
+en esta VM (pip falla generando metadatos de deepfilterlib:
+necesita toolchain Rust) — queda como mejora futura; pedalboard /
+noisereduce / pyloudnorm no añaden nada que ffmpeg no haga.
+
+Calibración (22-nov-2026, líneas reales negacion-embargo):
+- 8/8 líneas con preset `phone`: PASS, −18,0/−17,8 LUFS, TP
+  −2,0…−3,7 dBTP, duración exacta, ~0,15× tiempo real.
+- Audio limpio: el preset `phone` mueve la SNR estimada ±3 dB
+  (el compresor levanta el suelo; inaudible con SNR absoluta
+  ≥ 38 dB); `clean` la mueve ≤ 2 dB.
+- L1 degradada a propósito (ruido rosa −28 dBFS + eco 60/120 ms):
+  SNR 25,1 → 45,3 dB (+20,2 dB), suelo −43,3 → −59,5 dBFS, PASS.
+- Ruido HF (6–12 kHz) durante la voz: afftdn −45,8 dB vs
+  denoiser off −33,7 dB (el expansor solo limpia pausas).
+
+Limitaciones honestas (también en el docstring del script): no
+elimina eco fuerte dentro de la palabra; no recupera voz tapada
+por ruido (SNR de entrada < ~5 dB sale con artefactos); no
+arregla saturación por recorte; no quita respiraciones ni ruidos
+de boca del todo. La solución real al eco es grabar en un cuarto
+con cortinas/ropa cerca, no en un baño o cocina vacía.
 
 ## Casos límite
 
