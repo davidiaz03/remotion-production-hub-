@@ -1,19 +1,26 @@
 // El Libreto — Messi nunca dijo esto sobre Cuba (YouTube Short, 43 s).
-// 1080x1920, 30 fps, 1290 fotogramas. Sin música: toda la banda sonora
-// está en la mezcla (mix.wav); la composición es solo video.
+// 1080x1920, 30 fps, 1290 fotogramas. Toda la banda sonora está en la
+// mezcla (mix.wav): cama nueva de Flow Music «El Libreto — Messi
+// Desmentido» + VO + 9 SFX; la composición es solo video (el clip de
+// la Casa Blanca va SIN audio y con volume={0}).
 // Adaptación de la versión Facebook (30 s): misma estructura y assets,
 // con los beats exclusivos de YouTube — lupa sobre la marca de agua de
 // Gemini (T2), checklist de ausencia (T8), tarjeta de pregunta (T15),
-// resaltado suave sobre Messi y el veredicto con sus dos líneas.
+// video real de la bienvenida en la Casa Blanca y el veredicto con
+// sus dos líneas.
 // Zonas seguras: texto dentro de x 65-1015, y 269-1248 (Meta) — la
 // versión YT respeta la misma banda para no rehacer el layout.
 // NUNCA texto sobre una cara. La foto de la Casa Blanca (DT-1261) se
-// muestra ENTERA (fondo difuminado detrás), nunca recortada dentro.
+// muestra ENTERA como fondo difuminado (condiciones EXIF: no
+// manipular); el clip de video va a 1080 de ancho con ese fondo
+// detrás, nunca estirado a pantalla completa (640x360 nativo).
 import React from 'react';
 import {
 	AbsoluteFill,
 	Easing,
 	Img,
+	OffthreadVideo,
+	Sequence,
 	interpolate,
 	staticFile,
 	useCurrentFrame,
@@ -29,6 +36,7 @@ const RESALTADOR = '#FFD60A';
 const POST = 'img/post-messi-cuba-falso.jpg';
 const COMPARACION = 'img/messi-foto-98c58e7b73.jpg';
 const CASA_BLANCA = 'img/casa-blanca-dt1261-messi-camiseta-47.jpg';
+const CASA_BLANCA_VIDEO = 'video/casa-blanca-bienvenida-messi-15s.mp4';
 const BUKELE = 'img/post-bukele-1.jpg';
 const MUSK = 'img/post-musk.jpg';
 const BAD_BUNNY = 'img/post-bad-bunny.jpg';
@@ -112,8 +120,10 @@ const PostScenes: React.FC<{t: number}> = ({t}) => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	// H4 (auditoría FB v1): la caja aparece cuando empieza el conteo
+	// (3,52 s), no antes: a 2,7 s mostraba «0 REACCIONES» ~0,7 s.
 	const counterOpacity =
-		interpolate(t, [2.7, 2.85], [0, 1], {
+		interpolate(t, [3.52, 3.67], [0, 1], {
 			extrapolateLeft: 'clamp',
 			extrapolateRight: 'clamp',
 		}) *
@@ -562,10 +572,14 @@ const Comparacion: React.FC<{t: number}> = ({t}) => {
 				2022
 			</div>
 
-			{/* Placa con la fuente de la foto original. */}
+			{/* Placa con la fuente de la foto original. H5 (auditoría FB
+			    v1): en su posición anterior (y 435, sobre la imagen)
+			    tapaba la etiqueta «Original» de la imagen fuente. Va
+			    debajo de la imagen (y 1130, en la banda del karaoke),
+			    y el karaoke se oculta 15,0-15,87 s para no chocar. */}
 			<Pill
 				fontSize={26}
-				style={{position: 'absolute', left: 190, top: 435, opacity: plateOpacity}}
+				style={{position: 'absolute', left: 65, right: 65, top: 1130, opacity: plateOpacity}}
 			>
 				4-DIC-2022 · INSTAGRAM DE ANTONELA ROCCUZZO
 			</Pill>
@@ -721,6 +735,11 @@ const Pregunta: React.FC<{t: number}> = ({t}) => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	// El texto solo aparece a partir del corte (22,3 s): durante la
+	// transición de entrada (22,1-22,3 s, H9) la tarjeta entra como
+	// panel de Tinta sin texto, para que ninguna letra barra sobre
+	// las caras de la comparación.
+	const textOpacity = t >= 22.3 ? 1 : 0;
 	return (
 		<AbsoluteFill
 			style={{backgroundColor: TINTA, opacity: fadeOut}}
@@ -732,6 +751,7 @@ const Pregunta: React.FC<{t: number}> = ({t}) => {
 					right: 90,
 					top: 700,
 					transform: `scale(${scaleIn})`,
+					opacity: textOpacity,
 					textAlign: 'center',
 					fontFamily: "'Noto Serif Display', serif",
 					fontWeight: 900,
@@ -751,27 +771,19 @@ const Pregunta: React.FC<{t: number}> = ({t}) => {
 };
 
 // ─── Escena 6: la Casa Blanca (24,0-29,9 s) ─────────────────────────────
-// Foto DT-1261 ENTERA (1920x1280 a 1080 de ancho -> 720 de alto,
-// y=450), con fondo difuminado. Nunca se recorta dentro de la foto
-// (condiciones EXIF). Resaltado suave sobre el torso de Messi
-// (24,0-25,5 s, glow radial centrado en (350, 950), SIN tocar su
-// cara), placa de fuente a 25,75 s y negación a 28,51 s.
+// H1 (auditoría FB v1): VIDEO REAL, no foto fija. Corte oficial de la
+// Casa Blanca (dominio público): Trump en el atril con el Inter Miami
+// detrás, plano general fijo 15,2 s. Se usan los segundos 2,0-7,9
+// (177 fotogramas = la escena entera, startFrom 60 / endAt 237).
+// El clip es 640x360: va a 1080 de ancho (608 de alto, y=480) con la
+// foto DT-1261 difuminada detrás, nunca estirado a pantalla completa.
+// El archivo en public/video/ NO lleva audio (ffmpeg -an) y el
+// componente lleva volume={0}: todo el audio sigue en mix.wav.
+// La foto DT-1261 queda solo como fondo difuminado. El glow sobre
+// Messi se elimina: era para una foto fija y sobre video en
+// movimiento quedaría descolocado. Placa de fuente a 25,75 s y
+// negación a 28,51 s, como antes.
 const CasaBlanca: React.FC<{t: number}> = ({t}) => {
-	// Zoom lento y constante 100 -> 108% durante la escena.
-	const zoom = interpolate(t, [24.0, 29.9], [1, 1.08], {
-		easing: Easing.linear,
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
-	const glowOpacity =
-		interpolate(t, [24.0, 24.3], [0, 1], {
-			extrapolateLeft: 'clamp',
-			extrapolateRight: 'clamp',
-		}) *
-		interpolate(t, [25.3, 25.5], [1, 0], {
-			extrapolateLeft: 'clamp',
-			extrapolateRight: 'clamp',
-		});
 	const plateOpacity = interpolate(t, [25.75, 25.9], [0, 1], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -785,7 +797,7 @@ const CasaBlanca: React.FC<{t: number}> = ({t}) => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	// Oscurece la foto cuando aparece la negación para que el texto
+	// Oscurece el video cuando aparece la negación para que el texto
 	// contraste (desde la misma banda de karaoke que usa la voz).
 	const dim = interpolate(t, [28.51, 28.66], [0, 0.55], {
 		extrapolateLeft: 'clamp',
@@ -794,37 +806,28 @@ const CasaBlanca: React.FC<{t: number}> = ({t}) => {
 	return (
 		<AbsoluteFill>
 			<BlurFill src={CASA_BLANCA} brightness={0.35} />
-			<div
-				style={{
-					position: 'absolute',
-					left: 0,
-					top: 450,
-					width: 1080,
-					height: 720,
-					transform: `scale(${zoom})`,
-					transformOrigin: '540px 360px',
-				}}
-			>
-				<Img src={staticFile(CASA_BLANCA)} style={{width: 1080, height: 720}} />
-				{/* Resaltado suave sobre el torso de Messi: glow radial
-				    amarillo (opacidad máx. 0,28) centrado en su torso
-				    (350, 950 absoluto = 350, 500 en la imagen), radio
-				    ~190x230: su borde superior queda en y=720, por
-				    debajo de su mentón (~y=692). NO cubre su cara. */}
+			{/* El video, a 1080 de ancho, centrado en la banda 480-1088
+			    (por encima de la banda de karaoke, que empieza en
+			    y=1100). Sin zoom: el propio video es el movimiento. */}
+			<Sequence from={720} durationInFrames={177} name="Casa Blanca video">
 				<div
 					style={{
 						position: 'absolute',
-						left: 160,
-						top: 270,
-						width: 380,
-						height: 460,
-						borderRadius: '50%',
-						background:
-							'radial-gradient(ellipse at center, rgba(255,214,10,0.45) 0%, rgba(255,214,10,0.18) 55%, rgba(255,214,10,0) 75%)',
-						opacity: glowOpacity,
+						left: 0,
+						top: 480,
+						width: 1080,
+						height: 608,
 					}}
-				/>
-			</div>
+				>
+					<OffthreadVideo
+						src={staticFile(CASA_BLANCA_VIDEO)}
+						startFrom={60}
+						endAt={237}
+						volume={0}
+						style={{width: 1080, height: 608}}
+					/>
+				</div>
+			</Sequence>
 			{/* Oscurecido al aparecer la negación. */}
 			<div
 				style={{
@@ -975,6 +978,12 @@ const Veredicto: React.FC<{t: number}> = ({t}) => {
 		extrapolateRight: 'clamp',
 	});
 	const stampOpacity = t >= 32.81 ? 1 : 0;
+	// H7 (auditoría FB v1): la escena se congelaba tras caer el sello.
+	// Push-in lento 1 -> 1,04 sobre el sello hasta el corte (37,0 s).
+	const pushIn = interpolate(t, [33.0, 37.0], [1, 1.04], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
 	const line1Opacity = interpolate(t, [33.72, 33.87], [0, 1], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -1011,7 +1020,7 @@ const Veredicto: React.FC<{t: number}> = ({t}) => {
 					fontWeight: 900,
 					fontSize: 170,
 					color: ROJO,
-					transform: `rotate(-6deg) scale(${stampScale})`,
+					transform: `rotate(-6deg) scale(${stampScale * pushIn})`,
 					opacity: stampOpacity,
 				}}
 			>
@@ -1058,14 +1067,41 @@ const Veredicto: React.FC<{t: number}> = ({t}) => {
 };
 
 // ─── Escena 9: el cierre (37,0-43,0 s) ─────────────────────────────────
-// La pregunta de marca («¿Quién escribió el libreto?») + el sello que
-// viaja a la esquina (37,0-37,5) + la píldora de fuente (37,0) y la
-// end card (40,5-43,0) con el logo, SUSCRÍBETE y el puente al largo.
+// Rediseño H6 (auditoría FB v1 + investigación de cierres 23-nov):
+// - La pregunta de marca («¿Quién escribió el libreto?») + el sello
+//   que viaja a la esquina (37,0-37,5) + la píldora de fuente (37,0),
+//   con la captura del post atenuada detrás en zoom lento continuo.
+// - End card (40,5-43,0): UN solo objetivo (SUSCRÍBETE) CON motivo
+//   (el puente al video largo: «El patrón completo, en el video
+//   largo»). La marca de agua se desvanece al entrar el logo grande
+//   (en MainReel, 40,5-40,8): nada de logo duplicado. El tercio
+//   inferior ya no está muerto: la línea de fuentes va a y 1500.
+// - Movimiento hasta el último fotograma: zoom del fondo, pulso del
+//   logo (1,5 s) y de la píldora SUSCRÍBETE (1 s). Nada congelado.
+// - LOOP: en 42,7-43,0 s la end card se disuelve hacia la captura del
+//   post (overlay 1 -> 0,55, elementos -> 0), para que el último
+//   fotograma pertenezca al mismo momento que el primero y la
+//   repetición no se note; la cama sigue sonando bajo el corte.
 const Cierre: React.FC<{t: number}> = ({t}) => {
 	const cardOpacity = interpolate(t, [40.5, 40.8], [0, 1], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
+	// Disolución del loop (42,7-43,0 s).
+	const loopFade = interpolate(t, [42.7, 43.0], [0, 1], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+	// Zoom lento y continuo del fondo (37-43 s).
+	const bgZoom = interpolate(t, [37.0, 43.0], [1, 1.06], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+	// Pulsos de la end card (sutiles: 1,5% el logo, 3% la píldora).
+	const logoPulse =
+		1 + 0.015 * (0.5 + 0.5 * Math.sin((t - 40.8) * ((2 * Math.PI) / 1.5)));
+	const pillPulse =
+		1 + 0.03 * (0.5 + 0.5 * Math.sin((t - 40.8) * (2 * Math.PI)));
 	// El sello viaja de su posición del veredicto (centro, y 660) a
 	// la derecha (escala 0,32, 37,0-37,5 s) y se desvanece al entrar
 	// la end card. Corrección pre-vuelo 23-nov: con stampY 245 el
@@ -1084,24 +1120,36 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 			extrapolateLeft: 'clamp',
 			extrapolateRight: 'clamp',
 		});
-	const questionOpacity = interpolate(t, [37.0, 37.2], [0, 1], {
+	// La pregunta entra a 37,0, deriva despacio hacia arriba y se
+	// desvanece al entrar la end card (antes se movía a y 430 bajo
+	// el overlay opaco: invisible e inútil).
+	const questionOpacity =
+		interpolate(t, [37.0, 37.2], [0, 1], {
+			extrapolateLeft: 'clamp',
+			extrapolateRight: 'clamp',
+		}) *
+		interpolate(t, [40.5, 40.8], [1, 0], {
+			extrapolateLeft: 'clamp',
+			extrapolateRight: 'clamp',
+		});
+	const questionY = interpolate(t, [37.2, 40.5], [600, 570], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	const questionY = interpolate(t, [40.5, 40.8], [600, 430], {
-		easing: Easing.inOut(Easing.cubic),
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
-	const sourceOpacity = interpolate(t, [37.0, 37.2], [0, 1], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
+	const sourceOpacity =
+		interpolate(t, [37.0, 37.2], [0, 1], {
+			extrapolateLeft: 'clamp',
+			extrapolateRight: 'clamp',
+		}) *
+		interpolate(t, [40.5, 40.8], [1, 0], {
+			extrapolateLeft: 'clamp',
+			extrapolateRight: 'clamp',
+		});
 	return (
 		<AbsoluteFill>
 			<BlurFill src={POST} brightness={0.3} />
-			{/* Captura del post atenuada al fondo. */}
-			<div style={{position: 'absolute', left: 0, top: 420, width: 1080, height: 1003, opacity: 0.35}}>
+			{/* Captura del post atenuada al fondo, en zoom lento. */}
+			<div style={{position: 'absolute', left: 0, top: 420, width: 1080, height: 1003, opacity: 0.35, transform: `scale(${bgZoom})`, transformOrigin: '540px 501.5px'}}>
 				<Img src={staticFile(POST)} style={{width: 1080, height: 1003}} />
 			</div>
 			{/* Sello FALSO viajando a la esquina. */}
@@ -1163,13 +1211,15 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 			>
 				Verificado por elTOQUE, 17-mar-2026 · InfoVeritas, 19-mar-2026
 			</Pill>
-			{/* End card: overlay Tinta + logo + SUSCRÍBETE + puente. */}
+			{/* End card: overlay Tinta + logo + SUSCRÍBETE + puente +
+			    línea de fuentes. El overlay se disuelve al final
+			    (loop): 1 -> 0,55 en 42,7-43,0 s. */}
 			<div
 				style={{
 					position: 'absolute',
 					inset: 0,
 					backgroundColor: TINTA,
-					opacity: cardOpacity,
+					opacity: cardOpacity * (1 - 0.45 * loopFade),
 				}}
 			/>
 			<Img
@@ -1177,17 +1227,19 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 				style={{
 					position: 'absolute',
 					left: 190,
-					top: 650,
+					top: 480,
 					width: 700,
 					height: 156,
-					opacity: cardOpacity,
+					opacity: cardOpacity * (1 - loopFade),
+					transform: `scale(${logoPulse})`,
+					transformOrigin: 'center center',
 				}}
 			/>
 			<Pill
 				bg={RESALTADOR}
 				color={TINTA}
 				fontSize={32}
-				style={{position: 'absolute', left: 408, top: 1150, opacity: cardOpacity}}
+				style={{position: 'absolute', left: 408, top: 880, opacity: cardOpacity * (1 - loopFade), transform: `scale(${pillPulse})`, transformOrigin: 'center center'}}
 			>
 				SUSCRÍBETE
 			</Pill>
@@ -1196,8 +1248,8 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 					position: 'absolute',
 					left: 90,
 					right: 90,
-					top: 1260,
-					opacity: cardOpacity,
+					top: 1000,
+					opacity: cardOpacity * (1 - loopFade),
 					textAlign: 'center',
 					fontFamily: "'Noto Sans', sans-serif",
 					fontWeight: 400,
@@ -1206,6 +1258,24 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 				}}
 			>
 				El patrón completo, en el video largo
+			</div>
+			{/* Línea de fuentes: llena el tercio inferior y refuerza la
+			    identidad de la marca (el documento delante). */}
+			<div
+				style={{
+					position: 'absolute',
+					left: 90,
+					right: 90,
+					top: 1500,
+					opacity: cardOpacity * (1 - loopFade) * 0.7,
+					textAlign: 'center',
+					fontFamily: "'Noto Sans', sans-serif",
+					fontWeight: 400,
+					fontSize: 24,
+					color: PAPEL,
+				}}
+			>
+				Fuentes: elTOQUE, 17-mar-2026 · InfoVeritas, 19-mar-2026
 			</div>
 		</AbsoluteFill>
 	);
@@ -1238,9 +1308,61 @@ export const MainReel: React.FC = () => {
 			<Cierre t={t} />
 		);
 
+	// H9 — Transiciones rápidas (0,15-0,2 s). AMBAS TERMINAN EN EL
+	// CORTE (no empiezan en él): el check de ghost-frames examina
+	// B..B+3 contra la mediana de la escena nueva (B+4..B+7), así
+	// que una transición que empezara en el corte daría REVISAR.
+	// - T1 (f663-668, 22,1-22,3 s): la tarjeta Pregunta entra
+	//   barriendo desde la derecha sobre la comparación. El texto de
+	//   la pregunta está oculto hasta el corte (ver Pregunta), así
+	//   que ninguna letra barra sobre las caras.
+	// - T2 (f973-977, 32,43-32,6 s): el papel del veredicto entra con
+	//   fundido + escala 1,06 -> 1 sobre el trío, en la pausa
+	//   dramática antes de FALSO. El sello aún no ha caído (32,81 s).
+	const t1p = interpolate(t, [22.1, 22.3], [0, 1], {
+		easing: Easing.out(Easing.cubic),
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+	const t2p = interpolate(t, [32.43, 32.6], [0, 1], {
+		easing: Easing.out(Easing.cubic),
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+
+	// H6: la marca de agua se desvanece cuando entra el logo grande
+	// de la end card (40,5-40,8 s): nada de LIBRETO duplicado.
+	const wmOpacity = interpolate(t, [40.5, 40.8], [1, 0], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+
 	return (
 		<AbsoluteFill style={{backgroundColor: TINTA}}>
 			{scene}
+			{frame >= 663 && frame < 669 && (
+				<div
+					style={{
+						position: 'absolute',
+						inset: 0,
+						transform: `translateX(${1080 * (1 - t1p)}px)`,
+					}}
+				>
+					<Pregunta t={t} />
+				</div>
+			)}
+			{frame >= 973 && frame < 978 && (
+				<div
+					style={{
+						position: 'absolute',
+						inset: 0,
+						opacity: t2p,
+						transform: `scale(${1.06 - 0.06 * t2p})`,
+					}}
+				>
+					<Veredicto t={t} />
+				</div>
+			)}
 			{/* Marca de agua: lockup icono + LIBRETO, arriba-izquierda,
 			    desde el fotograma 0 (decisión de marca 23-nov). */}
 			<Img
@@ -1252,6 +1374,7 @@ export const MainReel: React.FC = () => {
 					height: 100,
 					width: 449,
 					filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.45))',
+					opacity: wmOpacity,
 				}}
 			/>
 			<LibretoKaraoke />

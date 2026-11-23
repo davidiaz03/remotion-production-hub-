@@ -1,13 +1,15 @@
 {
   "approvedRevision": null,
-  "completed": [],
+  "completed": [
+    "v1"
+  ],
   "compositionId": "MainReel",
   "id": "el-libreto-messi-yt",
   "latestSnapshot": null,
-  "nextTask": "EN PAUSA por cambio de dirección 23-nov: el reel lleva música de Flow Music. Pre-vuelo OK (0 bloqueantes, 15 stills revisados a ojo). Falta: recibir la cama de Flow + dirección del cierre nuevo; escanear la cama (scan-bed.py), definir bed.id en timeline.json, verificar identidad (bed_identity.py), rehacer la mezcla y correr render → master → qa → ghost → audit. NO renderizar una v1 sin música.",
+  "nextTask": "v1 TERMINADA (REEL_OK 23-nov 18:06): MASTER-v1.mp4 + LIGERA-v1.mp4, QA PASSED, auditoría WARN 0 FAIL, revisión visual a ojo OK. Pendiente: visto bueno del usuario sobre la v1; verificación de oído de «creyó» en la VO; entrega (subida) cuando lo ordene. NADA publicado.",
   "objective": "El Libreto — Messi nunca dijo esto sobre Cuba (YouTube)",
   "pending": [],
-  "phase": "editing",
+  "phase": "done",
   "pipeline": {
     "milestones": [
       {
@@ -122,6 +124,222 @@
         "artifacts": [
           "reports/preflight.json"
         ]
+      },
+      {
+        "at": "2026-11-23T17:25:35.435Z",
+        "phase": "vo",
+        "event": "audio completado por reel (6s)",
+        "artifacts": [
+          "public/audio/voice-placed.wav",
+          "public/audio/music-bed.wav",
+          "public/audio/sfx-mix"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:25:44.622Z",
+        "phase": "mix",
+        "event": "mix completado por reel (9s)",
+        "artifacts": [
+          "public/audio/mix.wav"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:26:23.164Z",
+        "phase": "mix",
+        "event": "audit-inputs completado por reel (39s)",
+        "artifacts": [
+          "research/vo/voice-orig.wav",
+          "research/vo/vo-orig-transcription.json",
+          "research/vo/vo-editada-prediccion.json",
+          "research/vo/edit-plan.json",
+          "research/vo/captions-audit.json",
+          "research/vo/vo-edited-transcription.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:26:40.292Z",
+        "phase": "qa",
+        "event": "pre-audit completado por reel (17s)",
+        "artifacts": [
+          "research/audit-pre/audio-audit-pre.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:36:46.561Z",
+        "phase": "render",
+        "event": "preflight: falló — visual-preflight falló (código 1)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T17:40:48.183Z",
+        "phase": "render",
+        "event": "preflight: artefactos ya presentes (salto)",
+        "artifacts": [
+          "reports/preflight.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:40:48.382Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-1289 en 9 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T17:47:35.703Z",
+        "phase": "render",
+        "event": "preflight completado por reel (379s)",
+        "artifacts": [
+          "reports/preflight.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:47:36.019Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-1289 en 9 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T17:52:41.487Z",
+        "phase": "render",
+        "event": "Tramo 1/9 verificado (chunk_01.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_01.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:53:52.982Z",
+        "phase": "render",
+        "event": "Tramo 2/9 verificado (chunk_02.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_02.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:54:36.306Z",
+        "phase": "render",
+        "event": "Tramo 3/9 verificado (chunk_03.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_03.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:55:18.103Z",
+        "phase": "render",
+        "event": "Tramo 4/9 verificado (chunk_04.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_04.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:55:45.949Z",
+        "phase": "render",
+        "event": "Tramo 5/9 verificado (chunk_05.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_05.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:56:40.198Z",
+        "phase": "render",
+        "event": "Tramo 6/9 verificado (chunk_06.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_06.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:57:16.871Z",
+        "phase": "render",
+        "event": "Tramo 7/9 verificado (chunk_07.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_07.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:57:51.447Z",
+        "phase": "render",
+        "event": "Tramo 8/9 verificado (chunk_08.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_08.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:58:19.325Z",
+        "phase": "render",
+        "event": "Tramo 9/9 verificado (chunk_09.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_09.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:58:24.247Z",
+        "phase": "render",
+        "event": "Render completo: 9 tramos concatenados (out/el-libreto-messi-yt-chunks.mkv)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T17:58:24.255Z",
+        "phase": "render",
+        "event": "render completado por reel (648s)",
+        "artifacts": [
+          "out/el-libreto-messi-yt-chunks.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-23T17:59:45.800Z",
+        "phase": "qa",
+        "event": "master completado por reel (82s)",
+        "artifacts": [
+          "out/MASTER-v1.mp4",
+          "out/LIGERA-v1.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-23T18:00:30.405Z",
+        "phase": "qa",
+        "event": "QA técnico passed — MASTER-v1.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/MASTER-v1.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-23T18:00:36.599Z",
+        "phase": "qa",
+        "event": "qa completado por reel (51s)",
+        "artifacts": [
+          "reports/technical-qa-master.json",
+          "reports/technical-qa-light.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T18:01:36.381Z",
+        "phase": "qa",
+        "event": "ghost: falló — ghost-frames falló (código 1)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-23T18:04:38.587Z",
+        "phase": "qa",
+        "event": "ghost completado por reel (0s)",
+        "artifacts": [
+          "reports/ghost-frames.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T18:06:00.042Z",
+        "phase": "qa",
+        "event": "audit completado por reel (81s)",
+        "artifacts": [
+          "research/audit-v1/audio-audit-v1.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T18:06:00.053Z",
+        "phase": "delivery",
+        "event": "deliver completado por reel (0s)",
+        "artifacts": [
+          "reports/delivery-v1.json"
+        ]
       }
     ],
     "phases": {
@@ -140,11 +358,13 @@
         "updatedAt": null
       },
       "delivery": {
-        "artifacts": [],
+        "artifacts": [
+          "reports/delivery-v1.json"
+        ],
         "note": "",
-        "startedAt": null,
-        "status": "pending",
-        "updatedAt": null
+        "startedAt": "2026-11-23T18:06:00.046Z",
+        "status": "done",
+        "updatedAt": "2026-11-23T18:06:00.053Z"
       },
       "mix": {
         "artifacts": [
@@ -159,34 +379,52 @@
         "note": "",
         "startedAt": "2026-11-23T16:49:53.492Z",
         "status": "done",
-        "updatedAt": "2026-11-23T17:01:50.375Z"
+        "updatedAt": "2026-11-23T17:26:23.164Z"
       },
       "qa": {
         "artifacts": [
-          "research/audit-pre/audio-audit-pre.json"
+          "research/audit-pre/audio-audit-pre.json",
+          "out/MASTER-v1.mp4",
+          "out/LIGERA-v1.mp4",
+          "reports/technical-qa.json",
+          "reports/technical-qa-master.json",
+          "reports/technical-qa-light.json",
+          "reports/ghost-frames.json",
+          "research/audit-v1/audio-audit-v1.json"
         ],
-        "note": "",
+        "note": "-16.4 LUFS, TP -4.8 dBTP",
         "startedAt": "2026-11-23T16:50:22.318Z",
         "status": "done",
-        "updatedAt": "2026-11-23T17:02:01.196Z"
+        "updatedAt": "2026-11-23T18:06:00.042Z"
       },
       "render": {
         "artifacts": [
-          "reports/preflight.json"
+          "reports/preflight.json",
+          "out/el-libreto-messi-yt-chunks.mkv"
         ],
-        "note": "",
+        "note": "out/el-libreto-messi-yt-chunks.mkv",
         "startedAt": "2026-11-23T17:02:01.198Z",
         "status": "done",
-        "updatedAt": "2026-11-23T17:12:52.600Z",
+        "updatedAt": "2026-11-23T17:58:24.255Z",
         "chunks": {
-          "total": 0,
-          "done": 0,
-          "completed": [],
-          "framesDone": 0,
-          "framesTotal": 0,
-          "percent": 0,
+          "total": 9,
+          "done": 9,
+          "completed": [
+            "out/chunks/chunk_01.mkv",
+            "out/chunks/chunk_02.mkv",
+            "out/chunks/chunk_03.mkv",
+            "out/chunks/chunk_04.mkv",
+            "out/chunks/chunk_05.mkv",
+            "out/chunks/chunk_06.mkv",
+            "out/chunks/chunk_07.mkv",
+            "out/chunks/chunk_08.mkv",
+            "out/chunks/chunk_09.mkv"
+          ],
+          "framesDone": 1290,
+          "framesTotal": 1290,
+          "percent": 100,
           "chunkSize": 150,
-          "resumeCommand": ""
+          "resumeCommand": "node scripts/render-chunks.mjs el-libreto-messi-yt --frames 0-1289 --chunk 150 --resume --composition MainReel --video-only --crf 19 --out out/chunks --concat-out out/el-libreto-messi-yt-chunks.mkv --lock"
         }
       },
       "vo": {
@@ -198,11 +436,11 @@
         "note": "",
         "startedAt": "2026-11-23T16:49:51.348Z",
         "status": "done",
-        "updatedAt": "2026-11-23T16:49:53.489Z"
+        "updatedAt": "2026-11-23T17:25:35.435Z"
       }
     }
   },
   "schema": "remotion-hub.state/v1",
   "title": "El Libreto — Messi nunca dijo esto sobre Cuba (YouTube)",
-  "updatedAt": "2026-11-23T17:12:52.600Z"
+  "updatedAt": "2026-11-23T18:06:00.053Z"
 }

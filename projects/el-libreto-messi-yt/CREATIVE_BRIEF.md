@@ -26,10 +26,10 @@ ENSEÑA la prueba en pantalla.
 | La página | 168–389 | 5,6–13,0 s | Zoom al encabezado, píldora 750.000, resaltado «José Forever», aclaración Taiger |
 | Comparación | 390–668 | 13,0–22,3 s | Slide-in, sello 2022, círculo + punch-in a la bandera, lupa Gemini, checklist de ausencia |
 | Pregunta | 669–719 | 22,3–24,0 s | Tarjeta a pantalla completa: «¿Por qué se lo creyó tanta gente?» |
-| Casa Blanca | 720–896 | 24,0–29,9 s | Foto DT-1261 entera, glow en Messi, placa, negación |
+| Casa Blanca | 720–896 | 24,0–29,9 s | Video real de la bienvenida (2,0–7,9 s del corte), placa, negación |
 | Trío | 897–977 | 29,9–32,6 s | Bukele / Musk / Bad Bunny: el mismo patrón |
-| Veredicto | 978–1109 | 32,6–37,0 s | Sello FALSO + «El mensaje no existe. La foto está editada.» |
-| Cierre | 1110–1289 | 37,0–43,0 s | Pregunta de marca, sello a la esquina, píldora de fuente, end card SUSCRÍBETE + puente al largo |
+| Veredicto | 978–1109 | 32,6–37,0 s | Sello FALSO + push-in lento + «El mensaje no existe. La foto está editada.» |
+| Cierre | 1110–1289 | 37,0–43,0 s | Pregunta de marca, sello a la esquina, píldora de fuente, end card SUSCRÍBETE + puente al largo + disolución de loop |
 
 ## Decisiones (heredadas del corte FB + nuevas de YouTube)
 
@@ -39,30 +39,38 @@ ENSEÑA la prueba en pantalla.
   con fondo Resaltador, «FALSO.» en Lápiz rojo).
 - YouTube añade los beats que el guion largo permite: lupa sobre la
   marca de agua de Gemini (T2), checklist de ausencia (T8), tarjeta
-  de pregunta (T15), resaltado suave sobre Messi, y las dos líneas
-  del veredicto en pantalla.
+  de pregunta (T15), video real de la bienvenida en la Casa Blanca
+  (H1) y las dos líneas del veredicto en pantalla.
 - La marca de agua de Gemini (destello blanco de 4 puntas) está
   localizada en la foto manipulada: centro (479, 671) en coords de
   imagen (1113×713). La lupa la amplía 4×. PENDIENTE DE PRE-VUELO:
   verificar que se lea en el still f570; si no se lee, ajustar el
   zoom, no inventar la marca.
-- La foto de la Casa Blanca se muestra ENTERA con fondo difuminado
+- La foto de la Casa Blanca se muestra ENTERA como fondo difuminado
   (condiciones EXIF: periodística permitida, no manipular, nada
-  comercial). El glow sobre Messi es radial y suave, centrado en su
-  torso (350, 950), sin tocar su cara.
+  comercial). El video de la bienvenida (640×360) va a 1080 de ancho
+  con ese fondo detrás, nunca estirado a pantalla completa; el
+  archivo en public/video/ NO lleva audio (ffmpeg -an) y el
+  componente lleva volume={0}.
 - NINGÚN gráfico sobre la cara de una persona. La captura del post va
   recortada (solo encabezado + texto) en el gancho y el cierre para
   que la banda de karaoke no tape las caras de la foto.
 
 ## Sonido
 
-- Sin música. 9 SFX underVO (ver `research/timeline.json` §5) + tono
-  de sala en bucle (amb-room-tone, 30 s, repetido para cubrir 43 s;
-  corte duro en 30 s — la muestra inicial y final son 0,0).
+- Cama nueva de Flow Music «El Libreto — Messi Desmentido»
+  (libreto-messi-desmentido, Lyria 3.5, 115 BPM, ventana 0–60 s,
+  scan-bed PASS, 0 segmentos VOICE), creada 23-nov-2026 a propósito
+  para este proyecto. Definida en `research/timeline.json` (bed.id,
+  fuente única); `run-mix.py` verifica la identidad del stem con
+  `bed_identity` (NCC ≥ 0,99) antes de mezclar. La mezcla intermedia
+  (solo tono de sala) se rehízo entera con la cama.
+- 9 SFX underVO (ver `research/timeline.json` §5). Sin dips: el
+  outro sube por el ducking (la VO termina a 37,81 s).
 - El sello de goma del veredicto golpea 60 ms DESPUÉS del onset de
   «FALSO» (32,87 s), no antes: el sonido sigue a la palabra.
-- La mezcla se verifica por identidad de tono de sala (hash PCM en
-  dos tramos) antes de mezclar.
+- La mezcla se verifica por identidad de cama (NCC contra la cama de
+  biblioteca) antes de mezclar.
 
 ## Voz
 
@@ -168,3 +176,54 @@ intermedia: sirvió para la pre-auditoría y se rehace con la cama.
 Al llegar la cama: escanearla con `scan-bed.py`, definirla como
 `bed.id` en `timeline.json` y verificar identidad con
 `bed_identity.py` antes de mezclar (regla permanente del repo).
+
+## V1 con música y cierre nuevo (23-nov ~17:20, hora del sistema)
+
+Aplicado de la auditoría rigurosa del máster de Facebook
+(`../el-libreto-messi-fb/research/audit-v1/AUDITORIA-ALBERTO-v1.md`)
++ dirección del cierre investigada por Alberto. La VO NO se toca
+(la verificación de oído de «creyó» sigue pendiente del usuario).
+
+- **H1 — Video real en la Casa Blanca:** el clip oficial de la
+  bienvenida (640×360, dominio público) sustituye a la foto DT-1261
+  como plano principal; la foto queda solo como fondo difuminado.
+  Segundos 2,0–7,9 del corte (startFrom 60 / endAt 237), a 1080 de
+  ancho (608 de alto, y=480, por encima de la banda de karaoke).
+  El glow sobre Messi se elimina (era para foto fija).
+- **H3 — Karaoke oculto donde el texto grande ES el caption:**
+  gancho 0–2,7 s, contador 3,52–5,24 s, píldora 750.000 6,54–8,2 s,
+  tarjeta Taiger 10,1–13,0 s, placa 15,0–15,87 s. Se suman a las
+  ventanas que ya existían (17,78–24,0 / 28,43–29,9 / 32,6+).
+- **H4 — Contador:** la caja aparece a 3,52 s (con el conteo), no
+  a 2,7 s: ya no muestra «0 REACCIONES».
+- **H5 — Placa «Original»:** la placa de la foto original baja a
+  y 1130 (debajo de la imagen, en la banda del karaoke); la
+  etiqueta «Original» queda libre. Verificar en el still f460.
+- **H6 — Cierre rediseñado:** la marca de agua se desvanece al
+  entrar el logo grande (40,5–40,8 s); end card en zona
+  centro-superior (logo y 480, SUSCRÍBETE y 880, puente y 1000);
+  línea de fuentes a y 1500 (tercio inferior ocupado); un solo CTA
+  con motivo (puente al video largo); movimiento continuo hasta el
+  último fotograma (zoom del fondo, pulso del logo 1,5 s y de la
+  píldora 1 s); disolución de loop en 42,7–43,0 s (overlay 1 →
+  0,55, elementos → 0) para que el último fotograma empalme con el
+  primero. La pregunta deriva despacio (y 600 → 570) y se
+  desvanece al entrar la end card.
+- **H7 — Veredicto:** push-in lento 1 → 1,04 sobre el sello
+  (33,0–37,0 s); ya no se congela tras caer.
+- **H8 — Karaoke:** pop 1,3 → 1,15, margen entre palabras 7 → 10
+  px, y micropalabras fusionadas en grupos de visualización (ancho
+  máximo de grupo 0,18 s; el grupo hace pop junto en el `s` de su
+  primera palabra). `captions.ts` NO se toca: la fusión es solo de
+  render (mover los `s` en captions rompería la alineación
+  karaoke/onset de la auditoría, SYNC_MAX 0,15 s).
+- **H9 — Transiciones:** T1 barrido de la tarjeta Pregunta desde
+  la derecha (22,1–22,3 s, texto oculto hasta el corte para que
+  ninguna letra barra sobre las caras) y T2 fundido + escala del
+  papel del veredicto (32,43–32,6 s, en la pausa dramática). AMBAS
+  TERMINAN en el corte: el check de ghost-frames examina B..B+3
+  contra la escena nueva, así que una transición que empezara en
+  el corte daría REVISAR.
+- Pre-vuelo ampliado a 18 stills: f460 (placa), f666 (T1), f975
+  (T2). Las 3 correcciones del pre-vuelo anterior (fila del trío,
+  resaltado 108–404, sello stampY 130 + f1185) se conservan.

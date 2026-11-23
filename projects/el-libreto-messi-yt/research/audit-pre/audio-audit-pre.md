@@ -1,6 +1,6 @@
 # Auditoría de audio — el-libreto-messi-yt (pre)
 
-**Veredicto: WARN** — 0 FAIL, 65 WARN, 9 PASS, 58 INFO.
+**Veredicto: WARN** — 0 FAIL, 65 WARN, 9 PASS, 39 INFO.
 
 ## (a) Guion ↔ karaoke — PASS
 
@@ -122,26 +122,7 @@
 
 ## (f) Música y ducking — WARN
 
-- **INFO** @ 2.25s: ventana 2.25s bajo el suelo (-34.1 dBFS) pero la cama también (-40.9 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 5.00s: ventana 5.00s bajo el suelo (-37.8 dBFS) pero la cama también (-41.0 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 9.75s: ventana 9.75s bajo el suelo (-36.2 dBFS) pero la cama también (-40.6 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 11.25s: ventana 11.25s bajo el suelo (-33.1 dBFS) pero la cama también (-40.5 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 13.75s: ventana 13.75s bajo el suelo (-36.6 dBFS) pero la cama también (-40.5 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 15.00s: ventana 15.00s bajo el suelo (-36.4 dBFS) pero la cama también (-40.7 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 15.25s: ventana 15.25s bajo el suelo (-36.6 dBFS) pero la cama también (-40.6 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 17.50s: ventana 17.50s bajo el suelo (-37.6 dBFS) pero la cama también (-40.7 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 19.25s: ventana 19.25s bajo el suelo (-36.5 dBFS) pero la cama también (-40.5 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 21.75s: ventana 21.75s bajo el suelo (-33.1 dBFS) pero la cama también (-40.5 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 23.75s: ventana 23.75s bajo el suelo (-37.2 dBFS) pero la cama también (-40.6 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 24.50s: ventana 24.50s bajo el suelo (-37.6 dBFS) pero la cama también (-40.8 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 25.50s: ventana 25.50s bajo el suelo (-32.0 dBFS) pero la cama también (-40.4 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 28.00s: ventana 28.00s bajo el suelo (-33.4 dBFS) pero la cama también (-40.6 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 28.25s: ventana 28.25s bajo el suelo (-37.4 dBFS) pero la cama también (-40.8 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 32.50s: ventana 32.50s bajo el suelo (-37.3 dBFS) pero la cama también (-40.8 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 33.25s: ventana 33.25s bajo el suelo (-36.6 dBFS) pero la cama también (-40.3 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 34.75s: ventana 34.75s bajo el suelo (-35.2 dBFS) pero la cama también (-40.6 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 36.50s: ventana 36.50s bajo el suelo (-37.0 dBFS) pero la cama también (-40.5 dBFS): pasaje silencioso del stem, no hueco de mezcla
-- **INFO** @ 37.75s: ventana 37.75s bajo el suelo (-32.9 dBFS) pero la cama también (-40.6 dBFS): pasaje silencioso del stem, no hueco de mezcla
+- **INFO** @ 13.75s: ventana 13.75s bajo el suelo (-37.1 dBFS) pero la cama también (-43.0 dBFS): pasaje silencioso del stem, no hueco de mezcla
 - **WARN**: bombeo del ducking: la ganancia de la música varía 11.9 dB dentro de una frase (> 6.0 dB: la música «respira» con las sílabas)
 - **PASS**: música presente en toda la mezcla (suelo -32.0 dBFS respetado)
 
@@ -260,63 +241,63 @@
   ],
   [
    0.25,
-   -11.5
+   -11.2
   ],
   [
    0.5,
-   -11.8
+   -11.6
   ],
   [
    0.75,
-   -13.2
+   -13.1
   ],
   [
    1.0,
-   -15.0
-  ],
-  [
-   1.25,
-   -14.5
-  ],
-  [
-   1.5,
-   -16.5
-  ],
-  [
-   1.75,
-   -15.9
-  ],
-  [
-   2.0,
-   -21.1
-  ],
-  [
-   2.25,
-   -34.1
-  ],
-  [
-   2.5,
-   -21.6
-  ],
-  [
-   2.75,
-   -17.4
-  ],
-  [
-   3.0,
    -14.8
   ],
   [
+   1.25,
+   -14.3
+  ],
+  [
+   1.5,
+   -16.4
+  ],
+  [
+   1.75,
+   -15.8
+  ],
+  [
+   2.0,
+   -19.9
+  ],
+  [
+   2.25,
+   -30.0
+  ],
+  [
+   2.5,
+   -20.3
+  ],
+  [
+   2.75,
+   -17.3
+  ],
+  [
+   3.0,
+   -14.6
+  ],
+  [
    3.25,
-   -18.9
+   -18.7
   ],
   [
    3.5,
-   -17.6
+   -17.3
   ],
   [
    3.75,
-   -17.5
+   -17.3
   ],
   [
    4.0,
@@ -324,27 +305,27 @@
   ],
   [
    4.25,
-   -16.2
+   -16.0
   ],
   [
    4.5,
-   -18.1
+   -17.8
   ],
   [
    4.75,
-   -17.3
+   -17.1
   ],
   [
    5.0,
-   -37.8
+   -28.9
   ],
   [
    5.25,
-   -17.2
+   -16.7
   ],
   [
    5.5,
-   -16.6
+   -16.5
   ],
   [
    5.75,
@@ -356,131 +337,131 @@
   ],
   [
    6.25,
-   -13.7
+   -13.6
   ],
   [
    6.5,
-   -16.4
+   -16.3
   ],
   [
    6.75,
-   -17.8
+   -17.4
   ],
   [
    7.0,
-   -20.6
+   -20.5
   ],
   [
    7.25,
-   -20.2
-  ],
-  [
-   7.5,
-   -15.6
-  ],
-  [
-   7.75,
-   -16.8
-  ],
-  [
-   8.0,
-   -16.8
-  ],
-  [
-   8.25,
-   -20.8
-  ],
-  [
-   8.5,
-   -16.7
-  ],
-  [
-   8.75,
-   -18.3
-  ],
-  [
-   9.0,
-   -20.4
-  ],
-  [
-   9.25,
-   -19.0
-  ],
-  [
-   9.5,
-   -31.5
-  ],
-  [
-   9.75,
-   -36.2
-  ],
-  [
-   10.0,
-   -14.9
-  ],
-  [
-   10.25,
-   -14.3
-  ],
-  [
-   10.5,
-   -14.8
-  ],
-  [
-   10.75,
-   -16.8
-  ],
-  [
-   11.0,
-   -26.4
-  ],
-  [
-   11.25,
-   -33.1
-  ],
-  [
-   11.5,
-   -14.3
-  ],
-  [
-   11.75,
-   -14.1
-  ],
-  [
-   12.0,
-   -14.2
-  ],
-  [
-   12.25,
-   -20.4
-  ],
-  [
-   12.5,
-   -25.1
-  ],
-  [
-   12.75,
    -19.3
   ],
   [
-   13.0,
+   7.5,
+   -15.4
+  ],
+  [
+   7.75,
+   -16.5
+  ],
+  [
+   8.0,
+   -16.7
+  ],
+  [
+   8.25,
+   -20.1
+  ],
+  [
+   8.5,
+   -16.3
+  ],
+  [
+   8.75,
+   -17.9
+  ],
+  [
+   9.0,
+   -20.0
+  ],
+  [
+   9.25,
+   -18.6
+  ],
+  [
+   9.5,
+   -29.2
+  ],
+  [
+   9.75,
+   -28.1
+  ],
+  [
+   10.0,
+   -14.7
+  ],
+  [
+   10.25,
+   -14.2
+  ],
+  [
+   10.5,
+   -14.7
+  ],
+  [
+   10.75,
+   -16.6
+  ],
+  [
+   11.0,
+   -24.2
+  ],
+  [
+   11.25,
+   -28.6
+  ],
+  [
+   11.5,
    -14.1
   ],
   [
+   11.75,
+   -14.0
+  ],
+  [
+   12.0,
+   -14.1
+  ],
+  [
+   12.25,
+   -20.2
+  ],
+  [
+   12.5,
+   -21.8
+  ],
+  [
+   12.75,
+   -19.0
+  ],
+  [
+   13.0,
+   -14.0
+  ],
+  [
    13.25,
-   -15.9
+   -15.7
   ],
   [
    13.5,
-   -22.3
+   -21.1
   ],
   [
    13.75,
-   -36.6
+   -37.1
   ],
   [
    14.0,
-   -15.9
+   -15.7
   ],
   [
    14.25,
@@ -488,27 +469,27 @@
   ],
   [
    14.5,
-   -16.4
+   -16.1
   ],
   [
    14.75,
-   -22.1
+   -21.6
   ],
   [
    15.0,
-   -36.4
+   -24.3
   ],
   [
    15.25,
-   -36.6
+   -27.9
   ],
   [
    15.5,
-   -37.4
+   -25.6
   ],
   [
    15.75,
-   -17.5
+   -17.2
   ],
   [
    16.0,
@@ -516,31 +497,31 @@
   ],
   [
    16.25,
-   -15.6
+   -15.7
   ],
   [
    16.5,
-   -15.5
+   -15.4
   ],
   [
    16.75,
-   -18.5
+   -17.1
   ],
   [
    17.0,
-   -21.2
+   -20.1
   ],
   [
    17.25,
-   -29.3
+   -22.8
   ],
   [
    17.5,
-   -37.6
+   -28.4
   ],
   [
    17.75,
-   -20.7
+   -19.4
   ],
   [
    18.0,
@@ -548,83 +529,83 @@
   ],
   [
    18.25,
-   -13.4
+   -13.3
   ],
   [
    18.5,
-   -12.7
+   -12.6
   ],
   [
    18.75,
-   -14.3
+   -14.0
   ],
   [
    19.0,
-   -18.9
+   -18.5
   ],
   [
    19.25,
-   -36.5
+   -24.1
   ],
   [
    19.5,
-   -18.2
+   -17.9
   ],
   [
    19.75,
-   -18.6
+   -18.1
   ],
   [
    20.0,
-   -15.6
+   -15.5
   ],
   [
    20.25,
-   -16.5
+   -16.3
   ],
   [
    20.5,
-   -33.2
+   -32.6
   ],
   [
    20.75,
-   -37.8
+   -25.9
   ],
   [
    21.0,
-   -18.3
+   -17.9
   ],
   [
    21.25,
-   -24.0
+   -21.9
   ],
   [
    21.5,
-   -17.5
+   -17.2
   ],
   [
    21.75,
-   -33.1
+   -25.9
   ],
   [
    22.0,
-   -37.5
+   -29.1
   ],
   [
    22.25,
-   -16.4
+   -16.2
   ],
   [
    22.5,
-   -17.0
+   -16.8
   ],
   [
    22.75,
-   -16.7
+   -16.6
   ],
   [
    23.0,
-   -14.0
+   -13.9
   ],
   [
    23.25,
@@ -632,15 +613,15 @@
   ],
   [
    23.5,
-   -19.8
+   -19.4
   ],
   [
    23.75,
-   -37.2
+   -29.1
   ],
   [
    24.0,
-   -17.2
+   -16.9
   ],
   [
    24.25,
@@ -648,67 +629,67 @@
   ],
   [
    24.5,
-   -37.6
+   -26.4
   ],
   [
    24.75,
-   -15.3
+   -15.1
   ],
   [
    25.0,
-   -15.4
+   -15.0
   ],
   [
    25.25,
-   -17.5
+   -17.0
   ],
   [
    25.5,
-   -32.0
+   -23.7
   ],
   [
    25.75,
-   -17.3
+   -17.0
   ],
   [
    26.0,
-   -13.2
+   -13.0
   ],
   [
    26.25,
-   -15.8
+   -15.7
   ],
   [
    26.5,
-   -26.8
+   -23.9
   ],
   [
    26.75,
-   -18.1
-  ],
-  [
-   27.0,
-   -19.7
-  ],
-  [
-   27.25,
-   -16.1
-  ],
-  [
-   27.5,
    -18.0
   ],
   [
+   27.0,
+   -18.8
+  ],
+  [
+   27.25,
+   -15.9
+  ],
+  [
+   27.5,
+   -17.7
+  ],
+  [
    27.75,
-   -19.7
+   -19.2
   ],
   [
    28.0,
-   -33.4
+   -25.4
   ],
   [
    28.25,
-   -37.4
+   -27.4
   ],
   [
    28.5,
@@ -716,31 +697,31 @@
   ],
   [
    28.75,
-   -12.7
+   -12.6
   ],
   [
    29.0,
-   -14.6
+   -14.5
   ],
   [
    29.25,
-   -25.3
+   -21.7
   ],
   [
    29.5,
-   -44.5
+   -29.1
   ],
   [
    29.75,
-   -19.4
+   -18.2
   ],
   [
    30.0,
-   -13.4
+   -13.1
   ],
   [
    30.25,
-   -17.1
+   -16.8
   ],
   [
    30.5,
@@ -748,75 +729,75 @@
   ],
   [
    30.75,
-   -21.9
+   -21.1
   ],
   [
    31.0,
-   -14.9
+   -14.8
   ],
   [
    31.25,
-   -19.0
+   -18.5
   ],
   [
    31.5,
-   -19.5
+   -18.9
   ],
   [
    31.75,
-   -16.6
+   -16.3
   ],
   [
    32.0,
-   -15.6
+   -15.4
   ],
   [
    32.25,
-   -22.0
+   -19.9
   ],
   [
    32.5,
-   -37.3
+   -28.5
   ],
   [
    32.75,
-   -15.3
+   -15.1
   ],
   [
    33.0,
-   -24.4
+   -23.9
   ],
   [
    33.25,
-   -36.6
+   -23.1
   ],
   [
    33.5,
-   -27.8
+   -21.8
   ],
   [
    33.75,
-   -15.7
+   -15.4
   ],
   [
    34.0,
-   -15.7
+   -15.5
   ],
   [
    34.25,
-   -17.3
+   -17.1
   ],
   [
    34.5,
-   -20.0
+   -19.5
   ],
   [
    34.75,
-   -35.2
+   -29.8
   ],
   [
    35.0,
-   -20.4
+   -19.7
   ],
   [
    35.25,
@@ -824,138 +805,138 @@
   ],
   [
    35.5,
-   -26.7
+   -23.5
   ],
   [
    35.75,
-   -17.3
+   -17.0
   ],
   [
    36.0,
-   -18.5
+   -18.2
   ],
   [
    36.25,
-   -30.3
+   -26.9
   ],
   [
    36.5,
-   -37.0
+   -24.7
   ],
   [
    36.75,
-   -17.3
+   -17.2
   ],
   [
    37.0,
-   -17.8
+   -17.5
   ],
   [
    37.25,
-   -13.7
+   -13.5
   ],
   [
    37.5,
-   -19.0
+   -18.4
   ],
   [
    37.75,
-   -32.9
+   -29.1
   ],
   [
    38.0,
-   -37.7
+   -24.7
   ],
   [
    38.25,
-   -37.7
+   -29.7
   ],
   [
    38.5,
-   -37.8
+   -25.5
   ],
   [
    38.75,
-   -37.8
+   -31.3
   ],
   [
    39.0,
-   -37.7
+   -26.4
   ],
   [
    39.25,
-   -38.0
+   -29.2
   ],
   [
    39.5,
-   -37.8
+   -25.8
   ],
   [
    39.75,
-   -37.8
+   -27.5
   ],
   [
    40.0,
-   -37.6
+   -26.0
   ],
   [
    40.25,
-   -37.8
+   -26.3
   ],
   [
    40.5,
-   -37.7
+   -27.4
   ],
   [
    40.75,
-   -37.9
+   -26.2
   ],
   [
    41.0,
-   -37.8
+   -33.3
   ],
   [
    41.25,
-   -37.7
+   -25.6
   ],
   [
    41.5,
-   -37.6
+   -33.4
   ],
   [
    41.75,
-   -38.0
+   -21.8
   ],
   [
    42.0,
-   -37.9
+   -25.3
   ],
   [
    42.25,
-   -37.8
+   -26.5
   ],
   [
    42.5,
-   -37.6
+   -34.8
   ],
   [
    42.75,
-   -37.9
+   -40.4
   ]
  ],
  "f_windows_below_floor": 0,
  "f_duck_recovery": [
   [
    20.56,
-   2.9
+   2.7
   ],
   [
    21.9,
-   2.9
+   4.1
   ],
   [
    37.89,
-   2.8
+   3.2
   ]
  ],
  "f_duck_slow_recovery": 0,

@@ -114,6 +114,12 @@
    "sha256": "e53ec7e422e391a30593ac028b8bdcfb63de329a4240bda0628547508e10925f",
    "bytes": 35165,
    "note": "lockup marca El Libreto"
+  },
+  {
+   "path": "public/video/casa-blanca-bienvenida-messi-15s.mp4",
+   "sha256": "7f464da6dcdb53adebb54a59762816ea8a3fd1421a4f7176b07245ccba41c885",
+   "bytes": 512379,
+   "note": "video oficial Casa Blanca, bienvenida Inter Miami 5-mar-2026 (dominio público); copia SIN audio del dossier (ffmpeg -an); se usan los segundos 2,0-7,9 (startFrom 60 / endAt 237)"
   }
  ]
 }
