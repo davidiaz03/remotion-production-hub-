@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
-"""Mezcla final del reel: VO colocada + tono de sala + 6 SFX.
+"""Mezcla final del reel: VO colocada + cama musical + 6 SFX.
 
 Lee research/timeline.json: los SFX bajo VO usan la copia con
 ganancia/recorte de public/audio/sfx-mix/. El `at` ya descuenta el
 sync del índice (el ataque cae sobre el evento).
 
-SIN MÚSICA: la «cama» es el tono de sala amb-room-tone. La puerta de
-identidad (incidente V4, 23-nov-2026) se adapta: en vez de la NCC de
-bed_identity (que resuelve camas MUSICALES del registry), se compara
-el hash del PCM decodificado del stem contra el archivo de biblioteca.
-Si no coincide, la mezcla NO se construye.
+La cama es la nueva de Flow Music creada para este proyecto
+('libreto-messi-desmentido'), definida en timeline.json (bed.id,
+fuente única). Puerta de identidad (incidente V4, 23-nov-2026):
+antes de mezclar se verifica el stem con bed_identity (NCC contra
+la cama de biblioteca, umbral 0,99). Si no coincide, la mezcla NO
+se construye: re-ejecutar el paso audio (build-audio.sh lee bed.id
+de timeline.json) y reintentar. La verificación es acústica, no por
+nombre de archivo: un stem con el nombre correcto y el contenido
+equivocado también falla.
 
 Uso: HUB_PY=... python3 scripts/run-mix.py [--force]
 """
-import hashlib
 import json
 import os
 import subprocess
@@ -24,49 +27,46 @@ PROJ = os.path.dirname(HERE)
 HUB_PY = os.environ.get("HUB_PY",
                         os.path.expanduser("~/workspace/remotion-hub/.venv/bin/python"))
 MIX = os.path.expanduser("~/workspace/remotion-hub/repo/scripts/audio/mix.py")
-LIB_SFX = os.path.expanduser("~/workspace/remotion-hub/assets/sfx")
-
-
-def pcm_hash(path: str) -> str:
-    """SHA-256 del PCM decodificado (mono 48k s16le): inmune a
-    diferencias de cabecera WAV entre el stem y la biblioteca."""
-    r = subprocess.run(
-        ["ffmpeg", "-v", "error", "-i", path, "-ac", "1", "-ar", "48000",
-         "-f", "hash", "-hash", "sha256", "-"],
-        capture_output=True, text=True, check=True)
-    return r.stdout.strip().split("=", 1)[1]
 
 
 def main() -> int:
     t = json.load(open(os.path.join(PROJ, "research/timeline.json")))
+    # Puerta de identidad de cama (incidente V4, 23-nov-2026): el stem
+    # debe ser la cama que pide timeline.json (bed.id). Si no coincide,
+    # la mezcla NO se construye.
     bed_id = t.get("bed", {}).get("id")
     if not bed_id:
         print("ERROR: research/timeline.json no declara bed.id",
               file=sys.stderr)
         return 1
+    repo = os.path.dirname(os.path.dirname(PROJ))
+    sys.path.insert(0, os.path.join(repo, "scripts", "audio"))
+    import bed_identity
     stem = os.path.join(PROJ, "public/audio/music-bed.wav")
-    lib = os.path.join(LIB_SFX, "sounds-extra/ambience",
-                       f"{bed_id}.wav")
-    if not os.path.isfile(lib):
-        print(f"ERROR: no existe el tono de sala en la biblioteca: {lib}",
-              file=sys.stderr)
+    try:
+        r = bed_identity.verify_bed_stem(
+            stem, bed_id, os.path.join(PROJ, "research/timeline.json"))
+    except (FileNotFoundError, ValueError) as e:
+        print(f"ERROR: verificación de cama: {e}", file=sys.stderr)
         return 1
-    if not os.path.isfile(stem):
-        print(f"ERROR: no existe el stem: {stem} (primero build-audio.sh)",
-              file=sys.stderr)
+    if not r["ok"]:
+        print(f"ERROR: public/audio/music-bed.wav NO es '{bed_id}' "
+              f"(NCC {r['ncc']:.3f}, umbral {r['threshold']}): "
+              "la cama del stem no es la configurada; re-ejecuta "
+              "el paso audio y vuelve a mezclar", file=sys.stderr)
         return 1
-    if pcm_hash(stem) != pcm_hash(lib):
-        print(f"ERROR: public/audio/music-bed.wav NO es '{bed_id}' de la "
-              "biblioteca: re-ejecuta el paso audio y vuelve a mezclar",
-              file=sys.stderr)
-        return 1
-    print(f"tono de sala verificado: '{bed_id}' (hash PCM idéntico)")
+    print(f"cama verificada: '{bed_id}' (NCC {r['ncc']:.3f})")
     # Parámetros de mezcla desde la timeline (fuente única). Ducking:
     # receta probada (threshold 0,08, ratio 5, release 250 ms).
-    # Volumen 0,40: el tono de sala queda ~23 dB bajo la VO (banda
-    # 20-25 dB). --fixed-gain: ganancia constante a -16 LUFS.
+    # Volumen 0,40 (-7,96 dB): la cama (nativa -23,86 LUFS) queda
+    # ~14 dB bajo la VO (-18 LUFS) antes del ducking; el ducking la
+    # baja más bajo la voz y la deja subir en el outro (la VO termina
+    # a 25,12 s). --fixed-gain: ganancia constante a -16 LUFS.
     # --limiter 0.65: doma los picos de SFX antes de la ganancia.
     # (La auditoría debe usar los mismos valores: run-audit.py.)
+    # H10 de la auditoría v1: la v1 bombeaba 12 dB (sobre tono de
+    # sala); con música real, re-verificar el bombeo en la
+    # re-auditoría y suavizar el ducking si sigue >6 dB.
     m = t["mix"]
     args = [HUB_PY, MIX,
             "--voice", os.path.join(PROJ, "public/audio/voice-placed.wav"),
@@ -92,7 +92,7 @@ def main() -> int:
             print(f"FALTA SFX: {path}", file=sys.stderr)
             return 1
         args += ["--sfx", f"{path}@{s['at_s']}"]
-    print(f"mezclando: VO + tono de sala + {len(t['sfx'])} SFX -> mix.wav "
+    print(f"mezclando: VO + cama '{bed_id}' + {len(t['sfx'])} SFX -> mix.wav "
           f"({t['duration_s']} s)")
     return subprocess.run(args, cwd=PROJ).returncode
 

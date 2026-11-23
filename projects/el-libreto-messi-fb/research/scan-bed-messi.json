@@ -1,0 +1,10 @@
+{
+ "input": "/home/hatch/workspace/browser_downloads/sess-1872310620/browser-download-20261123T171142.719569642Z-0-El_Libreto___Messi_Desmentido.mp3",
+ "window_start_s": 0.0,
+ "window_duration_s": 112.49,
+ "passes": {
+  "vad": [],
+  "raw": []
+ },
+ "verdict": "PASS"
+}

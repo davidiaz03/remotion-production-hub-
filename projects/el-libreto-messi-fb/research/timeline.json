@@ -1,9 +1,9 @@
 {
  "_notes": {
-  "bed": "SIN MÚSICA: la 'cama' es el tono de sala amb-room-tone (biblioteca SFX, 30 s). build-audio.sh lo copia a music-bed.wav y verifica sha256 contra la biblioteca. No hay cama musical Flow: la puerta NCC de bed_identity no aplica.",
+  "bed": "V2: CAMA MUSICAL NUEVA de Flow Music, creada 23-nov-2026 a propósito para este proyecto: 'libreto-messi-desmentido' (Lyria 3.5, 115 BPM, ventana 0-60 s de la pista, scan-bed PASS, 0 segmentos VOICE). build-audio.sh la construye con build-bed.sh desde bed.id (fuente única, NUNCA hardcodear otra cama) y run-mix.py verifica la identidad del stem con bed_identity (NCC >= 0,99) antes de mezclar. La v1 llevaba solo tono de sala (amb-room-tone); el tono ya NO es la cama.",
   "edit_plan": "La VO limpia es UNA toma continua: las 7 líneas son segmentos contiguos de la toma original, colocados en 0 sin offsets (edited time = original time). Solo se recorta la cola: la toma termina en 25,70 s (0,58 s de tono de sala tras 'libreto?'). CORRECCIÓN a VO_AUDIT_FB.md: la 'pausa de 1,16 s tras FALSO' era silencio de COLA tras 'libreto?' (25,12-26,30); la pausa real entre FALSO y '¿Quién' es de 0,48 s y NO se toca.",
   "prosody_gaps": "Pausas naturales intra-línea (medidas a -40 dB en la VO limpia): se declaran en el edit-plan para que el check (e) las reconozca como diseñadas. La edición no las toca (factor 1,0, sin cortes dentro de ninguna línea).",
-  "sfx": "6 SFX + tono de sala (el tono no cuenta en el techo de 6). Todos underVO: build-audio.sh aplica gain/trim y los deja en public/audio/sfx-mix/. 'sync_s' = posición del pico dentro del clip (recortado); 'at_s' = event_s - sync_s (dónde empieza el clip en la mezcla). El sello cae a 23,21 s (60 ms DESPUÉS del onset de 'FALSO' a 23,15): el check (i5) mide ±50 ms del onset y un sello a 0 dB sobre el ataque de la palabra daría máscara +31,9 dB (FAIL). 60 ms de offset A/V es imperceptible.",
+  "sfx": "6 SFX. Todos underVO: build-audio.sh aplica gain/trim y los deja en public/audio/sfx-mix/. 'sync_s' = posición del pico dentro del clip (recortado); 'at_s' = event_s - sync_s (dónde empieza el clip en la mezcla). El sello cae a 23,21 s (60 ms DESPUÉS del onset de 'FALSO' a 23,15): el check (i5) mide ±50 ms del onset y un sello a 0 dB sobre el ataque de la palabra daría máscara +31,9 dB (FAIL). 60 ms de offset A/V es imperceptible.",
   "vo_placement": "trim_start_s/trim_end_s en coordenadas de la VO limpia (vo-fb-limpia-clean.wav, 27,5 s). speech_start_s = inicio de la primera palabra de la línea. Los límites de segmento caen en silencios (medidos a -40 dB; el límite L5/L6 en 22,63 es el inicio del silencio detectado a -45 dB)."
  },
  "beats": {
@@ -14,9 +14,12 @@
   "sello_golpe": 23.21
  },
  "bed": {
-  "file": "audio/amb-room-tone.wav",
-  "id": "amb-room-tone",
-  "note": "Tono de sala, NO música. Stem music-bed.wav verificado por sha256 en build-audio.sh."
+  "dips": [],
+  "file": "audio/music-bed.wav",
+  "id": "libreto-messi-desmentido",
+  "music_volume": 0.4,
+  "note": "Cama nueva de Flow Music (Lyria 3.5, 115 BPM, 1:53; sesión https://www.flowmusic.app/session/6d9b768d-aa2f-467c-9056-c7eff7faa5a6). Ventana 0-60 s, scan PASS (0 VOICE). Stem a nivel nativo (-23,86 LUFS, SIN loudnorm); el nivel se calibra con music_volume 0,40 en la mezcla. Sin dips: el outro sube por el ducking (la VO termina a 25,12 s). NUNCA sustituir por una cama vieja (documentary-flow-a, calm-documentary-*): la puerta NCC lo rechaza.",
+  "stem_lufs": -23.86
  },
  "duration_frames": 900,
  "duration_s": 30.0,
