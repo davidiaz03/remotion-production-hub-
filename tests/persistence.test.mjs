@@ -14,7 +14,7 @@ test('editable project survives commit -> snapshot -> approval -> later edit -> 
  const temp=mkdtempSync(path.join(os.tmpdir(),'remotion-persistence-test-'));
  const dir=path.join(temp,'hub');
  try{
-  cpSync(ROOT,dir,{recursive:true,filter:(src)=>!src.includes('/node_modules/')&&!src.includes('/.git/')&&!src.includes('/.worktrees/')&&!src.includes('/out/')&&!src.includes('/reports/')&&!src.endsWith('package-lock.json')});
+  cpSync(ROOT,dir,{recursive:true,filter:(src)=>!src.includes('/node_modules/')&&!src.includes('/.git/')&&!src.endsWith('/.git')&&!src.includes('/.worktrees/')&&!src.includes('/out/')&&!src.includes('/reports/')&&!src.endsWith('package-lock.json')});
   const pkg=JSON.parse(readFileSync(path.join(dir,'package.json'),'utf8'));
   const lock={name:pkg.name,version:pkg.version,lockfileVersion:3,packages:{'':{name:pkg.name,version:pkg.version,dependencies:pkg.dependencies,devDependencies:pkg.devDependencies}}};
   writeFileSync(path.join(dir,'package-lock.json'),JSON.stringify(lock,null,2)+'\n');
