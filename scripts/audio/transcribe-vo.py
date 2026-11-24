@@ -29,6 +29,9 @@ Uso:
   # vo-captions.json: {"fragments": [{"words": ["¿Sabías", ...],
   #   "chunks": [[0, 4, [3]], [4, 8, [7]]]}]} — chunks = [inicio, fin,
   #   [índices de keywords]] relativos a las palabras del fragmento.
+  # Con --transcript <json> se reutiliza una transcripción existente
+  # de esta misma VO (verificada contra el guion en la preparación)
+  # en vez de re-transcribir con Whisper.
 """
 import argparse
 import difflib
@@ -59,6 +62,49 @@ def make_norm(num_map: dict):
         w = re.sub(r"[^a-z0-9]", "", w)
         return num_map.get(w, w)
     return norm
+
+
+def load_transcript_words(path):
+    """Palabras [{word, start, end}] desde un JSON de transcripción
+    faster-whisper con word_timestamps, sin re-transcribir. Acepta:
+    {"segments": [{"words": [{"word","start","end"}]}]} (la que escriben
+    los scripts de preparación de VO) y [{"words": [{"w","s","e"}]}]
+    (la de audit-audio.load_whisper_file). Devuelve (words, duration)
+    donde duration es la duración total declarada o None."""
+    with open(path, encoding="utf-8") as f:
+        raw = json.load(f)
+    if isinstance(raw, dict):
+        segments = raw.get("segments") or []
+        duration = raw.get("duration")
+    else:
+        segments = raw
+        duration = None
+    words = []
+    for seg in segments:
+        for w in seg.get("words") or []:
+            word = w.get("word", w.get("w"))
+            start = w.get("start", w.get("s"))
+            end = w.get("end", w.get("e"))
+            if word is None or start is None or end is None:
+                continue
+            words.append({"word": str(word).strip(),
+                          "start": float(start), "end": float(end)})
+    return words, (float(duration) if duration is not None else None)
+
+
+def validate_transcript_duration(duration, lines):
+    """La transcripción reutilizada debe corresponder a ESTA VO: su
+    duración declarada tiene que coincidir con el fin de la última
+    línea de vo-lines.json (±5 s). Sin duración declarada no se puede
+    comprobar: se acepta (el llamador la eligió a mano)."""
+    if duration is None or not lines:
+        return
+    last_end = max(float(line["end"]) for line in lines)
+    if abs(duration - last_end) > 5.0:
+        raise ValueError(
+            f"la transcripción reutilizada dura {duration:.1f} s pero "
+            f"la VO termina en {last_end:.1f} s: no corresponde a este "
+            f"audio (transcripción rancia o de otro proyecto)")
 
 
 def align(script_words, whisper_words, frag_start, frag_end, norm):
@@ -107,6 +153,14 @@ def main() -> int:
     p.add_argument("--out-json", help="JSON de HubCaption[] (flujo nuevo)")
     p.add_argument("--model", default=DEFAULT_MODEL)
     p.add_argument("--language", default="es")
+    p.add_argument("--transcript",
+                   help="JSON de transcripción faster-whisper con "
+                   "word_timestamps de ESTA misma VO (p. ej. la que "
+                   "dejó la preparación de VO y ya se verificó contra "
+                   "el guion): se reutiliza en vez de re-transcribir "
+                   "con Whisper (~0,3x de ahorro + la transcripción "
+                   "verificada). Se comprueba que su duración "
+                   "corresponda a la VO.")
     p.add_argument("--threads", type=int, default=2,
                    help="Hilos CPU de faster-whisper (defecto 2; la "
                    "caja tiene 1,5 CPU efectivas y más hilos no ayuda)")
@@ -137,17 +191,29 @@ def main() -> int:
 
     import time as _time
     _t0 = _time.perf_counter()
-    model = WhisperModel(a.model, device="cpu", compute_type="int8",
-                         cpu_threads=max(1, a.threads), num_workers=1,
-                         local_files_only=True)
-    segments, _ = model.transcribe(a.vo, language=a.language,
-                                   word_timestamps=True)
-    all_words = []
-    for seg in segments:
-        all_words.extend({"word": w.word.strip(), "start": w.start, "end": w.end}
-                         for w in seg.words)
-    print(f"Whisper: {len(all_words)} palabras en total "
-          f"({_time.perf_counter() - _t0:.0f} s)")
+    if a.transcript:
+        all_words, duration = load_transcript_words(a.transcript)
+        if not all_words:
+            p.error(f"la transcripción {a.transcript} no trae palabras")
+        try:
+            validate_transcript_duration(duration, lines)
+        except ValueError as e:
+            p.error(str(e))
+        print(f"Transcripción reutilizada: {len(all_words)} palabras de "
+              f"{a.transcript} (sin Whisper, "
+              f"{_time.perf_counter() - _t0:.0f} s)")
+    else:
+        model = WhisperModel(a.model, device="cpu", compute_type="int8",
+                             cpu_threads=max(1, a.threads), num_workers=1,
+                             local_files_only=True)
+        segments, _ = model.transcribe(a.vo, language=a.language,
+                                       word_timestamps=True)
+        all_words = []
+        for seg in segments:
+            all_words.extend({"word": w.word.strip(), "start": w.start, "end": w.end}
+                             for w in seg.words)
+        print(f"Whisper: {len(all_words)} palabras en total "
+              f"({_time.perf_counter() - _t0:.0f} s)")
 
     key_words = {norm(w) for w in a.key_words.split(",") if w.strip()}
     key_times = {}
