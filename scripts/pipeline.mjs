@@ -19,7 +19,7 @@
  *
  * Uso:
  *   node scripts/pipeline.mjs <proyecto> [--from vo] [--to qa]
- *     [--force] [--dry-run] [--estimate]
+ *     [--force] [--dry-run] [--estimate] [--max-minutes 25]
  *   node scripts/pipeline.mjs modern-wisdom-aprende --from music
  *   node scripts/pipeline.mjs modern-wisdom-aprende --estimate
  *
@@ -32,6 +32,14 @@
  * re-construye la timeline, pero no re-sintetiza la VO).
  * --estimate imprime la estimación por fase y sale sin ejecutar.
  * --dry-run lista los pasos (con estimación) sin ejecutar nada.
+ * --max-minutes N detiene la corrida LIMPIAMENTE al terminar el paso
+ * en curso cuando han pasado N minutos de reloj (estado "paused",
+ * código de salida 0, e imprime el comando exacto para reanudar).
+ * Las corridas largas en una sola invocación mueren por SIGTERM del
+ * entorno (~31 min medidos 23-nov-2026 en libreto-pagina-62mil, en
+ * medio del máster): con --max-minutes 25 una corrida nunca muere
+ * a mitad de un paso; se reanuda con el comando impreso. Cada paso
+ * largo es reanudable por frescura (el render, por hash de tramos).
  *
  * Candados: los pasos pesados (vo, captions, render, master, encode,
  * qa, preflight) se serializan con otros trabajos si está definido
@@ -43,8 +51,12 @@
  *
  * Informe de progreso: reports/pipeline-progress.json (+ .md) se
  * actualiza tras cada paso con estado, tiempo real y estimado.
+ * Historial: reports/pipeline-runs.jsonl acumula UNA línea JSON por
+ * invocación (rango, estado, segundos reales y estimados por paso):
+ * es la fuente para recalibrar tasas; el .json/.md solo guardan la
+ * última corrida.
  */
-import {existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync} from 'node:fs';
+import {appendFileSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync} from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {HUB, ROOT, loadProject, parseArgs} from './lib.mjs';
@@ -70,32 +82,36 @@ const HEAVY_STEPS = new Set(['vo', 'captions', 'preflight', 'render', 'master', 
 
 // --- Estimación (tasas medidas, docs/SPEED-2026-11-19.md + longform-v2) --
 // audioS = segundos de VO; frames = fotogramas a renderizar; chars =
-// caracteres del guion de VO. Cada tasa anota su fuente.
+// caracteres del guion de VO. Cada tasa anota su fuente. Recalibración
+// 23-nov-2026 con el primer largo real (libreto-pagina-62mil, 548 s,
+// 16.449 f, 28 escenas): ver docs/LONGFORM-PIPELINE-P0.md.
 export const RATES = {
 	voRtf: 1.6, // Kokoro 1 proceso/2 hilos, RTF 1,57 medido 19-nov (MW, 162 min). El smoke midió 0,75, pero se mantiene 1,6: conservador para videos largos bajo carga sostenida.
 	voLoadS: 40, // carga del modelo (~30 s) + arranque
 	charsPerAudioS: 15.45, // MW: 30.262 car -> 1.958,6 s de audio
 	captionsPerAudioS: 0.3, // Whisper small int8, ~0,15-0,3x (SPEED §5); smoke: 37 s/113 s = 0,33x
+	captionsReuseFixedS: 30, // con transcripción reutilizada (captions.transcript): sin Whisper, solo alineación + escritura
 	alignPerAudioS: 0.02, // envolvente numpy, sin Whisper; smoke: 2 s/113 s
 	musicFixedS: 15, // bed-loop: base de arranque + loudnorm
 	musicPerAudioS: 0.05, // bed-loop escala con la salida; smoke: 5 s/116 s
 	mixFixedS: 10, // mix.py: base de arranque
 	mixPerAudioS: 0.06, // mix.py escala con la duración; smoke: 6,7 s/113 s
-	preflightPerSceneS: 20, // 1 still por escena (Chromium + análisis); smoke: 198 s/16 escenas = 12,4 s (se mantiene 20: margen para escenas con diagramas)
-	renderPerFrameS: 0.08, // tramos 900 f: 72 s/900 f medidos 19-nov; smoke: 267 s/3483 f = 0,077
-	masterPerAudioS: 0.66, // máster: encode x264 1080p + loudnorm; smoke: 76 s de cómputo puro/116 s (antes 0,15: subestimaba 4x)
-	encodePerAudioS: 0.66, // 720p CRF21 0,42x + 360p CRF24 0,24x; smoke: 75 s/113 s = 0,66x
-	qaPerAudioS: 0.34, // qa-media, DOS pases (máster + 360p); smoke: 30 s + 9 s / 116 s
+	preflightPerSceneS: 12, // 1 still por escena (Chromium + análisis); libreto: 28 escenas en ~4,5 min = 9,6 s/escena (antes 20: sobre-estimaba 2x)
+	renderPerFrameS: 0.11, // tramos 900 f: libreto 16.449 f en ~30 min = 0,109 s/f (antes 0,08, medido sobre el smoke de contenido plano; el contenido con documentos/fotos/video es ~40% más lento)
+	masterPerAudioS: 0.66, // máster: encode x264 1080p + loudnorm; smoke: 76 s de cómputo puro/116 s (antes 0,15: subestimaba 4x). Libreto: ~5 min/548 s = 0,55x, dentro de la tasa.
+	encodePerAudioS: 1.0, // 720p CRF21 + 360p CRF24; libreto: 374 s + 189 s = 563 s/548 s = 1,03x (antes 0,66: el smoke plano subestimaba; el contenido fotográfico codifica más lento)
+	qaPerAudioS: 0.34, // qa-media, DOS pases (máster + 360p); smoke: 30 s + 9 s / 116 s. Libreto: ~2-3 min para 3 pases (se añadió el 720p), dentro de la tasa.
 	auditFixedS: 60, // audit-audio: base (cargas + checks sin Whisper)
-	auditPerAudioS: 0.3, // audit-audio: Whisper sobre el máster; coherente con QA total MW (19 min)
+	auditPerAudioS: 0.9, // audit-audio CON Whisper sobre el máster; libreto: RTF 0,885 medido en muestra de 120 s (antes 0,3: subestimaba 3x)
+	auditNoWhisperPerAudioS: 0.2, // audit-audio SIN Whisper (opción por defecto desde 23-nov): resto de checks; libreto ~600 s totales − ~485 s de Whisper ≈ 115 s/548 s
 };
 
-export function estimateSteps({audioS, frames, chars, scenes, audit}) {
+export function estimateSteps({audioS, frames, chars, scenes, audit, auditWhisper, captionsReuse}) {
 	const voAudioS = audioS || (chars ? chars / RATES.charsPerAudioS : 0);
 	const est = {
 		vo: Math.round(voAudioS * RATES.voRtf + RATES.voLoadS),
 		merge: 10,
-		captions: Math.round(voAudioS * RATES.captionsPerAudioS + 30),
+		captions: captionsReuse ? RATES.captionsReuseFixedS : Math.round(voAudioS * RATES.captionsPerAudioS + 30),
 		align: Math.round(voAudioS * RATES.alignPerAudioS + 10),
 		timeline: 10,
 		music: Math.round(RATES.musicFixedS + voAudioS * RATES.musicPerAudioS),
@@ -105,7 +121,7 @@ export function estimateSteps({audioS, frames, chars, scenes, audit}) {
 		master: Math.round(voAudioS * RATES.masterPerAudioS + 30),
 		encode: Math.round(voAudioS * RATES.encodePerAudioS),
 		chapters: 5,
-		qa: Math.round(voAudioS * RATES.qaPerAudioS + 120 + (audit ? RATES.auditFixedS + voAudioS * RATES.auditPerAudioS : 0)),
+		qa: Math.round(voAudioS * RATES.qaPerAudioS + 120 + (audit ? RATES.auditFixedS + voAudioS * (auditWhisper ? RATES.auditPerAudioS : RATES.auditNoWhisperPerAudioS) : 0)),
 	};
 	return est;
 }
@@ -123,7 +139,13 @@ export function formatDuration(totalS) {
 const {pos, opts} = parseArgs(process.argv.slice(2));
 const projectId = pos[0];
 if (!projectId) {
-	throw Error('Use: node scripts/pipeline.mjs <proyecto> [--from vo] [--to qa] [--force] [--dry-run] [--estimate]');
+	throw Error('Use: node scripts/pipeline.mjs <proyecto> [--from vo] [--to qa] [--force] [--dry-run] [--estimate] [--max-minutes 25]');
+}
+// --max-minutes N: null = sin límite. 0 es válido (pausa tras el
+// primer paso; útil para probar la pausa sin ejecutar nada pesado).
+const maxMinutes = opts['max-minutes'] === undefined ? null : Number(opts['max-minutes']);
+if (maxMinutes !== null && (!Number.isFinite(maxMinutes) || maxMinutes < 0)) {
+	throw Error('--max-minutes necesita un número de minutos >= 0');
 }
 const {home, data} = loadProject(projectId);
 const cfgPath = path.join(home, 'pipeline.json');
@@ -233,6 +255,51 @@ function writeProgress() {
 	writeFileSync(path.join(dir, 'pipeline-progress.md'), lines.join('\n') + '\n');
 }
 
+// Historial acumulativo de corridas (una línea JSON por invocación).
+// pipeline-progress.json/.md solo guardan la ÚLTIMA corrida: sin
+// este registro, los tiempos reales por paso de una corrida completa
+// se pierden al reanudar por rangos (23-nov-2026 hubo que
+// reconstruirlos desde los mtimes de los artefactos). Nunca rompe
+// la corrida: un fallo de escritura solo avisa.
+function logRun() {
+	if (dryRun) return; // un dry-run no ejecuta nada: no se registra
+	try {
+		const dir = P('reports');
+		mkdirSync(dir, {recursive: true});
+		const steps = STEPS.filter((s) => range.includes(s)).map((s) => ({
+			name: s, status: progressSteps[s].status,
+			seconds: progressSteps[s].seconds,
+			estimatedSeconds: progressSteps[s].estimatedSeconds,
+		}));
+		const entry = {
+			startedAt: progressStartedAt, finishedAt: new Date().toISOString(),
+			range, status: progressStatus, steps,
+		};
+		appendFileSync(path.join(dir, 'pipeline-runs.jsonl'), JSON.stringify(entry) + '\n');
+	} catch (e) {
+		console.warn(`[runs-log] no se pudo registrar: ${e.message}`);
+	}
+}
+
+// Pausa limpia por --max-minutes: se llama tras completar un paso.
+// Nunca interrumpe un paso a la mitad: la pausa cae siempre en una
+// frontera de paso, donde la frescura permite reanudar sin perder
+// trabajo. Sale con código 0 (pausa prevista, no fallo).
+function maybePause(completedName) {
+	if (maxMinutes === null) return;
+	const idx = range.indexOf(completedName);
+	if (idx < 0 || idx >= range.length - 1) return; // no quedan pasos
+	const elapsedMin = (Date.now() - Date.parse(progressStartedAt)) / 60000;
+	if (elapsedMin < maxMinutes) return;
+	const next = range[idx + 1];
+	progressStatus = 'paused';
+	writeProgress();
+	logRun();
+	console.log(`\nPIPELINE_PAUSED proyecto=${projectId} (límite --max-minutes ${maxMinutes} alcanzado tras ${completedName}; ${formatDuration(elapsedMin * 60)} transcurridos)`);
+	console.log(`Reanudar: node scripts/pipeline.mjs ${projectId} --from ${next}${force ? ' --force' : ''}`);
+	process.exit(0);
+}
+
 function step(name, artifacts, fn, {inputs = [], heavy = false, skipIf = null} = {}) {
 	if (!range.includes(name)) return;
 	const phase = STEP_PHASE[name];
@@ -259,6 +326,7 @@ function step(name, artifacts, fn, {inputs = [], heavy = false, skipIf = null} =
 		progressSteps[name].status = 'failed';
 		progressStatus = 'failed';
 		writeProgress();
+		logRun();
 		safeState(() => setPhase(ROOT, projectId, phase, 'failed', {note: `${name}: ${e.message}`}), `fallo ${name}`);
 		console.error(`\nPIPELINE_FAILED paso=${name} proyecto=${projectId}`);
 		console.error(`Reanudar: node scripts/pipeline.mjs ${projectId} --from ${name}`);
@@ -275,6 +343,7 @@ function step(name, artifacts, fn, {inputs = [], heavy = false, skipIf = null} =
 	console.log(`[${stamp()}] == ${name}: OK en ${secs}s (estimado ${formatDuration(estimates[name] ?? 0)})`);
 	safeState(() => recordMilestone(ROOT, projectId, phase, `${name} completado por pipeline (${secs}s)`, {status: 'done', artifacts}), `fin ${name}`);
 	writeProgress();
+	maybePause(name);
 }
 
 const voManifest = cfg.voice?.manifest ?? 'vo-manifest.json';
@@ -356,6 +425,8 @@ const estimates = estimateSteps({
 	chars: voChars(),
 	scenes: preflightScenes(),
 	audit: cfg.qa?.audit === true,
+	auditWhisper: cfg.qa?.auditWhisper === true,
+	captionsReuse: Boolean(cfg.captions?.transcript),
 });
 
 if (estimateOnly || dryRun) {
@@ -365,7 +436,7 @@ if (estimateOnly || dryRun) {
 		console.log(`  ${n.padEnd(10)} ${formatDuration(estimates[n] ?? 0)}`);
 	}
 	console.log(`  TOTAL: ${formatDuration(total)}`);
-	console.log('Tasas medidas: docs/SPEED-2026-11-19.md + docs/LONGFORM-V2-2026-11-21.md §5 (VO RTF 1,6; render 0,08 s/f a 900 f; máster 0,66x; QA 0,34x + auditoría 0,3x; encodes 0,66x).');
+	console.log('Tasas medidas: docs/SPEED-2026-11-19.md + docs/LONGFORM-PIPELINE-P0.md (VO RTF 1,6; render 0,11 s/f a 900 f; máster 0,66x; QA 0,34x + auditoría 0,2x sin Whisper / 0,9x con Whisper; encodes 1,0x; pre-vuelo 12 s/escena).');
 	if (estimateOnly) process.exit(0);
 	console.log('(dry-run: no se ejecuta nada)\n');
 }
@@ -392,16 +463,26 @@ step('captions', [captionsTs, captionsJson, `out/${projectId}.srt`], (heavy) => 
 		'--script', P(cfg.captions?.script ?? 'vo-captions.json'),
 		'--out', P(captionsTs),
 		'--out-json', P(captionsJson),
-		'--threads', String(cfg.captions?.threads ?? 2),
+		'--threads', String(cfg.captions?.threads ?? 2)];
+	if (cfg.captions?.transcript) {
+		// Transcripción reutilizada: la preparación de VO ya
+		// transcribió esta misma VO con word_timestamps y la verificó
+		// contra el guion (verify-vo-lines.py). Re-transcribirla aquí
+		// repetía ~0,3x de Whisper sobre el mismo audio; reutilizarla
+		// ahorra esos ~3 min y usa la transcripción verificada.
+		// transcribe-vo.py comprueba que la duración corresponde.
+		args.push('--transcript', P(cfg.captions.transcript));
+	}
+	args.push(
 		// --force siempre: el paso solo corre cuando los artefactos
 		// faltan o están rancios (frescura); la herramienta rechaza
 		// sobrescribir sin él y la frescura del pipeline es el único
 		// mecanismo de salto. Misma regla en music, mix, master y
 		// encode.
-		'--force'];
+		'--force');
 	run(STT_PY, args, 'transcribe-vo', home, heavy);
 	run(process.execPath, [path.join(ROOT, 'scripts/export-srt.mjs'), projectId], 'export-srt');
-}, {inputs: [voFull, voLines], heavy: true});
+}, {inputs: [voFull, voLines, ...(cfg.captions?.transcript ? [cfg.captions.transcript] : [])], heavy: true});
 
 step('align', ['reports/align-captions.json'], () => {
 	// Re-temporiza los inicios de palabra tras silencio desde los
@@ -507,10 +588,13 @@ step('preflight', ['reports/preflight.json'], (heavy) => {
 		return;
 	}
 	if (dryRun) {
-		run(VENV_PY, [path.join(ROOT, 'scripts/visual-preflight.py'),
+		const dryArgs = [path.join(ROOT, 'scripts/visual-preflight.py'),
 			'--project', projectId, '--stills',
 			'--manifest', P(cfg.preflight?.manifest ?? 'preflight-scenes.json'),
-			'--out', P('reports/preflight.json')], 'visual-preflight', home, heavy);
+			'--out', P('reports/preflight.json')];
+		if (cfg.preflight?.incremental === true) dryArgs.push('--incremental');
+		if (force) dryArgs.push('--force');
+		run(VENV_PY, dryArgs, 'visual-preflight', home, heavy);
 		return;
 	}
 	const manifestRel = cfg.preflight?.manifest ?? 'preflight-scenes.json';
@@ -535,6 +619,14 @@ step('preflight', ['reports/preflight.json'], (heavy) => {
 		'--project', projectId, '--stills',
 		'--manifest', P(manifestRel),
 		'--out', P('reports/preflight.json')];
+	if (cfg.preflight?.incremental === true) {
+		// Pre-vuelo incremental: re-renderiza solo las escenas cuyos
+		// insumos cambiaron (hash por escena) y reutiliza el análisis
+		// de las demás. Opt-in hasta verificarlo E2E (ver
+		// docs/LONGFORM-PIPELINE-P0.md § P0-4).
+		args.push('--incremental');
+	}
+	if (force) args.push('--force'); // limpia la caché incremental
 	if (cfg.preflight?.args) args.push(...cfg.preflight.args.map(String));
 	run(VENV_PY, args, 'visual-preflight', home, heavy);
 }, {inputs: [timelineJson, captionsJson], heavy: true,
@@ -609,7 +701,7 @@ step('chapters', [`out/${projectId}-chapters.txt`, `out/${projectId}-chapters.js
 	run(process.execPath, [path.join(ROOT, 'scripts/chapters.mjs'), projectId], 'chapters');
 }, {inputs: [timelineJson, 'chapters.json']});
 
-step('qa', ['reports/technical-qa-master.json', 'reports/technical-qa-360p.json'], (heavy) => {
+step('qa', ['reports/technical-qa-master.json', 'reports/technical-qa-720p.json', 'reports/technical-qa-360p.json'], (heavy) => {
 	// La pantalla final de 90 f deja ~3 s de silencio intencional:
 	// el umbral por defecto de qa-media (1 s) la rechazaría. 3,5 s
 	// cubre la cola a 30 fps con margen; configurable por proyecto.
@@ -620,6 +712,12 @@ step('qa', ['reports/technical-qa-master.json', 'reports/technical-qa-360p.json'
 		'--report', 'technical-qa-master.json'], 'qa-media master', home, heavy);
 	const isVertical = data.height > data.width;
 	const expect = isVertical ? '360x640' : '640x360';
+	const expect720 = isVertical ? '720x1280' : '1280x720';
+	run(process.execPath, [path.join(ROOT, 'scripts/qa-media.mjs'),
+		'--project', projectId, '--file', P(`out/${projectId}-720p.mp4`),
+		'--mode', 'full', '--expect', expect720,
+		'--trailing-silence-max', trailingMax,
+		'--report', 'technical-qa-720p.json'], 'qa-media 720p', home, heavy);
 	run(process.execPath, [path.join(ROOT, 'scripts/qa-media.mjs'),
 		'--project', projectId, '--file', P(`out/${projectId}-360p.mp4`),
 		'--mode', 'full', '--expect', expect,
@@ -646,6 +744,16 @@ step('qa', ['reports/technical-qa-master.json', 'reports/technical-qa-360p.json'
 			'--duck-threshold', String(cfg.mix?.duckThreshold ?? 0.08),
 			'--duck-ratio', String(cfg.mix?.duckRatio ?? 5),
 			'--no-spectrograms'];
+		// Sin Whisper sobre el máster por defecto (23-nov-2026): esa
+		// pasada cuesta RTF ~0,9 (~8 min en 548 s, medido) y en el
+		// primer largo produjo 60 WARN de los que 60/60 eran sesgo
+		// de Whisper sobre la mezcla (ruido, no defectos). La
+		// alineación autoritativa es la acústica (onsets) y la
+		// coherencia captions↔transcripción usa la transcripción
+		// verificada de la VO, no esta pasada. Activar solo cuando
+		// la VO sea nueva o haya líneas en disputa:
+		// pipeline.json: qa.auditWhisper = true.
+		if (cfg.qa?.auditWhisper !== true) args.push('--no-whisper');
 		if (cfg.qa.auditArgs) args.push(...cfg.qa.auditArgs.map(String));
 		run(VENV_PY, args, 'audit-audio', home, heavy);
 	}
@@ -653,6 +761,7 @@ step('qa', ['reports/technical-qa-master.json', 'reports/technical-qa-360p.json'
 
 progressStatus = 'done';
 writeProgress();
+logRun();
 const total = timings.reduce((s, t) => s + t.seconds, 0);
 console.log(`\nPIPELINE_OK proyecto=${projectId} pasos=${range.join(',')}`);
 for (const t of timings) console.log(`  ${t.step}: ${t.seconds}s (estimado ${formatDuration(estimates[t.step] ?? 0)})`);
