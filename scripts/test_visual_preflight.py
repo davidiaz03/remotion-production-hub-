@@ -24,9 +24,11 @@ Dos niveles (mismo patrón que scripts/audio/test_microcut.py):
   (variable PREFLIGHT_FRAMES_V41 para otra).
 """
 import importlib.util
+import json
 import os
 import sys
 import unittest
+from pathlib import Path
 
 import numpy as np
 
@@ -307,6 +309,154 @@ class TestIntegrationV41(unittest.TestCase):
         # avisa de que la documentación quedó desactualizada.
         flags, _m = self._analyse("f011.jpg")
         self.assertEqual(flags, {})
+
+
+# Sin cv2: el hash incremental es lógica pura (sin análisis de imagen).
+class TestIncremental(unittest.TestCase):
+    """Hash por escena y partición de la caché (--incremental)."""
+
+    def setUp(self):
+        import tempfile
+
+        self.tmp = tempfile.TemporaryDirectory()
+        self.project = Path(self.tmp.name) / "proj"
+        (self.project / "src" / "components").mkdir(parents=True)
+        (self.project / "public" / "images").mkdir(parents=True)
+        (self.project / "src" / "Video.tsx").write_text("shell v1")
+        (self.project / "src" / "components" / "DocumentQuote.tsx"
+         ).write_text("quote v1")
+        (self.project / "src" / "components" / "List.tsx"
+         ).write_text("list v1")
+        (self.project / "public" / "images" / "a.jpg").write_bytes(b"IMG")
+        self.timeline = [
+            {"type": "document-quote", "startFrame": 0, "endFrame": 89,
+             "image": "images/a.jpg", "text": "cita uno"},
+            {"type": "list", "startFrame": 90, "endFrame": 179,
+             "items": ["a", "b"]},
+        ]
+        (self.project / "src" / "timeline.json").write_text(
+            json.dumps({"scenes": self.timeline}))
+        self.captions = [
+            {"text": "HOLA", "startMs": 500, "endMs": 900},
+            {"text": "MUNDO", "startMs": 4000, "endMs": 4500},
+        ]
+        (self.project / "src" / "captions.json").write_text(
+            json.dumps(self.captions))
+        self.manifest = {"project": "proj", "fps": 30, "scenes": [
+            {"name": "S1-document-quote", "start": 0, "end": 89,
+             "frame": 44},
+            {"name": "S2-list", "start": 90, "end": 179, "frame": 134},
+        ]}
+        self.logo_zone = vp.LOGO_ZONE_DEFAULT
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def _hashes(self):
+        per_type = [self.project / "src" / "components" / "DocumentQuote.tsx",
+                    self.project / "src" / "components" / "List.tsx"]
+        shared = vp.collect_shared_hash(self.project, per_type)
+        out = {}
+        for i, s in enumerate(self.manifest["scenes"]):
+            out[s["name"]] = vp.scene_input_hash(
+                self.project, s, i, self.timeline, shared,
+                self.project / "src" / "captions.json",
+                self.project / "src" / "captions.ts", 30, set(), None,
+                False, self.logo_zone)
+        return out
+
+    def test_kebab_to_pascal(self):
+        self.assertEqual(vp.kebab_to_pascal("document-quote"),
+                         "DocumentQuote")
+        self.assertEqual(vp.kebab_to_pascal("list"), "List")
+        self.assertEqual(vp.kebab_to_pascal("big-statement"),
+                         "BigStatement")
+
+    def test_deterministic(self):
+        self.assertEqual(self._hashes(), self._hashes())
+
+    def test_component_change_only_its_scenes(self):
+        before = self._hashes()
+        (self.project / "src" / "components" / "DocumentQuote.tsx"
+         ).write_text("quote v2")
+        after = self._hashes()
+        self.assertNotEqual(before["S1-document-quote"],
+                            after["S1-document-quote"])
+        self.assertEqual(before["S2-list"], after["S2-list"])
+
+    def test_shared_change_invalidates_all(self):
+        before = self._hashes()
+        (self.project / "src" / "Video.tsx").write_text("shell v2")
+        after = self._hashes()
+        self.assertNotEqual(before["S1-document-quote"],
+                            after["S1-document-quote"])
+        self.assertNotEqual(before["S2-list"], after["S2-list"])
+
+    def test_timeline_entry_change_only_its_scene(self):
+        before = self._hashes()
+        self.timeline[1]["items"] = ["a", "b", "c"]
+        after = self._hashes()
+        self.assertEqual(before["S1-document-quote"],
+                         after["S1-document-quote"])
+        self.assertNotEqual(before["S2-list"], after["S2-list"])
+
+    def test_caption_in_range_only_its_scene(self):
+        before = self._hashes()
+        # 500 ms cae en S1 (0-89 f = 0-2966 ms); 4000 ms en S2.
+        self.captions[0]["text"] = "ADIOS"
+        (self.project / "src" / "captions.json").write_text(
+            json.dumps(self.captions))
+        after = self._hashes()
+        self.assertNotEqual(before["S1-document-quote"],
+                            after["S1-document-quote"])
+        self.assertEqual(before["S2-list"], after["S2-list"])
+
+    def test_missing_component_is_none(self):
+        (self.project / "src" / "components" / "List.tsx").unlink()
+        hashes = self._hashes()
+        self.assertIsNone(hashes["S2-list"])
+        self.assertIsNotNone(hashes["S1-document-quote"])
+
+    def test_missing_asset_is_none(self):
+        (self.project / "public" / "images" / "a.jpg").unlink()
+        hashes = self._hashes()
+        self.assertIsNone(hashes["S1-document-quote"])
+        self.assertIsNotNone(hashes["S2-list"])
+
+    def test_partition_reuses_only_matching(self):
+        import hashlib
+
+        stills = Path(self.tmp.name) / "stills"
+        stills.mkdir()
+        (stills / "S1-document-quote.jpg").write_bytes(b"STILL1")
+        (stills / "S2-list.jpg").write_bytes(b"STILL2")
+        hashes = self._hashes()
+        h1 = hashlib.sha256(b"STILL1").hexdigest()
+        cache = {"version": vp.CACHE_VERSION, "scenes": {
+            "S1-document-quote": {"input_hash": hashes["S1-document-quote"],
+                                  "still_sha256": h1},
+            # S2 con hash viejo: no reutiliza.
+            "S2-list": {"input_hash": "viejo",
+                        "still_sha256": hashlib.sha256(b"STILL2").hexdigest()},
+        }}
+        to_render, reused = vp.partition_scenes(
+            self.manifest, stills, hashes, cache)
+        self.assertEqual(reused, ["S1-document-quote"])
+        self.assertEqual(to_render, ["S2-list"])
+
+    def test_partition_rejects_tampered_still(self):
+        stills = Path(self.tmp.name) / "stills"
+        stills.mkdir()
+        (stills / "S1-document-quote.jpg").write_bytes(b"OTRO")
+        hashes = self._hashes()
+        cache = {"version": vp.CACHE_VERSION, "scenes": {
+            "S1-document-quote": {"input_hash": hashes["S1-document-quote"],
+                                  "still_sha256": "sha-del-original"},
+        }}
+        to_render, reused = vp.partition_scenes(
+            self.manifest, stills, hashes, cache)
+        self.assertEqual(reused, [])
+        self.assertIn("S1-document-quote", to_render)
 
 
 if __name__ == "__main__":

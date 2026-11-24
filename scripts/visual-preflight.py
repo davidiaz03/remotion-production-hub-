@@ -68,6 +68,11 @@ Uso:
       --manifest tests/fixtures/preflight-scenes-marti-fidel.json \
       --logo-ref <fotograma-con-logo.jpg>
 
+  # Re-corrida incremental (solo las escenas cuyos insumos cambiaron;
+  # ver docs/LONGFORM-PIPELINE-P0.md § P0-4):
+  visual-preflight.py --stills --incremental --project marti-fidel \
+      --manifest tests/fixtures/preflight-scenes-marti-fidel.json
+
   # Salida JSON máquina + informe legible:
   visual-preflight.py --frames-dir ... --json --out preflight.json
 
@@ -501,6 +506,239 @@ def scene_of_frame(frame_no, scenes):
     return "?"
 
 
+# ------------------------------------------------------- incremental
+# Pre-vuelo incremental (23-nov-2026, LONGFORM-PIPELINE-P0 P0-4): una
+# re-corrida tras corregir UNA escena re-renderizaba los 28 stills
+# (~4-5 min). Con --incremental, cada escena tiene un hash de sus
+# insumos (componente, entrada de timeline, captions de su rango,
+# assets referenciados, archivos compartidos, configuración de
+# análisis); si el hash coincide con la caché y el still en disco
+# sigue intacto, se reutilizan still + análisis. CONSERVADOR: ante
+# cualquier duda (un insumo no resoluble, un archivo ausente, un
+# formato inesperado) el hash es None y la escena se re-renderiza
+# siempre. Un still rancio que ocultara un defecto nuevo sería peor
+# que un pre-vuelo lento.
+
+CACHE_VERSION = 1
+CACHE_NAME = ".preflight-cache.json"
+
+
+def sha256_file(path):
+    import hashlib
+
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _canon(obj):
+    return json.dumps(obj, ensure_ascii=False, sort_keys=True,
+                      separators=(",", ":"))
+
+
+def kebab_to_pascal(name):
+    return "".join(p[:1].upper() + p[1:]
+                   for p in name.replace("_", "-").split("-") if p)
+
+
+def scene_type_of(manifest_scene, timeline_scenes, idx):
+    """Tipo de escena: el de la entrada de timeline (misma posición),
+    o el sufijo del nombre del manifiesto ("S13-document-quote")."""
+    if (timeline_scenes is not None and 0 <= idx < len(timeline_scenes)
+            and isinstance(timeline_scenes[idx], dict)
+            and timeline_scenes[idx].get("type")):
+        return str(timeline_scenes[idx]["type"])
+    name = manifest_scene.get("name", "")
+    parts = name.split("-", 1)
+    return parts[1] if len(parts) == 2 and parts[1] else None
+
+
+def _collect_src_files(src_dir, exclude_names):
+    exts = {".ts", ".tsx", ".js", ".jsx", ".mts", ".json"}
+    out = []
+    if not src_dir.is_dir():
+        return out
+    for p in sorted(src_dir.rglob("*")):
+        if not p.is_file() or p.suffix not in exts:
+            continue
+        if p.name in exclude_names or p.suffix == ".bak":
+            continue
+        out.append(p)
+    return out
+
+
+def collect_shared_hash(project_dir, per_type_files):
+    """Hash de los archivos src/ que afectan a TODAS las escenas
+    (Video.tsx, theme, SceneShell, Watermark...): todo src/ menos los
+    componentes por tipo y menos timeline/captions (que se hashean
+    por escena). None si src/ no existe."""
+    src_dir = Path(project_dir) / "src"
+    if not src_dir.is_dir():
+        return None
+    import hashlib
+
+    exclude = {p.name for p in per_type_files}
+    exclude |= {"timeline.json", "captions.json", "captions.ts"}
+    parts = []
+    for p in _collect_src_files(src_dir, exclude):
+        parts.append([str(p.relative_to(src_dir)), sha256_file(p)])
+    return hashlib.sha256(_canon(parts).encode()).hexdigest()
+
+
+def captions_in_range(captions_path, fps, start_frame, end_frame):
+    """Palabras de captions.json (HubCaption[]) cuyo inicio cae en el
+    rango de fotogramas de la escena. None si no hay captions.json."""
+    if not captions_path.is_file():
+        return None
+    try:
+        caps = json.loads(captions_path.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return None
+    if not isinstance(caps, list):
+        return None
+    lo, hi = start_frame / fps * 1000, end_frame / fps * 1000
+    return [[c.get("text"), c.get("startMs"), c.get("endMs"),
+             bool(c.get("kw"))] for c in caps
+            if isinstance(c, dict)
+            and c.get("startMs") is not None
+            and lo <= float(c["startMs"]) <= hi]
+
+
+def referenced_assets(project_dir, timeline_entry):
+    """(ruta, tamaño, mtime) de los assets bajo public/ que la entrada
+    de timeline menciona. None si un asset mencionado no existe."""
+    if not isinstance(timeline_entry, dict):
+        return []
+    public_dir = Path(project_dir) / "public"
+    found = []
+    missing = []
+
+    def walk(obj):
+        if isinstance(obj, str):
+            cand = obj.strip().lstrip("/")
+            for base in ("images/", "video/", "audio/", "public/"):
+                if cand.startswith(base):
+                    rel = cand[len("public/"):] if cand.startswith(
+                        "public/") else cand
+                    p = public_dir / rel
+                    if not p.is_file():
+                        missing.append(rel)
+                    else:
+                        st = p.stat()
+                        found.append([rel, st.st_size, st.st_mtime_ns])
+                    return
+            return
+        if isinstance(obj, dict):
+            for v in obj.values():
+                walk(v)
+        elif isinstance(obj, list):
+            for v in obj:
+                walk(v)
+
+    walk(timeline_entry)
+    if missing:
+        return None
+    found.sort()
+    return found
+
+
+def scene_input_hash(project_dir, manifest_scene, idx, timeline_scenes,
+                     shared_hash, captions_path, captions_ts_path,
+                     fps, logo_skip, logo_ref_hash, skip_faces,
+                     logo_zone):
+    """Hash de los insumos de UNA escena, o None si alguno no se puede
+    resolver (entonces la escena se re-renderiza siempre)."""
+    import hashlib
+
+    if shared_hash is None:
+        return None
+    scene_type = scene_type_of(manifest_scene, timeline_scenes, idx)
+    if not scene_type:
+        return None
+    comp = (Path(project_dir) / "src" / "components"
+            / (kebab_to_pascal(scene_type) + ".tsx"))
+    if not comp.is_file():
+        return None
+    timeline_entry = (timeline_scenes[idx]
+                      if timeline_scenes is not None
+                      and 0 <= idx < len(timeline_scenes) else None)
+    assets = referenced_assets(project_dir, timeline_entry)
+    if assets is None:
+        return None
+    caps = captions_in_range(captions_path, fps,
+                             manifest_scene["start"], manifest_scene["end"])
+    if caps is None:
+        # Sin captions.json: el archivo captions.ts entero como insumo
+        # compartido de la escena (un cambio de captions re-renderiza
+        # todas las escenas, pero un cambio de componente sigue
+        # reutilizando). Sin ninguno de los dos, no se puede hashear.
+        if captions_ts_path.is_file():
+            caps = ["ts", sha256_file(captions_ts_path)]
+        else:
+            return None
+    parts = {
+        "manifest": manifest_scene,
+        "timeline": timeline_entry,
+        "component": sha256_file(comp),
+        "shared": shared_hash,
+        "captions": caps,
+        "assets": assets,
+        "logo_skip": manifest_scene.get("name") in logo_skip,
+        "logo_ref": logo_ref_hash,
+        "skip_faces": bool(skip_faces),
+        "logo_zone": list(logo_zone),
+    }
+    return hashlib.sha256(_canon(parts).encode()).hexdigest()
+
+
+def load_cache(stills_dir):
+    path = Path(stills_dir) / CACHE_NAME
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {"version": CACHE_VERSION, "scenes": {}}
+    if not isinstance(data, dict) or data.get("version") != CACHE_VERSION:
+        return {"version": CACHE_VERSION, "scenes": {}}
+    if not isinstance(data.get("scenes"), dict):
+        data["scenes"] = {}
+    return data
+
+
+def save_cache(stills_dir, cache):
+    path = Path(stills_dir) / CACHE_NAME
+    path.write_text(json.dumps(cache, ensure_ascii=False, indent=1)
+                    + "\n", encoding="utf-8")
+
+
+def clear_cache(stills_dir):
+    try:
+        (Path(stills_dir) / CACHE_NAME).unlink()
+    except OSError:
+        pass
+
+
+def partition_scenes(manifest, stills_dir, hashes, cache):
+    """(a_renderizar, reutilizadas): una escena se reutiliza solo si
+    su hash coincide con la caché Y el still en disco sigue intacto
+    (mismo sha256)."""
+    to_render, reused = [], []
+    cached = (cache or {}).get("scenes", {})
+    for s in manifest["scenes"]:
+        name = s["name"]
+        entry = cached.get(name)
+        still = Path(stills_dir) / f"{name}.jpg"
+        if (hashes.get(name) is not None and entry is not None
+                and entry.get("input_hash") == hashes[name]
+                and still.is_file()
+                and sha256_file(still) == entry.get("still_sha256")):
+            reused.append(name)
+        else:
+            to_render.append(name)
+    return to_render, reused
+
+
 # ------------------------------------------------------------------- stills
 
 def acquire_lock():
@@ -640,6 +878,15 @@ def main(argv=None):
                     help="No reutilizar la caché del bundle de webpack "
                     "entre stills (más lento; evita escribir caché en "
                     "el repo raíz).")
+    ap.add_argument("--incremental", action="store_true",
+                    help="Re-renderizar solo las escenas cuyos insumos "
+                    "cambiaron (hash por escena) y reutilizar el still "
+                    "y el análisis de las demás (caché en "
+                    ".preflight-cache.json dentro de la carpeta de "
+                    "stills). Conservador: ante la duda se re-renderiza.")
+    ap.add_argument("--force", action="store_true",
+                    help="Con --incremental: limpiar la caché y "
+                    "re-renderizar todas las escenas.")
     ap.add_argument("--logo-ref", help="Fotograma con el logo visible "
                     "para construir la plantilla-máscara. Sin él, el "
                     "chequeo de logo se omite.")
@@ -660,6 +907,8 @@ def main(argv=None):
         ap.error("usa --frames-dir O --stills (uno de los dos)")
     if args.stills and not args.project:
         ap.error("--stills necesita --project")
+    if args.incremental and not args.stills:
+        ap.error("--incremental solo tiene sentido con --stills")
     manifest = load_manifest(args.manifest)
     scenes = manifest["scenes"]
     fps = manifest.get("fps", 30)
@@ -674,14 +923,69 @@ def main(argv=None):
 
     # --- obtener los fotogramas ---
     items = []  # (nombre, escena, path)
+    cached_analysis = {}  # escena -> (flags, métricas) reutilizadas
+    hashes = {}  # escena -> hash de insumos (modo incremental)
+    cache = None
+    stills_dir = None
     if args.stills:
         stills_dir = (Path(args.stills_dir) if args.stills_dir else
                       repo_root / "projects" / args.project
                       / "out" / "preflight-stills")
-        for name, _frame, path in render_stills(
-                repo_root, args.project, manifest, stills_dir,
-                bundle_cache=not args.no_bundle_cache):
-            items.append((path.name, name, path))
+        if args.incremental:
+            if args.force:
+                clear_cache(stills_dir)
+            project_dir = repo_root / "projects" / args.project
+            tl_path = project_dir / "src" / "timeline.json"
+            try:
+                timeline_scenes = json.loads(
+                    tl_path.read_text(encoding="utf-8")).get("scenes")
+            except (OSError, ValueError):
+                timeline_scenes = None
+            types = {scene_type_of(s, timeline_scenes, i)
+                     for i, s in enumerate(scenes)}
+            per_type = [Path(project_dir) / "src" / "components"
+                        / (kebab_to_pascal(t) + ".tsx")
+                        for t in types if t]
+            shared_hash = collect_shared_hash(project_dir, per_type)
+            logo_ref_hash = (sha256_file(args.logo_ref)
+                             if args.logo_ref and Path(args.logo_ref).is_file()
+                             else None)
+            for i, s in enumerate(scenes):
+                hashes[s["name"]] = scene_input_hash(
+                    project_dir, s, i, timeline_scenes, shared_hash,
+                    project_dir / "src" / "captions.json",
+                    project_dir / "src" / "captions.ts", fps, logo_skip,
+                    logo_ref_hash, args.skip_faces, logo_zone)
+            cache = load_cache(stills_dir)
+            to_render, reused = partition_scenes(
+                manifest, stills_dir, hashes, cache)
+            for name in reused:
+                p = stills_dir / f"{name}.jpg"
+                items.append((p.name, name, p))
+                entry = cache["scenes"][name]
+                cached_analysis[name] = (
+                    [tuple(f) for f in entry.get("flags", [])],
+                    entry.get("metrics", {}))
+                print(f"[preflight] reutilizo still {name} "
+                      f"(sin cambios)", file=sys.stderr)
+            if reused:
+                print(f"[preflight] {len(reused)}/{len(scenes)} stills "
+                      f"reutilizados de la caché", file=sys.stderr)
+            if to_render:
+                sub = dict(manifest)
+                sub["scenes"] = [s for s in scenes
+                                 if s["name"] in set(to_render)]
+                for name, _frame, path in render_stills(
+                        repo_root, args.project, sub, stills_dir,
+                        bundle_cache=not args.no_bundle_cache):
+                    items.append((path.name, name, path))
+            if not items:
+                raise SystemExit("Sin stills: ni caché ni render")
+        else:
+            for name, _frame, path in render_stills(
+                    repo_root, args.project, manifest, stills_dir,
+                    bundle_cache=not args.no_bundle_cache):
+                items.append((path.name, name, path))
     else:
         frames_dir = Path(args.frames_dir)
         for p in sorted(frames_dir.glob("f*.jpg")) + sorted(
@@ -704,13 +1008,36 @@ def main(argv=None):
     # --- chequeos por fotograma ---
     results = []
     for name, scene, path in items:
-        skip_logo = scene in logo_skip
-        flags, metrics = analyse_frame(
-            path, scene, logo_mask, logo_box, logo_zone,
-            skip_faces=args.skip_faces, skip_logo=skip_logo)
+        if scene in cached_analysis:
+            flags, metrics = cached_analysis[scene]
+        else:
+            skip_logo = scene in logo_skip
+            flags, metrics = analyse_frame(
+                path, scene, logo_mask, logo_box, logo_zone,
+                skip_faces=args.skip_faces, skip_logo=skip_logo)
         results.append({"frame": name, "scene": scene,
                         "path": str(path), "flags": flags,
                         "metrics": metrics})
+
+    # --- guardar la caché incremental (ANTES del chequeo de
+    # duplicados: los flags de duplicado se calculan en cada corrida
+    # desde los pHash y no deben acumularse en la caché) ---
+    if args.stills and args.incremental and cache is not None:
+        new_scenes = {}
+        for r in results:
+            h = hashes.get(r["scene"])
+            if h is None:
+                continue  # insumo no resoluble: sin caché, re-render
+            new_scenes[r["scene"]] = {
+                "input_hash": h,
+                "still_sha256": sha256_file(r["path"]),
+                "frame": next((s["frame"] for s in scenes
+                               if s["name"] == r["scene"]), None),
+                "flags": [list(f) for f in r["flags"]],
+                "metrics": r["metrics"],
+            }
+        cache["scenes"] = new_scenes
+        save_cache(stills_dir, cache)
 
     # --- duplicados entre escenas ---
     dup_notes = []
