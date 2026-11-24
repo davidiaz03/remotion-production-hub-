@@ -102,6 +102,25 @@ compararlo con nada). Desde entonces:
   construye: re-ejecutar el paso audio y reintentar.
 - Suite: `scripts/audio/test_bed_identity.py` (7 pruebas).
 
+## Tono de sala: nunca a ganancia unidad (23-nov-2026, libreto)
+**Regla permanente: un loop de tono de sala/ambiente NUNCA entra a
+la mezcla a ganancia unidad — siempre ≤ −58 dBFS, verificado
+inaudible.** En el máster v1 de libreto-pagina-62mil (rama
+`work/longform-v2-2026-11-21`), `room-tone-loop.wav` (−30,2 dBFS
+RMS) entró al amix sin atenuar bajo todo el video y dejó el suelo
+del máster en −29,7 dBFS: "ruido como de lluvia" audible en los
+pasajes de cama cortada, que el usuario oyó y que el SNR del stem
+de voz (50,7 dB) nunca captó (la VO estaba limpia: pausas
+−62...−77 dBFS). La muestra A/B aprobada por el usuario usa
+`volume=0.04` (≈−28 dB; el loop queda ~−58 dBFS). En la rama
+longform, `mix.py` aplica ese valor por defecto a los SFX cuyo
+nombre indica tono de sala/ambiente y el check (j) de
+`audit-audio.py` da FAIL si el suelo de la mezcla en pasajes
+quietos supera −50 dBFS. Los reels NO usan tono de sala en su
+mezcla actual, pero cualquier uso futuro en este repo debe
+respetar esta regla (atenuar a 0,04 o menos y verificar el suelo
+en los pasajes quietos antes de entregar).
+
 ## Mejora de voz de celular — `enhance-voice.py` (22-nov-2026; preset `pro` 23-nov-2026)
 El usuario graba la VO de su marca personal con el celular:
 `scripts/audio/enhance-voice.py --preset phone` la deja con sonido
