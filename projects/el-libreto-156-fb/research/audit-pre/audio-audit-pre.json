@@ -1,0 +1,933 @@
+{
+ "project": "el-libreto-156-fb",
+ "tag": "pre",
+ "overall": "WARN",
+ "counts": {
+  "PASS": 9,
+  "WARN": 45,
+  "FAIL": 0,
+  "INFO": 16
+ },
+ "metrics": {
+  "a_script_words": 69,
+  "a_caption_words": 69,
+  "b_short_captions": 28,
+  "b_overlaps": 0,
+  "b_short_display": 10,
+  "b_end_mismatch": 7,
+  "c_cuts_inside_speech": 0,
+  "c_splice_clicks": 0,
+  "c_squeezed_words": 0,
+  "c_pause_fails": 0,
+  "e_silences": [
+   [
+    6.4,
+    6.69,
+    0.29
+   ],
+   [
+    12.71,
+    13.03,
+    0.32
+   ],
+   [
+    21.27,
+    21.56,
+    0.29
+   ],
+   [
+    22.28,
+    22.63,
+    0.35
+   ],
+   [
+    23.65,
+    27.5,
+    3.85
+   ]
+  ],
+  "e_unexpected_pauses": 0,
+  "f_mix_rms_curve": [
+   [
+    0.0,
+    -9.3
+   ],
+   [
+    0.25,
+    -10.5
+   ],
+   [
+    0.5,
+    -12.1
+   ],
+   [
+    0.75,
+    -12.2
+   ],
+   [
+    1.0,
+    -17.1
+   ],
+   [
+    1.25,
+    -14.3
+   ],
+   [
+    1.5,
+    -16.0
+   ],
+   [
+    1.75,
+    -17.6
+   ],
+   [
+    2.0,
+    -20.3
+   ],
+   [
+    2.25,
+    -19.7
+   ],
+   [
+    2.5,
+    -16.1
+   ],
+   [
+    2.75,
+    -13.5
+   ],
+   [
+    3.0,
+    -18.3
+   ],
+   [
+    3.25,
+    -21.1
+   ],
+   [
+    3.5,
+    -16.4
+   ],
+   [
+    3.75,
+    -18.3
+   ],
+   [
+    4.0,
+    -14.9
+   ],
+   [
+    4.25,
+    -15.3
+   ],
+   [
+    4.5,
+    -19.3
+   ],
+   [
+    4.75,
+    -14.1
+   ],
+   [
+    5.0,
+    -13.9
+   ],
+   [
+    5.25,
+    -21.6
+   ],
+   [
+    5.5,
+    -15.2
+   ],
+   [
+    5.75,
+    -18.8
+   ],
+   [
+    6.0,
+    -16.7
+   ],
+   [
+    6.25,
+    -16.9
+   ],
+   [
+    6.5,
+    -27.7
+   ],
+   [
+    6.75,
+    -18.7
+   ],
+   [
+    7.0,
+    -14.6
+   ],
+   [
+    7.25,
+    -15.0
+   ],
+   [
+    7.5,
+    -22.6
+   ],
+   [
+    7.75,
+    -19.1
+   ],
+   [
+    8.0,
+    -15.3
+   ],
+   [
+    8.25,
+    -14.5
+   ],
+   [
+    8.5,
+    -22.2
+   ],
+   [
+    8.75,
+    -22.3
+   ],
+   [
+    9.0,
+    -14.4
+   ],
+   [
+    9.25,
+    -15.3
+   ],
+   [
+    9.5,
+    -25.3
+   ],
+   [
+    9.75,
+    -17.7
+   ],
+   [
+    10.0,
+    -16.7
+   ],
+   [
+    10.25,
+    -12.5
+   ],
+   [
+    10.5,
+    -19.5
+   ],
+   [
+    10.75,
+    -21.6
+   ],
+   [
+    11.0,
+    -24.4
+   ],
+   [
+    11.25,
+    -17.5
+   ],
+   [
+    11.5,
+    -15.6
+   ],
+   [
+    11.75,
+    -19.5
+   ],
+   [
+    12.0,
+    -13.7
+   ],
+   [
+    12.25,
+    -13.1
+   ],
+   [
+    12.5,
+    -20.4
+   ],
+   [
+    12.75,
+    -30.0
+   ],
+   [
+    13.0,
+    -20.9
+   ],
+   [
+    13.25,
+    -14.8
+   ],
+   [
+    13.5,
+    -14.6
+   ],
+   [
+    13.75,
+    -17.7
+   ],
+   [
+    14.0,
+    -15.4
+   ],
+   [
+    14.25,
+    -17.4
+   ],
+   [
+    14.5,
+    -15.2
+   ],
+   [
+    14.75,
+    -19.2
+   ],
+   [
+    15.0,
+    -13.7
+   ],
+   [
+    15.25,
+    -21.7
+   ],
+   [
+    15.5,
+    -15.8
+   ],
+   [
+    15.75,
+    -17.4
+   ],
+   [
+    16.0,
+    -19.8
+   ],
+   [
+    16.25,
+    -20.0
+   ],
+   [
+    16.5,
+    -26.1
+   ],
+   [
+    16.75,
+    -19.3
+   ],
+   [
+    17.0,
+    -14.2
+   ],
+   [
+    17.25,
+    -14.8
+   ],
+   [
+    17.5,
+    -22.5
+   ],
+   [
+    17.75,
+    -14.0
+   ],
+   [
+    18.0,
+    -13.0
+   ],
+   [
+    18.25,
+    -13.2
+   ],
+   [
+    18.5,
+    -14.6
+   ],
+   [
+    18.75,
+    -16.6
+   ],
+   [
+    19.0,
+    -26.5
+   ],
+   [
+    19.25,
+    -17.3
+   ],
+   [
+    19.5,
+    -14.1
+   ],
+   [
+    19.75,
+    -15.1
+   ],
+   [
+    20.0,
+    -17.6
+   ],
+   [
+    20.25,
+    -19.5
+   ],
+   [
+    20.5,
+    -14.7
+   ],
+   [
+    20.75,
+    -24.4
+   ],
+   [
+    21.0,
+    -16.2
+   ],
+   [
+    21.25,
+    -19.0
+   ],
+   [
+    21.5,
+    -16.3
+   ],
+   [
+    21.75,
+    -18.5
+   ],
+   [
+    22.0,
+    -18.7
+   ],
+   [
+    22.25,
+    -23.4
+   ],
+   [
+    22.5,
+    -23.6
+   ],
+   [
+    22.75,
+    -16.3
+   ],
+   [
+    23.0,
+    -15.0
+   ],
+   [
+    23.25,
+    -16.9
+   ],
+   [
+    23.5,
+    -21.7
+   ],
+   [
+    23.75,
+    -28.6
+   ],
+   [
+    24.0,
+    -24.3
+   ],
+   [
+    24.25,
+    -41.6
+   ],
+   [
+    24.5,
+    -25.6
+   ],
+   [
+    24.75,
+    -39.3
+   ],
+   [
+    25.0,
+    -21.6
+   ],
+   [
+    25.25,
+    -23.0
+   ],
+   [
+    25.5,
+    -22.0
+   ],
+   [
+    25.75,
+    -26.1
+   ],
+   [
+    26.0,
+    -23.3
+   ],
+   [
+    26.25,
+    -32.0
+   ],
+   [
+    26.5,
+    -27.2
+   ],
+   [
+    26.75,
+    -34.6
+   ],
+   [
+    27.0,
+    -33.2
+   ],
+   [
+    27.25,
+    -39.9
+   ]
+  ],
+  "f_windows_below_floor": 0,
+  "f_duck_recovery": [
+   [
+    23.65,
+    3.3
+   ]
+  ],
+  "f_duck_slow_recovery": 0,
+  "f_duck_pump_max_db": 5.1,
+  "f_duck_depth_mean_db": -2.7,
+  "i1_splice_fail": 0,
+  "i1_splice_warn": 0,
+  "i1_worst_dip_db": 0.0,
+  "i2_word_dips": 0,
+  "i3_pause_fails": 0,
+  "i4_bad_segments": 0,
+  "i4_segments": 11,
+  "i5_sfx_masks": 0
+ },
+ "findings": [
+  {
+   "check": "a",
+   "sev": "PASS",
+   "t": null,
+   "msg": "guion<->karaoke 1:1 en orden (69 palabras)"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 0.82,
+   "msg": "caption corto (0.160s < 0.18s): 'DICE' @ 0.82s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 0.98,
+   "msg": "caption corto (0.140s < 0.18s): 'QUE' @ 0.98s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 3.66,
+   "msg": "caption corto (0.160s < 0.18s): 'A' @ 3.66s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 5.9,
+   "msg": "caption corto (0.100s < 0.18s): 'EL' @ 5.90s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 5.9,
+   "msg": "visualización corta (0.100s): 'EL' @ 5.90s — el pop de 0,1 s se corta antes de terminar"
+  },
+  {
+   "check": "b",
+   "sev": "INFO",
+   "t": 6.38,
+   "msg": "hueco 0.42s entre chunks: 'BLOQUEO?' -> 'LA' (6.38-6.80s): cambio de línea, la anterior queda visible (pegajoso)"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 6.8,
+   "msg": "caption corto (0.100s < 0.18s): 'LA' @ 6.80s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 7.2,
+   "msg": "caption corto (0.160s < 0.18s): 'ES' @ 7.20s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 7.36,
+   "msg": "caption corto (0.140s < 0.18s): 'REAL.' @ 7.36s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "INFO",
+   "t": 7.5,
+   "msg": "hueco 0.38s entre chunks: 'REAL.' -> 'YO' (7.50-7.88s): cambio de línea, la anterior queda visible (pegajoso)"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 7.88,
+   "msg": "caption corto (0.060s < 0.18s): 'YO' @ 7.88s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 7.88,
+   "msg": "visualización corta (0.060s): 'YO' @ 7.88s — el pop de 0,1 s se corta antes de terminar"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 7.94,
+   "msg": "caption corto (0.120s < 0.18s): 'FUI' @ 7.94s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 8.06,
+   "msg": "caption corto (0.100s < 0.18s): 'AL' @ 8.06s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 8.06,
+   "msg": "visualización corta (0.100s): 'AL' @ 8.06s — el pop de 0,1 s se corta antes de terminar"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 8.98,
+   "msg": "caption corto (0.120s < 0.18s): 'ES' @ 8.98s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 9.1,
+   "msg": "caption corto (0.100s < 0.18s): 'DE' @ 9.10s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 9.1,
+   "msg": "visualización corta (0.100s): 'DE' @ 9.10s — el pop de 0,1 s se corta antes de terminar"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 9.76,
+   "msg": "caption corto (0.040s < 0.18s): 'LA' @ 9.76s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 9.76,
+   "msg": "visualización corta (0.040s): 'LA' @ 9.76s — el pop de 0,1 s se corta antes de terminar"
+  },
+  {
+   "check": "b",
+   "sev": "INFO",
+   "t": 12.46,
+   "msg": "hueco 0.52s entre chunks: 'MILLONES.' -> 'EL' (12.46-12.98s): cambio de línea, la anterior queda visible (pegajoso)"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 12.98,
+   "msg": "caption corto (0.140s < 0.18s): 'EL' @ 12.98s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 13.12,
+   "msg": "caption corto (0.120s < 0.18s): 'QUE' @ 13.12s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 13.68,
+   "msg": "caption corto (0.080s < 0.18s): 'ES' @ 13.68s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 13.68,
+   "msg": "visualización corta (0.080s): 'ES' @ 13.68s — el pop de 0,1 s se corta antes de terminar"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 13.76,
+   "msg": "caption corto (0.080s < 0.18s): 'EL' @ 13.76s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 13.76,
+   "msg": "visualización corta (0.080s): 'EL' @ 13.76s — el pop de 0,1 s se corta antes de terminar"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 14.36,
+   "msg": "caption corto (0.120s < 0.18s): 'SON' @ 14.36s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "INFO",
+   "t": 16.58,
+   "msg": "hueco 0.36s entre chunks: 'ESPECIALES.' -> 'DESDE' (16.58-16.94s): cambio de línea, la anterior queda visible (pegajoso)"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 16.94,
+   "msg": "caption corto (0.160s < 0.18s): 'DESDE' @ 16.94s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 17.68,
+   "msg": "caption corto (0.120s < 0.18s): 'UN' @ 17.68s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 18.52,
+   "msg": "caption corto (0.120s < 0.18s): 'AL' @ 18.52s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 18.64,
+   "msg": "caption corto (0.140s < 0.18s): 'GOBIERNO.' @ 18.64s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "INFO",
+   "t": 18.78,
+   "msg": "hueco 0.42s entre chunks: 'GOBIERNO.' -> 'LA' (18.78-19.20s): cambio de línea, la anterior queda visible (pegajoso)"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 19.2,
+   "msg": "caption corto (0.100s < 0.18s): 'LA' @ 19.20s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 19.58,
+   "msg": "caption corto (0.120s < 0.18s): 'ES' @ 19.58s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 19.7,
+   "msg": "caption corto (0.160s < 0.18s): 'REAL.' @ 19.70s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 20.12,
+   "msg": "caption corto (0.040s < 0.18s): 'LA' @ 20.12s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 20.12,
+   "msg": "visualización corta (0.040s): 'LA' @ 20.12s — el pop de 0,1 s se corta antes de terminar"
+  },
+  {
+   "check": "b",
+   "sev": "INFO",
+   "t": 21.2,
+   "msg": "hueco 0.40s entre chunks: 'NO.' -> 'SIN' (21.20-21.60s): cambio de línea, la anterior queda visible (pegajoso)"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 21.6,
+   "msg": "caption corto (0.100s < 0.18s): 'SIN' @ 21.60s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 21.6,
+   "msg": "visualización corta (0.100s): 'SIN' @ 21.60s — el pop de 0,1 s se corta antes de terminar"
+  },
+  {
+   "check": "b",
+   "sev": "INFO",
+   "t": 22.08,
+   "msg": "hueco 0.60s entre chunks: 'CONTEXTO.' -> '¿QUIÉN' (22.08-22.68s): cambio de línea, la anterior queda visible (pegajoso)"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 23.24,
+   "msg": "caption corto (0.060s < 0.18s): 'EL' @ 23.24s [sin efecto visual en BottomKaraoke; importa en SRT]"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 23.24,
+   "msg": "visualización corta (0.060s): 'EL' @ 23.24s — el pop de 0,1 s se corta antes de terminar"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 9.2,
+   "msg": "fin de caption 9.56s vs fin acústico 9.76s (+0.20s): 'JULIO.'"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 12.12,
+   "msg": "fin de caption 12.46s vs fin acústico 12.66s (+0.20s): 'MILLONES.'"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 13.84,
+   "msg": "fin de caption 14.14s vs fin acústico 14.36s (+0.22s): 'ESTADO.'"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 17.1,
+   "msg": "fin de caption 17.46s vs fin acústico 17.68s (+0.22s): 'ENERO,'"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 18.64,
+   "msg": "fin de caption 18.78s vs fin acústico 19.03s (+0.25s): 'GOBIERNO.'"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 19.7,
+   "msg": "fin de caption 19.86s vs fin acústico 20.12s (+0.26s): 'REAL.'"
+  },
+  {
+   "check": "b",
+   "sev": "WARN",
+   "t": 21.7,
+   "msg": "fin de caption 22.08s vs fin acústico 22.27s (+0.19s): 'CONTEXTO.'"
+  },
+  {
+   "check": "c",
+   "sev": "INFO",
+   "t": 20.04,
+   "msg": "corte L8 fin: se descartó respiro/ruido (RMS -39.6 dBFS, armonicidad 0.39) — correcto, no es voz"
+  },
+  {
+   "check": "c",
+   "sev": "PASS",
+   "t": null,
+   "msg": "VO íntegra: cortes en silencio, empalmes limpios, sin palabras exprimidas"
+  },
+  {
+   "check": "d",
+   "sev": "PASS",
+   "t": null,
+   "msg": "ninguna línea con tempo != 1 (sin stretch)"
+  },
+  {
+   "check": "e",
+   "sev": "INFO",
+   "t": 6.4,
+   "msg": "pausa 0.29s @ 6.40-6.69s (diseñada, entre-líneas)"
+  },
+  {
+   "check": "e",
+   "sev": "INFO",
+   "t": 12.71,
+   "msg": "pausa 0.32s @ 12.71-13.03s (diseñada, entre-líneas)"
+  },
+  {
+   "check": "e",
+   "sev": "INFO",
+   "t": 21.27,
+   "msg": "pausa 0.29s @ 21.27-21.56s (diseñada, entre-líneas)"
+  },
+  {
+   "check": "e",
+   "sev": "INFO",
+   "t": 22.28,
+   "msg": "pausa 0.35s @ 22.28-22.63s (diseñada, entre-líneas)"
+  },
+  {
+   "check": "e",
+   "sev": "INFO",
+   "t": 23.65,
+   "msg": "silencio final 3.85s @ 23.65-27.50s (outro musical tras la última palabra)"
+  },
+  {
+   "check": "e",
+   "sev": "PASS",
+   "t": null,
+   "msg": "mapa de silencios: 5 pausas, todas diseñadas"
+  },
+  {
+   "check": "f",
+   "sev": "PASS",
+   "t": null,
+   "msg": "música presente en toda la mezcla (suelo -32.0 dBFS respetado)"
+  },
+  {
+   "check": "g",
+   "sev": "INFO",
+   "t": null,
+   "msg": "falta el máster o captions.json"
+  },
+  {
+   "check": "h",
+   "sev": "INFO",
+   "t": null,
+   "msg": "sin matplotlib: no hay espectrogramas (No module named 'matplotlib')"
+  },
+  {
+   "check": "i",
+   "sev": "PASS",
+   "t": null,
+   "msg": "[i1] empalmes limpios (sin saltos, huecos ni discontinuidades espectrales)"
+  },
+  {
+   "check": "i",
+   "sev": "PASS",
+   "t": null,
+   "msg": "[i2] sin dips dentro de palabras (toda caída de la editada existe también en el original)"
+  },
+  {
+   "check": "i",
+   "sev": "PASS",
+   "t": null,
+   "msg": "[i4] 11 segmentos verificados como trozos contiguos del original"
+  },
+  {
+   "check": "i",
+   "sev": "PASS",
+   "t": null,
+   "msg": "[i5] ningún SFX enmascara el ataque de una palabra"
+  },
+  {
+   "check": "i",
+   "sev": "INFO",
+   "t": null,
+   "msg": "pausas intra-línea: cubiertas por (c) §4 (misma regla que (i3): <0,25 s o pérdida >50%)"
+  }
+ ]
+}

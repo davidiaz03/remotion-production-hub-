@@ -1,0 +1,62 @@
+{
+ "_notes": {
+  "audio": "Cama reutilizada de Messi P1: libreto-messi-desmentido (Flow Music), definida en research/timeline.json (bed.id, fuente única). build-audio.sh la construye con build-bed.sh; run-mix.py verifica la identidad del stem con bed_identity (NCC >= 0,99) antes de mezclar. Los 11 SFX llevan ganancia/recorte en sfx-mix/ (todos underVO).",
+  "tag": "El tag de versión (v1, v2...) se pasa por CLI (--tag), no en este archivo.",
+  "videoOnly": "true: TODO el audio del reel está en la mezcla (mix.wav). La composición no reproduce audio propio: el video del buque tanque va MUDO (OffthreadVideo con volume 0, solo fotogramas; sin <Audio>). Tramos solo-video; master.py muxea --mix."
+ },
+ "audio": {
+  "auditInputs": [
+   "research/vo/voice-orig.wav",
+   "research/vo/vo-orig-transcription.json",
+   "research/vo/vo-editada-prediccion.json",
+   "research/vo/edit-plan.json",
+   "research/vo/captions-audit.json",
+   "research/vo/vo-edited-transcription.json"
+  ],
+  "auditInputsScript": "scripts/build-audit-inputs.py",
+  "auditScript": "scripts/run-audit.py",
+  "buildScript": "scripts/build-audio.sh",
+  "inputs": [
+   "research/timeline.json",
+   "public/audio/real/vo-yt-limpia-clean.wav",
+   "public/audio/sfx",
+   "public/audio/amb-room-tone.wav"
+  ],
+  "mix": "public/audio/mix.wav",
+  "mixScript": "scripts/run-mix.py",
+  "stems": [
+   "public/audio/voice-placed.wav",
+   "public/audio/music-bed.wav",
+   "public/audio/sfx-mix"
+  ]
+ },
+ "composition": "MainReel",
+ "deliver": {
+  "drive": true,
+  "museStorage": true
+ },
+ "ghost": {
+  "enabled": true
+ },
+ "master": {
+  "cleanAudio": true,
+  "gainDb": 0.6
+ },
+ "preflight": {
+  "manifest": "preflight-scenes.json"
+ },
+ "project": "el-libreto-156-yt",
+ "qa": {
+  "trailingSilenceMax": 3.5
+ },
+ "render": {
+  "audioCodec": "pcm-16",
+  "chunk": 150,
+  "concatOut": "out/el-libreto-156-yt-chunks.mkv",
+  "concurrency": 2,
+  "crf": 19,
+  "lock": true,
+  "timeout": 120000,
+  "videoOnly": true
+ }
+}

@@ -1520,7 +1520,15 @@ def check_g_master(rep: Report, master_path: str, captions: list,
         for ci, c in enumerate(captions):
             s = c["startMs"] / 1000
             pre_db = energy_db(edited_vo, sr, max(0.0, s - 0.15), s)
-            if pre_db > -50.0:
+            # La puerta es -45 dB, la definición de silencio de la
+            # propia auditoría (find_silences, silencedetect): con
+            # -50 dB, una pausa real con tono de sala a -49,7 dB
+            # (caso «ESA» en el-libreto-156-yt, 23-nov-2026) quedaba
+            # fuera y el contraste acústico no podía salvar el
+            # desvío Whisper (+0,69 s), dando un FAIL falso aunque
+            # el karaoke coincidía con el onset (31,02 vs 31,07 s).
+            # El umbral del onset en sí sigue en -50 dB.
+            if pre_db > -45.0:
                 continue  # habla continua antes: sin onset definible
             on, _off = acoustic_span(edited_vo, sr, s - 0.05, s + 0.6,
                                      thresh_db=-50.0)

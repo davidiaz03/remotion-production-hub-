@@ -1,0 +1,65 @@
+{
+ "formatVersion": 1,
+ "files": [
+  {
+   "path": "public/img/grafico-viral-esti-u.jpg",
+   "sha256": "51189e33bb0273a3b9e97186dcb9e4ca89025a7ca555d861c859396e4028676d",
+   "bytes": 65114,
+   "note": "gráfico viral de Estíu (621x702, baja resolución: fondo difuminado, nunca pantalla completa)"
+  },
+  {
+   "path": "public/img/grafico-viral-proto-news.jpg",
+   "sha256": "98cfc11696216095a99611c49e852e700809b90b27dfdc75c1f8b40f03affe8a",
+   "bytes": 279758,
+   "note": "variante PROTO NEWS del gráfico viral (1296x1616)"
+  },
+  {
+   "path": "public/img/council-jul-p-01.png",
+   "sha256": "490d8cbf6bb656750ee4af71b12158ede6a3a9d36477ef8eb2a5b1a591c6ea08",
+   "bytes": 562348,
+   "note": "portada del informe del Council, datos de julio 2026 (índice con Fuels Authorization US$61.140.685)"
+  },
+  {
+   "path": "public/img/council-p-01.png",
+   "sha256": "d48d319ba717be6d6fc61e7a7b0a125ffeaae73664f113cecb879623abb9653c",
+   "bytes": 569046,
+   "note": "portada del informe del Council, datos de septiembre 2026 (índice con Fuels Authorization US$52.268.364)"
+  },
+  {
+   "path": "public/img/council-p-02.png",
+   "sha256": "8789da5dbd6df37943d122115dae43bc7642260b53fbdb1ef3bfc2d944bfc9d6",
+   "bytes": 451747,
+   "note": "pág. 2 del informe de septiembre (tabla top-10 + serie anual)"
+  },
+  {
+   "path": "public/img/council-p-03.png",
+   "sha256": "1a91c4abf1b0f824bcf6d6d03e836950345fd2143c8b6a92ae1f763a2e95daa9",
+   "bytes": 519562,
+   "note": "pág. 3 del informe de septiembre (sector privado reemergente)"
+  },
+  {
+   "path": "public/img/council-productos-p14-14.png",
+   "sha256": "8439b8840b7ae343fec7aea054e412ef7d95290c33b09bafc9a4a6dccdd501f2",
+   "bytes": 590152,
+   "note": "pág. 14 de la lista de productos (partidas de gasolina y fuel oils)"
+  },
+  {
+   "path": "public/img/watermark-lockup-libreto.png",
+   "sha256": "e53ec7e422e391a30593ac028b8bdcfb63de329a4240bda0628547508e10925f",
+   "bytes": 35165,
+   "note": "marca de agua de El Libreto (lockup icono A + LIBRETO)"
+  },
+  {
+   "path": "public/video/buque-tanque-aereo-3s.mp4",
+   "sha256": "dcfa14b5cd5715f36e593fec27cd04eb541438cddc4eebc9e39b1711328e31bc",
+   "bytes": 3282896,
+   "note": "buque tanque Empire State entrando a Pearl Harbor (DVIDS 900133, U.S. Army, 11-oct-2023, dominio público; corte de 3 s, mudo)"
+  },
+  {
+   "path": "public/audio/real/vo-fb-limpia-clean.wav",
+   "sha256": "5254398ef89b1ec0c2699fa3fcefb37d4c9418a3aa4b7416a15edf793ea7adef",
+   "bytes": 2305998,
+   "note": "VO limpia del usuario, preset clean (VO_EDIT_REPORT_156.md)"
+  }
+ ]
+}

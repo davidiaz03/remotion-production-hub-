@@ -1,0 +1,46 @@
+{
+ "_notes": {
+  "derived_from": "research/timeline.json scenes + beats de research/audio-times.json. El fotograma de cada escena es el indicado (frame), no el punto medio: captura el estado clave del beat.",
+  "faces": "Sin caras de personas en primer plano: el gráfico viral y los documentos no tienen caras; el video del buque es un plano aéreo sin personas identificables. La regla «nunca texto sobre una cara» se cumple por diseño."
+ },
+ "fps": 30,
+ "project": "el-libreto-156-fb",
+ "scenes": [
+  {
+   "end": 191,
+   "frame": 134,
+   "name": "Gancho — gráfico viral + ¿dónde está el bloqueo?",
+   "start": 0
+  },
+  {
+   "end": 373,
+   "frame": 319,
+   "name": "El documento — Council + 156,8 → 284,4",
+   "start": 192
+  },
+  {
+   "end": 497,
+   "frame": 460,
+   "name": "El comprador — empresas privadas",
+   "start": 374
+  },
+  {
+   "end": 563,
+   "frame": 544,
+   "name": "El buque — 1 buque al gobierno (video DVIDS)",
+   "start": 498
+  },
+  {
+   "end": 662,
+   "frame": 633,
+   "name": "Veredicto — SIN CONTEXTO",
+   "start": 564
+  },
+  {
+   "end": 824,
+   "frame": 776,
+   "name": "Cierre — pregunta de marca + end card",
+   "start": 663
+  }
+ ]
+}

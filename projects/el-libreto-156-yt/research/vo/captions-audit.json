@@ -1,0 +1,692 @@
+[
+ {
+  "text": "ESTE",
+  "startMs": 0,
+  "endMs": 380,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "GRÁFICO",
+  "startMs": 380,
+  "endMs": 800,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DICE",
+  "startMs": 800,
+  "endMs": 960,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "QUE",
+  "startMs": 960,
+  "endMs": 1120,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "CUBA",
+  "startMs": 1120,
+  "endMs": 1320,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "COMPRÓ",
+  "startMs": 1320,
+  "endMs": 1640,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "156",
+  "startMs": 1640,
+  "endMs": 2540,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MILLONES",
+  "startMs": 2540,
+  "endMs": 2740,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "EN",
+  "startMs": 2740,
+  "endMs": 2980,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "COMBUSTIBLE",
+  "startMs": 2980,
+  "endMs": 3540,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "A",
+  "startMs": 3540,
+  "endMs": 3820,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESTADOS",
+  "startMs": 3820,
+  "endMs": 4140,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "UNIDOS.",
+  "startMs": 4140,
+  "endMs": 4520,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "Y",
+  "startMs": 4520,
+  "endMs": 4800,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PREGUNTA:",
+  "startMs": 4800,
+  "endMs": 5200,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "¿DÓNDE",
+  "startMs": 5200,
+  "endMs": 5720,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESTÁ",
+  "startMs": 5720,
+  "endMs": 5960,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EL",
+  "startMs": 5960,
+  "endMs": 6080,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "BLOQUEO?",
+  "startMs": 6080,
+  "endMs": 6460,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LA",
+  "startMs": 6760,
+  "endMs": 7060,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CIFRA",
+  "startMs": 7060,
+  "endMs": 7320,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ES",
+  "startMs": 7320,
+  "endMs": 7480,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "REAL.",
+  "startMs": 7480,
+  "endMs": 7600,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "YO",
+  "startMs": 8020,
+  "endMs": 8100,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "FUI",
+  "startMs": 8100,
+  "endMs": 8220,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "AL",
+  "startMs": 8220,
+  "endMs": 8340,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DOCUMENTO.",
+  "startMs": 8340,
+  "endMs": 8880,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "MIRA.",
+  "startMs": 9200,
+  "endMs": 9340,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ES",
+  "startMs": 9760,
+  "endMs": 9900,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 9900,
+  "endMs": 9980,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "JULIO.",
+  "startMs": 9980,
+  "endMs": 10360,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LA",
+  "startMs": 10660,
+  "endMs": 10720,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ACTUALIZADA",
+  "startMs": 10720,
+  "endMs": 11260,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ES",
+  "startMs": 11260,
+  "endMs": 11560,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "284",
+  "startMs": 11560,
+  "endMs": 12440,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MILLONES.",
+  "startMs": 12440,
+  "endMs": 12720,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "PERO",
+  "startMs": 13500,
+  "endMs": 13880,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESO",
+  "startMs": 13880,
+  "endMs": 14160,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NO",
+  "startMs": 14160,
+  "endMs": 14600,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ES",
+  "startMs": 14600,
+  "endMs": 14680,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LO",
+  "startMs": 14680,
+  "endMs": 14740,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "INTERESANTE.",
+  "startMs": 14740,
+  "endMs": 15160,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LO",
+  "startMs": 15580,
+  "endMs": 15660,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "INTERESANTE",
+  "startMs": 15660,
+  "endMs": 16080,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ES",
+  "startMs": 16080,
+  "endMs": 16480,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "QUIÉN",
+  "startMs": 16480,
+  "endMs": 16620,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "COMPRA.",
+  "startMs": 16620,
+  "endMs": 17100,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "EL",
+  "startMs": 17440,
+  "endMs": 17560,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "GRÁFICO",
+  "startMs": 17560,
+  "endMs": 17920,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NO",
+  "startMs": 17920,
+  "endMs": 18020,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DICE",
+  "startMs": 18020,
+  "endMs": 18240,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "QUIÉN.",
+  "startMs": 18240,
+  "endMs": 18500,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "EL",
+  "startMs": 18820,
+  "endMs": 18920,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DOCUMENTO",
+  "startMs": 18920,
+  "endMs": 19520,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "SÍ.",
+  "startMs": 19520,
+  "endMs": 19880,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "NO",
+  "startMs": 20680,
+  "endMs": 20880,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ES",
+  "startMs": 20880,
+  "endMs": 20960,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EL",
+  "startMs": 20960,
+  "endMs": 21040,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESTADO.",
+  "startMs": 21040,
+  "endMs": 21400,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "SON",
+  "startMs": 21620,
+  "endMs": 21800,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EMPRESAS",
+  "startMs": 21800,
+  "endMs": 22220,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PRIVADAS,",
+  "startMs": 22220,
+  "endMs": 22860,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "CON",
+  "startMs": 23000,
+  "endMs": 23160,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "UNA",
+  "startMs": 23160,
+  "endMs": 23320,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LICENCIA",
+  "startMs": 23320,
+  "endMs": 23760,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "QUE",
+  "startMs": 23760,
+  "endMs": 23880,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "SE",
+  "startMs": 23880,
+  "endMs": 24020,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LLAMA",
+  "startMs": 24020,
+  "endMs": 24300,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "APOYO",
+  "startMs": 24300,
+  "endMs": 24680,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "AL",
+  "startMs": 24680,
+  "endMs": 24920,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "PUEBLO",
+  "startMs": 24920,
+  "endMs": 25060,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CUBANO.",
+  "startMs": 25060,
+  "endMs": 25600,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "DESDE",
+  "startMs": 25600,
+  "endMs": 25940,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ENERO,",
+  "startMs": 25940,
+  "endMs": 26340,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "UN",
+  "startMs": 26340,
+  "endMs": 26860,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "SOLO",
+  "startMs": 26860,
+  "endMs": 27060,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "BUQUE",
+  "startMs": 27060,
+  "endMs": 27320,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LLEVÓ",
+  "startMs": 27320,
+  "endMs": 27600,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "AL",
+  "startMs": 27600,
+  "endMs": 27760,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "GOBIERNO.",
+  "startMs": 27760,
+  "endMs": 27900,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "Y",
+  "startMs": 27900,
+  "endMs": 28460,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "FÍJATE",
+  "startMs": 28460,
+  "endMs": 28760,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EN",
+  "startMs": 28760,
+  "endMs": 28880,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESTO.",
+  "startMs": 28880,
+  "endMs": 29120,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "EN",
+  "startMs": 29440,
+  "endMs": 29500,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "TODO",
+  "startMs": 29500,
+  "endMs": 29680,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "2025,",
+  "startMs": 29680,
+  "endMs": 30730,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "ESA",
+  "startMs": 31070,
+  "endMs": 31220,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MISMA",
+  "startMs": 31220,
+  "endMs": 31420,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "COMPRA",
+  "startMs": 31420,
+  "endMs": 31740,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "FUE",
+  "startMs": 31740,
+  "endMs": 32040,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DE",
+  "startMs": 32040,
+  "endMs": 32560,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "311",
+  "startMs": 32560,
+  "endMs": 33080,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MIL",
+  "startMs": 33080,
+  "endMs": 33620,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DÓLARES.",
+  "startMs": 33620,
+  "endMs": 34320,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "DE",
+  "startMs": 34440,
+  "endMs": 34580,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "311",
+  "startMs": 34580,
+  "endMs": 35020,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MIL",
+  "startMs": 35020,
+  "endMs": 35360,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "DÓLARES",
+  "startMs": 35360,
+  "endMs": 35740,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "A",
+  "startMs": 35740,
+  "endMs": 36040,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "284",
+  "startMs": 36040,
+  "endMs": 37240,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "MILLONES.",
+  "startMs": 37510,
+  "endMs": 37780,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LA",
+  "startMs": 38440,
+  "endMs": 38680,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CIFRA",
+  "startMs": 38680,
+  "endMs": 38960,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ES",
+  "startMs": 38960,
+  "endMs": 39100,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "REAL.",
+  "startMs": 39100,
+  "endMs": 39260,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "LA",
+  "startMs": 39580,
+  "endMs": 39640,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CONCLUSIÓN,",
+  "startMs": 39640,
+  "endMs": 40260,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "NO.",
+  "startMs": 40260,
+  "endMs": 40640,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "SIN",
+  "startMs": 41160,
+  "endMs": 41300,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "CONTEXTO.",
+  "startMs": 41300,
+  "endMs": 41760,
+  "pageBreakAfter": true
+ },
+ {
+  "text": "¿QUIÉN",
+  "startMs": 42320,
+  "endMs": 42480,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "ESCRIBIÓ",
+  "startMs": 42480,
+  "endMs": 42880,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "EL",
+  "startMs": 42880,
+  "endMs": 42940,
+  "pageBreakAfter": false
+ },
+ {
+  "text": "LIBRETO?",
+  "startMs": 42940,
+  "endMs": 43320,
+  "pageBreakAfter": true
+ }
+]

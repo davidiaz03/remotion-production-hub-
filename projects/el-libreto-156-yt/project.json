@@ -1,0 +1,16 @@
+{
+ "assets": {
+  "manifest": "asset-manifest.json",
+  "mode": "manifest"
+ },
+ "audioRequired": true,
+ "compositionId": "MainReel",
+ "crf": 19,
+ "drivePath": "Remotion Production/projects/el-libreto-156-yt",
+ "durationInFrames": 1395,
+ "fps": 30,
+ "height": 1920,
+ "id": "el-libreto-156-yt",
+ "title": "El Libreto — ¿Quién Compra el Combustible de Cuba? (YouTube)",
+ "width": 1080
+}

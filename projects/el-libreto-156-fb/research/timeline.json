@@ -1,0 +1,327 @@
+{
+ "_notes": {
+  "bed": "Cama reutilizada de Messi P1: 'libreto-messi-desmentido' (Flow Music, Lyria 3.5, 115 BPM, ventana 0-60 s, scan PASS, 0 VOICE). build-audio.sh la construye con build-bed.sh desde bed.id (fuente única, NUNCA hardcodear otra cama) y run-mix.py verifica la identidad del stem con bed_identity (NCC >= 0,99).",
+  "ducking": "Receta probada en Messi FB v2 (auditoría H10): ratio 1.5, release 400 ms, threshold 0,08 -> bombeo 5,1 dB (<6). La música está 14 dB bajo la VO antes del ducking.",
+  "edit_plan": "La VO limpia es UNA toma continua: las líneas son segmentos contiguos de la toma original, colocados en 0 sin offsets (edited time = original time). Solo se recorta la cola. La VO editada ya viene recortada del informe VO_EDIT_REPORT_156.md (arranques en falso eliminados).",
+  "karaoke": "El karaoke sigue lo que DIJO, no el guion: «llevó» (no «llegó»), en FB «combustibles» y «licencias especiales» (plural, pasadas ASR), en YT añade «dólares» («de 311 mil dólares a 284 millones»).",
+  "vo_placement": "trim_start_s/trim_end_s en coordenadas de la VO limpia. speech_start_s = inicio de la primera palabra del segmento. Los límites se eligieron midiendo cada hueco con las funciones del check (c) de la auditoría (energía + armonicidad): cada límite deja 50 ms sin voz sonora a cada lado. Las líneas sin ningún límite limpio se fusionan en un solo segmento (FB: L1+L2, L7+L8; YT: L1+L2, L12+L13+L14+L15): la toma es continua y nada se descarta."
+ },
+ "beats": {
+  "circulo_pregunta": 5.2,
+  "corte_documento": 6.4,
+  "numero_284_aterriza": 12.4,
+  "empresas_privadas": 14.36,
+  "buque": 16.94,
+  "sin_contexto": 21.6,
+  "sello_golpe": 21.66,
+  "cierre": 22.1
+ },
+ "bed": {
+  "dips": [],
+  "file": "audio/music-bed.wav",
+  "id": "libreto-messi-desmentido",
+  "music_volume": 0.4,
+  "note": "Cama de Flow Music creada para Messi P1, reutilizada aquí (misma marca, mismo día de lanzamiento). Ventana 0-60 s, scan PASS (0 VOICE). Stem a nivel nativo (-23,86 LUFS, SIN loudnorm); el nivel se calibra con music_volume 0,40 en la mezcla. Sin dips: el outro sube por el ducking. NUNCA sustituir por una cama vieja (documentary-flow-a, calm-documentary-*): la puerta NCC lo rechaza.",
+  "stem_lufs": -23.86
+ },
+ "duration_frames": 825,
+ "duration_s": 27.5,
+ "fps": 30,
+ "mix": {
+  "duck_ratio": 1.5,
+  "duck_release_ms": 400,
+  "duck_threshold": 0.08,
+  "fixed_gain": true,
+  "limiter": 0.65,
+  "music_volume": 0.4,
+  "target_lufs": -16.0
+ },
+ "project": "el-libreto-156-fb",
+ "scenes": [
+  {
+   "end_f": 191,
+   "id": "gancho",
+   "name": "Gancho — gráfico viral + ¿dónde está el bloqueo?",
+   "start_f": 0
+  },
+  {
+   "end_f": 373,
+   "id": "documento",
+   "name": "El documento — Council + 156,8 → 284,4",
+   "start_f": 192
+  },
+  {
+   "end_f": 497,
+   "id": "comprador",
+   "name": "El comprador — empresas privadas",
+   "start_f": 374
+  },
+  {
+   "end_f": 563,
+   "id": "buque",
+   "name": "El buque — 1 buque al gobierno (video DVIDS)",
+   "start_f": 498
+  },
+  {
+   "end_f": 662,
+   "id": "veredicto",
+   "name": "Veredicto — SIN CONTEXTO",
+   "start_f": 564
+  },
+  {
+   "end_f": 824,
+   "id": "cierre",
+   "name": "Cierre — pregunta de marca + end card",
+   "start_f": 663
+  }
+ ],
+ "sfx": [
+  {
+   "at_s": 0.0,
+   "event_s": 0.0,
+   "file": "audio/sfx/bass-sub-drop-short.wav",
+   "gain_db": 10,
+   "id": "bass-sub-drop-short",
+   "note": "Gancho. Pico nativo -17,8 dB -> -7,8 dB.",
+   "sync_s": 0.021,
+   "underVO": true
+  },
+  {
+   "at_s": 5.2,
+   "event_s": 5.2,
+   "file": "audio/sfx/writing-pencil-draw.wav",
+   "gain_db": 6,
+   "id": "writing-pencil-draw",
+   "note": "Círculo rojo sobre «¿Dónde está el bloqueo?». Recortado a 0,5 s.",
+   "sync_s": 0.0,
+   "underVO": true,
+   "trim_dur_s": 0.5,
+   "trim_start_s": 0.0
+  },
+  {
+   "at_s": 6.171,
+   "event_s": 6.4,
+   "file": "audio/sfx/whoosh-medium-soft.wav",
+   "gain_db": 8,
+   "id": "whoosh-medium-soft",
+   "note": "Pico en el corte al documento (f192).",
+   "sync_s": 0.229,
+   "underVO": true
+  },
+  {
+   "at_s": 12.389,
+   "event_s": 12.4,
+   "file": "audio/sfx/data-number-land.wav",
+   "gain_db": 0,
+   "id": "data-number-land",
+   "note": "El 284,4 aterriza al terminar «millones» (12,46).",
+   "sync_s": 0.011,
+   "underVO": true
+  },
+  {
+   "at_s": 20.618,
+   "event_s": 21.6,
+   "file": "audio/sfx/riser-1s-soft.wav",
+   "gain_db": 10,
+   "id": "riser-1s-soft",
+   "note": "Sube durante la pausa dramática y se corta en seco 82 ms ANTES de SIN CONTEXTO: con el recorte a 0,982 s el pico del riser enterraba el ataque de «Sin» (check (i5) WARN).",
+   "sync_s": 0.982,
+   "underVO": true,
+   "trim_dur_s": 0.9,
+   "trim_start_s": 0.0
+  },
+  {
+   "at_s": 21.372,
+   "event_s": 21.66,
+   "file": "audio/sfx/stamp-rubber-seal.wav",
+   "gain_db": 0,
+   "id": "stamp-rubber-seal",
+   "note": "Veredicto. El golpe cae 60 ms DESPUÉS del onset de «Sin contexto» (21,60).",
+   "sync_s": 0.288,
+   "underVO": true,
+   "trim_dur_s": 0.7,
+   "trim_start_s": 3.3
+  },
+  {
+   "at_s": 22.1,
+   "event_s": 22.1,
+   "file": "audio/sfx/props-page-turn.wav",
+   "gain_db": 4,
+   "id": "props-page-turn",
+   "note": "Cierre de marca: pasar página, una sola vez en el video.",
+   "sync_s": 0.0,
+   "underVO": true
+  }
+ ],
+ "title": "El Libreto — ¿Quién compra el combustible de Cuba? (Facebook)",
+ "vo_lines": [
+  {
+   "end": 4.48,
+   "id": "L1",
+   "start": 0.2,
+   "text": "Este gráfico dice que Cuba compró 156 millones en combustibles a Estados Unidos."
+  },
+  {
+   "end": 6.38,
+   "id": "L2",
+   "start": 4.48,
+   "text": "Y pregunta: ¿dónde está el bloqueo?"
+  },
+  {
+   "end": 7.5,
+   "id": "L3",
+   "start": 6.8,
+   "text": "La cifra es real."
+  },
+  {
+   "end": 8.68,
+   "id": "L4",
+   "start": 7.88,
+   "text": "Yo fui al documento."
+  },
+  {
+   "end": 9.56,
+   "id": "L5",
+   "start": 8.98,
+   "text": "Es de julio."
+  },
+  {
+   "end": 12.46,
+   "id": "L6",
+   "start": 9.76,
+   "text": "La actualizada es 284 millones."
+  },
+  {
+   "end": 14.14,
+   "id": "L7",
+   "start": 12.98,
+   "text": "El que compra no es el Estado."
+  },
+  {
+   "end": 16.58,
+   "id": "L8",
+   "start": 14.36,
+   "text": "Son empresas privadas, con licencias especiales."
+  },
+  {
+   "end": 18.78,
+   "id": "L9",
+   "start": 16.94,
+   "text": "Desde enero, un solo buque llevó al gobierno."
+  },
+  {
+   "end": 19.86,
+   "id": "L10",
+   "start": 19.2,
+   "text": "La cifra es real."
+  },
+  {
+   "end": 21.2,
+   "id": "L11",
+   "start": 20.12,
+   "text": "La conclusión, no."
+  },
+  {
+   "end": 22.08,
+   "id": "L12",
+   "start": 21.6,
+   "text": "Sin contexto."
+  },
+  {
+   "end": 23.64,
+   "id": "L13",
+   "start": 22.68,
+   "text": "¿Quién escribió el libreto?"
+  }
+ ],
+ "vo_placement": [
+  {
+   "head_keep_s": 0.2,
+   "id": "L1+L2",
+   "speech_start_s": 0.2,
+   "tail_keep_s": 0.24,
+   "trim_end_s": 6.62,
+   "trim_start_s": 0.0
+  },
+  {
+   "head_keep_s": 0.18,
+   "id": "L3",
+   "speech_start_s": 6.8,
+   "tail_keep_s": 0.27,
+   "trim_end_s": 7.77,
+   "trim_start_s": 6.62
+  },
+  {
+   "head_keep_s": 0.11,
+   "id": "L4",
+   "speech_start_s": 7.88,
+   "tail_keep_s": 0.15,
+   "trim_end_s": 8.83,
+   "trim_start_s": 7.77
+  },
+  {
+   "head_keep_s": 0.15,
+   "id": "L5",
+   "speech_start_s": 8.98,
+   "tail_keep_s": 0.08,
+   "trim_end_s": 9.64,
+   "trim_start_s": 8.83
+  },
+  {
+   "head_keep_s": 0.12,
+   "id": "L6",
+   "speech_start_s": 9.76,
+   "tail_keep_s": 0.3,
+   "trim_end_s": 12.76,
+   "trim_start_s": 9.64
+  },
+  {
+   "head_keep_s": 0.22,
+   "id": "L7+L8",
+   "speech_start_s": 12.98,
+   "tail_keep_s": 0.33,
+   "trim_end_s": 16.91,
+   "trim_start_s": 12.76
+  },
+  {
+   "head_keep_s": 0.03,
+   "id": "L9",
+   "speech_start_s": 16.94,
+   "tail_keep_s": 0.35,
+   "trim_end_s": 19.13,
+   "trim_start_s": 16.91
+  },
+  {
+   "head_keep_s": 0.07,
+   "id": "L10",
+   "speech_start_s": 19.2,
+   "tail_keep_s": 0.18,
+   "trim_end_s": 20.04,
+   "trim_start_s": 19.13
+  },
+  {
+   "head_keep_s": 0.08,
+   "id": "L11",
+   "speech_start_s": 20.12,
+   "tail_keep_s": 0.3,
+   "trim_end_s": 21.5,
+   "trim_start_s": 20.04
+  },
+  {
+   "head_keep_s": 0.1,
+   "id": "L12",
+   "speech_start_s": 21.6,
+   "tail_keep_s": 0.4,
+   "trim_end_s": 22.48,
+   "trim_start_s": 21.5
+  },
+  {
+   "head_keep_s": 0.2,
+   "id": "L13",
+   "speech_start_s": 22.68,
+   "tail_keep_s": 0.38,
+   "trim_end_s": 24.02,
+   "trim_start_s": 22.48
+  }
+ ]
+}

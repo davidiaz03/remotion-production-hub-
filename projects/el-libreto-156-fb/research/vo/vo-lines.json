@@ -1,0 +1,85 @@
+{
+ "_notes": {
+  "time_base": "Tiempos en segundos de la VO limpia (vo-fb-limpia-clean.wav). La edición coloca la toma en 0 sin offsets: edited time = original time. El texto es lo que DIJO (ver _notes de timeline.json)."
+ },
+ "lines": [
+  {
+   "end": 4.48,
+   "id": "L1",
+   "start": 0.2,
+   "text": "Este gráfico dice que Cuba compró 156 millones en combustibles a Estados Unidos."
+  },
+  {
+   "end": 6.38,
+   "id": "L2",
+   "start": 4.48,
+   "text": "Y pregunta: ¿dónde está el bloqueo?"
+  },
+  {
+   "end": 7.5,
+   "id": "L3",
+   "start": 6.8,
+   "text": "La cifra es real."
+  },
+  {
+   "end": 8.68,
+   "id": "L4",
+   "start": 7.88,
+   "text": "Yo fui al documento."
+  },
+  {
+   "end": 9.56,
+   "id": "L5",
+   "start": 8.98,
+   "text": "Es de julio."
+  },
+  {
+   "end": 12.46,
+   "id": "L6",
+   "start": 9.76,
+   "text": "La actualizada es 284 millones."
+  },
+  {
+   "end": 14.14,
+   "id": "L7",
+   "start": 12.98,
+   "text": "El que compra no es el Estado."
+  },
+  {
+   "end": 16.58,
+   "id": "L8",
+   "start": 14.36,
+   "text": "Son empresas privadas, con licencias especiales."
+  },
+  {
+   "end": 18.78,
+   "id": "L9",
+   "start": 16.94,
+   "text": "Desde enero, un solo buque llevó al gobierno."
+  },
+  {
+   "end": 19.86,
+   "id": "L10",
+   "start": 19.2,
+   "text": "La cifra es real."
+  },
+  {
+   "end": 21.2,
+   "id": "L11",
+   "start": 20.12,
+   "text": "La conclusión, no."
+  },
+  {
+   "end": 22.08,
+   "id": "L12",
+   "start": 21.6,
+   "text": "Sin contexto."
+  },
+  {
+   "end": 23.64,
+   "id": "L13",
+   "start": 22.68,
+   "text": "¿Quién escribió el libreto?"
+  }
+ ]
+}

@@ -1,0 +1,326 @@
+{
+  "schema": "remotion-hub.state/v1",
+  "id": "el-libreto-156-yt",
+  "title": "El Libreto — ¿Quién Compra el Combustible de Cuba? (YouTube)",
+  "objective": "El Libreto — ¿Quién Compra el Combustible de Cuba? (YouTube)",
+  "phase": "editing",
+  "compositionId": "MainReel",
+  "latestSnapshot": null,
+  "approvedRevision": null,
+  "completed": [],
+  "pending": [],
+  "nextTask": "Orquestador: audio -> mix -> pre-auditoría -> pre-vuelo -> render -> máster -> QA -> auditoría",
+  "updatedAt": "2026-11-24T00:19:47.750Z",
+  "pipeline": {
+    "phases": {
+      "assets": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "vo": {
+        "status": "done",
+        "startedAt": "2026-11-23T23:51:41.186Z",
+        "updatedAt": "2026-11-23T23:51:45.405Z",
+        "artifacts": [
+          "public/audio/voice-placed.wav",
+          "public/audio/music-bed.wav",
+          "public/audio/sfx-mix"
+        ],
+        "note": ""
+      },
+      "captions": {
+        "status": "pending",
+        "startedAt": null,
+        "updatedAt": null,
+        "artifacts": [],
+        "note": ""
+      },
+      "mix": {
+        "status": "done",
+        "startedAt": "2026-11-23T23:51:45.406Z",
+        "updatedAt": "2026-11-23T23:52:15.400Z",
+        "artifacts": [
+          "public/audio/mix.wav",
+          "research/vo/voice-orig.wav",
+          "research/vo/vo-orig-transcription.json",
+          "research/vo/vo-editada-prediccion.json",
+          "research/vo/edit-plan.json",
+          "research/vo/captions-audit.json",
+          "research/vo/vo-edited-transcription.json"
+        ],
+        "note": ""
+      },
+      "render": {
+        "status": "done",
+        "startedAt": "2026-11-23T23:52:26.812Z",
+        "updatedAt": "2026-11-24T00:11:31.674Z",
+        "artifacts": [
+          "reports/preflight.json",
+          "out/el-libreto-156-yt-chunks.mkv"
+        ],
+        "note": "out/el-libreto-156-yt-chunks.mkv",
+        "chunks": {
+          "total": 10,
+          "done": 10,
+          "completed": [
+            "out/chunks/chunk_01.mkv",
+            "out/chunks/chunk_02.mkv",
+            "out/chunks/chunk_03.mkv",
+            "out/chunks/chunk_04.mkv",
+            "out/chunks/chunk_05.mkv",
+            "out/chunks/chunk_06.mkv",
+            "out/chunks/chunk_07.mkv",
+            "out/chunks/chunk_08.mkv",
+            "out/chunks/chunk_09.mkv",
+            "out/chunks/chunk_10.mkv"
+          ],
+          "framesDone": 1395,
+          "framesTotal": 1395,
+          "percent": 100,
+          "chunkSize": 150,
+          "resumeCommand": "node scripts/render-chunks.mjs el-libreto-156-yt --frames 0-1394 --chunk 150 --resume --composition MainReel --video-only --crf 19 --out out/chunks --concat-out out/el-libreto-156-yt-chunks.mkv --lock"
+        }
+      },
+      "qa": {
+        "status": "done",
+        "startedAt": "2026-11-23T23:52:15.401Z",
+        "updatedAt": "2026-11-24T00:17:02.490Z",
+        "artifacts": [
+          "research/audit-pre/audio-audit-pre.json",
+          "out/MASTER-v1.mp4",
+          "out/LIGERA-v1.mp4",
+          "reports/technical-qa.json",
+          "reports/technical-qa-master.json",
+          "reports/technical-qa-light.json",
+          "reports/ghost-frames.json",
+          "research/audit-v1/audio-audit-v1.json"
+        ],
+        "note": "-15.9 LUFS, TP -4.2 dBTP"
+      },
+      "delivery": {
+        "status": "failed",
+        "startedAt": "2026-11-24T00:17:02.491Z",
+        "updatedAt": "2026-11-24T00:19:47.750Z",
+        "artifacts": [
+          "reports/delivery-v1.json"
+        ],
+        "note": ""
+      }
+    },
+    "milestones": [
+      {
+        "at": "2026-11-23T23:51:45.405Z",
+        "phase": "vo",
+        "event": "audio completado por reel (4s)",
+        "artifacts": [
+          "public/audio/voice-placed.wav",
+          "public/audio/music-bed.wav",
+          "public/audio/sfx-mix"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:51:52.362Z",
+        "phase": "mix",
+        "event": "mix completado por reel (7s)",
+        "artifacts": [
+          "public/audio/mix.wav"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:52:15.400Z",
+        "phase": "mix",
+        "event": "audit-inputs completado por reel (23s)",
+        "artifacts": [
+          "research/vo/voice-orig.wav",
+          "research/vo/vo-orig-transcription.json",
+          "research/vo/vo-editada-prediccion.json",
+          "research/vo/edit-plan.json",
+          "research/vo/captions-audit.json",
+          "research/vo/vo-edited-transcription.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:52:26.811Z",
+        "phase": "qa",
+        "event": "pre-audit completado por reel (11s)",
+        "artifacts": [
+          "research/audit-pre/audio-audit-pre.json"
+        ]
+      },
+      {
+        "at": "2026-11-23T23:53:53.439Z",
+        "phase": "render",
+        "event": "preflight completado por reel (87s)",
+        "artifacts": [
+          "reports/preflight.json"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:01:48.628Z",
+        "phase": "render",
+        "event": "Render iniciado: fotogramas 0-1394 en 10 tramos de 150",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-24T00:03:18.099Z",
+        "phase": "render",
+        "event": "Tramo 1/10 verificado (chunk_01.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_01.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:04:35.622Z",
+        "phase": "render",
+        "event": "Tramo 2/10 verificado (chunk_02.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_02.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:05:26.205Z",
+        "phase": "render",
+        "event": "Tramo 3/10 verificado (chunk_03.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_03.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:06:25.352Z",
+        "phase": "render",
+        "event": "Tramo 4/10 verificado (chunk_04.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_04.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:07:17.101Z",
+        "phase": "render",
+        "event": "Tramo 5/10 verificado (chunk_05.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_05.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:08:42.287Z",
+        "phase": "render",
+        "event": "Tramo 6/10 verificado (chunk_06.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_06.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:09:30.429Z",
+        "phase": "render",
+        "event": "Tramo 7/10 verificado (chunk_07.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_07.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:10:07.001Z",
+        "phase": "render",
+        "event": "Tramo 8/10 verificado (chunk_08.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_08.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:10:59.135Z",
+        "phase": "render",
+        "event": "Tramo 9/10 verificado (chunk_09.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_09.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:11:25.637Z",
+        "phase": "render",
+        "event": "Tramo 10/10 verificado (chunk_10.mkv)",
+        "artifacts": [
+          "out/chunks/chunk_10.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:11:31.658Z",
+        "phase": "render",
+        "event": "Render completo: 10 tramos concatenados (out/el-libreto-156-yt-chunks.mkv)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-24T00:11:31.674Z",
+        "phase": "render",
+        "event": "render completado por reel (583s)",
+        "artifacts": [
+          "out/el-libreto-156-yt-chunks.mkv"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:12:34.330Z",
+        "phase": "qa",
+        "event": "master completado por reel (63s)",
+        "artifacts": [
+          "out/MASTER-v1.mp4",
+          "out/LIGERA-v1.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:13:07.983Z",
+        "phase": "qa",
+        "event": "QA técnico passed — MASTER-v1.mp4",
+        "artifacts": [
+          "reports/technical-qa.json",
+          "out/MASTER-v1.mp4"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:13:12.900Z",
+        "phase": "qa",
+        "event": "qa completado por reel (39s)",
+        "artifacts": [
+          "reports/technical-qa-master.json",
+          "reports/technical-qa-light.json"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:13:41.057Z",
+        "phase": "qa",
+        "event": "ghost completado por reel (28s)",
+        "artifacts": [
+          "reports/ghost-frames.json"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:14:29.828Z",
+        "phase": "qa",
+        "event": "audit: falló — auditoría final falló (código 1)",
+        "artifacts": []
+      },
+      {
+        "at": "2026-11-24T00:17:02.490Z",
+        "phase": "qa",
+        "event": "audit completado por reel (49s)",
+        "artifacts": [
+          "research/audit-v1/audio-audit-v1.json"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:17:02.493Z",
+        "phase": "delivery",
+        "event": "deliver completado por reel (0s)",
+        "artifacts": [
+          "reports/delivery-v1.json"
+        ]
+      },
+      {
+        "at": "2026-11-24T00:19:47.750Z",
+        "phase": "delivery",
+        "event": "deliver: falló — drive-upload MASTER-v1.mp4 falló (código 1)",
+        "artifacts": []
+      }
+    ]
+  }
+}
