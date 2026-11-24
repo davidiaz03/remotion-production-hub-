@@ -34,10 +34,11 @@ U.S. Census Bureau), no solo comenta.
 
 ## Decisiones
 
-- **Karaoke sigue lo DICHO, no el guion:** «llevó» (no «llegó»);
-  añade «dólares» («de 311 mil dólares a 284 millones»). Whisper
-  garabatea L14 como «hubo llevado» → corregido a «buque llevó»
-  (TEXT_FIXES en build-audit-inputs.py).
+- **Karaoke sigue el GUION:** «llegó» (el ASR oyó «llevó» en 3 pasadas
+  y la v1 lo siguió; el usuario lo corrigió de oído 23-nov-2026 —
+  el oído manda sobre el ASR); añade «dólares» («de 311 mil dólares
+  a 284 millones»). Whisper garabatea L14 como «hubo llevado» →
+  corregido a «buque llegó» (TEXT_FIXES en build-audit-inputs.py).
 - **Correcciones de caption por absorción de pausa de Whisper:**
   «ESA» 30,38→31,07 y «MILLONES.» 37,14→37,51 (onsets acústicos).
   La PREDICCIÓN conserva los tiempos Whisper (corregirla rompería

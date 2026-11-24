@@ -34,10 +34,11 @@ transcripción de la toma completa, con un snap conocido (Whisper pone
 lleva el tiempo CORREGIDO: así fix_snaps() endereza la primera
 palabra de la transcripción editada y el check (g) compara el karaoke
 contra onsets reales, no contra el snap de Whisper. La corrección es
-1 onset (0,20 s) + 1 texto (lleva->llevó: Whisper oyó «lleva», el
-usuario dice «llevó» y lo aprobó tal cual, 23-nov-2026). El karaoke
-sigue lo DICHO, no el guion: «combustibles» y «licencias especiales»
-en plural (pasadas ASR, VO_EDIT_REPORT_156.md).
+1 onset (0,20 s) + 1 texto (lleva->llegó: Whisper oyó «lleva» y en
+otras pasadas «llevó»; el guion dice «llegó» y el usuario lo confirmó
+de oído 23-nov-2026 — el oído manda sobre el ASR). El karaoke sigue
+el GUION: «combustibles» y «licencias especiales» en plural (pasadas
+ASR, VO_EDIT_REPORT_156.md).
 """
 import json
 import os
@@ -64,7 +65,7 @@ TIME_FIXES = {
 }
 # Correcciones de texto según lo dicho (el conteo no cambia).
 TEXT_FIXES = {
-    53: ("lleva", "llevó"),
+    53: ("lleva", "llegó")  # usuario de oído 23-nov-2026 (el ASR oyó «llevó» en 3 pasadas),
 }
 
 

@@ -53,6 +53,36 @@
    "frame": 1352,
    "name": "Cierre — pregunta de marca + end card",
    "start": 1253
+  },
+  {
+   "name": "Gancho — pregunta tras el paneo (v2)",
+   "start": 0,
+   "end": 193,
+   "frame": 162
+  },
+  {
+   "name": "Quien compra — reorden secuencial pagina entrando (v2)",
+   "start": 382,
+   "end": 596,
+   "frame": 575
+  },
+  {
+   "name": "Quien compra — dos tarjetas asentadas (v2)",
+   "start": 382,
+   "end": 596,
+   "frame": 585
+  },
+  {
+   "name": "Cierre — tarjeta de pregunta sin grafico (v2)",
+   "start": 1253,
+   "end": 1394,
+   "frame": 1290
+  },
+  {
+   "name": "Buque — karaoke oculto, sin duplicar la tarjeta (v2 corr)",
+   "frame": 825,
+   "start": 825,
+   "end": 825
   }
  ]
 }

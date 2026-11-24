@@ -30,15 +30,21 @@ const RESALTADOR = '#FFD60A';
 // («EL GRÁFICO NO DICE QUIÉN» / «EL DOCUMENTO SÍ»); 21,62-27,90
 // licencia («EMPRESAS PRIVADAS» / «APOYO AL PUEBLO CUBANO») + buque
 // («1 BUQUE AL GOBIERNO»); 31,74-37,78 salto («311 MIL DÓLARES» /
-// «284 MILLONES»); 38,44-41,76 veredicto («LA CIFRA ES REAL» / «LA
-// CONCLUSIÓN, NO» / sello «SIN CONTEXTO»).
+// «284 MILLONES»); 38,44-42,32 veredicto («LA CIFRA ES REAL» / «LA
+// CONCLUSIÓN, NO» / sello «SIN CONTEXTO» — extendido hasta 42,32
+// para tapar la cola de 0,4 s del chunk «SIN CONTEXTO.», que en la
+// v1 reaparecía sobre el inicio del cierre); 42,32-46,50 cierre (la
+// tarjeta «¿QUIÉN ESCRIBIÓ EL LIBRETO?» ES el caption: en la v1 el
+// karaoke repetía la pregunta sobre el texto rojo del gráfico de
+// fondo, tres capas de texto).
 const HIDE_RANGES: Array<[number, number]> = [
 	[0, 6.46],
 	[10.66, 12.72],
 	[17.44, 19.88],
 	[21.62, 27.9],
 	[31.74, 37.78],
-	[38.44, 41.76],
+	[38.44, 42.32],
+	[42.32, 46.5],
 ];
 
 const ALL_CHUNKS: CapChunk[] = CAPTIONS.flatMap((s) => s.chunks);

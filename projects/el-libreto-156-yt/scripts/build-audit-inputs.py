@@ -48,8 +48,8 @@ real. Las pausas están declaradas en prosody-gaps.json (L16 y L17)
 para que el check (e) no las marque como huecos inesperados.
 
 TEXT_FIXES (2): Whisper garabatea L14 como «hubo llevado» (tokens
-76-77); lo dicho es «buque llevó» (el usuario aprobó «llevó» tal
-cual, 23-nov-2026).
+76-77); lo dicho es «buque llegó» (el guion; el usuario lo confirmó
+de oído 23-nov-2026 — el ASR oyó «llevó» en 3 pasadas).
 """
 import json
 import os
@@ -79,7 +79,7 @@ TIME_FIXES = {
 # Correcciones de texto según el guion (el conteo no cambia).
 TEXT_FIXES = {
     76: ("hubo", "buque"),
-    77: ("llevado", "llevó"),
+    77: ("llevado", "llegó")  # usuario de oído 23-nov-2026 (el ASR oyó «llevó» en 3 pasadas),
 }
 
 

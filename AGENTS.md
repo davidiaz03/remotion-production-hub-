@@ -102,6 +102,55 @@ compararlo con nada). Desde entonces:
   construye: re-ejecutar el paso audio y reintentar.
 - Suite: `scripts/audio/test_bed_identity.py` (7 pruebas).
 
+## Música de fondo claramente audible + cama propia por video (23-nov-2026, libreto 156)
+**Reglas permanentes (orden del usuario): (1) TODO video/reel lleva
+música de fondo CLARAMENTE AUDIBLE — nunca una cama técnicamente
+presente pero imperceptible. (2) CADA VIDEO lleva SU PROPIA cama
+generada en Flow Music para ese tema; nunca reutilizar camas entre
+temas distintos (la misma cama sirve para los dos cortes del mismo
+video).**
+La v1 de los reels del 156,8M llevaba la cama a volume=0.4 +
+ducking (thr 0.08, ratio 1.5, release 400 ms): ~15 dB bajo la voz,
+~−35 dBFS, y el usuario la oyó ausente en el teléfono. El nivel
+objetivo es cama ~10–12 dB bajo la voz: ~−25 dBFS en pausas de VO,
+~−30 dBFS bajo la voz.
+**La puerta es el §5 del check (f) de `audit-audio.py`: FAIL si la
+cama DUCKEADA (misma simulación sidechain que la mezcla, en escala
+de mezcla con el fixed-gain de mix.wav.json) queda por debajo de
+−30 dBFS de mediana en pausas limpias, por debajo de −34 dBFS de
+mediana bajo la voz, o por debajo de −40 dBFS en p10 bajo la voz.**
+El p10 es el discriminador que cazó la v1: su mediana bajo la voz
+era −31,1 dBFS (aceptable) pero el p10 era −49,7 dBFS — el release
+lento (400 ms) no se recuperaba entre palabras a 172 ppm y la cama
+desaparecía. Un umbral solo sobre pausas NO habría cazado la v1
+(pausas a −26,0 dBFS, por encima de −30): por eso la puerta mide
+también bajo la voz. Validación: FAIL en la v1 de ambos reels del
+156,8M, PASS en la v2 (ver `research/audit-v2/`).
+**Caveat espectral:** las camas de Flow son pads con ~80% de la
+energía en subgraves (20–150 Hz), que el altavoz del teléfono casi
+no reproduce: el nivel RMS no garantiza audibilidad en el teléfono.
+Si el oído del usuario sigue sin oírla tras cumplir la puerta, el
+arreglo es otra cama más brillante o un EQ en la cadena de música,
+no más volumen.
+
+## El oído del usuario manda sobre el ASR en el karaoke (23-nov-2026, libreto 156)
+**Regla permanente: cuando el usuario confirma una palabra de oído,
+esa palabra es la que va en el karaoke, aunque el ASR haya oído otra
+cosa en todas las pasadas.** En los reels del 156,8M el ASR oyó
+«llevó» en tres pasadas y el karaoke lo siguió; el usuario confirmó
+de oído que dijo «llegó» (lo que dice el guion) y hubo que reconstruir
+(FB v3 + YT v2 corregido). **La corrección se hace en TODA la cadena,
+no solo en el karaoke:** `src/captions.ts`, `research/vo/vo-lines.json`
+(la fuente de verdad del check (a) de la auditoría),
+`research/timeline.json`, los `TEXT_FIXES` de `build-audit-inputs.py`
+(para que una regeneración no reintroduzca el error) y los comentarios
+que codifiquen la decisión. **Agravante conocido:** el check (a)
+compara el karaoke contra `vo-lines.json` (transcripción ASR), no
+contra el guion real — el chequeo es circular y dio PASS con el error
+dentro. Las palabras marcadas INCIERTO o DISCREPANCIA en el informe
+de VO se confirman con el oído del usuario ANTES de construir el
+karaoke, nunca se asumen del ASR.
+
 ## Tono de sala: nunca a ganancia unidad (23-nov-2026, libreto)
 **Regla permanente: un loop de tono de sala/ambiente NUNCA entra a
 la mezcla a ganancia unidad — siempre ≤ −58 dBFS, verificado

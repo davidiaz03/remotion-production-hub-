@@ -28,14 +28,20 @@ const RESALTADOR = '#FFD60A';
 // 0-6,38 gancho (gráfico viral + paneo a la pregunta + círculo rojo);
 // 9,76-12,46 contador («156,8 → 284,4»); 14,36-15,40 «EMPRESAS
 // PRIVADAS» (el chunk entero); 16,94-18,78 buque («1 BUQUE AL
-// GOBIERNO»); 19,20-22,08 veredicto («LA CIFRA ES REAL» / «LA
-// CONCLUSIÓN, NO» / sello «SIN CONTEXTO»).
+// GOBIERNO»); 19,20-22,68 veredicto («LA CIFRA ES REAL» / «LA
+// CONCLUSIÓN, NO» / sello «SIN CONTEXTO» — extendido hasta 22,68
+// para tapar la cola de 0,4 s del chunk «SIN CONTEXTO.», que en la
+// v1 reaparecía sobre el inicio del cierre); 22,68-27,50 cierre (la
+// tarjeta «¿QUIÉN ESCRIBIÓ EL LIBRETO?» ES el caption: en la v1 el
+// karaoke repetía la pregunta sobre el texto rojo del gráfico de
+// fondo, tres capas de texto).
 const HIDE_RANGES: Array<[number, number]> = [
 	[0, 6.38],
 	[9.76, 12.46],
 	[14.36, 15.4],
 	[16.94, 18.78],
-	[19.2, 22.08],
+	[19.2, 22.68],
+	[22.68, 27.5],
 ];
 
 const ALL_CHUNKS: CapChunk[] = CAPTIONS.flatMap((s) => s.chunks);

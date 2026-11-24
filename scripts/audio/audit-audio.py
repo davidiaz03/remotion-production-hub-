@@ -129,6 +129,10 @@ RMS_FLOOR_DBFS = -32.0     # (f) suelo de música en la mezcla (FAIL)
 DUCK_RECOVERY_DB = 6.0     # (f) recuperación del ducking (FAIL)
 DUCK_PUMP_DB = 6.0         # (f) bombeo dentro de una frase (WARN)
 XFADE_DIP_DB = 6.0         # (f) caída en el crossfade (WARN)
+BED_PAUSE_MIN_DBFS = -30.0      # (f §5) cama en pausas de VO: mediana (FAIL)
+BED_SPEECH_MEDIAN_DBFS = -34.0  # (f §5) cama duckeada bajo la voz: mediana (FAIL)
+BED_SPEECH_P10_DBFS = -40.0     # (f §5) cama duckeada bajo la voz: p10 (FAIL)
+BED_SPEECH_THRESH_DB = -40.0    # (f §5) umbral de habla en la VO (50 ms)
 SPLICE_RATIO = 3.0         # (c) discontinuidad en empalme (FAIL)
 WORD_SQUEEZE = 0.80        # (c) palabra comprimida de más (FAIL)
 PAUSE_MIN_S = 0.25         # (c) pausa intra-línea mínima tras editar (FAIL)
@@ -1130,8 +1134,10 @@ def build_music_bed(sections, seconds: float, music_volume: float,
 def check_f_music(rep: Report, mix, bed, edited_vo, sr: int,
                   silences: list, sections, xfade: float,
                   duck_release: float, duck_threshold: float,
-                  duck_ratio: float, sfx_times: list):
-    """(f) Música: suelo RMS, crossfade, recuperación y bombeo del ducking."""
+                  duck_ratio: float, sfx_times: list,
+                  fixed_gain_db: float = 0.0):
+    """(f) Música: suelo RMS, crossfade, recuperación y bombeo del ducking,
+    y nivel mínimo de música audible (§5)."""
     # 1) Suelo RMS de la mezcla en ventanas de 0,25 s.
     curve = rms_windows(mix, sr, 0.25)
     rep.metrics["f_mix_rms_curve"] = [(round(t, 2), round(db, 1))
@@ -1246,6 +1252,87 @@ def check_f_music(rep: Report, mix, bed, edited_vo, sr: int,
                         f"varía {worst:.1f} dB dentro de una frase "
                         f"(> {DUCK_PUMP_DB} dB: la música «respira» con "
                         f"las sílabas)",
+                        t=None)
+        # 5) Nivel mínimo de música audible (23-nov-2026, libreto 156).
+        # La v1 de los reels del 156,8M llevaba la cama a volume=0.4 +
+        # ducking (thr 0.08, ratio 1.5, release 400 ms): técnicamente
+        # presente — la mezcla en pausas estaba a -26 dBFS — pero
+        # IMPERCEPTIBLE en el altavoz del teléfono, y el usuario lo
+        # oyó. El fallo NO estaba en las pausas sino BAJO LA VOZ: la
+        # cama duckeada caía a p10 -49,7 dBFS (FB) / -46,2 (YT): el
+        # release lento no se recuperaba entre palabras a 172/156 ppm
+        # y la cama desaparecía. Un umbral solo sobre pausas NO habría
+        # cazado la v1 (pausas a -26,0/-27,1 dBFS, por encima de -30).
+        # Por eso la puerta mide la cama DUCKEADA (misma simulación
+        # que §4) en escala de mezcla (+ fixed-gain): mediana y p10
+        # bajo la voz, y mediana en pausas limpias.
+        rep.metrics["f_bed_fixed_gain_db"] = round(fixed_gain_db, 2)
+        if gain_db is not None and edited_vo is not None:
+            bed_curve = rms_windows(bed, sr, 0.05)
+            vo_curve = rms_windows(edited_vo, sr, 0.05)
+            n = min(len(bed_curve), len(gain_db), len(vo_curve))
+            ducked = np.array([bed_curve[k][1] + float(gain_db[k])
+                               + fixed_gain_db for k in range(n)])
+            times = np.array([bed_curve[k][0] for k in range(n)])
+            vo_db = np.array([vo_curve[k][1] for k in range(n)])
+            speech = [ducked[k] for k in range(n)
+                      if vo_db[k] > BED_SPEECH_THRESH_DB
+                      and not any(abs(x - times[k]) < 0.6
+                                  for x in sfx_times)]
+            if speech:
+                med = float(np.median(speech))
+                p10 = float(np.percentile(speech, 10))
+                p90 = float(np.percentile(speech, 90))
+                rep.metrics["f_bed_speech_median_db"] = round(med, 1)
+                rep.metrics["f_bed_speech_p10_db"] = round(p10, 1)
+                rep.metrics["f_bed_speech_p90_db"] = round(p90, 1)
+                if med < BED_SPEECH_MEDIAN_DBFS:
+                    rep.add("f", "FAIL",
+                            f"cama inaudible bajo la voz: mediana "
+                            f"{med:.1f} dBFS "
+                            f"(< {BED_SPEECH_MEDIAN_DBFS})",
+                            t=None)
+                if p10 < BED_SPEECH_P10_DBFS:
+                    rep.add("f", "FAIL",
+                            f"cama desaparece bajo la voz: p10 "
+                            f"{p10:.1f} dBFS "
+                            f"(< {BED_SPEECH_P10_DBFS}) — el ducking "
+                            f"la hunde entre palabras",
+                            t=None)
+            pause_levels = []
+            for s, e, d in silences:
+                if d < 0.3:
+                    continue
+                t0, t1 = s + 0.1, e - 0.1
+                if t1 - t0 < 0.1:
+                    t0, t1 = s, e
+                mid = (t0 + t1) / 2
+                if any(abs(x - mid) < 0.6 for x in sfx_times):
+                    continue
+                seg = [ducked[k] for k in range(n)
+                       if t0 <= times[k] < t1]
+                if seg:
+                    # Media energética de las ventanas de la pausa:
+                    # 10*log10 de la media de potencias (no 20: las
+                    # ventanas ya están en dB de amplitud y 10^(dB/10)
+                    # es potencia).
+                    lin = float(np.mean(10 ** (np.array(seg) / 10.0)))
+                    pause_levels.append(10 * math.log10(lin + 1e-12))
+            if pause_levels:
+                pmed = float(np.median(pause_levels))
+                rep.metrics["f_bed_pause_median_db"] = round(pmed, 1)
+                if pmed < BED_PAUSE_MIN_DBFS:
+                    rep.add("f", "FAIL",
+                            f"cama inaudible en pausas de VO: mediana "
+                            f"{pmed:.1f} dBFS (< {BED_PAUSE_MIN_DBFS})",
+                            t=None)
+            if speech and pause_levels:
+                rep.add("f", "INFO",
+                        f"cama duckeada: bajo la voz mediana "
+                        f"{float(np.median(speech)):.1f} dBFS (p10 "
+                        f"{float(np.percentile(speech, 10)):.1f}), "
+                        f"en pausas "
+                        f"{float(np.median(pause_levels)):.1f} dBFS",
                         t=None)
     if n_low == 0:
         rep.add("f", "PASS", "música presente en toda la mezcla "
@@ -1847,6 +1934,20 @@ def main() -> int:
     orig_vo = load_wav_fast(orig_p) if orig_p else None
     mix = load_audio(mix_p, sr=SR, mono=True) if mix_p else None
 
+    # Ganancia fija aplicada a la mezcla (mix.wav.json, al lado de
+    # mix.wav): la cama reconstruida en (f) no la lleva, y el §5
+    # mide la cama duckeada EN ESCALA DE MEZCLA. Sin el JSON, 0,0
+    # (la puerta mide ~3 dB por debajo de lo real: conservador).
+    fixed_gain_db = 0.0
+    if mix_p:
+        mj_p = mix_p + ".json"
+        try:
+            mj = json.load(open(mj_p))
+            fixed_gain_db = float(
+                mj.get("normalization", {}).get("gain_db", 0.0))
+        except Exception:
+            fixed_gain_db = 0.0
+
     silences = []
     if edited_vo is not None:
         silences = find_silences(edited_vo, SR)
@@ -1887,7 +1988,8 @@ def main() -> int:
     if mix is not None:
         check_f_music(rep, mix, bed, edited_vo, SR, silences, a.section,
                       a.xfade, a.duck_release, a.duck_threshold,
-                      a.duck_ratio, [t for _p, t in a.sfx])
+                      a.duck_ratio, [t for _p, t in a.sfx],
+                      fixed_gain_db=fixed_gain_db)
     else:
         rep.add("f", "INFO", "falta mix.wav")
     # (g) máster

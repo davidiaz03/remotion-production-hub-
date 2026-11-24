@@ -1,5 +1,96 @@
 # HANDOFF — el-libreto-156-yt
 
+## v2 corregido (ENTREGADO 23-nov-2026, ~23:05 hora oficial)
+
+- **Motivo:** la v2 original (entregada 21:14) llevaba «llevó» en el
+  karaoke y el gancho con el paneo −430. Reconstrucción única con
+  FB v3 (auditoría del padre `../el-libreto-156-fb/AUDITORIA-ALBERTO-v2.md`):
+  «llegó» + reencuadre del gancho + fundido del cierre. **El máster
+  v2 original con «LLEVÓ» se sobrescribe con este corregido**
+  (mismo tag, por orden del padre); la v1 queda intacta.
+- **«llegó»:** corregido en TODA la cadena (captions.ts, vo-lines.json,
+  timeline.json, TEXT_FIXES, CREATIVE_BRIEF.md, generador). Check (a):
+  115/115 PASS. **En YT «LLEGÓ» NUNCA se muestra en pantalla:** el
+  chunk «LLEGÓ AL GOBIERNO.» (27,32–27,9) está oculto por HIDE_RANGES
+  [21,62, 27,9] y el chunk siguiente empieza exactamente a 27,9, así
+  que no hay cola visible como en FB (donde sí se ve a 19,0 s). La
+  verificación aquí es por datos (captions.ts + check (a)) + el still
+  f825, que confirma que el karaoke no duplica la tarjeta «1 BUQUE».
+- **Gancho:** igual que FB v3: ventana 776 (inner 0–800) + paneo
+  −430 → −500 (la L4 del titular, inner 400–487, quedaba cortada a
+  media letra en el reposo con −430; con −500 queda fuera y la
+  pregunta entera display 775–1102). Verificado en el máster a 1 fps
+  (0–5 s): ningún texto cortado a medias en reposo.
+- **Nits:** (1) «CON»: revertido ANTES de renderizar (el intento en
+  FB dio FAIL en el check (g); `s` vuelve a 23,0). (2) Cierre: la
+  tarjeta entra en fundido 41,9–42,32 (antes 42,32–42,47); a 42,1 s
+  ya se lee a media opacidad.
+- **Mezcla:** sin cambios (la v2: cama `libreto-156-combustible`,
+  music_volume 0.32, ducking 0.15/1.3/250 ms). Puerta §5 en la
+  auditoría: pausas −25,0, mediana bajo la voz −32,7, p10 −38,8
+  — PASS.
+- **Entregables (sobrescriben la v2 original):** `out/MASTER-v2.mp4`
+  (8.726.632 B, SHA-256
+  `c481a284a420f2d84b517cc582d3033748876a02776ac74584d2996847223db2`,
+  1080×1920, 46,5 s, −15,8 LUFS, TP −4,1) y `out/LIGERA-v2.mp4`
+  (2.597.274 B, SHA-256
+  `cb18e5cd1b238d9fc920599bc0c7cad191bad94944f465eff14bdbd019d734f4`).
+- **Puertas:** REEL_OK en una sola corrida (audit-inputs → audit,
+  1.136 s): pre-vuelo 0 bloqueantes; render completo 408 s;
+  QA passed; ghost OK limpio (sin REVISAR); auditoría final WARN —
+  0 FAIL (65 WARN, 12 PASS, 36 INFO; (g) con los desvíos Whisper
+  conocidos «esa» +0,69 y «millones» +0,37, adjudicados como error
+  de Whisper con onset acústico coincidente, igual que en la v2).
+- **Estado:** v2 corregido terminado y verificado en fotogramas
+  desde el máster. NADA publicado. El usuario ve el video y decide.
+
+## v2 (ENTREGADA 23-nov-2026, 21:14 hora oficial — SUPERADA por el v2 corregido, ver arriba)
+
+- **Motivo:** igual que FB (música inaudible en la v1 +
+  superposiciones). Reglas permanentes: música CLARAMENTE AUDIBLE
+  siempre; CADA VIDEO con SU PROPIA cama de Flow. La v2 es AUDIO +
+  VISUAL.
+- **Cama nueva:** `libreto-156-combustible` (misma que FB: la misma
+  cama sirve para los dos cortes del mismo video). Stem verificado
+  NCC 1.000.
+- **Mezcla v2:** `music_volume 0.32`, ducking thr 0.15 / ratio 1.3 /
+  release 250 ms (v1: 0.4 / 0.08 / 1.5 / 400 ms). Niveles medidos
+  (puerta §5): pausas −25,0 dBFS (v1: −27,0); bajo la voz mediana
+  −32,7 (v1: −31,4), p10 −38,8 (v1: −46,2 — la puerta da FAIL en la
+  v1 y PASS en la v2); brecha voz–cama mediana ~11 dB. Mezcla
+  −16,4 LUFS, TP −1,9. Pre-auditoría v2: WARN, 0 FAIL (61 WARN,
+  mismos que la v1). Nota: el outro (43,25–46,5 s) queda a −19,7
+  dBFS — la segunda mitad de la cama es más fuerte (−18,4 dBFS
+  RMS); la música sube bajo la end card, efecto intencional, a
+  juzgar de oído.
+- **Visual v2:** (1) Gancho: igual que FB (sin punch, viewport
+  16 px/lado, paneo −320). (2) Cierre: fondo Tinta sólido; karaoke
+  apagado durante la tarjeta (rangos [38,44, 42,32] y [42,32,
+  46,5]); la fuente aparece solo en la end card (43,5 s).
+  (3) Transición PROTO→documento SECUENCIAL: PROTO se aparca
+  primero (18,82–19,12 s) y la página entra después (19,02–19,32 s,
+  visible desde ~19,19 s); resaltado amarillo 19,22–19,37 s; SFX
+  `digital-scan-subtle` movido a 19,22 s en timeline.json. En la v1
+  no había solapamiento literal de píxeles (hueco mínimo 160 px),
+  pero el cruce simultáneo por el centro se veía como colisión.
+  (4) Pre-vuelo v2: 0 bloqueantes, 4 AVISOS benignos (metraje del
+  buque ×3, barra de progreso ×1). Stills revisados a ojo: reorden
+  f575 (solo PROTO aparcada) y f585 (dos tarjetas asentadas),
+  gancho f162, cierre f1290.
+- **Render:** completo (codeHash global). La v1 queda intacta; la v2
+  va como `MASTER-v2`/`LIGERA-v2`. NADA publicado.
+- **Entregables v2 original:** `out/MASTER-v2.mp4` (8.637.054 B,
+  SHA-256
+  `56b6dbe0480905ddaaba0b9999487603b85a4edb5d7a93117d6db4309105aaf9`,
+  −15,8 LUFS, TP −4,1) y `out/LIGERA-v2.mp4` (2.566.678 B, SHA-256
+  `b97c5eefe7378357c9a03b7d1c7ed141113ead5c981fea8d6ccd3c88370b52ce`,
+  −16,1 LUFS, TP −3,9). QA passed; ghost OK limpio; auditoría
+  final WARN — 0 FAIL (12 PASS, 65 WARN, 36 INFO). Render 436 s.
+- **Estado:** v2 entregada 21:14; SUPERADA por el v2 corregido
+  (mismo tag, archivos sobrescritos — ver arriba). La v1 queda
+  intacta. NADA publicado.
+
+## v1
 - **Estado:** ENTREGADO 23-nov-2026 ~20:20 (hora oficial). REEL_OK
   completo (audio → mix → pre-auditoría → pre-vuelo → render →
   máster → QA → ghost → auditoría). NADA publicado en redes:

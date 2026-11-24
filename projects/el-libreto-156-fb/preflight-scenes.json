@@ -41,6 +41,24 @@
    "frame": 776,
    "name": "Cierre — pregunta de marca + end card",
    "start": 663
+  },
+  {
+   "name": "Gancho — pregunta tras el paneo (v2)",
+   "start": 0,
+   "end": 191,
+   "frame": 162
+  },
+  {
+   "name": "Cierre — tarjeta de pregunta sin grafico (v2)",
+   "start": 663,
+   "end": 824,
+   "frame": 700
+  },
+  {
+   "name": "Buque — karaoke LLEGÓ en cola 0,4 s (v3)",
+   "frame": 570,
+   "start": 570,
+   "end": 570
   }
  ]
 }

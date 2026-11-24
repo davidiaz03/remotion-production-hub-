@@ -86,21 +86,32 @@ const Pill: React.FC<{
 const fmtDec = (n: number) => n.toFixed(1).replace('.', ',');
 
 // ─── Escena 1: el gancho (0-6,37 s) ──────────────────────────────────────
-// El gráfico viral de Estíu (621x702 -> 1080x1220 en pantalla).
-// Medido: titular azul y 25-385 (display 31-470), foto de tanques
-// y 530-755 (display 647-921), pregunta roja y 755-1000 (display
-// 921-1220). Paneo vertical del titular a la pregunta al empezar L2
+// El gráfico viral de Estíu (621x702 -> 1048x1184 en pantalla, con
+// 16 px de margen por lado: el titular toca los dos bordes del
+// original (x 0-620) y el punch-in 1,05 de la v1 recortaba la «C» de
+// «Cuba» (27 px por lado). SIN punch: escala fija 1048/1080 para
+// que el texto nunca toque el borde izquierdo.
+// Medido (PIL, 23-nov-2026): titular azul L1 47-132, L2 162-249,
+// L3 278-367, L4 400-487 («enero y julio de 2026.»); foto de
+// tanques y 614-800; pregunta roja y 882-1219 (1ª línea 882-1012,
+// 2ª línea 1083-1219; llega hasta el borde inferior de la imagen).
+// La ventana es 776 de alto (inner 0-800): al inicio la pregunta
+// queda FUERA (82 px de margen) y ningún texto se corta a medias
+// en ningún fotograma de 0-5 s (v2: la ventana de 920 mostraba la
+// 1ª línea cortada a media letra por el borde inferior).
+// Paneo vertical del titular a la pregunta al empezar L2
 // (4,48 s); círculo rojo sobre la pregunta a 5,2 s (lápiz SFX).
+// La vista empieza en y 404 (no 380): con el paneo, el titular
+// subía bajo la marca de agua (y 300-400) y la píldora tapaba una
+// línea; el paneo compensa (-500) para que la pregunta termine
+// entera en la ventana (display 775-1102) y la 4ª línea del
+// titular (inner 400-487) quede FUERA por arriba (con -430 la
+// 4ª línea quedaba cortada a media letra en el reposo del paneo).
 const Gancho: React.FC<{t: number}> = ({t}) => {
-	// Punch-in 1 -> 1,05 sobre el centro (0-0,4 s).
-	const punch = interpolate(t, [0, 0.4], [1, 1.05], {
-		easing: Easing.out(Easing.cubic),
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
-	// Paneo 0 -> -300 (4,48-5,2 s): al final se ve la imagen de
-	// y 300 a 1220 (la pregunta entera, display 1001-1300).
-	const pan = interpolate(t, [4.48, 5.2], [0, -300], {
+	// Paneo 0 -> -500 (4,48-5,2 s): al final se ve inner 500-1220
+	// (la pregunta entera, display 775-1102; la 4ª línea del
+	// titular queda 13 px por encima del borde superior).
+	const pan = interpolate(t, [4.48, 5.2], [0, -500], {
 		easing: Easing.inOut(Easing.cubic),
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -117,13 +128,13 @@ const Gancho: React.FC<{t: number}> = ({t}) => {
 	return (
 		<AbsoluteFill>
 			<BlurFill src={ESTIU} />
-			<div style={{position: 'absolute', left: 0, top: 380, width: 1080, height: 920, overflow: 'hidden'}}>
+			<div style={{position: 'absolute', left: 16, top: 404, width: 1048, height: 776, overflow: 'hidden'}}>
 				<div
 					style={{
 						width: 1080,
 						height: 1220,
-						transform: `scale(${punch})`,
-						transformOrigin: '540px 610px',
+						transform: 'scale(0.97037)',
+						transformOrigin: '0px 0px',
 					}}
 				>
 					<div
@@ -603,21 +614,18 @@ const Veredicto: React.FC<{t: number}> = ({t}) => {
 // ─── Escena 6: cierre (22,1-27,5 s) ──────────────────────────────────────
 // El sello viaja del centro a la esquina inferior derecha (22,1-22,55)
 // y se desvanece ANTES de la end card (23,9-24,2) para no cruzarse
-// con el CTA. La pregunta va en panel sólido (nada de texto sobre
-// texto); un solo CTA con motivo («SÍGUENOS» + «El próximo número,
-// verificado aquí.»); la end card deja traslucir el gráfico al 12%
-// para que el último fotograma rime con el primero (loop) y la cama
-// sigue sonando bajo el corte. La end card señalizada dura ~3 s
-// (24,5-27,5). El corte en 22,1 s es duro (ghost-frames exige la
-// escena nueva completa en el fotograma del corte); la entrada con
-// movimiento la dan el viaje del sello y la deriva lenta del gráfico.
+// con el CTA. La pregunta va en panel sólido sobre fondo Tinta
+// LISO: la v1 reutilizaba el gráfico del gancho de fondo (opacidad
+// 0,5) y su texto seguía legible bajo la tarjeta, el karaoke y la
+// fuente — tres capas de texto compitiendo (v2: sin gráfico, sin
+// BlurFill; el karaoke está apagado en todo el cierre por
+// HIDE_RANGES y la fuente aparece solo con la end card). Un solo CTA
+// con motivo («SÍGUENOS» + «El próximo número, verificado aquí.»).
+// La end card señalizada dura ~3 s (24,5-27,5). El corte en 22,1 s
+// es duro (ghost-frames exige la escena nueva completa en el
+// fotograma del corte); la entrada con movimiento la da el viaje
+// del sello.
 const Cierre: React.FC<{t: number}> = ({t}) => {
-	// Deriva lenta del gráfico hasta f825.
-	const postZoom = interpolate(t, [22.1, 27.5], [1, 1.04], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
-
 	// El sello viaja y se desvanece antes de la end card.
 	const travel = interpolate(t, [22.1, 22.55], [0, 1], {
 		easing: Easing.inOut(Easing.cubic),
@@ -632,8 +640,11 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 		extrapolateRight: 'clamp',
 	});
 
-	// La pregunta aparece a 22,68 y sube a 24,5 para dejar sitio al logo.
-	const qOpacity = interpolate(t, [22.68, 22.83], [0, 1], {
+	// La pregunta entra en fundido 22,2-22,68 (llena el hueco que deja
+	// el viaje del sello; en la v2 ese ~1 s quedaba casi vacío) y está
+	// al 1 cuando la VO la dice (22,68). Sube a 24,5 para dejar sitio
+	// al logo.
+	const qOpacity = interpolate(t, [22.2, 22.68], [0, 1], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
@@ -641,22 +652,21 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
-	const qRise = interpolate(t, [22.68, 22.83], [20, 0], {
+	const qRise = interpolate(t, [22.2, 22.68], [20, 0], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
 
-	const sourceOpacity = interpolate(t, [22.68, 22.83], [0, 1], {
+	// La fuente aparece SOLO con la end card (24,5 s): en la v1 salía
+	// con la pregunta (22,68 s) y se amontonaba sobre el karaoke y el
+	// texto rojo del gráfico de fondo.
+	const sourceOpacity = interpolate(t, [24.5, 24.8], [0, 1], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
 	});
 
-	// End card (24,5-27,5): el fondo Tinta llega al 0,88 (el gráfico
-	// se trasluce: rima con el primer fotograma); el contenido, al 1.
-	const endBg = interpolate(t, [24.5, 24.8], [0, 0.88], {
-		extrapolateLeft: 'clamp',
-		extrapolateRight: 'clamp',
-	});
+	// End card (24,5-27,5): el fondo ya es Tinta sólido; solo el
+	// contenido entra al 1.
 	const endFg = interpolate(t, [24.5, 24.8], [0, 1], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -678,37 +688,7 @@ const Cierre: React.FC<{t: number}> = ({t}) => {
 			: 1;
 
 	return (
-		<AbsoluteFill>
-			<BlurFill src={ESTIU} brightness={0.35} />
-			{/* Gráfico atenuado en la vista de la pregunta (la misma
-			    del final del gancho: rima con el primer fotograma),
-			    con deriva lenta. */}
-			<div style={{position: 'absolute', left: 0, top: 380, width: 1080, height: 920, overflow: 'hidden'}}>
-			<Img
-				src={staticFile(ESTIU)}
-				style={{
-					position: 'absolute',
-					left: 0,
-					top: -300,
-					width: 1080,
-					height: 1220,
-					opacity: 0.5,
-					filter: 'brightness(0.6)',
-					transform: `scale(${postZoom})`,
-					transformOrigin: '540px 610px',
-				}}
-			/>
-			</div>
-			{/* Fondo Tinta de la end card (debajo del texto). */}
-			<div
-				style={{
-					position: 'absolute',
-					inset: 0,
-					backgroundColor: TINTA,
-					opacity: endBg,
-				}}
-			/>
-
+		<AbsoluteFill style={{backgroundColor: TINTA}}>
 			{/* Mini sello SIN CONTEXTO en la esquina. */}
 			<div
 				style={{

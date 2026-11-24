@@ -13,7 +13,7 @@
 Un gráfico viral dice que Cuba compró 156,8 millones en combustibles a
 EE. UU. y pregunta «¿dónde está el bloqueo?». La cifra es real; la
 conclusión, no: el que compra no es el Estado, son empresas privadas
-con licencias especiales, y desde enero solo un buque llevó al gobierno.
+con licencias especiales, y desde enero solo un buque llegó al gobierno.
 El reel DEMUESTRA con el documento en pantalla (U.S.-Cuba Trade and
 Economic Council, datos del U.S. Census Bureau), no solo comenta.
 
@@ -30,9 +30,10 @@ Economic Council, datos del U.S. Census Bureau), no solo comenta.
 
 ## Decisiones
 
-- **Karaoke sigue lo DICHO, no el guion:** «llevó» (no «llegó»),
-  «combustibles» y «licencias especiales» en plural (pasadas ASR).
-  Usuario aprobó «llevó» tal cual.
+- **Karaoke sigue el GUION:** «llegó» (el ASR oyó «llevó» en 3 pasadas
+  y la v1 lo siguió; el usuario lo corrigió de oído 23-nov-2026 —
+  el oído manda sobre el ASR), «combustibles» y «licencias
+  especiales» en plural (pasadas ASR).
 - **Música:** cama `libreto-messi-desmentido` reutilizada (Flow Music,
   misma marca, mismo día de lanzamiento); receta de ducking de Messi
   FB v2 (ratio 1,5, release 400 ms, threshold 0,08, music_volume 0,4,

@@ -3,7 +3,7 @@
   "bed": "Cama reutilizada de Messi P1: 'libreto-messi-desmentido' (Flow Music, Lyria 3.5, 115 BPM, ventana 0-60 s, scan PASS, 0 VOICE). build-audio.sh la construye con build-bed.sh desde bed.id (fuente única, NUNCA hardcodear otra cama) y run-mix.py verifica la identidad del stem con bed_identity (NCC >= 0,99).",
   "ducking": "Receta probada en Messi FB v2 (auditoría H10): ratio 1.5, release 400 ms, threshold 0,08 -> bombeo 5,1 dB (<6). La música está 14 dB bajo la VO antes del ducking.",
   "edit_plan": "La VO limpia es UNA toma continua: las líneas son segmentos contiguos de la toma original, colocados en 0 sin offsets (edited time = original time). Solo se recorta la cola. La VO editada ya viene recortada del informe VO_EDIT_REPORT_156.md (arranques en falso eliminados).",
-  "karaoke": "El karaoke sigue lo que DIJO, no el guion: «llevó» (no «llegó»), en FB «combustibles» y «licencias especiales» (plural, pasadas ASR), en YT añade «dólares» («de 311 mil dólares a 284 millones»).",
+  "karaoke": "El karaoke sigue el GUION: «llegó» (el ASR oyó «llevó»; el usuario lo corrigió de oído 23-nov-2026), en FB «combustibles» y «licencias especiales» (plural, pasadas ASR), en YT añade «dólares» («de 311 mil dólares a 284 millones»).",
   "vo_placement": "trim_start_s/trim_end_s en coordenadas de la VO limpia. speech_start_s = inicio de la primera palabra del segmento. Los límites se eligieron midiendo cada hueco con las funciones del check (c) de la auditoría (energía + armonicidad): cada límite deja 50 ms sin voz sonora a cada lado. Las líneas sin ningún límite limpio se fusionan en un solo segmento (FB: L1+L2, L7+L8; YT: L1+L2, L12+L13+L14+L15): la toma es continua y nada se descarta."
  },
  "beats": {
@@ -21,7 +21,7 @@
  "bed": {
   "dips": [],
   "file": "audio/music-bed.wav",
-  "id": "libreto-messi-desmentido",
+  "id": "libreto-156-combustible",
   "music_volume": 0.4,
   "note": "Cama de Flow Music creada para Messi P1, reutilizada aquí (misma marca, mismo día de lanzamiento). Ventana 0-60 s, scan PASS (0 VOICE). Stem a nivel nativo (-23,86 LUFS, SIN loudnorm); el nivel se calibra con music_volume 0,40 en la mezcla. Sin dips: el outro sube por el ducking. NUNCA sustituir por una cama vieja (documentary-flow-a, calm-documentary-*): la puerta NCC lo rechaza.",
   "stem_lufs": -23.86
@@ -30,12 +30,12 @@
  "duration_s": 46.5,
  "fps": 30,
  "mix": {
-  "duck_ratio": 1.5,
-  "duck_release_ms": 400,
-  "duck_threshold": 0.08,
+  "duck_ratio": 1.3,
+  "duck_release_ms": 250,
+  "duck_threshold": 0.15,
   "fixed_gain": true,
   "limiter": 0.65,
-  "music_volume": 0.4,
+  "music_volume": 0.32,
   "target_lufs": -16.0
  },
  "project": "el-libreto-156-yt",
@@ -143,8 +143,8 @@
    "underVO": true
   },
   {
-   "at_s": 18.82,
-   "event_s": 18.82,
+   "at_s": 19.22,
+   "event_s": 19.22,
    "file": "audio/sfx/digital-scan-subtle.wav",
    "gain_db": 12,
    "id": "digital-scan-subtle",
@@ -291,7 +291,7 @@
    "end": 27.9,
    "id": "L14",
    "start": 25.6,
-   "text": "Desde enero, un solo buque llevó al gobierno."
+   "text": "Desde enero, un solo buque llegó al gobierno."
   },
   {
    "end": 29.12,
