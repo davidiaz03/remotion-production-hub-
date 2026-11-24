@@ -216,6 +216,30 @@ fotograma limpio por escena sigue siendo obligatoria.
   31 líneas / 3 capítulos, ~2 min). Doc y auditoría:
   `docs/LONGFORM-V2-2026-11-21.md`.
 
+## Video largo — agilidad P0 (23-nov-2026, tras libreto-pagina-62mil)
+- Tasas recalibradas con el primer largo real: render 0,11 s/f,
+  encodes 1,0x, pre-vuelo 12 s/escena, auditoría 0,9x con Whisper /
+  0,2x sin Whisper. Ver `docs/LONGFORM-PIPELINE-P0.md`.
+- Captions: si la preparación de VO ya dejó una transcripción
+  verificada con word_timestamps, ponerla en
+  `pipeline.json` (`captions.transcript`) — `transcribe-vo.py
+  --transcript` la reutiliza y salta Whisper (~3 min). El parche
+  de proyecto y el align se aplican igual después.
+- Auditoría sin Whisper por defecto (`--no-whisper`): la pasada
+  Whisper sobre la mezcla solo aportaba WARN de sesgo; la
+  alineación autoritativa es la acústica. `qa.auditWhisper: true`
+  la restaura (VO nueva o líneas en disputa).
+- Pre-vuelo incremental (`preflight.incremental: true`, opt-in):
+  solo re-renderiza las escenas cuyo hash de entrada cambió
+  (`.preflight-cache.json` junto a los stills; ante cualquier duda
+  la escena se re-renderiza). `--force` limpia la caché.
+- Corridas largas: `--max-minutes 28` para parar limpio antes del
+  SIGTERM del entorno (~31,5 min) y relanzar con el comando
+  `PIPELINE_PAUSED` impreso. Cada corrida queda en
+  `reports/pipeline-runs.jsonl` (la próxima revisión lee eso, no
+  los mtimes).
+- El QA ahora audita también el 720p (`technical-qa-720p.json`).
+
 ## Candado de render: solo el creador lo borra (21-nov-2026, hub-speed-v5)
 El candado compartido /tmp/hub-speed-v5-render.lock protege los
 renders en una caja de 1,5 CPU. REGLA: solo el proceso que creó el
